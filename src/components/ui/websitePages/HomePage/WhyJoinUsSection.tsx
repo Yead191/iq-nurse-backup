@@ -24,9 +24,9 @@ export default function WhyJoinUsSection() {
       <div className="relative ">
         <div className="grid lg:grid-cols-2 gap-12 items-center p-4 md:p-8 lg:p-[60px]  rounded-4xl shadow-xl">
           {/* Left Content */}
-          <div className="space-y-8 overflow-hidden">
+          <div className="space-y-8 overflow-hidden py-6">
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+              <h2 className="text-3xl lg:text-5xl font-bold text-[#0F172A] mb-8">
                 Why join us
               </h2>
 
