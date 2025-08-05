@@ -1,53 +1,46 @@
+"use client";
 import React from "react";
 import { Play, Check } from "lucide-react";
 import Image from "next/image";
+import { Grid } from "antd";
 
 export default function WhyJoinUsSection() {
+  const { lg, md } = Grid.useBreakpoint();
+  const reasons = [
+    "Est et in pharetra magna adipiscing ornare aliquam.",
+    "Tellus arcu sed consequat ac velit ut eu blandit.",
+    "Ullamcorper ornare in et egestas dolor orci.",
+  ];
   return (
     <section
       style={{
         backgroundImage: `url('/assets/home-images/join-us-bg.png')`,
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "right",
+        backgroundPosition: lg ? "right" : "bottom",
+        backgroundSize: lg ? "50% 100%" : md ? "80%" : "95%",
       }}
-      className="container mx-auto py-20 overflow-visible my-12"
+      className="container mx-auto  lg:overflow-visible p-4 lg:p-20 mt-6 mb-12 lg:px-4 lg:pr-20"
     >
       <div className="relative ">
-        <div className="grid lg:grid-cols-2 gap-12 items-center  p-8 rounded-lg shadow-lg">
+        <div className="grid lg:grid-cols-2 gap-12 items-center p-4 md:p-8 lg:p-[60px]  rounded-4xl shadow-xl">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 overflow-hidden py-6">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-8">
+              <h2 className="text-3xl lg:text-5xl font-bold text-[#0F172A] mb-8">
                 Why join us
               </h2>
 
               <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 mt-1">
-                    <Check className="w-5 h-5 text-green-500" />
+                {reasons?.map((reason, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 mt-1">
+                      <Check className="w-5 h-5 text-green-500" />
+                    </div>
+                    <p className="text-[#0F172A] text-[18px] leading-relaxed">
+                      {reason}
+                    </p>
                   </div>
-                  <p className="text-gray-700 leading-relaxed">
-                    Est et in pharetra magna adipiscing ornare aliquam.
-                  </p>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 mt-1">
-                    <Check className="w-5 h-5 text-green-500" />
-                  </div>
-                  <p className="text-gray-700 leading-relaxed">
-                    Tellus arcu sed consequat ac velit ut eu blandit.
-                  </p>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 mt-1">
-                    <Check className="w-5 h-5 text-green-500" />
-                  </div>
-                  <p className="text-gray-700 leading-relaxed">
-                    Ullamcorper ornare in et egestas dolor orci.
-                  </p>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -55,10 +48,15 @@ export default function WhyJoinUsSection() {
           {/* Right Content - Video Preview */}
           <div className="relative">
             <div className="relative z-10">
-              {/* Video Container with rounded corners and shadow */}
-              <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
-                {/* Browser-like header */}
-                <div className="bg-gray-100 px-4 py-3 flex items-center space-x-2">
+              <div
+                style={{
+                  boxShadow:
+                    "0px 0px 10px 0px rgba(0, 0, 0, 0.07), 0px 20px 25px -5px rgba(0, 0, 0, 0.1)",
+                }}
+                className="relative  rounded-2xl  overflow-hidden"
+              >
+                {/* mac-like header */}
+                <div className="bg-gray-50 px-4 py-3 flex items-center space-x-2">
                   <div className="flex space-x-1">
                     <div className="w-3 h-3 bg-red-400 rounded-full"></div>
                     <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
@@ -68,7 +66,6 @@ export default function WhyJoinUsSection() {
 
                 {/* Video Content */}
                 <div className="relative aspect-video">
-                  {/* Background Image */}
                   <Image
                     src="/assets/home-images/join-us.jpg"
                     alt="join-us"
@@ -86,9 +83,6 @@ export default function WhyJoinUsSection() {
                 </div>
               </div>
             </div>
-
-            {/* Background decoration - blue diamond behind video */}
-            {/* <div className="absolute -top-8 -right-8 w-24 h-24 bg-blue-600 transform rotate-45 opacity-20 z-0"></div> */}
           </div>
         </div>
       </div>

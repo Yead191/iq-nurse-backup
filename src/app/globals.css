@@ -36,3 +36,28 @@ body {
   background-color: #003877 !important;
   color: white !important;
 }
+
+
+/* scroll bar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent !important; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+ 
+  /* background: #6b5ecc34;  */
+  background: #1b3950;
+  border-radius: 10px;
+}
+ 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0f2535;
+}    
