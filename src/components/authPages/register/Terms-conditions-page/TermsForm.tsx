@@ -103,7 +103,7 @@ export default function TermsForm() {
               ]}
             >
               <Checkbox style={{ color: "#374151" }}>
-                yes I agree to the Terms & Conditions
+                Yes, I agree to the Terms & Conditions
               </Checkbox>
             </Form.Item>
           </div>
@@ -161,7 +161,7 @@ export default function TermsForm() {
               ]}
             >
               <Checkbox style={{ color: "#374151" }}>
-                yes I agree to the Privacy Policy
+                Yes, I agree to the Privacy Policy
               </Checkbox>
             </Form.Item>
           </div>

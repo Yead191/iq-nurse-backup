@@ -9,7 +9,7 @@ export default function EmailSentPage() {
       <div className="relative md:flex-1">
         <BrainIllustration
           title="Forgot Your Password?"
-          text="It happens! We’re here to help you get back on track."
+          text="We’re here to help you get back to studying. Resetting your password is easy — just follow the link we sent you."
         />
       </div>
 
