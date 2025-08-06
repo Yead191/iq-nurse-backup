@@ -1,6 +1,6 @@
 import React from "react";
 import BannerHome from "./BannerHome";
-import WhyJoinUsSection from "./WhyJoinUsSection";
+import WhyJoinUsSection from "./why-join-us-section/WhyJoinUsSection";
 import NCLEXSection from "./NCLEXSection";
 import NursingPlannerSection from "./NursingPlannerSection";
 import SmartFlashcardsSection from "./SmartFlashcardsSection";

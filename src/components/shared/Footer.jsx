@@ -17,14 +17,14 @@ export default function Footer() {
           />
 
           {/* app store btns */}
-          <div className="flex flex-row gap-4 items-center justify-start my-8 ">
+          <div className="flex flex-row gap-2 md:gap-4 items-center justify-center md:justify-start my-8 ">
             {/* app store */}
             <Button
               size={lg ? "large" : "small"}
               style={{
                 backgroundColor: "#000000",
                 color: "#FFFFFF",
-                padding: lg ? "28px 24px" : "24px 18px",
+                padding: lg ? "28px 24px" : "24px 14px",
               }}
             >
               <FaApple className="w-7 h-7 text-white" />
@@ -41,10 +41,10 @@ export default function Footer() {
               style={{
                 backgroundColor: "#000000",
                 color: "#FFFFFF",
-                padding: lg ? "28px 24px" : "24px 18px",
+                padding: lg ? "28px 24px" : "24px 14px",
               }}
             >
-              <FaGooglePlay className="w-7 h-7 text-white" />
+              <FaGooglePlay className="w-6 h-5 text-white" />
 
               <div className="text-left">
                 <div className="text-xs text-gray-300">Download on the</div>

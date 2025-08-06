@@ -10,7 +10,7 @@ export default function NursingPlannerSection() {
           title="Nursing School Planner & Calendar"
           subtitle="Laoreet amet, lacus sed faucibus. Nec, natoque semper rutrum dui. Curabitur in commodo pretium lacinia feugiat. A ultricies quis commodo, nisl, vestibulum, feugiat dolor. Tincidunt orci consequat, pellentesque leo dui nunc ac, amet. A proin pulvinar nec nibh bibendum. Nec mi mattis vulputate dictum platea pharetra, id id."
         />
-        <div className="flex justify-end items-center">
+        <div className="flex justify-center lg:justify-end items-center">
           <Image
             src={"/assets/home-images/Devices.png"}
             alt={"Devices"}

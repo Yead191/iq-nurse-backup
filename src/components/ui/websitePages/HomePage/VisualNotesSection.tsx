@@ -9,7 +9,7 @@ export default function VisualNotesSection() {
       <SecondaryHeading title="Visual Notes That Make Sense" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center items-center">
         {/* left img */}
-        <div>
+        <div className="flex justify-center items-center lg:justify-start">
           <Image
             src={"/assets/home-images/visual-img.png"}
             width={550}
