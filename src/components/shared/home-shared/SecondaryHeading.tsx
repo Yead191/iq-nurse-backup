@@ -15,10 +15,7 @@ export default function SecondaryHeading({
         {title}
       </h1>
       {subtitle && (
-        <p className="text-[#0F172A] text-[14px] lg:text-lg">
-          Odio vulputate cras vel lacinia turpis volutpat adipiscing.
-          Sollicitudin at velit, blandit tempus nunc in.
-        </p>
+        <p className="text-[#0F172A] text-[14px] lg:text-lg">{subtitle} </p>
       )}
     </div>
   );
