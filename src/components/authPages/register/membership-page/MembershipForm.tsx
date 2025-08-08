@@ -1,5 +1,5 @@
 "use client";
-import { Button, Typography, Card, Space } from "antd";
+import { Button, Typography, Card, Space, Grid } from "antd";
 import {
   BookOutlined,
   QuestionCircleOutlined,
@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 const { Title, Text } = Typography;
 
 export default function MembershipBenefits() {
+  const {lg} = Grid.useBreakpoint()
   const router = useRouter();
   const handleCompareMemberships = () => {
     // Navigate to pricing page
@@ -19,7 +20,7 @@ export default function MembershipBenefits() {
   const handleContinueWithout = () => {
     // Continue to dashboard without membership
     // console.log("Continue without membership");
-    router.push("/auth/login")
+    router.push("/auth/login");
   };
 
   return (
@@ -30,7 +31,7 @@ export default function MembershipBenefits() {
         borderRadius: "16px",
         // boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
         border: "1px solid #e5e7eb",
-        padding: "20px",
+        padding: lg? "20px":"0px",
       }}
     >
       <Space direction="vertical" size="large" style={{ width: "100%" }}>
@@ -195,7 +196,7 @@ export default function MembershipBenefits() {
 
           <div style={{ textAlign: "center", marginTop: "16px" }}>
             <Text style={{ color: "#9ca3af", fontSize: "14px" }}>
-              (No Credit ard Required)
+              (No Credit card Required)
             </Text>
           </div>
         </Space>
