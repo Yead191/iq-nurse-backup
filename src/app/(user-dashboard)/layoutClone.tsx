@@ -1,6 +1,6 @@
 "use client";
 
-import Header from "@/components/shared/user-dashboard/Header";
+import Header from "@/components/shared/user-dashboard/header/Header";
 import Sidebar from "@/components/shared/user-dashboard/Sidebar";
 import { ConfigProvider } from "antd";
 import { PanelsTopLeft } from "lucide-react";
@@ -45,7 +45,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
       <div className="w-full flex ">
         {/* Sidebar for large devices */}
         <div
-          className={`bg-[#FBFBFB] hidden lg:block w-[100px]} sticky top-0 z-10 overflow-scroll h-screen`}
+          className={`bg-white hidden lg:block w-[100px]} sticky top-0 z-10 overflow-scroll h-screen`}
         >
           <Sidebar showLabels={showLabels} setShowLabels={setShowLabels} />
         </div>
@@ -54,7 +54,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
         {isMobileSidebarOpen && (
           <>
             <div
-              className="fixed inset-0 bg-black bg-opacity-40 z-30 lg:hidden"
+              className="fixed inset-0 bg-black/40 bg-opacity-40 z-30 lg:hidden"
               onClick={() => setIsMobileSidebarOpen(false)}
             ></div>
             <div className="fixed top-0 left-0 bottom-0 w-[250px] bg-[#FBFBFB] z-40 shadow-lg lg:hidden">
