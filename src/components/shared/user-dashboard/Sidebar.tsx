@@ -10,6 +10,7 @@ interface SidebarProps {
   showLabels: boolean;
   setShowLabels: (v: boolean) => void;
   setMobileVisible?: (v: boolean) => void;
+  setIsMobileSidebarOpen?: any;
 }
 
 interface MenuItem {
@@ -21,14 +22,21 @@ interface MenuItem {
   subtitle?: string;
 }
 
-const Sidebar = ({ showLabels, setShowLabels }: SidebarProps) => {
+const Sidebar = ({
+  showLabels,
+  setShowLabels,
+  setIsMobileSidebarOpen,
+}: SidebarProps) => {
   const pathname = usePathname();
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
     studyTools: true,
     supportLegal: true,
   });
 
-  const toggleSidebar = () => setShowLabels(!showLabels);
+  const toggleSidebar = () => {
+    setShowLabels(!showLabels);
+    setIsMobileSidebarOpen(false);
+  };
   const isActive = (path: string) => pathname === path;
   const toggleMenu = (menu: string) =>
     setOpenMenus((prev) => ({ ...prev, [menu]: !prev[menu] }));

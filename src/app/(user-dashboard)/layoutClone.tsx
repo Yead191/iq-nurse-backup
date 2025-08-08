@@ -54,14 +54,23 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
         {isMobileSidebarOpen && (
           <>
             <div
-              className="fixed inset-0 bg-black/40 bg-opacity-40 z-30 lg:hidden"
+              className={`fixed inset-0 bg-black/40 z-30 lg:hidden transition-opacity duration-300 ease-in-out ${
+                isMobileSidebarOpen
+                  ? "opacity-100"
+                  : "opacity-0 pointer-events-none"
+              }`}
               onClick={() => setIsMobileSidebarOpen(false)}
             ></div>
-            <div className="fixed top-0 left-0 bottom-0 w-[250px] bg-[#FBFBFB] z-40 shadow-lg lg:hidden">
+            <div
+              className={`fixed top-0 bottom-0 w-[250px] bg-[#FBFBFB] z-40 shadow-lg lg:hidden transform transition-transform duration-300 ease-in-out ${
+                isMobileSidebarOpen ? "translate-x-0" : "-translate-x-full"
+              }`}
+            >
               <Sidebar
                 showLabels={false}
                 setShowLabels={() => {}}
                 setMobileVisible={setIsMobileSidebarOpen}
+                setIsMobileSidebarOpen={setIsMobileSidebarOpen}
               />
             </div>
           </>
