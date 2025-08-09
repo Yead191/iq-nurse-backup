@@ -1,7 +1,8 @@
 import { Button } from "antd";
 import React from "react";
 import { PlusOutlined } from "@ant-design/icons";
-import ClassesSidebar from "./ClassesSidebar";
+import { classesData } from "@/data/classesData";
+import { EventCard } from "@/components/shared/EventCard";
 
 export default function ClassesSection() {
   return (
@@ -31,7 +32,21 @@ export default function ClassesSection() {
           }}
         />
       </div>
-      <ClassesSidebar />
+      <div className="my-6">
+        {/* Dynamic Class Cards */}
+        {classesData.map((classItem) => (
+          <EventCard
+            key={classItem.id}
+            title={classItem.title}
+            description={classItem.description}
+            timeRange={classItem.timeRange}
+            status={classItem.status}
+            avatarColor={classItem.avatarColor}
+            avatarIcon={classItem.avatarIcon}
+            backgroundColor={classItem.backgroundColor}
+          />
+        ))}
+      </div>
     </div>
   );
 }
