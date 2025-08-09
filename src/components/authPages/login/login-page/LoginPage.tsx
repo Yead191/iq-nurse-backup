@@ -11,7 +11,7 @@ export default function LoginPage() {
   const onFinish = (values: any) => {
     console.log("Form values:", values);
     toast.success("Login successful!");
-    router.push("/");
+    router.push("/profile/home");
   };
 
   return (
