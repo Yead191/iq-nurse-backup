@@ -60,6 +60,7 @@ export default function Footer() {
             width={600}
             height={622}
             className="h-auto w-full object-cover"
+            unoptimized
           />
         </div>
       </div>

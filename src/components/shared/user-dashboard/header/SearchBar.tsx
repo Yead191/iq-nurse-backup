@@ -7,7 +7,7 @@ export default function SearchBar() {
       size="large"
       allowClear
       placeholder="What do you want to study.."
-      prefix={<SearchOutlined style={{ color: "#7B7B7B" }} />}
+      prefix={<SearchOutlined style={{ color: "#7B7B7B", fontSize: 20 }} />}
       suffix={
         <Button
           type="text"
@@ -20,7 +20,10 @@ export default function SearchBar() {
           }}
         />
       }
-      className="h-12 max-w-2xl rounded-2xl bg-[#F6F7F8] outline-none"
+      style={{
+        backgroundColor: "#F6F7F8",
+      }}
+      className="h-12 max-w-2xl rounded-2xl  outline-none"
     />
   );
 }
