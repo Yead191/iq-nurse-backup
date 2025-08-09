@@ -9,7 +9,7 @@ export default function AsidePanel() {
   const [activeTab, setActiveTab] = useState<"today" | "add">("today");
 
   return (
-    <div className="w-full rounded-xl  p-6 ">
+    <div className="w-full rounded-xl p-0  md:p-6 ">
       {/* Custom Tabs */}
       <div className="flex items-center bg-neutral-100 rounded-lg py-[6px] mb-4 px-[14px] ">
         <button
