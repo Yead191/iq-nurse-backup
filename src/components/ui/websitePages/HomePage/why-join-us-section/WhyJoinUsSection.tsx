@@ -23,7 +23,12 @@ export default function WhyJoinUsSection() {
       className="container mx-auto  lg:overflow-visible p-4 lg:p-20 mt-6 mb-12 lg:px-4 lg:pr-20"
     >
       <div className="relative ">
-        <div className="grid lg:grid-cols-2 gap-12 items-center p-4 md:p-8 lg:p-[60px]  rounded-4xl shadow-xl">
+        <div
+          style={{
+            boxShadow: "3.53px 3.53px 18.54px 0 rgba(0,0,0,0.2)",
+          }}
+          className="grid lg:grid-cols-2 gap-12 items-center p-4 md:p-8 lg:p-[60px]  rounded-4xl "
+        >
           {/* Left Content */}
           <div className="space-y-8 overflow-hidden py-6">
             <div>

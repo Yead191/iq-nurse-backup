@@ -1,62 +1,46 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { Tabs } from "antd";
-import { Plus } from "lucide-react";
-import { EventCard } from "./EventCard";
-import { EventForm } from "./EventForm";
+import { useState } from "react";
+import { PlusOutlined } from "@ant-design/icons";
+import TasksSection from "./todays-event/TasksSection";
+import TodaysEvent from "./todays-event/TodaysEvent";
 
-export type EventItem = {
-  id: string;
-  title: string;
-  course?: string;
-  description?: string;
-  start: string;
-  end: string;
-  location: string;
-  mode: "Online" | "In Person";
-  color: string; 
-  avatarUrl?: string;
-};
-
-export function AsidePanel({ initialEvents = [] as EventItem[] }) {
-  const [events, setEvents] = useState<EventItem[]>(initialEvents);
-
-  const items = useMemo(
-    () => [
-      {
-        key: "today",
-        label: "Today's Events",
-        children: (
-          <div className="space-y-3">
-            {events.length === 0 ? (
-              <div className="rounded-xl border p-6 text-center text-sm text-neutral-500">
-                No events today.
-              </div>
-            ) : (
-              events.map((ev) => <EventCard key={ev.id} event={ev} />)
-            )}
-          </div>
-        ),
-      },
-      {
-        key: "add",
-        label: (
-          <span className="inline-flex items-center gap-1">
-            <Plus className="h-4 w-4" /> Add Event
-          </span>
-        ),
-        children: (
-          <EventForm onAdd={(e) => setEvents((prev) => [e, ...prev])} />
-        ),
-      },
-    ],
-    [events]
-  );
+export default function AsidePanel() {
+  const [activeTab, setActiveTab] = useState<"today" | "add">("today");
 
   return (
-    <div className="rounded-xl border bg-white p-2 shadow-sm">
-      <Tabs defaultActiveKey="today" items={items} />
+    <div className="w-full rounded-xl  p-6 ">
+      {/* Custom Tabs */}
+      <div className="flex items-center bg-neutral-100 rounded-lg py-[6px] mb-4 px-[14px] ">
+        <button
+          onClick={() => setActiveTab("today")}
+          className={`flex-1 text-sm  px-3 py-2 rounded-[8px] transition ${
+            activeTab === "today"
+              ? "bg-white  text-[#003877] font-medium"
+              : "text-neutral-500 hover:text-neutral-800"
+          }`}
+        >
+          Today's Events
+        </button>
+        <button
+          onClick={() => setActiveTab("add")}
+          className={`flex-1 text-sm font-medium px-3 py-2 rounded-md transition ${
+            activeTab === "add"
+              ? "bg-white  text-[#003877] font-medium"
+              : "text-neutral-500 hover:text-neutral-800"
+          }`}
+        >
+          <PlusOutlined /> Add Event
+        </button>
+      </div>
+
+      {/* Tab Content */}
+      {activeTab === "today" && <TodaysEvent />}
+      {activeTab === "add" && (
+        <div className="text-center text-sm text-neutral-500">
+          Form goes here...
+        </div>
+      )}
     </div>
   );
 }

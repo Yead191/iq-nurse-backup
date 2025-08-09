@@ -14,9 +14,9 @@ import { HomeBreadcrumbs } from "./HomeBreadcrumbs";
 import { SectionHeader } from "./SectionHeader";
 import { StatsGrid } from "./StatsGrid";
 import { CategoryGrid } from "./CategoryGrid";
-import { AsidePanel } from "./aside/AsidePanel";
 import Image from "next/image";
 import ReadingTabs from "./ReadingTabs";
+import AsidePanel from "./aside/AsidePanel";
 
 export default function UserHome() {
   return (
@@ -37,7 +37,7 @@ export default function UserHome() {
 
             {/* Study by Category */}
             <section>
-              <div className="mb-3 flex items-center justify-between">
+              <div className="my-6 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Image
                     src={"/assets/icons/reading.svg"}
@@ -65,7 +65,7 @@ export default function UserHome() {
             <Suspense
               fallback={<Card loading className="rounded-xl shadow-sm" />}
             >
-              {/* <AsidePanel initialEvents={todaysEvents} /> */}
+              <AsidePanel />
             </Suspense>
           </aside>
         </div>

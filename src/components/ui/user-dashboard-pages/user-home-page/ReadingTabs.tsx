@@ -40,7 +40,7 @@ export default function ReadingTabs() {
         {activeContent.map((item) => (
           <div
             key={item.id}
-            className="rounded-xl shadow-sm hover:shadow-md transition-shadow bg-white p-4 flex items-start gap-3"
+            className="rounded-xl shadow-sm hover:shadow-md transition-shadow bg-white p-4 flex items-center gap-3"
           >
             {/* Icon */}
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 flex-shrink-0">
