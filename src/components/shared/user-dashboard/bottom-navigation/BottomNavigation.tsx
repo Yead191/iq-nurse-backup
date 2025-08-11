@@ -17,7 +17,11 @@ interface NavItem {
   label: string;
 }
 
-export default function BottomNavigation() {
+export default function BottomNavigation({
+  setIsMobileSidebarOpen,
+}: {
+  setIsMobileSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -51,7 +55,11 @@ export default function BottomNavigation() {
   ];
 
   const handleNavClick = (key: string) => {
-    router.push(key);
+    if (key === "/profile/study-tools") {
+      setIsMobileSidebarOpen(true);
+    } else {
+      router.push(key);
+    }
   };
 
   const isActive = (key: string) => {

@@ -205,7 +205,7 @@ const Sidebar = ({
                 {item.icon}
                 {!showLabels && (
                   <span
-                    className={`text-sm font-medium ${
+                    className={`text-lg lg:text-sm font-medium ${
                       isActive(item.key)
                         ? "text-white font-bold scale-105"
                         : "text-gray-700"
@@ -281,17 +281,21 @@ const Sidebar = ({
 
       {/* Menus */}
       <div className="flex-1 overflow-y-auto">
-        <RenderMenuGroup items={menus.main} menuKey="main" />
+        <div className="hidden md:block">
+          <RenderMenuGroup items={menus.main} menuKey="main" />
+        </div>
         <RenderMenuGroup
           title="Study Tools"
           items={menus.studyTools}
           menuKey="studyTools"
         />
-        <RenderMenuGroup
-          title="Support & Legal"
-          items={menus.supportLegal}
-          menuKey="supportLegal"
-        />
+        <div className="hidden md:block">
+          <RenderMenuGroup
+            title="Support & Legal"
+            items={menus.supportLegal}
+            menuKey="supportLegal"
+          />
+        </div>
       </div>
     </div>
   );
