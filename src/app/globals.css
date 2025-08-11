@@ -60,4 +60,26 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #0f2535;
-}    
+}
+
+@layer utilities {
+  .text-primary {
+    color: #003877;
+  }
+
+  .border-primary {
+    border-color: #003877;
+  }
+
+  .bg-primary {
+    background-color: #003877;
+  }
+
+  .text-secondary {
+    color: #34353A;
+  }
+
+  .text-base {
+    color: #5C5C5C;
+  }
+}
