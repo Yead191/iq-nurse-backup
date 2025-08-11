@@ -70,6 +70,7 @@ export const EventCard = ({
               justifyContent: "center",
               padding: 6,
               objectPosition: "center",
+              borderRadius: 4,
             }}
           ></Avatar>
         </div>
@@ -100,7 +101,7 @@ export const EventCard = ({
         </Title>
         <Text
           type="secondary"
-          style={{ fontSize: 12, lineHeight: 1.4, color: "#7B7B7B" }}
+          style={{ fontSize: 14, lineHeight: 0.8, color: "#7B7B7B" }}
         >
           {description}
         </Text>

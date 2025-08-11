@@ -53,32 +53,36 @@ const Sidebar = ({
         icon: icon("/assets/sidebar-icons/home-icon.svg", "home"),
       },
       {
-        key: "/nurse-q",
+        key: "/profile/nurse-q",
         label: "Nurse Q",
         icon: icon("/assets/sidebar-icons/chatbot-icon.svg", "chatbot"),
       },
     ],
     studyTools: [
       {
-        key: "/study-notes",
+        key: "/profile/study-notes",
         label: "Study Notes",
         icon: icon("/assets/sidebar-icons/study-notes-icon.svg", "study-notes"),
-        children: [
-          { key: "/study-notes/anatomy", label: "Anatomy", icon: <></> },
-          {
-            key: "/study-notes/pharmacology",
-            label: "Pharmacology",
-            icon: <></>,
-          },
-        ],
+        // children: [
+        //   {
+        //     key: "/profile/study-notes/anatomy",
+        //     label: "Anatomy",
+        //     icon: <></>,
+        //   },
+        //   {
+        //     key: "/profile/study-notes/pharmacology",
+        //     label: "Pharmacology",
+        //     icon: <></>,
+        //   },
+        // ],
       },
       {
-        key: "/clinicals",
+        key: "/profile/clinicals",
         label: "Clinicals",
         icon: icon("/assets/sidebar-icons/clinicals-icon.svg", "clinicals"),
       },
       {
-        key: "/patient-assessment",
+        key: "/profile/patient-assessment",
         label: "Patient Assessment",
         icon: icon(
           "/assets/sidebar-icons/patient-assessment-icon.svg",
@@ -86,35 +90,35 @@ const Sidebar = ({
         ),
       },
       {
-        key: "/template",
+        key: "/profile/template",
         label: "Template",
         icon: icon("/assets/sidebar-icons/template-icon.svg", "template"),
       },
       {
-        key: "/content-map",
+        key: "/profile/content-map",
         label: "Content Map",
         icon: icon("/assets/sidebar-icons/content-map-icon.svg", "map"),
         tag: "Coming Soon",
       },
       {
-        key: "/my-library",
+        key: "/profile/my-library",
         label: "My Library",
         icon: icon("/assets/sidebar-icons/my-library-icon.svg", "library"),
       },
       {
-        key: "/calendar",
+        key: "/profile/calendar",
         label: "Calendar",
         icon: icon("/assets/sidebar-icons/calendar-icon.svg", "calendar"),
         tag: "New",
       },
       {
-        key: "/tests",
+        key: "/profile/tests",
         label: "Test & Quizzers",
         icon: icon("/assets/sidebar-icons/test-icon.svg", "test"),
         subtitle: "NCLEX Tests / Next Gen",
       },
       {
-        key: "/flash-cards",
+        key: "/profile/flash-cards",
         label: "Flash Cards",
         icon: icon("/assets/sidebar-icons/flash-cards-icon.svg", "flashcards"),
       },

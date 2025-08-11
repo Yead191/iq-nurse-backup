@@ -1,0 +1,123 @@
+"use client";
+
+import type React from "react";
+import { useRouter, usePathname } from "next/navigation";
+import {
+  UserOutlined,
+  SettingOutlined,
+  DollarOutlined,
+  ContainerOutlined,
+  CreditCardOutlined,
+  FileTextOutlined,
+} from "@ant-design/icons";
+
+interface NavItem {
+  key: string;
+  icon: string;
+  label: string;
+}
+
+export default function BottomNavigation() {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Main navigation items for bottom nav
+  const navItems: NavItem[] = [
+    {
+      key: "/profile/home",
+      icon: "/assets/icons/home-icon.svg",
+      label: "Home",
+    },
+    {
+      key: "/profile/nurse-q",
+      icon: "/assets/sidebar-icons/chatbot-icon.svg",
+      label: "Nurse Q",
+    },
+    {
+      key: "/profile/study-tools",
+      icon: "/assets/icons/study-tools-icon.svg",
+      label: "Study Tools",
+    },
+    {
+      key: "/profile/calendar",
+      icon: "/assets/icons/calendar-icon.svg",
+      label: "Calendar",
+    },
+    {
+      key: "/profile/account",
+      icon: "/assets/icons/account-icon.svg",
+      label: "Account",
+    },
+  ];
+
+  const handleNavClick = (key: string) => {
+    router.push(key);
+  };
+
+  const isActive = (key: string) => {
+    // if (key === "/profile") {
+    //   return pathname.startsWith("/profile");
+    // }
+    return pathname === key;
+  };
+
+  return (
+    <div
+      style={{
+        backgroundColor: "white",
+        borderTop: "0.1px solid #151515",
+        padding: "10px 0",
+        zIndex: 1000,
+        boxShadow: "0 -2px 8px rgba(0, 0, 0, 0.1)",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          //   maxWidth: "400px",
+          margin: "0 auto",
+          padding: "0 8px",
+          gap: 2,
+          width: "100%",
+        }}
+      >
+        {navItems.map((item) => (
+          <div
+            key={item.key}
+            onClick={() => handleNavClick(item.key)}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              padding: "12px 4px",
+              borderRadius: "10px",
+              backgroundColor: isActive(item.key) ? "#F6F7F8" : "transparent",
+              border: isActive(item.key) ? "1px solid #85A6CA" : "transparent",
+              color: "#666",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              //   minWidth: "60px",
+              width: "100%",
+              justifyContent: "center",
+            }}
+          >
+            <div style={{ fontSize: "14px", marginBottom: "8px" }}>
+              <img src={item.icon} alt={item.label} />
+            </div>
+            <span
+              style={{
+                fontSize: "10px",
+                fontWeight: isActive(item.key) ? "500" : "400",
+                textAlign: "center",
+              }}
+            >
+              {item.label}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

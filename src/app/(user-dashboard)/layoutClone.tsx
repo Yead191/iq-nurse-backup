@@ -1,6 +1,8 @@
 "use client";
 
+import BottomNavigation from "@/components/shared/user-dashboard/bottom-navigation/BottomNavigation";
 import Header from "@/components/shared/user-dashboard/header/Header";
+import MobileHeader from "@/components/shared/user-dashboard/MobileHeader";
 import Sidebar from "@/components/shared/user-dashboard/Sidebar";
 import { ConfigProvider } from "antd";
 import { PanelsTopLeft } from "lucide-react";
@@ -17,32 +19,12 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
   };
   return (
     <div className="bg-[#FFFFFF]">
-      <div className="h-[75px] flex items-center justify-between pr-5 px-4  lg:hidden">
-        {/* Mobile menu button */}
-        <button
-          className="lg:hidden block text-gray-600"
-          onClick={() => setIsMobileSidebarOpen(true)}
-        >
-          <PanelsTopLeft size={20} />
-        </button>
-
-        <div className="block lg:hidden">
-          <img
-            src="/logo.png"
-            alt="Logo"
-            className="lg:h-[32px] h-[24px] w-auto"
-          />
-        </div>
-        <div className="block lg:hidden">
-          <img
-            src={profile.image}
-            alt="profile"
-            className="w-9 h-9 lg:w-10 lg:h-10 rounded-full cursor-pointer"
-          />
-        </div>
+      {/* mobile header */}
+      <div className="sticky top-0 z-10 md:hidden">
+        <MobileHeader />
       </div>
 
-      <div className="w-full flex ">
+      <div className="w-full flex flex-col md:flex-row">
         {/* Sidebar for large devices */}
         <div
           className={`bg-white hidden lg:block w-[100px]} sticky top-0 z-10 overflow-scroll h-screen`}
@@ -77,7 +59,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
         )}
 
         {/* Main content */}
-        <div className={`flex-1 lg:w-[calc(100%-100px)]`}>
+        <div className={`flex-1 lg:w-[calc(100%-100px)] min-h-[calc(100vh-159px)]`}>
           <div className={`  pb-0  `}>
             <ConfigProvider
               theme={{
@@ -97,6 +79,9 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
               </div>
             </ConfigProvider>
           </div>
+        </div>
+        <div className=" sticky bottom-0 z-10 md:hidden">
+          <BottomNavigation />
         </div>
       </div>
     </div>

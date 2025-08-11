@@ -4,6 +4,7 @@ import { useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import TasksSection from "./todays-event/TasksSection";
 import TodaysEvent from "./todays-event/TodaysEvent";
+import AddEvent from "./add-event/AddEvent";
 
 export default function AsidePanel() {
   const [activeTab, setActiveTab] = useState<"today" | "add">("today");
@@ -36,11 +37,7 @@ export default function AsidePanel() {
 
       {/* Tab Content */}
       {activeTab === "today" && <TodaysEvent />}
-      {activeTab === "add" && (
-        <div className="text-center text-sm text-neutral-500">
-          Form goes here...
-        </div>
-      )}
+      {activeTab === "add" && <AddEvent />}
     </div>
   );
 }
