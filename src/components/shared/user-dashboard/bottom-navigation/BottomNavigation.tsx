@@ -74,7 +74,7 @@ export default function BottomNavigation() {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-around",
+          justifyContent: "space-between",
           alignItems: "center",
           //   maxWidth: "400px",
           margin: "0 auto",
@@ -100,6 +100,7 @@ export default function BottomNavigation() {
               transition: "all 0.3s ease",
               //   minWidth: "60px",
               width: "100%",
+              justifyContent: "center",
             }}
           >
             <div style={{ fontSize: "14px", marginBottom: "8px" }}>
@@ -107,8 +108,9 @@ export default function BottomNavigation() {
             </div>
             <span
               style={{
-                fontSize: "12px",
+                fontSize: "10px",
                 fontWeight: isActive(item.key) ? "500" : "400",
+                textAlign: "center",
               }}
             >
               {item.label}
