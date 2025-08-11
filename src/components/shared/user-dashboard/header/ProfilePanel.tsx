@@ -15,7 +15,7 @@ export default function ProfilePanel({ onLogout }: { onLogout: () => void }) {
         </span>
       ),
       label: "Account & Security",
-      href: "/settings/account",
+      href: "/profile/account-security",
     },
     {
       key: "billing",

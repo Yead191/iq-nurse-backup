@@ -13,7 +13,7 @@ export const PROFILE_ITEMS = [
     iconBg: "#FFF1E6",
     iconColor: "#DC6803",
     label: "Account & Security",
-    href: "/settings/account",
+    href: "/profile/account-security",
   },
   {
     key: "billing",
