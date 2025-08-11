@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import TaskItem from "./TaskItem";
+import TaskHeader from "@/components/shared/user-dashboard/TaskHeader";
 
 type Task = {
   id: number;
@@ -27,30 +28,10 @@ export default function TasksSection() {
   };
 
   return (
-    <div className="bg-white rounded-xl p-2">
+    <div className="bg-white rounded-xl ">
       {/* Header */}
-      <div className="flex justify-between items-center mb-3">
-        <div className="flex items-center gap-2">
-          <img
-            src="/assets/icons/task-icon.svg"
-            alt="Tasks"
-            className="w-5 h-5"
-          />
-          <span className="text-sm font-semibold text-neutral-900">Tasks</span>
-        </div>
-        <Button
-          size="small"
-          type="text"
-          shape="circle"
-          icon={<PlusOutlined />}
-          className="hover:bg-neutral-100"
-          style={{
-            backgroundColor: "#003877",
-            color: "white",
-            borderRadius: 8,
-          }}
-        />
-      </div>
+
+      <TaskHeader img="/assets/icons/task-icon.svg" title="Tasks" />
 
       {/* Task List */}
       <div className="flex flex-col gap-2">
