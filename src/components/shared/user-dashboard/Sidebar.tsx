@@ -63,18 +63,18 @@ const Sidebar = ({
         key: "/profile/study-notes",
         label: "Study Notes",
         icon: icon("/assets/sidebar-icons/study-notes-icon.svg", "study-notes"),
-        children: [
-          {
-            key: "/profile/study-notes/anatomy",
-            label: "Anatomy",
-            icon: <></>,
-          },
-          {
-            key: "/profile/study-notes/pharmacology",
-            label: "Pharmacology",
-            icon: <></>,
-          },
-        ],
+        // children: [
+        //   {
+        //     key: "/profile/study-notes/anatomy",
+        //     label: "Anatomy",
+        //     icon: <></>,
+        //   },
+        //   {
+        //     key: "/profile/study-notes/pharmacology",
+        //     label: "Pharmacology",
+        //     icon: <></>,
+        //   },
+        // ],
       },
       {
         key: "/profile/clinicals",
