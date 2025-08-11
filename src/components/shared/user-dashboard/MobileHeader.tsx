@@ -46,7 +46,7 @@ export default function MobileHeader() {
           {/* Left: Logo + Brand */}
           {!searchOpen && (
             <Link
-              href="/"
+              href="/profile/home"
               style={{
                 display: "flex",
                 alignItems: "center",
