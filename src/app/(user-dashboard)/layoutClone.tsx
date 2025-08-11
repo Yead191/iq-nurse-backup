@@ -1,5 +1,6 @@
 "use client";
 
+import BottomNavigation from "@/components/shared/user-dashboard/bottom-navigation/BottomNavigation";
 import Header from "@/components/shared/user-dashboard/header/Header";
 import Sidebar from "@/components/shared/user-dashboard/Sidebar";
 import { ConfigProvider } from "antd";
@@ -42,7 +43,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
         </div>
       </div>
 
-      <div className="w-full flex ">
+      <div className="w-full flex flex-col md:flex-row">
         {/* Sidebar for large devices */}
         <div
           className={`bg-white hidden lg:block w-[100px]} sticky top-0 z-10 overflow-scroll h-screen`}
@@ -97,6 +98,9 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
               </div>
             </ConfigProvider>
           </div>
+        </div>
+        <div className=" sticky bottom-0 z-10 md:hidden">
+          <BottomNavigation />
         </div>
       </div>
     </div>
