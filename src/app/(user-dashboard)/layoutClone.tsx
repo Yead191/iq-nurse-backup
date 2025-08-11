@@ -59,7 +59,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
         )}
 
         {/* Main content */}
-        <div className={`flex-1 lg:w-[calc(100%-100px)]`}>
+        <div className={`flex-1 lg:w-[calc(100%-100px)] min-h-[calc(100vh-159px)]`}>
           <div className={`  pb-0  `}>
             <ConfigProvider
               theme={{
