@@ -22,14 +22,13 @@ export default function UserHome() {
   return (
     <main className="min-h-screen bg-white">
       <div className=" py-4">
-        {/* Breadcrumb */}
-        <div className="mb-4">
-          <HomeBreadcrumbs />
-        </div>
-
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
           {/* Left/Main Column */}
           <div className="lg:col-span-9 space-y-6">
+            {/* Breadcrumb */}
+            <div className="mb-4">
+              <HomeBreadcrumbs />
+            </div>   
             {/* This Week Events */}
             <section>
               <StatsGrid items={weeklyStats} />
