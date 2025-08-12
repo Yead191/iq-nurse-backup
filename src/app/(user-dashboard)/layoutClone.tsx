@@ -60,7 +60,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
 
         {/* Main content */}
         <div
-          className={`flex-1 lg:w-[calc(100%-100px)] min-h-[calc(100vh-159px)]`}
+          className={`flex-1 lg:w-[calc(100%-300px)] min-h-[calc(100vh-159px)]`}
         >
           <div className={`  pb-0  `}>
             <ConfigProvider
@@ -75,7 +75,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
                   <Header />
                 </div>
 
-                <div className="h-full overflow-y-auto rounded-md p-4 lg:p-5">
+                <div className="h-full overflow-y-auto rounded-md p-4 md:p-6 lg:py-8 lg:px-5  ">
                   {children}
                 </div>
               </div>

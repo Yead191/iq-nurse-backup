@@ -197,19 +197,15 @@ const Sidebar = ({
             <Link href={item.key}>
               <div
                 className={`flex items-center ${
-                  showLabels ? "justify-center" : "gap-3"
-                } px-5 py-2 cursor-pointer ${
-                  isActive(item.key) ? "bg-[#324C93]" : "hover:bg-gray-50"
+                  showLabels ? "justify-center " : "gap-3 pl-4"
+                } mx-2  py-2 cursor-pointer ${
+                  isActive(item.key) ? "bg-[#F6F7F8] rounded-[10px]" : "hover:bg-gray-50"
                 }`}
               >
                 {item.icon}
                 {!showLabels && (
                   <span
-                    className={`text-lg lg:text-sm font-medium ${
-                      isActive(item.key)
-                        ? "text-white font-bold scale-105"
-                        : "text-gray-700"
-                    }`}
+                    className={`text-lg lg:text-sm font-medium"text-gray-700`}
                   >
                     {item.label}
                   </span>

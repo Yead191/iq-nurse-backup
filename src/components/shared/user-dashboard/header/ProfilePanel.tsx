@@ -40,7 +40,7 @@ export default function ProfilePanel({ onLogout }: { onLogout: () => void }) {
   ];
   return (
     <div
-      className="w-80 rounded-2xl bg-white p-3 shadow-xl"
+      className="w-80 rounded-2xl bg-white p-3  shadow-xl"
       style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.08)" }}
     >
       <div className="flex flex-col gap-3">
