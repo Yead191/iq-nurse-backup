@@ -1,0 +1,68 @@
+"use client";
+
+import type React from "react";
+
+import { useState } from "react";
+import { BookFilled, FileTextOutlined } from "@ant-design/icons";
+import { Documentation } from "@/data/medicalData";
+import { BookmarkCheckIcon, BookmarkIcon } from "lucide-react";
+import { toast } from "sonner";
+
+interface DocumentationCardProps {
+  document: Documentation;
+}
+
+export default function DocumentationCard({
+  document,
+}: DocumentationCardProps) {
+  const [isBookmarked, setIsBookmarked] = useState(document.isBookmarked);
+
+  const toggleBookmark = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsBookmarked(!isBookmarked);
+    if (isBookmarked) {
+      toast.success("Removed from bookmarks");
+    } else {
+      toast.success("Added to bookmarks");
+    }
+  };
+
+  return (
+    <div className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200 cursor-pointer">
+      <div className="flex justify-between items-start">
+        <div className="flex items-center gap-4 flex-1">
+          <div className="text-[#003877] text-2xl mt-1">
+            <FileTextOutlined />
+          </div>
+
+          <div className="flex-1">
+            <h3 className="font-semibold text-gray-900 mb-2 text-lg">
+              {document.title}
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              {document.description}
+            </p>
+            {/* <div className="mt-3 flex items-center gap-4 text-xs text-gray-500">
+              <span>
+                Updated: {new Date(document.createdAt).toLocaleDateString()}
+              </span>
+              <span>•</span>
+              <span>{document.readTime} min read</span>
+            </div> */}
+          </div>
+        </div>
+
+        <button
+          onClick={toggleBookmark}
+          className="text-gray-400 hover:text-[#003877] transition-colors duration-200 ml-4"
+        >
+          {isBookmarked ? (
+            <BookmarkCheckIcon className="text-[#003877]" />
+          ) : (
+            <BookmarkIcon />
+          )}
+        </button>
+      </div>
+    </div>
+  );
+}

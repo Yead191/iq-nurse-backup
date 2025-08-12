@@ -15,10 +15,12 @@ export default function BannerHome() {
           built on knowledge, compassion, and the quiet resilience to keep going
           even on the hardest days. That’s why our goal is simple: To make
           nursing education clearer, smarter, and built around what you actually
-          need. <br className="hidden md:block" /> <br className="hidden lg:block" /> <br className="hidden lg:block" /> Whether you're pulling your first all-nighter for
-          nursing school or catching a study break between hospital shifts, we
-          know what it takes to show up for this profession — and how heavy that
-          can feel without the right support.
+          need. <br className="hidden md:block" />{" "}
+          <br className="hidden lg:block" /> <br className="hidden lg:block" />{" "}
+          Whether you're pulling your first all-nighter for nursing school or
+          catching a study break between hospital shifts, we know what it takes
+          to show up for this profession — and how heavy that can feel without
+          the right support.
         </p>
       </div>
       {/* right section */}
