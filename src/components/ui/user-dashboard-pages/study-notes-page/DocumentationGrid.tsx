@@ -23,8 +23,8 @@ export default function DocumentationGrid({
   const endIndex = Math.min(currentPage * itemsPerPage, totalDocuments);
 
   return (
-    <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+    <div className="md:border md:border-[#C5D0D0] md:p-6 rounded-[10px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8  ">
         {documents.map((doc) => (
           <DocumentationCard key={doc.id} document={doc} />
         ))}
