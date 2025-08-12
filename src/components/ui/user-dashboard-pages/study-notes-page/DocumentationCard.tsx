@@ -28,15 +28,15 @@ export default function DocumentationCard({
   };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200 cursor-pointer">
-      <div className="flex justify-between items-start">
+    <div className="bg-[#EEF2F5] rounded-lg border border-gray-200 hover:shadow-md transition-shadow duration-200 cursor-pointer pl-[3px] pt-[2px] pb-1 pr-[6px]">
+      <div className="flex justify-between items-center bg-[#FFFFFF] rounded-[10px] px-6 py-2">
         <div className="flex items-center gap-4 flex-1">
           <div className="text-[#003877] text-2xl mt-1">
             <FileTextOutlined />
           </div>
 
           <div className="flex-1">
-            <h3 className="font-semibold text-gray-900 mb-2 text-lg">
+            <h3 className="font-semibold text-gray-900 mb-1 text-lg">
               {document.title}
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed">
