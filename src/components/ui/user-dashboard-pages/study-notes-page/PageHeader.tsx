@@ -23,15 +23,18 @@ export default function PageHeader({
   return (
     <div className="flex justify-between items-center mb-8 mt-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">
+        <h1 className="md:text-2xl font-bold text-gray-900">
           Medical Surgical{" "}
-          <span className="text-gray-500 font-normal">{totalNotes} Notes</span>
+          <span className="text-gray-500 font-normal text-[14px]">
+            {totalNotes} Notes
+          </span>
         </h1>
       </div>
 
       <div className="flex items-center gap-2">
-        <span className="text-gray-600 text-sm">Sort by</span>
+        <span className="text-gray-600 text-sm hidden">Sort by</span>
         <Select
+          placeholder="Sort by"
           value={sortBy}
           onChange={onSortChange}
           suffixIcon={<FilterOutlined />}

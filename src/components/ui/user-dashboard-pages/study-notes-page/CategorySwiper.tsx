@@ -29,7 +29,7 @@ export default function CategorySwiper({
     <div className="relative mb-8 w-full overflow-hidden">
       {/* Navigation Buttons - Top Right */}
       <div className="flex justify-end mb-6">
-        <div className="flex items-center gap-5 bg-[#F6F7F8] shadow-md px-4 py-2 rounded-[8px]">
+        <div className="md:flex items-center gap-5 bg-[#F6F7F8] shadow-md px-4 py-2 rounded-[8px] hidden ">
           <button
             onClick={goPrev}
             className="p-2 rounded-[3px] bg-[#0038771A] hover:bg-[#003877] hover:text-white transition-all duration-300 cursor-pointer"

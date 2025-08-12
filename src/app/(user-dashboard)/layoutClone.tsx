@@ -13,10 +13,11 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const [showLabels, setShowLabels] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
-  const profile = {
-    image: "https://i.ibb.co.com/CKGDQYkt/Frame-2147227147.png",
-    name: "John Doe",
-  };
+  const hiddenPaths = ["/profile/study-notes/document/"];
+
+  const shouldHide = hiddenPaths.some((prefix) => pathname.startsWith(prefix));
+  console.log(shouldHide, pathname);
+
   return (
     <div className="bg-[#FFFFFF]">
       {/* mobile header */}
@@ -71,11 +72,19 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
               }}
             >
               <div>
-                <div className=" lg:block hidden sticky top-0 z-10">
+                <div
+                  className={`  hidden sticky top-0 z-10 ${
+                    shouldHide ? "hidden" : "lg:block"
+                  } `}
+                >
                   <Header />
                 </div>
 
-                <div className="h-full overflow-y-auto rounded-md p-4 md:p-6 lg:py-8 lg:px-5  ">
+                <div
+                  className={`h-full overflow-y-auto rounded-md   lg:px-5 ${
+                    shouldHide ? "py-0 " : "lg:py-8 p-4 md:p-6"
+                  } `}
+                >
                   {children}
                 </div>
               </div>
