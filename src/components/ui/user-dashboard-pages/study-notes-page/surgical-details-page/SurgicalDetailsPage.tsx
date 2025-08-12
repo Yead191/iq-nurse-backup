@@ -22,7 +22,7 @@ const tabs = [
   { id: "videos", label: "Videos", icon: Video, color: "bg-orange-500" },
 ];
 
-export default function SurgicalDetailsPage({ id }: { id: string }) {
+export default function SurgicalDetailsPage({ id }: { id: any }) {
   const [activeTab, setActiveTab] = useState("overview");
 
   const renderTabContent = () => {
