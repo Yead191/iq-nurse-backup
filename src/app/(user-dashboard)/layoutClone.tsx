@@ -21,7 +21,11 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="bg-[#FFFFFF]">
       {/* mobile header */}
-      <div className="sticky top-0 z-10 md:hidden">
+      <div
+        className={`   sticky top-0 z-10 ${
+          shouldHide ? "hidden" : "block md:hidden"
+        } `}
+      >
         <MobileHeader />
       </div>
 
@@ -81,7 +85,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
                 </div>
 
                 <div
-                  className={`h-full overflow-y-auto rounded-md   lg:px-5 ${
+                  className={`h-full  rounded-md px-2  lg:px-5 ${
                     shouldHide ? "py-0 " : "lg:py-8 p-4 md:p-6"
                   } `}
                 >
