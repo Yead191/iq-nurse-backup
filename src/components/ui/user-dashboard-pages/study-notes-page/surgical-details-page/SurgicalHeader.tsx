@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function SurgicalHeader() {
   return (
-    <div className="flex items-center justify-between py-3 sticky top-0 z-50 bg-white ">
+    <div className="flex items-center justify-between py-3 sticky top-0 z-50 bg-white">
       {/* Back Button */}
       <div className="flex items-center space-x-3">
         <Link href={"/profile/study-notes"}>
@@ -45,10 +45,12 @@ function ActionButton({
 }) {
   return (
     <div className="flex flex-col items-center group gap-2 cursor-pointer">
-      <button className="flex flex-col items-center justify-center w-11 h-[38px] rounded-lg hover:bg-white transition-colors cursor-pointer group border border-[#003877] bg-[#F6F7F8]">
+      <button className="flex flex-col items-center justify-center w-8 h-8 lg:w-11 lg:h-[38px] rounded-lg hover:bg-white transition-colors cursor-pointer group border border-[#003877] bg-[#F6F7F8]">
         <Icon className={`w-4 h-4 text-gray-600 group-hover:${hoverColor}`} />
       </button>
-      <span className={`text-xs text-gray-500 group-hover:${hoverColor}`}>
+      <span
+        className={`text-[8px] hidden lg:block lg:text-xs text-gray-500 group-hover:${hoverColor}`}
+      >
         {label}
       </span>
     </div>

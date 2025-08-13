@@ -23,7 +23,7 @@ export default function SearchBar() {
       style={{
         backgroundColor: "#F6F7F8",
       }}
-      className="h-12 max-w-2xl rounded-2xl  outline-none"
+      className="h-12 max-w-[500px] rounded-2xl  outline-none"
     />
   );
 }

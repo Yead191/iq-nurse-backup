@@ -61,7 +61,7 @@ export default function SurgicalDetailsPage({ id }: { id: any }) {
           <div className=" hidden lg:block">
             <MediaSection />
           </div>
-          <div className=" px-2 lg:px-0">
+          <div className=" ">
             <div className="">{renderTabContent()}</div>
           </div>
         </div>
