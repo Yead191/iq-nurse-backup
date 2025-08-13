@@ -1,5 +1,10 @@
+"use client";
+
 import dynamic from "next/dynamic";
 import React, { useRef, useState } from "react";
+import "jodit/es2021/jodit.min.css"; // Make sure styles are imported
+
+// ✅ Load Jodit without SSR
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 
 export default function NoteTab() {
@@ -10,19 +15,37 @@ export default function NoteTab() {
     readonly: false,
     placeholder: "Type your notes here..",
     toolbarSticky: false,
+    height: "60vh",
     style: {
-      height: "58vh",
-      background: "#ffff",
-      border: "none",
-      // boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-      padding: "10px",
+      background: "#fff",
+      borderRadius: "6px",
+      padding: "8px",
     },
-    buttons: [
+    // ✅ Force same buttons on all screen sizes
+    buttons: ["paragraph", "bold", "italic", "underline", "ul", "ol", "brush"],
+    buttonsMD: [
       "paragraph",
       "bold",
       "italic",
       "underline",
-      "strikethrough",
+      "ul",
+      "ol",
+      "brush",
+    ],
+    buttonsSM: [
+      "paragraph",
+      "bold",
+      "italic",
+      "underline",
+      "ul",
+      "ol",
+      "brush",
+    ],
+    buttonsXS: [
+      "paragraph",
+      "bold",
+      "italic",
+      "underline",
       "ul",
       "ol",
       "brush",
@@ -32,24 +55,21 @@ export default function NoteTab() {
     showXPathInStatusbar: false,
   };
 
-  const handleSaveChanges = () => {
-    const newContent = {
-      content: content,
-      type: "terms",
-    };
-    console.log("Content saved:", newContent);
-  };
   return (
-    <div className="jodit-container">
-      <div>
-        <JoditEditor
-          ref={editor}
-          value={content}
-          config={config}
-          onBlur={(newContent) => setContent(newContent)}
-          onChange={() => {}}
-        />
-      </div>
+    <div
+      style={{
+        border: "1px solid #003877",
+        borderRadius: "11px",
+        padding: "12px",
+      }}
+    >
+      <JoditEditor
+        ref={editor}
+        value={content}
+        config={config}
+        onBlur={(newContent) => setContent(newContent)}
+        onChange={() => {}}
+      />
     </div>
   );
 }
