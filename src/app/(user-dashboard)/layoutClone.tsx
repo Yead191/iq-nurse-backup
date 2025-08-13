@@ -85,7 +85,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
                 </div>
 
                 <div
-                  className={`h-full  rounded-md px-2  lg:px-5 ${
+                  className={`h-full  rounded-md px-4  lg:px-5 ${
                     shouldHide ? "py-0 " : "lg:py-8 p-4 md:p-6"
                   } `}
                 >

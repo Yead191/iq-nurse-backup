@@ -1,4 +1,5 @@
 import { Play } from "lucide-react";
+import Image from "next/image";
 
 export default function MediaSection() {
   return (
@@ -18,6 +19,12 @@ export default function MediaSection() {
           alt="Heart anatomy diagram"
           className="w-full h-auto rounded-lg"
         />
+        {/* <Image
+          src="https://i.ibb.co.com/CpRX0XB1/f612a1bef42e4c66c9ae53562b3b4ebb7db86c8d.png"
+          alt="Heart anatomy diagram"
+          width={1000}
+          height={1000}
+        /> */}
       </div>
     </div>
   );

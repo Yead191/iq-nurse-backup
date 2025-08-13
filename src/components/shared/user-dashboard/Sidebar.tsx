@@ -199,7 +199,9 @@ const Sidebar = ({
                 className={`flex items-center ${
                   showLabels ? "justify-center " : "gap-3 pl-4"
                 } mx-2  py-2 cursor-pointer ${
-                  isActive(item.key) ? "bg-[#F6F7F8] rounded-[10px]" : "hover:bg-gray-50"
+                  isActive(item.key)
+                    ? "bg-[#F6F7F8] rounded-[10px]"
+                    : "hover:bg-gray-50"
                 }`}
               >
                 {item.icon}
@@ -257,10 +259,12 @@ const Sidebar = ({
       <div className="px-5">
         <div className="border-b border-[#D9D9D9] flex items-center justify-between py-4 lg:py-6">
           {!showLabels && (
-            <div className="flex items-center gap-2">
-              <img src="/favicon.svg" alt="Logo" className="h-8 w-auto" />
-              <span className="text-lg font-semibold">IQ-Nurse</span>
-            </div>
+            <Link href={"/profile/home"}>
+              <div className="flex items-center gap-2">
+                <img src="/favicon.svg" alt="Logo" className="h-8 w-auto" />
+                <span className="text-lg font-semibold">IQ-Nurse</span>
+              </div>
+            </Link>
           )}
           <button
             onClick={toggleSidebar}
