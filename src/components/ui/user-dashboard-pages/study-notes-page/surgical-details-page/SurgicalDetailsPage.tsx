@@ -6,20 +6,28 @@ import SurgicalHeader from "./SurgicalHeader";
 import MediaSection from "./MediaSection";
 import TabNavigation from "./TabNavigation";
 import OverviewTab from "./OverviewTab";
-import ProcedureTab from "./ProcedureTab";
-import ImagesTab from "./ImagesTab";
-import VideosTab from "./VideosTab";
+import NoteTab from "./NoteTab";
+import MediaTab from "./MediaTab";
 
 const tabs = [
-  { id: "overview", label: "Overview", icon: FileText, color: "bg-blue-500" },
   {
-    id: "procedure",
-    label: "Procedure",
-    icon: Stethoscope,
+    id: "overview",
+    label: "Overview",
+    icon: "/assets/sidebar-icons/study-notes-icon.svg",
+    color: "bg-blue-500",
+  },
+  {
+    id: "media",
+    label: "Media",
+    icon: "/assets/icons/media-icon.svg",
     color: "bg-green-500",
   },
-  { id: "images", label: "Images", icon: ImageIcon, color: "bg-purple-500" },
-  { id: "videos", label: "Videos", icon: Video, color: "bg-orange-500" },
+  {
+    id: "note",
+    label: "Note",
+    icon: "/assets/icons/note-icon.svg",
+    color: "bg-purple-500",
+  },
 ];
 
 export default function SurgicalDetailsPage({ id }: { id: any }) {
@@ -29,31 +37,34 @@ export default function SurgicalDetailsPage({ id }: { id: any }) {
     switch (activeTab) {
       case "overview":
         return <OverviewTab />;
-      case "procedure":
-        return <ProcedureTab />;
-      case "images":
-        return <ImagesTab />;
-      case "videos":
-        return <VideosTab />;
+      case "media":
+        return <MediaTab />;
+      case "note":
+        return <NoteTab />;
       default:
-        return null;
+        return <OverviewTab />;
     }
   };
 
   return (
-    <div className=" ">
+    <div className="">
       <SurgicalHeader />
-      <div className="">
+
+      <div>
         <TabNavigation
           tabs={tabs}
           activeTab={activeTab}
           onChange={setActiveTab}
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
-          <MediaSection />
-          <div className="bg-white rounded-lg shadow-sm">
-            <div className="p-6">{renderTabContent()}</div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-8">
+          <div className=" hidden lg:block">
+            <MediaSection />
+          </div>
+          <div className=" px-2">
+            <div className="">
+              {renderTabContent()}
+            </div>
           </div>
         </div>
       </div>

@@ -1,13 +1,11 @@
+import { demoContent } from "@/data/demoContent";
+
 export default function OverviewTab() {
+  const content = demoContent;
   return (
-    <div className="space-y-4">
-      <h3 className="text-lg font-semibold text-gray-900">
-        Aortic Aneurysm (AAA)
-      </h3>
-      <p className="text-gray-700 leading-relaxed">
-        An aortic aneurysm (AAA) is a condition...
-      </p>
-      {/* Keep the rest of your original overview text here */}
-    </div>
+    <div
+      className="flex flex-col space-y-6 p-6 h-fit border border-[#003877] rounded-[11px]"
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
   );
 }
