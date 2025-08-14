@@ -3,9 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Input, Button, InputRef } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { Input, Button, InputRef, Dropdown, Avatar, Typography } from "antd";
+import { DownOutlined, SearchOutlined } from "@ant-design/icons";
 import { BookmarkIcon, Search } from "lucide-react";
+import ProfilePanel from "./header/ProfilePanel";
+import { profile } from "./header/Header";
+const { Text } = Typography;
 
 export default function MobileHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -80,6 +83,19 @@ export default function MobileHeader() {
                 icon={<BookmarkIcon style={{ fontSize: 20 }} />}
                 aria-label="Bookmarks"
               />
+              <Dropdown
+                trigger={["click"]}
+                dropdownRender={() => <ProfilePanel />}
+              >
+                <Button
+                  style={{ padding: 0, borderRadius: "50%" }}
+                  type="text"
+                  className="flex items-center "
+                >
+                  <Avatar src={profile.image} size={32} />
+                  {/* <DownOutlined className="hidden text-gray-500 md:block" /> */}
+                </Button>
+              </Dropdown>
             </div>
           )}
 

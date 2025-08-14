@@ -1,7 +1,15 @@
 import { Play } from "lucide-react";
 import Image from "next/image";
 
-export default function MediaSection() {
+export default function MediaSection({
+  img,
+  video,
+  alt,
+}: {
+  img?: string;
+  video?: string;
+  alt?: string;
+}) {
   return (
     <div className="space-y-8">
       {/* Video */}
@@ -15,8 +23,7 @@ export default function MediaSection() {
       {/* Image */}
       <div className="">
         <img
-          src="https://i.ibb.co.com/CpRX0XB1/f612a1bef42e4c66c9ae53562b3b4ebb7db86c8d.png"
-          alt="Heart anatomy diagram"
+          src={img || "/assets/images/heart_anatomy.png"}
           className="w-full h-auto rounded-lg"
         />
         {/* <Image
