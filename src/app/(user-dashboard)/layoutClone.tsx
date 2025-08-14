@@ -13,10 +13,13 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const [showLabels, setShowLabels] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
-  const hiddenPaths = ["/profile/study-notes/document/"];
+  const hiddenPaths = [
+    "/profile/study-notes/document/",
+    "/profile/clinicals/skill-notes/",
+  ];
 
   const shouldHide = hiddenPaths.some((prefix) => pathname.startsWith(prefix));
-  console.log(shouldHide, pathname);
+  // console.log(shouldHide, pathname);
 
   return (
     <div className="bg-[#FFFFFF]">

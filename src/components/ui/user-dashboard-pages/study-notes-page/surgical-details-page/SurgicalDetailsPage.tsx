@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { FileText, Stethoscope, ImageIcon, Video } from "lucide-react";
-import SurgicalHeader from "./SurgicalHeader";
 import MediaSection from "./MediaSection";
 import TabNavigation from "./TabNavigation";
-import OverviewTab from "./OverviewTab";
+import OverviewTab from "../../../../shared/OverviewTab";
 import NoteTab from "./NoteTab";
-import MediaTab from "./MediaTab";
+import MediaTab from "../../../../shared/MediaTab";
+import DetailsHeader from "@/components/shared/DetailsHeader";
 
 const tabs = [
   {
@@ -48,7 +48,7 @@ export default function SurgicalDetailsPage({ id }: { id: any }) {
 
   return (
     <div className="">
-      <SurgicalHeader />
+      <DetailsHeader title={"Muscle System"} back={"/profile/study-notes"} />
 
       <div>
         <TabNavigation
