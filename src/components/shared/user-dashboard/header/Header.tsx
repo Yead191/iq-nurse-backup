@@ -11,6 +11,11 @@ import SearchBar from "./SearchBar";
 import { LangKey, LANGUAGES, PROFILE_ITEMS } from "@/data/headerConstants";
 
 const { Text } = Typography;
+export const profile = {
+  image: "https://i.ibb.co.com/CKGDQYkt/Frame-2147227147.png",
+  name: "Aiden Max",
+  email: "sara.@example.com",
+};
 
 export default function Header() {
   const [lang, setLang] = React.useState<LangKey>("en");
@@ -18,12 +23,6 @@ export default function Header() {
     () => LANGUAGES.find((l) => l.key === lang) ?? LANGUAGES[0],
     [lang]
   );
-
-  const profile = {
-    image: "https://i.ibb.co.com/CKGDQYkt/Frame-2147227147.png",
-    name: "Aiden Max",
-    email: "sara.@example.com",
-  };
 
   return (
     <div className="border-b border-[#C5D0D0] w-full bg-white">
@@ -72,12 +71,7 @@ export default function Header() {
           </Badge>
 
           {/* Profile */}
-          <Dropdown
-            trigger={["click"]}
-            dropdownRender={() => (
-              <ProfilePanel onLogout={() => console.log("logout")} />
-            )}
-          >
+          <Dropdown trigger={["click"]} dropdownRender={() => <ProfilePanel />}>
             <Button
               type="text"
               className="flex items-center gap-3 rounded-xl bg-white px-2 py-1.5"

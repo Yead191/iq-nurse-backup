@@ -55,7 +55,7 @@ export default function SkillNotesPage({ id }: { id: any }) {
       />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-8">
         <div className=" hidden lg:block">
-          <MediaSection />
+          <MediaSection img="/assets/assessment-img.png" alt="Assessment img" />
         </div>
         <div className=" ">
           <div className="">{renderTabContent()}</div>
