@@ -16,6 +16,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
   const hiddenPaths = [
     "/profile/study-notes/document/",
     "/profile/clinicals/skill-notes/",
+    "/profile/patient-assessment/assessment-notes/",
   ];
 
   const shouldHide = hiddenPaths.some((prefix) => pathname.startsWith(prefix));

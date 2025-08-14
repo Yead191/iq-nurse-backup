@@ -1,12 +1,11 @@
 "use client";
-
 import DetailsHeader from "@/components/shared/DetailsHeader";
+import MediaTab from "@/components/shared/MediaTab";
+import OverviewTab from "@/components/shared/OverviewTab";
 import React, { useState } from "react";
 import TabNavigation from "../../study-notes-page/surgical-details-page/TabNavigation";
 import MediaSection from "../../study-notes-page/surgical-details-page/MediaSection";
-import OverviewTab from "../../../../shared/OverviewTab";
-import MediaTab from "../../../../shared/MediaTab";
-import EquipmentTab from "./EquipmentTab";
+import SupplyTab from "./SupplyTab";
 
 const tabs = [
   {
@@ -22,15 +21,13 @@ const tabs = [
     color: "bg-green-500",
   },
   {
-    id: "equipment",
-    label: "Equipment",
+    id: "supplies",
+    label: "Supplies",
     icon: "/assets/icons/equipment-icon.svg",
     color: "bg-purple-500",
   },
 ];
-export default function SkillNotesPage({ id }: { id: any }) {
-  console.log(id);
-
+export default function AssessmentNotesPage({ id }: { id: string }) {
   const [activeTab, setActiveTab] = useState("overview");
 
   const renderTabContent = () => {
@@ -39,15 +36,18 @@ export default function SkillNotesPage({ id }: { id: any }) {
         return <OverviewTab />;
       case "media":
         return <MediaTab />;
-      case "equipment":
-        return <EquipmentTab />;
+      case "supplies":
+        return <SupplyTab />;
       default:
         return <OverviewTab />;
     }
   };
   return (
     <div>
-      <DetailsHeader title="Clinical Skills" back={"/profile/clinicals"} />
+      <DetailsHeader
+        title="Patient Assessment"
+        back={"/profile/patient-assessment"}
+      />
       <TabNavigation
         tabs={tabs}
         activeTab={activeTab}
