@@ -1,5 +1,5 @@
 import React from "react";
-import MediaSection from "./MediaSection";
+import MediaSection from "../ui/user-dashboard-pages/study-notes-page/surgical-details-page/MediaSection";
 
 export default function MediaTab() {
   return (

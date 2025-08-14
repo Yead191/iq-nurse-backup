@@ -1,18 +1,24 @@
 import { Bookmark, Share2, Printer, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 
-export default function SurgicalHeader() {
+export default function DetailsHeader({
+  title,
+  back,
+}: {
+  title: string | undefined;
+  back?: /*unresolved*/ any;
+}) {
   return (
     <div className="flex items-center justify-between py-3 sticky top-0 z-50 bg-white">
       {/* Back Button */}
       <div className="flex items-center space-x-3">
-        <Link href={"/profile/study-notes"}>
+        <Link href={back}>
           <button className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border p-1">
             <ChevronLeft size={20} />
           </button>
         </Link>
         <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded">
-          Muscle System
+          {title}
         </span>
       </div>
 
