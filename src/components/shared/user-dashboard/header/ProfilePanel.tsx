@@ -5,7 +5,9 @@ import {
   CreditCardOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-export default function ProfilePanel({ onLogout }: { onLogout: () => void }) {
+import { useRouter } from "next/navigation";
+export default function ProfilePanel() {
+  const router = useRouter();
   const PROFILE_ITEMS = [
     {
       key: "account",
@@ -18,14 +20,14 @@ export default function ProfilePanel({ onLogout }: { onLogout: () => void }) {
       href: "/profile/account-security",
     },
     {
-      key: "billing",
+      key: "subscription",
       icon: (
         <span className="grid h-8 w-8 place-items-center rounded-md bg-[#E6F4EE]">
           <CreditCardOutlined style={{ color: "#1D9A6C" }} />
         </span>
       ),
       label: "Billing & Subscription",
-      href: "/settings/billing",
+      href: "/profile/subscriptions",
     },
     {
       key: "logout",
@@ -38,6 +40,11 @@ export default function ProfilePanel({ onLogout }: { onLogout: () => void }) {
       danger: true,
     },
   ];
+  const onLogout = () => {
+    // Handle logout logic here
+    console.log("User logged out");
+    router.push("/");
+  };
   return (
     <div
       className="w-80 rounded-2xl bg-white p-3  shadow-xl"
@@ -58,7 +65,11 @@ export default function ProfilePanel({ onLogout }: { onLogout: () => void }) {
             </div>
           );
           return item.key === "logout" ? (
-            <button key={item.key} onClick={onLogout} className="text-left">
+            <button
+              key={item.key}
+              onClick={onLogout}
+              className="text-left cursor-pointer"
+            >
               {content}
             </button>
           ) : (

@@ -59,7 +59,10 @@ export default function SurgicalDetailsPage({ id }: { id: any }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-8">
           <div className=" hidden lg:block">
-            <MediaSection />
+            <MediaSection
+              img="https://i.ibb.co.com/CpRX0XB1/f612a1bef42e4c66c9ae53562b3b4ebb7db86c8d.png"
+              alt="Heart anatomy diagram"
+            />
           </div>
           <div className=" ">
             <div className="">{renderTabContent()}</div>
