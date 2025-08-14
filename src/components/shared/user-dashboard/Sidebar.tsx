@@ -35,7 +35,7 @@ const Sidebar = ({
 
   const toggleSidebar = () => {
     setShowLabels(!showLabels);
-    setIsMobileSidebarOpen(false);
+    // setIsMobileSidebarOpen(false);
   };
   const isActive = (path: string) => pathname === path;
   const toggleMenu = (menu: string) =>

@@ -1,23 +1,23 @@
 "use client";
-
-import { useState } from "react";
-import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
+import React, { useState } from "react";
 import heartImg from "@/assets/heart-hands.svg";
-import PageHeader from "./PageHeader";
-import { documentationData, medicalCategories } from "@/data/medicalData";
-import CategorySwiper from "./CategorySwiper";
-import DocumentationGrid from "./DocumentationGrid";
+import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
+import PageHeader from "../study-notes-page/PageHeader";
+import { skillCategories, skillDocumentationData } from "@/data/skillData";
+import CategorySwiper from "../study-notes-page/CategorySwiper";
+import DocumentationGrid from "../study-notes-page/DocumentationGrid";
+import SkillDocumentationGrid from "./SkillDocumentationGrid";
 
-export default function MedicalSurgicalPage() {
+export default function ClinicalsPage() {
   const [selectedCategory, setSelectedCategory] = useState(
-    medicalCategories[0].id
+    skillCategories[0].id
   );
   const [sortBy, setSortBy] = useState("newest");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
   // Filter documentation by selected category
-  const filteredDocs = documentationData.filter(
+  const filteredDocs = skillDocumentationData.filter(
     (doc: any) => doc.categoryId === selectedCategory
   );
 
@@ -55,25 +55,20 @@ export default function MedicalSurgicalPage() {
 
   return (
     <div>
-      <PageBreadcrumb itemImg={heartImg} itemLabel="Study Notes" />
-
+      <PageBreadcrumb itemImg={heartImg} itemLabel="Clinicals" />
       <PageHeader
-        totalNotes={documentationData.length}
+        title="Clinical Skills"
+        totalNotes={skillDocumentationData.length}
         sortBy={sortBy}
         onSortChange={handleSortChange}
-        title="Medical Surgical"
-        label="Notes"
+        label="Skills"
       />
-
-      <div className="overflow-hidden ">
-        <CategorySwiper
-          categories={medicalCategories}
-          selectedCategory={selectedCategory}
-          onCategoryChange={handleCategoryChange}
-        />
-      </div>
-
-      <DocumentationGrid
+      <CategorySwiper
+        categories={skillCategories}
+        selectedCategory={selectedCategory}
+        onCategoryChange={handleCategoryChange}
+      />
+      <SkillDocumentationGrid
         documents={paginatedDocs}
         totalDocuments={sortedDocs.length}
         currentPage={currentPage}
