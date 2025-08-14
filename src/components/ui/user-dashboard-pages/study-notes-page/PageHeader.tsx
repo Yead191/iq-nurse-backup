@@ -5,8 +5,8 @@ import { FilterOutlined } from "@ant-design/icons";
 
 interface PageHeaderProps {
   totalNotes: number;
-  sortBy: string;
-  onSortChange: (value: string) => void;
+  sortBy?: string;
+  onSortChange?: (value: string) => void;
   title?: string;
   label: string;
 }
@@ -16,7 +16,7 @@ export default function PageHeader({
   sortBy,
   onSortChange,
   title,
-  label 
+  label,
 }: PageHeaderProps) {
   const sortOptions = [
     { value: "newest", label: "Newest First" },
@@ -34,18 +34,19 @@ export default function PageHeader({
           </span>
         </h1>
       </div>
-
-      <div className="flex items-center gap-2">
-        <span className="text-gray-600 text-sm hidden">Sort by</span>
-        <Select
-          placeholder="Sort by"
-          value={sortBy}
-          onChange={onSortChange}
-          suffixIcon={<FilterOutlined />}
-          className="w-40"
-          options={sortOptions}
-        />
-      </div>
+      {sortBy && onSortChange ? (
+        <div className="flex items-center gap-2">
+          <span className="text-gray-600 text-sm hidden">Sort by</span>
+          <Select
+            placeholder="Sort by"
+            value={sortBy}
+            onChange={onSortChange}
+            suffixIcon={<FilterOutlined />}
+            className="w-40"
+            options={sortOptions}
+          />
+        </div>
+      ) : null}
     </div>
   );
 }
