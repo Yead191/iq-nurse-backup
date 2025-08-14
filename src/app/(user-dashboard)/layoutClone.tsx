@@ -23,7 +23,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
   // console.log(shouldHide, pathname);
 
   return (
-    <div className="bg-[#FFFFFF]">
+    <div className="bg-[#FFFFFF] ">
       {/* mobile header */}
       <div
         className={`   sticky top-0 z-10 ${
@@ -75,7 +75,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
             <ConfigProvider
               theme={{
                 token: {
-                  // colorPrimary: "#0ea5e9",
+                  colorPrimary: "#003877", 
                 },
               }}
             >
