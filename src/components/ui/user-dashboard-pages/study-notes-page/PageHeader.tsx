@@ -7,12 +7,16 @@ interface PageHeaderProps {
   totalNotes: number;
   sortBy: string;
   onSortChange: (value: string) => void;
+  title?: string;
+  label: string;
 }
 
 export default function PageHeader({
   totalNotes,
   sortBy,
   onSortChange,
+  title,
+  label 
 }: PageHeaderProps) {
   const sortOptions = [
     { value: "newest", label: "Newest First" },
@@ -24,9 +28,9 @@ export default function PageHeader({
     <div className="flex justify-between items-center mb-8 mt-6">
       <div>
         <h1 className="md:text-2xl font-bold text-gray-900">
-          Medical Surgical{" "}
+          {title}{" "}
           <span className="text-gray-500 font-normal text-[14px]">
-            {totalNotes} Notes
+            {totalNotes} {label}
           </span>
         </h1>
       </div>

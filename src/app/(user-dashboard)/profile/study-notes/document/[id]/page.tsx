@@ -1,8 +1,13 @@
-"use client";
 import SurgicalDetailsPage from "@/components/ui/user-dashboard-pages/study-notes-page/surgical-details-page/SurgicalDetailsPage";
-import { useParams } from "next/navigation";
 
-export default function Page() {
-  const { id } = useParams();
+interface PageProps {
+  params: Promise<{
+    id: string;
+  }>;
+}
+
+export default async function Page({ params }: PageProps) {
+  const { id } = await params; 
+  console.log(id);
   return <SurgicalDetailsPage id={id} />;
 }

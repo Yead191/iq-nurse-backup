@@ -39,17 +39,19 @@ export function CategoryGrid({ items = [] as CategoryItem[] }) {
       {items.map((cat) => {
         const Icon = cat.icon || defaultIcons[cat.key] || Stethoscope;
         return (
-          <Card
+          <div
+            style={{
+              padding: "10px 12px",
+            }}
             key={cat.key}
-            className="rounded-xl shadow-sm hover:shadow-md transition-shadow"
-            bodyStyle={{ padding: 16 }}
+            className="rounded-lg border border-[#F6F7F8] shadow-sm hover:shadow-md transition-shadow "
           >
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-50">
                 <Icon className="h-5 w-5 text-sky-600" />
               </div>
               <div className="truncate">
-                <div className="text-sm font-medium text-[#110D0D] truncate">
+                <div className="text-sm font-semibold text-[#110D0D] truncate">
                   {cat.title}
                 </div>
                 <div className="text-xs text-neutral-500">
@@ -57,7 +59,7 @@ export function CategoryGrid({ items = [] as CategoryItem[] }) {
                 </div>
               </div>
             </div>
-          </Card>
+          </div>
         );
       })}
     </div>

@@ -37,7 +37,7 @@ export default function DocumentationCard({
             </div>
 
             <div className="flex-1">
-              <h3 className="font-semibold text-gray-900 mb-1 text-lg">
+              <h3 className="font-medium text-gray-900 mb-1 text-lg">
                 {document.title}
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
