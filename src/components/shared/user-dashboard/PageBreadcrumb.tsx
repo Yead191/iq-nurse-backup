@@ -16,15 +16,7 @@ export function PageBreadcrumb({ itemImg, itemLabel }: PageBreadcrumbProps) {
   return (
     <Breadcrumb
       className="[&_.ant-breadcrumb-separator]:flex [&_.ant-breadcrumb-separator]:items-center hidden md:block"
-      separator={
-        <Image
-          src={arrowImg}
-          height={12}
-          width={16}
-          alt="arrow"
-          className="inline-block"
-        />
-      }
+      separator={<span className="text-gray-500">⟷</span>}
       items={[
         {
           title: (
