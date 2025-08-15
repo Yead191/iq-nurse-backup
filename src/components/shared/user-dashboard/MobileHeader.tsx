@@ -39,6 +39,19 @@ export default function MobileHeader() {
   const showLogo = ["home", "nurse-q"].includes(targetSlug);
   // console.log(showLogo, targetSlug);
 
+  const isAccountRelated =
+    pathname.startsWith("/profile/account-security") ||
+    pathname.startsWith("/profile/subscriptions") ||
+    pathname.startsWith("/profile/language-preference") ||
+    pathname.startsWith("/profile/faqs") ||
+    pathname.startsWith("/profile/privacy-policy") ||
+    pathname.startsWith("/profile/terms-condition") ||
+    pathname.startsWith("/profile/invite-friends") ||
+    pathname.startsWith("/profile/contact-us") ||
+    pathname.startsWith("/profile/about-us");
+
+  const backLink = isAccountRelated ? "/profile/account" : "/profile/home";
+
   return (
     <header
       style={{
@@ -83,7 +96,7 @@ export default function MobileHeader() {
               </Link>
             ) : (
               <div className="flex items-center space-x-3">
-                <Link href="/profile/home" className="mt-1.5">
+                <Link href={backLink} className="mt-1.5">
                   <button className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border ">
                     <ChevronLeft size={24} />
                   </button>
