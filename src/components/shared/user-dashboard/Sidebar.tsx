@@ -35,7 +35,9 @@ const Sidebar = ({
 
   const toggleSidebar = () => {
     setShowLabels(!showLabels);
-    setIsMobileSidebarOpen(false);
+    if (setIsMobileSidebarOpen) {
+      setIsMobileSidebarOpen(false);
+    }
   };
   const isActive = (path: string) => pathname === path;
   const toggleMenu = (menu: string) =>
@@ -90,8 +92,8 @@ const Sidebar = ({
         ),
       },
       {
-        key: "/profile/template",
-        label: "Template",
+        key: "/profile/templates",
+        label: "Templates",
         icon: icon("/assets/sidebar-icons/template-icon.svg", "template"),
       },
       {

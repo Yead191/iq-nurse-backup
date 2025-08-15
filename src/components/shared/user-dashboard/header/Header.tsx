@@ -37,7 +37,7 @@ export default function Header() {
           {/* Language */}
           <Dropdown
             trigger={["click"]}
-            dropdownRender={() => (
+            popupRender={() => (
               <LanguagePanel selected={lang} onSelect={setLang} />
             )}
           >
