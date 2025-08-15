@@ -17,6 +17,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/study-notes/document/",
     "/profile/clinicals/skill-notes/",
     "/profile/patient-assessment/assessment-notes/",
+    "/profile/templates/template-details/",
   ];
 
   const shouldHide = hiddenPaths.some((prefix) => pathname.startsWith(prefix));
@@ -75,7 +76,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
             <ConfigProvider
               theme={{
                 token: {
-                  colorPrimary: "#003877", 
+                  colorPrimary: "#003877",
                 },
               }}
             >

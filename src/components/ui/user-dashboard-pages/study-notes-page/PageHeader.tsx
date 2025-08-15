@@ -27,8 +27,8 @@ export default function PageHeader({
   return (
     <div className="flex justify-between items-center mb-8 mt-6">
       <div>
-        <h1 className="md:text-2xl font-bold text-gray-900">
-          {title}{" "}
+        <h1 className="md:text-2xl font-bold text-gray-900 flex md:items-center flex-col md:flex-row gap-1 md:gap-2">
+          {title}
           <span className="text-gray-500 font-normal text-[14px]">
             {totalNotes} {label}
           </span>
