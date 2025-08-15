@@ -12,12 +12,12 @@ export default function DetailsHeader({
     <div className="flex items-center justify-between py-3 sticky top-0 z-50 bg-white">
       {/* Back Button */}
       <div className="flex items-center space-x-3">
-        <Link href={back}>
-          <button className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border p-1">
-            <ChevronLeft size={20} />
+        <Link href={back} className="mt-1.5">
+          <button className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border   ">
+            <ChevronLeft size={24} className="" />
           </button>
         </Link>
-        <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded">
+        <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1  rounded">
           {title}
         </span>
       </div>

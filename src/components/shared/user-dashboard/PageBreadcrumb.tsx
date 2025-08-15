@@ -15,7 +15,7 @@ interface PageBreadcrumbProps {
 export function PageBreadcrumb({ itemImg, itemLabel }: PageBreadcrumbProps) {
   return (
     <Breadcrumb
-      className="[&_.ant-breadcrumb-separator]:flex [&_.ant-breadcrumb-separator]:items-center"
+      className="[&_.ant-breadcrumb-separator]:flex [&_.ant-breadcrumb-separator]:items-center hidden md:block"
       separator={
         <Image
           src={arrowImg}
