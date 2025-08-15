@@ -24,9 +24,8 @@ export default function SkillDocumentationGrid({
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {documents.map((doc) => (
-          <Link href={`/profile/clinicals/skill-notes/${doc.id}`}>
+          <Link key={doc.id} href={`/profile/clinicals/skill-notes/${doc.id}`}>
             <div
-              key={doc.id}
               className="flex items-center gap-3 p-4 rounded-xl bg-white hover:shadow-md transition "
               style={{
                 boxShadow: "4.03px 4.03px 57.38px 0px rgba(0, 0, 0, 0.07)",
