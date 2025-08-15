@@ -83,12 +83,11 @@ export default function MobileHeader() {
               </Link>
             ) : (
               <div className="flex items-center space-x-3">
-                <button
-                  onClick={() => router.back()}
-                  className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border "
-                >
-                  <ChevronLeft size={24} />
-                </button>
+                <Link href="/profile/home" className="mt-1.5">
+                  <button className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border ">
+                    <ChevronLeft size={24} />
+                  </button>
+                </Link>
 
                 <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded">
                   {formatPathName(targetSlug)}

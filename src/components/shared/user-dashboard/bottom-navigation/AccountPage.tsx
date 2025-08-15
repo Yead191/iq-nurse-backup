@@ -64,10 +64,10 @@ export default function AccountPage() {
   return (
     <div className="max-w-md lg:max-w-[600px] mx-auto bg-white">
       {/* Header */}
-      <h1 className="text-xl font-bold text-center mb-6">Account</h1>
+      {/* <h1 className="text-xl font-bold text-center mb-6">Account</h1> */}
 
       {/* User Info */}
-      <div className="flex items-center gap-4 bg-[#F6F7F8] p-3 rounded-xl mb-6">
+      <div className="flex items-center gap-4 bg-[#F6F7F8] p-3 rounded-xl mb-4">
         <img
           src={profile.image}
           alt={profile.name}
