@@ -71,7 +71,7 @@ export default function Header() {
           </Badge>
 
           {/* Profile */}
-          <Dropdown trigger={["click"]} dropdownRender={() => <ProfilePanel />}>
+          <Dropdown trigger={["click"]} popupRender={() => <ProfilePanel />}>
             <Button
               type="text"
               className="flex items-center gap-3 rounded-xl bg-white px-2 py-1.5"
