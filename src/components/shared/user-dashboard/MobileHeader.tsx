@@ -4,16 +4,15 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Input, Button, InputRef, Dropdown, Avatar, Typography } from "antd";
-import { DownOutlined, SearchOutlined } from "@ant-design/icons";
-import { BookmarkIcon, Search } from "lucide-react";
-import ProfilePanel from "./header/ProfilePanel";
-import { profile } from "./header/Header";
-const { Text } = Typography;
+import { SearchOutlined } from "@ant-design/icons";
+import { BookmarkIcon, ChevronLeft, Search } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function MobileHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
   const inputRef = useRef<InputRef>(null);
-
+  const pathname = usePathname();
+  const router = useRouter();
   // Focus input when search opens and close on Escape
   useEffect(() => {
     if (searchOpen) {
@@ -25,6 +24,20 @@ export default function MobileHeader() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [searchOpen]);
+
+  // page title from URL
+  const formatPathName = (slug: string | undefined) => {
+    if (!slug) return "";
+    return slug
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
+  const pathSegments = pathname?.split("/").filter(Boolean) || [];
+
+  let targetSlug = pathSegments[pathSegments.length - 1];
+  const showLogo = ["home", "nurse-q"].includes(targetSlug);
+  // console.log(showLogo, targetSlug);
 
   return (
     <header
@@ -47,27 +60,41 @@ export default function MobileHeader() {
           }}
         >
           {/* Left: Logo + Brand */}
-          {!searchOpen && (
-            <Link
-              href="/profile/home"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                minWidth: 0,
-              }}
-              aria-label="Home"
-            >
-              <Image
-                src="/assets/Logo.png"
-                alt="IQ-Nurse logo"
-                width={127}
-                height={48}
-                style={{ borderRadius: 4 }}
-                priority
-              />
-            </Link>
-          )}
+          {!searchOpen &&
+            (showLogo ? (
+              <Link
+                href="/profile/home"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  minWidth: 0,
+                }}
+                aria-label="Home"
+              >
+                <Image
+                  src="/assets/Logo.png"
+                  alt="IQ-Nurse logo"
+                  width={127}
+                  height={48}
+                  style={{ borderRadius: 4 }}
+                  priority
+                />
+              </Link>
+            ) : (
+              <div className="flex items-center space-x-3">
+                <button
+                  onClick={() => router.back()}
+                  className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border "
+                >
+                  <ChevronLeft size={24} />
+                </button>
+
+                <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded">
+                  {formatPathName(targetSlug)}
+                </span>
+              </div>
+            ))}
 
           {/* Right: Actions */}
           {!searchOpen && (
@@ -83,19 +110,6 @@ export default function MobileHeader() {
                 icon={<BookmarkIcon style={{ fontSize: 20 }} />}
                 aria-label="Bookmarks"
               />
-              <Dropdown
-                trigger={["click"]}
-                dropdownRender={() => <ProfilePanel />}
-              >
-                <Button
-                  style={{ padding: 0, borderRadius: "50%" }}
-                  type="text"
-                  className="flex items-center "
-                >
-                  <Avatar src={profile.image} size={32} />
-                  {/* <DownOutlined className="hidden text-gray-500 md:block" /> */}
-                </Button>
-              </Dropdown>
             </div>
           )}
 

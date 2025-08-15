@@ -23,7 +23,7 @@ export default function MediaSection({
       {/* Image */}
       <div className="">
         <img
-          src={img || "/assets/images/heart_anatomy.png"}
+          src={img || "https://i.ibb.co.com/CpRX0XB1/f612a1bef42e4c66c9ae53562b3b4ebb7db86c8d.png"}
           className="w-full h-auto rounded-lg"
         />
         {/* <Image
