@@ -12,7 +12,6 @@ import DeleteAccount from "./DeleteAccount";
 import ProfileImageUpdate from "./ProfileImageUpdate";
 import { FiUser } from "react-icons/fi";
 import { FaHome } from "react-icons/fa";
-import Link from "next/link";
 
 const AccountSecurity = () => {
   const [form] = Form.useForm();

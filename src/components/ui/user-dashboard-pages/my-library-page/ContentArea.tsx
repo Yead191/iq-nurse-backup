@@ -23,18 +23,18 @@ export default function ContentArea({
         // Display a message when no folder or page is selected
         <CreateFolder isMobile={isMobile} onCreateFolder={onCreateFolder} />
       ) : selectedPage?.content ? (
-        <div className="flex-1 bg-white overflow-y-auto ">
+        <div className="flex-1 bg-white overflow-y-auto  ">
           <div className={`max-w-4xl mx-auto ${isMobile ? "p-4" : "p-8"}`}>
             <img
               src={selectedPage?.content.image}
               alt="page image"
-              className="h-[80vh] w-full object-contain"
+              className="h-[90vh] w-full object-contain"
             />
           </div>
         </div>
       ) : (
         // Fallback content when no page is selected
-        <div className="flex-1 flex items-center justify-center ">
+        <div className="flex-1 flex items-center justify-center h-[calc(100vh-195px)] ">
           <div className="text-center px-4">
             <h3
               className={`${

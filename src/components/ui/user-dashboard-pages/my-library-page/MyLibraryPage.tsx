@@ -142,7 +142,7 @@ export default function MyLibraryPage() {
         itemImg={"/assets/icons/library-icon.svg"}
         itemLabel={"Library"}
       />
-      <div className="flex  my-6">
+      <div className="flex my-6 lg:my-0 lg:mt-6">
         <div className="hidden lg:flex lg:flex-1">
           <div className="flex sticky top-48 ">
             <LibrarySidebar
@@ -164,7 +164,7 @@ export default function MyLibraryPage() {
             />
           </div>
 
-          <div className="h-[70vh] overflow-y-auto flex-1">
+          <div className="lg:h-[calc(100vh-195px)] overflow-y-auto flex-1">
             <ContentArea
               selectedFolder={selectedFolderData}
               selectedPage={selectedPageData}
