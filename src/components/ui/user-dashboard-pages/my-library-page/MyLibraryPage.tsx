@@ -255,7 +255,7 @@ export default function MyLibraryPage() {
               {mobileView === "pages" && selectedFolderData?.name}
               {mobileView === "content" && selectedPageData?.title}
             </h1>
-            <div className="w-12" /> {/* Spacer for centering */}
+            <div className="w-12" />
           </div>
 
           {/* Mobile content area */}
