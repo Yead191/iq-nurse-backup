@@ -27,10 +27,10 @@ const AccountSecurity = () => {
   return (
     <div className="w-full mx-auto ">
       <div className="flex items-start justify-start space-x-4 p-4  text-[#7B7B7B] pb-3 text-sm">
-        <Link href="/profile/home" className="flex items-center space-x-2  ">
+        <a href="/profile/home" className="flex items-center space-x-2  ">
           <FaHome className="text-[#7B7B7B]" />
           <span className="font-medium">Home</span>
-        </Link>
+        </a>
         <span className="text-gray-500">⟷</span>
         <p className="flex items-center space-x-2 ">
           <FiUser className="text-[#28C76F]" />

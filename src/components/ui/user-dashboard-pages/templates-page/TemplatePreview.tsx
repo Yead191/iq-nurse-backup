@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Typography, Button, Image as AntImage } from "antd";
+import { Typography, Button, Image as AntImage, Grid } from "antd";
 import {
   DownloadOutlined,
   EyeOutlined,
@@ -42,9 +42,9 @@ export function TemplatePreview({ id }: TemplatePreviewProps) {
     <div>
       <DetailsHeader title={"Template Details"} back={"/profile/templates"} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-8 lg:my-12">
         {/* LEFT: Full image viewer */}
-        <div className="flex items-start justify-center w-full gap-2">
+        <div className="flex items-start  w-full gap-2 p-4 md:p-0">
           {/* Action Buttons */}
           <div className="hidden md:flex flex-col gap-2 text-xs items-center">
             <Button
@@ -93,14 +93,14 @@ export function TemplatePreview({ id }: TemplatePreviewProps) {
         {/* RIGHT: Description */}
         <div
           style={{
-            border: "1px solid #d9d9d9",
+            border: "1px solid #003877",
             borderRadius: 8,
             padding: 16,
             background: "#fff",
             width: "100%",
           }}
         >
-          <Title level={5} style={{ marginBottom: 16 }}>
+          <Title level={4} style={{ marginBottom: 16, fontWeight: 600 }}>
             Description
           </Title>
 
@@ -146,6 +146,6 @@ const actionBtnStyle = {
 const descStyle = {
   fontSize: 14,
   lineHeight: 1.6,
-  color: "#595959",
+  color: "#000000",
   marginBottom: 12,
 };
