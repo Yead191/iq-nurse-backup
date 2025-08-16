@@ -8,95 +8,14 @@ import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrum
 import ContentArea from "./ContentArea";
 import CreateFolderModal from "./CreateFolderModal";
 import DeleteConfirmationModal from "./DeleteConfirmationModal";
-
-const initialData: LibraryData = {
-  folders: [
-    {
-      id: "1",
-      name: "Medical Surgical",
-      color: "blue",
-      topicCount: 5,
-      pages: [
-        {
-          id: "1-1",
-          title: "Airway and lungs",
-          subtitle: "Respiratory system fundamentals",
-          isBookmarked: true,
-          content: {
-            title: "Thyroid Gland",
-            subtitle: "FUNCTION",
-            description:
-              "Regulates metabolism & growth and development by producing hormones",
-            details: [
-              "T3 & T4 (Thyroid hormone)",
-              "Calcitonin (lowers blood calcium)",
-              "TSH from pituitary gland (iodine is needed to create thyroid hormones)",
-            ],
-            sections: [
-              {
-                title: "HYPOTHYROIDISM",
-                subtitle: "Hyposecretion of thyroid hormone",
-                content: "T3 & T4 ↓ TSH ↑",
-              },
-              {
-                title: "HYPERTHYROIDISM",
-                subtitle: "Hypersecretion of thyroid hormone",
-                content: "T3 & T4 ↑ TSH ↓",
-              },
-            ],
-          },
-        },
-        {
-          id: "1-2",
-          title: "Cardiovascular System",
-          subtitle: "Heart and blood vessels",
-          isBookmarked: false,
-        },
-      ],
-    },
-    {
-      id: "2",
-      name: "Pharmacology",
-      color: "orange",
-      topicCount: 3,
-      pages: [
-        {
-          id: "2-1",
-          title: "Drug Classifications",
-          subtitle: "Basic pharmacology principles",
-          isBookmarked: true,
-        },
-      ],
-    },
-    {
-      id: "3",
-      name: "Mental Health",
-      color: "blue",
-      topicCount: 8,
-      pages: [],
-    },
-    {
-      id: "4",
-      name: "OB/Maternity",
-      color: "orange",
-      topicCount: 5,
-      pages: [],
-    },
-    {
-      id: "5",
-      name: "My",
-      color: "red",
-      topicCount: 3,
-      pages: [],
-    },
-  ],
-};
+import MobileFolderList from "./MobileFolderList";
+import { libraryData } from "@/data/libraryData";
 
 // Type for mobile view state
 type MobileView = "folders" | "pages" | "content";
 
 export default function MyLibraryPage() {
-  const [data, setData] = useState<LibraryData>(initialData);
+  const [data, setData] = useState<LibraryData>(libraryData);
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
   const [selectedPage, setSelectedPage] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -104,6 +23,9 @@ export default function MyLibraryPage() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [folderToDelete, setFolderToDelete] = useState<string | null>(null);
   const [mobileView, setMobileView] = useState<MobileView>("folders");
+  const [expandedFolders, setExpandedFolders] = useState<Set<string>>(
+    new Set()
+  );
 
   const handleCreateFolder = (name: string, color: string) => {
     const newFolder: Folder = {
@@ -168,7 +90,19 @@ export default function MyLibraryPage() {
   const handleFolderSelect = (folderId: string) => {
     setSelectedFolder(folderId);
     setSelectedPage(null);
-    setMobileView("pages");
+
+    // On mobile, toggle folder expansion instead of navigating
+    if (window.innerWidth < 1024) {
+      setExpandedFolders((prev) => {
+        const newSet = new Set(prev);
+        if (newSet.has(folderId)) {
+          newSet.delete(folderId);
+        } else {
+          newSet.add(folderId);
+        }
+        return newSet;
+      });
+    }
   };
 
   const handlePageSelect = (pageId: string) => {
@@ -178,11 +112,21 @@ export default function MyLibraryPage() {
 
   const handleMobileBack = () => {
     if (mobileView === "content") {
-      setMobileView("pages");
-    } else if (mobileView === "pages") {
       setMobileView("folders");
-      setSelectedFolder(null);
+      setSelectedPage(null);
     }
+  };
+
+  const handleMobileFolderToggle = (folderId: string) => {
+    setExpandedFolders((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(folderId)) {
+        newSet.delete(folderId);
+      } else {
+        newSet.add(folderId);
+      }
+      return newSet;
+    });
   };
 
   const selectedFolderData = selectedFolder
@@ -192,44 +136,47 @@ export default function MyLibraryPage() {
     selectedFolderData && selectedPage
       ? selectedFolderData.pages.find((p) => p.id === selectedPage)
       : null;
-
   return (
     <div>
       <PageBreadcrumb
         itemImg={"/assets/icons/library-icon.svg"}
         itemLabel={"Library"}
       />
-      <div className="flex min-h-screen my-6">
+      <div className="flex  my-6">
         <div className="hidden lg:flex lg:flex-1">
-          <LibrarySidebar
-            data={data}
-            selectedFolder={selectedFolder}
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-            onFolderSelect={setSelectedFolder}
-            onCreateFolder={() => setIsCreateModalOpen(true)}
-            onDeleteFolder={handleDeleteFolder}
-            onRenameFolder={handleRenameFolder}
-          />
+          <div className="flex sticky top-48 ">
+            <LibrarySidebar
+              data={data}
+              selectedFolder={selectedFolder}
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              onFolderSelect={setSelectedFolder}
+              onCreateFolder={() => setIsCreateModalOpen(true)}
+              onDeleteFolder={handleDeleteFolder}
+              onRenameFolder={handleRenameFolder}
+            />
 
-          <PagesPanel
-            selectedFolder={selectedFolderData}
-            selectedPage={selectedPage}
-            onPageSelect={setSelectedPage}
-            onToggleBookmark={handleToggleBookmark}
-          />
+            <PagesPanel
+              selectedFolder={selectedFolderData}
+              selectedPage={selectedPage}
+              onPageSelect={setSelectedPage}
+              onToggleBookmark={handleToggleBookmark}
+            />
+          </div>
 
-          <ContentArea
-            selectedFolder={selectedFolderData}
-            selectedPage={selectedPageData}
-            onCreateFolder={() => setIsCreateModalOpen(true)}
-          />
+          <div className="h-[70vh] overflow-y-auto flex-1">
+            <ContentArea
+              selectedFolder={selectedFolderData}
+              selectedPage={selectedPageData}
+              onCreateFolder={() => setIsCreateModalOpen(true)}
+            />
+          </div>
         </div>
 
+        {/* Mobile Layout */}
         <div className="flex flex-col lg:hidden w-full">
-          {/* Mobile header with back button */}
           <div className="flex items-center justify-between p-4 bg-white border-b border-gray-200">
-            {mobileView !== "folders" && (
+            {mobileView === "content" && (
               <button
                 onClick={handleMobileBack}
                 className="flex items-center text-gray-600 hover:text-gray-900"
@@ -252,40 +199,25 @@ export default function MyLibraryPage() {
             )}
             <h1 className="text-lg font-semibold text-gray-900">
               {mobileView === "folders" && "Library"}
-              {mobileView === "pages" && selectedFolderData?.name}
               {mobileView === "content" && selectedPageData?.title}
             </h1>
             <div className="w-12" />
           </div>
 
-          {/* Mobile content area */}
           <div className="flex-1 overflow-hidden">
             {mobileView === "folders" && (
-              <div className="h-full">
-                <LibrarySidebar
-                  data={data}
-                  selectedFolder={selectedFolder}
-                  searchQuery={searchQuery}
-                  onSearchChange={setSearchQuery}
-                  onFolderSelect={handleFolderSelect}
-                  onCreateFolder={() => setIsCreateModalOpen(true)}
-                  onDeleteFolder={handleDeleteFolder}
-                  onRenameFolder={handleRenameFolder}
-                  isMobile={true}
-                />
-              </div>
-            )}
-
-            {mobileView === "pages" && (
-              <div className="h-full">
-                <PagesPanel
-                  selectedFolder={selectedFolderData}
-                  selectedPage={selectedPage}
-                  onPageSelect={handlePageSelect}
-                  onToggleBookmark={handleToggleBookmark}
-                  isMobile={true}
-                />
-              </div>
+              <MobileFolderList
+                data={data}
+                expandedFolders={expandedFolders}
+                searchQuery={searchQuery}
+                onSearchChange={setSearchQuery}
+                onFolderToggle={handleMobileFolderToggle}
+                onPageSelect={handlePageSelect}
+                onToggleBookmark={handleToggleBookmark}
+                onCreateFolder={() => setIsCreateModalOpen(true)}
+                onDeleteFolder={handleDeleteFolder}
+                onRenameFolder={handleRenameFolder}
+              />
             )}
 
             {mobileView === "content" && (
@@ -300,7 +232,6 @@ export default function MyLibraryPage() {
             )}
           </div>
         </div>
-
         <CreateFolderModal
           isOpen={isCreateModalOpen}
           onClose={() => setIsCreateModalOpen(false)}

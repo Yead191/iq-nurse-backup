@@ -12,21 +12,31 @@ export type EventItem = {
   avatarUrl?: string;
 };
 
+// export interface Page {
+//   id: string;
+//   title: string;
+//   subtitle: string;
+//   isBookmarked: boolean;
+//   content?: {
+//     title: string;
+//     subtitle: string;
+//     description: string;
+//     details: string[];
+//     sections: {
+//       title: string;
+//       subtitle: string;
+//       content: string;
+//     }[];
+//   };
+// }
+
 export interface Page {
   id: string;
   title: string;
   subtitle: string;
   isBookmarked: boolean;
   content?: {
-    title: string;
-    subtitle: string;
-    description: string;
-    details: string[];
-    sections: {
-      title: string;
-      subtitle: string;
-      content: string;
-    }[];
+    image: string;
   };
 }
 
