@@ -16,7 +16,7 @@ export default function BrainIllustration({
       {/* Speech Bubble */}
       <div
         className="absolute top-10 md:-top-28 md:right-20 bg-[#324C93] text-white p-6 rounded-xl shadow-lg  max-w-md"
-        style={{ zIndex: 10 }}
+        style={{ zIndex: 0 }}
       >
         <Title
           level={4}
