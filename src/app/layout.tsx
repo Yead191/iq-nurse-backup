@@ -7,8 +7,7 @@ import { Toaster } from "sonner";
 // Roboto font
 const roboto = Roboto({
   subsets: ["latin"],
-  variable: "--font-roboto",
-  // weight: ["400", "500", "700"],
+  weight: ["300","400", "500","600" , "700" , "800" , "900"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable}  antialiased`}>
+      <body className={`${roboto.className}  antialiased`}>
         <AntdRegistry>
           <Toaster position="top-center" duration={2000} />
           {children}

@@ -10,7 +10,7 @@ const ProfileImageUpdate = ({imgURL , setImgURL}:{imgURL:string , setImgURL:(img
     };
 
     return (
-        <div className='p-3'>
+        <div className='lg:p-3 p-1'>
             <div className="flex items-center justify-center mb-4">
                 <input
                     onChange={handleImageChange}

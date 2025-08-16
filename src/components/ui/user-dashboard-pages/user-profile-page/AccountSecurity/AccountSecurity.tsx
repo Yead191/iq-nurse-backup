@@ -11,8 +11,7 @@ import {
 import DeleteAccount from "./DeleteAccount";
 import ProfileImageUpdate from "./ProfileImageUpdate";
 import { FiUser } from "react-icons/fi";
-import { FaHome } from "react-icons/fa";
-import Link from "next/link";
+import DirectionTitle from "@/components/shared/user-dashboard/support-legal/DirectionTitle";
 
 const AccountSecurity = () => {
   const [form] = Form.useForm();
@@ -26,18 +25,9 @@ const AccountSecurity = () => {
 
   return (
     <div className="w-full mx-auto ">
-      <div className="flex items-start justify-start space-x-4 p-4  text-[#7B7B7B] pb-3 text-sm">
-        <Link href="/profile/home" className="flex items-center space-x-2  ">
-          <FaHome className="text-[#7B7B7B]" />
-          <span className="font-medium">Home</span>
-        </Link>
-        <span className="text-gray-500">⟷</span>
-        <p className="flex items-center space-x-2 ">
-          <FiUser className="text-[#28C76F]" />
-          <span className="font-medium">Profile</span>
-        </p>
-      </div>
-      <div className=" w-full  rounded-lg shadow lg:p-6 p-6   bg-gray-50">
+      <DirectionTitle icon={<FiUser className="text-[#28C76F]" />} title={"Profile"} />
+
+      <div className=" w-full  rounded-lg shadow lg:p-6 p-2   bg-gray-50">
         <Form
           form={form}
           name="profileForm"
@@ -46,7 +36,7 @@ const AccountSecurity = () => {
         >
           <div className="grid lg:grid-cols-12 grid-cols-1 lg:gap-x-10 gap-y-8">
             {/* Profile Image Section */}
-            <div className="lg:col-span-3 col-span-12 border border-gray-200 rounded-xl p-3">
+            <div className="lg:col-span-3 col-span-12 border border-gray-200 rounded-xl lg:p-3 p-2">
               <ProfileImageUpdate imgURL={imgURL} setImgURL={setImgURL} />
             </div>
 

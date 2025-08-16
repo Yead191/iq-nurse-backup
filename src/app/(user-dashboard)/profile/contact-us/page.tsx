@@ -1,9 +1,10 @@
+import ContactUs from '@/components/ui/user-dashboard-pages/support-legal/contact-us/ContactUs';
 import React from 'react';
 
 const contactUsPage = () => {
     return (
         <div>
-            this is  contact page  
+           <ContactUs />
         </div>
     );
 };
