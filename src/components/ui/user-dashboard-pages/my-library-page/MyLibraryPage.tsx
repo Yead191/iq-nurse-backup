@@ -26,7 +26,7 @@ export default function MyLibraryPage() {
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(
     new Set()
   );
-
+  console.log(selectedPage);
   const handleCreateFolder = (name: string, color: string) => {
     const newFolder: Folder = {
       id: Date.now().toString(),
@@ -105,11 +105,11 @@ export default function MyLibraryPage() {
     }
   };
 
-  const handlePageSelect = (pageId: string) => {
+  const handlePageSelect = (folderId: string, pageId: string) => {
+    setSelectedFolder(folderId);
     setSelectedPage(pageId);
     setMobileView("content");
   };
-
   const handleMobileBack = () => {
     if (mobileView === "content") {
       setMobileView("folders");
@@ -136,13 +136,14 @@ export default function MyLibraryPage() {
     selectedFolderData && selectedPage
       ? selectedFolderData.pages.find((p) => p.id === selectedPage)
       : null;
+  console.log(selectedPageData);
   return (
     <div>
       <PageBreadcrumb
         itemImg={"/assets/icons/library-icon.svg"}
         itemLabel={"Library"}
       />
-      <div className="flex my-6 lg:my-0 lg:mt-6">
+      <div className="flex  lg:my-0 lg:mt-6">
         <div className="hidden lg:flex lg:flex-1">
           <div className="flex sticky top-48 ">
             <LibrarySidebar
@@ -175,11 +176,15 @@ export default function MyLibraryPage() {
 
         {/* Mobile Layout */}
         <div className="flex flex-col lg:hidden w-full">
-          <div className="flex items-center justify-between p-4 bg-white border-b border-gray-200">
+          <div
+            className={`grid grid-cols-12 py-0 bg-white ${
+              mobileView === "content" ? " border-b-2 border-gray-200 pb-2" : ""
+            }`}
+          >
             {mobileView === "content" && (
               <button
                 onClick={handleMobileBack}
-                className="flex items-center text-gray-600 hover:text-gray-900"
+                className="flex items-center text-gray-600 hover:text-gray-900 col-span-3"
               >
                 <svg
                   className="w-5 h-5 mr-2"
@@ -197,11 +202,9 @@ export default function MyLibraryPage() {
                 Back
               </button>
             )}
-            <h1 className="text-lg font-semibold text-gray-900">
-              {mobileView === "folders" && "Library"}
-              {mobileView === "content" && selectedPageData?.title}
-            </h1>
-            <div className="w-12" />
+            <div className="text-lg font-semibold text-gray-900 col-span-8 text-center">
+              <h1>{mobileView === "content" && selectedPageData?.title}</h1>
+            </div>
           </div>
 
           <div className="flex-1 overflow-hidden">

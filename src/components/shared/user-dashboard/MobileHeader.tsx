@@ -34,8 +34,14 @@ export default function MobileHeader() {
       .join(" ");
   };
   const pathSegments = pathname?.split("/").filter(Boolean) || [];
-
+  
+  // Check if the string looks like an ID (Mongo _id or numeric)
+  const isIdSegment = (str: string) =>
+    /^[a-f\d]{24}$/i.test(str) || /^\d+$/.test(str);
   let targetSlug = pathSegments[pathSegments.length - 1];
+  if (isIdSegment(targetSlug)) {
+    targetSlug = pathSegments[pathSegments.length - 2];
+  }
   const showLogo = ["home", "nurse-q"].includes(targetSlug);
   // console.log(showLogo, targetSlug);
 
