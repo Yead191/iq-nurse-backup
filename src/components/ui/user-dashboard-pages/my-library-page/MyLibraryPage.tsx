@@ -87,23 +87,6 @@ export default function MyLibraryPage() {
     }));
   };
 
-  const handleFolderSelect = (folderId: string) => {
-    setSelectedFolder(folderId);
-    setSelectedPage(null);
-
-    // On mobile, toggle folder expansion instead of navigating
-    if (window.innerWidth < 1024) {
-      setExpandedFolders((prev) => {
-        const newSet = new Set(prev);
-        if (newSet.has(folderId)) {
-          newSet.delete(folderId);
-        } else {
-          newSet.add(folderId);
-        }
-        return newSet;
-      });
-    }
-  };
 
   const handlePageSelect = (folderId: string, pageId: string) => {
     setSelectedFolder(folderId);

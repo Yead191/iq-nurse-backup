@@ -6,9 +6,15 @@ import "jodit/es2021/jodit.min.css"; // Make sure styles are imported
 
 // ✅ Load Jodit without SSR
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
+interface NoteTabProps {
+  handleContentChange?: any;
+  content?: string;
+}
 
-export default function NoteTab() {
-  const [content, setContent] = useState("");
+export default function NoteTab({
+  handleContentChange,
+  content,
+}: NoteTabProps) {
   const editor = useRef(null);
 
   const config = {
@@ -19,7 +25,7 @@ export default function NoteTab() {
     style: {
       background: "#fff",
       borderRadius: "6px",
-      padding: "8px",
+      // padding: "8px",
     },
     // ✅ Force same buttons on all screen sizes
     buttons: ["paragraph", "bold", "italic", "underline", "ul", "ol", "brush"],
@@ -58,16 +64,16 @@ export default function NoteTab() {
   return (
     <div
       style={{
-        border: "1px solid #003877",
+        // border: "1px solid #003877",
         borderRadius: "11px",
-        padding: "12px",
+        // padding: "12px",
       }}
     >
       <JoditEditor
         ref={editor}
-        value={content}
+        value={content || ""}
         config={config}
-        onBlur={(newContent) => setContent(newContent)}
+        onBlur={(newContent) => handleContentChange(newContent)}
         onChange={() => {}}
       />
     </div>
