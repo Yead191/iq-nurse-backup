@@ -17,6 +17,7 @@ export default function ContentArea({
   onCreateFolder,
   isMobile = false,
 }: ContentAreaProps) {
+  console.log(selectedFolder, selectedPage, isMobile);
   return (
     <>
       {!selectedFolder && !selectedPage ? (
@@ -28,13 +29,13 @@ export default function ContentArea({
             <img
               src={selectedPage?.content.image}
               alt="page image"
-              className="h-[90vh] w-full object-contain"
+              className="h-auto w-full object-contain"
             />
           </div>
         </div>
       ) : (
         // Fallback content when no page is selected
-        <div className="flex-1 flex items-center justify-center h-[calc(100vh-195px)] ">
+        <div className="flex-1 flex items-center justify-center lg:min-h-[calc(100vh-195px)] ">
           <div className="text-center px-4">
             <h3
               className={`${

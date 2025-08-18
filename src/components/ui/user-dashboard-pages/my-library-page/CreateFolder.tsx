@@ -8,7 +8,7 @@ export default function CreateFolder({
   onCreateFolder,
 }: CreateFolderProps) {
   return (
-    <div className="flex-1 flex items-center justify-center ">
+    <div className="flex-1 flex items-center justify-center h-[calc(100vh-195px)]">
       <div className="text-center px-4">
         <div
           className={`${
