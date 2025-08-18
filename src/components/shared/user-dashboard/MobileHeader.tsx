@@ -45,7 +45,7 @@ export default function MobileHeader() {
     pathname.startsWith("/profile/language-preference") ||
     pathname.startsWith("/profile/faqs") ||
     pathname.startsWith("/profile/privacy-policy") ||
-    pathname.startsWith("/profile/terms-condition") ||
+    pathname.startsWith("/profile/terms-service") ||
     pathname.startsWith("/profile/invite-friends") ||
     pathname.startsWith("/profile/contact-us") ||
     pathname.startsWith("/profile/about-us");
