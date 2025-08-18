@@ -105,12 +105,12 @@ export const menus: Record<string, MenuItem[]> = {
       icon: icon("/assets/sidebar-icons/faq-icon.svg", "faq"),
     },
     {
-      key: "/profile/terms",
+      key: "/profile/terms-service",
       label: "Terms & Condition",
       icon: icon("/assets/sidebar-icons/terms-icon.svg", "terms", 20),
     },
     {
-      key: "/profile/privacy",
+      key: "/profile/privacy-policy",
       label: "Privacy & Policy",
       icon: icon("/assets/sidebar-icons/privacy-icon.svg", "privacy"),
     },

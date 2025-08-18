@@ -37,7 +37,7 @@ export default function AccountPage() {
     {
       label: "Terms & Condition",
       icon: "/assets/sidebar-icons/terms-icon.svg",
-      url: "/profile/terms-condition",
+      url: "/profile/terms-service",
     },
     {
       label: "Invite Your Friends",
