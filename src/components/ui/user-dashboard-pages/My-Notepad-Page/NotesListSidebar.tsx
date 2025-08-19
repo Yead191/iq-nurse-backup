@@ -25,6 +25,7 @@ export default function NotesListSidebar({
   onNewNote,
   folderName,
 }: NotesListSidebarProps) {
+  // console.log(notes);
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredNotes = notes.filter(
@@ -64,9 +65,12 @@ export default function NotesListSidebar({
       <div className="p-3 border-b border-gray-200">
         <button
           onClick={onNewNote}
-          className="flex items-center gap-2 w-full px-3 py-2 text-sm text-blue-600 bg-blue-50 rounded hover:bg-blue-100 border border-blue-200"
+          className="flex items-center gap-2 w-full px-3 py-8 text-sm text-[#2A2251] bg-[#6B4EFF1A] rounded  border border-[#6B4EFF99]/60 h-[60px] cursor-pointer"
         >
-          <Plus size={16} />
+          <Plus
+            size={40}
+            className="border border-dashed border-[#6B4EFF] bg-white p-2 rounded-full"
+          />
           New note
         </button>
       </div>
@@ -106,7 +110,7 @@ export default function NotesListSidebar({
                 }}
                 className="p-1 hover:bg-gray-200 rounded ml-2 flex-shrink-0"
               >
-                <Bookmark className={`w-4 h-4 ${"text-black fill-current"}`} />
+                <Bookmark className={`w-4 h-4 ${"text-black "}`} />
               </button>
             </div>
           ))

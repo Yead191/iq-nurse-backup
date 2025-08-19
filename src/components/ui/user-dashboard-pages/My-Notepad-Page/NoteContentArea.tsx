@@ -71,19 +71,15 @@ export default function NoteContentArea({
     <div className="flex-1 bg-white flex flex-col">
       {/* File Name Input */}
       <div className="p-6 border-b border-gray-200">
-        <div className="max-w-4xl mx-auto">
-          <input
-            type="text"
-            placeholder="Enter file Name"
-            value={title}
-            onChange={(e) => handleTitleChange(e.target.value)}
-            className="w-full text-lg font-medium border-0 outline-none px-0 placeholder:text-gray-400 bg-transparent"
-          />
-          <div className="flex items-center justify-between mt-2">
-            <span className="text-sm text-gray-500">
-              {getCurrentDateTime()}
-            </span>
-          </div>
+        <input
+          type="text"
+          placeholder="Enter file Name"
+          value={title}
+          onChange={(e) => handleTitleChange(e.target.value)}
+          className="w-full text-lg font-medium border-0 outline-none px-0 placeholder:text-gray-400 bg-transparent"
+        />
+        <div className="flex items-center justify-between mt-2">
+          <span className="text-sm text-gray-500">{getCurrentDateTime()}</span>
         </div>
       </div>
 
@@ -96,7 +92,10 @@ export default function NoteContentArea({
             placeholder="Start typing your note..."
             className="w-full h-full resize-none border-0 outline-none text-base leading-relaxed placeholder:text-gray-400"
           /> */}
-          <NoteTab handleContentChange={handleContentChange} content={content} />
+          <NoteTab
+            handleContentChange={handleContentChange}
+            content={content}
+          />
         </div>
       </div>
     </div>
