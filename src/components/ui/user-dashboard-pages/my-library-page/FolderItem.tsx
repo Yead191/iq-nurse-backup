@@ -79,8 +79,8 @@ export default function FolderItem({
       )} bg-white rounded-md group`}
     >
       <div
-        className={`flex items-center justify-between p-3 hover:bg-gray-50 cursor-pointer ${
-          isSelected ? "bg-blue-50" : ""
+        className={`flex items-center justify-between p-3 cursor-pointer ${
+          isSelected ? "bg-blue-50" : "hover:bg-gray-50 "
         }`}
         onClick={() => onFolderSelect(folder.id)}
         onContextMenu={handleContextMenu}

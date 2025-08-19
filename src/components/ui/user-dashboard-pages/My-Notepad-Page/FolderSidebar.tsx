@@ -1,13 +1,25 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Folder, ChevronRight } from "lucide-react";
+import { Plus, Edit2, Trash2 } from "lucide-react";
+
+import NewFolderForm from "./NewFolderForm";
+import ContextMenu from "../my-library-page/ContextMenu";
+import DeleteConfirmationModal from "../my-library-page/DeleteConfirmationModal";
+import NotepadFolderItem from "./NotepadFolderItem";
+
+interface Folder {
+  name: string;
+  color: string;
+}
 
 interface FolderSidebarProps {
-  folders: string[];
+  folders: Folder[];
   activeFolder: string;
   onFolderSelect: (folder: string) => void;
-  onAddFolder: (name: string) => void;
+  onAddFolder: (folder: Folder) => void;
+  onRenameFolder?: (oldName: string, newName: string) => void;
+  onDeleteFolder?: (name: string) => void;
 }
 
 export default function FolderSidebar({
@@ -15,20 +27,59 @@ export default function FolderSidebar({
   activeFolder,
   onFolderSelect,
   onAddFolder,
+  onRenameFolder,
+  onDeleteFolder,
 }: FolderSidebarProps) {
-  const [newFolderName, setNewFolderName] = useState("");
-  const [showNewFolderInput, setShowNewFolderInput] = useState(false);
+  /** ---------------- State ---------------- */
+  const [showNewFolderForm, setShowNewFolderForm] = useState(false);
+  const [renamingFolder, setRenamingFolder] = useState<string | null>(null);
+  const [renamingValue, setRenamingValue] = useState("");
 
-  const handleAddFolder = () => {
-    if (newFolderName.trim()) {
-      onAddFolder(newFolderName.trim());
-      setNewFolderName("");
-      setShowNewFolderInput(false);
+  const [contextTarget, setContextTarget] = useState<string | null>(null);
+  const [contextMenuPosition, setContextMenuPosition] = useState({
+    x: 0,
+    y: 0,
+  });
+  const [showContextMenu, setShowContextMenu] = useState(false);
+
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
+  /** ---------------- Rename ---------------- */
+  const startRenaming = (name: string) => {
+    setRenamingFolder(name);
+    setRenamingValue(name);
+    setShowContextMenu(false);
+  };
+
+  const submitRename = () => {
+    if (
+      renamingFolder &&
+      renamingValue.trim() &&
+      renamingValue !== renamingFolder
+    ) {
+      onRenameFolder?.(renamingFolder, renamingValue.trim());
+      if (activeFolder === renamingFolder) onFolderSelect(renamingValue.trim());
     }
+    setRenamingFolder(null);
+    setRenamingValue("");
+  };
+
+  /** ---------------- Context Menu ---------------- */
+  const openContextMenu = (e: React.MouseEvent, name: string) => {
+    e.preventDefault();
+    setContextTarget(name);
+    setContextMenuPosition({ x: e.clientX, y: e.clientY });
+    setShowContextMenu(true);
+  };
+
+  /** ---------------- Delete ---------------- */
+  const confirmDelete = () => {
+    if (contextTarget) onDeleteFolder?.(contextTarget);
+    setIsDeleteModalOpen(false);
   };
 
   return (
-    <div className="w-64  border-r border-gray-200 flex flex-col h-full">
+    <div className="w-64 border-r border-gray-200 flex flex-col h-full">
       {/* Header */}
       <div className="p-3 border-b border-gray-200">
         <h2 className="text-sm lg:text-2xl font-semibold text-gray-700">
@@ -36,68 +87,76 @@ export default function FolderSidebar({
         </h2>
       </div>
 
-      {/* Folders List */}
+      {/* Folder List */}
       <div className="flex-1 overflow-y-auto py-2 space-y-2">
         {folders.map((folder) => (
-          <div
-            key={folder}
-            className={`flex items-center gap-4 px-3 py-4 cursor-pointer hover:bg-gray-100 border-l-5 border-blue-500 rounded-md ${
-              activeFolder === folder
-                ? "bg-blue-50 "
-                : ""
-            }`}
-            onClick={() => onFolderSelect(folder)}
-          >
-            {/* <Folder size={16} className="text-blue-500" /> */}
-            <p className="flex flex-col">
-              <span className="text-sm text-gray-700 truncate">{folder}</span>
-              <span className="text-xs text-gray-500">3 notes</span>
-            </p>
-          </div>
+          <NotepadFolderItem
+            key={folder.name}
+            folder={folder}
+            isActive={activeFolder === folder.name}
+            onSelect={onFolderSelect}
+            onStartRename={startRenaming}
+            onOpenContext={openContextMenu}
+            renamingFolder={renamingFolder}
+            renamingValue={renamingValue}
+            onRenameChange={setRenamingValue}
+            onRenameSubmit={submitRename}
+            onRenameCancel={() => setRenamingFolder(null)}
+          />
         ))}
       </div>
 
-      {/* New Folder Button */}
+      {/* Add New Folder */}
       <div className="p-3 border-t border-gray-200">
-        {showNewFolderInput ? (
-          <div className="space-y-2">
-            <input
-              type="text"
-              value={newFolderName}
-              onChange={(e) => setNewFolderName(e.target.value)}
-              placeholder="Folder name"
-              className="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-              onKeyPress={(e) => e.key === "Enter" && handleAddFolder()}
-              autoFocus
-            />
-            <div className="flex gap-2">
-              <button
-                onClick={handleAddFolder}
-                className="px-3 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700"
-              >
-                Add
-              </button>
-              <button
-                onClick={() => {
-                  setShowNewFolderInput(false);
-                  setNewFolderName("");
-                }}
-                className="px-3 py-1 text-xs bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
+        {showNewFolderForm ? (
+          <NewFolderForm
+            onAdd={(name, color) => {
+              onAddFolder({ name, color });
+              setShowNewFolderForm(false);
+            }}
+            onCancel={() => setShowNewFolderForm(false)}
+          />
         ) : (
           <button
-            onClick={() => setShowNewFolderInput(true)}
-            className="flex items-center gap-2 w-full px-3 py-2 text-sm text-white bg-blue-600 rounded hover:bg-blue-700"
+            onClick={() => setShowNewFolderForm(true)}
+            className="flex items-center gap-2 w-full px-3 py-2 text-sm text-white bg-primary rounded"
           >
             <Plus size={16} />
             New Folder
           </button>
         )}
       </div>
+
+      {/* Context Menu */}
+      {showContextMenu && contextTarget && (
+        <ContextMenu
+          position={contextMenuPosition}
+          onClose={() => {
+            setShowContextMenu(false);
+            setContextTarget(null);
+          }}
+          items={[
+            {
+              icon: Edit2,
+              label: "Rename",
+              onClick: () => startRenaming(contextTarget),
+            },
+            {
+              icon: Trash2,
+              label: "Delete Study Set",
+              onClick: () => setIsDeleteModalOpen(true),
+              destructive: true,
+            },
+          ]}
+        />
+      )}
+
+      {/* Delete Modal */}
+      <DeleteConfirmationModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={confirmDelete}
+      />
     </div>
   );
 }

@@ -98,3 +98,10 @@ html {
   background-color: transparent !important;
   border: none !important;
 }
+
+.mobile-nav {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Standard */
+  -webkit-touch-callout: none;
+}
