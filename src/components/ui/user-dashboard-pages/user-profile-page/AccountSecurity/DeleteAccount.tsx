@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react';
 import { HiOutlineTrash } from 'react-icons/hi';
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
