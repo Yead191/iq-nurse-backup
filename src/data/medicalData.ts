@@ -14,316 +14,338 @@ export interface Documentation {
   isBookmarked: boolean;
 }
 
+// Medical categories aligned with sidebar
 export const medicalCategories: MedicalCategory[] = [
   {
-    id: "cardiovascular",
-    name: "Cardiovascular System",
-    icon: "❤️",
+    id: "critical-care",
+    name: "Critical Care",
+    icon: "❤️‍🔥",
   },
   {
-    id: "respiratory",
-    name: "Respiratory System",
-    icon: "🫁",
-  },
-  {
-    id: "neurology",
-    name: "Neurology",
+    id: "anatomy-physiology",
+    name: "Anatomy & Physiology",
     icon: "🧠",
   },
   {
-    id: "orthopedic",
-    name: "Orthopedic",
-    icon: "🦴",
+    id: "pharmacology",
+    name: "Pharmacology",
+    icon: "💊",
   },
   {
-    id: "gastroenterology",
-    name: "Gastroenterology",
-    icon: "🫃",
+    id: "medication-calculation",
+    name: "Medication Calculation",
+    icon: "🧮",
   },
   {
-    id: "endocrine",
-    name: "Endocrine System",
-    icon: "⚡",
+    id: "pathophysiology",
+    name: "Pathophysiology",
+    icon: "💓",
   },
   {
-    id: "dermatology",
-    name: "Dermatology",
-    icon: "🧴",
+    id: "mental-health",
+    name: "Mental Health",
+    icon: "🧘",
+  },
+  {
+    id: "fundamentals",
+    name: "Fundamentals",
+    icon: "📖",
+  },
+  {
+    id: "medical-surgical",
+    name: "Medical Surgical",
+    icon: "🩺",
+  },
+  {
+    id: "ob-maternity",
+    name: "OB-Maternity",
+    icon: "👶",
+  },
+  {
+    id: "pediatrics",
+    name: "Pediatrics",
+    icon: "🍼",
   },
 ];
 
 export const documentationData: Documentation[] = [
-  // Cardiovascular System
+  // Critical Care
   {
     id: "1",
-    categoryId: "cardiovascular",
-    title: "Cardiac Catheterization Procedures",
+    categoryId: "critical-care",
+    title: "ICU Monitoring Protocols",
     description:
-      "Comprehensive guide to cardiac catheterization techniques, including preparation, procedure steps, and post-operative care protocols.",
+      "Guidelines for patient monitoring in intensive care units, including ventilator management and hemodynamic monitoring.",
     createdAt: "2024-01-15",
-    readTime: 8,
+    readTime: 10,
     isBookmarked: false,
   },
   {
     id: "2",
-    categoryId: "cardiovascular",
-    title: "Heart Failure Management",
+    categoryId: "critical-care",
+    title: "Sepsis Management",
     description:
-      "Evidence-based approaches to managing acute and chronic heart failure, including medication protocols and lifestyle interventions.",
+      "Evidence-based approaches to early recognition and management of sepsis and septic shock.",
     createdAt: "2024-01-10",
     readTime: 12,
     isBookmarked: true,
   },
   {
     id: "3",
-    categoryId: "cardiovascular",
-    title: "Arrhythmia Recognition",
+    categoryId: "critical-care",
+    title: "Airway Management",
     description:
-      "Essential guide to identifying and treating common cardiac arrhythmias in surgical and medical settings.",
-    createdAt: "2024-01-08",
-    readTime: 6,
-    isBookmarked: false,
-  },
-  {
-    id: "4",
-    categoryId: "cardiovascular",
-    title: "Hypertension Protocols",
-    description:
-      "Updated guidelines for managing hypertensive emergencies and routine blood pressure control in hospitalized patients.",
-    createdAt: "2024-01-05",
-    readTime: 7,
-    isBookmarked: false,
-  },
-  {
-    id: "5",
-    categoryId: "cardiovascular",
-    title: "Coronary Artery Disease",
-    description:
-      "Diagnostic and treatment strategies for coronary artery disease, including surgical and non-surgical interventions.",
-    createdAt: "2024-01-03",
-    readTime: 10,
-    isBookmarked: true,
-  },
-  {
-    id: "6",
-    categoryId: "cardiovascular",
-    title: "Valve Replacement Surgery",
-    description:
-      "Pre-operative, intra-operative, and post-operative care for patients undergoing cardiac valve replacement procedures.",
-    createdAt: "2024-01-01",
-    readTime: 15,
-    isBookmarked: false,
-  },
-  {
-    id: "7",
-    categoryId: "cardiovascular",
-    title: "Pacemaker Implantation",
-    description:
-      "Complete guide to pacemaker implantation procedures, device selection, and long-term patient management.",
-    createdAt: "2023-12-28",
+      "Step-by-step guide for emergency airway assessment, intubation, and tracheostomy care in ICU.",
+    createdAt: "2024-01-09",
     readTime: 9,
     isBookmarked: false,
   },
   {
-    id: "8",
-    categoryId: "cardiovascular",
-    title: "Cardiac Emergency Protocols",
+    id: "4",
+    categoryId: "critical-care",
+    title: "Hemodynamic Support",
     description:
-      "Rapid response protocols for cardiac emergencies including MI, cardiac arrest, and cardiogenic shock.",
-    createdAt: "2023-12-25",
+      "Protocols for vasopressor use, fluid resuscitation, and monitoring cardiac output in critical patients.",
+    createdAt: "2024-01-07",
     readTime: 11,
     isBookmarked: true,
   },
-
-  // Respiratory System
   {
-    id: "9",
-    categoryId: "respiratory",
-    title: "Airway and Lungs Management",
+    id: "5",
+    categoryId: "critical-care",
+    title: "ARDS Management",
     description:
-      "The airways are a network of tubes that carry air in and out of the lungs, including the nose, mouth, trachea, and bronchi.",
-    createdAt: "2024-01-14",
+      "Ventilation strategies and supportive care guidelines for patients with acute respiratory distress syndrome.",
+    createdAt: "2024-01-05",
+    readTime: 13,
+    isBookmarked: false,
+  },
+  {
+    id: "6",
+    categoryId: "critical-care",
+    title: "Shock Protocols",
+    description:
+      "Recognition and treatment of hypovolemic, cardiogenic, distributive, and obstructive shock in ICU settings.",
+    createdAt: "2024-01-03",
+    readTime: 8,
+    isBookmarked: true,
+  },
+  {
+    id: "7",
+    categoryId: "critical-care",
+    title: "Sedation and Pain Management",
+    description:
+      "ICU sedation protocols including pain control, delirium prevention, and daily sedation breaks.",
+    createdAt: "2024-01-02",
     readTime: 7,
     isBookmarked: false,
   },
   {
-    id: "10",
-    categoryId: "respiratory",
-    title: "Mechanical Ventilation",
+    id: "8",
+    categoryId: "critical-care",
+    title: "Code Blue & Resuscitation",
     description:
-      "Comprehensive protocols for initiating, managing, and weaning patients from mechanical ventilation support.",
-    createdAt: "2024-01-12",
-    readTime: 13,
+      "Stepwise ACLS-based approach to managing cardiac arrest and rapid response in critical care units.",
+    createdAt: "2024-01-01",
+    readTime: 14,
     isBookmarked: true,
   },
+
+  // Anatomy & Physiology
   {
-    id: "11",
-    categoryId: "respiratory",
-    title: "Pneumonia Treatment",
+    id: "3",
+    categoryId: "anatomy-physiology",
+    title: "Human Nervous System",
     description:
-      "Evidence-based treatment protocols for community-acquired and hospital-acquired pneumonia in surgical patients.",
-    createdAt: "2024-01-09",
+      "Comprehensive overview of the central and peripheral nervous system, including brain and spinal cord functions.",
+    createdAt: "2024-01-08",
+    readTime: 9,
+    isBookmarked: false,
+  },
+  {
+    id: "4",
+    categoryId: "anatomy-physiology",
+    title: "Musculoskeletal Anatomy",
+    description:
+      "Detailed study of human muscles, joints, and bones with clinical relevance.",
+    createdAt: "2024-01-05",
+    readTime: 7,
+    isBookmarked: true,
+  },
+
+  // Pharmacology
+  {
+    id: "5",
+    categoryId: "pharmacology",
+    title: "Antibiotic Guidelines",
+    description:
+      "Updated recommendations for selecting and dosing antibiotics in clinical practice.",
+    createdAt: "2024-01-12",
     readTime: 8,
     isBookmarked: false,
   },
   {
-    id: "12",
-    categoryId: "respiratory",
-    title: "Chest Tube Management",
+    id: "6",
+    categoryId: "pharmacology",
+    title: "Pain Management Drugs",
     description:
-      "Insertion, maintenance, and removal protocols for chest tubes in various clinical scenarios.",
+      "Pharmacological management of acute and chronic pain, including opioid and non-opioid options.",
+    createdAt: "2024-01-09",
+    readTime: 10,
+    isBookmarked: true,
+  },
+
+  // Medication Calculation
+  {
+    id: "7",
+    categoryId: "medication-calculation",
+    title: "Dosage Calculations",
+    description:
+      "Step-by-step guide to calculating safe medication dosages for adult and pediatric patients.",
     createdAt: "2024-01-07",
     readTime: 6,
     isBookmarked: false,
   },
   {
-    id: "13",
-    categoryId: "respiratory",
-    title: "COPD Exacerbation",
+    id: "8",
+    categoryId: "medication-calculation",
+    title: "IV Infusion Rates",
     description:
-      "Management strategies for acute COPD exacerbations in hospitalized patients, including medication and oxygen therapy.",
+      "Protocols for calculating IV drip rates and infusion times in critical care.",
     createdAt: "2024-01-04",
-    readTime: 9,
+    readTime: 8,
     isBookmarked: true,
   },
+
+  // Pathophysiology
   {
-    id: "14",
-    categoryId: "respiratory",
-    title: "Pulmonary Embolism",
+    id: "9",
+    categoryId: "pathophysiology",
+    title: "Diabetes Pathophysiology",
     description:
-      "Diagnostic workup and treatment protocols for suspected and confirmed pulmonary embolism cases.",
-    createdAt: "2024-01-02",
-    readTime: 10,
+      "Cellular and systemic mechanisms underlying type 1 and type 2 diabetes.",
+    createdAt: "2024-01-06",
+    readTime: 11,
     isBookmarked: false,
   },
-
-  // Neurology
   {
-    id: "15",
-    categoryId: "neurology",
-    title: "Stroke Management",
+    id: "10",
+    categoryId: "pathophysiology",
+    title: "Cancer Development",
     description:
-      "Rapid assessment and treatment protocols for acute stroke, including thrombolytic therapy and surgical interventions.",
-    createdAt: "2024-01-13",
+      "Pathophysiological processes in tumor formation, progression, and metastasis.",
+    createdAt: "2024-01-03",
     readTime: 12,
     isBookmarked: true,
   },
+
+  // Mental Health
   {
-    id: "16",
-    categoryId: "neurology",
-    title: "Seizure Protocols",
+    id: "11",
+    categoryId: "mental-health",
+    title: "Depression Management",
     description:
-      "Management of seizures and status epilepticus in hospitalized patients, including medication protocols.",
+      "Diagnosis and treatment strategies for major depressive disorder in various care settings.",
+    createdAt: "2024-01-14",
+    readTime: 9,
+    isBookmarked: false,
+  },
+  {
+    id: "12",
+    categoryId: "mental-health",
+    title: "Anxiety Disorders",
+    description:
+      "Overview of anxiety disorders with pharmacological and non-pharmacological interventions.",
     createdAt: "2024-01-11",
+    readTime: 7,
+    isBookmarked: true,
+  },
+
+  // Fundamentals
+  {
+    id: "13",
+    categoryId: "fundamentals",
+    title: "Basic Nursing Skills",
+    description:
+      "Essential nursing skills including vital signs, hygiene, and patient communication.",
+    createdAt: "2024-01-13",
     readTime: 8,
     isBookmarked: false,
   },
   {
-    id: "17",
-    categoryId: "neurology",
-    title: "Traumatic Brain Injury",
+    id: "14",
+    categoryId: "fundamentals",
+    title: "Infection Control",
     description:
-      "Comprehensive care protocols for patients with traumatic brain injury, from initial assessment to rehabilitation.",
-    createdAt: "2024-01-06",
-    readTime: 14,
+      "Protocols for maintaining aseptic techniques and preventing hospital-acquired infections.",
+    createdAt: "2024-01-09",
+    readTime: 6,
     isBookmarked: true,
   },
-  {
-    id: "18",
-    categoryId: "neurology",
-    title: "Spinal Cord Injuries",
-    description:
-      "Assessment and management of acute spinal cord injuries, including surgical and non-surgical approaches.",
-    createdAt: "2023-12-30",
-    readTime: 11,
-    isBookmarked: false,
-  },
 
-  // Orthopedic
+  // Medical Surgical
   {
-    id: "19",
-    categoryId: "orthopedic",
-    title: "Hip Fracture Surgery",
+    id: "15",
+    categoryId: "medical-surgical",
+    title: "Postoperative Care",
     description:
-      "Surgical techniques and post-operative care for hip fracture patients, including rehabilitation protocols.",
+      "Guidelines for post-surgical monitoring, pain management, and complication prevention.",
     createdAt: "2024-01-16",
     readTime: 10,
     isBookmarked: false,
   },
   {
-    id: "20",
-    categoryId: "orthopedic",
-    title: "Joint Replacement",
+    id: "16",
+    categoryId: "medical-surgical",
+    title: "Preoperative Assessment",
     description:
-      "Pre-operative planning and post-operative care for knee and hip joint replacement surgeries.",
-    createdAt: "2024-01-08",
-    readTime: 13,
-    isBookmarked: true,
-  },
-
-  // Gastroenterology
-  {
-    id: "21",
-    categoryId: "gastroenterology",
-    title: "Bowel Obstruction",
-    description:
-      "Diagnostic approach and treatment options for small and large bowel obstructions in surgical patients.",
-    createdAt: "2024-01-15",
-    readTime: 9,
-    isBookmarked: false,
-  },
-  {
-    id: "22",
-    categoryId: "gastroenterology",
-    title: "Appendectomy Procedures",
-    description:
-      "Laparoscopic and open appendectomy techniques, including management of complicated appendicitis.",
+      "Checklist and risk evaluation protocols for surgical patients before anesthesia.",
     createdAt: "2024-01-12",
-    readTime: 7,
+    readTime: 9,
     isBookmarked: true,
   },
 
-  // Endocrine System
+  // OB-Maternity
   {
-    id: "23",
-    categoryId: "endocrine",
-    title: "Diabetes Management",
+    id: "17",
+    categoryId: "ob-maternity",
+    title: "Labor & Delivery",
     description:
-      "Perioperative glucose control protocols for diabetic patients undergoing surgical procedures.",
+      "Step-by-step guide to managing normal and complicated labor and delivery.",
     createdAt: "2024-01-14",
-    readTime: 8,
+    readTime: 12,
     isBookmarked: false,
   },
   {
-    id: "24",
-    categoryId: "endocrine",
-    title: "Thyroid Surgery",
+    id: "18",
+    categoryId: "ob-maternity",
+    title: "Postpartum Care",
     description:
-      "Surgical techniques for thyroidectomy and management of post-operative complications.",
+      "Guidelines for maternal recovery, breastfeeding, and newborn care in the postpartum period.",
     createdAt: "2024-01-10",
-    readTime: 11,
+    readTime: 8,
     isBookmarked: true,
   },
 
-  // Dermatology
+  // Pediatrics
   {
-    id: "25",
-    categoryId: "dermatology",
-    title: "Wound Care Management",
+    id: "19",
+    categoryId: "pediatrics",
+    title: "Child Growth & Development",
     description:
-      "Evidence-based wound care protocols for surgical and non-surgical wounds, including dressing selection.",
-    createdAt: "2024-01-13",
-    readTime: 6,
+      "Milestones and monitoring strategies for normal growth and development in children.",
+    createdAt: "2024-01-15",
+    readTime: 7,
     isBookmarked: false,
   },
   {
-    id: "26",
-    categoryId: "dermatology",
-    title: "Skin Grafting Techniques",
+    id: "20",
+    categoryId: "pediatrics",
+    title: "Pediatric Emergency Care",
     description:
-      "Surgical techniques for skin grafting procedures, including donor site selection and post-operative care.",
-    createdAt: "2024-01-09",
-    readTime: 12,
+      "Emergency protocols for common pediatric emergencies including asthma, dehydration, and seizures.",
+    createdAt: "2024-01-11",
+    readTime: 10,
     isBookmarked: true,
   },
 ];
