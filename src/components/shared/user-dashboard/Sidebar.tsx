@@ -19,10 +19,12 @@ const Sidebar = ({
   setShowLabels,
   setIsMobileSidebarOpen,
 }: SidebarProps) => {
+  // const { category } = await params;
+  // console.log(category);
   const pathname = usePathname();
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
-    studyTools: true,
-    supportLegal: true,
+    studyTools: false,
+    supportLegal: false,
   });
 
   const toggleSidebar = () => {
@@ -31,13 +33,13 @@ const Sidebar = ({
       setIsMobileSidebarOpen(false);
     }
   };
-  const searchParams = useSearchParams();
-  const category = searchParams.get("category");
+
   const isActive = (path: string) => {
-    if (path.includes("category=")) {
-      const url = new URL(path, "http://dummy");
-      return url.searchParams.get("category") === category;
-    }
+    // if (path.includes("/category/")) {
+    //   // Extract category from the path
+    //   const pathCategory = path.split("/category/")[1];
+    //   return pathCategory === category;
+    // }
     return pathname === path;
   };
   const toggleMenu = (menu: string) =>
@@ -65,7 +67,11 @@ const Sidebar = ({
                 isActive(item.key) ? "bg-blue-50" : ""
               }`}
             >
-              <div className={`flex items-center ${showLabels ? "" : "gap-3 mx-1"}`}>
+              <div
+                className={`flex items-center ${
+                  showLabels ? "" : "gap-3 mx-1"
+                }`}
+              >
                 {item.icon}
                 {!showLabels && (
                   <span
