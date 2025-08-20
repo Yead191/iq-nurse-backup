@@ -13,6 +13,7 @@ import {
   FlaskConical,
   BookText,
 } from "lucide-react";
+import Link from "next/link";
 
 type CategoryItem = {
   key: string;
@@ -39,27 +40,28 @@ export function CategoryGrid({ items = [] as CategoryItem[] }) {
       {items.map((cat) => {
         const Icon = cat.icon || defaultIcons[cat.key] || Stethoscope;
         return (
-          <div
-            style={{
-              padding: "10px 12px",
-            }}
-            key={cat.key}
-            className="rounded-lg border border-[#F6F7F8] shadow-sm hover:shadow-md transition-shadow "
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-50">
-                <Icon className="h-5 w-5 text-sky-600" />
-              </div>
-              <div className="truncate">
-                <div className="text-sm font-semibold text-[#110D0D] truncate">
-                  {cat.title}
+          <Link key={cat.key} href={`/profile/study-notes?category=${cat.key}`}>
+            <div
+              style={{
+                padding: "10px 12px",
+              }}
+              className="rounded-lg border border-[#F6F7F8] shadow-sm hover:shadow-md transition-shadow "
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-50">
+                  <Icon className="h-5 w-5 text-sky-600" />
                 </div>
-                <div className="text-xs text-neutral-500">
-                  {cat.lessons} topics
+                <div className="truncate">
+                  <div className="text-sm font-semibold text-[#110D0D] truncate">
+                    {cat.title}
+                  </div>
+                  <div className="text-xs text-neutral-500">
+                    {cat.lessons} topics
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>

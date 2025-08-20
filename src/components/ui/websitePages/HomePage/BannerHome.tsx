@@ -26,11 +26,12 @@ export default function BannerHome() {
       {/* right section */}
       <div className="flex justify-end ">
         <Image
-          src={"/assets/home-images/banner-img.png"}
+          src={"/assets/home-images/banner-img.svg"}
           width={600}
           height={627}
           alt="banner-img"
           className="h-full w-full"
+          unoptimized
         />
       </div>
     </div>

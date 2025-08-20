@@ -55,7 +55,7 @@ export default function Footer() {
         </div>
         <div className="flex justify-center">
           <Image
-            src={"/assets/home-images/footer-img.png"}
+            src={"/assets/home-images/footer-img.svg"}
             alt={"footer image"}
             width={600}
             height={622}
