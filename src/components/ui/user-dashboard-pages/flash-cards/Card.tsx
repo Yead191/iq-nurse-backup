@@ -1,38 +1,23 @@
 "use client";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 interface CardProps {
   className?: string;
-  items: { title: string; description: string; img: string; id: number };
-  selectOption?: number;
-  setSelectOption?: (id: number) => void;
+  items: { title: string; description: string; img: string; id: number, link: string };
 }
 
-const Card = ({ className, items, selectOption, setSelectOption }: CardProps) => {
-  const pathname = usePathname();
+const Card = ({ className, items }: CardProps) => {
   const router = useRouter();
-  const lastSegment = pathname.split("/").filter(Boolean).pop();
-
-  const handleClick = () => {
-    setSelectOption?.(items.id);
-
-    if (items.title === "Your Own Flashcards" && lastSegment === "flash-cards") {
-      router.push("/profile/flash-cards/create-flash");
-    }
-  };
-
-  const isSelected = selectOption === items.id;
 
   return (
     <div
       className={`
         ${className || ""} 
-        border rounded-2xl w-full h-full flex flex-col items-center justify-center gap-6 p-6 lg:p-8 
+        border border-gray-200 rounded-2xl w-full h-full flex flex-col items-center justify-center gap-6 p-6 lg:p-8 
         transition-transform duration-300 hover:shadow hover:-translate-y-1 bg-white
-        ${isSelected ? "border-[#003877]" : "border-[#F0F0F0]"}
         cursor-pointer
       `}
-      onClick={handleClick}
+      onClick={() => router.push(items?.link)}
     >
       {/* Image Wrapper */}
       <div className="lg:w-24 w-16 h-16 lg:h-24 bg-[#F5F6F8] rounded-full flex items-center justify-center shadow-sm">

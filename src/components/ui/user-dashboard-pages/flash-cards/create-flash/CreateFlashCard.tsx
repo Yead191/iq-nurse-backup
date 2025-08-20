@@ -2,13 +2,12 @@
 import DirectionTitle from "@/components/shared/user-dashboard/support-legal/DirectionTitle";
 import { createFlashData } from "@/data/flashCards";
 import { Input } from "antd";
-import React, { useState } from "react";
+import React from "react";
 import { CiCreditCard1 } from "react-icons/ci";
 import Card from "../Card";
 import Link from "next/link";
 
 const CreateFlashCard = () => {
-  const [selectOption, setSelectOption] = useState<number>(0);
 
   return (
     <div>
@@ -48,8 +47,6 @@ const CreateFlashCard = () => {
             <Card
               key={items.id}
               items={items}
-              selectOption={selectOption}
-              setSelectOption={setSelectOption}
             />
           ))}
         </div>
@@ -58,17 +55,15 @@ const CreateFlashCard = () => {
       {/* Actions */}
       <div className="flex flex-row gap-4 lg:pt-10 pt-5 lg:items-start items-center">
         <Link
-          href={selectOption ? "/profile/flash-cards/create-flash" : "#"}
-          className={`cursor-pointer h-[45px] px-6 rounded-lg text-white font-normal ${
-            selectOption ? "bg-[#003877]" : "bg-gray-400 cursor-not-allowed"
-          }`}
+          href={"/profile/flash-cards/create-flash"}
+          className={`cursor-pointer h-[45px] flex items-center justify-center px-6 rounded-lg text-white font-normal bg-[#003877]`}
         >
           Continue
         </Link>
 
         <Link
           href="/profile/flash-cards"
-          className="cursor-pointer h-[45px] px-6 rounded-lg text-white font-normal bg-[#EF4444]"
+          className="cursor-pointer flex items-center justify-center h-[45px] px-6 rounded-lg text-white font-normal bg-[#EF4444]"
         >
           Cancel
         </Link>

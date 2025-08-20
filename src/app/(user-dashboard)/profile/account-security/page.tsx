@@ -1,10 +1,12 @@
 import AccountSecurity from '@/components/ui/user-dashboard-pages/user-profile-page/AccountSecurity/AccountSecurity';
-import React from 'react';
+import React, { Suspense } from 'react';
 
 const AccountSecurityPage = () => {
     return (
-        <div>
+        <div> 
+            <Suspense >
             <AccountSecurity /> 
+            </Suspense>
         </div>
     );
 };

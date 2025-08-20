@@ -12,7 +12,6 @@ interface FolderItemProps {
   onFolderSelect: (folderId: string) => void;
   onDeleteFolder: (folderId: string) => void;
   onRenameFolder: (folderId: string, newName: string) => void;
-  isMobile?: boolean; // Added mobile prop for responsive behavior
 }
 
 export default function FolderItem({
@@ -21,7 +20,6 @@ export default function FolderItem({
   onFolderSelect,
   onDeleteFolder,
   onRenameFolder,
-  isMobile = false, // Default to false for desktop
 }: FolderItemProps) {
   const [showContextMenu, setShowContextMenu] = useState(false);
   const [contextMenuPosition, setContextMenuPosition] = useState({
@@ -44,10 +42,6 @@ export default function FolderItem({
       emerald: "border-l-emerald-500",
     };
     return colorMap[color] || "border-l-gray-500";
-  };
-
-  const handleFolderClick = () => {
-    onFolderSelect(folder.id);
   };
 
   const handleContextMenu = (e: React.MouseEvent) => {
@@ -82,13 +76,13 @@ export default function FolderItem({
     <div
       className={`border-l-5 ${getColorClass(
         folder.color
-      )} bg-white rounded-t-md rounded-b-md group`}
+      )} bg-white rounded-md group`}
     >
       <div
-        className={`flex items-center justify-between ${
-          isMobile ? "p-4" : "p-3"
-        } hover:bg-gray-50 cursor-pointer ${isSelected ? "bg-blue-50" : ""}`}
-        onClick={handleFolderClick}
+        className={`flex items-center justify-between p-3 hover:bg-gray-50 cursor-pointer ${
+          isSelected ? "bg-blue-50" : ""
+        }`}
+        onClick={() => onFolderSelect(folder.id)}
         onContextMenu={handleContextMenu}
       >
         <div className="flex-1 min-w-0">
@@ -99,23 +93,15 @@ export default function FolderItem({
               onChange={(e) => setRenamingValue(e.target.value)}
               onBlur={handleRenameSubmit}
               onKeyDown={handleRenameKeyDown}
-              className={`w-full px-2 py-1 ${
-                isMobile ? "text-base" : "text-sm"
-              } border border-blue-500 rounded focus:outline-none`}
+              className="w-full px-2 py-1 text-sm border border-blue-500 rounded focus:outline-none"
               autoFocus
             />
           ) : (
             <div>
-              <div
-                className={`font-medium text-gray-900 truncate ${
-                  isMobile ? "text-base" : "text-sm"
-                }`}
-              >
+              <div className="font-medium text-gray-900 truncate text-sm">
                 {folder.name}
               </div>
-              <div
-                className={`${isMobile ? "text-sm" : "text-xs"} text-gray-500`}
-              >
+              <div className="text-xs text-gray-500">
                 {folder.topicCount} topics
               </div>
             </div>
@@ -127,15 +113,9 @@ export default function FolderItem({
             e.stopPropagation();
             handleContextMenu(e);
           }}
-          className={`${
-            isMobile ? "p-2" : "p-1"
-          } hover:bg-gray-200 rounded opacity-0 group-hover:opacity-100 ${
-            isMobile && "opacity-100"
-          }`}
+          className="p-1 hover:bg-gray-200 rounded opacity-0 group-hover:opacity-100"
         >
-          <MoreHorizontal
-            className={`${isMobile ? "w-5 h-5" : "w-4 h-4"} text-gray-400`}
-          />
+          <MoreHorizontal className="w-4 h-4 text-gray-400" />
         </button>
       </div>
 
@@ -145,11 +125,7 @@ export default function FolderItem({
           position={contextMenuPosition}
           onClose={() => setShowContextMenu(false)}
           items={[
-            {
-              icon: Edit2,
-              label: "Rename",
-              onClick: handleRename,
-            },
+            { icon: Edit2, label: "Rename", onClick: handleRename },
             {
               icon: Trash2,
               label: "Delete Study Set",

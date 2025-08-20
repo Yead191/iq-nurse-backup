@@ -4,15 +4,16 @@ import type React from "react";
 
 import { useState } from "react";
 import {
-  Search,
   Plus,
   MoreVertical,
   Bookmark,
   Edit,
   Trash2,
+  Search,
 } from "lucide-react";
 import ContextMenu from "./ContextMenu";
 import { LibraryData } from "@/data/types";
+import Input from "antd/es/input/Input";
 
 interface MobileFolderListProps {
   data: LibraryData;
@@ -20,7 +21,7 @@ interface MobileFolderListProps {
   searchQuery: string;
   onSearchChange: (query: string) => void;
   onFolderToggle: (folderId: string) => void;
-  onPageSelect: (pageId: string) => void;
+  onPageSelect: any;
   onToggleBookmark: (folderId: string, pageId: string) => void;
   onCreateFolder: () => void;
   onDeleteFolder: (folderId: string) => void;
@@ -123,19 +124,15 @@ export default function MobileFolderList({
   };
 
   return (
-    <div className="flex flex-col h-full bg-white">
+    <div className="flex flex-col h-full ">
       {/* Search Header */}
-      <div className="p-4 border-b border-gray-200">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-          <input
-            type="text"
-            placeholder="Search folders..."
-            value={searchQuery}
-            onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
-        </div>
+      <div className="pb-4 px-2 border-b border-gray-200">
+        <Input
+          placeholder="Search folders..."
+          value={searchQuery}
+          onChange={(e) => onSearchChange(e.target.value)}
+          prefix={<Search className="text-gray-400" />}
+        />
       </div>
 
       {/* Folder List */}
@@ -151,14 +148,14 @@ export default function MobileFolderList({
             </p>
             <button
               onClick={onCreateFolder}
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+              className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
             >
               <Plus className="w-4 h-4" />
               Create Folder
             </button>
           </div>
         ) : (
-          <div className="py-2">
+          <div className="py-2 space-y-4">
             {filteredFolders.map((folder: any) => (
               <div
                 key={folder.id}
@@ -166,7 +163,7 @@ export default function MobileFolderList({
               >
                 {/* Folder Header */}
                 <div
-                  className={`flex items-center justify-between p-4 hover:bg-gray-50 cursor-pointer border-l-4 ${getColorClasses(
+                  className={`flex items-center justify-between p-4 py-1.5 hover:bg-gray-50 cursor-pointer border-l-5 rounded-t-md rounded-b-md  ${getColorClasses(
                     folder.color
                   )}`}
                   onClick={() => onFolderToggle(folder.id)}
@@ -208,12 +205,12 @@ export default function MobileFolderList({
 
                 {/* Expanded Pages */}
                 {expandedFolders.has(folder.id) && folder.pages.length > 0 && (
-                  <div className="bg-gray-50">
+                  <div className="">
                     {folder.pages.map((page: any) => (
                       <div
                         key={page.id}
-                        className="flex items-center justify-between p-4 pl-8 hover:bg-gray-100 cursor-pointer border-l-4 border-l-transparent"
-                        onClick={() => onPageSelect(page.id)}
+                        className="flex items-center justify-between m-2 px-4 py-2 rounded-xl cursor-pointer border-b  border border-[#C5D0D0] hover:bg-gray-50"
+                        onClick={() => onPageSelect(folder.id, page.id)}
                       >
                         <div className="flex-1">
                           <h4 className="font-medium text-gray-900 text-base">
@@ -233,7 +230,7 @@ export default function MobileFolderList({
                           <Bookmark
                             className={`w-4 h-4 ${
                               page.isBookmarked
-                                ? "fill-yellow-400 text-yellow-400"
+                                ? "text-black fill-current"
                                 : "text-gray-400"
                             }`}
                           />
@@ -263,7 +260,7 @@ export default function MobileFolderList({
         <div className="p-4 border-t border-gray-200">
           <button
             onClick={onCreateFolder}
-            className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+            className="w-full bg-primary text-white py-3 rounded-lg  transition-colors flex items-center justify-center gap-2"
           >
             <Plus className="w-4 h-4" />
             Create Folder

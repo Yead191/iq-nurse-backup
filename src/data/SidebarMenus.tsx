@@ -42,6 +42,11 @@ export const menus: Record<string, MenuItem[]> = {
       // ],
     },
     {
+      key: "/profile/my-notepad",
+      label: "My Notepad",
+      icon: icon("/assets/icons/note-icon.svg", "notepad"),
+    },
+    {
       key: "/profile/clinicals",
       label: "Clinicals",
       icon: icon("/assets/sidebar-icons/clinicals-icon.svg", "clinicals"),
