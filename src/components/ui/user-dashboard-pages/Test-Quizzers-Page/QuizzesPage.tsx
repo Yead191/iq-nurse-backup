@@ -1,0 +1,287 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { Button, Modal } from "antd";
+import QuizCard from "./QuizCard";
+import FolderCard from "./FolderCard";
+import CreateFolderModal from "./CreateFolderModal";
+
+interface QuizFolder {
+  id: string;
+  name: string;
+  color: string;
+  quizCount: number;
+  createdAt: string;
+  quizzes: any[];
+}
+
+interface Quiz {
+  id: string;
+  name: string;
+  questions: any[];
+}
+
+const initialFolders: QuizFolder[] = [
+  {
+    id: "1",
+    name: "Pharmacology",
+    color: "#ec4899",
+    quizCount: 5,
+    createdAt: "Apr 2, 2023",
+    quizzes: [],
+  },
+  {
+    id: "2",
+    name: "OB/Maternity",
+    color: "#f59e0b",
+    quizCount: 3,
+    createdAt: "Apr 2, 2023",
+    quizzes: [],
+  },
+  {
+    id: "3",
+    name: "Pediatrics",
+    color: "#3b82f6",
+    quizCount: 4,
+    createdAt: "Apr 2, 2023",
+    quizzes: [],
+  },
+];
+
+export default function QuizzesPage() {
+  const [folders, setFolders] = useState<QuizFolder[]>([]);
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedFolder, setSelectedFolder] = useState<QuizFolder | null>(null);
+  const [isRenameModalOpen, setIsRenameModalOpen] = useState(false);
+  const [renameValue, setRenameValue] = useState("");
+  const [viewingFolder, setViewingFolder] = useState<QuizFolder | null>(null);
+
+  useEffect(() => {
+    const savedFolders = localStorage.getItem("quizFolders");
+    if (savedFolders) {
+      setFolders(JSON.parse(savedFolders));
+    } else {
+      setFolders(initialFolders);
+      localStorage.setItem("quizFolders", JSON.stringify(initialFolders));
+    }
+  }, []);
+
+  const foldersPerPage = 6;
+  const totalFolders = folders.length;
+  const startIndex = (currentPage - 1) * foldersPerPage;
+  const endIndex = startIndex + foldersPerPage;
+  const currentFolders = folders.slice(startIndex, endIndex);
+
+  const handleCreateFolder = (name: string, color: string) => {
+    const newFolder: QuizFolder = {
+      id: Date.now().toString(),
+      name,
+      color,
+      quizCount: 0,
+      createdAt: new Date().toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      }),
+      quizzes: [],
+    };
+    const updatedFolders = [...folders, newFolder];
+    setFolders(updatedFolders);
+    localStorage.setItem("quizFolders", JSON.stringify(updatedFolders));
+    setIsCreateModalOpen(false);
+  };
+
+  const handleDeleteFolder = (folderId: string) => {
+    Modal.confirm({
+      title: "Delete Folder",
+      content:
+        "Are you sure you want to delete this folder? This action cannot be undone.",
+      okText: "Delete",
+      okType: "danger",
+      cancelText: "Cancel",
+      onOk: () => {
+        const updatedFolders = folders.filter(
+          (folder) => folder.id !== folderId
+        );
+        setFolders(updatedFolders);
+        localStorage.setItem("quizFolders", JSON.stringify(updatedFolders));
+      },
+    });
+  };
+
+  const handleRenameFolder = (folder: QuizFolder) => {
+    setSelectedFolder(folder);
+    setRenameValue(folder.name);
+    setIsRenameModalOpen(true);
+  };
+
+  const confirmRename = () => {
+    if (selectedFolder && renameValue.trim()) {
+      const updatedFolders = folders.map((folder) =>
+        folder.id === selectedFolder.id
+          ? { ...folder, name: renameValue.trim() }
+          : folder
+      );
+      setFolders(updatedFolders);
+      localStorage.setItem("quizFolders", JSON.stringify(updatedFolders));
+      setIsRenameModalOpen(false);
+      setSelectedFolder(null);
+      setRenameValue("");
+    }
+  };
+
+  const handleFolderClick = (folder: QuizFolder) => {
+    setViewingFolder(folder);
+  };
+
+  const handleBackToFolders = () => {
+    setViewingFolder(null);
+  };
+
+  if (viewingFolder) {
+    return (
+      <div className="min-h-screen bg-gray-50 p-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-8 flex items-center gap-4">
+            <Button
+              onClick={handleBackToFolders}
+              className="flex items-center gap-2"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+              Back to Folders
+            </Button>
+            <div>
+              <h1 className="text-2xl font-semibold text-gray-900">
+                {viewingFolder.name}
+              </h1>
+              <p className="text-gray-600">
+                {viewingFolder.quizzes.length} quiz(s) available
+              </p>
+            </div>
+          </div>
+
+          {viewingFolder.quizzes.length > 0 ? (
+            <div className="space-y-4">
+              {viewingFolder.quizzes.map((quiz, index) => (
+                <QuizCard key={index} quiz={quiz} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-gray-500">No quizzes in this folder yet.</p>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-8">
+          <h1 className="text-2xl font-semibold text-gray-900 mb-2">
+            Your Quizzes Folder
+          </h1>
+          <p className="text-gray-600">Access your practice quizzes</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div
+            onClick={() => setIsCreateModalOpen(true)}
+            className="bg-white rounded-lg border-2 border-dashed border-gray-300 p-6 flex flex-col items-center justify-center cursor-pointer hover:border-gray-400 transition-colors min-h-[200px]"
+          >
+            <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-3">
+              <svg
+                className="w-6 h-6 text-pink-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 4v16m8-8H4"
+                />
+              </svg>
+            </div>
+            <span className="text-gray-700 font-medium">Create Folder</span>
+          </div>
+
+          {currentFolders.map((folder) => (
+            <FolderCard
+              key={folder.id}
+              folder={folder}
+              onRename={() => handleRenameFolder(folder)}
+              onDelete={() => handleDeleteFolder(folder.id)}
+              onClick={() => handleFolderClick(folder)}
+            />
+          ))}
+        </div>
+
+        {totalFolders > foldersPerPage && (
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-gray-600">
+              Showing {startIndex + 1}-{Math.min(endIndex, totalFolders)} of{" "}
+              {totalFolders}
+            </span>
+            <div className="flex gap-2">
+              <Button
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage(currentPage - 1)}
+              >
+                Previous
+              </Button>
+              <Button
+                disabled={endIndex >= totalFolders}
+                onClick={() => setCurrentPage(currentPage + 1)}
+              >
+                Next
+              </Button>
+            </div>
+          </div>
+        )}
+
+        <CreateFolderModal
+          open={isCreateModalOpen}
+          onClose={() => setIsCreateModalOpen(false)}
+          onSubmit={handleCreateFolder}
+        />
+
+        <Modal
+          title="Rename Folder"
+          open={isRenameModalOpen}
+          onOk={confirmRename}
+          onCancel={() => {
+            setIsRenameModalOpen(false);
+            setSelectedFolder(null);
+            setRenameValue("");
+          }}
+          okText="Rename"
+        >
+          <input
+            type="text"
+            value={renameValue}
+            onChange={(e) => setRenameValue(e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter folder name"
+          />
+        </Modal>
+      </div>
+    </div>
+  );
+}
