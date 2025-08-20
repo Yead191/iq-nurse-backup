@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
 import heartImg from "@/assets/heart-hands.svg";
 import PageHeader from "./PageHeader";
 import { documentationData, medicalCategories } from "@/data/medicalData";
 import CategorySwiper from "./CategorySwiper";
 import DocumentationGrid from "./DocumentationGrid";
+import { useSearchParams } from "next/navigation";
 
 export default function MedicalSurgicalPage() {
   const [selectedCategory, setSelectedCategory] = useState(
@@ -15,6 +16,15 @@ export default function MedicalSurgicalPage() {
   const [sortBy, setSortBy] = useState("newest");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
+
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category");
+
+  useEffect(() => {
+    if (category) {
+      setSelectedCategory(category);
+    }
+  }, [category]);
 
   // Filter documentation by selected category
   const filteredDocs = documentationData.filter(

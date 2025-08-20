@@ -19,7 +19,7 @@ export default function UpdatePassForm() {
   const onFinish = (values: any) => {
     console.log("update pass values:", values);
     Cookies.remove("resetEmail");
-    toast.success("Reset link sent to your email!");
+    toast.success("Password Reset Successfully!");
     router.push("/auth/update-success");
   };
   return (

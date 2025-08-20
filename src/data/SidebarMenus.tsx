@@ -1,3 +1,15 @@
+import {
+  Activity,
+  Brain,
+  Pill,
+  Calculator,
+  HeartPulse,
+  Smile,
+  BookOpen,
+  Stethoscope,
+  Baby,
+  BabyIcon,
+} from "lucide-react";
 export interface MenuItem {
   key: string;
   label: string;
@@ -28,18 +40,58 @@ export const menus: Record<string, MenuItem[]> = {
       key: "/profile/study-notes",
       label: "Study Notes",
       icon: icon("/assets/sidebar-icons/study-notes-icon.svg", "study-notes"),
-      // children: [
-      //   {
-      //     key: "/profile/study-notes/anatomy",
-      //     label: "Anatomy",
-      //     icon: <></>,
-      //   },
-      //   {
-      //     key: "/profile/study-notes/pharmacology",
-      //     label: "Pharmacology",
-      //     icon: <></>,
-      //   },
-      // ],
+      children: [
+        {
+          key: "/profile/study-notes?category=critical-care",
+          label: "Critical Care",
+          icon: <Activity size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=anatomy-physiology",
+          label: "Anatomy & Physiology",
+          icon: <Brain size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=pharmacology",
+          label: "Pharmacology",
+          icon: <Pill size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=medication-calculation",
+          label: "Medication Calculation",
+          icon: <Calculator size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=pathophysiology",
+          label: "Pathophysiology",
+          icon: <HeartPulse size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=mental-health",
+          label: "Mental Health",
+          icon: <Smile size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=fundamentals",
+          label: "Fundamentals",
+          icon: <BookOpen size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=medical-surgical",
+          label: "Medical Surgical",
+          icon: <Stethoscope size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=ob-maternity",
+          label: "OB- Maternity",
+          icon: <Baby size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=pediatrics",
+          label: "Pediatrics",
+          icon: <BabyIcon size={18} />,
+        },
+      ],
     },
     {
       key: "/profile/my-notepad",

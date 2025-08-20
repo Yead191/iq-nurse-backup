@@ -79,7 +79,7 @@ export default function BottomNavigation({
         boxShadow: "0 -2px 8px rgba(0, 0, 0, 0.1)",
       }}
     >
-      <div
+      <div className="mobile-nav"
         style={{
           display: "flex",
           justifyContent: "space-between",
