@@ -202,9 +202,9 @@ export default function NotepadMobileFolder({
                           <h4 className="font-medium text-gray-900 text-base">
                             {note.title || "untitled"}
                           </h4>
-                          <p className="text-sm text-gray-500 truncate">
+                          {/* <p className="text-sm text-gray-500 truncate">
                             {note.preview}
-                          </p>
+                          </p> */}
                         </div>
                         <button className="p-2 hover:bg-gray-200 rounded-full transition-colors">
                           <Bookmark

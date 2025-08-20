@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { ChevronDown, ChevronRight, ChevronLeft } from "lucide-react";
 import { useState } from "react";
 import { Tooltip } from "antd";
@@ -31,7 +31,15 @@ const Sidebar = ({
       setIsMobileSidebarOpen(false);
     }
   };
-  const isActive = (path: string) => pathname === path;
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category");
+  const isActive = (path: string) => {
+    if (path.includes("category=")) {
+      const url = new URL(path, "http://dummy");
+      return url.searchParams.get("category") === category;
+    }
+    return pathname === path;
+  };
   const toggleMenu = (menu: string) =>
     setOpenMenus((prev) => ({ ...prev, [menu]: !prev[menu] }));
 
@@ -101,7 +109,7 @@ const Sidebar = ({
         </Tooltip>
 
         {hasChildren && menuOpen && (
-          <div className={`${showLabels ? "" : "ml-11"}`}>
+          <div className={`${showLabels ? "" : "ml-2"}  `}>
             {item.children!.map((sub) => (
               <MenuItemComponent key={sub.key} item={sub} />
             ))}
