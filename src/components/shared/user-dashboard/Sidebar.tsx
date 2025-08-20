@@ -65,11 +65,11 @@ const Sidebar = ({
                 isActive(item.key) ? "bg-blue-50" : ""
               }`}
             >
-              <div className={`flex items-center ${showLabels ? "" : "gap-3"}`}>
+              <div className={`flex items-center ${showLabels ? "" : "gap-3 mx-1"}`}>
                 {item.icon}
                 {!showLabels && (
                   <span
-                    className={`text-sm font-medium ${
+                    className={`text-lg lg:text-sm font-medium ${
                       isActive(item.key) ? "text-blue-500" : "text-gray-700"
                     }`}
                   >
@@ -142,7 +142,7 @@ const Sidebar = ({
 
   return (
     <div
-      className={`h-full bg-white border-r border-[#D9D9D9] flex flex-col transition-all duration-300 ${
+      className={`h-full bg-white border-r border-[#D9D9D9] flex flex-col transition-all duration-300 lg:pb-12 ${
         showLabels ? "w-20" : "w-64"
       }`}
     >
