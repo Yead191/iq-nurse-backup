@@ -3,9 +3,9 @@ import React, { Suspense } from 'react';
 
 const AccountSecurityPage = () => {
     return (
-        <div> 
-            <Suspense >
-            <AccountSecurity /> 
+        <div>
+            <Suspense fallback={<div>Loading...</div>}>
+                <AccountSecurity />
             </Suspense>
         </div>
     );
