@@ -19,10 +19,12 @@ const Sidebar = ({
   setShowLabels,
   setIsMobileSidebarOpen,
 }: SidebarProps) => {
+  // const { category } = await params;
+  // console.log(category);
   const pathname = usePathname();
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
-    studyTools: true,
-    supportLegal: true,
+    studyTools: false,
+    supportLegal: false,
   });
 
   const toggleSidebar = () => {
@@ -31,13 +33,13 @@ const Sidebar = ({
       setIsMobileSidebarOpen(false);
     }
   };
-  const searchParams = useSearchParams();
-  const category = searchParams.get("category");
+
   const isActive = (path: string) => {
-    if (path.includes("category=")) {
-      const url = new URL(path, "http://dummy");
-      return url.searchParams.get("category") === category;
-    }
+    // if (path.includes("/category/")) {
+    //   // Extract category from the path
+    //   const pathCategory = path.split("/category/")[1];
+    //   return pathCategory === category;
+    // }
     return pathname === path;
   };
   const toggleMenu = (menu: string) =>
@@ -65,11 +67,15 @@ const Sidebar = ({
                 isActive(item.key) ? "bg-blue-50" : ""
               }`}
             >
-              <div className={`flex items-center ${showLabels ? "" : "gap-3"}`}>
+              <div
+                className={`flex items-center ${
+                  showLabels ? "" : "gap-3 mx-1"
+                }`}
+              >
                 {item.icon}
                 {!showLabels && (
                   <span
-                    className={`text-sm font-medium ${
+                    className={`text-lg lg:text-sm font-medium ${
                       isActive(item.key) ? "text-blue-500" : "text-gray-700"
                     }`}
                   >
@@ -142,7 +148,7 @@ const Sidebar = ({
 
   return (
     <div
-      className={`h-full bg-white border-r border-[#D9D9D9] flex flex-col transition-all duration-300 ${
+      className={`h-full bg-white border-r border-[#D9D9D9] flex flex-col transition-all duration-300 lg:pb-12 ${
         showLabels ? "w-20" : "w-64"
       }`}
     >

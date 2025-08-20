@@ -7,7 +7,7 @@ import PageHeader from "./PageHeader";
 import { documentationData, medicalCategories } from "@/data/medicalData";
 import CategorySwiper from "./CategorySwiper";
 import DocumentationGrid from "./DocumentationGrid";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function MedicalSurgicalPage() {
   const [selectedCategory, setSelectedCategory] = useState(
@@ -19,6 +19,7 @@ export default function MedicalSurgicalPage() {
 
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
+  const router = useRouter();
 
   useEffect(() => {
     if (category) {
@@ -54,6 +55,7 @@ export default function MedicalSurgicalPage() {
   const paginatedDocs = sortedDocs.slice(startIndex, startIndex + itemsPerPage);
 
   const handleCategoryChange = (categoryId: string) => {
+    router.push(`/profile/study-notes?category=${categoryId}`);
     setSelectedCategory(categoryId);
     setCurrentPage(1);
   };
