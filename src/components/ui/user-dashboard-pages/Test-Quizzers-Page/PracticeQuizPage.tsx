@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "antd";
+import { Button, Tooltip } from "antd";
 import { useRouter } from "next/navigation";
 import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
 import CreateFolderCard from "./CreateFolderCard";
 import { ImportCard } from "@/data/testCardData";
 import Image from "next/image";
+import { generateDemoQuiz } from "@/data/generateQuiz";
 
 export default function PracticeQuizPage() {
   const [quizName, setQuizName] = useState("");
@@ -56,56 +57,6 @@ export default function PracticeQuizPage() {
       "#84cc16",
     ];
     return colors[Math.floor(Math.random() * colors.length)];
-  };
-
-  const generateDemoQuiz = (name: string) => {
-    return {
-      name,
-      questions: [
-        {
-          id: 1,
-          type: "mcq",
-          question: "What is the normal range for adult heart rate?",
-          options: ["40-60 bpm", "60-100 bpm", "100-120 bpm", "120-140 bpm"],
-          correctAnswer: 1,
-        },
-        {
-          id: 2,
-          type: "mcq",
-          question: "Which medication is commonly used to treat hypertension?",
-          options: ["Aspirin", "Lisinopril", "Metformin", "Albuterol"],
-          correctAnswer: 1,
-        },
-        {
-          id: 3,
-          type: "text",
-          question: "List three signs of dehydration in elderly patients.",
-          answer: "Dry mouth, decreased skin elasticity, confusion",
-        },
-        {
-          id: 4,
-          type: "mcq",
-          question: "What is the first-line treatment for anaphylaxis?",
-          options: [
-            "Diphenhydramine",
-            "Epinephrine",
-            "Corticosteroids",
-            "Albuterol",
-          ],
-          correctAnswer: 1,
-        },
-        {
-          id: 5,
-          type: "text",
-          question:
-            "Explain the difference between systolic and diastolic blood pressure.",
-          answer:
-            "Systolic pressure is the pressure when the heart contracts, diastolic is when the heart relaxes",
-        },
-      ],
-      createdAt: new Date().toISOString(),
-      color: "#ec4899",
-    };
   };
 
   return (
@@ -203,15 +154,31 @@ export default function PracticeQuizPage() {
       </div>
 
       <div className="flex gap-4">
-        <Button
-          type="primary"
-          size="large"
-          onClick={handleContinue}
-          disabled={!quizName || !selectedOption}
-          className="bg-primary"
+        <Tooltip
+          title={
+            !quizName && !selectedOption
+              ? "Enter folder name and choose an option"
+              : !quizName
+              ? "Enter folder name"
+              : !selectedOption
+              ? "Choose an option"
+              : ""
+          }
+          placement="top"
+          // open={!quizName || !selectedOption}
         >
-          Continue
-        </Button>
+          <span>
+            <Button
+              type="primary"
+              size="large"
+              onClick={handleContinue}
+              disabled={!quizName || !selectedOption}
+              className="bg-primary"
+            >
+              Continue
+            </Button>
+          </span>
+        </Tooltip>
         <Button
           size="large"
           onClick={() => {
