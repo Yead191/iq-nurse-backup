@@ -29,21 +29,6 @@ export default function FolderItem({
   const [isRenaming, setIsRenaming] = useState(false);
   const [renamingValue, setRenamingValue] = useState(folder.name);
 
-  const getColorClass = (color: string) => {
-    const colorMap: Record<string, string> = {
-      blue: "border-l-blue-500",
-      orange: "border-l-orange-500",
-      red: "border-l-red-500",
-      green: "border-l-green-500",
-      purple: "border-l-purple-500",
-      cyan: "border-l-cyan-500",
-      teal: "border-l-teal-500",
-      sky: "border-l-sky-500",
-      emerald: "border-l-emerald-500",
-    };
-    return colorMap[color] || "border-l-gray-500";
-  };
-
   const handleContextMenu = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -74,9 +59,8 @@ export default function FolderItem({
 
   return (
     <div
-      className={`border-l-5 ${getColorClass(
-        folder.color
-      )} bg-white rounded-md group`}
+      style={{ borderColor: folder.color }}
+      className={`border-l-5  bg-white rounded-md group`}
     >
       <div
         className={`flex items-center justify-between p-3 cursor-pointer ${

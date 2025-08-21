@@ -3,7 +3,13 @@ import { useRouter } from "next/navigation";
 
 interface CardProps {
   className?: string;
-  items: { title: string; description: string; img: string; id: number, link: string };
+  items: {
+    title: string;
+    description: string;
+    img: string;
+    id: number;
+    link: string;
+  };
 }
 
 const Card = ({ className, items }: CardProps) => {
