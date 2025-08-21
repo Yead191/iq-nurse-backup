@@ -4,13 +4,13 @@ export const flashHomeData = [
         title: "Our High Yield Flashcards",
         description: "Study Our High yield flashcards",
         img: "/assets/user-dashboard-images/flash-card/cards.png",
-        link: "/profile/flash-cards/create-test"
+        link: "/profile/flash-cards/high-yield-flashcards"
     },
     {
         id: 2,
         title: "Your Own Flashcards",
         description: "Create/Study Your Flashcards Set",
-        img: "/assets/user-dashboard-images/flash-card/ownCard.png",
+        img: "/assets/icons/own-quiz-icon.svg",
         link: "/profile/flash-cards/create-flash"
     }
 ]

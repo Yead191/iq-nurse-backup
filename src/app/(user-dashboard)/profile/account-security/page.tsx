@@ -4,9 +4,7 @@ import React from 'react';
 const AccountSecurityPage = () => {
     return (
         <div>
-         
-                <AccountSecurity />
-      
+            <AccountSecurity />
         </div>
     );
 };
