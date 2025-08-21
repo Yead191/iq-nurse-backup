@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 import { Button, Modal } from "antd";
 import QuizCard from "./QuizCard";
 import FolderCard from "./FolderCard";
-import CreateFolderModal from "./CreateFolderModal";
+
+import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
+import CreateFolderCard from "./CreateFolderCard";
+import CreateFolderModal from "../my-library-page/CreateFolderModal";
 
 interface QuizFolder {
   id: string;
@@ -139,10 +142,14 @@ export default function QuizzesPage() {
     setViewingFolder(null);
   };
 
-  if (viewingFolder) {
-    return (
-      <div className="min-h-screen bg-gray-50 p-6">
-        <div className="max-w-4xl mx-auto">
+  return (
+    <>
+      <PageBreadcrumb
+        itemImg={"/assets/sidebar-icons/test-icon.svg"}
+        itemLabel={"Exams & Quizzers"}
+      />
+      {viewingFolder ? (
+        <div className=" my-8 lg:my-12">
           <div className="mb-8 flex items-center gap-4">
             <Button
               onClick={handleBackToFolders}
@@ -185,103 +192,80 @@ export default function QuizzesPage() {
             </div>
           )}
         </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-2xl font-semibold text-gray-900 mb-2">
-            Your Quizzes Folder
-          </h1>
-          <p className="text-gray-600">Access your practice quizzes</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          <div
-            onClick={() => setIsCreateModalOpen(true)}
-            className="bg-white rounded-lg border-2 border-dashed border-gray-300 p-6 flex flex-col items-center justify-center cursor-pointer hover:border-gray-400 transition-colors min-h-[200px]"
-          >
-            <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-3">
-              <svg
-                className="w-6 h-6 text-pink-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 4v16m8-8H4"
-                />
-              </svg>
-            </div>
-            <span className="text-gray-700 font-medium">Create Folder</span>
+      ) : (
+        <div className="my-8 lg:my-12 ">
+          <div className="mb-12">
+            <h1 className="text-2xl font-semibold text-gray-900 mb-2">
+              Your Quizzes Folder
+            </h1>
+            <p className="text-gray-600">Access your practice quizzes</p>
           </div>
 
-          {currentFolders.map((folder) => (
-            <FolderCard
-              key={folder.id}
-              folder={folder}
-              onRename={() => handleRenameFolder(folder)}
-              onDelete={() => handleDeleteFolder(folder.id)}
-              onClick={() => handleFolderClick(folder)}
-            />
-          ))}
-        </div>
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4   mb-8 overflow-visible">
+            <CreateFolderCard onClick={() => setIsCreateModalOpen(true)} />
 
-        {totalFolders > foldersPerPage && (
-          <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-600">
-              Showing {startIndex + 1}-{Math.min(endIndex, totalFolders)} of{" "}
-              {totalFolders}
-            </span>
-            <div className="flex gap-2">
-              <Button
-                disabled={currentPage === 1}
-                onClick={() => setCurrentPage(currentPage - 1)}
-              >
-                Previous
-              </Button>
-              <Button
-                disabled={endIndex >= totalFolders}
-                onClick={() => setCurrentPage(currentPage + 1)}
-              >
-                Next
-              </Button>
-            </div>
+            {currentFolders.map((folder) => (
+              <FolderCard
+                key={folder.id}
+                folder={folder}
+                onRename={() => handleRenameFolder(folder)}
+                onDelete={() => handleDeleteFolder(folder.id)}
+                onClick={() => handleFolderClick(folder)}
+                label={"Quizzes"}
+              />
+            ))}
           </div>
-        )}
 
-        <CreateFolderModal
-          open={isCreateModalOpen}
-          onClose={() => setIsCreateModalOpen(false)}
-          onSubmit={handleCreateFolder}
-        />
+          {totalFolders > foldersPerPage && (
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-600">
+                Showing {startIndex + 1}-{Math.min(endIndex, totalFolders)} of{" "}
+                {totalFolders}
+              </span>
+              <div className="flex gap-2">
+                <Button
+                  disabled={currentPage === 1}
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                >
+                  Previous
+                </Button>
+                <Button
+                  disabled={endIndex >= totalFolders}
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                >
+                  Next
+                </Button>
+              </div>
+            </div>
+          )}
 
-        <Modal
-          title="Rename Folder"
-          open={isRenameModalOpen}
-          onOk={confirmRename}
-          onCancel={() => {
-            setIsRenameModalOpen(false);
-            setSelectedFolder(null);
-            setRenameValue("");
-          }}
-          okText="Rename"
-        >
-          <input
-            type="text"
-            value={renameValue}
-            onChange={(e) => setRenameValue(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter folder name"
+          <CreateFolderModal
+            isOpen={isCreateModalOpen}
+            onClose={() => setIsCreateModalOpen(false)}
+            onConfirm={handleCreateFolder}
           />
-        </Modal>
-      </div>
-    </div>
+
+          <Modal
+            title="Rename Folder"
+            open={isRenameModalOpen}
+            onOk={confirmRename}
+            onCancel={() => {
+              setIsRenameModalOpen(false);
+              setSelectedFolder(null);
+              setRenameValue("");
+            }}
+            okText="Rename"
+          >
+            <input
+              type="text"
+              value={renameValue}
+              onChange={(e) => setRenameValue(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter folder name"
+            />
+          </Modal>
+        </div>
+      )}
+    </>
   );
 }

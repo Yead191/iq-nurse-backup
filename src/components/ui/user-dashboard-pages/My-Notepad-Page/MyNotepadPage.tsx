@@ -254,7 +254,7 @@ export default function MyNotepadPage() {
               />
             )}
 
-            {mobileView === "content" && (
+            {/* {mobileView === "content" && (
               <NoteContentArea
                 noteId={activeNoteId}
                 initialTitle={activeNote?.title || ""}
@@ -262,7 +262,7 @@ export default function MyNotepadPage() {
                 onTitleChange={handleTitleChange}
                 onContentChange={handleContentChange}
               />
-            )}
+            )} */}
           </div>
         </div>
 

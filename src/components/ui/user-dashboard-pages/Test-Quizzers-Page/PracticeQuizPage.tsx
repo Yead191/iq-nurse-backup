@@ -5,38 +5,8 @@ import { Button } from "antd";
 import { useRouter } from "next/navigation";
 import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
 import CreateFolderCard from "./CreateFolderCard";
-
-interface OptionCard {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;
-  color: string;
-}
-
-const options: OptionCard[] = [
-  {
-    id: "upload",
-    title: "Upload any files from class",
-    description: "Click to upload a .png and .jpeg files",
-    icon: "📁",
-    color: "bg-pink-50 border-pink-200",
-  },
-  {
-    id: "quizlet",
-    title: "Import from Quizlet",
-    description: "Import your material from Quizlet",
-    icon: "🔍",
-    color: "bg-blue-50 border-blue-200",
-  },
-  {
-    id: "anki",
-    title: "Import from Anki",
-    description: "Import your material from Anki",
-    icon: "⭐",
-    color: "bg-cyan-50 border-cyan-200",
-  },
-];
+import { ImportCard } from "@/data/testCardData";
+import Image from "next/image";
 
 export default function PracticeQuizPage() {
   const [quizName, setQuizName] = useState("");
@@ -165,33 +135,51 @@ export default function PracticeQuizPage() {
           placeholder="Enter quiz name..."
         />
       </div>
-      <CreateFolderCard />
 
       <div className="mb-8 mt-16">
         <h2 className="text-lg font-medium text-gray-900 mb-4">
           Choose an option
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ">
-          {options.map((option) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6 ">
+          {ImportCard.map((option) => (
             <div
-              key={option.id}
               onClick={() => setSelectedOption(option.id)}
-              className={`
-                    relative cursor-pointer rounded-lg border-2 p-4 transition-all
-                    ${
-                      selectedOption === option.id
-                        ? "border-blue-500 bg-blue-50"
-                        : `${option.color} hover:shadow-md`
-                    }
-                  `}
+              className={` rounded-2xl shadow-md border p-6 text-center flex flex-col items-center w-full justify-center py-8 relative cursor-pointer  transition-transform duration-300 hover:shadow hover:-translate-y-1
+              ${
+                selectedOption === option.id
+                  ? "border-[#003877] bg-blue-50"
+                  : `bg-white border-[#00000024]`
+              }
+            `}
             >
-              <div className="text-center">
-                <div className="text-3xl mb-2">{option.icon}</div>
-                <h3 className="font-medium text-gray-900 mb-1">
-                  {option.title}
-                </h3>
-                <p className="text-sm text-gray-600">{option.description}</p>
+              {/* Image Wrapper */}
+              <div className="lg:w-20 w-16 h-16 lg:h-20 bg-[#F5F6F8] rounded-full flex items-center justify-center shadow-sm mb-4">
+                <img
+                  src={option?.image}
+                  alt={option.title}
+                  className="lg:w-14 lg:h-14 w-10 h-10 "
+                />
               </div>
+
+              {/* Title */}
+              <h2 className="text-lg font-semibold mb-1">{option?.title}</h2>
+              <p className="text-gray-500 text-sm mb-4">
+                {option?.description}
+              </p>
+
+              {/* Dynamic Options (only for upload card) */}
+              {option?.options && (
+                <div className="flex flex-wrap justify-center gap-2">
+                  {option?.options.map((opt) => (
+                    <button
+                      key={opt}
+                      className="px-3 py-1 rounded-lg border text-xs bg-gray-50 hover:bg-gray-100 text-gray-700"
+                    >
+                      {opt}
+                    </button>
+                  ))}
+                </div>
+              )}
               {selectedOption === option.id && (
                 <div className="absolute top-2 right-2">
                   <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
@@ -220,14 +208,20 @@ export default function PracticeQuizPage() {
           size="large"
           onClick={handleContinue}
           disabled={!quizName || !selectedOption}
-          className="bg-blue-600 hover:bg-blue-700"
+          className="bg-primary"
         >
           Continue
         </Button>
         <Button
           size="large"
-          onClick={() => router.push("/")}
-          className="bg-red-500 hover:bg-red-600 text-white"
+          onClick={() => {
+            setSelectedOption("");
+            setQuizName("");
+          }}
+          style={{
+            backgroundColor: "#EF4444",
+            color: "white",
+          }}
         >
           Cancel
         </Button>
