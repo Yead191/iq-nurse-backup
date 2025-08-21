@@ -1,11 +1,13 @@
 
 import FlashCard from '@/components/ui/user-dashboard-pages/flash-cards/flash-cards-home/FlashCard';
-import React from 'react';
+import React, { Suspense } from 'react';
 
 const FlashCardPage = () => {
     return (
-        <div>
+        <div> 
+            <Suspense fallback={<div>Loading...</div>} > 
             <FlashCard />
+            </Suspense>
         </div>
     );
 };
