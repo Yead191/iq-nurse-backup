@@ -10,36 +10,33 @@ interface CreateFolderModalProps {
   onConfirm: (name: string, color: string) => void;
 }
 
+const colors = [
+  "#06b6d4", // cyan
+  "#3b82f6", // blue
+  "#1d4ed8", // blue-700
+  "#10b981", // emerald
+  "#22c55e", // green
+  "#84cc16", // lime
+  "#f59e0b", // amber
+  "#f97316", // orange
+  "#ec4899", // pink
+  "#a855f7", // purple
+];
 export default function CreateFolderModal({
   isOpen,
   onClose,
   onConfirm,
 }: CreateFolderModalProps) {
-  const [folderName, setFolderName] = useState("Medical");
-  const [selectedColor, setSelectedColor] = useState("cyan");
+  const [folderName, setFolderName] = useState("New Folder");
+  const [selectedColor, setSelectedColor] = useState(colors[0]);
 
   const handleSubmit = () => {
     if (folderName.trim()) {
       onConfirm(folderName.trim(), selectedColor);
-      setFolderName("Medical");
-      setSelectedColor("cyan");
+      setFolderName("");
+      setSelectedColor(colors[0]);
       onClose();
     }
-  };
-
-  const getColorClass = (colorName: string) => {
-    const colorMap: Record<string, string> = {
-      cyan: "bg-cyan-400",
-      blue: "bg-blue-900",
-      sky: "bg-sky-500",
-      teal: "bg-teal-400",
-      green: "bg-green-400",
-      red: "bg-red-400",
-      orange: "bg-orange-400",
-      purple: "bg-purple-400",
-      emerald: "bg-emerald-400",
-    };
-    return colorMap[colorName] || "bg-gray-400";
   };
 
   return (
@@ -79,7 +76,6 @@ export default function CreateFolderModal({
             className="flex-1 outline-none text-gray-900"
             placeholder="Folder name"
           />
-          <div className="w-4 h-4 text-gray-400">▼</div>
         </div>
       </div>
 
@@ -89,15 +85,16 @@ export default function CreateFolderModal({
           Choose folder color
         </h3>
         <div className="flex gap-2 flex-wrap">
-          {folderColors.map((color: any) => (
+          {colors.map((color) => (
             <button
-              key={color.name}
-              onClick={() => setSelectedColor(color.name)}
-              className={`w-8 h-8 rounded-full ${getColorClass(color.name)} ${
-                selectedColor === color.name
-                  ? "ring-2 ring-blue-500 ring-offset-2"
-                  : "hover:scale-110"
-              } transition-all`}
+              key={color}
+              onClick={() => setSelectedColor(color)}
+              className={`w-8 h-8 rounded-full border-2 transition-all ${
+                selectedColor === color
+                  ? "border-gray-400 scale-110"
+                  : "border-gray-200 hover:border-gray-300"
+              }`}
+              style={{ backgroundColor: color }}
             />
           ))}
         </div>

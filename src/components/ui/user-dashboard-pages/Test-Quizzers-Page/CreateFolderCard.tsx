@@ -2,20 +2,27 @@
 
 import { PiFolderSimpleThin } from "react-icons/pi";
 
-export default function CreateFolderCard() {
-  return (
-    <div className="relative w-[360px] h-[300px] flex items-center justify-center text-gray-700">
-      {/* Folder icon as background */}
-      <PiFolderSimpleThin className="w-full h-full text-gray-400" />
+interface CreateFolderCardProps {
+  onClick: () => void;
+}
 
-      {/* Content inside folder */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="flex items-center gap-2">
-          <span className="inline-flex w-6 h-6 items-center justify-center rounded-[4px] bg-pink-400 text-white text-[16px] font-bold">
-            +
-          </span>
-          <span className="font-medium">Create Folder</span>
-        </div>
+export default function CreateFolderCard({ onClick }: CreateFolderCardProps) {
+  return (
+    <div
+      className=" w-full cursor-pointer transition-transform duration-300 hover:-translate-y-1  px-2 lg:px-12 h-[150px] lg:h-[270px] flex flex-col justify-center items-center  overflow-visible "
+      onClick={onClick}
+      style={{
+        backgroundImage: "url('/assets/icons/folder-icon.svg')",
+        backgroundSize: "100% 100%",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="flex items-center gap-2">
+        <span className="inline-flex w-6 h-6 items-center justify-center rounded-[4px] bg-pink-500 text-white text-[16px] font-bold">
+          +
+        </span>
+        <span className="font-medium">Create Folder</span>
       </div>
     </div>
   );
