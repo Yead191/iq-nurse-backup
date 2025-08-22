@@ -8,48 +8,8 @@ import FolderCard from "./FolderCard";
 import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
 import CreateFolderCard from "./CreateFolderCard";
 import CreateFolderModal from "../my-library-page/CreateFolderModal";
+import { initialFolders, QuizFolder } from "@/data/quizFolder";
 
-interface QuizFolder {
-  id: string;
-  name: string;
-  color: string;
-  quizCount: number;
-  createdAt: string;
-  quizzes: any[];
-}
-
-interface Quiz {
-  id: string;
-  name: string;
-  questions: any[];
-}
-
-const initialFolders: QuizFolder[] = [
-  {
-    id: "1",
-    name: "Pharmacology",
-    color: "#ec4899",
-    quizCount: 5,
-    createdAt: "Apr 2, 2023",
-    quizzes: [],
-  },
-  {
-    id: "2",
-    name: "OB/Maternity",
-    color: "#f59e0b",
-    quizCount: 3,
-    createdAt: "Apr 2, 2023",
-    quizzes: [],
-  },
-  {
-    id: "3",
-    name: "Pediatrics",
-    color: "#3b82f6",
-    quizCount: 4,
-    createdAt: "Apr 2, 2023",
-    quizzes: [],
-  },
-];
 
 export default function QuizzesPage() {
   const [folders, setFolders] = useState<QuizFolder[]>([]);

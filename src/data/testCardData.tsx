@@ -13,7 +13,7 @@ export const TestCardsData = [
     title: "Your Own Quizzes",
     description: "Generate Practice Test from Your Study Materials",
     img: "/assets/icons/own-quiz-icon.svg",
-    link: "/profile/flash-cards/create-test",
+    link: "/profile/tests/own-quizzes",
   },
 ];
 

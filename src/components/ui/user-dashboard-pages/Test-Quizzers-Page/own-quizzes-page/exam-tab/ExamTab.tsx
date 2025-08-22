@@ -1,14 +1,15 @@
-import { flashcardSections } from "@/data/highYieldFlashcardsData";
-import FlashCategory from "./FlashCategory";
+import { questionSections } from "@/data/quizFolder";
+import React from "react";
+import FlashCategory from "../../../flash-cards/high-yield-flashcards/FlashCategory";
 import Link from "next/link";
 import { MdOutlineArrowForward } from "react-icons/md";
 
-const AvailableFlashcards = () => {
+export default function ExamTab() {
   return (
     <div>
       <div className="container mx-auto">
         <div className=" flex flex-col gap-y-5">
-          {flashcardSections?.map((values, index) => (
+          {questionSections?.map((values, index) => (
             <div
               key={index}
               className=" border border-gray-200 rounded-xl  p-3"
@@ -63,6 +64,4 @@ const AvailableFlashcards = () => {
       </div>
     </div>
   );
-};
-
-export default AvailableFlashcards;
+}
