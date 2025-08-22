@@ -1,4 +1,6 @@
-import ExamTab from "@/components/ui/user-dashboard-pages/Test-Quizzers-Page/own-quizzes-page/exam-tab/ExamTab";
+import ExamTab from "@/components/ui/user-dashboard-pages/Test-Quizzers-Page/high-yield-questions-page/exam-tab/ExamTab";
+import { PerformanceTabMain } from "@/components/ui/user-dashboard-pages/Test-Quizzers-Page/high-yield-questions-page/performace-tab/PerformanceTabMain";
+
 
 export interface QuizFolder {
   id: string;
@@ -47,7 +49,7 @@ export const quizTabsData = [
     id: "Performance",
     label: "Performance",
     imageSrc: "/assets/user-dashboard-images/flash-card/performance.png",
-    component: <div>Performance Content</div>,
+    component: <PerformanceTabMain />
   },
   {
     id: "Previous Exam",

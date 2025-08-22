@@ -6,14 +6,14 @@ export const TestCardsData = [
     title: "Our High Yield NCLEX Questions",
     description: "Practice With Our High yield Exams",
     img: "/assets/sidebar-icons/test-icon.svg",
-    link: "/profile/tests/practice-quiz",
+    link: "/profile/tests/high-yield-questions",
   },
   {
     id: 2,
     title: "Your Own Quizzes",
     description: "Generate Practice Test from Your Study Materials",
     img: "/assets/icons/own-quiz-icon.svg",
-    link: "/profile/tests/own-quizzes",
+    link: "/profile/tests/practice-quiz",
   },
 ];
 
