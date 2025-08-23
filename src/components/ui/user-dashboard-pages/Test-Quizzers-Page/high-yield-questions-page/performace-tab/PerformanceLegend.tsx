@@ -6,17 +6,26 @@ interface PerformanceData {
 
 interface PerformanceLegendProps {
   data: PerformanceData[];
+  isFlashcard?: boolean;
 }
 
-export function PerformanceLegend({ data }: PerformanceLegendProps) {
+export function PerformanceLegend({
+  data,
+  isFlashcard,
+}: PerformanceLegendProps) {
   return (
-    <div className="grid grid-cols-1 md:gap-2 w-full max-w-sm">
+    <div className="grid lg:grid-cols-1  gap-4 w-full max-w-lg">
       {data.map((item, index) => (
         <div
           key={index}
-          className={`flex items-center justify-between py-2 ${
-            index === 0 ? "" : "border-t border-[#E1E1E1] md:border-none"
-          }`}
+          className={`flex items-center justify-between py-2 
+             ${
+               index !== 0 && !isFlashcard
+                 ? "border-t border-[#E1E1E1] md:border-none"
+                 : ""
+             }
+    ${index !== 0 && isFlashcard ? " border-t border-[#E1E1E1]" : ""}
+          `}
         >
           <div className="flex items-center space-x-2">
             <div

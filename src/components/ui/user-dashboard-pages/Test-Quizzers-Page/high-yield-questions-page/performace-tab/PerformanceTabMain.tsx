@@ -35,7 +35,7 @@ export function PerformanceTabMain() {
     <div className="flex flex-col md:flex-row gap-8 ">
       <MobileTabHeader title="Performance" />
       <Card className="flex-1 p-8">
-        <div className="flex flex-col items-center space-y-8">
+        <div className="flex flex-col items-center  space-y-8">
           <CircularProgressChart
             data={performanceData}
             overallScore={OVERALL_SCORE}

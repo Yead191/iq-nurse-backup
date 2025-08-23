@@ -2,64 +2,121 @@ import { flashcardSections } from "@/data/highYieldFlashcardsData";
 import FlashCategory from "./FlashCategory";
 import Link from "next/link";
 import { MdOutlineArrowForward } from "react-icons/md";
+import MobileTabHeader from "@/components/shared/MobileTabHeader";
+import { Collapse } from "antd";
+import { Minus, Plus } from "lucide-react";
 
 const AvailableFlashcards = () => {
   return (
     <div>
-      <div className="container mx-auto">
-        <div className=" flex flex-col gap-y-5">
-          {flashcardSections?.map((values, index) => (
-            <div
-              key={index}
-              className=" border border-gray-200 rounded-xl  p-3"
-            >
-              <div className=" flex items-center gap-4">
-                <h2 className="text-2xl font-bold ">{values?.title}</h2>
-                <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    name={"all-medical"}
-                    className="mr-2 h-3 w-3"
-                    // onChange={(e) => handleChange(e, category.name)}
-                  />
-                  <label
-                    htmlFor="all-medical"
-                    className="text-gray-700 flex  items-center gap-1"
-                  >
-                    <span>All Medical Surgical </span>{" "}
-                    <span className=" border px-4 py-1 border-gray-200 ps-2">
-                      {" "}
-                      {values?.total}{" "}
-                    </span>
-                  </label>
-                </div>
-              </div>
+      <MobileTabHeader title="2500 Flashcards Available" />
 
-              <div className=" grid lg:grid-cols-3 grid-cols-1 gap-10 py-5   ">
-                {values?.categories.map((column, colIdx) => (
-                  <div key={colIdx} className="space-y-2">
-                    <FlashCategory categories={column} />
-                  </div>
-                ))}
+      <div className=" flex flex-col gap-y-5">
+        {flashcardSections?.map((values, index) => (
+          <div key={index} className=" border border-gray-200 rounded-xl  p-3">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 ">
+                <h2 className="text-xl md:text-2xl font-bold">
+                  {values?.title}
+                </h2>
+                {/* <span className="border px-4 py-1 border-gray-200 ps-2 md:hidden rounded-lg">
+                  {values?.total}
+                </span> */}
+              </div>
+              <div className="md:flex items-center hidden ">
+                <input
+                  type="checkbox"
+                  name={`all-${values?.title}`}
+                  className="mr-2 h-3 w-3"
+                />
+                <label
+                  htmlFor="all-medical"
+                  className="text-gray-700 flex  items-center gap-1"
+                >
+                  <span>All Medical Surgical </span>{" "}
+                  <span className=" border px-4 py-1 border-gray-200 ps-2">
+                    {" "}
+                    {values?.total}{" "}
+                  </span>
+                </label>
               </div>
             </div>
-          ))}
-        </div>
 
-        <div className="flex items-center justify-end mt-4">
-          <Link
-            href={
-              "/profile/flash-cards/create-flash/start-scratch/flash-folder"
-            }
-            className=" h-[45px] lg:w-[200px] w-full rounded-lg bg-[#003877] text-white flex items-center justify-center gap-1 cursor-pointer"
-          >
-            <span> Continue </span>{" "}
-            <span>
-              {" "}
-              <MdOutlineArrowForward size={20} />{" "}
-            </span>
-          </Link>
-        </div>
+            {/* Large device → 3-column grid */}
+            <div className="hidden lg:grid lg:grid-cols-3 gap-10 py-5">
+              {values?.categories.map((column: any, colIdx: number) => (
+                <div key={colIdx} className="space-y-2">
+                  <FlashCategory categories={column} />
+                </div>
+              ))}
+            </div>
+
+            {/* Small device → accordion (Collapse question) */}
+            <div className="block lg:hidden py-5">
+              <Collapse
+                ghost
+                defaultActiveKey={["0"]}
+                expandIconPosition="end"
+                style={{
+                  backgroundColor: "white",
+                }}
+                size="large"
+                className="custom-faq-collapse"
+                expandIcon={({ isActive }) => (isActive ? <Minus /> : <Plus />)}
+              >
+                {values?.categories.map((column: any, colIdx: number) => (
+                  <Collapse.Panel
+                    header={
+                      <div>
+                        {column?.title ? (
+                          column?.title
+                        ) : (
+                          <div className="flex items-center gap-2 text-[#003877]">
+                            <h2 className="text-[16px] font-medium">
+                              {"Category" + colIdx + 1}
+                            </h2>
+                            <span className="border px-2 py-1 border-[#C5D0D0]  text-xs ps-2 md:hidden rounded-lg">
+                              {values?.total}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    }
+                    key={colIdx}
+                  >
+                    <div className="flex items-center md:hidden mb-2 pl-2">
+                      <input
+                        type="checkbox"
+                        name={`all-${values?.title}`}
+                        className="mr-2 h-3 w-3"
+                      />
+                      <label
+                        htmlFor={`all-${values?.title}`}
+                        className="text-gray-700 flex items-center gap-1"
+                      >
+                        <span>All {values?.title}</span>
+                      </label>
+                    </div>
+                    <FlashCategory categories={column} />
+                  </Collapse.Panel>
+                ))}
+              </Collapse>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="flex items-center justify-end mt-4">
+        <Link
+          href={"/profile/flash-cards/create-flash/start-scratch/flash-folder"}
+          className=" h-[45px] lg:w-[200px] w-full rounded-lg bg-[#003877] text-white flex items-center justify-center gap-1 cursor-pointer"
+        >
+          <span> Continue </span>{" "}
+          <span>
+            {" "}
+            <MdOutlineArrowForward size={20} />{" "}
+          </span>
+        </Link>
       </div>
     </div>
   );

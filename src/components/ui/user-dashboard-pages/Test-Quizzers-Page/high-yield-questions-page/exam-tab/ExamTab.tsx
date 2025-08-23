@@ -82,7 +82,7 @@ export default function ExamTab() {
                     }
                     key={colIdx}
                   >
-                    <div className="flex items-center md:hidden">
+                    <div className="flex items-center md:hidden mb-2 pl-2">
                       <input
                         type="checkbox"
                         name={`all-${values?.title}`}
@@ -93,9 +93,6 @@ export default function ExamTab() {
                         className="text-gray-700 flex items-center gap-1"
                       >
                         <span>All {values?.title}</span>
-                        <span className="border px-4 py-1 border-gray-200 ps-2">
-                          {values?.total}
-                        </span>
                       </label>
                     </div>
                     <FlashCategory categories={column} />
