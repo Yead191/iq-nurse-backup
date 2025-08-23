@@ -15,7 +15,7 @@ export default function TabSelect({
   handleTabClick,
 }: TabSelectProps) {
   return (
-    <div key={tab.id} className="cursor-pointer px-2">
+    <div key={tab.id} className="cursor-pointer px-2 w-[50px] md:w-auto">
       <div
         onClick={() => handleTabClick(tab.id)}
         className={` md:border rounded-lg   md:py-4 md:p-4 shadow-sm transition-all duration-300 hover:shadow-md group cursor-pointer w-full  flex flex-row items-center justify-between  gap-2 md:gap-4 ${

@@ -174,15 +174,15 @@ export const menus: Record<string, MenuItem[]> = {
   ],
 };
 
-export const studyToolsRoutes = [
-  "/profile/study-notes",
-  "/profile/my-notepad",
-  "/profile/clinicals",
-  "/profile/patient-assessment",
-  "/profile/templates",
-  "/profile/content-map",
-  "/profile/my-library",
-  "/profile/calendar",
-  "/profile/tests",
-  "/profile/flash-cards",
+export const studyNotesChildren = [
+  "/profile/study-notes?category=critical-care",
+  "/profile/study-notes?category=anatomy-physiology",
+  "/profile/study-notes?category=pharmacology",
+  "/profile/study-notes?category=medication-calculation",
+  "/profile/study-notes?category=pathophysiology",
+  "/profile/study-notes?category=mental-health",
+  "/profile/study-notes?category=fundamentals",
+  "/profile/study-notes?category=medical-surgical",
+  "/profile/study-notes?category=ob-maternity",
+  "/profile/study-notes?category=pediatrics",
 ];

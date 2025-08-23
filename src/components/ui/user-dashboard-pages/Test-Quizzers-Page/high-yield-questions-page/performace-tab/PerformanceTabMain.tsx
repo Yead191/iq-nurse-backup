@@ -4,6 +4,7 @@ import { Card } from "antd";
 import { CircularProgressChart } from "./CircularProgressChart";
 import { PerformanceLegend } from "./PerformanceLegend";
 import { PeerComparisonSection } from "./PeerComparisonSection";
+import MobileTabHeader from "@/components/shared/MobileTabHeader";
 
 const generatePerformanceData = () => [
   { name: "Correct", value: 43, color: "#52c41a" },
@@ -32,6 +33,7 @@ export function PerformanceTabMain() {
 
   return (
     <div className="flex flex-col md:flex-row gap-8 ">
+      <MobileTabHeader title="Performance" />
       <Card className="flex-1 p-8">
         <div className="flex flex-col items-center space-y-8">
           <CircularProgressChart

@@ -106,4 +106,34 @@ html {
   -webkit-touch-callout: none;
 }
 
+.custom-faq-collapse .ant-collapse-item {
+  margin-bottom: 16px !important;
+  /* background-color: #e8eff6 !important; */
+  border: none !important;
+  border-radius: 8px !important;
+}
 
+.custom-faq-collapse .ant-collapse-header {
+  /* padding: 16px 24px !important; */
+  background-color: #e8eff6 !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  color: #333 !important;
+  font-size: 16px !important;
+}
+
+.custom-faq-collapse .ant-collapse-content {
+  padding-top: 16px !important;
+  background-color: #ffffff !important;
+  border-top: none !important;
+}
+
+.custom-faq-collapse .ant-collapse-expand-icon {
+  color: #666 !important;
+  font-size: 14px !important;
+}
+
+.custom-faq-collapse .ant-collapse-content-box {
+  background-color: #fff !important;
+  padding: 0 !important;
+}

@@ -5,7 +5,11 @@ import { ChevronDown, ChevronRight, ChevronLeft } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Tooltip } from "antd";
 import React from "react";
-import { MenuItem, menus, studyToolsRoutes } from "@/data/SidebarMenus";
+import {
+  MenuItem,
+  menus,
+  studyNotesChildren,
+} from "@/data/SidebarMenus";
 
 interface SidebarProps {
   showLabels: boolean;
@@ -35,13 +39,16 @@ const Sidebar = ({
   };
   useEffect(() => {
     // Check if current pathname starts with any study tools route
-    const isStudyToolsPage = studyToolsRoutes.some((route) =>
-      pathname.startsWith(route)
+    const currentPath =
+      typeof window !== "undefined" ? window.location.href : "";
+
+    const isStudyNotesChild = studyNotesChildren.some((route) =>
+      currentPath.includes(route)
     );
 
     setOpenMenus((prev) => ({
       ...prev,
-      studyTools: isStudyToolsPage,
+      studyTools: isStudyNotesChild,
     }));
   }, [pathname]);
 
