@@ -5,7 +5,6 @@ import React, { useState } from "react";
 import TabSelect from "./TabSelect";
 
 export default function HighYieldQuestionsPage() {
-  globalThis.scrollTo(0, 0);
   const [activeTab, setActiveTab] = useState("Exams");
 
   const handleTabClick = (tabId: string) => {
@@ -26,7 +25,7 @@ export default function HighYieldQuestionsPage() {
       </div>
 
       {/* Render active tab's content */}
-      <div className="mt-4 flex-1">
+      <div className="mt-4 flex-1 overflow-x-auto">
         {quizTabsData.find((tab) => tab.id === activeTab)?.component}
       </div>
     </div>

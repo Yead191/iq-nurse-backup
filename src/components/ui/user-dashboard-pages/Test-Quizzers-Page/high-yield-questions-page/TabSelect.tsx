@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 interface TabSelectProps {
   tab: {
@@ -20,7 +21,7 @@ export default function TabSelect({
         onClick={() => handleTabClick(tab.id)}
         className={` md:border rounded-lg   md:py-4 md:p-4 md:shadow-sm transition-all duration-300 hover:shadow-md group cursor-pointer w-full  flex flex-row items-center justify-between  gap-2 md:gap-4 ${
           activeTab === tab.id
-            ? "border-white md:border-[#003877]/80 bg-white md:bg-[#E6EBF1]/80"
+            ? "border-white shadow-sm md:border-[#003877]/80 bg-white md:bg-[#E6EBF1]/80"
             : "border-[#C5D0D0]  hover:border-[#547AA4]/80"
         }`}
       >
@@ -32,10 +33,13 @@ export default function TabSelect({
           {tab.label}
         </p>
         <div className="">
-          <img
+          <Image
             src={tab.imageSrc}
-            alt=""
+            alt="sidebar icon"
             className="md:w-10 md:h-10 w-14  p-2 md:p-0"
+            height={10}
+            width={10}
+            unoptimized
           />
         </div>
       </div>
