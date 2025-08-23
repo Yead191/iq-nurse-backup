@@ -141,12 +141,12 @@ html {
 @media (max-width: 768px) {
   .ant-table th,
   .ant-table td {
-    font-size: 4px;
+    font-size: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .ant-table {
-    font-size: 4px;
+    font-size: 10px;
   }
 }

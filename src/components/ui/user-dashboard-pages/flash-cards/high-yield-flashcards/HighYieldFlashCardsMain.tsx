@@ -24,7 +24,7 @@ const HighYieldFlashCardsMain = () => {
       </div>
 
       {/* Render active tab's content */}
-      <div className="mt-4 flex-1">
+      <div className="mt-4 flex-1 overflow-x-auto">
         {flashTabsData.find((tab) => tab.id === activeTab)?.component}
       </div>
     </div>

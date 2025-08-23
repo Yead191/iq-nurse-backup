@@ -13,8 +13,8 @@ const PreviousFlashcards = () => {
       // width: '25%',
       render: (_: any, record: any) => (
         <div className="lg:text-base text-xs flex flex-col gap-1 ">
-          <p className=" text-[#110D0D] font-medium text-[12px] "> {record?.topic} </p>
-          <p className=" text-[#7B7B7B] text-[6px]"> {record?.date} </p>
+          <p className=" text-[#110D0D] font-medium "> {record?.topic} </p>
+          <p className=" text-[#7B7B7B] "> {record?.date} </p>
         </div>
       ),
     },
@@ -45,12 +45,12 @@ const PreviousFlashcards = () => {
   ];
 
   return (
-    <div className=" ">
+    <div className="  h-screen lg:w-full w-[calc(100vh -50px)] overflow-y-auto">
       <Table
         columns={columns}
         dataSource={PreviousFlashcardsData}
         pagination={false}
-        scroll={{ x: "max-content" }}
+        scroll={{ x: 600 }}
         bordered
       />
       <div className="flex justify-center mt-6">
