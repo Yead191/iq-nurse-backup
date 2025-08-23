@@ -10,7 +10,7 @@ interface PerformanceLegendProps {
 
 export function PerformanceLegend({ data }: PerformanceLegendProps) {
   return (
-    <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
+    <div className="grid lg:grid-cols-1 grid-cols-2 gap-4 w-full max-w-lg">
       {data.map((item, index) => (
         <div key={index} className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
