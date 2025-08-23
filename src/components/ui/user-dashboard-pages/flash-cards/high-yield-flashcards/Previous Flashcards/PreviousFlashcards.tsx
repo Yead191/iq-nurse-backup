@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Pagination, Table } from "antd";
 import { PreviousFlashcardsData } from "@/data/highYieldFlashcardsData";
+import MobileTabHeader from "@/components/shared/MobileTabHeader";
 
 const PreviousFlashcards = () => {
   const [page, setPage] = useState(0);
@@ -46,12 +47,13 @@ const PreviousFlashcards = () => {
 
   return (
     <div className=" lg:w-full ">
+      <MobileTabHeader title="Previous Flashcards" />
+
       <Table
         columns={columns}
         dataSource={PreviousFlashcardsData}
         pagination={false}
         scroll={{ x: 600 }}
-        bordered
       />
       <div className="flex justify-center mt-6">
         <Pagination

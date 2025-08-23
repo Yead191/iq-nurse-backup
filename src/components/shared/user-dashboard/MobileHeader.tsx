@@ -34,7 +34,7 @@ export default function MobileHeader() {
       .join(" ");
   };
   const pathSegments = pathname?.split("/").filter(Boolean) || [];
-  
+
   // Check if the string looks like an ID (Mongo _id or numeric)
   const isIdSegment = (str: string) =>
     /^[a-f\d]{24}$/i.test(str) || /^\d+$/.test(str);
@@ -56,7 +56,15 @@ export default function MobileHeader() {
     pathname.startsWith("/profile/contact-us") ||
     pathname.startsWith("/profile/about-us");
 
-  const backLink = isAccountRelated ? "/profile/account" : "/profile/home";
+  // const backLink = isAccountRelated ? "/profile/account" : "/profile/home";
+
+  const handleBack = () => {
+    if (isAccountRelated) {
+      router.push("/profile/account");
+      return;
+    }
+    router.back();
+  };
 
   return (
     <header
@@ -102,11 +110,12 @@ export default function MobileHeader() {
               </Link>
             ) : (
               <div className="flex items-center space-x-3">
-                <Link href={backLink} className="mt-1.5">
-                  <button className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border ">
-                    <ChevronLeft size={24} />
-                  </button>
-                </Link>
+                <button
+                  onClick={handleBack}
+                  className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border "
+                >
+                  <ChevronLeft size={24} />
+                </button>
 
                 <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded">
                   {formatPathName(targetSlug)}

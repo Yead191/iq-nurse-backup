@@ -26,7 +26,7 @@ export default function HighYieldQuestionsPage() {
       </div>
 
       {/* Render active tab's content */}
-      <div className="mt-4 flex-1">
+      <div className="mt-4 flex-1 overflow-x-auto">
         {quizTabsData.find((tab) => tab.id === activeTab)?.component}
       </div>
     </div>
