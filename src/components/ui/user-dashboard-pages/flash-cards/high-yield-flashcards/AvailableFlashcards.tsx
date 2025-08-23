@@ -108,10 +108,10 @@ const AvailableFlashcards = () => {
 
       <div className="flex items-center justify-end mt-4">
         <Link
-          href={"/profile/flash-cards/create-flash/start-scratch/flash-folder"}
+          href={"/profile/flash-cards/high-yield-flashcards/create-test"}
           className=" h-[45px] lg:w-[200px] w-full rounded-lg bg-[#003877] text-white flex items-center justify-center gap-1 cursor-pointer"
         >
-          <span> Continue </span>{" "}
+          <span> Create Test </span>{" "}
           <span>
             {" "}
             <MdOutlineArrowForward size={20} />{" "}
