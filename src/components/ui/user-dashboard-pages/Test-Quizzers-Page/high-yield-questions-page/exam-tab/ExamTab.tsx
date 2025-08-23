@@ -14,8 +14,15 @@ export default function ExamTab() {
           <div key={index} className="border border-gray-200 rounded-xl p-3">
             {/* Header */}
             <div className="flex items-center gap-4">
-              <h2 className="text-xl md:text-2xl font-bold">{values?.title}</h2>
-              {/* <div className="flex items-center">
+              <div className="flex items-center gap-2 ">
+                <h2 className="text-xl md:text-2xl font-bold">
+                  {values?.title}
+                </h2>
+                {/* <span className="border px-4 py-1 border-gray-200 ps-2 md:hidden rounded-lg">
+                  {values?.total}
+                </span> */}
+              </div>
+              <div className="md:flex items-center hidden ">
                 <input
                   type="checkbox"
                   name={`all-${values?.title}`}
@@ -30,7 +37,7 @@ export default function ExamTab() {
                     {values?.total}
                   </span>
                 </label>
-              </div> */}
+              </div>
             </div>
 
             {/* Large device → 3-column grid */}
@@ -42,7 +49,7 @@ export default function ExamTab() {
               ))}
             </div>
 
-            {/* Small device → FAQ (Collapse) */}
+            {/* Small device → accordion (Collapse question) */}
             <div className="block lg:hidden py-5">
               <Collapse
                 ghost
@@ -57,9 +64,40 @@ export default function ExamTab() {
               >
                 {values?.categories.map((column: any, colIdx: number) => (
                   <Collapse.Panel
-                    header={column?.title || `Category ${colIdx + 1}`}
+                    header={
+                      <div>
+                        {column?.title ? (
+                          column?.title
+                        ) : (
+                          <div className="flex items-center gap-2 text-[#003877]">
+                            <h2 className="text-[16px] font-medium">
+                              {"Category" + colIdx + 1}
+                            </h2>
+                            <span className="border px-2 py-1 border-[#C5D0D0]  text-xs ps-2 md:hidden rounded-lg">
+                              {values?.total}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    }
                     key={colIdx}
                   >
+                    <div className="flex items-center md:hidden">
+                      <input
+                        type="checkbox"
+                        name={`all-${values?.title}`}
+                        className="mr-2 h-3 w-3"
+                      />
+                      <label
+                        htmlFor={`all-${values?.title}`}
+                        className="text-gray-700 flex items-center gap-1"
+                      >
+                        <span>All {values?.title}</span>
+                        <span className="border px-4 py-1 border-gray-200 ps-2">
+                          {values?.total}
+                        </span>
+                      </label>
+                    </div>
                     <FlashCategory categories={column} />
                   </Collapse.Panel>
                 ))}
