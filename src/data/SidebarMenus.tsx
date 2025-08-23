@@ -173,3 +173,16 @@ export const menus: Record<string, MenuItem[]> = {
     },
   ],
 };
+
+export const studyToolsRoutes = [
+  "/profile/study-notes",
+  "/profile/my-notepad",
+  "/profile/clinicals",
+  "/profile/patient-assessment",
+  "/profile/templates",
+  "/profile/content-map",
+  "/profile/my-library",
+  "/profile/calendar",
+  "/profile/tests",
+  "/profile/flash-cards",
+];

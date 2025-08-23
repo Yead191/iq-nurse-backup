@@ -2,10 +2,10 @@
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { ChevronDown, ChevronRight, ChevronLeft } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Tooltip } from "antd";
 import React from "react";
-import { MenuItem, menus } from "@/data/SidebarMenus";
+import { MenuItem, menus, studyToolsRoutes } from "@/data/SidebarMenus";
 
 interface SidebarProps {
   showLabels: boolean;
@@ -33,6 +33,17 @@ const Sidebar = ({
       setIsMobileSidebarOpen(false);
     }
   };
+  useEffect(() => {
+    // Check if current pathname starts with any study tools route
+    const isStudyToolsPage = studyToolsRoutes.some((route) =>
+      pathname.startsWith(route)
+    );
+
+    setOpenMenus((prev) => ({
+      ...prev,
+      studyTools: isStudyToolsPage,
+    }));
+  }, [pathname]);
 
   const isActive = (path: string) => {
     // if (path.includes("/category/")) {
