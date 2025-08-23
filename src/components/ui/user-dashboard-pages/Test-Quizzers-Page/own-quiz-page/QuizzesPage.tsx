@@ -7,9 +7,8 @@ import FolderCard from "./FolderCard";
 
 import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
 import CreateFolderCard from "./CreateFolderCard";
-import CreateFolderModal from "../my-library-page/CreateFolderModal";
+import CreateFolderModal from "../../my-library-page/CreateFolderModal";
 import { initialFolders, QuizFolder } from "@/data/quizFolder";
-
 
 export default function QuizzesPage() {
   const [folders, setFolders] = useState<QuizFolder[]>([]);
