@@ -92,8 +92,9 @@ export default function PracticeQuizPage() {
           Choose an option
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6 ">
-          {ImportCard.map((option) => (
+          {ImportCard.map((option, i) => (
             <div
+              key={i}
               onClick={() => setSelectedOption(option.id)}
               className={` rounded-2xl shadow-md border p-6 text-center flex flex-col items-center w-full justify-center py-8 relative cursor-pointer  transition-transform duration-300 hover:shadow hover:-translate-y-1
               ${
@@ -182,8 +183,12 @@ export default function PracticeQuizPage() {
         <Button
           size="large"
           onClick={() => {
-            setSelectedOption("");
-            setQuizName("");
+            if (selectedOption || quizName) {
+              setSelectedOption("");
+              setQuizName("");
+              return;
+            }
+            router.back();
           }}
           style={{
             backgroundColor: "#EF4444",
