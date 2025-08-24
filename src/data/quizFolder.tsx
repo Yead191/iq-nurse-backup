@@ -1,5 +1,6 @@
 import ExamTab from "@/components/ui/user-dashboard-pages/Test-Quizzers-Page/high-yield-questions-page/exam-tab/ExamTab";
 import { PerformanceTabMain } from "@/components/ui/user-dashboard-pages/Test-Quizzers-Page/high-yield-questions-page/performace-tab/PerformanceTabMain";
+import PreviousExamTab from "@/components/ui/user-dashboard-pages/Test-Quizzers-Page/high-yield-questions-page/previous-exam-tab/PreviousExamTab";
 
 export interface QuizFolder {
   id: string;
@@ -54,7 +55,7 @@ export const quizTabsData = [
     id: "Previous Exam",
     label: "Previous Exam",
     imageSrc: "/assets/user-dashboard-images/flash-card/previous-exam.png",
-    component: <div>Previous Exam Content</div>,
+    component: <PreviousExamTab />,
   },
 ];
 

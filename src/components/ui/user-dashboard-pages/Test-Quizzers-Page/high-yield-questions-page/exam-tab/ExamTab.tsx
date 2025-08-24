@@ -1,11 +1,22 @@
+"use client";
 import { questionSections } from "@/data/quizFolder";
-import React from "react";
+import React, { useState } from "react";
 import FlashCategory from "../../../flash-cards/high-yield-flashcards/FlashCategory";
-import { Collapse } from "antd";
+import { Collapse, RadioChangeEvent } from "antd";
 import { Minus, Plus } from "lucide-react";
 import MobileTabHeader from "@/components/shared/MobileTabHeader";
+import ExamConfigSection from "./ExamConfigSection";
 
 export default function ExamTab() {
+  const [numQuestions, setNumQuestions] = useState(30);
+  const [examMode, setExamMode] = useState("practice");
+  const handleExamModeChange = (e: RadioChangeEvent) => {
+    setExamMode(e.target.value);
+  };
+  const handleStart = () => {
+    console.log("Starting exam with:", { numQuestions, examMode });
+    // Add your start logic here
+  };
   return (
     <div>
       <MobileTabHeader title="Exams" subtitle="2500 Test Questions Available" />
@@ -60,7 +71,7 @@ export default function ExamTab() {
                 }}
                 size="large"
                 className="custom-faq-collapse"
-                expandIcon={({ isActive }) => (isActive ? <Minus /> : <Plus />)}
+                // expandIcon={({ isActive }) => (isActive ? <Minus /> : <Plus />)}
               >
                 {values?.categories.map((column: any, colIdx: number) => (
                   <Collapse.Panel
@@ -104,18 +115,13 @@ export default function ExamTab() {
         ))}
       </div>
 
-      {/* <div className="flex items-center justify-end mt-4">
-        <Link
-          href={"/profile/flash-cards/create-flash/start-scratch/flash-folder"}
-          className=" h-[45px] lg:w-[200px] w-full rounded-lg bg-[#003877] text-white flex items-center justify-center gap-1 cursor-pointer"
-        >
-          <span> Continue </span>{" "}
-          <span>
-            {" "}
-            <MdOutlineArrowForward size={20} />{" "}
-          </span>
-        </Link>
-      </div> */}
+      <ExamConfigSection
+        numQuestions={numQuestions}
+        setNumQuestions={setNumQuestions}
+        examMode={examMode}
+        handleStart={handleStart}
+        handleExamModeChange={handleExamModeChange}
+      />
     </div>
   );
 }
