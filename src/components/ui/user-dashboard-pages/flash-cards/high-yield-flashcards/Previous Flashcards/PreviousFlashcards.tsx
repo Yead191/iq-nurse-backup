@@ -44,7 +44,7 @@ const PreviousFlashcards = () => {
     ];
 
     return (
-        <div className='  h-screen lg:w-full w-[calc(100vh -50px)] overflow-y-auto' >
+        <div className='  h-screen lg:w-full w-[calc(100vh-50px)] overflow-y-auto' >
             <Table
                 columns={columns}
                 dataSource={PreviousFlashcardsData}

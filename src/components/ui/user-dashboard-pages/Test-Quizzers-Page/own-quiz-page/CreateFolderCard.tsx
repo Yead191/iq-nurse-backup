@@ -1,7 +1,5 @@
 "use client";
 
-import { PiFolderSimpleThin } from "react-icons/pi";
-
 interface CreateFolderCardProps {
   onClick: () => void;
 }

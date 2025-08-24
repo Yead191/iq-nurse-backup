@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import TabSelect from "./TabSelect";
 
 export default function HighYieldQuestionsPage() {
-  globalThis.scrollTo(0, 0);
+  // globalThis.scrollTo(0, 0); 
   const [activeTab, setActiveTab] = useState("Exams");
 
   const handleTabClick = (tabId: string) => {
