@@ -6,6 +6,7 @@ import { Collapse, RadioChangeEvent } from "antd";
 import { Minus, Plus } from "lucide-react";
 import MobileTabHeader from "@/components/shared/MobileTabHeader";
 import ExamConfigSection from "./ExamConfigSection";
+import { useRouter } from "next/navigation";
 
 export default function ExamTab() {
   const [numQuestions, setNumQuestions] = useState(30);
@@ -13,9 +14,11 @@ export default function ExamTab() {
   const handleExamModeChange = (e: RadioChangeEvent) => {
     setExamMode(e.target.value);
   };
+  const router = useRouter();
   const handleStart = () => {
     console.log("Starting exam with:", { numQuestions, examMode });
     // Add your start logic here
+    router.push(`/profile/tests/high-yield-questions/${examMode}`);
   };
   return (
     <div>
