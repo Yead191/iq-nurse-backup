@@ -5,44 +5,25 @@ import MCQQuestion from "./MCQQuestion";
 import FillInBlankQuestion from "./FillInBlankQuestion";
 import QuestionNavigation from "./QuestionNavigation";
 import QuestionHeader from "./QuestionHeader";
+import { questions } from "@/data/testQuestionData";
 
 // Demo data
-const questions = [
-  {
-    id: 1,
-    type: "mcq" as const,
-    question:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    options: [
-      "Administer a 1 L 0.9% sodium chloride IV bolus",
-      "Initiate an IV infusion of regular insulin",
-      "Instruct client to breathe into a paper bag",
-      "Obtain blood specimen for a serum glucose test",
-      "Place the client on continuous cardiac monitoring",
-    ],
-    explanation:
-      "Acute psychosis is characteristic of many psychiatric illnesses (eg, schizophrenia) and refers to bizarre thinking that is disconnected from reality. Symptoms of psychosis include hallucinations (false sensory perceptions) and delusions (eg, strong, false beliefs that are accepted by the client as well). Appropriate nursing interventions for clients experiencing auditory hallucinations (eg, hearing voices, talking back) and persecutory delusions (eg, false beliefs that are accepted by the client as well) include:",
-  },
-  {
-    id: 2,
-    type: "fill" as const,
-    question:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  },
-];
 
 export default function TestQuestion({ mode }: { mode: string }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [answers, setAnswers] = useState<Record<number, string | string[]>>({});
   const [markedForReview, setMarkedForReview] = useState<Set<number>>(
     new Set()
   );
-  const [timeRemaining, setTimeRemaining] = useState(135); // 2:15 in seconds
+  const [timeRemaining, setTimeRemaining] = useState(135); 
 
   const currentQuestion = questions[currentQuestionIndex];
   const totalQuestions = questions.length;
 
-  const handleAnswerChange = (questionId: number, answer: string) => {
+  const handleAnswerChange = (
+    questionId: number,
+    answer: string | string[]
+  ) => {
     setAnswers((prev) => ({ ...prev, [questionId]: answer }));
   };
 
@@ -92,7 +73,11 @@ export default function TestQuestion({ mode }: { mode: string }) {
             <MCQQuestion
               question={currentQuestion.question}
               options={currentQuestion.options!}
-              selectedAnswer={answers[currentQuestion.id]}
+              selectedAnswers={
+                Array.isArray(answers[currentQuestion.id])
+                  ? (answers[currentQuestion.id] as string[])
+                  : []
+              }
               onAnswerChange={(answer) =>
                 handleAnswerChange(currentQuestion.id, answer)
               }
@@ -101,7 +86,7 @@ export default function TestQuestion({ mode }: { mode: string }) {
           ) : (
             <FillInBlankQuestion
               question={currentQuestion.question}
-              answer={answers[currentQuestion.id] || ""}
+              answer={(answers[currentQuestion.id] as string) || ""}
               onAnswerChange={(answer) =>
                 handleAnswerChange(currentQuestion.id, answer)
               }

@@ -18,10 +18,10 @@ export default function QuestionNavigation({
   return (
     <div className="flex items-center justify-between">
       <div className="flex space-x-3">
-        <button className="px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-700 transition-colors">
+        <button className="px-4 py-2 bg-[#003877] text-white rounded  transition-colors">
           End
         </button>
-        <button className="px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-700 transition-colors">
+        <button className="px-4 py-2 bg-[#003877] text-white rounded  transition-colors">
           Suspend
         </button>
       </div>
@@ -32,7 +32,7 @@ export default function QuestionNavigation({
           disabled={!canGoPrevious}
           className={`p-2 rounded transition-colors ${
             canGoPrevious
-              ? "bg-blue-800 text-white hover:bg-blue-700"
+              ? "bg-[#003877] text-white hover:bg-blue-700"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >
@@ -44,7 +44,7 @@ export default function QuestionNavigation({
           disabled={!canGoNext}
           className={`p-2 rounded transition-colors ${
             canGoNext
-              ? "bg-blue-800 text-white hover:bg-blue-700"
+              ? "bg-[#003877] text-white hover:bg-blue-700"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >
