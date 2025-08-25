@@ -61,11 +61,12 @@ export default function AddMeetingModal({
   open,
   onClose,
 }: AddMeetingModalProps) {
-  const [form] = Form.useForm();
   const [selectedColor, setSelectedColor] = useState<string>(colorOptions[0]);
   const [selectedIcon, setSelectedIcon] = useState<string>("");
 
   const [iconModalOpen, setIconModalOpen] = useState(false);
+  const [form] = Form.useForm();
+
   const handleIconSelect = (icon: string) => {
     setSelectedIcon(icon);
     setIconModalOpen(false);
