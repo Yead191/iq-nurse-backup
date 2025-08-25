@@ -5,9 +5,14 @@ import { PlusOutlined } from "@ant-design/icons";
 interface TaskHeaderProps {
   img: string;
   title: string;
+  handleEvent?: () => void;
 }
 
-export default function TaskHeader({ img, title }: TaskHeaderProps) {
+export default function TaskHeader({
+  img,
+  title,
+  handleEvent,
+}: TaskHeaderProps) {
   return (
     <div className="flex justify-between items-center mb-3">
       <div className="flex items-center gap-2">
@@ -15,6 +20,7 @@ export default function TaskHeader({ img, title }: TaskHeaderProps) {
         <span className="text-sm font-medium text-[#333333]">{title}</span>
       </div>
       <Button
+        onClick={handleEvent}
         size="small"
         type="text"
         shape="circle"
