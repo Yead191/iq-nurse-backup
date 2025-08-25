@@ -1,7 +1,11 @@
+import CalendarMain from '@/components/ui/user-dashboard-pages/calendar/CalendarMain'
 import React from 'react'
 
 export default function page() {
   return (
-    <div>Calender Page</div>
+    <div>
+      
+      <CalendarMain/>
+    </div>
   )
 }
