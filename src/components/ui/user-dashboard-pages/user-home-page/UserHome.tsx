@@ -2,14 +2,7 @@ import { Suspense } from "react";
 
 import { Card } from "antd";
 
-import {
-  weeklyStats,
-  studyCategories,
-  continueReading,
-  myLibrary,
-  recentlyViewed,
-  todaysEvents,
-} from "@/data/userHome";
+import { weeklyStats, studyCategories } from "@/data/userHome";
 import { HomeBreadcrumbs } from "./HomeBreadcrumbs";
 import { SectionHeader } from "./SectionHeader";
 import { StatsGrid } from "./StatsGrid";
