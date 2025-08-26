@@ -9,6 +9,7 @@ interface MCQQuestionProps {
   selectedAnswers?: string[];
   onAnswerChange: (answers: string[]) => void;
   explanation?: string;
+  mode: string;
 }
 
 export default function MCQQuestion({
@@ -17,6 +18,7 @@ export default function MCQQuestion({
   selectedAnswers = [],
   onAnswerChange,
   explanation,
+  mode,
 }: MCQQuestionProps) {
   const [showExplanation, setShowExplanation] = useState(false);
 
@@ -63,7 +65,7 @@ export default function MCQQuestion({
         })}
       </div>
 
-      {explanation && (
+      {explanation && mode === "practice" && (
         <div className="mt-6 border-t pt-4">
           <button
             onClick={() => setShowExplanation(!showExplanation)}
