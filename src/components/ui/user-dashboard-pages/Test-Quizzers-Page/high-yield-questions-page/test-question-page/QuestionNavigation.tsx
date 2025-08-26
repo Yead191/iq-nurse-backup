@@ -32,7 +32,7 @@ export default function QuestionNavigation({
           disabled={!canGoPrevious}
           className={`p-2 rounded transition-colors ${
             canGoPrevious
-              ? "bg-[#003877] text-white hover:bg-blue-700"
+              ? "bg-[#003877] text-white hover:bg-[#003877]/90"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >
@@ -44,7 +44,7 @@ export default function QuestionNavigation({
           disabled={!canGoNext}
           className={`p-2 rounded transition-colors ${
             canGoNext
-              ? "bg-[#003877] text-white hover:bg-blue-700"
+              ? "bg-[#003877] text-white hover:bg-[#003877]/90"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >

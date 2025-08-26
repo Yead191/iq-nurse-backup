@@ -6,8 +6,8 @@ import { ChevronDown, ChevronUp, Lightbulb } from "lucide-react";
 interface MCQQuestionProps {
   question: string;
   options: string[];
-  selectedAnswers?: string[];
-  onAnswerChange: (answers: string[]) => void;
+  selectedAnswer?: string;
+  onAnswerChange: (answer: string) => void;
   explanation?: string;
   mode: string;
 }
@@ -15,21 +15,14 @@ interface MCQQuestionProps {
 export default function MCQQuestion({
   question,
   options,
-  selectedAnswers = [],
+  selectedAnswer,
   onAnswerChange,
   explanation,
-  mode,
+  mode
 }: MCQQuestionProps) {
   const [showExplanation, setShowExplanation] = useState(false);
 
   const optionLabels = ["A", "B", "C", "D", "E"];
-
-  const handleAnswerToggle = (label: string) => {
-    const newAnswers = selectedAnswers.includes(label)
-      ? selectedAnswers.filter((answer) => answer !== label)
-      : [...selectedAnswers, label];
-    onAnswerChange(newAnswers);
-  };
 
   return (
     <div className="space-y-4">
@@ -38,7 +31,7 @@ export default function MCQQuestion({
       <div className="space-y-3">
         {options.map((option, index) => {
           const label = optionLabels[index];
-          const isSelected = selectedAnswers.includes(label);
+          const isSelected = selectedAnswer === label;
 
           return (
             <label
@@ -50,11 +43,12 @@ export default function MCQQuestion({
               }`}
             >
               <input
-                type="checkbox"
+                type="radio"
+                name="mcq-answer"
                 value={label}
                 checked={isSelected}
-                onChange={() => handleAnswerToggle(label)}
-                className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                onChange={() => onAnswerChange(label)}
+                className="mt-1 w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
               />
               <div className="flex-1">
                 <span className="font-medium text-gray-900 mr-2">{label}.</span>
