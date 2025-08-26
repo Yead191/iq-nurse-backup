@@ -42,33 +42,31 @@ export default function QuestionHeader({
 
   return (
     <div className="bg-[#003877] text-white px-6 py-4 rounded-xl">
-      <div className="max-w-4xl mx-auto flex items-center justify-between">
-        <div className="flex items-center space-x-8">
+      <div className="max-w-4xl mx-auto items-center flex justify-between flex-wrap gap-4">
+        <div className="flex  items-center space-x-8">
           {/* <div className="flex items-center space-x-2">
             <Calculator className="w-4 h-4" />
             <span className="text-sm font-medium">Calculator</span>
           </div> */}
 
-          <div className="text-center">
+          <div className="text-start lg:text-center">
             <div className="text-lg font-semibold">{subject}</div>
             <div className="text-sm opacity-90">{category}</div>
           </div>
         </div>
-
-        <div className="flex items-center space-x-8">
+        <div className="flex flex-col justify-center">
           <div className="flex items-center space-x-2">
             <Clock className="w-4 h-4" />
             <span className="text-sm font-medium">
               Time:{formatTime(timeRemaining)}
             </span>
           </div>
-
-          <div className="text-center">
-            <div className="text-sm opacity-90">
-              Question {currentQuestion} of {totalQuestions}
-            </div>
+          <div className="text-sm opacity-90 ">
+            Question {currentQuestion} of {totalQuestions}
           </div>
+        </div>
 
+        <div className="flex justify-end items-center space-x-8">
           <button
             onClick={onMarkForReview}
             className={`flex items-center space-x-2 px-3 py-1 rounded text-sm font-medium transition-colors ${

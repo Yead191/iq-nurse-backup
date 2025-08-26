@@ -25,7 +25,7 @@ export default function Header() {
   );
 
   return (
-    <div className="border-b border-[#C5D0D0] w-full bg-white">
+    <div className="border-b border-[#C5D0D0] w-full bg-white lg:h-[80px] ">
       <div className="px-5 flex items-center justify-between gap-4 py-4">
         {/* Left */}
         <div className="flex flex-1 items-center gap-3">

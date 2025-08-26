@@ -6,7 +6,7 @@ import MeetingSection from "./MeetingSection";
 
 export default function TodaysEvent() {
   return (
-    <div className="space-y-4 p-2">
+    <div className="space-y-4 p-2 pt-4">
       <TasksSection />
       <ClassesSection />
       <AssignmentSection />

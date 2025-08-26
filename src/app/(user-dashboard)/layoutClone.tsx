@@ -5,7 +5,6 @@ import Header from "@/components/shared/user-dashboard/header/Header";
 import MobileHeader from "@/components/shared/user-dashboard/MobileHeader";
 import Sidebar from "@/components/shared/user-dashboard/Sidebar";
 import { ConfigProvider } from "antd";
-import { PanelsTopLeft } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -28,7 +27,9 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
       {/* mobile header */}
       <div
         className={`   sticky top-0 z-10 ${
-          shouldHide ? "hidden" : "block md:hidden"
+          shouldHide || pathname === "/profile/calendar"
+            ? "hidden"
+            : "block md:hidden"
         } `}
       >
         <MobileHeader />
@@ -70,7 +71,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
 
         {/* Main content */}
         <div
-          className={`flex-1 lg:w-[calc(100%-300px)] min-h-[calc(100vh-159px)]`}
+          className={`flex-1 lg:w-[calc(100%-300px)] min-h-[calc(100vh-159px)] lg:min-h-[calc(100vh-80px)] `}
         >
           <div className={`  pb-0  `}>
             <ConfigProvider
@@ -82,7 +83,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
             >
               <div>
                 <div
-                  className={`  hidden sticky top-0 z-10 ${
+                  className={`  hidden sticky top-0 z-50 ${
                     shouldHide ? "hidden" : "lg:block"
                   } `}
                 >
@@ -91,7 +92,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
 
                 <div
                   className={`h-full  rounded-md px-4  lg:px-5 ${
-                    shouldHide ? "py-0 " : "lg:py-8 p-4 md:p-6"
+                    shouldHide ? "py-0 " : "lg:pt-8 lg:pb-0  p-4 md:p-6"
                   } `}
                 >
                   {children}
@@ -100,7 +101,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
             </ConfigProvider>
           </div>
         </div>
-        <div className=" sticky bottom-0 z-10 md:hidden">
+        <div className=" sticky bottom-0 z-50 md:hidden">
           <BottomNavigation setIsMobileSidebarOpen={setIsMobileSidebarOpen} />
         </div>
       </div>

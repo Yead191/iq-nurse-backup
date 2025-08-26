@@ -12,7 +12,9 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 // Main Calendar Component
 const UserCalendar: React.FC = () => {
   const [events] = useState<CalendarEvent[]>(dateData);
-  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(
+    null
+  );
   const [showModal, setShowModal] = useState(false);
   const [currentView, setCurrentView] = useState<View>(Views.MONTH);
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -37,7 +39,6 @@ const UserCalendar: React.FC = () => {
     setCurrentDate(date);
   }, []);
 
-
   // Custom toolbar
   const CustomToolbar: React.FC<any> = ({ label, onNavigate, onView }) => {
     const navigate = (action: "PREV" | "NEXT" | "TODAY") => {
@@ -52,20 +53,22 @@ const UserCalendar: React.FC = () => {
 
     return (
       <div className="flex lg:flex-row flex-col justify-between items-center gap-3 mb-4 ">
-        <div className="flex items-center lg:justify-start justify-between space-x-4"> 
-             <h2 className="lg:text-[32px] text-xl font-semibold text-gray-800 me-6">{label}</h2>
+        <div className="flex items-center lg:justify-start justify-between space-x-4">
+          <h2 className="lg:text-[32px] text-xl font-semibold text-gray-800 me-6">
+            {label}
+          </h2>
           <button
             onClick={() => navigate("PREV")}
             className=" lg:h-[46px] h-6  w-6 lg:w-[46px] lg:text-2xl text-xs bg-[#F6F7F8] rounded text-[#003877] flex items-center justify-center"
           >
-           <IoIosArrowBack />
+            <IoIosArrowBack />
           </button>
-       
+
           <button
             onClick={() => navigate("NEXT")}
-             className=" lg:h-[46px] h-6  w-6 lg:w-[46px] lg:text-2xl text-xs bg-[#F6F7F8] rounded text-[#003877] flex items-center justify-center"
+            className=" lg:h-[46px] h-6  w-6 lg:w-[46px] lg:text-2xl text-xs bg-[#F6F7F8] rounded text-[#003877] flex items-center justify-center"
           >
-           <IoIosArrowForward />
+            <IoIosArrowForward />
           </button>
           <button
             onClick={() => navigate("TODAY")}
@@ -80,10 +83,11 @@ const UserCalendar: React.FC = () => {
             <button
               key={view}
               onClick={() => onView(view)}
-              className={`px-3 py-1 rounded text-sm transition-colors ${currentView === view
+              className={`px-3 py-1 rounded text-sm transition-colors ${
+                currentView === view
                   ? "bg-white text-[#003877]"
                   : "bg-[#F6F7F8] text-[#C5D0D0] hover:bg-white hover:text-[#003877] border border-gray-50"
-                }`}
+              }`}
             >
               {name}
             </button>
@@ -104,25 +108,21 @@ const UserCalendar: React.FC = () => {
           titleAccessor="title"
           allDayAccessor="allDay"
           resourceAccessor="resource"
-
           // Views and navigation
           views={[Views.MONTH, Views.WEEK, Views.DAY]}
           view={currentView}
           onView={handleViewChange}
           date={currentDate}
           onNavigate={handleNavigate}
-
           // Event handling
           onSelectEvent={handleSelectEvent}
           // onSelectSlot={handleSelectSlot}
           selectable={true}
-
           // Custom components
           components={{
             toolbar: CustomToolbar,
             event: CustomEvent,
           }}
-
           // Styling
           eventPropGetter={(event: CalendarEvent) => ({
             style: {
@@ -131,16 +131,14 @@ const UserCalendar: React.FC = () => {
               opacity: 0.8,
               color: "white",
               border: "0px",
-              display: "block"
-            }
+              display: "block",
+            },
           })}
-
           // Time settings
           step={60}
           timeslots={1}
           min={new Date(2025, 0, 1, 8, 0, 0)}
           max={new Date(2025, 0, 1, 18, 0, 0)}
-
           // Popup settings
           popup={true}
           popupOffset={30}
@@ -150,8 +148,8 @@ const UserCalendar: React.FC = () => {
       {/* Event Details Modal */}
       <EventDetailsModal
         event={selectedEvent}
-        showModal={showModal} 
-        setShowModal={setShowModal} 
+        showModal={showModal}
+        setShowModal={setShowModal}
         setSelectedEvent={setSelectedEvent}
       />
     </div>
