@@ -1,29 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import QuestionHeader from "./QuestionHeader";
 import MCQQuestion from "./MCQQuestion";
 import FillInBlankQuestion from "./FillInBlankQuestion";
 import QuestionNavigation from "./QuestionNavigation";
-import QuestionHeader from "./QuestionHeader";
 import { questions } from "@/data/testQuestionData";
 
-// Demo data
-
-export default function TestQuestion({ mode }: { mode: string }) {
+export default function TestQuestionPage({ mode }: { mode: string }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, string | string[]>>({});
+  const [answers, setAnswers] = useState<Record<number, string>>({});
   const [markedForReview, setMarkedForReview] = useState<Set<number>>(
     new Set()
   );
-  const [timeRemaining, setTimeRemaining] = useState(135); 
+  const [timeRemaining, setTimeRemaining] = useState(135); // 2:15 in seconds
 
   const currentQuestion = questions[currentQuestionIndex];
   const totalQuestions = questions.length;
 
-  const handleAnswerChange = (
-    questionId: number,
-    answer: string | string[]
-  ) => {
+  const handleAnswerChange = (questionId: number, answer: string) => {
     setAnswers((prev) => ({ ...prev, [questionId]: answer }));
   };
 
@@ -52,7 +47,7 @@ export default function TestQuestion({ mode }: { mode: string }) {
   };
 
   return (
-    <div className="">
+    <div>
       <QuestionHeader
         subject="Cardiovascular"
         category="Medical Surgical"
@@ -71,14 +66,10 @@ export default function TestQuestion({ mode }: { mode: string }) {
 
           {currentQuestion.type === "mcq" ? (
             <MCQQuestion
-            mode={mode}
+              mode={mode}
               question={currentQuestion.question}
               options={currentQuestion.options!}
-              selectedAnswers={
-                Array.isArray(answers[currentQuestion.id])
-                  ? (answers[currentQuestion.id] as string[])
-                  : []
-              }
+              selectedAnswer={answers[currentQuestion.id]}
               onAnswerChange={(answer) =>
                 handleAnswerChange(currentQuestion.id, answer)
               }
@@ -87,7 +78,7 @@ export default function TestQuestion({ mode }: { mode: string }) {
           ) : (
             <FillInBlankQuestion
               question={currentQuestion.question}
-              answer={(answers[currentQuestion.id] as string) || ""}
+              answer={answers[currentQuestion.id] || ""}
               onAnswerChange={(answer) =>
                 handleAnswerChange(currentQuestion.id, answer)
               }
