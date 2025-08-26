@@ -23,7 +23,7 @@ interface EventsBottomDrawerProps {
 const EventsBottomDrawer: React.FC<EventsBottomDrawerProps> = ({
   selectedDate,
 }) => {
-  const [height, setHeight] = useState(25); // Initial height as percentage
+  const [height, setHeight] = useState(25);
   const [isDragging, setIsDragging] = useState(false);
   const [startY, setStartY] = useState(0);
   const [startHeight, setStartHeight] = useState(25);
@@ -62,56 +62,6 @@ const EventsBottomDrawer: React.FC<EventsBottomDrawerProps> = ({
     }
   };
 
-  const eventSections = [
-    {
-      icon: CheckSquare,
-      title: "Tasks",
-      color: "text-blue-500",
-      items: [
-        {
-          text: "Donate $500 to the charity",
-          completed: true,
-          color: "text-blue-500",
-        },
-        { text: "Do 500 pushups", completed: false },
-        { text: "Buy new headset", completed: true, color: "text-blue-500" },
-        { text: "Clean the room", completed: false },
-      ],
-    },
-    {
-      icon: BookOpen,
-      title: "Classes",
-      color: "text-orange-500",
-      items: [
-        {
-          text: "Pediatrics Clinical",
-          subtitle:
-            "Collaborative session with the international team in Tokyo",
-          time: "3:00 PM - 4:30 PM",
-          type: "Online",
-          completed: false,
-        },
-      ],
-    },
-    {
-      icon: FileText,
-      title: "Assignment",
-      color: "text-purple-500",
-      items: [],
-    },
-    {
-      icon: Timer,
-      title: "Study Time",
-      color: "text-blue-400",
-      items: [],
-    },
-    {
-      icon: GraduationCap,
-      title: "Exams",
-      color: "text-teal-500",
-      items: [],
-    },
-  ];
 
   return (
     <div
@@ -142,25 +92,12 @@ const EventsBottomDrawer: React.FC<EventsBottomDrawerProps> = ({
         className="px-4 pb-4 overflow-y-auto"
         style={{ height: `calc(${height}vh - 120px)` }}
       >
-        {eventSections.map((section, sectionIndex) => {
-          const IconComponent = section.icon;
-          return (
-            <div key={sectionIndex} className="mb-6">
-              {section.items.length > 0 ? (
-                <div className="space-y-4 p-2 pt-4">
-                  <TasksSection />
-                  <ClassesSection />
-                  <AssignmentSection />
-                  <MeetingSection />
-                </div>
-              ) : (
-                <p className="text-gray-500 text-sm">
-                  No {section.title.toLowerCase()} for this date
-                </p>
-              )}
-            </div>
-          );
-        })}
+        <div className="space-y-4 p-2 pt-4">
+          <TasksSection />
+          <ClassesSection />
+          <AssignmentSection />
+          <MeetingSection />
+        </div>
       </div>
     </div>
   );
