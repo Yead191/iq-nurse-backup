@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.1.0",
-    "@syncfusion/ej2-react-schedule": "^30.2.4",
     "antd": "^5.26.7",
     "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",

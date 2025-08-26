@@ -2,18 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { Check } from "lucide-react";
+import { IoCheckmarkSharp } from "react-icons/io5";
 
 interface SplashScreenProps {
-  onComplete: () => void;
+  onComplete: () => void; 
+  steps: { id: number; text: string }[];
+  title: string;
 }
 
-const steps = [
-  { id: 1, text: "Analyzing Past Performance" },
-  { id: 2, text: "Selecting optional questions for you mastery level" },
-  { id: 3, text: "Finalizing Exam" },
-];
-
-export default function SplashScreen({ onComplete }: SplashScreenProps) {
+export default function SplashScreen({ onComplete  , steps , title}: SplashScreenProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
 
@@ -44,31 +41,33 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
   return (
     <div className="min-h-[calc(100vh-200px)] flex flex-col items-center justify-center px-4">
       <div className="max-w-md w-full space-y-12">
-        <h1 className="text-2xl font-semibold text-gray-900 text-center mb-16">
-          Personalizing Your Exam
+        <h1 className="text-3xl font-medium text-gray-900 text-center mb-14 tracking-wider">
+          {title}
         </h1>
 
-        <div className="space-y-8">
+        <div className="space-y-8 lg:space-y-12 mx-auto flex flex-col items-center justify-center">
           {steps.map((step) => (
-            <div key={step.id} className="flex items-center space-x-4">
+            <div key={step.id} className="flex flex-col  items-center gap-1.5 lg:gap-3 space-x-4">
               <div
                 className={`
-                w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all duration-500
+                lg:w-16 w-12 lg:h-16 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-500
                 ${
                   completedSteps.includes(step.id)
-                    ? "bg-green-500 border-green-500"
+                    ? "text-green-500  border-green-500"
                     : currentStep >= step.id
                     ? "border-orange-500 bg-orange-500"
-                    : "border-gray-300"
+                    : "border-[#004080]"
                 }
               `}
               >
-                {completedSteps.includes(step.id) ? (
-                  <Check className="w-4 h-4 text-white" />
+                {completedSteps.includes(step.id) ? ( 
+                  <div className="w-4 lg:w-8 lg:h-4 h-8 text-green-500 flex items-center justify-center"> 
+                    <IoCheckmarkSharp size={24}/> 
+                  </div>
                 ) : (
                   <span
-                    className={`text-sm font-medium ${
-                      currentStep >= step.id ? "text-white" : "text-gray-400"
+                    className={`text-xl font-medium ${
+                      currentStep >= step.id ? "text-green-500" : "text-[#000000]"
                     }`}
                   >
                     {step.id}
@@ -77,9 +76,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
               </div>
 
               <p
-                className={`text-base transition-colors duration-300 ${
-                  currentStep >= step.id ? "text-gray-900" : "text-gray-400"
-                }`}
+                className={` transition-colors duration-300 text-[#000000] lg:text-2xl text-xl font-normal text-center `}
               >
                 {step.text}
               </p>

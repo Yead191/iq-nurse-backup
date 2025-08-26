@@ -11,6 +11,8 @@ export const questions = [
       "Obtain blood specimen for a serum glucose test",
       "Place the client on continuous cardiac monitoring",
     ],
+    correctAnswer: "A",
+    selectedAnswer: "B",
     explanation:
       "Acute psychosis is characteristic of many psychiatric illnesses (eg, schizophrenia) and refers to bizarre thinking that is disconnected from reality. Symptoms of psychosis include hallucinations and delusions. Appropriate nursing interventions include acknowledging the client’s experience without reinforcing hallucinations.",
   },
@@ -31,6 +33,8 @@ export const questions = [
       "Check the client’s blood glucose level",
       "Place the client in a side-lying position",
     ],
+    correctAnswer: "C",
+    selectedAnswer: "C",
     explanation:
       "An unconscious diabetic client is most likely hypoglycemic. Immediate treatment is rapid administration of IV glucose or IM glucagon. Checking glucose is ideal if equipment is immediately available, but treatment should not be delayed.",
   },
@@ -46,6 +50,8 @@ export const questions = [
       "Nasal cannula",
       "Simple face mask",
     ],
+    correctAnswer: "C", 
+    selectedAnswer: "B",
     explanation:
       "Nasal cannula is the preferred device for long-term oxygen therapy in stable COPD clients because it is comfortable, allows mobility, and delivers low-flow oxygen safely.",
   },
