@@ -71,6 +71,7 @@ export default function TestQuestion({ mode }: { mode: string }) {
 
           {currentQuestion.type === "mcq" ? (
             <MCQQuestion
+            mode={mode}
               question={currentQuestion.question}
               options={currentQuestion.options!}
               selectedAnswers={
