@@ -13,10 +13,13 @@ import AsidePanel from "./aside/AsidePanel";
 
 export default function UserHome() {
   return (
-    <main className="min-h-screen bg-white">
-      <div className="grid grid-cols-1 gap-6 lg:gap-8 lg:grid-cols-12">
+    <main className=" ">
+      <div
+        className="grid grid-cols-1 gap-6 lg:gap-x-8 lg:grid-cols-12 
+      "
+      >
         {/* Left/Main Column */}
-        <div className="lg:col-span-9 space-y-6">
+        <div className="lg:col-span-9 space-y-6 lg:h-[calc(100vh-120px)] overflow-y-auto ">
           {/* Breadcrumb */}
           <div className="mb-4">
             <HomeBreadcrumbs />
@@ -46,13 +49,13 @@ export default function UserHome() {
           </section>
 
           {/* Bottom Tabs  */}
-          <section className="my-8 flex items-center justify-between">
+          <section className="mt-8 mb-4 flex items-center justify-between">
             <ReadingTabs />
           </section>
         </div>
 
         {/* Right/Aside Column */}
-        <aside className="lg:col-span-3">
+        <aside className="lg:col-span-3 ">
           <Suspense
             fallback={<Card loading className="rounded-xl shadow-sm" />}
           >

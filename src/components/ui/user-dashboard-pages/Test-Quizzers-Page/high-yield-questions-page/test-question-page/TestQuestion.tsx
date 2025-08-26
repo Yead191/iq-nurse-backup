@@ -45,6 +45,7 @@ export default function TestQuestionPage({ mode }: { mode: string }) {
       setCurrentQuestionIndex((prev) => prev + 1);
     }
   };
+  console.log(answers, markedForReview);
 
   return (
     <div>
