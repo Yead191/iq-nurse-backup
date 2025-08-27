@@ -2,11 +2,53 @@ import React from "react";
 import ContactForm from "../../user-dashboard-pages/support-legal/contact-us/ContactForm";
 import { supportData } from "@/data/contactData";
 import SupportBanner from "@/components/shared/user-dashboard/support-legal/SupportBanner";
+import folderImg from "@/assets/Folder.svg";
 
+import supportImg from "@/assets/support-icon.svg";
+import { Breadcrumb } from "antd";
+import Link from "next/link";
+import Image from "next/image";
 const Support = () => {
   return (
     <div>
       {/* <DirectionTitle icon={<TiContacts className='text-black' />} title='Contact Us ' />  */}
+      {/* Breadcrumb */}
+      <div className="mb-4">
+        <Breadcrumb
+          className="[&_.ant-breadcrumb-separator]:flex [&_.ant-breadcrumb-separator]:items-center hidden md:block"
+          separator={<span className="text-gray-500">⟷</span>}
+          items={[
+            {
+              title: (
+                <Link href={"/"}>
+                  <div className="flex items-center gap-1 text-[#82808F]">
+                    <Image
+                      src={folderImg}
+                      height={14}
+                      width={14}
+                      alt="folder"
+                    />
+                    Home
+                  </div>
+                </Link>
+              ),
+            },
+            {
+              title: (
+                <div className="flex items-center gap-1 text-[#82808F]">
+                  <Image
+                    src={supportImg}
+                    height={14}
+                    width={14}
+                    alt={"Support"}
+                  />
+                  {"Support"}
+                </div>
+              ),
+            },
+          ]}
+        />
+      </div>
 
       <SupportBanner
         title="Get In Touch"
