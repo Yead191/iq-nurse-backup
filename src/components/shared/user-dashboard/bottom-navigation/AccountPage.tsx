@@ -2,10 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { profile } from "../header/Header";
+import { useRouter } from "next/navigation";
 
 export default function AccountPage() {
+  const router  = useRouter();
   const handleLogout = () => {
     console.log("Logging out...");
+    router.push('/auth/login')
   };
 
   const menuItems = [
