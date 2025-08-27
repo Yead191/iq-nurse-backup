@@ -7,6 +7,7 @@ import SmartFlashcardsSection from "./SmartFlashcardsSection";
 import RapidClinicalSection from "./RapidClinicalSection";
 import VisualNotesSection from "./VisualNotesSection";
 import FeaturesSection from "./FeaturesSection";
+import Footer from "@/components/shared/Footer";
 
 export default function HomePageLayout() {
   return (
@@ -19,6 +20,7 @@ export default function HomePageLayout() {
       <RapidClinicalSection />
       <VisualNotesSection />
       <FeaturesSection />
+      <Footer />
     </div>
   );
 }

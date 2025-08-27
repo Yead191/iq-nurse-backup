@@ -8,9 +8,9 @@ export default function layout({ children }: { children: React.ReactNode }) {
         <Navbar />
       </nav>
       {children}
-      <footer>
+      {/* <footer>
         <Footer />
-      </footer>
+      </footer> */}
     </div>
   );
 }
