@@ -1,44 +1,21 @@
 "use client";
 
 import type React from "react";
-import {
-  X,
-  Calendar,
-  CheckSquare,
-  BookOpen,
-  FileText,
-  Timer,
-  Stethoscope,
-  GraduationCap,
-  Users,
-  User,
-  Target,
-} from "lucide-react";
+import { X } from "lucide-react";
+import Image from "next/image";
+import { calendarMenuItems } from "@/data/calendarData";
+import { useRouter } from "next/navigation";
 
 interface StudentPlannerDrawerProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const menuItems = [
-  { icon: Calendar, label: "Day", color: "text-red-500" },
-  { icon: Calendar, label: "Week", color: "text-red-500" },
-  { icon: Calendar, label: "Month", color: "text-red-500" },
-  { icon: CheckSquare, label: "Tasks", color: "text-blue-500" },
-  { icon: BookOpen, label: "Classes", color: "text-orange-500" },
-  { icon: FileText, label: "Assignment", color: "text-purple-500" },
-  { icon: Timer, label: "Study Time", color: "text-blue-400" },
-  { icon: Stethoscope, label: "Clinical Rotations", color: "text-green-500" },
-  { icon: GraduationCap, label: "Exams", color: "text-teal-500" },
-  { icon: Users, label: "Meetings/Appointments", color: "text-pink-500" },
-  { icon: User, label: "Me Time", color: "text-yellow-500" },
-  { icon: Target, label: "Count Down", color: "text-indigo-500" },
-];
-
 const StudentPlannerDrawer: React.FC<StudentPlannerDrawerProps> = ({
   isOpen,
   onClose,
 }) => {
+  const router = useRouter();
   return (
     <>
       {/* Backdrop */}
@@ -56,7 +33,7 @@ const StudentPlannerDrawer: React.FC<StudentPlannerDrawerProps> = ({
         }`}
       >
         {/* Header */}
-        <div className="bg-primary text-white px-4 py-3 flex items-center justify-between">
+        <div className="bg-primary text-white px-4 py-3 flex items-center justify-between h-[70px]">
           <h2 className="text-lg font-semibold">Student Planner</h2>
           <button
             onClick={onClose}
@@ -66,10 +43,11 @@ const StudentPlannerDrawer: React.FC<StudentPlannerDrawerProps> = ({
             <X size={20} />
           </button>
         </div>
+        <div className="w-[48px] h-screen fixed bg-[#EDF1F7]" />
 
         {/* Menu Items */}
         <div className="py-2">
-          {menuItems.map((item, index) => {
+          {calendarMenuItems.map((item, index) => {
             const IconComponent = item.icon;
             return (
               <button
@@ -77,10 +55,18 @@ const StudentPlannerDrawer: React.FC<StudentPlannerDrawerProps> = ({
                 className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
                 onClick={() => {
                   // Handle menu item click
-                  console.log(`Clicked ${item.label}`);
+                  // console.log(`Clicked ${item.label}`);
+                  router.push(item.path);
                 }}
               >
-                <IconComponent size={20} className={item.color} />
+                {/* <IconComponent size={20} className={item.color} /> */}
+                <Image
+                  src={IconComponent}
+                  width={24}
+                  height={24}
+                  alt={item.label}
+                  className="z-40"
+                />
                 <span className="text-gray-700 font-medium">{item.label}</span>
               </button>
             );
