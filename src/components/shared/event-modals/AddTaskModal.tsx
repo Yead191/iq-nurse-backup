@@ -65,6 +65,8 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({ open, onClose }) => {
         title="Add New Task"
         centered
         className="task-modal"
+      width={800}
+
       >
         <Form form={form} layout="vertical" onFinish={handleSubmit}>
           {/* Add Icon Button */}

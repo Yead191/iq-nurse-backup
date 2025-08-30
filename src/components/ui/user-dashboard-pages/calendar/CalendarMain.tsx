@@ -6,12 +6,14 @@ import CalendarMobileHeader from "./CalendarMobileHeader";
 import StudentPlannerDrawer from "./StudentPlannerDrawer";
 import AsidePanel from "../user-home-page/aside/AsidePanel";
 import EventsBottomDrawer from "./EventsBottomDrawer";
+import AddEventsModal from "@/components/shared/event-modals/AddEventsModal";
 
 // Load UserCalendar client-only
 const UserCalendar = dynamic(() => import("./UserCalendar"), { ssr: false });
 
 const CalendarMain = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const today = new Date();
   const formattedToday = today.toLocaleDateString("en-GB", {
@@ -32,6 +34,7 @@ const CalendarMain = () => {
   const handleNewEventClick = () => {
     // Handle new event creation
     console.log("New event clicked");
+    setModalVisible(true);
   };
 
   return (
@@ -57,6 +60,10 @@ const CalendarMain = () => {
 
       {/* Events Bottom Drawer - Mobile Only */}
       <EventsBottomDrawer selectedDate={selectedDate} />
+      <AddEventsModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+      />
     </div>
   );
 };

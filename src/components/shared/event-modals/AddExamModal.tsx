@@ -87,6 +87,7 @@ export default function AddExamModal({ open, onClose }: AddExamModalProps) {
       onCancel={onClose}
       footer={null}
       width={800}
+      centered
       title={
         <span className="text-lg font-semibold text-gray-800">
           Add Tests/Quizz/Exams
