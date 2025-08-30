@@ -31,7 +31,7 @@ const ProfileImageUpdate = ({imgURL , setImgURL}:{imgURL:string , setImgURL:(img
                             className="w-full h-full object-cover rounded-2xl"
                         />
                     )}
-                    <div className="absolute z-50 right-1 bottom-1.5 flex items-center justify-center w-12 h-12 bg-blue-50 border-2 border-primary rounded-full">
+                    <div className="absolute z-0 right-1 bottom-1.5 flex items-center justify-center w-12 h-12 bg-blue-50 border-2 border-primary rounded-full">
                         <MdOutlineAddPhotoAlternate size={22} color="#003877" />
                     </div>
                 </label>

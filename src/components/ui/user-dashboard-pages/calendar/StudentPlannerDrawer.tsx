@@ -28,8 +28,8 @@ const StudentPlannerDrawer: React.FC<StudentPlannerDrawerProps> = ({
 
       {/* Drawer */}
       <div
-        className={`lg:hidden fixed left-0 top-0 h-full w-80 bg-white z-50 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
+        className={`lg:hidden fixed left-0 top-0  w-64 bg-white z-50 transform transition-transform duration-300 ease-in-out  ${
+          isOpen ? "translate-x-0" : "-translate-x-full "
         }`}
       >
         {/* Header */}
@@ -46,7 +46,7 @@ const StudentPlannerDrawer: React.FC<StudentPlannerDrawerProps> = ({
         <div className="w-[48px] h-screen fixed bg-[#EDF1F7]" />
 
         {/* Menu Items */}
-        <div className="py-2">
+        <div className="py-2 h-[calc(100vh-164px)] overflow-y-auto">
           {calendarMenuItems.map((item, index) => {
             const IconComponent = item.icon;
             return (

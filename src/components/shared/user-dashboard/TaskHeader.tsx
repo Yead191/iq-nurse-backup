@@ -1,17 +1,21 @@
 import { Button } from "antd";
 import React from "react";
-import { PlusOutlined } from "@ant-design/icons";
+import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 
 interface TaskHeaderProps {
   img: string;
   title: string;
   handleEvent?: () => void;
+  isOpen?: boolean;
+  onToggle?: () => void;
 }
 
 export default function TaskHeader({
   img,
   title,
   handleEvent,
+  isOpen,
+  onToggle,
 }: TaskHeaderProps) {
   return (
     <div className="flex justify-between items-center mb-3">
@@ -20,11 +24,11 @@ export default function TaskHeader({
         <span className="text-sm font-medium text-[#333333]">{title}</span>
       </div>
       <Button
-        onClick={handleEvent}
+        onClick={onToggle}
         size="small"
         type="text"
         shape="circle"
-        icon={<PlusOutlined />}
+        icon={isOpen ? <MinusOutlined /> : <PlusOutlined />}
         className="hover:bg-neutral-100"
         style={{
           backgroundColor: "#003877",

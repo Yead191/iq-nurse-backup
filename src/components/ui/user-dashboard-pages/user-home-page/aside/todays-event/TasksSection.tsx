@@ -3,7 +3,6 @@ import { Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import TaskItem from "./TaskItem";
 import TaskHeader from "@/components/shared/user-dashboard/TaskHeader";
-import AddTaskModal from "@/components/shared/event-modals/AddTaskModal";
 
 type Task = {
   id: number;
@@ -13,8 +12,8 @@ type Task = {
 };
 
 export default function TasksSection() {
-  const [taskModalOpen, setTaskModalOpen] = useState(false);
-
+  // const [taskModalOpen, setTaskModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [tasks, setTasks] = useState<Task[]>([
     { id: 1, label: "Donate $500 to the charity", checked: true },
     { id: 2, label: "Do 500 pushups", checked: false },
@@ -29,9 +28,6 @@ export default function TasksSection() {
       )
     );
   };
-  const handleEvent = () => {
-    setTaskModalOpen(true);
-  };
 
   return (
     <div className="bg-white rounded-xl ">
@@ -40,25 +36,32 @@ export default function TasksSection() {
       <TaskHeader
         img="/assets/icons/task-icon.svg"
         title="Tasks"
-        handleEvent={handleEvent}
+        isOpen={isOpen}
+        onToggle={() => setIsOpen((prev) => !prev)}
       />
 
-      {/* Task List */}
-      <div className="flex flex-col gap-2">
-        {tasks.map((task) => (
-          <TaskItem
-            key={task.id}
-            label={task.label}
-            checked={task.checked}
-            muted={task.muted}
-            onToggle={() => toggleTask(task.id)}
-          />
-        ))}
+      {/* Collapsible Task List */}
+      <div
+        className={`transition-all duration-300 overflow-hidden ${
+          isOpen ? "h-full opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="flex flex-col gap-2">
+          {tasks.map((task) => (
+            <TaskItem
+              key={task.id}
+              label={task.label}
+              checked={task.checked}
+              muted={task.muted}
+              onToggle={() => toggleTask(task.id)}
+            />
+          ))}
+        </div>
       </div>
-      <AddTaskModal
+      {/* <AddTaskModal
         open={taskModalOpen}
         onClose={() => setTaskModalOpen(false)}
-      />
+      /> */}
     </div>
   );
 }
