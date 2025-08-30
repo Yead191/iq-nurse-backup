@@ -3,8 +3,6 @@
 import { Breadcrumb } from "antd";
 import Image from "next/image";
 import folderImg from "@/assets/Folder.svg";
-
-import arrowImg from "@/assets/arrow.svg";
 import Link from "next/link";
 
 interface PageBreadcrumbProps {

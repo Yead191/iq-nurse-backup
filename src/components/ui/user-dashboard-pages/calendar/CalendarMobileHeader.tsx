@@ -2,6 +2,7 @@
 
 import type React from "react";
 import { Calendar, Plus } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 interface CalendarMobileHeaderProps {
   onMenuClick: () => void;
@@ -12,6 +13,17 @@ const CalendarMobileHeader: React.FC<CalendarMobileHeaderProps> = ({
   onMenuClick,
   onNewEventClick,
 }) => {
+  const pathname = usePathname();
+  const formatPathName = (slug: string | undefined) => {
+    if (!slug) return "";
+    return slug
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
+  const pathSegments = pathname?.split("/").filter(Boolean) || [];
+  const lastSegment =
+    pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : undefined;
   return (
     <div className="lg:hidden  py-2 flex items-center justify-between sticky top-4  bg-white">
       <button
@@ -22,7 +34,9 @@ const CalendarMobileHeader: React.FC<CalendarMobileHeaderProps> = ({
         <Calendar size={24} />
       </button>
 
-      <h1 className="text-lg font-semibold">Calendar</h1>
+      <h1 className="text-sm lg:text-lg lg:font-semibold bg-[#F6F7F8]  border border-[#003877] px-6 py-1 rounded-lg">
+        {formatPathName(lastSegment)}
+      </h1>
 
       <button
         onClick={onNewEventClick}

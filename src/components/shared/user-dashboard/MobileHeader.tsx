@@ -3,10 +3,19 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Input, Button, InputRef, Dropdown, Avatar, Typography } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
-import { BookmarkIcon, ChevronLeft, Search } from "lucide-react";
+import {
+  Input,
+  Button,
+  InputRef,
+  Dropdown,
+  Avatar,
+  Typography,
+  Badge,
+} from "antd";
+import { AudioOutlined, NotificationFilled, SearchOutlined } from "@ant-design/icons";
+import { BellIcon, BookmarkIcon, ChevronLeft, Search } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
+import { IoMdNotificationsOutline } from "react-icons/io";
 
 export default function MobileHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -125,13 +134,29 @@ export default function MobileHeader() {
 
           {/* Right: Actions */}
           {!searchOpen && (
-            <div style={{ marginLeft: "auto", display: "flex", gap: 8 }}>
+            <div
+              style={{
+                marginLeft: "auto",
+                display: "flex",
+                gap: 8,
+                alignItems: "center",
+              }}
+            >
               <Button
                 type="text"
                 icon={<Search style={{ fontSize: 20 }} />}
                 aria-label="Open search"
                 onClick={() => setSearchOpen(true)}
               />
+              {/* Notifications */}
+              <Badge count={4} size="small">
+                <Button
+                  type="text"
+                  icon={<BellIcon style={{ fontSize: 20 }} />}
+                  aria-label="Notifications"
+                />
+              </Badge>
+
               <Button
                 type="text"
                 icon={<BookmarkIcon style={{ fontSize: 20 }} />}
@@ -174,6 +199,18 @@ export default function MobileHeader() {
                     ref={inputRef}
                     placeholder="Search..."
                     prefix={<SearchOutlined />}
+                    suffix={
+                      <Button
+                        type="text"
+                        icon={<AudioOutlined />}
+                        style={{
+                          backgroundColor: "#0038771A",
+                          borderRadius: 16,
+                          padding: 8,
+                          color: "#003877",
+                        }}
+                      />
+                    }
                     allowClear
                     style={{ borderRadius: 9999, height: 40 }}
                   />

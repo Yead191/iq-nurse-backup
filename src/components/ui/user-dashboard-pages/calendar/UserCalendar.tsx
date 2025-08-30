@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Calendar, momentLocalizer, View, Views } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -8,6 +8,7 @@ import { CalendarEvent, dateData } from "@/data/calendarData";
 import EventDetailsModal from "./EventDetailsModal";
 import CustomEvent from "./CustomEvent";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { useSearchParams } from "next/navigation";
 
 // Main Calendar Component
 const UserCalendar: React.FC = () => {
@@ -18,6 +19,15 @@ const UserCalendar: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [currentView, setCurrentView] = useState<View>(Views.MONTH);
   const [currentDate, setCurrentDate] = useState(new Date());
+  const searchParams = useSearchParams();
+  console.log(searchParams.get("mode"));
+  useEffect(() => {
+    const mode = searchParams.get("mode");
+
+    setCurrentView(
+      mode === "week" ? Views.WEEK : mode === "day" ? Views.DAY : Views.MONTH
+    );
+  }, [searchParams]);
 
   // Setup localizer
   moment.locale("en-GB");

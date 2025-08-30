@@ -19,8 +19,8 @@ export default function LoginPage() {
       {/* Left Side - Illustration */}
       <div className="relative flex-1">
         <BrainIllustration
-          title="Join IQ-Nurse Today!"
-          text="Create your free account and start studying smarter today."
+          title="Welcome back!👋"
+          text="Great to see you again. Let’s continue where you left off."
         />
       </div>
 

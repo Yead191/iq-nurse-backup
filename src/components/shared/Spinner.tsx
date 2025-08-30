@@ -4,7 +4,7 @@ import React from "react";
 
 const Spinner = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-[calc(100vh-80px)]  gap-4 w-full bg-transparent rounded-xl">
+    <div className="flex flex-col items-center justify-center h-[calc(100vh-120px)]  gap-4 w-full bg-transparent rounded-xl">
       {/* Logo with scale animation */}
       <div className="scale-pulse">
         <Image

@@ -8,7 +8,7 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import LanguagePanel from "./LanguagePanel";
 import ProfilePanel from "./ProfilePanel";
 import SearchBar from "./SearchBar";
-import { LangKey, LANGUAGES, PROFILE_ITEMS } from "@/data/headerConstants";
+import { LangKey, LANGUAGES } from "@/data/headerConstants";
 
 const { Text } = Typography;
 export const profile = {

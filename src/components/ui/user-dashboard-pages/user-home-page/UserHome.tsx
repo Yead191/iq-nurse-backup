@@ -55,7 +55,7 @@ export default function UserHome() {
         </div>
 
         {/* Right/Aside Column */}
-        <aside className="lg:col-span-3 ">
+        <aside className="hidden lg:block lg:col-span-3 ">
           <Suspense
             fallback={<Card loading className="rounded-xl shadow-sm" />}
           >
