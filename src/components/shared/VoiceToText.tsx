@@ -2,14 +2,15 @@
 import { Button, Grid } from "antd";
 import React, { useState } from "react";
 import { AudioOutlined } from "@ant-design/icons";
+import { usePathname } from "next/navigation";
 
 interface VoiceToTextProps {
   setText: (text: string) => void;
+  isChatBot?: boolean;
 }
-const VoiceToText = ({ setText }: VoiceToTextProps) => {
+const VoiceToText = ({ setText, isChatBot }: VoiceToTextProps) => {
   const { lg } = Grid.useBreakpoint();
   const [listening, setListening] = useState<boolean>(false);
-
   let recognition = null;
 
   const startListening = () => {
@@ -54,12 +55,22 @@ const VoiceToText = ({ setText }: VoiceToTextProps) => {
       disabled={listening}
       type="text"
       icon={<AudioOutlined />}
-      style={{
-        backgroundColor: "#0038771A",
-        borderRadius: lg ? 4 : 16,
-        padding: 8,
-        color: "#003877",
-      }}
+      style={
+        isChatBot
+          ? {
+              backgroundColor: "transparent",
+              borderRadius: 50,
+              padding: "10px 14px",
+              color: listening ? "red" : "#003877",
+            //   border: listening ? "1px solid red" : "1px solid transparent",
+            }
+          : {
+              backgroundColor: "#0038771A",
+              borderRadius: lg ? 4 : 16,
+              padding: 8,
+              color: listening ? "red" : "#003877",
+            }
+      }
     />
   );
 };
