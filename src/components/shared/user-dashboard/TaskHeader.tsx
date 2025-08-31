@@ -18,13 +18,12 @@ export default function TaskHeader({
   onToggle,
 }: TaskHeaderProps) {
   return (
-    <div className="flex justify-between items-center mb-3">
+    <div onClick={onToggle} className="flex justify-between items-center mb-3">
       <div className="flex items-center gap-2">
         <img src={img} alt={title} className="w-5 h-5" />
         <span className="text-sm font-medium text-[#333333]">{title}</span>
       </div>
       <Button
-        onClick={onToggle}
         size="small"
         type="text"
         shape="circle"

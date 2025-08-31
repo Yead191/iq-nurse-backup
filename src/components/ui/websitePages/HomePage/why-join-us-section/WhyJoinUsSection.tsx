@@ -15,7 +15,7 @@ export default function WhyJoinUsSection() {
   return (
     <section
       style={{
-        backgroundImage: `url('/assets/home-images/join-us-bg.png')`,
+        backgroundImage: `url('/assets/home-images/join-us-bg.svg')`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: lg ? "right" : "bottom",
         backgroundSize: lg ? "50% 100%" : md ? "80%" : "95%",

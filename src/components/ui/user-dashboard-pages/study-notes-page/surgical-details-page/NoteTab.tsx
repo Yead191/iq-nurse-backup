@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import React, { useRef, useState } from "react";
-import "jodit/es2021/jodit.min.css"; // Make sure styles are imported
+import "jodit/es2021/jodit.min.css"; 
 
 // ✅ Load Jodit without SSR
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
@@ -28,34 +28,34 @@ export default function NoteTab({
       // padding: "8px",
     },
     // ✅ Force same buttons on all screen sizes
-    buttons: ["paragraph", "bold", "italic", "underline", "ul", "ol", "brush"],
-    buttonsMD: [
-      "paragraph",
-      "bold",
-      "italic",
-      "underline",
-      "ul",
-      "ol",
-      "brush",
-    ],
-    buttonsSM: [
-      "paragraph",
-      "bold",
-      "italic",
-      "underline",
-      "ul",
-      "ol",
-      "brush",
-    ],
-    buttonsXS: [
-      "paragraph",
-      "bold",
-      "italic",
-      "underline",
-      "ul",
-      "ol",
-      "brush",
-    ],
+    // buttons: ["paragraph", "bold", "italic", "underline", "ul", "ol", "brush"],
+    // buttonsMD: [
+    //   "paragraph",
+    //   "bold",
+    //   "italic",
+    //   "underline",
+    //   "ul",
+    //   "ol",
+    //   "brush",
+    // ],
+    // buttonsSM: [
+    //   "paragraph",
+    //   "bold",
+    //   "italic",
+    //   "underline",
+    //   "ul",
+    //   "ol",
+    //   "brush",
+    // ],
+    // buttonsXS: [
+    //   "paragraph",
+    //   "bold",
+    //   "italic",
+    //   "underline",
+    //   "ul",
+    //   "ol",
+    //   "brush",
+    // ],
     showCharsCounter: false,
     showWordsCounter: false,
     showXPathInStatusbar: false,

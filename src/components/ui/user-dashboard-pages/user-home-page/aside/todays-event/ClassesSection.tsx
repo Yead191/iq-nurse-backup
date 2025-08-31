@@ -37,11 +37,6 @@ export default function ClassesSection() {
           ))}
         </div>
       </div>
-
-      {/* <AddClassesModal
-        open={classesModalOpen}
-        onClose={() => setClassesModalOpen(false)}
-      /> */}
     </div>
   );
 }

@@ -77,7 +77,8 @@ export default function AddAssignmentModal({
       open={open}
       onCancel={onClose}
       footer={null}
-      width={600}
+           width={800}
+
       title={
         <span className="text-lg font-semibold text-gray-800">
           Add Assignment

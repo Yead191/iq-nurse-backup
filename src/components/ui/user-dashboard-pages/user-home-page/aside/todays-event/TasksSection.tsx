@@ -12,7 +12,6 @@ type Task = {
 };
 
 export default function TasksSection() {
-  // const [taskModalOpen, setTaskModalOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
   const [tasks, setTasks] = useState<Task[]>([
     { id: 1, label: "Donate $500 to the charity", checked: true },
@@ -58,10 +57,6 @@ export default function TasksSection() {
           ))}
         </div>
       </div>
-      {/* <AddTaskModal
-        open={taskModalOpen}
-        onClose={() => setTaskModalOpen(false)}
-      /> */}
     </div>
   );
 }

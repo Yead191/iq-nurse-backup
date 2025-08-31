@@ -1,9 +1,13 @@
+"use client";
+import AddEventsModal from "@/components/shared/event-modals/AddEventsModal";
 import { Button } from "antd";
 import { Plus } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 export default function AddEvent() {
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <div className="p-2">
       <div className="min-h-[70vh] flex flex-col gap-4 justify-center items-center ">
@@ -18,6 +22,7 @@ export default function AddEvent() {
           <h3 className="text-[18px] text-[#333333] ">No Upcoming Events</h3>
           <div className="flex justify-center item-center mt-3">
             <Button
+              onClick={() => setModalVisible(true)}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -33,6 +38,11 @@ export default function AddEvent() {
           </div>
         </div>
       </div>
+
+      <AddEventsModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+      />
     </div>
   );
 }
