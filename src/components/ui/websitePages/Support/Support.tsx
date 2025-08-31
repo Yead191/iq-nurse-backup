@@ -10,7 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 const Support = () => {
   return (
-    <div>
+    <div className="p-4">
       {/* <DirectionTitle icon={<TiContacts className='text-black' />} title='Contact Us ' />  */}
       {/* Breadcrumb */}
       <div className="mb-4">

@@ -99,22 +99,22 @@ export const dateData: CalendarEvent[] = [
 export const calendarMenuItems = [
   {
     icon: "/assets/icons/day-icon.svg",
-    label: "Day",
+    label: "Calendar",
     color: "text-red-500",
-    path: "/profile/calendar?mode=day",
+    path: "/profile/calendar",
   },
-  {
-    icon: "/assets/icons/week-icon.svg",
-    label: "Week",
-    color: "text-red-500",
-    path: "/profile/calendar?mode=week",
-  },
-  {
-    icon: "/assets/icons/month-icon.svg",
-    label: "Month",
-    color: "text-red-500",
-    path: "/profile/calendar?mode=month",
-  },
+  // {
+  //   icon: "/assets/icons/week-icon.svg",
+  //   label: "Week",
+  //   color: "text-red-500",
+  //   path: "/profile/calendar?mode=week",
+  // },
+  // {
+  //   icon: "/assets/icons/month-icon.svg",
+  //   label: "Month",
+  //   color: "text-red-500",
+  //   path: "/profile/calendar?mode=month",
+  // },
   {
     icon: "/assets/icons/task-icon.svg",
     label: "Tasks",

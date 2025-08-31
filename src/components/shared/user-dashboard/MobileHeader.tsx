@@ -3,23 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Input,
-  Button,
-  InputRef,
-  Dropdown,
-  Avatar,
-  Typography,
-  Badge,
-} from "antd";
-import {
-  AudioOutlined,
-  NotificationFilled,
-  SearchOutlined,
-} from "@ant-design/icons";
+import { Input, Button, InputRef, Badge } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
 import { BellIcon, BookmarkIcon, ChevronLeft, Search } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-import { IoMdNotificationsOutline } from "react-icons/io";
 import VoiceToText from "../VoiceToText";
 
 export default function MobileHeader() {
