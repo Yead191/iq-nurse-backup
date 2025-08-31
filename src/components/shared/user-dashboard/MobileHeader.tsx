@@ -12,16 +12,23 @@ import {
   Typography,
   Badge,
 } from "antd";
-import { AudioOutlined, NotificationFilled, SearchOutlined } from "@ant-design/icons";
+import {
+  AudioOutlined,
+  NotificationFilled,
+  SearchOutlined,
+} from "@ant-design/icons";
 import { BellIcon, BookmarkIcon, ChevronLeft, Search } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import VoiceToText from "../VoiceToText";
 
 export default function MobileHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
   const inputRef = useRef<InputRef>(null);
   const pathname = usePathname();
   const router = useRouter();
+  const [text, setText] = useState<string>("");
+
   // Focus input when search opens and close on Escape
   useEffect(() => {
     if (searchOpen) {
@@ -199,20 +206,11 @@ export default function MobileHeader() {
                     ref={inputRef}
                     placeholder="Search..."
                     prefix={<SearchOutlined />}
-                    suffix={
-                      <Button
-                        type="text"
-                        icon={<AudioOutlined />}
-                        style={{
-                          backgroundColor: "#0038771A",
-                          borderRadius: 16,
-                          padding: 8,
-                          color: "#003877",
-                        }}
-                      />
-                    }
+                    suffix={<VoiceToText setText={setText} />}
                     allowClear
                     style={{ borderRadius: 9999, height: 40 }}
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
                   />
                 </form>
               </div>
