@@ -27,7 +27,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
       {/* mobile header */}
       <div
         className={`   sticky top-0 z-10 ${
-          shouldHide || pathname === "/profile/calendar"
+          shouldHide || pathname.startsWith("/profile/calendar")
             ? "hidden"
             : "block md:hidden"
         } `}

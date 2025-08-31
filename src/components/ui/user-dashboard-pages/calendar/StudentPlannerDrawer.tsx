@@ -4,7 +4,7 @@ import type React from "react";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { calendarMenuItems } from "@/data/calendarData";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 interface StudentPlannerDrawerProps {
   isOpen: boolean;
@@ -16,6 +16,8 @@ const StudentPlannerDrawer: React.FC<StudentPlannerDrawerProps> = ({
   onClose,
 }) => {
   const router = useRouter();
+  const pathname = usePathname();
+
   return (
     <>
       {/* Backdrop */}
@@ -49,10 +51,14 @@ const StudentPlannerDrawer: React.FC<StudentPlannerDrawerProps> = ({
         <div className="py-2 h-[calc(100vh-164px)] overflow-y-auto">
           {calendarMenuItems.map((item, index) => {
             const IconComponent = item.icon;
+            const isActive =
+              pathname === item.path 
             return (
               <button
                 key={index}
-                className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
+                className={`w-full flex items-center gap-3 px-4 py-3 transition-colors text-left ${
+                  isActive ? "bg-[#F6F7F8]" : "hover:bg-gray-50"
+                }`}
                 onClick={() => {
                   // Handle menu item click
                   // console.log(`Clicked ${item.label}`);

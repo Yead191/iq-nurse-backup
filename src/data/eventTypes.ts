@@ -9,13 +9,13 @@ export   const eventTypes = [
     {
       img: "/assets/icons/study-time-icon.svg",
       title: "Add Study Time",
-      key: "studytime",
+      key: "study-time",
     },
     { img: "/assets/icons/exam-icon.svg", title: "Add Exams", key: "exams" },
     {
       img: "/assets/icons/clinical-icon.svg",
       title: "Add Clinical",
-      key: "clinical",
+      key: "clinical-rotations",
     },
     {
       img: "/assets/icons/meetings-icon.svg",
@@ -25,7 +25,7 @@ export   const eventTypes = [
     {
       img: "/assets/icons/meet-time-icon.svg",
       title: "Add Me Time",
-      key: "clinical",
+      key: "me-time",
     },
     {
       img: "/assets/icons/count-down-icon.svg",
