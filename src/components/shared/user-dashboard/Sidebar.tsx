@@ -5,11 +5,7 @@ import { ChevronDown, ChevronRight, ChevronLeft } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Tooltip } from "antd";
 import React from "react";
-import {
-  MenuItem,
-  menus,
-  studyNotesChildren,
-} from "@/data/SidebarMenus";
+import { MenuItem, menus, studyNotesChildren } from "@/data/SidebarMenus";
 
 interface SidebarProps {
   showLabels: boolean;

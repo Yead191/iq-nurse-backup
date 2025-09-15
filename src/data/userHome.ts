@@ -207,3 +207,54 @@ function isoToday(h: number, m: number) {
   d.setHours(h, m, 0, 0);
   return d.toISOString();
 }
+
+export const practiceData = [
+  {
+    id: 3,
+    title: "Medical-Surgical",
+    subtitle: "Adult Health & Critical Care",
+    bgColor: "#F5F7FF",
+    borderColor: "#667EEA",
+    circleColor: "#667EEA",
+    progressColor: "#667EEA",
+    completed: 102,
+    total: 150,
+    primaryBtn: { label: "Continue", bg: "#667EEA", text: "#fff" },
+    secondaryBtn: {
+      label: "Take Break",
+      bg: "#fff",
+      text: "#666",
+      border: "#ccc",
+    },
+  },
+  {
+    id: 1,
+    title: "Foundation Day",
+    subtitle: "Basic Nursing Concept & Safety",
+    bgColor: "#F6FFF8",
+    borderColor: "#28A745",
+    circleColor: "#28A745",
+    progressColor: "#28A745",
+    completed: 150,
+    total: 150,
+    primaryBtn: { label: "✓ Completed", bg: "#28A745", text: "#fff" },
+    secondaryBtn: { label: "Review", bg: "#fff", text: "#666", border: "#ccc" },
+  },
+  {
+    id: 4,
+    title: "Maternal-Child",
+    subtitle: "OB,Pediatrics & Family Health",
+    bgColor: "#fff",
+    borderColor: "#ccc",
+    circleColor: "#667EEA",
+    progressColor: "#667EEA",
+    completed: 0,
+    total: 140,
+    primaryBtn: {
+      label: "Start Marathon",
+      bg: "#fff",
+      text: "#666",
+      border: "#ccc",
+    },
+  },
+];

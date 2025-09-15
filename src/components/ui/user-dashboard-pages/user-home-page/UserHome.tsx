@@ -10,6 +10,7 @@ import { CategoryGrid } from "./CategoryGrid";
 import Image from "next/image";
 import ReadingTabs from "./ReadingTabs";
 import AsidePanel from "./aside/AsidePanel";
+import MarathonSection from "./MarathonSection/MarathonSection";
 
 export default function UserHome() {
   return (
@@ -28,29 +29,9 @@ export default function UserHome() {
           <section>
             <StatsGrid items={weeklyStats} />
           </section>
-
-          {/* Study by Category */}
+          {/*Marathon Section */}
           <section>
-            <div className="my-6 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Image
-                  src={"/assets/icons/reading.svg"}
-                  height={44}
-                  width={44}
-                  alt="Reading "
-                />
-                <SectionHeader title="Study by Category" />
-              </div>
-              <button className="text-xs font-medium text-neutral-500 hover:text-neutral-800">
-                See All
-              </button>
-            </div>
-            <CategoryGrid items={studyCategories} />
-          </section>
-
-          {/* Bottom Tabs  */}
-          <section className="mt-8 mb-4 flex items-center justify-between">
-            <ReadingTabs />
+            <MarathonSection />
           </section>
         </div>
 
