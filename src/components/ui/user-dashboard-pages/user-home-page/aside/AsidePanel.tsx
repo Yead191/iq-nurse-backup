@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
-import TasksSection from "./todays-event/TasksSection";
 import TodaysEvent from "./todays-event/TodaysEvent";
 import AddEvent from "./add-event/AddEvent";
 
-export default function AsidePanel() {
+export default function AsidePanel() { 
   const [activeTab, setActiveTab] = useState<"today" | "add">("today");
 
   return (

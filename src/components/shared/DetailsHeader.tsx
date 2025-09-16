@@ -40,7 +40,7 @@ export default function DetailsHeader({
   );
 }
 
- function ActionButton({
+function ActionButton({
   icon: Icon,
   label,
   hoverColor,

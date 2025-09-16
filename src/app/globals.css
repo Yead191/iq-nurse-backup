@@ -150,3 +150,13 @@ html {
     font-size: 10px;
   }
 }
+
+.practiceSwiper .swiper-slide {
+  display: flex;
+  height: auto !important; /* let it adapt to wrapper */
+}
+
+.practiceSwiper .swiper-slide > div {
+  flex: 1;
+  height: 100%;
+}

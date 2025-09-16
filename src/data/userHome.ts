@@ -207,3 +207,59 @@ function isoToday(h: number, m: number) {
   d.setHours(h, m, 0, 0);
   return d.toISOString();
 }
+
+export const practiceData = [
+  {
+    id: 3,
+    title: "Medical-Surgical",
+    subtitle: "Adult Health & Critical Care",
+    completed: 102,
+    total: 150,
+    status: "ongoing",
+  },
+  {
+    id: 1,
+    title: "Foundation Day",
+    subtitle: "Basic Nursing Concept & Safety",
+    completed: 150,
+    total: 150,
+    status: "completed",
+  },
+  {
+    id: 4,
+    title: "Maternal-Child",
+    subtitle: "OB,Pediatrics & Family Health",
+    completed: 0,
+    total: 140,
+    status: "not_started",
+  },
+];
+
+export const discussionsData = [
+  {
+    id: 1,
+    title: "NCLEX Tips for Prioritization Questions",
+    author: "Jessica Davis",
+    authorInitials: "JD",
+    replies: 24,
+    views: 156,
+  },
+  {
+    id: 2,
+    title: "NCLEX Tips for Prioritization Questions",
+    author: "Jessica Davis",
+    authorInitials: "JD",
+    replies: 24,
+    views: 156,
+  },
+];
+
+export const communityGroupsData = [
+  {
+    id: 1,
+    name: "Cardiac Nursing Study Group",
+    members: 24,
+    online: 5,
+    iconColor: "bg-green-500",
+  },
+];

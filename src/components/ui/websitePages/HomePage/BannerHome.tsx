@@ -32,6 +32,7 @@ export default function BannerHome() {
           alt="banner-img"
           className="h-full w-full"
           unoptimized
+          priority
         />
       </div>
     </div>
