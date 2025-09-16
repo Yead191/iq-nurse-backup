@@ -11,6 +11,7 @@ import Image from "next/image";
 import ReadingTabs from "./ReadingTabs";
 import AsidePanel from "./aside/AsidePanel";
 import MarathonSection from "./MarathonSection/MarathonSection";
+import CommunityDiscussionsSection from "./CommunityDiscussions/CommunityDiscussionsSection";
 
 export default function UserHome() {
   return (
@@ -32,6 +33,10 @@ export default function UserHome() {
           {/*Marathon Section */}
           <section>
             <MarathonSection />
+          </section>
+          {/*Community Discussion */}
+          <section className="mb-8">
+            <CommunityDiscussionsSection />
           </section>
         </div>
 
