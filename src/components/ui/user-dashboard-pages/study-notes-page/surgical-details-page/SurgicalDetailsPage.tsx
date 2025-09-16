@@ -47,7 +47,7 @@ export default function SurgicalDetailsPage({ id }: { id: any }) {
   };
 
   return (
-    <div className="">
+    <div className="px-4  lg:px-5">
       <DetailsHeader title={"Muscle System"} back={"/profile/study-notes"} />
 
       <div>

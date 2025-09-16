@@ -15,18 +15,20 @@ import {
   BookOutlined,
 } from "@ant-design/icons";
 import { Bookmark } from "lucide-react";
+import CategorySidebar from "./CategorySidebar";
 
 export default function MedicalSurgicalPage() {
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category");
+  const router = useRouter();
+  const [selectedDocId, setSelectedDocId] = useState<string | null>(null);
+
   const [selectedCategory, setSelectedCategory] = useState(
     medicalCategories[0].id
   );
   const [sortBy, setSortBy] = useState("newest");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-
-  const searchParams = useSearchParams();
-  const category = searchParams.get("category");
-  const router = useRouter();
 
   useEffect(() => {
     if (category) {
@@ -73,58 +75,50 @@ export default function MedicalSurgicalPage() {
   };
 
   return (
-    <div>
-      <header>
-        <PageNavbar
-          icon={<BookOutlined />}
-          title="Study Notes"
-          subtitle="Comprehensive NCLEX study materials with interactive videos and visual aids"
-          isAiEnhanced={true}
-          actions={[
-            {
-              label: "Bookmark",
-              icon: <Bookmark size={20} className="mt-1.5" />,
-              onClick: () => console.log("Bookmark"),
-            },
-            {
-              label: "Download",
-              icon: <DownloadOutlined />,
-              onClick: () => console.log("Download"),
-            },
-            {
-              label: "Create Note",
-              icon: <PlusOutlined />,
-              onClick: () => console.log("Create Note"),
-              isPrimary: true,
-            },
-          ]}
-        />
-      </header>
-      <PageBreadcrumb itemImg={heartImg} itemLabel="Study Notes" />
-
-      <PageHeader
-        totalNotes={documentationData.length}
-        sortBy={sortBy}
-        onSortChange={handleSortChange}
-        title="Medical Surgical"
-        label="Notes"
+    <section>
+      <PageNavbar
+        icon={<BookOutlined />}
+        title="Study Notes"
+        subtitle="Comprehensive NCLEX study materials with interactive videos and visual aids"
+        isAiEnhanced={true}
+        actions={[
+          {
+            label: "Bookmark",
+            icon: <Bookmark size={18} className="mt-1.5" />,
+            onClick: () => console.log("Bookmark"),
+          },
+          {
+            label: "Download",
+            icon: <DownloadOutlined />,
+            onClick: () => console.log("Download"),
+          },
+          {
+            label: "Create Note",
+            icon: <PlusOutlined />,
+            onClick: () => console.log("Create Note"),
+            isPrimary: true,
+          },
+        ]}
       />
-
-      <div className="overflow-hidden ">
-        <CategorySwiper
-          categories={medicalCategories}
-          selectedCategory={selectedCategory}
-          onCategoryChange={handleCategoryChange}
+      <div className="flex gap-6 px-4 lg:px-5">
+        <CategorySidebar
+          selectedId={selectedDocId}
+          onSelect={setSelectedDocId}
         />
+
+        <main className="flex-1 p-4 border rounded-lg">
+          {selectedDocId ? (
+            <div className="text-gray-800">
+              <h2 className="text-lg font-semibold">Selected Doc ID:</h2>
+              <p className="mt-2">{selectedDocId}</p>
+            </div>
+          ) : (
+            <p className="text-gray-500">
+              Select a note from the left sidebar.
+            </p>
+          )}
+        </main>
       </div>
-
-      <DocumentationGrid
-        documents={paginatedDocs}
-        totalDocuments={sortedDocs.length}
-        currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
-        onPageChange={setCurrentPage}
-      />
-    </div>
+    </section>
   );
 }
