@@ -1,32 +1,19 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Input, Button, InputRef, Badge } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-import { BellIcon, BookmarkIcon, ChevronLeft, Search } from "lucide-react";
+import { BellIcon, ChevronLeft, UserRoundCog } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import VoiceToText from "../VoiceToText";
 
 export default function MobileHeader() {
-  const [searchOpen, setSearchOpen] = useState(false);
   const inputRef = useRef<InputRef>(null);
   const pathname = usePathname();
   const router = useRouter();
   const [text, setText] = useState<string>("");
-
-  // Focus input when search opens and close on Escape
-  useEffect(() => {
-    if (searchOpen) {
-      inputRef.current?.focus();
-    }
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSearchOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [searchOpen]);
 
   // page title from URL
   const formatPathName = (slug: string | undefined) => {
@@ -72,138 +59,111 @@ export default function MobileHeader() {
   return (
     <header
       style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 50,
-        borderBottom: "1px solid #f0f0f0",
-        background: "#fff",
+        border: "none",
+        background: "#003877",
       }}
     >
-      <div style={{ maxWidth: "640px", margin: "0 auto", padding: "0 16px" }}>
+      <div className="w-full max-w-[640px] mx-auto px-3 py-5 flex flex-col gap-3">
         <div
           style={{
             position: "relative",
-            height: 62,
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
           }}
         >
           {/* Left: Logo + Brand */}
-          {!searchOpen &&
-            (showLogo ? (
-              <Link
-                href="/profile/home"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  minWidth: 0,
-                }}
-                aria-label="Home"
-              >
+          {showLogo ? (
+            <Link
+              href="/profile/home"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                minWidth: 0,
+              }}
+              aria-label="Home"
+            >
+              <div className="flex items-center gap-2 ">
                 <Image
-                  src="/assets/Logo.png"
+                  src="/favicon.svg"
                   alt="IQ-Nurse logo"
-                  width={127}
-                  height={48}
+                  width={36}
+                  height={39}
                   style={{ borderRadius: 4 }}
                   priority
                 />
-              </Link>
-            ) : (
-              <div className="flex items-center space-x-3">
-                <button
-                  onClick={handleBack}
-                  className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border "
-                >
-                  <ChevronLeft size={24} />
-                </button>
-
-                <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded">
-                  {formatPathName(targetSlug)}
-                </span>
+                <span className="text-white font-semibold">IQ-Nurse</span>
               </div>
-            ))}
+            </Link>
+          ) : (
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={handleBack}
+                className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border "
+              >
+                <ChevronLeft size={24} />
+              </button>
 
-          {/* Right: Actions */}
-          {!searchOpen && (
-            <div
-              style={{
-                marginLeft: "auto",
-                display: "flex",
-                gap: 8,
-                alignItems: "center",
-              }}
-            >
-              <Button
-                type="text"
-                icon={<Search style={{ fontSize: 20 }} />}
-                aria-label="Open search"
-                onClick={() => setSearchOpen(true)}
-              />
-              {/* Notifications */}
-              <Badge count={4} size="small">
-                <Button
-                  type="text"
-                  icon={<BellIcon style={{ fontSize: 20 }} />}
-                  aria-label="Notifications"
-                />
-              </Badge>
-
-              <Button
-                type="text"
-                icon={<BookmarkIcon style={{ fontSize: 20 }} />}
-                aria-label="Bookmarks"
-              />
+              <span className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded">
+                {formatPathName(targetSlug)}
+              </span>
             </div>
           )}
-
-          {/* Search overlay */}
-          {searchOpen && (
-            <>
-              {/* Click-outside area */}
-              <div
-                style={{
-                  position: "fixed",
-                  inset: 0,
-                  zIndex: 40,
-                }}
-                onClick={() => setSearchOpen(false)}
-                aria-hidden="true"
+          {/* Right: Actions */}
+          <div
+            style={{
+              marginLeft: "auto",
+              display: "flex",
+              gap: 8,
+              alignItems: "center",
+            }}
+          >
+            {/* Notifications */}
+            <Badge count={4} size="small">
+              <Button
+                type="text"
+                icon={<BellIcon style={{ fontSize: 20, color: "white" }} />}
+                aria-label="Notifications"
               />
-              <div
-                style={{ position: "absolute", left: 0, right: 0, zIndex: 50 }}
-              >
-                <form
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    height: 56,
-                    padding: "0 16px",
-                  }}
-                  role="search"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    // handle submit as needed
-                    setSearchOpen(false);
-                  }}
-                >
-                  <Input
-                    ref={inputRef}
-                    placeholder="Search..."
-                    prefix={<SearchOutlined />}
-                    suffix={<VoiceToText setText={setText} />}
-                    allowClear
-                    style={{ borderRadius: 9999, height: 40 }}
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                  />
-                </form>
-              </div>
-            </>
-          )}
+            </Badge>
+
+            {/* <Button
+              type="text"
+              icon={<BookmarkIcon style={{ fontSize: 20, color: "white" }} />}
+              aria-label="Bookmarks"
+            /> */}
+            <Link href={'/profile/account'}>
+            
+            <Button
+              type="text"
+              icon={<UserRoundCog style={{ fontSize: 20, color: "white" }} />}
+              aria-label="Bookmarks"
+            />
+            </Link>
+          </div>
         </div>
+        {/* Search overlay */}
+
+        <form
+          className="px-1"
+          role="search"
+          onSubmit={(e) => {
+            e.preventDefault();
+            // handle submit as needed
+          }}
+        >
+          <Input
+            ref={inputRef}
+            placeholder="Search..."
+            prefix={<SearchOutlined />}
+            suffix={<VoiceToText setText={setText} />}
+            allowClear
+            style={{ borderRadius: 6, height: 44 }}
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+        </form>
       </div>
     </header>
   );

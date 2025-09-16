@@ -54,7 +54,7 @@ const VoiceToText = ({ setText, isChatBot }: VoiceToTextProps) => {
       onClick={startListening}
       disabled={listening}
       type="text"
-      icon={<AudioOutlined />}
+      icon={<AudioOutlined style={{ color: listening ? "red" : "#003877" }} />}
       style={
         isChatBot
           ? {

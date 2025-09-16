@@ -8,6 +8,13 @@ import { documentationData, medicalCategories } from "@/data/medicalData";
 import CategorySwiper from "./CategorySwiper";
 import DocumentationGrid from "./DocumentationGrid";
 import { useRouter, useSearchParams } from "next/navigation";
+import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
+import {
+  DownloadOutlined,
+  PlusOutlined,
+  BookOutlined,
+} from "@ant-design/icons";
+import { Bookmark } from "lucide-react";
 
 export default function MedicalSurgicalPage() {
   const [selectedCategory, setSelectedCategory] = useState(
@@ -67,6 +74,32 @@ export default function MedicalSurgicalPage() {
 
   return (
     <div>
+      <header>
+        <PageNavbar
+          icon={<BookOutlined />}
+          title="Study Notes"
+          subtitle="Comprehensive NCLEX study materials with interactive videos and visual aids"
+          isAiEnhanced={true}
+          actions={[
+            {
+              label: "Bookmark",
+              icon: <Bookmark size={20} className="mt-1.5" />,
+              onClick: () => console.log("Bookmark"),
+            },
+            {
+              label: "Download",
+              icon: <DownloadOutlined />,
+              onClick: () => console.log("Download"),
+            },
+            {
+              label: "Create Note",
+              icon: <PlusOutlined />,
+              onClick: () => console.log("Create Note"),
+              isPrimary: true,
+            },
+          ]}
+        />
+      </header>
       <PageBreadcrumb itemImg={heartImg} itemLabel="Study Notes" />
 
       <PageHeader

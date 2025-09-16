@@ -4,6 +4,7 @@ import BottomNavigation from "@/components/shared/user-dashboard/bottom-navigati
 import Header from "@/components/shared/user-dashboard/header/Header";
 import MobileHeader from "@/components/shared/user-dashboard/MobileHeader";
 import Sidebar from "@/components/shared/user-dashboard/Sidebar";
+import OldMobileHeader from "@/components/ui/old-components/OldMobileHeader";
 import { ConfigProvider } from "antd";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -13,7 +14,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
   const [showLabels, setShowLabels] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const hiddenPaths = [
-    "/profile/study-notes/document/",
+    "/profile/study-notes",
     "/profile/clinicals/skill-notes/",
     "/profile/patient-assessment/assessment-notes/",
     "/profile/templates/template-details/",
@@ -32,7 +33,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
             : "block md:hidden"
         } `}
       >
-        <MobileHeader />
+        {pathname === "/profile/home" ? <MobileHeader /> : <OldMobileHeader />}
       </div>
 
       <div className="w-full flex flex-col md:flex-row">
