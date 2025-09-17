@@ -2,7 +2,7 @@
 
 import { Pagination } from "antd";
 import { Documentation } from "@/data/medicalData";
-import DocumentationCard from "./DocumentationCard";
+import DocumentationCard from "../../user-dashboard-pages/study-notes-page/DocumentationCard";
 
 interface DocumentationGridProps {
   documents: Documentation[];

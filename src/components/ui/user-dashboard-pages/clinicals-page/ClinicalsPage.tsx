@@ -4,8 +4,8 @@ import heartImg from "@/assets/heart-hands.svg";
 import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
 import PageHeader from "../study-notes-page/PageHeader";
 import { skillCategories, skillDocumentationData } from "@/data/skillData";
-import CategorySwiper from "../study-notes-page/CategorySwiper";
-import DocumentationGrid from "../study-notes-page/DocumentationGrid";
+import CategorySwiper from "../../old-components/old-study-notes/CategorySwiper";
+import DocumentationGrid from "../../old-components/old-study-notes/DocumentationGrid";
 import SkillDocumentationGrid from "./SkillDocumentationGrid";
 
 export default function ClinicalsPage() {

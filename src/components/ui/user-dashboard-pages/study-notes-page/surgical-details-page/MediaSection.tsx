@@ -14,25 +14,22 @@ export default function MediaSection({
     <div className="space-y-8">
       {/* Video */}
       <div className="relative bg-black rounded-lg overflow-hidden">
-        <video style={{ width: "100%", borderRadius: "8px" }} controls autoPlay>
+        <video style={{ width: "100%", borderRadius: "8px", height:440 }} controls autoPlay>
           <source src="/assets/video/heart_video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
 
       {/* Image */}
-      <div className="">
+      {/* <div className="">
         <img
-          src={img || "https://i.ibb.co.com/CpRX0XB1/f612a1bef42e4c66c9ae53562b3b4ebb7db86c8d.png"}
+          src={
+            img ||
+            "https://i.ibb.co.com/CpRX0XB1/f612a1bef42e4c66c9ae53562b3b4ebb7db86c8d.png"
+          }
           className="w-full h-auto rounded-lg"
         />
-        {/* <Image
-          src="https://i.ibb.co.com/CpRX0XB1/f612a1bef42e4c66c9ae53562b3b4ebb7db86c8d.png"
-          alt="Heart anatomy diagram"
-          width={1000}
-          height={1000}
-        /> */}
-      </div>
+      </div> */}
     </div>
   );
 }

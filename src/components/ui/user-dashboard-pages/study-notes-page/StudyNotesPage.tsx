@@ -1,12 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
-import heartImg from "@/assets/heart-hands.svg";
-import PageHeader from "./PageHeader";
-import { documentationData, medicalCategories } from "@/data/medicalData";
-import CategorySwiper from "./CategorySwiper";
-import DocumentationGrid from "./DocumentationGrid";
 import { useRouter, useSearchParams } from "next/navigation";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import {
@@ -15,20 +9,19 @@ import {
   BookOutlined,
 } from "@ant-design/icons";
 import { Bookmark } from "lucide-react";
-import CategorySidebar from "./CategorySidebar";
+
+import { SelectedContent } from "./SelectedContent";
+import { NclexSidebar } from "./NclexSidebar";
+import { Grid } from "antd";
 
 export default function MedicalSurgicalPage() {
+  const { lg } = Grid.useBreakpoint();
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
-  const router = useRouter();
-  const [selectedDocId, setSelectedDocId] = useState<string | null>(null);
-
-  const [selectedCategory, setSelectedCategory] = useState(
-    medicalCategories[0].id
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    category || ""
   );
-  const [sortBy, setSortBy] = useState("newest");
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const [selectedSubcategory, setSelectedSubcategory] = useState<string>();
 
   useEffect(() => {
     if (category) {
@@ -36,46 +29,16 @@ export default function MedicalSurgicalPage() {
     }
   }, [category]);
 
-  // Filter documentation by selected category
-  const filteredDocs = documentationData.filter(
-    (doc: any) => doc.categoryId === selectedCategory
-  );
-
-  // Sort documentation
-  const sortedDocs = [...filteredDocs].sort((a, b) => {
-    switch (sortBy) {
-      case "newest":
-        return (
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        );
-      case "oldest":
-        return (
-          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-        );
-      case "alphabetical":
-        return a.title.localeCompare(b.title);
-      default:
-        return 0;
-    }
-  });
-
-  // Paginate documentation
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedDocs = sortedDocs.slice(startIndex, startIndex + itemsPerPage);
-
-  const handleCategoryChange = (categoryId: string) => {
-    router.push(`/profile/study-notes?category=${categoryId}`);
+  const handleSelectionChange = (
+    categoryId: string,
+    subcategoryId?: string
+  ) => {
     setSelectedCategory(categoryId);
-    setCurrentPage(1);
-  };
-
-  const handleSortChange = (value: string) => {
-    setSortBy(value);
-    setCurrentPage(1);
+    setSelectedSubcategory(subcategoryId);
   };
 
   return (
-    <section>
+    <section className="min-h-[calc(100vh-94px)]">
       <PageNavbar
         icon={<BookOutlined />}
         title="Study Notes"
@@ -84,7 +47,9 @@ export default function MedicalSurgicalPage() {
         actions={[
           {
             label: "Bookmark",
-            icon: <Bookmark size={18} className="mt-1.5" />,
+            icon: (
+              <Bookmark size={18} className="mt-1.5 text-black fill-current" />
+            ),
             onClick: () => console.log("Bookmark"),
           },
           {
@@ -100,24 +65,19 @@ export default function MedicalSurgicalPage() {
           },
         ]}
       />
-      <div className="flex gap-6 px-4 lg:px-5">
-        <CategorySidebar
-          selectedId={selectedDocId}
-          onSelect={setSelectedDocId}
+      <div className="flex gap-6 ">
+        <NclexSidebar
+          selectedCategory={selectedCategory}
+          selectedSubcategory={selectedSubcategory}
+          onSelectionChange={handleSelectionChange}
         />
 
-        <main className="flex-1 p-4 border rounded-lg">
-          {selectedDocId ? (
-            <div className="text-gray-800">
-              <h2 className="text-lg font-semibold">Selected Doc ID:</h2>
-              <p className="mt-2">{selectedDocId}</p>
-            </div>
-          ) : (
-            <p className="text-gray-500">
-              Select a note from the left sidebar.
-            </p>
-          )}
-        </main>
+        {lg && (
+          <SelectedContent
+            selectedCategory={selectedCategory}
+            selectedSubcategory={selectedSubcategory}
+          />
+        )}
       </div>
     </section>
   );
