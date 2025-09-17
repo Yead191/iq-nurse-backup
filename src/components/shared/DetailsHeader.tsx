@@ -9,7 +9,7 @@ export default function DetailsHeader({
   back?: /*unresolved*/ any;
 }) {
   return (
-    <div className="flex items-center justify-between py-3 sticky top-0 z-50 bg-white">
+    <div className="flex md:hidden items-center justify-between py-3 sticky top-0 z-50 bg-white ">
       {/* Back Button */}
       <div className="flex items-center space-x-3">
         <Link href={back} className="mt-1.5">

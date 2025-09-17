@@ -15,6 +15,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const hiddenPaths = [
     "/profile/study-notes",
+    "/profile/my-notepad",
     "/profile/clinicals/skill-notes/",
     "/profile/patient-assessment/assessment-notes/",
     "/profile/templates/template-details/",
@@ -92,8 +93,11 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
                 </div>
 
                 <div
-                  className={`h-full  rounded-md px-4  lg:px-5 ${
-                    shouldHide ? "py-0 " : "lg:pt-8 lg:pb-0  p-4 md:p-6"
+                  // className={`h-full  rounded-md px-4  lg:px-5 ${
+                  //   shouldHide ? "py-0 " : "lg:pt-8 lg:pb-0  p-4 md:p-6"
+                  // } `}
+                  className={`h-full  rounded-md  ${
+                    shouldHide ? "py-0 " : "lg:pt-8 lg:pb-0 px-4  lg:px-5"
                   } `}
                 >
                   {children}

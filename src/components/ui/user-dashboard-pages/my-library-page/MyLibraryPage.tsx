@@ -87,7 +87,6 @@ export default function MyLibraryPage() {
     }));
   };
 
-
   const handlePageSelect = (folderId: string, pageId: string) => {
     setSelectedFolder(folderId);
     setSelectedPage(pageId);

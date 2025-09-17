@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
-import { Button } from "antd";
+import { Button, Grid } from "antd";
 
 type ActionBtn = {
   label: string;
@@ -26,14 +26,22 @@ export default function PageNavbar({
   isAiEnhanced,
   actions = [],
 }: PageNavbarProps) {
+  const { lg } = Grid.useBreakpoint();
   return (
-    <div className="flex items-center justify-between w-full py-3">
+    <div
+      style={{
+        boxShadow: "4px 4px 35px rgba(0, 0, 0, 0.13)",
+      }}
+      className="flex items-center justify-between w-full py-3 sticky top-0 bg-white z-10  gap-10 shadow-sm px-4 md:px-6 mb-6"
+    >
       {/* Left side */}
       <div className="flex items-center gap-3">
         {icon && <div className="text-lg md:text-xl">{icon}</div>}
         <div>
           <div className="flex items-end gap-2">
-            <h2 className="text-base md:text-lg font-semibold text-[#000000]">{title}</h2>
+            <h2 className="text-base md:text-lg font-semibold text-[#000000]">
+              {title}
+            </h2>
             <div className="hidden md:block">
               {isAiEnhanced && (
                 <Button
@@ -55,7 +63,9 @@ export default function PageNavbar({
             </div>
           </div>
           {subtitle && (
-            <p className="text-[8px] md:text-xs text-[#00000094]">{subtitle}</p>
+            <p className="text-[10px] md:text-xs text-[#00000094] lg:mt-1">
+              {subtitle}
+            </p>
           )}
         </div>
       </div>
@@ -68,6 +78,7 @@ export default function PageNavbar({
               key={idx}
               icon={action.icon}
               onClick={action.onClick}
+              size={lg ? "middle" : "small"}
               style={{
                 ...(action?.isPrimary
                   ? {
@@ -80,7 +91,7 @@ export default function PageNavbar({
                       backgroundColor: "#02478D30",
                       border: "none",
                     }),
-                ...(action?.style || { height: 40 }),
+                ...(action?.style || { height: lg ? 40 : 32 }),
               }}
             >
               <span className="hidden sm:inline">{action.label}</span>

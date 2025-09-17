@@ -133,13 +133,12 @@ export default function MobileHeader() {
               icon={<BookmarkIcon style={{ fontSize: 20, color: "white" }} />}
               aria-label="Bookmarks"
             /> */}
-            <Link href={'/profile/account'}>
-            
-            <Button
-              type="text"
-              icon={<UserRoundCog style={{ fontSize: 20, color: "white" }} />}
-              aria-label="Bookmarks"
-            />
+            <Link href={"/profile/account"}>
+              <Button
+                type="text"
+                icon={<UserRoundCog style={{ fontSize: 20, color: "white" }} />}
+                aria-label="Bookmarks"
+              />
             </Link>
           </div>
         </div>

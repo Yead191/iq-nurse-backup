@@ -31,14 +31,14 @@ const tabs = [
 ];
 
 export default function SurgicalDetailsPage({ id }: { id: any }) {
+  console.log(id);
   const [activeTab, setActiveTab] = useState("overview");
-
   const renderTabContent = () => {
     switch (activeTab) {
       case "overview":
         return <OverviewTab />;
-      case "media":
-        return <MediaTab />;
+      // case "media":
+      //   return <MediaTab />;
       case "note":
         return <NoteTab />;
       default:
@@ -47,26 +47,26 @@ export default function SurgicalDetailsPage({ id }: { id: any }) {
   };
 
   return (
-    <div className="">
+    <div className="px-4  lg:px-5">
       <DetailsHeader title={"Muscle System"} back={"/profile/study-notes"} />
 
-      <div>
+      <div className="flex justify-between items-center">
+        <p className="text-2xl font-semibold">{id}</p>
         <TabNavigation
           tabs={tabs}
           activeTab={activeTab}
           onChange={setActiveTab}
         />
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-8">
-          <div className=" hidden lg:block">
-            <MediaSection
-              img="https://i.ibb.co.com/CpRX0XB1/f612a1bef42e4c66c9ae53562b3b4ebb7db86c8d.png"
-              alt="Heart anatomy diagram"
-            />
-          </div>
-          <div className=" ">
-            <div className="">{renderTabContent()}</div>
-          </div>
+      </div>
+      <div className="grid grid-cols-1  gap-8 my-8">
+        {/* <div className=" hidden lg:block ">
+          <MediaSection
+            img="https://i.ibb.co.com/CpRX0XB1/f612a1bef42e4c66c9ae53562b3b4ebb7db86c8d.png"
+            alt="Heart anatomy diagram"
+          />
+        </div> */}
+        <div className=" ">
+          <div className="">{renderTabContent()}</div>
         </div>
       </div>
     </div>

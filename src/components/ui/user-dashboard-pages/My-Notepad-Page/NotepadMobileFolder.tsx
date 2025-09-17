@@ -13,6 +13,7 @@ import ContextMenu from "../my-library-page/ContextMenu";
 import DeleteConfirmationModal from "../my-library-page/DeleteConfirmationModal";
 import NewFolderForm from "./NewFolderForm";
 import Input from "antd/es/input/Input";
+import { Grid } from "antd";
 
 interface Folder {
   name: string;
@@ -34,6 +35,7 @@ interface NotepadMobileFolderProps {
   onNoteSelect: (noteId: string) => void;
   onAddFolder: (folder: Folder) => void;
   onNewNote: (folderName: string) => void;
+  activeNoteId?: string | null;
 }
 
 export default function NotepadMobileFolder({
@@ -44,7 +46,9 @@ export default function NotepadMobileFolder({
   onNoteSelect,
   onAddFolder,
   onNewNote,
+  activeNoteId,
 }: NotepadMobileFolderProps) {
+  const { lg } = Grid.useBreakpoint();
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(
     new Set()
   );
@@ -125,20 +129,44 @@ export default function NotepadMobileFolder({
   };
 
   /** ---------------- Colors ---------------- */
-
+  // console.log(activeFolder, activeNoteId);
   return (
     <div className="flex flex-col h-full">
-      <div className="pb-4 px-2 border-b border-gray-200">
+      <div className="pb-4 pr-2  border-b border-gray-200">
         <Input
-          placeholder="Search folders..."
+          placeholder="Search notes..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           prefix={<Search className="text-gray-400" />}
+          style={{
+            height: 50,
+            borderRadius: 8,
+          }}
         />
+        {/* Add New Folder */}
+        <div className=" pt-2">
+          {showNewFolderForm ? (
+            <NewFolderForm
+              onAdd={(name, color) => {
+                onAddFolder({ name, color });
+                setShowNewFolderForm(false);
+              }}
+              onCancel={() => setShowNewFolderForm(false)}
+            />
+          ) : (
+            <button
+              onClick={() => setShowNewFolderForm(true)}
+              className="w-full bg-primary text-white py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+            >
+              <Plus className="w-4 h-4" />
+              Create Folder
+            </button>
+          )}
+        </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto py-2 space-y-4">
-        {folders.map((folder) => {
+      <div className="flex-1 overflow-y-auto py-2 pr-2 space-y-4">
+        {folders?.map((folder) => {
           // console.log(folder?.color);
           const isExpanded = expandedFolders.has(folder.name);
           const folderNotes = notes.filter((n) => n.folder === folder.name);
@@ -153,8 +181,17 @@ export default function NotepadMobileFolder({
                 style={{
                   borderLeftColor: folder.color,
                 }}
-                className={`flex items-center justify-between px-4 py-2 hover:bg-gray-50 cursor-pointer border-l-4 rounded-md `}
-                onClick={() => toggleFolder(folder.name)}
+                className={`flex items-center justify-between pl-4 py-2  cursor-pointer border-l-4 rounded-md ${
+                  activeFolder === folder.name
+                    ? "bg-blue-50"
+                    : "hover:bg-gray-50"
+                }`}
+                onClick={() => {
+                  toggleFolder(folder.name);
+                  if (lg) {
+                    onFolderSelect(folder.name);
+                  }
+                }}
               >
                 <div className="flex-1">
                   {renamingFolder === folder.name ? (
@@ -190,12 +227,18 @@ export default function NotepadMobileFolder({
 
               {/* Expanded Notes */}
               {isExpanded && (
-                <div className="px-4 pb-2 space-y-2">
+                <div className="pl-0.5 pb-2 space-y-2">
                   {folderNotes.length > 0 ? (
                     folderNotes.map((note) => (
                       <div
                         key={note.id}
-                        className="flex items-center justify-between m-2 px-4 py-2 rounded-xl cursor-pointer border-b  border border-[#C5D0D0] hover:bg-gray-50"
+                        className={`flex items-center justify-between my-2 px-4 py-2 rounded-xl cursor-pointer border-b 
+                           ${
+                             activeNoteId === note.id
+                               ? "bg-[#D8ECFE] border border-[#D8ECFE] "
+                               : "border border-[#C5D0D0] hover:bg-gray-50"
+                           }
+                          `}
                         onClick={() => onNoteSelect(note.id)}
                       >
                         <div className="flex-1">
@@ -230,27 +273,6 @@ export default function NotepadMobileFolder({
             </div>
           );
         })}
-      </div>
-
-      {/* Add New Folder */}
-      <div className="p-4 border-t border-gray-200">
-        {showNewFolderForm ? (
-          <NewFolderForm
-            onAdd={(name, color) => {
-              onAddFolder({ name, color });
-              setShowNewFolderForm(false);
-            }}
-            onCancel={() => setShowNewFolderForm(false)}
-          />
-        ) : (
-          <button
-            onClick={() => setShowNewFolderForm(true)}
-            className="w-full bg-primary text-white py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
-          >
-            <Plus className="w-4 h-4" />
-            Create Folder
-          </button>
-        )}
       </div>
 
       {/* Context Menu */}

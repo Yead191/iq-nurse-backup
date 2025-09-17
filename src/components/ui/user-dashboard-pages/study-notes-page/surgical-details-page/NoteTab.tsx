@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import React, { useRef, useState } from "react";
-import "jodit/es2021/jodit.min.css"; 
+import "jodit/es2021/jodit.min.css";
 
 // ✅ Load Jodit without SSR
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
