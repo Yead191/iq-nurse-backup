@@ -15,6 +15,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const hiddenPaths = [
     "/profile/study-notes",
+    "/profile/my-notepad",
     "/profile/clinicals/skill-notes/",
     "/profile/patient-assessment/assessment-notes/",
     "/profile/templates/template-details/",

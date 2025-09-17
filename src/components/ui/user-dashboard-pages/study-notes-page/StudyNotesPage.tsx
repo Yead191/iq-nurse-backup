@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import {
   DownloadOutlined,
@@ -54,7 +54,7 @@ export default function MedicalSurgicalPage() {
           },
           {
             label: "Download",
-            icon: <DownloadOutlined />,
+            icon: <DownloadOutlined  />,
             onClick: () => console.log("Download"),
           },
           {

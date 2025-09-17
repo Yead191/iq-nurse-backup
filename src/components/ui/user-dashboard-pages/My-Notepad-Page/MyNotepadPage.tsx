@@ -7,6 +7,8 @@ import NoteContentArea from "./NoteContentArea";
 import DeleteConfirmationModal from "../my-library-page/DeleteConfirmationModal";
 import { toast } from "sonner";
 import NotepadMobileFolder from "./NotepadMobileFolder";
+import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
+import { Bookmark, Download, File, Plus } from "lucide-react";
 
 // -------------------- Types --------------------
 interface Note {
@@ -179,68 +181,34 @@ export default function MyNotepadPage() {
 
   // -------------------- Render --------------------
   return (
-    <div className="h-[calc(100vh-190px)] flex flex-col">
-      <div className="flex-1 flex overflow-hidden">
-        {/* ---------- Desktop Layout ---------- */}
-        <div className="hidden lg:flex w-full">
-          <FolderSidebar
-            folders={folders}
-            activeFolder={activeFolder}
-            onFolderSelect={handleFolderSelect}
-            onAddFolder={handleAddFolder}
-          />
-          <NotesListSidebar
-            notes={folderNotes}
-            activeNoteId={activeNoteId}
-            onNoteSelect={handleNoteSelect}
-            onNewNote={handleNewNote}
-            folderName={activeFolder}
-          />
-          <NoteContentArea
-            noteId={activeNoteId}
-            initialTitle={activeNote?.title || ""}
-            initialContent={activeNote?.content || ""}
-            onTitleChange={handleTitleChange}
-            onContentChange={handleContentChange}
-          />
-        </div>
-
-        {/* ---------- Mobile Layout ---------- */}
-        <div className="flex flex-col lg:hidden w-full">
-          {/* Mobile Header with Back Button */}
-          <div className="grid grid-cols-12 py-2  bg-white">
-            {mobileView !== "folders" && (
-              <button
-                onClick={handleMobileBack}
-                className="flex items-center text-gray-600 hover:text-gray-900 col-span-3"
-              >
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-                Back
-              </button>
-            )}
-            {/* <div className="col-span-9 text-center font-semibold text-gray-900">
-              {mobileView === "folders" && "Folders"}
-              {mobileView === "notes" && activeFolder}
-              {mobileView === "content" && activeNote?.title}
-            </div> */}
-          </div>
-
-          {/* Mobile View Content */}
-          <div className="flex-1 overflow-y-auto">
-            {mobileView === "folders" && (
+    <section>
+      <PageNavbar
+        icon={<File />}
+        title="Smart Notepad"
+        subtitle="Create,organize,and enhance your study notes with AI assistance"
+        isAiEnhanced={true}
+        actions={[
+          
+          {
+            label: "Export All",
+            icon: <Download size={18} className="mt-1" />,
+            onClick: () => console.log("Download"),
+          },
+          {
+            label: "New Note",
+            icon: <Plus size={18} className="mt-1.5" />,
+            onClick: () => console.log("Create Note"),
+            isPrimary: true,
+          },
+        ]}
+      />
+      <div className="h-[calc(100vh-190px)] flex flex-col px-4 lg:px-5  ">
+        <div className="flex-1 flex overflow-hidden">
+          {/* ---------- Desktop Layout ---------- */}
+          <div className="hidden lg:grid grid-cols-9 w-full">
+            <div className="col-span-2 border-r border-gray-200 overflow-y-auto">
               <NotepadMobileFolder
+                activeNoteId={activeNoteId}
                 folders={folders}
                 notes={notes}
                 activeFolder={activeFolder}
@@ -252,9 +220,8 @@ export default function MyNotepadPage() {
                   handleNewNote();
                 }}
               />
-            )}
-
-            {/* {mobileView === "content" && (
+            </div>
+            <div className="col-span-7">
               <NoteContentArea
                 noteId={activeNoteId}
                 initialTitle={activeNote?.title || ""}
@@ -262,17 +229,78 @@ export default function MyNotepadPage() {
                 onTitleChange={handleTitleChange}
                 onContentChange={handleContentChange}
               />
-            )} */}
+            </div>
           </div>
-        </div>
 
-        {/* Delete Confirmation Modal */}
-        <DeleteConfirmationModal
-          isOpen={isDeleteModalOpen}
-          onClose={() => setIsDeleteModalOpen(false)}
-          onConfirm={confirmDelete}
-        />
+          {/* ---------- Mobile Layout ---------- */}
+          <div className="flex flex-col lg:hidden w-full">
+            {/* Mobile Header with Back Button */}
+            <div className="grid grid-cols-12 py-2  bg-white">
+              {mobileView !== "folders" && (
+                <button
+                  onClick={handleMobileBack}
+                  className="flex items-center text-gray-600 hover:text-gray-900 col-span-3"
+                >
+                  <svg
+                    className="w-5 h-5 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                  Back
+                </button>
+              )}
+              {/* <div className="col-span-9 text-center font-semibold text-gray-900">
+              {mobileView === "folders" && "Folders"}
+              {mobileView === "notes" && activeFolder}
+              {mobileView === "content" && activeNote?.title}
+            </div> */}
+            </div>
+
+            {/* Mobile View Content */}
+            <div className="flex-1 overflow-y-auto">
+              {mobileView === "folders" && (
+                <NotepadMobileFolder
+                  folders={folders}
+                  notes={notes}
+                  activeFolder={activeFolder}
+                  onFolderSelect={handleFolderSelect}
+                  onNoteSelect={handleNoteSelect}
+                  onAddFolder={handleAddFolder}
+                  onNewNote={(folderName) => {
+                    setActiveFolder(folderName);
+                    handleNewNote();
+                  }}
+                />
+              )}
+
+              {mobileView === "content" && (
+                <NoteContentArea
+                  noteId={activeNoteId}
+                  initialTitle={activeNote?.title || ""}
+                  initialContent={activeNote?.content || ""}
+                  onTitleChange={handleTitleChange}
+                  onContentChange={handleContentChange}
+                />
+              )}
+            </div>
+          </div>
+
+          {/* Delete Confirmation Modal */}
+          <DeleteConfirmationModal
+            isOpen={isDeleteModalOpen}
+            onClose={() => setIsDeleteModalOpen(false)}
+            onConfirm={confirmDelete}
+          />
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
