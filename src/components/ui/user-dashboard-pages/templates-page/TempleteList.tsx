@@ -9,25 +9,27 @@ export type CategoryState = {
 interface IProps {
     setCategories: React.Dispatch<React.SetStateAction<CategoryState>>;
     setIsSideBarSelect: React.Dispatch<React.SetStateAction<boolean>>;
-
+    searchText: string;
+    setSearchText: React.Dispatch<React.SetStateAction<string>>;
 }
 
 
 
-export default function TempleteList({ setCategories, setIsSideBarSelect }: IProps) {
+export default function TempleteList({ setCategories, setIsSideBarSelect,searchText,setSearchText }: IProps) {
 
     const { getTemplateData } = templateData
 
     return (
-        <aside className="w-full sm:w-sm bg-white sm:border-r border-gray-200 h-screen overflow-y-auto px-4 m-auto py-2">
-
+        <aside className="w-full sm:w-sm bg-white sm:border-r border-gray-200 h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 px-4 m-auto">
             {/* Search */}
-            <div className="mb-4 flex items-center gap-2 border border-gray-300 rounded-md px-3 py-3">
+            <div className="mb-4 flex items-center gap-2 border border-gray-300 rounded-md px-3 py-3 sticky top-0 bg-white">
                 <IoSearchOutline className="text-gray-400 text-lg" />
                 <input
                     type="text"
                     placeholder="Search templates..."
                     className="w-full text-sm focus:outline-none"
+                    value={searchText}
+                    onChange={(e) => setSearchText(e.target.value)}
                 />
             </div>
 

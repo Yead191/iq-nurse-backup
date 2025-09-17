@@ -83,14 +83,14 @@ export default function TempleteDetails({ categories, setIsSideBarSelect }: IPro
                             {slides.map((slide: any, index: number) => (
                                 <div
                                     key={index}
-                                    className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+                                    className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === currentSlide ? "opacity-100 block" : "opacity-0 hidden"
                                         }`}
                                 >
                                     <iframe
                                         src={slide}
-                                        className="w-full h-full rounded-lg" 
+                                        className="w-full h-full rounded-lg"
                                         title={`Slide ${index + 1}`}
-                                        style={{minHeight: 'full'}}
+                                        style={{ minHeight: 'full' }}
                                     />
                                 </div>
                             ))}

@@ -15,22 +15,23 @@ export default function TemplatesPage() {
     templeteId: null,
   });
   const [isSideBarSelect, setIsSideBarSelect] = useState<boolean>(false);
+  const [setsearchText, setSetsearchText] = useState('');
 
-  console.log({ isSideBarSelect })
+  console.log({ setsearchText })
 
   return (
     <>
-        <div className="flex flex-col md:flex-row">
-          {/* Template List */}
-          <div className={`${isSideBarSelect ? "hidden" : "block"} md:block`}>
-            <TempleteList setCategories={setCategories} setIsSideBarSelect={setIsSideBarSelect} />
-          </div>
-
-          {/* Template Details */}
-          <div className={`w-full md:flex-1 ${isSideBarSelect ? "block" : "hidden"} md:block`}>
-            <TempleteDetails categories={categories} setIsSideBarSelect={setIsSideBarSelect} />
-          </div>
+      <div className="flex flex-col md:flex-row">
+        {/* Template List */}
+        <div className={`${isSideBarSelect ? "hidden" : "block"} md:block`}>
+          <TempleteList setCategories={setCategories} setIsSideBarSelect={setIsSideBarSelect} searchText={setsearchText} setSearchText={setSetsearchText} />
         </div>
+
+        {/* Template Details */}
+        <div className={`w-full md:flex-1 ${isSideBarSelect ? "block" : "hidden"} md:block`}>
+          <TempleteDetails categories={categories} setIsSideBarSelect={setIsSideBarSelect} />
+        </div>
+      </div>
     </>
   );
 }

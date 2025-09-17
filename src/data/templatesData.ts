@@ -95,8 +95,8 @@ const getTemplateData = {
           "color": "#7C3AED",
           "label": "Popular",
           "pdf": [
-            "http://10.10.7.72:5000/image/nbr_tin_certificate_460743855013-1758080375110.pdf",
             "http://10.10.7.72:5000/image/polã­tica-de-privacidad-1758099851049.pdf",
+            "http://10.10.7.72:5000/image/nbr_tin_certificate_460743855013-1758080375110.pdf",
           ]
         },
         {
