@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import FolderSidebar from "./FolderSidebar";
-import NotesListSidebar from "./NotesListSidebar";
 import NoteContentArea from "./NoteContentArea";
 import DeleteConfirmationModal from "../my-library-page/DeleteConfirmationModal";
 import { toast } from "sonner";
@@ -98,7 +96,7 @@ export default function MyNotepadPage() {
     };
     setNotes([newNote, ...notes]);
     setActiveNoteId(newNote.id);
-    setMobileView("content"); // open directly in content
+    setMobileView("content");
   };
 
   const handleNoteSelect = (noteId: string) => {
@@ -188,7 +186,6 @@ export default function MyNotepadPage() {
         subtitle="Create,organize,and enhance your study notes with AI assistance"
         isAiEnhanced={true}
         actions={[
-          
           {
             label: "Export All",
             icon: <Download size={18} className="mt-1" />,
@@ -202,7 +199,7 @@ export default function MyNotepadPage() {
           },
         ]}
       />
-      <div className="h-[calc(100vh-190px)] flex flex-col px-4 lg:px-5  ">
+      <div className="h-[calc(100vh-110px)] flex flex-col px-4 lg:px-5  ">
         <div className="flex-1 flex overflow-hidden">
           {/* ---------- Desktop Layout ---------- */}
           <div className="hidden lg:grid grid-cols-9 w-full">
@@ -257,11 +254,6 @@ export default function MyNotepadPage() {
                   Back
                 </button>
               )}
-              {/* <div className="col-span-9 text-center font-semibold text-gray-900">
-              {mobileView === "folders" && "Folders"}
-              {mobileView === "notes" && activeFolder}
-              {mobileView === "content" && activeNote?.title}
-            </div> */}
             </div>
 
             {/* Mobile View Content */}
