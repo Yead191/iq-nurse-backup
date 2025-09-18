@@ -1,38 +1,43 @@
 "use client";
 import React, { useState } from "react";
 import TempleteList from "../templates-page/TempleteList";
-import TempleteDetails from "../templates-page/TempleteDetails";
+import ClinicalSkillsTab from "./ClinicalSkills";
 import SkillSidebar from "./SkillSidebar";
+import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
+import { Download, File, Printer, Share } from "lucide-react";
 
 export default function ClinicalSkills() {
 
-  type CategoryState = {
-    categoryId: string | null;
-    templeteId: string | null;
-  };
+    type CategoryState = {
+        skillCategoryId: string | null;
+        setSkillId: string | null;
+    };
 
-  const [categories, setCategories] = useState<CategoryState>({
-    categoryId: null,
-    templeteId: null,
-  });
-  const [isSideBarSelect, setIsSideBarSelect] = useState<boolean>(false);
-  const [setsearchText, setSetsearchText] = useState('');
+    const [skills, setSkill] = useState<CategoryState>({
+        skillCategoryId: null,
+        setSkillId: null,
+    });
+    const [isSideBarSelect, setIsSideBarSelect] = useState<boolean>(false);
 
-  console.log({ setsearchText })
+    console.log(skills)
 
-  return (
-    <>
-      <div className="flex flex-col md:flex-row">
-        {/* Template List */}
-        <div className={`${isSideBarSelect ? "hidden" : "block"} md:block`}>
-          <SkillSidebar setCategories={setCategories} setIsSideBarSelect={setIsSideBarSelect} searchText={setsearchText} setSearchText={setSetsearchText} />
-        </div>
+    return (
+        <>
+            <PageNavbar
+                icon={<File />}
+                title="Document Templates"
+                subtitle="Professional nursing documentation templates for clinical practice"
+                isAiEnhanced={true}
+            />
+            <div className="flex flex-col md:flex-row">
+                <div className={`${isSideBarSelect ? "hidden" : "block"} md:block`}>
+                    <SkillSidebar setSkill={setSkill} setIsSideBarSelect={setIsSideBarSelect} />
+                </div>
 
-        {/* Template Details */}
-        <div className={`w-full md:flex-1 ${isSideBarSelect ? "block" : "hidden"} md:block`}>
-          <TempleteDetails categories={categories} setIsSideBarSelect={setIsSideBarSelect} />
-        </div>
-      </div>
-    </>
-  );
+                <div className={`w-full md:flex-1 ${isSideBarSelect ? "block" : "hidden"} md:block`}>
+                    <ClinicalSkillsTab categories={skills} setIsSideBarSelect={setIsSideBarSelect} />
+                </div>
+            </div>
+        </>
+    );
 }
