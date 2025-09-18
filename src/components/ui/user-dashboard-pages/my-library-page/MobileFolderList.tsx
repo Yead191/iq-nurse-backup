@@ -10,6 +10,8 @@ import {
   Edit,
   Trash2,
   Search,
+  Folder,
+  Clock,
 } from "lucide-react";
 import ContextMenu from "./ContextMenu";
 import { LibraryData } from "@/data/types";
@@ -26,6 +28,8 @@ interface MobileFolderListProps {
   onCreateFolder: () => void;
   onDeleteFolder: (folderId: string) => void;
   onRenameFolder: (folderId: string, newName: string) => void;
+  selectedFolder?: string | null;
+  selectedPage?: string | null;
 }
 
 export default function MobileFolderList({
@@ -39,6 +43,8 @@ export default function MobileFolderList({
   onCreateFolder,
   onDeleteFolder,
   onRenameFolder,
+  selectedPage,
+  selectedFolder,
 }: MobileFolderListProps) {
   const [contextMenu, setContextMenu] = useState<{
     isOpen: boolean;
@@ -58,7 +64,7 @@ export default function MobileFolderList({
     e.stopPropagation();
     setContextMenu({
       isOpen: true,
-      position: { x: e.clientX, y: e.clientY },
+      position: { x: e.clientX - 160, y: e.clientY + 10 },
       folderId,
     });
   };
@@ -126,7 +132,22 @@ export default function MobileFolderList({
   return (
     <div className="flex flex-col h-full ">
       {/* Search Header */}
-      <div className="pb-4 px-0.5 border-b border-gray-200">
+      <div className="pb-2 px-0.5 border-b border-gray-200">
+        <div className="hidden md:flex justify-between items-center gap-4 mb-3">
+          <h2 className="text-lg font-semibold text-neutral-900">My Folders</h2>
+          {/* Create Folder Button */}
+          {filteredFolders.length > 0 && (
+            <div className="w-full max-w-[160px]">
+              <button
+                onClick={onCreateFolder}
+                className="w-full bg-primary text-white py-3 rounded-lg  transition-colors flex items-center justify-center gap-2"
+              >
+                <Plus className="w-4 h-4" />
+                Create Folder
+              </button>
+            </div>
+          )}
+        </div>
         <Input
           placeholder="Search folders..."
           value={searchQuery}
@@ -134,11 +155,30 @@ export default function MobileFolderList({
           prefix={<Search className="text-gray-400" />}
           style={{ height: "40px", borderRadius: "8px" }}
         />
+        <div className="mt-2 flex items-center justify-between text-xs text-gray-800">
+          {/* Folders */}
+          <div className="flex items-center space-x-2">
+            <Folder size={18} className="text-gray-600" />
+            <span>12 folders</span>
+          </div>
+
+          {/* Notes */}
+          <div className="flex items-center space-x-2">
+            <Bookmark size={18} className="text-gray-600" />
+            <span>89 notes</span>
+          </div>
+
+          {/* Last updated */}
+          <div className="flex items-center space-x-2">
+            <Clock size={18} className="text-gray-600" />
+            <span>Last updated today</span>
+          </div>
+        </div>
       </div>
 
       {/* Folder List */}
-      <div className="flex-1 overflow-y-auto max-h-[calc(100vh-245px)]">
-        {filteredFolders.length === 0 ? (
+      <div className="flex-1 h-full max-h-[calc(100vh-275px)] lg:max-h-[calc(100vh-255px)] overflow-y-auto ">
+        {filteredFolders?.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-64 text-gray-500">
             <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
               📁
@@ -157,16 +197,22 @@ export default function MobileFolderList({
           </div>
         ) : (
           <div className="py-2 space-y-4">
-            {filteredFolders.map((folder: any) => (
+            {filteredFolders?.map((folder: any) => (
               <div
                 key={folder.id}
                 className="border-b border-gray-100 last:border-b-0"
               >
                 {/* Folder Header */}
                 <div
-                  className={`flex items-center justify-between p-4 py-1.5 hover:bg-gray-50 cursor-pointer border-l-5 rounded-t-md rounded-b-md  ${getColorClasses(
+                  className={`flex items-center justify-between p-4 py-1.5 cursor-pointer border-l-5 rounded-t-md rounded-b-md  ${getColorClasses(
                     folder.color
-                  )}`}
+                  )} 
+                  ${
+                    selectedFolder === folder.id
+                      ? "bg-[#00387714]"
+                      : "hover:bg-gray-50 "
+                  }
+                  `}
                   onClick={() => onFolderToggle(folder.id)}
                 >
                   <div className="flex-1">
@@ -205,12 +251,17 @@ export default function MobileFolderList({
                 </div>
 
                 {/* Expanded Pages */}
-                {expandedFolders.has(folder.id) && folder.pages.length > 0 && (
+                {expandedFolders?.has(folder.id) && folder.pages.length > 0 && (
                   <div className="">
                     {folder.pages.map((page: any) => (
                       <div
                         key={page.id}
-                        className="flex items-center justify-between m-2 px-4 py-2 rounded-xl cursor-pointer border-b  border border-[#C5D0D0] hover:bg-gray-50"
+                        className={`flex items-center justify-between m-2 px-4 py-2 rounded-xl cursor-pointer border
+                          ${
+                            selectedPage === page.id
+                              ? "bg-[#D8ECFE] border-[#D8ECFE]"
+                              : " border-[#C5D0D0] hover:bg-gray-50"
+                          }`}
                         onClick={() => onPageSelect(folder.id, page.id)}
                       >
                         <div className="flex-1">
@@ -255,19 +306,6 @@ export default function MobileFolderList({
           </div>
         )}
       </div>
-
-      {/* Create Folder Button */}
-      {filteredFolders.length > 0 && (
-        <div className="p-4 border-t border-gray-200">
-          <button
-            onClick={onCreateFolder}
-            className="w-full bg-primary text-white py-3 rounded-lg  transition-colors flex items-center justify-center gap-2"
-          >
-            <Plus className="w-4 h-4" />
-            Create Folder
-          </button>
-        </div>
-      )}
 
       {/* Context Menu */}
       {contextMenu.isOpen && (

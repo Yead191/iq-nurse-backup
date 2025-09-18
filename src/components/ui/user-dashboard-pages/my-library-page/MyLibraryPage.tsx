@@ -1,17 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import LibrarySidebar from "./LibrarySidebar";
 import { Folder, LibraryData } from "@/data/types";
-import PagesPanel from "./PagesPanel";
-import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
 import ContentArea from "./ContentArea";
 import CreateFolderModal from "./CreateFolderModal";
 import DeleteConfirmationModal from "./DeleteConfirmationModal";
 import MobileFolderList from "./MobileFolderList";
 import { libraryData } from "@/data/libraryData";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import { Download, File, Plus, Printer, Share } from "lucide-react";
+import { BookmarkIcon, FolderPlus } from "lucide-react";
 
 // Type for mobile view state
 type MobileView = "folders" | "pages" | "content";
@@ -124,27 +121,17 @@ export default function MyLibraryPage() {
   return (
     <div>
       <PageNavbar
-        icon={<File />}
-        title="Document Templates"
-        subtitle="Professional nursing documentation templates for clinical practice"
+        icon={<BookmarkIcon className="fill-current text-black" />}
+        title="My Library"
+        subtitle="Organize and manage your bookmarked study notes in custom folders"
         isAiEnhanced={true}
         actions={[
           {
-            label: "Share",
-            icon: <Share size={18} className="mt-1" />,
-            onClick: () => console.log("Share"),
-            isPrimary: true,
-          },
-          {
-            label: "Print",
-            icon: <Printer size={18} className="mt-1.5" />,
-            onClick: () => console.log("Print"),
-            isPrimary: true,
-          },
-          {
-            label: "Download PDF",
-            icon: <Download size={18} className="mt-1" />,
-            onClick: () => console.log("Download"),
+            label: "New Folder",
+            icon: <FolderPlus size={18} className="mt-1" />,
+            onClick: () => {
+              setIsCreateModalOpen(true);
+            },
             isPrimary: true,
           },
         ]}
@@ -155,27 +142,10 @@ export default function MyLibraryPage() {
       /> */}
       <div className="  lg:my-0 lg:mt-6 px-4 lg:px-5">
         <div className="hidden lg:grid grid-cols-9">
-          {/* <div className="flex sticky top-48 ">
-            <LibrarySidebar
-              data={data}
-              selectedFolder={selectedFolder}
-              searchQuery={searchQuery}
-              onSearchChange={setSearchQuery}
-              onFolderSelect={setSelectedFolder}
-              onCreateFolder={() => setIsCreateModalOpen(true)}
-              onDeleteFolder={handleDeleteFolder}
-              onRenameFolder={handleRenameFolder}
-            />
-
-            <PagesPanel
-              selectedFolder={selectedFolderData}
-              selectedPage={selectedPage}
-              onPageSelect={setSelectedPage}
-              onToggleBookmark={handleToggleBookmark}
-            />
-          </div> */}
           <div className="col-span-2 border-r pr-2">
             <MobileFolderList
+              selectedFolder={selectedFolder}
+              selectedPage={selectedPage}
               data={data}
               expandedFolders={expandedFolders}
               searchQuery={searchQuery}
@@ -248,7 +218,7 @@ export default function MyLibraryPage() {
             )}
 
             {mobileView === "content" && (
-              <div className="h-full">
+              <div className="h-full min-h-[calc(100vh-234px)] overflow-y-auto">
                 <ContentArea
                   selectedFolder={selectedFolderData}
                   selectedPage={selectedPageData}
