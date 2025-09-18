@@ -16,6 +16,7 @@ import {
 import ContextMenu from "./ContextMenu";
 import { LibraryData } from "@/data/types";
 import Input from "antd/es/input/Input";
+import { Button } from "antd";
 
 interface MobileFolderListProps {
   data: LibraryData;
@@ -137,14 +138,14 @@ export default function MobileFolderList({
           <h2 className="text-lg font-semibold text-neutral-900">My Folders</h2>
           {/* Create Folder Button */}
           {filteredFolders.length > 0 && (
-            <div className="w-full max-w-[160px]">
-              <button
+            <div className="w-auto">
+              <Button
                 onClick={onCreateFolder}
-                className="w-full bg-primary text-white py-3 rounded-lg  transition-colors flex items-center justify-center gap-2"
+                style={{backgroundColor:"#28C76F", color:"white", fontWeight:"400"}}
               >
                 <Plus className="w-4 h-4" />
-                Create Folder
-              </button>
+                New
+              </Button>
             </div>
           )}
         </div>
@@ -155,22 +156,22 @@ export default function MobileFolderList({
           prefix={<Search className="text-gray-400" />}
           style={{ height: "40px", borderRadius: "8px" }}
         />
-        <div className="mt-2 flex items-center justify-between text-xs text-gray-800">
+        <div className="mt-4  mb-1 flex items-center justify-between text-sm xl:text-[10px] 2xl:text-[14px] text-gray-800">
           {/* Folders */}
           <div className="flex items-center space-x-2">
-            <Folder size={18} className="text-gray-600" />
+            <Folder size={10} className="text-gray-600" />
             <span>12 folders</span>
           </div>
 
           {/* Notes */}
           <div className="flex items-center space-x-2">
-            <Bookmark size={18} className="text-gray-600" />
+            <Bookmark size={10} className="text-gray-600" />
             <span>89 notes</span>
           </div>
 
           {/* Last updated */}
           <div className="flex items-center space-x-2">
-            <Clock size={18} className="text-gray-600" />
+            <Clock size={10} className="text-gray-600" />
             <span>Last updated today</span>
           </div>
         </div>

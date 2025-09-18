@@ -18,7 +18,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/my-notepad",
     "/profile/my-library",
     "/profile/clinicals/skill-notes/",
-    "/profile/patient-assessment/assessment-notes/",
+    "/profile/patient-assessment",
     "/profile/templates",
   ];
   const oldHeaderPaths = ["/profile/home"];

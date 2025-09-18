@@ -1,8 +1,10 @@
-import PatientAssessmentPage from "@/components/ui/old-components/old-patient-assessment-page/OldPatientAssessmentPage";
+import PatientAssessmentPage from "@/components/ui/user-dashboard-pages/patient-assessment/PatientAssessmentPage";
 import React from "react";
 
 export default function page() {
-  return <section>
-    patient assessment page
-  </section>
+  return (
+    <section>
+      <PatientAssessmentPage />
+    </section>
+  );
 }

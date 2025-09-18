@@ -2,16 +2,12 @@ import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrum
 import React, { useState } from "react";
 import heartImg from "@/assets/heart-hands.svg";
 import PageHeader from "../../user-dashboard-pages/study-notes-page/PageHeader";
-import {
-  assessmentCategories,
-  PatientAssessmentProps,
-} from "@/data/assessmentCategories";
-import { Card } from "antd";
 import AssessmentCard from "./AssessmentCard";
+import { assessmentCategories } from "@/data/assessmentCategories";
 
 export default function OldPatientAssessmentPage({
   categories = assessmentCategories,
-}: PatientAssessmentProps) {
+}: any) {
   return (
     <div>
       <PageBreadcrumb itemLabel={"Patient Assessment"} itemImg={heartImg} />
@@ -32,7 +28,7 @@ export default function OldPatientAssessmentPage({
         </h1>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {categories.map((category) => (
+          {categories.map((category: any) => (
             <AssessmentCard category={category} key={category.id} />
           ))}
         </div>

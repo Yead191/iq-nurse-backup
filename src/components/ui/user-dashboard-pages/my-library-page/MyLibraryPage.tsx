@@ -141,8 +141,8 @@ export default function MyLibraryPage() {
         itemLabel={"Library"}
       /> */}
       <div className="  lg:my-0 lg:mt-6 px-4 lg:px-5">
-        <div className="hidden lg:grid grid-cols-9">
-          <div className="col-span-2 border-r pr-2">
+        <div className="hidden lg:grid grid-cols-12 2xl:grid-cols-9">
+          <div className="lg:col-span-3 2xl:col-span-2 border-r pr-2">
             <MobileFolderList
               selectedFolder={selectedFolder}
               selectedPage={selectedPage}
@@ -159,7 +159,7 @@ export default function MyLibraryPage() {
             />
           </div>
 
-          <div className="lg:h-[calc(100vh-115px)] overflow-y-auto col-span-7">
+          <div className="lg:h-[calc(100vh-115px)] overflow-y-auto lg:col-span-9 2xl:col-span-7">
             <ContentArea
               selectedFolder={selectedFolderData}
               selectedPage={selectedPageData}
