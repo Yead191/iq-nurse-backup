@@ -33,7 +33,7 @@ export default function TempleteDetails({ categories, setIsSideBarSelect }: IPro
     if (!templete) {
 
         return (
-            <div className="flex justify-center items-center h-[calc(100vh-180px)] ">
+            <div className="flex justify-center items-center h-[calc(100vh-100px)] ">
                 <Empty />
             </div>
         )

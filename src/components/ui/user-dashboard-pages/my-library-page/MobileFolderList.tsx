@@ -126,17 +126,18 @@ export default function MobileFolderList({
   return (
     <div className="flex flex-col h-full ">
       {/* Search Header */}
-      <div className="pb-4 px-2 border-b border-gray-200">
+      <div className="pb-4 px-0.5 border-b border-gray-200">
         <Input
           placeholder="Search folders..."
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           prefix={<Search className="text-gray-400" />}
+          style={{ height: "40px", borderRadius: "8px" }}
         />
       </div>
 
       {/* Folder List */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto max-h-[calc(100vh-245px)]">
         {filteredFolders.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-64 text-gray-500">
             <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
