@@ -38,7 +38,7 @@ export default function PatientAssessmentPage() {
       <div className="px-4 lg:px-5">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Left Column */}
-          <div className="space-y-6 lg:col-span-4">
+          <div className="space-y-6 lg:col-span-5 2xl:col-span-4">
             <CategoryCard category={selectedCategory} />
             <CategoryButtons
               categories={assessmentCategories}
@@ -48,7 +48,7 @@ export default function PatientAssessmentPage() {
           </div>
 
           {/* Right Column */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-7 2xl:col-span-8">
             <AssessmentTabs category={selectedCategory} />
           </div>
         </div>
