@@ -1,7 +1,7 @@
 import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
 import React, { useState } from "react";
 import heartImg from "@/assets/heart-hands.svg";
-import PageHeader from "../study-notes-page/PageHeader";
+import PageHeader from "../../user-dashboard-pages/study-notes-page/PageHeader";
 import {
   assessmentCategories,
   PatientAssessmentProps,
@@ -9,7 +9,7 @@ import {
 import { Card } from "antd";
 import AssessmentCard from "./AssessmentCard";
 
-export default function PatientAssessmentPage({
+export default function OldPatientAssessmentPage({
   categories = assessmentCategories,
 }: PatientAssessmentProps) {
   return (

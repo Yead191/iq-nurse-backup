@@ -21,9 +21,12 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/patient-assessment/assessment-notes/",
     "/profile/templates",
   ];
+  const oldHeaderPaths = ["/profile/home"];
 
   const shouldHide = hiddenPaths.some((prefix) => pathname.startsWith(prefix));
   // console.log(shouldHide, pathname);
+  const oldHeader = oldHeaderPaths.some((prefix) => pathname === prefix);
+  // console.log(oldHeader, pathname);
 
   return (
     <div className="bg-[#FFFFFF] ">
@@ -35,7 +38,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
             : "block md:hidden"
         } `}
       >
-        {pathname === "/profile/home" ? <MobileHeader /> : <OldMobileHeader />}
+        {oldHeader ? <MobileHeader /> : <OldMobileHeader />}
       </div>
 
       <div className="w-full flex flex-col md:flex-row">

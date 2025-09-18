@@ -1,4 +1,3 @@
-import { TemplatePreview } from "@/components/ui/user-dashboard-pages/templates-page/TemplatePreview";
 import React from "react";
 interface PageProps {
   params: Promise<{
@@ -8,5 +7,5 @@ interface PageProps {
 
 export default async function page({ params }: PageProps) {
   const { id } = await params;
-  return <TemplatePreview id={id} />
+  return <>Template Details Page - {id}</>;
 }
