@@ -91,7 +91,7 @@ const getTemplateData = {
         {
           "id": "head_to_toe",
           "name": "Head-to-Toe Assessment",
-          "description": "Comprehensive physical assessment form",
+          "description": "Comprehensive physical assessment form. ",
           "color": "#7C3AED",
           "label": "Popular",
           "pdf": [
@@ -161,7 +161,7 @@ const getTemplateData = {
         {
           "id": "medication_reconciliation",
           "name": "Medication Reconciliation",
-          "description": "Admission medication review",
+          "description": "Admission medication review. Lorem ipsum, dolor sit amet consectetur adipisicing elit.  ",
           "color": "#F97316"
         }
       ]

@@ -33,14 +33,14 @@ export default function TempleteDetails({ categories, setIsSideBarSelect }: IPro
     if (!templete) {
 
         return (
-            <div className="flex justify-center items-center min-h-80">
+            <div className="flex justify-center items-center h-[calc(100vh-180px)] ">
                 <Empty />
             </div>
         )
     }
 
     return (
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative  max-h-[calc(100vh-120px)] overflow-y-auto">
             <button
                 onClick={() => setIsSideBarSelect((prev) => !prev)}
 
