@@ -10,6 +10,8 @@ import CreateFolderModal from "./CreateFolderModal";
 import DeleteConfirmationModal from "./DeleteConfirmationModal";
 import MobileFolderList from "./MobileFolderList";
 import { libraryData } from "@/data/libraryData";
+import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
+import { Download, File, Plus, Printer, Share } from "lucide-react";
 
 // Type for mobile view state
 type MobileView = "folders" | "pages" | "content";
@@ -121,11 +123,37 @@ export default function MyLibraryPage() {
   console.log(selectedPageData);
   return (
     <div>
-      <PageBreadcrumb
+      <PageNavbar
+        icon={<File />}
+        title="Document Templates"
+        subtitle="Professional nursing documentation templates for clinical practice"
+        isAiEnhanced={true}
+        actions={[
+          {
+            label: "Share",
+            icon: <Share size={18} className="mt-1" />,
+            onClick: () => console.log("Share"),
+            isPrimary: true,
+          },
+          {
+            label: "Print",
+            icon: <Printer size={18} className="mt-1.5" />,
+            onClick: () => console.log("Print"),
+            isPrimary: true,
+          },
+          {
+            label: "Download PDF",
+            icon: <Download size={18} className="mt-1" />,
+            onClick: () => console.log("Download"),
+            isPrimary: true,
+          },
+        ]}
+      />
+      {/* <PageBreadcrumb
         itemImg={"/assets/icons/library-icon.svg"}
         itemLabel={"Library"}
-      />
-      <div className="  lg:my-0 lg:mt-6">
+      /> */}
+      <div className="  lg:my-0 lg:mt-6 px-4 lg:px-5">
         <div className="hidden lg:grid grid-cols-9">
           {/* <div className="flex sticky top-48 ">
             <LibrarySidebar
@@ -161,7 +189,7 @@ export default function MyLibraryPage() {
             />
           </div>
 
-          <div className="lg:h-[calc(100vh-195px)] overflow-y-auto col-span-7">
+          <div className="lg:h-[calc(100vh-115px)] overflow-y-auto col-span-7">
             <ContentArea
               selectedFolder={selectedFolderData}
               selectedPage={selectedPageData}
