@@ -125,9 +125,9 @@ export default function MyLibraryPage() {
         itemImg={"/assets/icons/library-icon.svg"}
         itemLabel={"Library"}
       />
-      <div className="flex  lg:my-0 lg:mt-6">
-        <div className="hidden lg:flex lg:flex-1">
-          <div className="flex sticky top-48 ">
+      <div className="  lg:my-0 lg:mt-6">
+        <div className="hidden lg:grid grid-cols-9">
+          {/* <div className="flex sticky top-48 ">
             <LibrarySidebar
               data={data}
               selectedFolder={selectedFolder}
@@ -145,9 +145,23 @@ export default function MyLibraryPage() {
               onPageSelect={setSelectedPage}
               onToggleBookmark={handleToggleBookmark}
             />
+          </div> */}
+          <div className="col-span-2 border-r pr-2">
+            <MobileFolderList
+              data={data}
+              expandedFolders={expandedFolders}
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              onFolderToggle={handleMobileFolderToggle}
+              onPageSelect={handlePageSelect}
+              onToggleBookmark={handleToggleBookmark}
+              onCreateFolder={() => setIsCreateModalOpen(true)}
+              onDeleteFolder={handleDeleteFolder}
+              onRenameFolder={handleRenameFolder}
+            />
           </div>
 
-          <div className="lg:h-[calc(100vh-195px)] overflow-y-auto flex-1">
+          <div className="lg:h-[calc(100vh-195px)] overflow-y-auto col-span-7">
             <ContentArea
               selectedFolder={selectedFolderData}
               selectedPage={selectedPageData}

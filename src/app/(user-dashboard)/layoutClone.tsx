@@ -16,6 +16,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
   const hiddenPaths = [
     "/profile/study-notes",
     "/profile/my-notepad",
+    "/profile/my-library",
     "/profile/clinicals/skill-notes/",
     "/profile/patient-assessment/assessment-notes/",
     "/profile/templates/template-details/",
