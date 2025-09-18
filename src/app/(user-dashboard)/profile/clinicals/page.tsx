@@ -1,6 +1,5 @@
-import ClinicalsPage from "@/components/ui/user-dashboard-pages/clinicals-page/ClinicalsPage";
-import React from "react";
+import ClinicalSkills from "@/components/ui/user-dashboard-pages/clinical-skills";
 
-export default function page() {
-  return <ClinicalsPage />;
+export default function ClinicalsPage() {
+  return <ClinicalSkills />;
 }
