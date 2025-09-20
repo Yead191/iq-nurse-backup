@@ -27,7 +27,7 @@ export default function CreateFolderModal({
   onClose,
   onConfirm,
 }: CreateFolderModalProps) {
-  const [folderName, setFolderName] = useState("New Folder");
+  const [folderName, setFolderName] = useState("");
   const [selectedColor, setSelectedColor] = useState(colors[0]);
 
   const handleSubmit = () => {
