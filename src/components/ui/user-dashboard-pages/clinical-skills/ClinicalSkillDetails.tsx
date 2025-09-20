@@ -6,14 +6,7 @@ import { File } from "lucide-react";
 import type { TabsProps } from 'antd';
 import MediaTab from '@/components/shared/MediaTab';
 import NoteTab from '../study-notes-page/surgical-details-page/NoteTab';
-
-
-type Props = {
-    params: {
-        id: string
-    }
-}
-
+import { Checklist } from './CheckList';
 
 export default function ClinicalsPageDetails() {
 
@@ -21,21 +14,25 @@ export default function ClinicalsPageDetails() {
         console.log(key);
     };
 
+    const isMobile = window.screen.width <= 768;
+
     const items: TabsProps['items'] = [
         {
             key: '1',
             label: 'Checklist',
-            children: 'Content of Tab Pane 1',
+            children: <Checklist />,
         },
         {
             key: '2',
             label: 'Notes',
-            children: <NoteTab /> 
+            children: <NoteTab />
         },
         {
             key: '3',
             label: 'Video',
-            children: <MediaTab />
+            children: <div className="sm:w-3/4 pb-2 ">
+                <MediaTab />
+            </div>
         },
     ];
     return (
@@ -66,23 +63,31 @@ export default function ClinicalsPageDetails() {
                                 <p className="text-sm opacity-80">20 Skills</p>
                             </div>
                         </div>
-                        <Progress type="circle" percent={87} size={60} strokeColor="#fff" />
+                        <ConfigProvider theme={{
+                            components: {
+                                Progress: {
+                                    circleTextColor: '#fff'
+                                }
+                            }
+                        }}>
+                            <Progress type="circle" percent={87} size={60} strokeColor="#fff" />
+                        </ConfigProvider>
                     </div>
                 </Card>
 
                 {/* Title */}
-                <h3 className="text-lg font-semibold mb-4">Blood Pressure Measurement</h3>
+                <h3 className="text-lg font-semibold mt-5">Blood Pressure Measurement</h3>
 
                 {/* Tabs */}
-          
-                    <Tabs
-                        defaultActiveKey="1"
-                        items={items}
-                        onChange={onChange}
-                        className="mb-6"
-                        tabBarGutter={300}
-                        // style={{ width: '50%' }}
-                    />
+
+
+                <Tabs
+                    defaultActiveKey="1"
+                    items={items}
+                    onChange={onChange}
+                    className={isMobile ? "mb-6 !font-semibold text-2xl" : ""}
+                    tabBarGutter={isMobile ? 300 : undefined}
+                />
             </div>
         </>
 

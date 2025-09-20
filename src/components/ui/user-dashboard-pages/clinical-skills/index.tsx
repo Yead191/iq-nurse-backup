@@ -14,7 +14,7 @@ export default function ClinicalSkills() {
     };
 
     const [skills, setSkill] = useState<CategoryState>({
-        skillCategoryId: null,
+        skillCategoryId: '1',
         setSkillId: null,
     });
     const [isSideBarSelect, setIsSideBarSelect] = useState<boolean>(false);
@@ -26,11 +26,11 @@ export default function ClinicalSkills() {
             <PageNavbar
                 icon={<File />}
                 title="Document Templates"
-                subtitle="Professional nursing documentation templates for clinical practice"
+                subtitle="Professional nursing documentation  templates for clinical practice"
                 isAiEnhanced={true}
             />
             <div className="flex flex-col md:flex-row">
-                <div className={`${isSideBarSelect ? "hidden" : "block"} md:block`}>
+                <div className={`${isSideBarSelect ? "hidden " : "block"} md:block`}>
                     <SkillSidebar setSkill={setSkill} setIsSideBarSelect={setIsSideBarSelect} />
                 </div>
 
