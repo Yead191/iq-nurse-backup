@@ -92,6 +92,7 @@ export default function MobileHeader() {
                   height={39}
                   style={{ borderRadius: 4 }}
                   priority
+                  unoptimized
                 />
                 <span className="text-white font-semibold">IQ-Nurse</span>
               </div>

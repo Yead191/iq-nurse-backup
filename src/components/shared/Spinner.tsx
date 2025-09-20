@@ -12,6 +12,8 @@ const Spinner = () => {
           alt="Ready Verified Logo"
           width={200}
           height={100}
+          unoptimized
+          priority
         />
       </div>
 
