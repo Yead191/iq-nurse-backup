@@ -3,8 +3,8 @@ import DetailsHeader from "@/components/shared/DetailsHeader";
 import MediaTab from "@/components/shared/MediaTab";
 import OverviewTab from "@/components/shared/OverviewTab";
 import React, { useState } from "react";
-import TabNavigation from "../../study-notes-page/surgical-details-page/TabNavigation";
-import MediaSection from "../../study-notes-page/surgical-details-page/MediaSection";
+import TabNavigation from "../../../user-dashboard-pages/study-notes-page/surgical-details-page/TabNavigation";
+import MediaSection from "../../../user-dashboard-pages/study-notes-page/surgical-details-page/MediaSection";
 import SupplyTab from "./SupplyTab";
 
 const tabs = [
