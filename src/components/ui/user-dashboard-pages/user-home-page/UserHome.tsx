@@ -15,7 +15,7 @@ import CommunityDiscussionsSection from "./CommunityDiscussions/CommunityDiscuss
 
 export default function UserHome() {
   return (
-    <main className=" ">
+    <main className=" max-h-[calc(100vh-233px)] md:max-h-max overflow-auto  ">
       <div
         className="grid grid-cols-1 gap-6 lg:gap-x-8 lg:grid-cols-12 
       "

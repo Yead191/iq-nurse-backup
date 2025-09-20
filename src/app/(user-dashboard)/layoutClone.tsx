@@ -33,7 +33,6 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="bg-[#FFFFFF] ">
-
       {/* mobile header..*/}
       <div
         className={`   sticky top-0 z-10 ${
@@ -81,7 +80,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
 
         {/* Main content */}
         <div
-          className={`flex-1 lg:w-[calc(100%-300px)] min-h-[calc(100vh-94px)] lg:min-h-[calc(100vh-80px)] `}
+          className={`flex-1 lg:w-[calc(100%-300px)] min-h-[calc(100vh-159px)] lg:min-h-[calc(100vh-80px)] `}
         >
           <div className={`  pb-0  `}>
             <ConfigProvider
