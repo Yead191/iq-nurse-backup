@@ -28,6 +28,89 @@ export interface AssessmentCategory {
 
 export const assessmentCategories: AssessmentCategory[] = [
   {
+    id: "quick-reference",
+    label: "QUICK REFERENCE",
+    icon: "/assets/patient-icons/quick-reference-icon.svg",
+    title: "Brain & Cardiac Assessment",
+    description: [
+      "Integrated assessment of neurological and cardiovascular systems, including brain impulses, cardiac rhythm, and perfusion indicators.",
+      "✔ Electroencephalogram (EEG) status",
+      "✔ Electrocardiogram (EKG) rhythm monitoring",
+      "✔ DNA/genetic system indicators",
+      "✔ Circulatory and perfusion evaluation",
+      "✔ Heart function percentages and risk markers",
+    ],
+    image: "/assets/assessment-images/quick-reference-img.svg",
+    tabContent: {
+      comprehensiveDescription: [
+        "This quick reference combines neurological and cardiovascular monitoring for a holistic view of patient status.",
+        "Includes EEG brain impulse tracking, cardiac rhythm evaluation, and genetic/DNA system indicators.",
+        "Vital percentages provide real-time indicators of cardiovascular function and potential abnormalities.",
+      ],
+      clinicalNote:
+        "EEG and EKG assessments are critical for detecting early neurological or cardiac abnormalities. Monitor percentage indicators (17.5% and 45.8%) closely as they may represent perfusion or output changes. Always compare with baseline readings.",
+      findings: [
+        {
+          key: "1",
+          assessment: "Neurological (EEG)",
+          normal: "EEG brain impulses within expected range",
+          abnormal: "Abnormal spikes or suppressed brain activity",
+        },
+        {
+          key: "2",
+          assessment: "Cardiac Rhythm (EKG)",
+          normal: "Regular sinus rhythm",
+          abnormal: "Arrhythmia, irregular rhythm, ischemic changes",
+        },
+        {
+          key: "3",
+          assessment: "Perfusion/Output",
+          normal: "17.5% - adequate output range",
+          abnormal: "45.8% - elevated risk or reduced efficiency",
+        },
+      ],
+      mnemonics: [
+        {
+          title: "ASSESSMENT Mnemonic",
+          color: "blue",
+          items: [
+            { letter: "A", description: "Alertness and brain impulses (EEG)" },
+            { letter: "S", description: "Skin perfusion and circulation" },
+            {
+              letter: "S",
+              description: "Systems review (cardiac, neurological, genetic)",
+            },
+            { letter: "E", description: "EKG rhythm interpretation" },
+            {
+              letter: "S",
+              description: "Safety concerns with abnormal percentages",
+            },
+            {
+              letter: "S",
+              description: "Symptoms reported (chest pain, dizziness)",
+            },
+            {
+              letter: "M",
+              description: "Medications affecting heart/brain function",
+            },
+            {
+              letter: "E",
+              description: "Environment and monitoring equipment",
+            },
+            {
+              letter: "N",
+              description: "Neurological responsiveness and DNA factors",
+            },
+            {
+              letter: "T",
+              description: "Teaching patient about monitoring results",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     id: "head-to-toe",
     label: "Head to Toe",
     icon: "/assets/patient-icons/head-to-toe-icon.svg",
@@ -40,7 +123,7 @@ export const assessmentCategories: AssessmentCategory[] = [
       "✔ Edema evaluation techniques",
       "✔ Perfusion assessment methods",
     ],
-    image: "/assets/assessment-images/head-to-toe-img.svg",
+    image: "/assets/assessment-images/head-to-toe.svg",
     tabContent: {
       comprehensiveDescription: [
         "A systematic head-to-toe assessment provides a comprehensive evaluation of all body systems.",
@@ -92,60 +175,7 @@ export const assessmentCategories: AssessmentCategory[] = [
       ],
     },
   },
-  {
-    id: "head",
-    label: "Head",
-    icon: "/assets/patient-icons/head-icon.svg",
-    title: "Head Assessment",
-    description: [
-      "Inspection of scalp, skull, and facial symmetry.",
-      "✔ Palpation for tenderness or swelling",
-      "✔ Skin integrity check",
-      "✔ Hair distribution & texture assessment",
-    ],
-    image: "/assets/patient-body/head.png",
-    tabContent: {
-      comprehensiveDescription: [
-        "Head assessment includes inspection and palpation of the skull, scalp, and facial structures.",
-        "Examine for symmetry, deformities, lesions, and signs of trauma.",
-        "Assess hair distribution, texture, and scalp condition for signs of nutritional deficits or disease.",
-      ],
-      clinicalNote:
-        "Pay attention to facial symmetry which may indicate neurological issues. Document any masses, tenderness, or abnormal findings. Consider cultural variations in hair texture and styling.",
-      findings: [
-        {
-          key: "1",
-          assessment: "Skull Shape",
-          normal: "Symmetrical, no deformities",
-          abnormal: "Asymmetrical, visible deformities",
-        },
-        {
-          key: "2",
-          assessment: "Scalp",
-          normal: "Clean, intact, no lesions",
-          abnormal: "Lesions, scaling, tenderness",
-        },
-        {
-          key: "3",
-          assessment: "Hair",
-          normal: "Even distribution, normal texture",
-          abnormal: "Patchy loss, brittle, oily",
-        },
-      ],
-      mnemonics: [
-        {
-          title: "HEAD Assessment",
-          color: "green",
-          items: [
-            { letter: "H", description: "Hair distribution and texture" },
-            { letter: "E", description: "Examine skull shape and size" },
-            { letter: "A", description: "Assess facial symmetry" },
-            { letter: "D", description: "Detect masses or tenderness" },
-          ],
-        },
-      ],
-    },
-  },
+
   {
     id: "neck",
     label: "Neck",
@@ -156,7 +186,7 @@ export const assessmentCategories: AssessmentCategory[] = [
       "✔ Jugular vein distention observation",
       "✔ Carotid pulse assessment",
     ],
-    image: "/assets/patient-body/neck.png",
+    image: "/assets/assessment-images/head-to-toe.svg",
     tabContent: {
       comprehensiveDescription: [
         "Neck assessment involves inspection and palpation of lymph nodes, thyroid gland, and trachea.",
@@ -210,7 +240,7 @@ export const assessmentCategories: AssessmentCategory[] = [
       "✔ Extraocular muscle movement",
       "✔ Conjunctiva and sclera inspection",
     ],
-    image: "/assets/patient-body/eyes.png",
+    image: "/assets/assessment-images/head-to-toe.svg",
     tabContent: {
       comprehensiveDescription: [
         "Eye assessment includes visual acuity testing, pupillary responses, and extraocular movements.",
@@ -266,7 +296,7 @@ export const assessmentCategories: AssessmentCategory[] = [
       "✔ Sinus percussion",
       "✔ Nasal mucosa health",
     ],
-    image: "/assets/patient-body/nose.png",
+    image: "/assets/assessment-images/head-to-toe.svg",
     tabContent: {
       comprehensiveDescription: [
         "Nose and sinus assessment involves inspection of external nose and nasal cavity.",
@@ -319,7 +349,7 @@ export const assessmentCategories: AssessmentCategory[] = [
       "✔ Hearing acuity test",
       "✔ Tympanic membrane visualization",
     ],
-    image: "/assets/patient-body/ears.png",
+    image: "/assets/assessment-images/head-to-toe.svg",
     tabContent: {
       comprehensiveDescription: [
         "Ear assessment includes inspection of external ear structures and auditory canal.",
@@ -372,7 +402,7 @@ export const assessmentCategories: AssessmentCategory[] = [
       "✔ Tonsil size and symmetry",
       "✔ Tongue movement",
     ],
-    image: "/assets/patient-body/mouth.png",
+    image: "/assets/assessment-images/head-to-toe.svg",
     tabContent: {
       comprehensiveDescription: [
         "Mouth and throat assessment involves systematic inspection of oral structures.",
@@ -427,7 +457,7 @@ export const assessmentCategories: AssessmentCategory[] = [
       "✔ Lung sound auscultation",
       "✔ Heart sounds (S1, S2, murmurs)",
     ],
-    image: "/assets/patient-body/chest.png",
+    image: "/assets/assessment-images/head-to-toe.svg",
     tabContent: {
       comprehensiveDescription: [
         "Chest assessment includes respiratory and cardiac evaluation through inspection, palpation, and auscultation.",
@@ -482,7 +512,7 @@ export const assessmentCategories: AssessmentCategory[] = [
       "✔ Organomegaly detection",
       "✔ Tenderness or guarding",
     ],
-    image: "/assets/patient-body/abdomen.png",
+    image: "/assets/assessment-images/head-to-toe.svg",
     tabContent: {
       comprehensiveDescription: [
         "Abdominal assessment follows the sequence: inspection, auscultation, percussion, then palpation.",
@@ -536,7 +566,7 @@ export const assessmentCategories: AssessmentCategory[] = [
       "✔ Capillary refill time",
       "✔ Signs of edema or ischemia",
     ],
-    image: "/assets/patient-body/vascular.png",
+    image: "/assets/assessment-images/head-to-toe.svg",
     tabContent: {
       comprehensiveDescription: [
         "Vascular assessment includes evaluation of peripheral pulses, capillary refill, and circulation.",
@@ -591,7 +621,7 @@ export const assessmentCategories: AssessmentCategory[] = [
       "✔ Range of motion",
       "✔ Joint tenderness or swelling",
     ],
-    image: "/assets/patient-body/extremities.png",
+    image: "/assets/assessment-images/head-to-toe.svg",
     tabContent: {
       comprehensiveDescription: [
         "Musculoskeletal assessment includes evaluation of bones, joints, and muscles.",
@@ -645,7 +675,7 @@ export const assessmentCategories: AssessmentCategory[] = [
       "✔ Balance & coordination",
       "✔ Level of consciousness",
     ],
-    image: "/assets/patient-body/neurological.png",
+    image: "/assets/assessment-images/head-to-toe.svg",
     tabContent: {
       comprehensiveDescription: [
         "Neurological assessment evaluates mental status, cranial nerves, motor and sensory function.",
