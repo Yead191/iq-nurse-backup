@@ -1,7 +1,7 @@
 "use client";
 
 import { assessmentCategories } from "@/data/assessmentCategories";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CategoryCard from "./CategoryCard";
 import CategoryButtons from "./CategoryButtons";
 import AssessmentTabs from "./AssessmentTabs";
@@ -11,14 +11,19 @@ import { useSearchParams } from "next/navigation";
 
 export default function PatientAssessmentPage() {
   const searchParam = useSearchParams();
-  console.log(searchParam.get("tab"));
   const [selectedCategory, setSelectedCategory] = useState(
-    assessmentCategories[
-      assessmentCategories.findIndex(
-        (cat) => cat.id === searchParam.get("tab")
-      ) ?? 0
-    ]
+    assessmentCategories[0]
   );
+
+  useEffect(() => {
+    const tab = searchParam.get("tab");
+    if (tab) {
+      const found = assessmentCategories.find((cat) => cat.id === tab);
+      if (found) {
+        setSelectedCategory(found);
+      }
+    }
+  }, [searchParam]);
 
   return (
     <section>

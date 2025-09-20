@@ -13,7 +13,7 @@ export const ComprehensiveContent = ({ category, columns }: any) => {
         }}
         className="prose prose-sm max-w-none "
       >
-        {category.tabContent.comprehensiveDescription.map(
+        {category?.tabContent?.comprehensiveDescription.map(
           (paragraph: any, index: any) => (
             <p key={index} className="text-gray-600 leading-relaxed mb-3">
               {paragraph}
@@ -35,7 +35,7 @@ export const ComprehensiveContent = ({ category, columns }: any) => {
         </h3>
         <Table
           columns={columns}
-          dataSource={category.tabContent.findings}
+          dataSource={category?.tabContent?.findings}
           pagination={false}
           size="middle"
           className="rounded-lg overflow-hidden border border-gray-200"
@@ -52,7 +52,7 @@ export const ComprehensiveContent = ({ category, columns }: any) => {
         className="bg-blue-50 p-4 rounded-lg border border-blue-200"
       >
         <p className="text-sm text-blue-800">
-          <strong>Clinical Note:</strong> {category.tabContent.clinicalNote}
+          <strong>Clinical Note:</strong> {category?.tabContent?.clinicalNote}
         </p>
       </div>
     </div>

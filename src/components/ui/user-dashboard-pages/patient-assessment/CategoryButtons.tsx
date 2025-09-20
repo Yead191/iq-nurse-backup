@@ -27,7 +27,7 @@ export default function CategoryButtons({
     <div className="bg-white rounded-2xl p-4 2xl:p-6 ">
       <div className="grid grid-cols-6 md:grid-cols-6 gap-2 2xl:gap-4 items-center justify-center">
         {categories?.map((category) => {
-          const isSelected = selectedCategory.id === category.id;
+          const isSelected = selectedCategory?.id === category.id;
 
           return (
             <Tooltip key={category.id} title={category.label} placement="top">
