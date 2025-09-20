@@ -160,3 +160,6 @@ html {
   flex: 1;
   height: 100%;
 }
+.ant-tabs-nav-wrap{
+  width: 50% !important;
+}

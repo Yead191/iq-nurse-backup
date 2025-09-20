@@ -19,6 +19,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/my-library",
     "/profile/clinicals/skill-notes/",
     "/profile/templates",
+    "/profile/clinicals",
     "/profile/patient-assessment",
   ];
   const singleHidePaths = ["/profile/patient-assessment"];
@@ -32,7 +33,8 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="bg-[#FFFFFF] ">
-      {/* mobile header */}
+
+      {/* mobile header..*/}
       <div
         className={`   sticky top-0 z-10 ${
           shouldHide || pathname.startsWith("/profile/calendar") || singleHide
