@@ -7,10 +7,17 @@ import CategoryButtons from "./CategoryButtons";
 import AssessmentTabs from "./AssessmentTabs";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import { Bookmark, File, Share } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 
 export default function PatientAssessmentPage() {
+  const searchParam = useSearchParams();
+  console.log(searchParam.get("tab"));
   const [selectedCategory, setSelectedCategory] = useState(
-    assessmentCategories[0]
+    assessmentCategories[
+      assessmentCategories.findIndex(
+        (cat) => cat.id === searchParam.get("tab")
+      ) ?? 0
+    ]
   );
 
   return (

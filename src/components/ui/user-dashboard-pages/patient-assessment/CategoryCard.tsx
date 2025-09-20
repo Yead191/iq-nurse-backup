@@ -1,4 +1,6 @@
-
+import { Grid } from "antd";
+import { useRouter } from "next/navigation";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 interface Category {
   id: string;
@@ -14,6 +16,17 @@ interface CategoryCardProps {
 }
 
 export default function CategoryCard({ category }: CategoryCardProps) {
+  const { lg } = Grid.useBreakpoint() || {};
+  const router = useRouter();
+  const handleClick = (id: string) => {
+    // Handle click event if needed
+    console.log("Category clicked:", id);
+    if (!lg) {
+      return router.push(
+        `/profile/patient-assessment/assessment-details/${id}`
+      );
+    }
+  };
   return (
     <div className="rounded-2xl ">
       {/* <div
@@ -40,13 +53,17 @@ export default function CategoryCard({ category }: CategoryCardProps) {
         </div>
       </div> */}
 
-      <div className="flex  items-center">
+      <div
+        className="flex  items-center relative "
+        onClick={() => handleClick(category.id)}
+      >
         {/* Body Illustration */}
         <img
           src={category?.image}
           alt={`${category.title} illustration`}
           className="h-[485px] md:h-auto lg:h-[calc(100vh-250px)] 2xl:h-[calc(100vh-300px)] object-contain rounded-xl shadow-md"
         />
+        <FaArrowUpRightFromSquare className="absolute text-xl right-2 top-4 md:hidden" /> 
       </div>
     </div>
   );

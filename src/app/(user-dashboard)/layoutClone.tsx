@@ -18,14 +18,16 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/my-notepad",
     "/profile/my-library",
     "/profile/clinicals/skill-notes/",
-    "/profile/patient-assessment",
     "/profile/templates",
+    "/profile/patient-assessment",
   ];
+  const singleHidePaths = ["/profile/patient-assessment"];
   const oldHeaderPaths = ["/profile/home"];
 
   const shouldHide = hiddenPaths.some((prefix) => pathname.startsWith(prefix));
   // console.log(shouldHide, pathname);
   const oldHeader = oldHeaderPaths.some((prefix) => pathname === prefix);
+  const singleHide = singleHidePaths.some((prefix) => pathname === prefix);
   // console.log(oldHeader, pathname);
 
   return (
@@ -33,7 +35,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
       {/* mobile header */}
       <div
         className={`   sticky top-0 z-10 ${
-          shouldHide || pathname.startsWith("/profile/calendar")
+          shouldHide || pathname.startsWith("/profile/calendar") || singleHide
             ? "hidden"
             : "block md:hidden"
         } `}
@@ -90,7 +92,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
               <div>
                 <div
                   className={`  hidden sticky top-0 z-50 ${
-                    shouldHide ? "hidden" : "lg:block"
+                    shouldHide || singleHide ? "hidden" : "lg:block"
                   } `}
                 >
                   <Header />
@@ -101,7 +103,9 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
                   //   shouldHide ? "py-0 " : "lg:pt-8 lg:pb-0  p-4 md:p-6"
                   // } `}
                   className={`h-full  rounded-md  ${
-                    shouldHide ? "py-0 " : "lg:pt-8 lg:pb-0 px-4  lg:px-5"
+                    shouldHide || singleHide
+                      ? "py-0 "
+                      : "lg:pt-8 lg:pb-0 px-4  lg:px-5"
                   } `}
                 >
                   {children}
