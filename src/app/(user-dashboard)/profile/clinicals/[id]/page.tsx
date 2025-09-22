@@ -1,19 +1,13 @@
-import ClinicalsPageDetails from '@/components/ui/user-dashboard-pages/clinical-skills/ClinicalSkillDetails';
-import React from 'react'
+import ClinicalsPageDetails from "@/components/ui/user-dashboard-pages/clinical-skills/ClinicalSkillDetails";
+import React from "react";
 
 type Props = {
-    params: {
-        id: string
-    }
-}
+  params: Promise<{
+    id: string;
+  }>;
+};
 
-
-
-export default function ClinicalsPage({ params: { id } }: Props) {
-
-    return (
-        <ClinicalsPageDetails />
-        
-
-    )
+export default async function ClinicalsPage({ params }: Props) {
+  const { id } = await params;
+  return <ClinicalsPageDetails />;
 }

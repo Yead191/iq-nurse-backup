@@ -5,10 +5,10 @@ import { profile } from "../header/Header";
 import { useRouter } from "next/navigation";
 
 export default function AccountPage() {
-  const router  = useRouter();
+  const router = useRouter();
   const handleLogout = () => {
     console.log("Logging out...");
-    router.push('/auth/login')
+    router.push("/auth/login");
   };
 
   const menuItems = [
@@ -65,7 +65,7 @@ export default function AccountPage() {
   ];
 
   return (
-    <div className="max-w-md lg:max-w-[600px] mx-auto bg-white">
+    <div className="max-w-md lg:max-w-[600px] mx-auto bg-white max-h-[calc(100vh-157px)] md:max-h-max overflow-auto py-4">
       {/* Header */}
       {/* <h1 className="text-xl font-bold text-center mb-6">Account</h1> */}
 

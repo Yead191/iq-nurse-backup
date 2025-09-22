@@ -60,7 +60,7 @@ export default function CategoryCard({ category }: CategoryCardProps) {
         {/* Body Illustration */}
         <img
           src={category?.image}
-          alt={`${category.title} illustration`}
+          alt={`${category?.title} illustration`}
           className="h-[485px] md:h-auto lg:h-[calc(100vh-250px)] 2xl:h-[calc(100vh-300px)] object-contain rounded-xl shadow-md"
         />
         <FaArrowUpRightFromSquare className="absolute text-xl right-2 top-4 md:hidden" /> 
