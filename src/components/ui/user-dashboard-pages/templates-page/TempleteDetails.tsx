@@ -2,6 +2,7 @@ import { LuUserRoundCheck } from "react-icons/lu";
 import { useState, useEffect } from "react";
 import { templateData } from "@/data/templatesData";
 import { Empty } from "antd";
+import DosageCalculation from "../clinical-calculator/calculators/DosageCalculation";
 
 interface IProps {
   categories: {
@@ -17,7 +18,7 @@ export default function TempleteDetails({
 }: IProps) {
   const { getTemplateData } = templateData;
   const templete = getTemplateData.categories
-    .find(({ id }) => id === categories.categoryId)
+    .find(({ id }) => id === categories?.categoryId)
     ?.templates.find(
       (template) => template.id === categories.templeteId
     ) as any;
@@ -65,6 +66,7 @@ export default function TempleteDetails({
         </svg>
         Back
       </button>
+
       <div className="bg-[#0068DD] flex items-center gap-2 text-xl text-white py-5 sm:py-7 px-4 sm:px-8 mb-4 rounded-t-xl sticky top-0">
         <LuUserRoundCheck className="flex-shrink-0" />
         <h1 className="text-white sm:text-xl line-clamp-2">{templete?.name}</h1>

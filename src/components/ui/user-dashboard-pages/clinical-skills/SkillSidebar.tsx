@@ -22,7 +22,7 @@ export default function SkillSidebar({ setSkill, setIsSideBarSelect }: IProps) {
             {/* Categories */}
             <div className="flex flex-col gap-3">
                 {getClinicalSkillsData?.map((cat, index) => (
-                    <>
+                    
                         <div
                             key={index+1}
                             onClick={() => {
@@ -74,7 +74,7 @@ export default function SkillSidebar({ setSkill, setIsSideBarSelect }: IProps) {
                             </div>
                         </div>
 
-                    </>
+                    
                 ))}
             </div>
 

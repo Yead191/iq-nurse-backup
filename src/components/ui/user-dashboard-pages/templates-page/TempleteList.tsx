@@ -41,7 +41,7 @@ export default function TempleteList({ setCategories, setIsSideBarSelect, search
                         <h3 className="text-sm font-semibold border-b-2 pb-1 border-b-gray-200 text-gray-500 mb-2">
                             {cat.title}
                         </h3>
-                        <div className="space-y-2">
+                        <div className="space-y-2 px-1 pb-2">
                             {cat.templates.map((tpl) => (
                                 <button
                                     onClick={() => {
@@ -64,12 +64,12 @@ export default function TempleteList({ setCategories, setIsSideBarSelect, search
                                                 {tpl.name}
                                             </span>
                                             {tpl.label && (
-                                                <span className="text-xs font-medium bg-gray-100 text-gray-700 rounded px-2 py-0.5">
+                                                <span className="text-xs font-medium bg-gray-100 text-gray-700 rounded px-2 py-0.5 line-clamp-2">
                                                     {tpl.label}
                                                 </span>
                                             )}
                                         </div>
-                                        <p className="text-xs text-gray-500">{tpl.description}</p>
+                                        <p className="text-xs text-gray-500 line-clamp-2">{tpl.description}</p>
                                     </div>
                                 </button>
                             ))}

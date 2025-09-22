@@ -1,3 +1,4 @@
+"use client";
 import MediaTab from "@/components/shared/MediaTab"
 import { Card, Checkbox } from "antd"
 import { FaCheckCircle } from "react-icons/fa"
@@ -62,7 +63,7 @@ export const Checklist = () => {
             <p className="py-4 text-md font-bold">Procedure Steps</p>
 
             {procedureSteps.map(({ title, description, completed }, i) =>
-                <Card className="!mb-3 shadow-md !border-none">
+                <Card className="!mb-3 shadow-md !border-none" key={i}>
                     <div className="flex items-center justify-between gap-2">
                         <div className="w-full">
                             <div className="flex items-center justify-between w-full">
