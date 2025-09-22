@@ -18,8 +18,6 @@ export default function TemplatesPage() {
   const [isSideBarSelect, setIsSideBarSelect] = useState<boolean>(false);
   const [setsearchText, setSetsearchText] = useState("");
 
-  console.log({ setsearchText });
-
   return (
     <>
       <PageNavbar

@@ -3,7 +3,7 @@
 import {  Form, Input } from "antd";
 import React from "react";
 
-const InputField: React.FC<{ name: string; label: string }> = ({ name, label }) => {
+const InputField: React.FC<{ name: string; label: string , required?:boolean}> = ({ name, label,required=true }) => {
   return (
     <Form.Item
       name={name} 
@@ -11,7 +11,7 @@ const InputField: React.FC<{ name: string; label: string }> = ({ name, label }) 
       label={<p className="text-[#4E4E4E] text-[16px]">{label}</p>}
       rules={[
         {
-          required: true,
+          required: required,
           message: `Please enter your ${label.toLowerCase()}`,
         },
       ]}

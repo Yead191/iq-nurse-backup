@@ -49,10 +49,12 @@ export default function ClinicalsPageDetails() {
                 {/* Category Banner */}
                 <Card
                     className="mb-6"
-                    bodyStyle={{
-                        padding: "16px",
-                        background: "linear-gradient(90deg, #003877 0%, #0068DD 100%)",
-                        borderRadius: "12px",
+                    styles={{
+                        body: {
+                            padding: "16px",
+                            background: "linear-gradient(90deg, #003877 0%, #0068DD 100%)",
+                            borderRadius: "12px",
+                        }
                     }}
                 >
                     <div className="flex items-center justify-between text-white">
