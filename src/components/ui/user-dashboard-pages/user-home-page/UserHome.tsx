@@ -23,7 +23,7 @@ export default function UserHome() {
         {/* Left/Main Column */}
         <div className="lg:col-span-9 space-y-6 lg:h-[calc(100vh-120px)] overflow-y-auto ">
           {/* Breadcrumb */}
-          <div className="mb-4">
+          <div className="mb-4 mt-4 lg:mt-0">
             <HomeBreadcrumbs />
           </div>
           {/* This Week Events */}
@@ -35,7 +35,7 @@ export default function UserHome() {
             <MarathonSection />
           </section>
           {/*Community Discussion */}
-          <section className="mb-8">
+          <section className="mb-0 lg:mb-8">
             <CommunityDiscussionsSection />
           </section>
         </div>
