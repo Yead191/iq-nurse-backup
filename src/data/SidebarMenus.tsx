@@ -104,6 +104,11 @@ export const menus: Record<string, MenuItem[]> = {
       icon: icon("/assets/sidebar-icons/clinicals-icon.svg", "clinicals"),
     },
     {
+      key: "/profile/clinical-calculator",
+      label: "Clinical Calculator",
+      icon: icon("/assets/sidebar-icons/calculator.svg", "calculator"),
+    },
+    {
       key: "/profile/patient-assessment",
       label: "Patient Assessment",
       icon: icon(

@@ -52,12 +52,12 @@ export default function ClinicalSkills({ categories, setIsSideBarSelect }: IProp
     const renderComponent = <>
         {
             (allSkils ?? []).map(({id, name, description, duration, status }, index) =>
-                <Link href={`/profile/clinicals/${id}`}>
+                <Link href={`/profile/clinicals/${id}`} key={index + 1}>
 
-                    <div key={index + 1} className="border border-gray-300 mb-3 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white">
+                    <div  className="border border-gray-300 mb-3 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white">
                         {/* Left section */}
                         <div className="flex items-start gap-3">
-                            <div className="mt-1 flex items-center gap-2">
+                            <div className="mt-1 flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
                                 <Checkbox onChange={onChange} />
                             </div>
                             <div>
