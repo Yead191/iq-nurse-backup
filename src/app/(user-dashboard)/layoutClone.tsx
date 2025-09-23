@@ -22,6 +22,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/clinicals",
     "/profile/patient-assessment",
     "/profile/clinical-calculator",
+    "/profile/body-system",
   ];
   const singleHidePaths = ["/profile/patient-assessment"];
   const oldHeaderPaths = ["/profile/home"];
