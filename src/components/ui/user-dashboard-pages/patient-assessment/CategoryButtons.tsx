@@ -13,20 +13,28 @@ interface Category {
 }
 
 interface CategoryButtonsProps {
-  categories: Category[];
-  selectedCategory: Category;
+  categories: any;
+  selectedCategory: any;
   onCategorySelect: any;
+  patientPage?: boolean;
 }
 
 export default function CategoryButtons({
   categories,
   selectedCategory,
   onCategorySelect,
+  patientPage,
 }: CategoryButtonsProps) {
   return (
-    <div className="bg-white rounded-2xl p-4 2xl:p-6 ">
-      <div className="grid grid-cols-6 md:grid-cols-6 gap-2 2xl:gap-4 items-center justify-center">
-        {categories?.map((category) => {
+    <div className="bg-white rounded-2xl p-4  mt-2">
+      <div
+        className={`${
+          patientPage
+            ? "grid grid-cols-6 md:grid-cols-6 gap-2 2xl:gap-4 items-center justify-center"
+            : "flex items-center justify-start 2xl:justify-between gap-2 flex-wrap "
+        }`}
+      >
+        {categories?.map((category: any) => {
           const isSelected = selectedCategory?.id === category.id;
 
           return (
@@ -53,12 +61,14 @@ export default function CategoryButtons({
                   />
 
                   <Image
+                    unoptimized
+                    priority
                     src={category?.icon}
                     alt={category.label}
                     width={28}
                     height={28}
                     className={`relative z-10 transition-all duration-200 
-      ${isSelected ? "brightness-0 invert" : ""}
+      ${isSelected && patientPage ? "brightness-0 invert" : ""}
     `}
                   />
                 </Button>

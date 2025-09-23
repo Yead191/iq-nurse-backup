@@ -19,7 +19,7 @@ export interface MenuItem {
   subtitle?: string;
 }
 export const icon = (src: string, alt: string, size = 25) => (
-  <img src={src} alt={alt} className={`h-[${size}px]`} />
+  <img src={src} alt={alt} className={`h-[${size}px] overflow-hidden  object-cover`} />
 );
 
 export const menus: Record<string, MenuItem[]> = {
@@ -94,13 +94,18 @@ export const menus: Record<string, MenuItem[]> = {
       ],
     },
     {
+      key: "/profile/body-system",
+      label: "Body System",
+      icon: icon("/assets/sidebar-icons/body-system-icon.svg", "body-system"),
+    },
+    {
       key: "/profile/my-notepad",
       label: "My Notepad",
       icon: icon("/assets/icons/note-icon.svg", "notepad"),
     },
     {
       key: "/profile/clinicals",
-      label: "Clinicals",
+      label: "Clinical Skills",
       icon: icon("/assets/sidebar-icons/clinicals-icon.svg", "clinicals"),
     },
     {

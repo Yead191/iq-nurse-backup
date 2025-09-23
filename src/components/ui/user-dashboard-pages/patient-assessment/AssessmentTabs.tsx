@@ -66,7 +66,7 @@ export default function AssessmentTabs({ category }: AssessmentTabsProps) {
       </div>
 
       {/* Tab Content */}
-      <div className="tab-content max-h-[calc(100vh-236px)] lg:max-h-[calc(100vh-190px)] 2xl:max-h-[calc(100vh-225px)] overflow-y-auto px-4 md:px-6 py-6">
+      <div className="tab-content max-h-[calc(100vh-236px)] lg:max-h-[calc(100vh-190px)] 2xl:max-h-[calc(100vh-190px)] overflow-y-auto px-4 md:px-6 py-6">
         {activeTab === "comprehensive" && (
           <ComprehensiveContent category={category} columns={columns} />
         )}
