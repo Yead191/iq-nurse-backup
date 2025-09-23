@@ -103,18 +103,6 @@ export const calendarMenuItems = [
     color: "text-red-500",
     path: "/profile/calendar",
   },
-  // {
-  //   icon: "/assets/icons/week-icon.svg",
-  //   label: "Week",
-  //   color: "text-red-500",
-  //   path: "/profile/calendar?mode=week",
-  // },
-  // {
-  //   icon: "/assets/icons/month-icon.svg",
-  //   label: "Month",
-  //   color: "text-red-500",
-  //   path: "/profile/calendar?mode=month",
-  // },
   {
     icon: "/assets/icons/task-icon.svg",
     label: "Tasks",
@@ -169,4 +157,6 @@ export const calendarMenuItems = [
     color: "text-indigo-500",
     path: "/profile/calendar/count-down",
   },
-];
+]; 
+
+ 
