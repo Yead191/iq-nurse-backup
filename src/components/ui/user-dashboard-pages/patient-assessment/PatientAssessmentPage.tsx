@@ -56,6 +56,7 @@ export default function PatientAssessmentPage() {
               categories={assessmentCategories}
               selectedCategory={selectedCategory}
               onCategorySelect={setSelectedCategory}
+              patientPage={true}
             />
           </div>
 

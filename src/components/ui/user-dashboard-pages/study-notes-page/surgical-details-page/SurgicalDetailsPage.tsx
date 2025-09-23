@@ -47,25 +47,25 @@ export default function SurgicalDetailsPage({ id }: { id: any }) {
   };
 
   return (
-    <div className="px-4  lg:px-5">
+    <div className="">
       <DetailsHeader title={"Muscle System"} back={"/profile/study-notes"} />
 
-      <div className="flex justify-between items-center">
-        <p className="text-2xl font-semibold">{id}</p>
+      <div className="flex justify-end items-center px-4  lg:px-5 ">
+        {/* <p className="text-2xl font-semibold">{id}</p> */}
         <TabNavigation
           tabs={tabs}
           activeTab={activeTab}
           onChange={setActiveTab}
         />
       </div>
-      <div className="grid grid-cols-1  gap-8 my-8">
+      <div className="grid grid-cols-1  gap-8 mt-0 lg:mt-8 lg:mb-8">
         {/* <div className=" hidden lg:block ">
           <MediaSection
             img="https://i.ibb.co.com/CpRX0XB1/f612a1bef42e4c66c9ae53562b3b4ebb7db86c8d.png"
             alt="Heart anatomy diagram"
           />
         </div> */}
-        <div className=" ">
+        <div className="px-4  lg:px-5 max-h-[calc(100vh-230px)] overflow-auto pt-4 lg:pt-0">
           <div className="">{renderTabContent()}</div>
         </div>
       </div>

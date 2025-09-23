@@ -71,6 +71,7 @@ export default function BottomNavigation({
 
   return (
     <div
+    className="fixed bottom-0 z-50 w-full"
       style={{
         backgroundColor: "white",
         borderTop: "0.1px solid #151515",

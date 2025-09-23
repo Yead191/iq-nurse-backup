@@ -22,7 +22,8 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/clinicals",
     "/profile/patient-assessment",
     "/profile/clinical-calculator" ,
-    "/profile/content-map"
+    "/profile/content-map",
+    "/profile/body-system",
   ];   
   const singleHidePaths = ["/profile/patient-assessment"];
   const oldHeaderPaths = ["/profile/home"];
@@ -82,7 +83,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
 
         {/* Main content */}
         <div
-          className={`flex-1 lg:w-[calc(100%-300px)] min-h-[calc(100vh-159px)] lg:min-h-[calc(100vh-80px)] `}
+          className={`flex-1 lg:w-[calc(100%-300px)]  lg:min-h-[calc(100vh-80px)] `}
         >
           <div className={`  pb-0  `}>
             <ConfigProvider
@@ -117,7 +118,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
             </ConfigProvider>
           </div>
         </div>
-        <div className=" sticky bottom-0 z-50 md:hidden">
+        <div className="h-[94px] w-full  md:hidden">
           <BottomNavigation setIsMobileSidebarOpen={setIsMobileSidebarOpen} />
         </div>
       </div>

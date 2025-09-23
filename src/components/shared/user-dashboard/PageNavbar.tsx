@@ -32,7 +32,7 @@ export default function PageNavbar({
       style={{
         boxShadow: "4px 4px 35px rgba(0, 0, 0, 0.13)",
       }}
-      className="flex items-center justify-between w-full py-3 sticky top-0 bg-white z-10  gap-10 shadow-sm px-4 md:px-6 mb-6"
+      className="flex items-center justify-between w-full py-3 sticky top-0 bg-white z-10  gap-10 shadow-sm px-4 md:px-6 lg:h-[76px]  mb-6"
     >
       {/* Left side */}
       <div className="flex items-center gap-3">

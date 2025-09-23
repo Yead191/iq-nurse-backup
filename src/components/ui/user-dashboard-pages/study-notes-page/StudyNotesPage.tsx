@@ -54,7 +54,7 @@ export default function MedicalSurgicalPage() {
           },
           {
             label: "Download",
-            icon: <DownloadOutlined  />,
+            icon: <DownloadOutlined />,
             onClick: () => console.log("Download"),
           },
           {
