@@ -3,6 +3,7 @@ import React from "react";
 import CommunityHeader from "./header-section";
 import StudentDiscussion from "./student-discussion";
 import SideBar from "./sidebar";
+import PostCreationModal from "./AddPostModel";
 
 export default function CommunityDiscussion() {
   return (
@@ -15,6 +16,7 @@ export default function CommunityDiscussion() {
         </div>
         <SideBar/>
       </div>
+      
     </div>
   );
 }
