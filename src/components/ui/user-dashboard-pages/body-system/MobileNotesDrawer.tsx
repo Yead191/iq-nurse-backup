@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "antd";
-import { ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 interface BodySystem {
   id: string;
@@ -29,12 +29,15 @@ export default function MobileNotesDrawer({
       }`}
       style={{ height: "90vh" }}
     >
-      <div className="p-4 border-b flex items-center justify-between">
+      <div
+        onClick={onToggleNotes}
+        className="p-4 border-b flex items-center justify-between"
+      >
         <h3 className="text-lg font-semibold text-gray-900">
           {selectedSystem.title} Notes
         </h3>
-        <Button size="small" onClick={onToggleNotes}>
-          <ChevronUp className="w-4 h-4" />
+        <Button size="small">
+          <ChevronDown className="w-4 h-4" />
         </Button>
       </div>
       <div className="p-4 h-full overflow-y-auto pb-32">
