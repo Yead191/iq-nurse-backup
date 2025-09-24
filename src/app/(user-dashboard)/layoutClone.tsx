@@ -21,11 +21,16 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/templates",
     "/profile/clinicals",
     "/profile/patient-assessment",
-    "/profile/clinical-calculator" ,
+    "/profile/clinical-calculator",
     "/profile/content-map",
+<<<<<<< HEAD
     "/profile/body-system", 
     "/profile/connect-concept",
   ];   
+=======
+    "/profile/body-system",
+  ];
+>>>>>>> 5632da072e943fee641c52c6e3daa0ae0f7ea70a
   const singleHidePaths = ["/profile/patient-assessment"];
   const oldHeaderPaths = ["/profile/home"];
 
@@ -108,7 +113,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
                   //   shouldHide ? "py-0 " : "lg:pt-8 lg:pb-0  p-4 md:p-6"
                   // } `}
                   className={`h-full  rounded-md  ${
-                    shouldHide || singleHide
+                    shouldHide || singleHide || pathname==="/profile/home"
                       ? "py-0 "
                       : "lg:pt-8 lg:pb-0 px-4  lg:px-5"
                   } `}
