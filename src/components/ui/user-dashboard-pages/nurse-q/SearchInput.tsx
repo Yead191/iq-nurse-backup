@@ -15,7 +15,9 @@ const SearchInput = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
     setIsTyping(e.target.value.length > 0);
-  };
+  }; 
+
+
 
   return (
     <div className="container mx-auto">
