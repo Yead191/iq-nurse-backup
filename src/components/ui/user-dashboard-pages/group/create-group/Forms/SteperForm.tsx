@@ -99,14 +99,14 @@ export const StepperForm: React.FC<{
       </div>
       {
         steps[current]?.content &&
-        <div style={{ marginTop: 24 }} className="flex justify-end">
+        <div style={{ marginTop: 24 }} className="flex justify-between">
           {current > 0 && (
             <Button style={{ margin: "0 8px" }} onClick={prev}>
               Previous
             </Button>
           )}
           {current < steps.length - 1 && (
-            <Button className="!bg-primary" onClick={next}>
+            <Button className="!bg-primary !text-white" onClick={next}>
               Next
             </Button>
           )}
