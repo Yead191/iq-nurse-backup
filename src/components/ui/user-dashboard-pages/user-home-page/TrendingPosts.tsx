@@ -2,6 +2,7 @@ import React from "react";
 import { Heart, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import { SectionHeader } from "./SectionHeader";
+import Link from "next/link";
 
 const TrendingPosts = () => {
   const posts = [
@@ -40,7 +41,7 @@ const TrendingPosts = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <SectionHeader title="Trending Community Posts" />
-        <button className="text-primary font-medium text-sm">View All</button>
+        <Link href="/profile/community" className="text-primary font-medium text-sm">View All</Link>
       </div>
 
       {/* Posts */}

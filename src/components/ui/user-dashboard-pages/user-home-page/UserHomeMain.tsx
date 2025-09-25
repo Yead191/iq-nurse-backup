@@ -4,9 +4,9 @@ import AsidePanel from "./aside/AsidePanel";
 import { StatsGrid } from "../../old-components/old-user-home/StatsGrid";
 import { weeklyStats } from "@/data/userHome";
 import RecentlyViewed from "./RecentlyViewed";
-import NCLEXPracticeSection from "./practice-qurestion/NCLEXPracticeSection";
 import StudyInstagramSection from "./StudyInstagramSection";
 import TrendingPosts from "./TrendingPosts";
+import NCLEXPracticeSection from "./practice-qurestion/NCLEXPracticeSection";
 
 export default function UserHomeMain() {
   return (
