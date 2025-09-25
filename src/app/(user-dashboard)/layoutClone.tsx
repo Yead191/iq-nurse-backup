@@ -27,11 +27,11 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/community",
     "/profile/body-system", 
     "/profile/connect-concept",
-    "/profile/group"
+     "/profile/group"
     ];
  
-  const singleHidePaths = ["/profile/patient-assessment"];
-  const oldHeaderPaths = ["/profile/home"];
+  const singleHidePaths = ["/profile/patient-assessment","/profile/group"];
+  const oldHeaderPaths = ["/profile/home","profile/group/create-group"];
 
   const shouldHide = hiddenPaths.some((prefix) => pathname.startsWith(prefix));
   // console.log(shouldHide, pathname);
