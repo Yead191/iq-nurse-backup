@@ -13,6 +13,8 @@ interface Props {
   isFlipped: boolean;
   onMarkWrong?: () => void;
   onMarkCorrect?: () => void;
+  setShowCompletion?: any;
+  isStudyNote?: boolean;
 }
 
 const FlashTestFooter: React.FC<Props> = ({
@@ -23,6 +25,8 @@ const FlashTestFooter: React.FC<Props> = ({
   isFlipped,
   onMarkWrong,
   onMarkCorrect,
+  setShowCompletion,
+  isStudyNote,
 }) => {
   const router = useRouter();
   const isFirst = currentIndex === 0;
@@ -63,7 +67,10 @@ const FlashTestFooter: React.FC<Props> = ({
           </button>
 
           {/* Counter */}
-          <div className="text-lg font-semibold text-gray-700" aria-live="polite">
+          <div
+            className="text-lg font-semibold text-gray-700"
+            aria-live="polite"
+          >
             {currentIndex + 1}/{total}
           </div>
 
@@ -93,10 +100,13 @@ const FlashTestFooter: React.FC<Props> = ({
           <button
             type="button"
             aria-label="Finish test"
-            onClick={() =>
-              router.push(
-                "/profile/flash-cards/high-yield-flashcards/create-test/test-result"
-              )
+            onClick={
+              isStudyNote
+                ? () => setShowCompletion(true)
+                : () =>
+                    router.push(
+                      "/profile/flash-cards/high-yield-flashcards/create-test/test-result"
+                    )
             }
             className="px-4 h-12 rounded-lg flex items-center justify-center bg-[#003877] text-white font-medium cursor-pointer"
           >

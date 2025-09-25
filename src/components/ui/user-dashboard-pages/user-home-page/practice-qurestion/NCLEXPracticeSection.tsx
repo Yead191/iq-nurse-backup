@@ -7,6 +7,7 @@ import CategoryTabs from "./CategoryTabs";
 import CompletionCard from "./CompletionCard";
 import QuestionCard from "./QuestionCard";
 import { SectionHeader } from "../SectionHeader";
+import Link from "next/link";
 
 export default function NCLEXPracticeSection() {
   const [activeCategory, setActiveCategory] =
@@ -78,7 +79,9 @@ export default function NCLEXPracticeSection() {
       >
         <div className="flex items-center justify-between mb-6">
           <SectionHeader title="NCLEX Practice Questions" />
-          <button className="text-primary font-medium">See More</button>
+          <Link href={"/profile/tests"} className="text-primary  font-medium">
+            See More
+          </Link>
         </div>
 
         <CategoryTabs
@@ -107,7 +110,9 @@ export default function NCLEXPracticeSection() {
     >
       <div className="flex items-center justify-between mb-6">
         <SectionHeader title="NCLEX Practice Questions" />
-        <button className="text-primary font-medium">See More</button>
+        <Link href={"/profile/tests"} className="text-primary  font-medium">
+          See More
+        </Link>
       </div>
 
       <CategoryTabs
