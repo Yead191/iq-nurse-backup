@@ -41,6 +41,7 @@ const ClinicalCalculator = () => {
           },
         ]}
       />
+      
       <div className="flex flex-col md:flex-row sm:mx-2 sm:gap-2">
         {/* Calculator List */}
         <div className={`${isSideBarSelect ? "hidden" : "block"} md:block`}>
