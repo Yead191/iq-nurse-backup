@@ -28,7 +28,7 @@ const QuickDecisionPoll = () => {
 
   const handleOptionClick = (optionId:string) => {
     if (!hasVoted) {
-      setSelectedOption(optionId);
+      setSelectedOption(optionId as unknown as null);
     }
   };
 
@@ -41,7 +41,7 @@ const QuickDecisionPoll = () => {
   };
 
   const getVotePercentage = (votes:string) => {
-    return totalVotes > 0 ? Math.round((votes / totalVotes) * 100) : 0;
+    return totalVotes > 0 ? Math.round((Number(votes) / totalVotes) * 100) : 0;
   };
 
   const handleOptionChange = (index: number, value: string) => {
@@ -149,13 +149,13 @@ const QuickDecisionPoll = () => {
             {/* Poll Options */}
             <div className="space-y-3 mb-6">
               {pollData.options.map((option) => {
-                const percentage = getVotePercentage(option.votes);
+                const percentage = getVotePercentage(option.votes.toString());
                 const isSelected = selectedOption === option.id;
                 
                 return (
                   <div
                     key={option.id}
-                    onClick={() => handleOptionClick(option.id)}
+                    onClick={() => handleOptionClick(option.id.toString())}
                     className={`relative cursor-pointer rounded-lg border-2 transition-all duration-200 ${
                       isSelected 
                         ? 'border-blue-500 bg-blue-50' 
