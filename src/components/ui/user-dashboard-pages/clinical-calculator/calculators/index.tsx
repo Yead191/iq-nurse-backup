@@ -24,7 +24,7 @@ export default function CalculatorMainPanel({
       return <DosageCalculation />;
     default:
       return (
-        <div className="flex justify-center items-center  h-[calc(100vh-100px)]">
+        <div className="flex justify-center items-center h-[calc(100vh-100px)]">
           <Empty description="Calculator not found" />
         </div>
       );
