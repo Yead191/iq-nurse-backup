@@ -1,10 +1,15 @@
+"use client"
 import PageNavbar from '@/components/shared/user-dashboard/PageNavbar';
 import { Network } from 'lucide-react';
-import React from 'react';
-import ConceptFlow from './ConceptFlow';
+import React, { useState } from 'react';
+import ConceptFlow from './concept-flow/ConceptFlow';
 import ConceptTypeForm from './ConceptTypeForm';
 
-const ConnectConcept = () => {
+const ConnectConcept = () => { 
+    const [formData, setFormData] = useState({}); 
+
+    console.log("Form Data:", formData); 
+
     return (
         <div>
             <PageNavbar
@@ -20,8 +25,8 @@ const ConnectConcept = () => {
                     <ConceptFlow />
                 </div>
 
-                <div className=' w-1/4 h-full bg-[#F5F7FA] z-[999px] px-2 flex items-start justify-center pt-5 '>
-                    <ConceptTypeForm />
+                <div className=' w-1/4 h-full bg-[#F5F7FA] z-[999px] px-2 flex items-start justify-center pt-3 rounded-lg '>
+                    <ConceptTypeForm setFormData={setFormData}/>
                 </div>
 
             </div>
