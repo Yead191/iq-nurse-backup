@@ -26,7 +26,7 @@ export default function AnatomyImageDisplay({
   onNextImage,
 }: AnatomyImageDisplayProps) {
   return (
-    <div className="relative h-[calc(100vh-400px)] flex items-center justify-center">
+    <div className="relative h-[calc(100vh-430px)]  lg:h-[calc(100vh-400px)] flex items-center justify-center">
       <Image
         src={selectedSystem.images[currentImageIndex] || "/placeholder.svg"}
         alt={`${selectedSystem.title} anatomy`}

@@ -1,5 +1,3 @@
-import { de } from "date-fns/locale"
-import { title } from "process"
 
 export const DashboardCardData = [
     {
@@ -7,7 +5,7 @@ export const DashboardCardData = [
         title: "Start from Scratch",
         description: "Create a blank concept map and muild it your way",
         imgUrl: "/assets/concept-map/card1.png",
-        link: "#",
+        link: "/profile/connect-concept",
         buttonText: "Create Blank Map"
     },
     {
@@ -15,13 +13,13 @@ export const DashboardCardData = [
         title: "Use a Template",
         description: "Start with a pre-built template for common conditions",
         imgUrl: "/assets/concept-map/card2.png",
-        link: "#",
+        link: "/profile/connect-concept",
         buttonText: "Browse Templates"
     }
 ]
 
 
-export const RecentMapData = [
+export const RecentMapData = [        
     {
         id: 1,
         title: "Diabetes Type 2",

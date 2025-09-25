@@ -2,19 +2,31 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { StickyNote, ChevronLeft, ChevronRight, Share } from "lucide-react";
+import {
+  StickyNote,
+  ChevronLeft,
+  ChevronRight,
+  Share,
+  Bookmark,
+  Share2,
+  ChevronUp,
+  ChevronDown,
+} from "lucide-react";
 import { BodySystem, bodySystems } from "@/data/bodySystemData";
 import CategoryButtons from "../patient-assessment/CategoryButtons";
 import AnatomyImageDisplay from "./AnatomyImageDisplay";
 import SystemContentPanel from "./SystemContentPanel";
 import BodySilhouetteCard from "./BodySilhouetteCard";
-import { Button } from "antd";
+import { Button, Grid } from "antd";
 import MobileNotesDrawer from "./MobileNotesDrawer";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import { FaUserDoctor } from "react-icons/fa6";
 import { BiQuestionMark } from "react-icons/bi";
+import DetailsHeader from "@/components/shared/DetailsHeader";
+import { toast } from "sonner";
 
 export default function BodySystemMain() {
+  const { lg } = Grid.useBreakpoint();
   const [selectedSystem, setSelectedSystem] = useState<BodySystem>(
     bodySystems[0]
   );
@@ -49,26 +61,46 @@ export default function BodySystemMain() {
 
   return (
     <div className="lg:min-h-screen bg-[#F4F4F4]">
-      <PageNavbar
-        icon={<FaUserDoctor className=" text-black" />}
-        title="A&P Interactive "
-        subtitle=""
-        isAiEnhanced={true}
-        actions={[
-          {
-            label: "Share",
-            icon: <Share size={18} className="mt-1" />,
-            onClick: () => console.log("Share"),
-            isPrimary: false,
-          },
-          {
-            label: "Quiz Me",
-            icon: <BiQuestionMark size={18} className="mt-1.5" />,
-            onClick: () => console.log("Bookmark"),
-            isPrimary: true,
-          },
-        ]}
-      />
+      {lg ? (
+        <PageNavbar
+          icon={<FaUserDoctor className=" text-black" />}
+          title="A&P Interactive "
+          subtitle=""
+          isAiEnhanced={true}
+          actions={[
+            {
+              label: "Share",
+              icon: <Share size={18} className="mt-1" />,
+              onClick: () => console.log("Share"),
+              isPrimary: false,
+            },
+            {
+              label: "Quiz Me",
+              icon: <BiQuestionMark size={18} className="mt-1.5" />,
+              onClick: () => console.log("Bookmark"),
+              isPrimary: true,
+            },
+          ]}
+        />
+      ) : (
+        <DetailsHeader
+          title={selectedSystem?.title}
+          actions={[
+            {
+              icon: Bookmark,
+              label: "Bookmark",
+              hoverColor: "text-blue-600",
+              onClick: () => toast.success("Bookmarked!"),
+            },
+            {
+              icon: Share2,
+              label: "Share",
+              hoverColor: "text-green-600",
+              onClick: () => console.log("Shared!"),
+            },
+          ]}
+        />
+      )}
       {/* Desktop Layout */}
       <div className="hidden lg:block">
         <div className="px-4 lg:px-5 ">
@@ -101,7 +133,7 @@ export default function BodySystemMain() {
       </div>
 
       {/* Mobile Layout */}
-      <div className="lg:hidden -mt-6 -mb-6">
+      <div className="lg:hidden  -mb-6">
         <div className="relative  flex flex-col">
           {/* Main Content Area */}
           <div className="flex-1 relative overflow-hidden">
@@ -144,22 +176,27 @@ export default function BodySystemMain() {
             />
           </div>
 
-          <div className="bg-white p-4">
-            <div className="flex items-center justify-between mb-4">
+          <div className="">
+            <div
+              onClick={toggleNotes}
+              className="flex items-center justify-between mb-2  p-4"
+            >
               <Button
                 // variant={showNotes ? "default" : "outline"}
                 size="small"
-                onClick={toggleNotes}
-                className="flex items-center gap-2"
+                className="!flex !items-center gap-2 !justify-between !w-full !h-[40px] bg-white"
               >
-                <StickyNote className="w-4 h-4" />
-                {selectedSystem.title} Notes
+                <span className="flex items-center gap-2">
+                  <StickyNote className="w-4 h-4" />
+                  {selectedSystem.title} Notes
+                </span>
+                <ChevronUp className="w-4 h-4" />
               </Button>
             </div>
 
-            <div className="overflow-x-auto">
-              <div className="flex gap-3 pb-2">
-                {bodySystems.map((system) => (
+            <div className="overflow-x-auto ">
+              <div className="flex gap-3 pb-4">
+                {bodySystems?.map((system) => (
                   <button
                     key={system.id}
                     className={`flex-shrink-0 w-12 h-12 rounded-full border-2 transition-all ${
