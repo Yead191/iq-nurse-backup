@@ -2,14 +2,8 @@
 
 import { useState } from "react";
 import UserStatusSidebar from "./UserStatusSidebar";
-import GroupChat from "./ChatInterface";
 import ChatInterface from "./ChatInterface";
 import { Tabs } from "antd";
-
-interface User {
-    id: string;
-    name: string;
-}
 
 interface Message {
     id: string;
@@ -18,6 +12,8 @@ interface Message {
 }
 
 const GroupChatPageInfo: React.FC<{ groupId: string }> = ({ groupId }) => {
+
+    console.log({groupId})
 
     const tabItems = [
         { key: '1', label: 'Chat', children: <ChatInterface /> },
