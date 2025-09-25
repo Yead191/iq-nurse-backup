@@ -49,8 +49,8 @@ const CalendarMain = () => {
       <StudentPlannerDrawer isOpen={isDrawerOpen} onClose={handleCloseDrawer} />
 
       {/* Main Content */}
-      <div className="grid grid-cols-12 lg:gap-6">
-        <div className="col-span-12 lg:col-span-9">
+      <div className="grid grid-cols-12 lg:gap-6 mt-6 md:mt-0">
+        <div className="col-span-12 lg:col-span-9 max-h-[calc(100vh-175px)] md:max-h-max overflow-y-auto">
           <UserCalendar />
         </div>
         <div className="hidden lg:block lg:col-span-3">
