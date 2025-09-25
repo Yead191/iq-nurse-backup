@@ -4,6 +4,8 @@ import AsidePanel from "./aside/AsidePanel";
 import { StatsGrid } from "../../old-components/old-user-home/StatsGrid";
 import { weeklyStats } from "@/data/userHome";
 import RecentlyViewed from "./RecentlyViewed";
+import StudyInstagramSection from "./StudyInstagramSection";
+import TrendingPosts from "./TrendingPosts";
 import NCLEXPracticeSection from "./practice-qurestion/NCLEXPracticeSection";
 
 export default function UserHomeMain() {
@@ -14,13 +16,15 @@ export default function UserHomeMain() {
           "
       >
         {/* Left/Main Column */}
-        <div className="lg:col-span-9 space-y-6 lg:h-[calc(100vh-90px)] overflow-y-auto pt-4 lg:pt-8 px-2 lg:px-5">
+        <section className="lg:col-span-9 space-y-6 lg:h-[calc(100vh-90px)] overflow-y-auto pt-4 lg:pt-8 px-2 lg:px-5">
           {/* This Week Events */}
           <StatsGrid items={weeklyStats} />
           {/* recently viewed */}
           <RecentlyViewed />
           <NCLEXPracticeSection />
-        </div>
+          <StudyInstagramSection />
+          <TrendingPosts />
+        </section>
 
         {/* Right/Aside Column */}
         <aside className="hidden lg:block lg:col-span-3 lg:pt-8 pr-4 lg:pr-5">
