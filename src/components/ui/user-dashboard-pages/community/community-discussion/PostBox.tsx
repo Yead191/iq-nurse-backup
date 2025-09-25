@@ -128,7 +128,7 @@ export default function PostBox({post,setPosts}: {post: IPost,setPosts: React.Di
         </Menu>
       );
   return (
-    <div key={post.id} className="bg-white mb-4 rounded-lg shadow-sm p-5">
+    <div key={post.id} className="bg-white mb-4 rounded-lg shadow-sm md:p-5 ">
           {/* Post Header */}
           <div className="flex items-center justify-between p-4 pb-3">
             <div className="flex items-center gap-1 !space-x-3">
@@ -155,19 +155,19 @@ export default function PostBox({post,setPosts}: {post: IPost,setPosts: React.Di
             <div className='flex items-center py-2.5 gap-3'>
                 <span className='flex items-center text-sm px-3.5 py-1.5 rounded-md text-gray-500 bg-gray-50'>
                     <FaRegEye />
-                    <span className=" text-xs ml-1">12k Views</span>
+                    <span className=" md:text-xs text-[10px] ml-1">12k Views</span>
                 </span>
                 <span className='flex items-center text-sm px-3.5 py-1.5 rounded-md text-gray-500 bg-gray-50'>
                     <AiOutlineLike />
-                    <span className=" text-xs ml-1">{post.likes} Likes</span>
+                    <span className=" md:text-xs text-[10px] ml-1">{post.likes} Likes</span>
                 </span>
                 <span className='flex items-center text-sm px-3.5 py-1.5 rounded-md text-gray-500 bg-gray-50'>
                     <MdOutlineComment />
-                    <span className=" text-xs ml-1">{post.comments} Comments</span>
+                    <span className=" md:text-xs text-[10px] ml-1">{post.comments} Comments</span>
                 </span>
                 <span className='flex items-center text-sm px-3.5 py-1.5 rounded-md text-gray-500 bg-gray-50'>
                     <IoMdSend />
-                    <span className=" text-xs ml-1">{post.shares} Shares</span>
+                    <span className=" md:text-xs text-[10px] ml-1">{post.shares} Shares</span>
                 </span>
             </div>
             <div className="flex flex-wrap gap-2 mt-3">
@@ -184,7 +184,7 @@ export default function PostBox({post,setPosts}: {post: IPost,setPosts: React.Di
             <div className="flex items-center space-x-6">
               <button
                 onClick={() => handleLikePost(post.id)}
-                className="flex items-center space-x-2 text-gray-600 hover:text-red-500 transition-colors"
+                className="flex cursor-pointer items-center space-x-2 text-gray-600 hover:text-red-500 transition-colors"
               >
                 {post.isLiked ? (
                   <HeartFilled className="text-red-500" />
@@ -195,24 +195,15 @@ export default function PostBox({post,setPosts}: {post: IPost,setPosts: React.Di
 
               <button
                 onClick={() => toggleComments(post.id)}
-                className="flex items-center space-x-2 text-gray-600 hover:text-blue-500 transition-colors"
+                className="flex cursor-pointer items-center space-x-2 text-gray-600 hover:text-blue-500 transition-colors"
               >
                 <MessageOutlined />
               </button>
 
-              <button className="flex items-center space-x-2 text-gray-600 hover:text-green-500 transition-colors">
+              <button className="flex cursor-pointer items-center space-x-2 text-gray-600 hover:text-green-500 transition-colors">
                 <ShareAltOutlined />
               </button>
             </div>
-
-            <button
-              onClick={() => handleBookmarkPost(post.id)}
-              className={`text-gray-600 hover:text-yellow-500 transition-colors ${
-                post.isBookmarked ? 'text-yellow-500' : ''
-              }`}
-            >
-              <CiBookmark />
-            </button>
           </div>
 
           {/* Comments Section */}

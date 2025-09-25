@@ -32,9 +32,10 @@ const StudyGroups: React.FC = () => {
           <h1 className="md:text-3xl text-2xl font-semibold text-gray-800">Study Groups</h1>
         </div>
         <Button
-          type="primary"
+          type="link"
+          href='/profile/group/create-group'
           icon={<PlusOutlined />}
-          className="!bg-[#4A6ECC] hover:bg-blue-700 border-blue-600 rounded-md h-10 px-4 !py-4font-medium"
+          className="!bg-primary !text-white rounded-md h-10 px-4 !py-4font-medium"
         >
           Create New Group
         </Button>

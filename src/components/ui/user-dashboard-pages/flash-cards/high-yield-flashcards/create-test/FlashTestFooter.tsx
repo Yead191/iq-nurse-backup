@@ -13,6 +13,7 @@ interface Props {
   isFlipped: boolean;
   onMarkWrong?: () => void;
   onMarkCorrect?: () => void;
+  isFromChat?: string
 }
 
 const FlashTestFooter: React.FC<Props> = ({
@@ -23,6 +24,7 @@ const FlashTestFooter: React.FC<Props> = ({
   isFlipped,
   onMarkWrong,
   onMarkCorrect,
+  isFromChat
 }) => {
   const router = useRouter();
   const isFirst = currentIndex === 0;
@@ -95,7 +97,7 @@ const FlashTestFooter: React.FC<Props> = ({
             aria-label="Finish test"
             onClick={() =>
               router.push(
-                "/profile/flash-cards/high-yield-flashcards/create-test/test-result"
+               isFromChat?`/profile/group/${isFromChat}`: "/profile/flash-cards/high-yield-flashcards/create-test/test-result"
               )
             }
             className="px-4 h-12 rounded-lg flex items-center justify-center bg-[#003877] text-white font-medium cursor-pointer"
