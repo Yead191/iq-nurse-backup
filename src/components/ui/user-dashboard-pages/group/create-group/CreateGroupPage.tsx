@@ -11,7 +11,6 @@ export interface StepItem {
     content: React.ReactNode;
     description?: string;
 }
-
 const CreateGroupSteps: React.FC = () => {
     const steps: StepItem[] = [
         {

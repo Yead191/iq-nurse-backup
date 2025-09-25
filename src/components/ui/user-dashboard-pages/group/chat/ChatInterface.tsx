@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Avatar, Button, Input, Tabs, Image } from 'antd';
 import { SendOutlined, PaperClipOutlined, SmileOutlined, MinusCircleOutlined } from '@ant-design/icons';
+import { IoIosSend } from 'react-icons/io';
 
 const ChatInterface = () => {
   const [newMessage, setNewMessage] = useState('');
@@ -32,33 +33,59 @@ const ChatInterface = () => {
     },
     {
       id: 4,
-      user: 'Sarah Chen',
-      initials: 'SC',
-      content: 'Just voted! Also, I recorded a voice note explaining the cardiac cycle that might help with our upcoming exam. Its in the Voice Notes section.',
-      time: '10:35 AM',
-      isOwn: false,
-      hasVoiceNote: true,
-      hasImages: true
+      user: 'Emily Davis',
+      initials: 'ED',
+      content: 'I found some great resources on cardiac assessment techniques. Would anyone like me to share them?',
+      time: '11:15 AM',
+      isOwn: false
     },
     {
-      id: 4,
-      user: 'Sarah Chen',
-      initials: 'SC',
-      content: 'Just voted! Also, I recorded a voice note explaining the cardiac cycle that might help with our upcoming exam. Its in the Voice Notes section.',
-      time: '10:35 AM',
-      isOwn: false,
-      hasVoiceNote: true,
-      hasImages: true
+      id: 5,
+      user: 'James Wilson',
+      initials: 'JW',
+      content: 'Just finished my clinical rotation in the ICU. Let me know if anyone wants to discuss case studies!',
+      time: '11:45 AM',
+      isOwn: false
     },
     {
-      id: 4,
-      user: 'Sarah Chen',
-      initials: 'SC',
-      content: 'Just voted! Also, I recorded a voice note explaining the cardiac cycle that might help with our upcoming exam. Its in the Voice Notes section.',
-      time: '10:35 AM',
-      isOwn: false,
-      hasVoiceNote: true,
-      hasImages: true
+      id: 6,
+      user: 'Emily Davis',
+      initials: 'ED',
+      content: 'I found some great resources on cardiac assessment techniques. Would anyone like me to share them?',
+      time: '11:15 AM',
+      isOwn: false
+    },
+    {
+      id: 7,
+      user: 'James Wilson',
+      initials: 'JW',
+      content: 'Just finished my clinical rotation in the ICU. Let me know if anyone wants to discuss case studies!',
+      time: '11:45 AM',
+      isOwn: false
+    },
+    {
+      id: 8,
+      user: 'Emily Davis',
+      initials: 'ED',
+      content: 'I found some great resources on cardiac assessment techniques. Would anyone like me to share them?',
+      time: '11:15 AM',
+      isOwn: true
+    },
+    {
+      id: 9,
+      user: 'James Wilson',
+      initials: 'JW',
+      content: 'Just finished my clinical rotation in the ICU. Let me know if anyone wants to discuss case studies!',
+      time: '11:45 AM',
+      isOwn: true
+    },
+    {
+      id: 10,
+      user: 'James Wilson',
+      initials: 'JW',
+      content: 'Just finished my clinical rotation in the ICU. Let me know if anyone wants to discuss case studies!',
+      time: '11:45 AM',
+      isOwn: false
     }
   ];
 
@@ -78,12 +105,9 @@ const ChatInterface = () => {
 
 
   return (
-    <div className="w-[calc(100%-170px)]   relative pb-2">
-      {/* Tabs Header */}
-
-
+    <div className="max-h-[calc(100vh-250px)]  relative pb-2 ">
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 max-h-[calc(100vh-250px)]">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 h-[calc(100vh-200px)] ">
         {messages.map((message) => (
           <div key={message.id} className={`flex gap-3 ${message.isOwn ? 'justify-end' : 'justify-start'}`}>
             {!message.isOwn && (
@@ -109,56 +133,6 @@ const ChatInterface = () => {
                 <div className="text-sm leading-relaxed">
                   {message.content}
                 </div>
-
-                {/* Voice Note */}
-                {message.hasVoiceNote && (
-                  <div className="mt-3 bg-blue-700 rounded-lg p-3 flex items-center gap-3">
-                    <Avatar size={32} src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face" />
-                    <div className="flex-1 flex items-center gap-2">
-                      <Button type="text" className="text-white p-0">
-                        <div className="w-4 h-4 border-l-2 border-white"></div>
-                      </Button>
-                      <div className="flex-1 h-8 bg-white bg-opacity-20 rounded flex items-center px-2">
-                        <div className="w-full h-1 bg-white bg-opacity-40 rounded">
-                          <div className="w-1/4 h-full bg-white rounded"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-xs text-white opacity-80">
-                      1:04 / 12:23
-                    </div>
-                  </div>
-                )}
-
-                {/* Images */}
-                {message.hasImages && (
-                  <div className="mt-3 grid grid-cols-2 gap-1 rounded-lg overflow-hidden">
-                    <div className="relative">
-                      <img
-                        src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=150&h=120&fit=crop"
-                        alt="Shared image"
-                        className="w-full h-20 object-cover"
-                      />
-                    </div>
-                    <div className="relative">
-                      <img
-                        src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=150&h=120&fit=crop"
-                        alt="Shared image"
-                        className="w-full h-20 object-cover"
-                      />
-                    </div>
-                    <div className="relative">
-                      <img
-                        src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=150&h=120&fit=crop"
-                        alt="Shared image"
-                        className="w-full h-20 object-cover"
-                      />
-                    </div>
-                    <div className="relative bg-gray-800 bg-opacity-50 flex items-center justify-center">
-                      <span className="text-white font-medium">+15</span>
-                    </div>
-                  </div>
-                )}
               </div>
 
               <div className="text-xs text-gray-500 mt-1 text-right">
@@ -195,7 +169,7 @@ const ChatInterface = () => {
               onKeyPress={handleKeyPress}
               placeholder="Type your messages..."
               size="large"
-              className="rounded-full pr-12"
+              className="!rounded-full pr-12"
               style={{ paddingRight: '140px' }}
             />
             <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center gap-2">
@@ -206,10 +180,9 @@ const ChatInterface = () => {
           </div>
 
           <Button
-            type="primary"
-            icon={<SendOutlined />}
+            icon={<IoIosSend  />}
             onClick={handleSend}
-            className="rounded-full w-12 h-12 flex items-center justify-center"
+            className="rounded-full w-12 h-12 flex items-center !text-white !bg-primary justify-center"
             size="large"
           />
         </div>
