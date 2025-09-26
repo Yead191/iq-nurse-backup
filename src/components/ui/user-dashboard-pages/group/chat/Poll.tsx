@@ -31,7 +31,7 @@ const QuickDecisionPoll = () => {
 
   const handleOptionClick = (optionId: number) => {
     if (!hasVoted) {
-      setSelectedOption(optionId);
+      setSelectedOption(optionId as unknown as null);
     }
   };
 

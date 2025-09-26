@@ -154,7 +154,7 @@ export const menus: Record<string, MenuItem[]> = {
       subtitle: "NCLEX Tests / Next Gen",
     },
     {
-      key: "/profile/flash-cards",
+      key: "/profile/flash-card",
       label: "Flash Cards",
       icon: icon("/assets/sidebar-icons/flash-cards-icon.svg", "flashcards"),
     },
