@@ -79,7 +79,7 @@ export default function RecentlyViewed() {
         <Swiper
           spaceBetween={16}
           slidesPerView={1.2}
-          style={{ paddingBottom: 20 }}
+          style={{ paddingBottom: 20, paddingTop: 20 }}
         >
           {recentlyViewed.map((item) => (
             <SwiperSlide key={item.id}>
@@ -87,7 +87,7 @@ export default function RecentlyViewed() {
                 hoverable
                 style={{
                   borderRadius: 12,
-                  // boxShadow: "4.24px 4.24px 30.77px 0px rgba(0, 0, 0, 0.1)",
+                  boxShadow: "4.24px 4.24px 30.77px 0px rgba(0, 0, 0, 0.1)",
                   minHeight: 120,
                   display: "flex",
                   alignItems: "center",

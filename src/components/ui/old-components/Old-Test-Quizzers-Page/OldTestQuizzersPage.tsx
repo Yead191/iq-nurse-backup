@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
 import { TestCardsData } from "@/data/testCardData";
 import Image from "next/image";
 import React from "react";
-import Card from "../flash-cards/Card";
+import Card from "../../user-dashboard-pages/flash-cards/Card";
 
-export default function TestQuizzersPage() {
+export default function OldTestQuizzersPage() {
   return (
     <section>
       <PageBreadcrumb
@@ -27,7 +27,6 @@ export default function TestQuizzersPage() {
           </div>
         ))}
       </div>
-      
     </section>
   );
 }

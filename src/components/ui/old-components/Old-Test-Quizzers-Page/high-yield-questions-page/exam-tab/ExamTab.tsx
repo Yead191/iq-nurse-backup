@@ -1,7 +1,7 @@
 "use client";
 import { questionSections } from "@/data/quizFolder";
 import React, { useState } from "react";
-import FlashCategory from "../../../flash-cards/high-yield-flashcards/FlashCategory";
+import FlashCategory from "../../../../user-dashboard-pages/flash-cards/high-yield-flashcards/FlashCategory";
 import { Collapse, RadioChangeEvent } from "antd";
 import { Minus, Plus } from "lucide-react";
 import MobileTabHeader from "@/components/shared/MobileTabHeader";

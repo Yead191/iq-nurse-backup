@@ -1,32 +1,35 @@
-import React, { useState } from 'react';
-import { Button, Progress, Badge, Input, Radio, Space } from 'antd';
-import { DeleteOutlined } from '@ant-design/icons';
+import React, { useState } from "react";
+import { Button, Progress, Badge, Input, Radio, Space } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
 
 const QuickDecisionPoll = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [hasVoted, setHasVoted] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
-  const [question, setQuestion] = useState('');
-  const [options, setOptions] = useState(['', '']);
+  const [question, setQuestion] = useState("");
+  const [options, setOptions] = useState(["", ""]);
 
   // Poll data - in a real app this would come from props or API
   const pollData = {
     title: "Quick Decision Poll",
     question: "Which of the following is a priority area to focus?",
-    status: "Active", 
+    status: "Active",
     timeLeft: "3 minutes left",
     totalParticipants: 20,
     options: [
       { id: 1, text: "Partnership growth", votes: 12 },
       { id: 2, text: "Engagement", votes: 5 },
       { id: 3, text: "Co-creation", votes: 2 },
-      { id: 4, text: "Shared resources", votes: 1 }
-    ]
+      { id: 4, text: "Shared resources", votes: 1 },
+    ],
   };
 
-  const totalVotes = pollData.options.reduce((sum, option) => sum + option.votes, 0);
+  const totalVotes = pollData.options.reduce(
+    (sum, option) => sum + option.votes,
+    0
+  );
 
-  const handleOptionClick = (optionId:string) => {
+  const handleOptionClick = (optionId: number) => {
     if (!hasVoted) {
       setSelectedOption(optionId as unknown as null);
     }
@@ -36,12 +39,12 @@ const QuickDecisionPoll = () => {
     if (selectedOption) {
       setHasVoted(true);
       // Handle vote submission logic here
-      console.log('Voted for option:', selectedOption);
+      console.log("Voted for option:", selectedOption);
     }
   };
 
-  const getVotePercentage = (votes:string) => {
-    return totalVotes > 0 ? Math.round((Number(votes) / totalVotes) * 100) : 0;
+  const getVotePercentage = (votes: number) => {
+    return totalVotes > 0 ? Math.round((votes / totalVotes) * 100) : 0;
   };
 
   const handleOptionChange = (index: number, value: string) => {
@@ -55,7 +58,7 @@ const QuickDecisionPoll = () => {
   };
 
   const handleAddOption = () => {
-    setOptions([...options, '']);
+    setOptions([...options, ""]);
   };
 
   return (
@@ -93,7 +96,9 @@ const QuickDecisionPoll = () => {
                       <Input
                         placeholder={`Option ${index + 1}`}
                         value={option}
-                        onChange={(e) => handleOptionChange(index, e.target.value)}
+                        onChange={(e) =>
+                          handleOptionChange(index, e.target.value)
+                        }
                         className="flex-1"
                       />
                       {options.length > 2 && (
@@ -108,9 +113,9 @@ const QuickDecisionPoll = () => {
                   ))}
                 </Space>
               </Radio.Group>
-              <Button 
-                type="dashed" 
-                onClick={handleAddOption} 
+              <Button
+                type="dashed"
+                onClick={handleAddOption}
                 className="mt-2 w-full"
               >
                 Add Option
@@ -130,13 +135,13 @@ const QuickDecisionPoll = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-0">
               {pollData.title}
             </h3>
-            <Badge 
-              count={pollData.status} 
-              style={{ 
-                backgroundColor: '#e6f3ff', 
-                color: '#1890ff',
-                border: '1px solid #91d5ff'
-              }} 
+            <Badge
+              count={pollData.status}
+              style={{
+                backgroundColor: "#e6f3ff",
+                color: "#1890ff",
+                border: "1px solid #91d5ff",
+              }}
             />
           </div>
 
@@ -149,30 +154,30 @@ const QuickDecisionPoll = () => {
             {/* Poll Options */}
             <div className="space-y-3 mb-6">
               {pollData.options.map((option) => {
-                const percentage = getVotePercentage(option.votes.toString());
+                const percentage = getVotePercentage(option.votes);
                 const isSelected = selectedOption === option.id;
-                
+
                 return (
                   <div
                     key={option.id}
-                    onClick={() => handleOptionClick(option.id.toString())}
+                    onClick={() => handleOptionClick(option.id)}
                     className={`relative cursor-pointer rounded-lg border-2 transition-all duration-200 ${
-                      isSelected 
-                        ? 'border-blue-500 bg-blue-50' 
-                        : 'border-gray-200 hover:border-gray-300'
-                    } ${hasVoted ? 'cursor-default' : ''}`}
+                      isSelected
+                        ? "border-blue-500 bg-blue-50"
+                        : "border-gray-200 hover:border-gray-300"
+                    } ${hasVoted ? "cursor-default" : ""}`}
                   >
                     {/* Progress background for voted options */}
                     {hasVoted && (
-                      <div 
+                      <div
                         className="absolute inset-0 bg-blue-100 rounded-lg transition-all duration-500"
-                        style={{ 
+                        style={{
                           width: `${percentage}%`,
-                          opacity: 0.3
+                          opacity: 0.3,
                         }}
                       />
                     )}
-                    
+
                     <div className="relative p-4 flex items-center justify-between">
                       <div className="flex items-center">
                         <span className="text-gray-800 font-medium">
@@ -180,11 +185,11 @@ const QuickDecisionPoll = () => {
                         </span>
                         {hasVoted && (
                           <span className="ml-2 text-sm text-gray-600">
-                            {option.votes} vote{option.votes !== 1 ? 's' : ''}
+                            {option.votes} vote{option.votes !== 1 ? "s" : ""}
                           </span>
                         )}
                       </div>
-                      
+
                       {hasVoted && (
                         <span className="text-sm font-medium text-gray-600">
                           {percentage}%
@@ -199,13 +204,16 @@ const QuickDecisionPoll = () => {
             {/* Footer */}
             <div className="flex items-center justify-between">
               <div className="text-sm text-gray-500">
-                <span>{pollData.totalParticipants} participant{pollData.totalParticipants !== 1 ? 's' : ''}</span>
+                <span>
+                  {pollData.totalParticipants} participant
+                  {pollData.totalParticipants !== 1 ? "s" : ""}
+                </span>
                 <span className="mx-2">•</span>
                 <span>{pollData.timeLeft}</span>
               </div>
-              
+
               <div className="flex gap-2">
-                <Button 
+                <Button
                   type="default"
                   className="rounded-lg"
                   onClick={() => setIsCreating(true)}
