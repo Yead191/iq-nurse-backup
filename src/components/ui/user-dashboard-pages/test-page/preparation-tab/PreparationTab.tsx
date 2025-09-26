@@ -1,18 +1,33 @@
 import React, { useState } from "react";
 import TestHeader from "../TestHeader";
+import ExamConfigSection from "@/components/ui/old-components/Old-Test-Quizzers-Page/high-yield-questions-page/exam-tab/ExamConfigSection";
+import { useRouter } from "next/navigation";
+import { RadioChangeEvent } from "antd";
 
+const topics = [
+  { id: 1, name: "Cardiovascular", questions: 85 },
+  { id: 2, name: "Respiratory", questions: 75 },
+  { id: 3, name: "Neurological", questions: 85 },
+  { id: 4, name: "Pharmacology", questions: 110 },
+  { id: 5, name: "Maternal Health", questions: 85 },
+  { id: 6, name: "Pediatrics", questions: 85 },
+  { id: 7, name: "Medical-Surgical", questions: 85 },
+  { id: 8, name: "Mental Health", questions: 85 },
+];
 export default function PreparationTab() {
   const [selectedTopic, setSelectedTopic] = useState(null);
-  const topics = [
-    { id: 1, name: "Cardiovascular", questions: 85 },
-    { id: 2, name: "Respiratory", questions: 75 },
-    { id: 3, name: "Neurological", questions: 85 },
-    { id: 4, name: "Pharmacology", questions: 110 },
-    { id: 5, name: "Maternal Health", questions: 85 },
-    { id: 6, name: "Pediatrics", questions: 85 },
-    { id: 7, name: "Medical-Surgical", questions: 85 },
-    { id: 8, name: "Mental Health", questions: 85 },
-  ];
+  const [numQuestions, setNumQuestions] = useState(30);
+  const [examMode, setExamMode] = useState("practice");
+  const router = useRouter();
+
+  const handleExamModeChange = (e: RadioChangeEvent) => {
+    setExamMode(e.target.value);
+  };
+  const handleStart = () => {
+    console.log("Starting exam with:", { numQuestions, examMode });
+    // Add your start logic here
+    router.push(`/profile/tests/${examMode}`);
+  };
   return (
     <div>
       <TestHeader
@@ -20,17 +35,17 @@ export default function PreparationTab() {
         subtitle="Choose from our comprehensive list of NCLEX topic to focus your study."
       />
       {/* Topic Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {topics.map((topic: any) => (
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
+        {topics?.map((topic: any) => (
           <button
             key={topic.id}
             onClick={() => setSelectedTopic(topic.id)}
             className={`
               relative p-6 rounded-lg border-2 transition-all duration-200 text-left
-              bg-white hover:shadow-md
+              bg-white boxShadow h-auto lg:h-[180px]
               ${
                 selectedTopic === topic.id
-                  ? "border-blue-500 shadow-lg"
+                  ? "border-primary shadow-lg"
                   : "border-gray-200 hover:border-gray-300"
               }
             `}
@@ -48,7 +63,7 @@ export default function PreparationTab() {
             {/* Selection Indicator */}
             {selectedTopic === topic.id && (
               <div className="absolute top-3 right-3">
-                <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
+                <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center">
                   <svg
                     className="w-3 h-3 text-white"
                     fill="currentColor"
@@ -66,6 +81,13 @@ export default function PreparationTab() {
           </button>
         ))}
       </div>
+      <ExamConfigSection
+        numQuestions={numQuestions}
+        setNumQuestions={setNumQuestions}
+        examMode={examMode}
+        handleStart={handleStart}
+        handleExamModeChange={handleExamModeChange}
+      />
     </div>
   );
 }
