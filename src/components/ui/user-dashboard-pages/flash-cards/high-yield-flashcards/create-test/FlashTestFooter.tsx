@@ -102,11 +102,14 @@ const FlashTestFooter: React.FC<Props> = ({
           <button
             type="button"
             aria-label="Finish test"
-            onClick={() =>
-              router.push(
-               isFromChat?`/profile/group/${isFromChat}`: "/profile/flash-cards/high-yield-flashcards/create-test/test-result"
-              )
-            }
+            onClick={
+              isStudyNote
+                ? () => setShowCompletion(true)
+                : () =>
+                    router.push(
+                      isFromChat?`/profile/group/${isFromChat}`: "/profile/flash-cards/high-yield-flashcards/create-test/test-result"
+                    )
+                  }
             className="px-4 h-12 rounded-lg flex items-center justify-center bg-[#003877] text-white font-medium cursor-pointer"
           >
             Done
