@@ -24,8 +24,8 @@ const initialNodes: Node[] = [
 ];
 
 const initialEdges: Edge[] = [
-  { id: "n1-n2", source: "n1", target: "n2" },
-  { id: "n1-n3", source: "n1", target: "n3" },
+  { id: "n1-n2", source: "n1", target: "n2" , type:'floating' },
+  { id: "n1-n3", source: "n1", target: "n3" ,type:'floating'},
 ];
 
 const ConceptFlow = () => {
