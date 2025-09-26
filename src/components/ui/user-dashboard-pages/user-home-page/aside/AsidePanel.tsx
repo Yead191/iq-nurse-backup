@@ -5,7 +5,7 @@ import { PlusOutlined } from "@ant-design/icons";
 import TodaysEvent from "./todays-event/TodaysEvent";
 import AddEvent from "./add-event/AddEvent";
 
-export default function AsidePanel() { 
+export default function AsidePanel() {
   const [activeTab, setActiveTab] = useState<"today" | "add">("today");
 
   return (

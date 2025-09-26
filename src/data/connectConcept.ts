@@ -51,11 +51,15 @@ export  const conceptTypeOptions = [
 export const connectionStyleOptions = [
     {
         label: 'Straight Line',
-        value: 'straight Line',
+        value: 'straight',
+    }, 
+    {
+        label: 'Smooth Line',
+        value: 'smoothstep',
     }, 
     {
         label: 'Curved Line',
-        value: 'Curved Line',
+        value: 'bezier',
     }, 
     {
         label: 'Dotted',

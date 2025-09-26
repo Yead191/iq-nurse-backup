@@ -26,7 +26,7 @@ const UserStatusSidebar = () => {
     ]);
 
     return (
-        <div className=" bg-gray-100 p-4 h-[calc(100vh-70px)] w-[170px] overflow-y-auto ">
+        <div className=" bg-gray-100 p-4 h-[calc(100vh-70px)] w-[170px] overflow-y-auto hidden md:block ">
             <div className="mb-6">
                 <h3 className="font-semibold mb-2">ONLINE (4)</h3>
                 <div className="space-y-2">
