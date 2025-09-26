@@ -46,4 +46,19 @@ export  const conceptTypeOptions = [
   "#3498DB", 
   "#FF8A80",
   "#A34F41", 
-];
+]; 
+
+export const connectionStyleOptions = [
+    {
+        label: 'Straight Line',
+        value: 'straight Line',
+    }, 
+    {
+        label: 'Curved Line',
+        value: 'Curved Line',
+    }, 
+    {
+        label: 'Dotted',
+        value: 'dotted',
+    }, 
+]
