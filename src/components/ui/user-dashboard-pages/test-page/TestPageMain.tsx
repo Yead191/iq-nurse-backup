@@ -1,16 +1,13 @@
 "use client";
+
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import { Network } from "lucide-react";
+import { BookOpen } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import React from "react";
-import { HiOutlineUsers } from "react-icons/hi";
-import { MdOutlineDashboard } from "react-icons/md";
-import { TbSitemap } from "react-icons/tb";
-import Dashboard from "./Dashboard/Dashboard";
-import MyMaps from "./MyMaps/MyMaps";
-import Shared from "./Shared/Shared";
+import { IoAnalytics } from "react-icons/io5";
+import PreparationTab from "./preparation-tab/PreparationTab";
 
-const ContentMap = () => {
+export default function TestPageMain() {
   const searchParams = useSearchParams();
   const tabParam = searchParams.get("tab");
   const router = useRouter();
@@ -25,57 +22,55 @@ const ContentMap = () => {
 
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
-    router.push(`/profile/content-map?tab=${tabId}`, { scroll: false });
+    router.push(`/profile/tests?tab=${tabId}`, { scroll: false });
   };
 
   const tabs = [
     {
       id: "1",
-      label: "Dashboard",
+      label: "NCLEX Prep",
       icon: (
         <p>
-          {" "}
-          <MdOutlineDashboard size={22} />{" "}
+          <IoAnalytics size={22} />{" "}
         </p>
       ),
-      component: <Dashboard />,
+      component: <PreparationTab />,
     },
     {
       id: "2",
-      label: "My Maps",
+      label: "Personalized Quiz",
       icon: (
         <p>
-          {" "}
-          <TbSitemap size={22} />{" "}
+          <IoAnalytics size={22} />{" "}
         </p>
       ),
-      component: <MyMaps />,
+      component: <>Personalized Quiz</>,
     },
     {
       id: "3",
-      label: "Shared",
+      label: "Progress",
       icon: (
         <p>
           {" "}
-          <HiOutlineUsers size={22} />{" "}
+          <IoAnalytics size={22} />{" "}
         </p>
       ),
-      component: <Shared />,
+      component: <>Progress</>,
     },
   ];
 
   return (
     <div>
       <PageNavbar
-        icon={<Network className=" text-black" />}
-        title="Interactive Concept Maps"
-        subtitle="Visualize and understand complex concepts with interactive concept maps"
+        icon={<BookOpen className="text-black fill-current" />}
+        title="Master the NCLEX with Confidence"
+        subtitle="Practice with targeted questions, track your progress, and compare with peers to boost your chances of success."
         isAiEnhanced={false}
       />
 
       <div className="flex flex-col lg:flex-row gap-8 lg:h-[calc(100vh-100px)]">
-        <div className="w-full lg:w-1/6  p-1  flex justify-center items-start ">
-          <div className="flex flex-col gap-4 bg-white shadow-xl  w-full p-3 pb-12 border border-gray-100">
+        <div className="w-full lg:w-1/6  p-1  flex justify-center items-start h-full">
+          <div className="flex flex-col gap-4 bg-white shadow-xl  w-full p-3 pb-12 border border-gray-100 h-full">
             {tabs.map((tab) => (
               <div
                 key={tab.id}
@@ -99,6 +94,4 @@ const ContentMap = () => {
       </div>
     </div>
   );
-};
-
-export default ContentMap;
+}

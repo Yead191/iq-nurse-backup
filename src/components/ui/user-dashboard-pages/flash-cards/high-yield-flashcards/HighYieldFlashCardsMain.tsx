@@ -1,7 +1,7 @@
 "use client";
 import { flashTabsData } from "@/data/highYieldFlashcardsData";
 import React, { useState } from "react";
-import TabSelect from "../../Test-Quizzers-Page/high-yield-questions-page/TabSelect";
+import TabSelect from "../../../old-components/Old-Test-Quizzers-Page/high-yield-questions-page/TabSelect";
 
 const HighYieldFlashCardsMain = () => {
   const [activeTab, setActiveTab] = useState("Flashcards");

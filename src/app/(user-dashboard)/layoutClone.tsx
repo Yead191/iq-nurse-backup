@@ -25,13 +25,14 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/content-map",
     "/profile/body-system",
     "/profile/community",
-    "/profile/body-system", 
+    "/profile/body-system",
     "/profile/connect-concept",
-     "/profile/group"
-    ];
- 
-  const singleHidePaths = ["/profile/patient-assessment","/profile/group"];
-  const oldHeaderPaths = ["/profile/home","profile/group/create-group"];
+    "/profile/group",
+    "/profile/tests",
+  ];
+
+  const singleHidePaths = ["/profile/patient-assessment", "/profile/group"];
+  const oldHeaderPaths = ["/profile/home", "profile/group/create-group"];
 
   const shouldHide = hiddenPaths.some((prefix) => pathname.startsWith(prefix));
   // console.log(shouldHide, pathname);
@@ -112,7 +113,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
                   //   shouldHide ? "py-0 " : "lg:pt-8 lg:pb-0  p-4 md:p-6"
                   // } `}
                   className={`h-full  rounded-md  ${
-                    shouldHide || singleHide || pathname==="/profile/home"
+                    shouldHide || singleHide || pathname === "/profile/home"
                       ? "py-0 "
                       : "lg:pt-8 lg:pb-0 px-4  lg:px-5"
                   } `}

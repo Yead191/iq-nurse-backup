@@ -162,7 +162,7 @@ const Sidebar = ({
 
   return (
     <div
-      className={`h-full bg-white border-r border-[#D9D9D9] flex flex-col transition-all duration-300 lg:pb-12 ${
+      className={`h-full bg-white border-r border-[#D9D9D9] flex flex-col transition-all duration-300   ${
         showLabels ? "w-20" : "w-64"
       }`}
     >
@@ -191,7 +191,7 @@ const Sidebar = ({
       </div>
 
       {/* Menus */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto lg:pb-8">
         <div className="hidden md:block">
           <RenderMenuGroup items={menus.main} menuKey="main" />
         </div>
