@@ -53,7 +53,7 @@ const ContentMap = () => {
                                 onClick={() => handleTabChange(tab.id)}
                                 className={`text-left px-4 py-3 rounded-lg font-medium transition-all flex items-center gap-4 cursor-pointer ${activeTab === tab.id
                                     ? "bg-primary text-white shadow"
-                                    : "bg-white text-[#6B6B6B] hover:bg-primary hover:text-primary"
+                                    : "bg-white text-[#6B6B6B] hover:bg-primary hover:text-white"
                                     }`}
                             >
                                 <p> {tab.icon} </p> <p> {tab.label} </p>

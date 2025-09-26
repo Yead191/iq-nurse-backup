@@ -7,6 +7,7 @@ import { Button, Grid } from "antd";
 
 export default function Footer() {
   const { lg } = Grid.useBreakpoint();
+  
   return (
     <div className="bg-gradient-to-b from-[#F1F5F9] to-[#FFFFFF] py-12">
       <div className=" container p-4 mx-auto grid grid-cols-1 md:grid-cols-2  gap-4 lg:gap-10 justify-center items-center">

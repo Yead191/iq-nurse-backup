@@ -14,7 +14,7 @@ export default function ClinicalsPageDetails() {
         console.log(key);
     };
 
-    const isMobile = window.screen.width <= 768;
+    const isMobile = globalThis.screen.width <= 768;
 
     const items: TabsProps['items'] = [
         {

@@ -3,54 +3,29 @@
 import { nclexCategories } from "@/data/nclexCategories";
 import { Grid } from "antd";
 import { CategoryItem } from "./CategoryItem";
-import { useRouter } from "next/navigation";
 
 interface NclexSidebarProps {
   selectedCategory?: string;
   selectedSubcategory?: string;
-  onSelectionChange: (categoryId: string, subcategoryId?: string) => void;
-  className?: string;
+  onCategorySelect: (categoryId: string) => void;
+  onSubcategorySelect: (categoryId: string, subcategoryId: string) => void;
+  expandedCategories?: Set<string>;
 }
 
 export function NclexSidebar({
   selectedCategory,
   selectedSubcategory,
-  onSelectionChange,
-  className,
+  onCategorySelect,
+  onSubcategorySelect,
+  expandedCategories = new Set(),
 }: NclexSidebarProps) {
   const { lg } = Grid.useBreakpoint();
-  const router = useRouter();
-
-  const handleCategorySelect = (categoryId: string) => {
-    onSelectionChange(categoryId);
-  };
-
-  const handleSubcategorySelect = (
-    categoryId: string,
-    subcategoryId: string
-  ) => {
-    onSelectionChange(categoryId, subcategoryId);
-
-    if (!lg) {
-      // Find the selected subcategory to get its document ID
-      const category = nclexCategories.find(
-        (cat: any) => cat.id === categoryId
-      );
-      const subcategory = category?.subcategories?.find(
-        (sub: any) => sub.id === subcategoryId
-      );
-
-      if (subcategory?.documentId) {
-        router.push(`/profile/study-notes/document/${subcategory.documentId}`);
-      }
-    }
-  };
 
   return (
     <div
       className={`bg-white md:border-r border-gray-200 flex flex-col ${
         !lg ? "w-full" : "w-80"
-      } ${className || ""}`}
+      }`}
     >
       {/* Header */}
       <div className="p-4 border-b border-gray-200">
@@ -73,8 +48,9 @@ export function NclexSidebar({
               category={category}
               isSelected={selectedCategory === category.id}
               selectedSubcategory={selectedSubcategory}
-              onCategorySelect={handleCategorySelect}
-              onSubcategorySelect={handleSubcategorySelect}
+              onCategorySelect={onCategorySelect}
+              onSubcategorySelect={onSubcategorySelect}
+              isExpanded={expandedCategories.has(category.id)}
               isMobile={!lg}
             />
           ))}

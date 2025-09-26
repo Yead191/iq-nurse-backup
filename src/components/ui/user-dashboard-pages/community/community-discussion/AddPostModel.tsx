@@ -15,6 +15,7 @@ import {
   Plus,
   X
 } from 'lucide-react';
+import NoteTab from '../../study-notes-page/surgical-details-page/NoteTab';
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -69,7 +70,7 @@ const PostCreationModal = ({ isVisible, setIsVisible }:{isVisible: boolean, setI
           header: { borderBottom: 'none', padding: '16px 24px 0' }
         }}
       >
-        <div className="p-6">
+        <div className="md:p-6 p-1">
           {/* Title and Tags Row */}
           <div className="grid grid-cols-2 gap-4 mb-6">
             <div>
@@ -121,37 +122,14 @@ const PostCreationModal = ({ isVisible, setIsVisible }:{isVisible: boolean, setI
           {/* Details Section */}
           <div className="mb-4">
             <h3 className="text-base font-medium text-gray-800 mb-3">Details</h3>
-            
-            {/* Formatting Toolbar */}
-            <div className="flex items-center gap-1 mb-3 p-2 bg-gray-50 rounded border">
-              {formatButtons.map((button, index) => (
-                <Tooltip key={index} title={button.tooltip}>
-                  <Button
-                    type="text"
-                    icon={button.icon}
-                    className="text-gray-600 hover:text-gray-800 hover:bg-white"
-                    size="small"
-                  />
-                </Tooltip>
-              ))}
-            </div>
-
-            {/* Text Editor */}
-            <TextArea
-              placeholder="Share Your Nursing Journey... Ask Questions, Celebrate Wins, Help Classmates..."
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              rows={12}
-              className="text-sm border-gray-200 focus:border-blue-400 resize-none"
-              style={{ fontSize: '14px' }}
-            />
+            <NoteTab height='30vh'/>
           </div>
 
           {/* Share Post Button */}
           <div className="flex justify-end">
             <Button 
-              type="primary"
-              className="bg-blue-500 hover:bg-blue-600 px-6"
+             
+              className="!bg-primary !text-white !border-none px-6"
               size="large"
             >
               Share Post

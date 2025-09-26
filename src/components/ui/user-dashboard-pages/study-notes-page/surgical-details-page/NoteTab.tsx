@@ -9,11 +9,15 @@ const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 interface NoteTabProps {
   handleContentChange?: any;
   content?: string;
+  height?: string;
+  isDesabled?: boolean;
 }
 
 export default function NoteTab({
   handleContentChange,
   content,
+  height="60vh",
+  isDesabled=false
 }: NoteTabProps) {
   const editor = useRef(null);
 
@@ -21,7 +25,8 @@ export default function NoteTab({
     readonly: false,
     placeholder: "Type your notes here..",
     toolbarSticky: false,
-    height: "60vh",
+    height: height,
+     disabled: isDesabled,
     style: {
       background: "#fff",
       borderRadius: "6px",
