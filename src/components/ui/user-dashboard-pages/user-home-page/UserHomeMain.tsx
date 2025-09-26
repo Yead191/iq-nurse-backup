@@ -1,4 +1,4 @@
-import { Card } from "antd";
+import { Button, Card } from "antd";
 import React, { Suspense } from "react";
 import AsidePanel from "./aside/AsidePanel";
 import { StatsGrid } from "../../old-components/old-user-home/StatsGrid";
@@ -7,10 +7,12 @@ import RecentlyViewed from "./RecentlyViewed";
 import StudyInstagramSection from "./StudyInstagramSection";
 import TrendingPosts from "./TrendingPosts";
 import NCLEXPracticeSection from "./practice-qurestion/NCLEXPracticeSection";
+import Image from "next/image";
+import NurseQButton from "./NurseNia/NurseQButton";
 
 export default function UserHomeMain() {
   return (
-    <main className=" max-h-[calc(100vh-233px)] md:max-h-max overflow-auto  ">
+    <main className=" max-h-[calc(100vh-233px)] md:max-h-max overflow-auto relative ">
       <div
         className="grid grid-cols-1 gap-6 lg:gap-x-8 lg:grid-cols-12  
           "
@@ -35,6 +37,8 @@ export default function UserHomeMain() {
           </Suspense>
         </aside>
       </div>
+      {/* nurse q float btn */}
+      <NurseQButton />
     </main>
   );
 }

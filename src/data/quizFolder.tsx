@@ -1,6 +1,6 @@
-import ExamTab from "@/components/ui/user-dashboard-pages/Test-Quizzers-Page/high-yield-questions-page/exam-tab/ExamTab";
-import { PerformanceTabMain } from "@/components/ui/user-dashboard-pages/Test-Quizzers-Page/high-yield-questions-page/performace-tab/PerformanceTabMain";
-import PreviousExamTab from "@/components/ui/user-dashboard-pages/Test-Quizzers-Page/high-yield-questions-page/previous-exam-tab/PreviousExamTab";
+import ExamTab from "@/components/ui/old-components/Old-Test-Quizzers-Page/high-yield-questions-page/exam-tab/ExamTab";
+import { PerformanceTabMain } from "@/components/ui/old-components/Old-Test-Quizzers-Page/high-yield-questions-page/performace-tab/PerformanceTabMain";
+import PreviousExamTab from "@/components/ui/old-components/Old-Test-Quizzers-Page/high-yield-questions-page/previous-exam-tab/PreviousExamTab";
 
 export interface QuizFolder {
   id: string;

@@ -29,7 +29,7 @@ const NurseChat = () => {
   ];
 
   return (
-    <div className="w-full lg:h-[calc(100vh-145px)] h-[calc(100vh-192px)]">
+    <div className="w-full lg:h-[calc(100vh-245px)] h-[calc(100vh-192px)]">
       <div className=" h-full flex flex-col relative ">
         {/* Scrollable content */}
         <div className=" sticky w-full  bottom-0 bg-white ">
