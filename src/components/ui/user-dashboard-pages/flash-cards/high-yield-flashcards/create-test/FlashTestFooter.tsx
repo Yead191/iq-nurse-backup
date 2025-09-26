@@ -14,6 +14,8 @@ interface Props {
   onMarkWrong?: () => void;
   onMarkCorrect?: () => void;
   isFromChat?: string
+  setShowCompletion?: any;
+  isStudyNote?: boolean;
 }
 
 const FlashTestFooter: React.FC<Props> = ({
@@ -24,7 +26,9 @@ const FlashTestFooter: React.FC<Props> = ({
   isFlipped,
   onMarkWrong,
   onMarkCorrect,
-  isFromChat
+  isFromChat,
+  setShowCompletion,
+  isStudyNote,
 }) => {
   const router = useRouter();
   const isFirst = currentIndex === 0;
@@ -65,7 +69,10 @@ const FlashTestFooter: React.FC<Props> = ({
           </button>
 
           {/* Counter */}
-          <div className="text-lg font-semibold text-gray-700" aria-live="polite">
+          <div
+            className="text-lg font-semibold text-gray-700"
+            aria-live="polite"
+          >
             {currentIndex + 1}/{total}
           </div>
 

@@ -38,7 +38,7 @@ export default function DetailsHeader({
             <ChevronLeft size={24} />
           </button>
         )}
-        <span className="text-sm text-white border  border-[#FFFFFF] bg-transparent px-3 py-1 rounded">
+        <span className="text-sm text-white border  border-[#FFFFFF] bg-transparent px-3 py-1 rounded capitalize">
           {title}
         </span>
       </div>
