@@ -48,10 +48,10 @@ const CommunityHeader: React.FC = () => {
           </div>
 
           <Button
-            type="primary"
+         
             icon={<FiPlus className="w-4 h-4" />}
             onClick={() => setIsModalOpen(true)}
-            className="bg-blue-600 hover:bg-blue-700 border-blue-600 hover:border-blue-700 rounded text-sm font-medium !h-10 px-4 ml-4"
+            className="!bg-primary !text-white !border-0  !h-10 px-4 ml-4"
           >
             New Post
           </Button>

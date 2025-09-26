@@ -83,7 +83,7 @@ const SideBar: React.FC = () => {
           {studyGroups.map((group) => (
             <Card 
               key={group.id} 
-              className="!p-5 hover:shadow-md transition-shadow cursor-pointer !border-t-0 !border-l-0 !border-r-0 !border-b border-gray-100"
+              className="md:!p-2 lg:!p-5 hover:shadow-md transition-shadow cursor-pointer !border-t-0 !border-l-0 !border-r-0 !border-b border-gray-100"
               bodyStyle={{ padding: 0 }}
             >
               <div className="flex items-center justify-between !gap-2.5">
