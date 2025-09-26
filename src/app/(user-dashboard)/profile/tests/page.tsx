@@ -1,7 +1,7 @@
-import TestQuizzersPage from "@/components/ui/user-dashboard-pages/Test-Quizzers-Page/TestQuizzersPage";
+import TestPageMain from "@/components/ui/user-dashboard-pages/test-page/TestPageMain";
 
 import React from "react";
 
 export default function page() {
-  return <TestQuizzersPage />;
+  return <TestPageMain />;
 }

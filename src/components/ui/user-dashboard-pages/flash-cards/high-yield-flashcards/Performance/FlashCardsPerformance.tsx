@@ -1,8 +1,8 @@
 "use client";
 
 import { Card } from "antd";
-import { CircularProgressChart } from "../../../Test-Quizzers-Page/high-yield-questions-page/performace-tab/CircularProgressChart";
-import { PerformanceLegend } from "../../../Test-Quizzers-Page/high-yield-questions-page/performace-tab/PerformanceLegend";
+import { CircularProgressChart } from "../../../../old-components/Old-Test-Quizzers-Page/high-yield-questions-page/performace-tab/CircularProgressChart";
+import { PerformanceLegend } from "../../../../old-components/Old-Test-Quizzers-Page/high-yield-questions-page/performace-tab/PerformanceLegend";
 import MobileTabHeader from "@/components/shared/MobileTabHeader";
 
 const generatePerformanceData = () => [

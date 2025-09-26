@@ -1,0 +1,71 @@
+import React, { useState } from "react";
+import TestHeader from "../TestHeader";
+
+export default function PreparationTab() {
+  const [selectedTopic, setSelectedTopic] = useState(null);
+  const topics = [
+    { id: 1, name: "Cardiovascular", questions: 85 },
+    { id: 2, name: "Respiratory", questions: 75 },
+    { id: 3, name: "Neurological", questions: 85 },
+    { id: 4, name: "Pharmacology", questions: 110 },
+    { id: 5, name: "Maternal Health", questions: 85 },
+    { id: 6, name: "Pediatrics", questions: 85 },
+    { id: 7, name: "Medical-Surgical", questions: 85 },
+    { id: 8, name: "Mental Health", questions: 85 },
+  ];
+  return (
+    <div>
+      <TestHeader
+        title="Select a Topic to Practice"
+        subtitle="Choose from our comprehensive list of NCLEX topic to focus your study."
+      />
+      {/* Topic Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {topics.map((topic: any) => (
+          <button
+            key={topic.id}
+            onClick={() => setSelectedTopic(topic.id)}
+            className={`
+              relative p-6 rounded-lg border-2 transition-all duration-200 text-left
+              bg-white hover:shadow-md
+              ${
+                selectedTopic === topic.id
+                  ? "border-blue-500 shadow-lg"
+                  : "border-gray-200 hover:border-gray-300"
+              }
+            `}
+          >
+            {/* Topic Content */}
+            <div className="space-y-3">
+              <h3 className="font-semibold text-gray-900 text-lg leading-tight">
+                {topic.name}
+              </h3>
+              <p className="text-gray-500 text-sm">
+                {topic.questions} Questions
+              </p>
+            </div>
+
+            {/* Selection Indicator */}
+            {selectedTopic === topic.id && (
+              <div className="absolute top-3 right-3">
+                <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
+                  <svg
+                    className="w-3 h-3 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
+            )}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}

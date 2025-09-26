@@ -19,7 +19,11 @@ export interface MenuItem {
   subtitle?: string;
 }
 export const icon = (src: string, alt: string, size = 25) => (
-  <img src={src} alt={alt} className={`h-[${size}px] overflow-hidden  object-cover`} />
+  <img
+    src={src}
+    alt={alt}
+    className={`h-[${size}px] overflow-hidden  object-cover`}
+  />
 );
 
 export const menus: Record<string, MenuItem[]> = {
@@ -30,9 +34,9 @@ export const menus: Record<string, MenuItem[]> = {
       icon: icon("/assets/sidebar-icons/home-icon.svg", "home"),
     },
     {
-      key: "/profile/nurse-q",
-      label: "Nurse Q",
-      icon: icon("/assets/sidebar-icons/chatbot-icon.svg", "chatbot"),
+      key: "/profile/community",
+      label: "Community",
+      icon: icon("/assets/sidebar-icons/community-icon.svg", "community"),
     },
   ],
   studyTools: [

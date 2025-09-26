@@ -1,4 +1,4 @@
-import TestQuestionPageMain from "@/components/ui/user-dashboard-pages/Test-Quizzers-Page/high-yield-questions-page/test-question-page/TestQuestionPageMain";
+import TestQuestionPageMain from "@/components/ui/old-components/Old-Test-Quizzers-Page/high-yield-questions-page/test-question-page/TestQuestionPageMain";
 
 import React from "react";
 interface PageProps {
