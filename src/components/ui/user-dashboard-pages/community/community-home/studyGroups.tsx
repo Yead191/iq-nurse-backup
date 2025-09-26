@@ -47,7 +47,7 @@ const StudyGroups: React.FC = () => {
           <h2 className="text-base font-medium text-gray-800">
             My Study Groups
           </h2>
-          <Button type="link" className="text-blue-600 font-medium p-0 text-sm">
+          <Button type="link" href='/profile/group/my-groups' className="text-blue-600 font-medium p-0 text-sm">
             View All
           </Button>
         </div>

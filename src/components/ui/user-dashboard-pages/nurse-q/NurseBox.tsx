@@ -20,9 +20,9 @@ export default function NurseBox({tabs,setActiveTab,activeTab}:{tabs: {
           <img
             src={tab?.iconImg}
             alt=""
-            className=" lg:size-10 size-6 object-contain"
+            className=" lg:size-6 size-6 object-contain"
           />
-          <p className="lg:text-base text-xs font-medium">{tab?.title}</p>
+          <p className="lg:text-sm text-xs font-medium">{tab?.title}</p>
         </div>
       ))}
     </div>

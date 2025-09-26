@@ -33,7 +33,7 @@ const NurseChat = () => {
       <div className=" h-full flex flex-col relative ">
         {/* Scrollable content */}
         <div className=" sticky w-full  bottom-0 bg-white ">
-          <SearchInput setIsType={setTyping} />
+          <SearchInput isPopUp={true} setIsType={setTyping} />
         </div>
         <div className="flex-1 overflow-y-auto container mx-auto lg:p-8 p-2">
 

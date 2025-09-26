@@ -34,7 +34,7 @@ export const menus: Record<string, MenuItem[]> = {
       icon: icon("/assets/sidebar-icons/home-icon.svg", "home"),
     },
     {
-      key: "/profile/community",
+      key: "/profile/community-home",
       label: "Community",
       icon: icon("/assets/sidebar-icons/community-icon.svg", "community"),
     },
