@@ -26,7 +26,7 @@ const FlashTestFooter: React.FC<Props> = ({
   isFlipped,
   onMarkWrong,
   onMarkCorrect,
-  isFromChat
+  isFromChat,
   setShowCompletion,
   isStudyNote,
 }) => {
@@ -102,7 +102,6 @@ const FlashTestFooter: React.FC<Props> = ({
           <button
             type="button"
             aria-label="Finish test"
-
             onClick={
               isStudyNote
                 ? () => setShowCompletion(true)
@@ -110,7 +109,7 @@ const FlashTestFooter: React.FC<Props> = ({
                     router.push(
                       isFromChat?`/profile/group/${isFromChat}`: "/profile/flash-cards/high-yield-flashcards/create-test/test-result"
                     )
-            }
+                  }
             className="px-4 h-12 rounded-lg flex items-center justify-center bg-[#003877] text-white font-medium cursor-pointer"
           >
             Done
