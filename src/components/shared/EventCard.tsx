@@ -5,6 +5,7 @@ import {
   GlobalOutlined,
   VideoCameraAddOutlined,
 } from "@ant-design/icons";
+import { Calendar } from "lucide-react";
 
 const { Title, Text } = Typography;
 
@@ -42,10 +43,10 @@ export const EventCard = ({
         border: "none",
         borderRadius: 12,
         marginBottom: 12,
-        borderLeft: `4px solid ${avatarColor}`,
+        // borderLeft: `4px solid ${avatarColor}`,
       }}
     >
-      <div
+      {/* <div
         style={{
           display: "flex",
           justifyContent: "space-between",
@@ -91,20 +92,38 @@ export const EventCard = ({
             }}
           />
         </Dropdown>
-      </div>
+      </div> */}
       <div style={{ flex: 1 }}>
-        <Title
-          level={5}
-          style={{ margin: 0, marginBottom: 4, fontWeight: 600 }}
-        >
-          {title}
-        </Title>
-        <Text
+        <div className="flex justify-between items-center">
+          <Title
+            level={5}
+            style={{ margin: 0, marginBottom: 4, fontWeight: 600 }}
+          >
+            {title}
+          </Title>
+          <Dropdown
+            menu={{ items: dropdownItems }}
+            placement="bottomRight"
+            trigger={["click"]}
+          >
+            <Button
+              type="text"
+              icon={<MoreOutlined />}
+              size="small"
+              style={{
+                color: "#8c8c8c",
+                border: "none",
+                boxShadow: "none",
+              }}
+            />
+          </Dropdown>
+        </div>
+        {/* <Text
           type="secondary"
           style={{ fontSize: 14, lineHeight: 0.8, color: "#7B7B7B" }}
         >
           {description}
-        </Text>
+        </Text> */}
 
         <div
           style={{
@@ -114,12 +133,13 @@ export const EventCard = ({
             marginTop: 12,
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-            <ClockCircleOutlined style={{ fontSize: 12, color: "#8c8c8c" }} />
-            <Text style={{ fontSize: 12, color: "#7B7B7B" }}>{timeRange}</Text>
+          <div className="flex items-center gap-2 text-[10px] md:text-[12px]">
+            <Calendar size={10} style={{ fontSize: 10, color: "#8c8c8c" }} />
+            <p className="">Wed, 05 Apr 2025,</p>
+            <p className="text-[#7B7B7B] ">{timeRange}</p>
           </div>
 
-          <Tag
+          {/* <Tag
             icon={<VideoCameraAddOutlined />}
             color="default"
             style={{
@@ -132,7 +152,7 @@ export const EventCard = ({
             }}
           >
             {status}
-          </Tag>
+          </Tag> */}
         </div>
       </div>
     </div>
