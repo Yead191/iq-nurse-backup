@@ -19,8 +19,8 @@ import CustomNode from "./CustomNode";
 type Props = {
   nodes: Node[];
   edges: Edge[];
-  setNodes: React.Dispatch<React.SetStateAction<Node[]>>;
-  setEdges: React.Dispatch<React.SetStateAction<Edge[]>>;
+  setNodes: (updater: (prev: Node[]) => Node[]) => void;
+  setEdges: (updater: (prev: Edge[]) => Edge[]) => void;
   onConnect?: OnConnect;
 };
 

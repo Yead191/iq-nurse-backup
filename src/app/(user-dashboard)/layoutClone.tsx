@@ -22,7 +22,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/clinicals",
     "/profile/patient-assessment",
     "/profile/clinical-calculator",
-    "/profile/content-map",
+    "/profile/concept-map",
     "/profile/body-system",
     "/profile/community",
     "/profile/body-system",

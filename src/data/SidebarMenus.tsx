@@ -131,8 +131,8 @@ export const menus: Record<string, MenuItem[]> = {
       icon: icon("/assets/sidebar-icons/template-icon.svg", "template"),
     },
     {
-      key: "/profile/content-map",
-      label: "Content Map",
+      key: "/profile/concept-map",
+      label: "Concept Map",
       icon: icon("/assets/sidebar-icons/content-map-icon.svg", "map"),
       tag: "Coming Soon",
     },

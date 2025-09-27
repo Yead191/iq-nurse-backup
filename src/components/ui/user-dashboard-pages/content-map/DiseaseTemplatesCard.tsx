@@ -11,7 +11,7 @@ interface cardType {
 
 const DiseaseTemplatesCard = ({items}:cardType) => {
     return (
-        <div className='w-full'>
+        <div className='w-full h-full'>
             <div className="w-full  bg-white rounded-lg  border border-gray-50 shadow-lg p-6  mx-auto text-center">
                 {/* Icon Circle */}
                 <div className="w-14 h-14 mx-auto mb-3 rounded-full border border-[#003877] bg-[#B8C7D9] flex items-center justify-center">
