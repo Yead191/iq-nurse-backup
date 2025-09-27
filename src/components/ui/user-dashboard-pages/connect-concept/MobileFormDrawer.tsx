@@ -36,23 +36,23 @@ export default function MobileFormDrawer({
 }: MobileNotesDrawerProps) {
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 bg-white border-t rounded-t-2xl transition-transform duration-300 ease-in-out ${
+      className={`fixed bottom-0 left-0 right-0 bg-white  transition-transform duration-300 ease-in-out ${
         showForm ? "translate-y-0" : "translate-y-full"
       }`}
       style={{ height: "90vh" }}
     >
       <div
         onClick={onToggleNotes}
-        className="p-4 border-b flex items-center justify-between"
+        className="p-4 border-b border-gray-300  rounded-t-2xl bg-gray-100 flex items-center justify-between"
       >
         <h3 className="text-lg font-semibold text-gray-900">
           Tabs Information
         </h3>
-        <Button size="small">
+        <Button size="small" className="!bg-primary !text-white">
           <ChevronDown className="w-4 h-4" />
         </Button>
       </div>
-      <div className="p-4 max-h-[calc(100vh-250px)] overflow-y-auto ">
+      <div className="p-4 max-h-[calc(100vh-240px)] overflow-y-auto ">
         <ConceptTypeForm setFormData={setFormData} onAddNode={addConceptNode} />
       </div>
     </div>
