@@ -2,19 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import {
-  StickyNote,
-  ChevronLeft,
-  ChevronRight,
-  Share,
-  Bookmark,
-  Share2,
-  ChevronUp,
-  ChevronDown,
-} from "lucide-react";
+import { StickyNote, Share, Bookmark, Share2, ChevronUp } from "lucide-react";
 import { BodySystem, bodySystems } from "@/data/bodySystemData";
 import CategoryButtons from "../patient-assessment/CategoryButtons";
-import AnatomyImageDisplay from "./AnatomyImageDisplay";
 import SystemContentPanel from "./SystemContentPanel";
 import BodySilhouetteCard from "./BodySilhouetteCard";
 import { Button, Grid } from "antd";
@@ -137,36 +127,6 @@ export default function BodySystemMain() {
         <div className="relative  flex flex-col">
           {/* Main Content Area */}
           <div className="flex-1 relative overflow-hidden">
-            {/* <div className="h-full flex items-center justify-center p-4 bg-white">
-              <Image
-                src={
-                  selectedSystem.images[currentImageIndex] || "/placeholder.svg"
-                }
-                alt={`${selectedSystem.title} anatomy`}
-                width={400}
-                height={600}
-                className="max-w-full max-h-full object-contain"
-              />
-
-              {selectedSystem.images.length > 1 && (
-                <>
-                  <Button
-                    size="small"
-                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white"
-                    onClick={prevImage}
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </Button>
-                  <Button
-                    size="small"
-                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white"
-                    onClick={nextImage}
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </Button>
-                </>
-              )}
-            </div> */}
             <BodySilhouetteCard
               selectedSystem={selectedSystem}
               currentImageIndex={currentImageIndex}

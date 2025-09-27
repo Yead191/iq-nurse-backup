@@ -24,7 +24,13 @@ type Props = {
   onConnect?: OnConnect;
 };
 
-const ConceptFlow = ({ nodes, edges, setNodes, setEdges, onConnect }: Props) => {
+const ConceptFlow = ({
+  nodes,
+  edges,
+  setNodes,
+  setEdges,
+  onConnect,
+}: Props) => {
   const onNodesChange: OnNodesChange = useCallback(
     (changes) => setNodes((snapshot) => applyNodeChanges(changes, snapshot)),
     [setNodes]
@@ -44,7 +50,7 @@ const ConceptFlow = ({ nodes, edges, setNodes, setEdges, onConnect }: Props) => 
   );
 
   return (
-    <div className="h-[calc(100vh-110px)] w-full">
+    <div className="h-[calc(100vh-260px)] lg:h-[calc(100vh-110px)] w-full">
       <ReactFlow
         nodes={nodes}
         edges={edges}

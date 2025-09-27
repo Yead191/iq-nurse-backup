@@ -4,8 +4,8 @@ import React from 'react';
 
 const SidebarTabs = ({ tabs, activeTabId, createTab, switchTab }: any) => {
     return (
-        <div>
-            <aside className="border-r border-gray-300 bg-white">
+        <div className='hidden md:block'>
+            <aside className="border-r border-gray-300 bg-white h-full ">
                 <div className="p-3 border-b border-gray-300 flex items-center justify-between">
                     <span className="font-semibold text-sm">Disease Templates</span>
                     <button
