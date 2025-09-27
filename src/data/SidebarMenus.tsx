@@ -150,7 +150,7 @@ export const menus: Record<string, MenuItem[]> = {
     {
       key: "/profile/care-plans",
       label: "Care Plans",
-      icon: icon("/assets/sidebar-icons/care-plans.svg", "care-plans",20),
+      icon: icon("/assets/sidebar-icons/care-plans-icon.svg", "care-plans", 20),
       tag: "New",
     },
     {
