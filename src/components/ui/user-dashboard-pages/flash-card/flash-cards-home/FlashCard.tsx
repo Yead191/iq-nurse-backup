@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import FlashCardBanner from "./FlashCardBanner";
 import { IoMdAdd, IoMdCard } from "react-icons/io";
 import { IoAnalytics } from "react-icons/io5";
+import DeskFolder from "../desk-folder/DeskFolder";
 
 export const FlashCard = () => {
     const searchParams = useSearchParams();
@@ -29,7 +30,7 @@ export const FlashCard = () => {
 
     const tabs = [
         { id: "1", label: "Study Desk", icon:  <IoMdAdd size={22} /> , component: <FlashCardBanner  /> },
-        { id: "2", label: "My Decks", icon:  <IoAnalytics  size={22} /> , component: <FlashCardBanner  /> },
+        { id: "2", label: "My Decks", icon:  <IoAnalytics  size={22} /> , component: <DeskFolder  /> },
     ];
 
     return (
@@ -41,9 +42,9 @@ export const FlashCard = () => {
                 isAiEnhanced={false}
             />
 
-            <div className='flex flex-col lg:flex-row gap-8 '>
+            <div className='flex flex-col lg:flex-row '>
                 <div className='w-full lg:w-1/4 2xl:w-1/6  p-1  flex justify-center items-start   '>
-                    <div className="flex md:flex-col gap-4 bg-white shadow-xl h-[calc(100%)]   w-full p-3 pb-12 border border-gray-100">
+                    <div className="flex md:flex-col gap-4 bg-white md:shadow-xl h-[calc(100%)]   w-full md:p-3 pb-12 border border-gray-100">
                         {tabs.map((tab) => (
                             <div
                                 key={tab.id}
