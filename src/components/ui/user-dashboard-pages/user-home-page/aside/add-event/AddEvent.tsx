@@ -65,7 +65,7 @@ export default function AddEvent() {
             Add New Event
           </Button>
         </div>
-        <div className="w-full">
+        <div className="w-full space-y-4">
           <TasksSection />
           <ClassesSection />
           <AssignmentSection />

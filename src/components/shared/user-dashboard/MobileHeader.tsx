@@ -60,7 +60,7 @@ export default function MobileHeader() {
     <header
       style={{
         border: "none",
-        background: "#003877",
+        // background: "#003877",
       }}
     >
       <div className="w-full max-w-[640px] mx-auto px-3 py-5 flex flex-col gap-3">
@@ -94,7 +94,7 @@ export default function MobileHeader() {
                   priority
                   unoptimized
                 />
-                <span className="text-white font-semibold">IQ-Nurse</span>
+                <span className=" font-semibold">IQ-Nurse</span>
               </div>
             </Link>
           ) : (
@@ -124,7 +124,7 @@ export default function MobileHeader() {
             <Badge count={4} size="small">
               <Button
                 type="text"
-                icon={<BellIcon style={{ fontSize: 20, color: "white" }} />}
+                icon={<BellIcon style={{ fontSize: 20,  }} />}
                 aria-label="Notifications"
               />
             </Badge>
@@ -137,7 +137,7 @@ export default function MobileHeader() {
             <Link href={"/profile/account"}>
               <Button
                 type="text"
-                icon={<UserRoundCog style={{ fontSize: 20, color: "white" }} />}
+                icon={<UserRoundCog style={{ fontSize: 20,  }} />}
                 aria-label="Bookmarks"
               />
             </Link>
@@ -159,7 +159,7 @@ export default function MobileHeader() {
             prefix={<SearchOutlined />}
             suffix={<VoiceToText setText={setText} />}
             allowClear
-            style={{ borderRadius: 6, height: 44 }}
+            style={{ borderRadius: 6, height: 44, backgroundColor:"#F6F7F8" }}
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
