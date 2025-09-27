@@ -148,6 +148,12 @@ export const menus: Record<string, MenuItem[]> = {
       tag: "New",
     },
     {
+      key: "/profile/care-plans",
+      label: "Care Plans",
+      icon: icon("/assets/sidebar-icons/care-plans.svg", "care-plans",20),
+      tag: "New",
+    },
+    {
       key: "/profile/tests",
       label: "Test & Quizzers",
       icon: icon("/assets/sidebar-icons/test-icon.svg", "test"),
