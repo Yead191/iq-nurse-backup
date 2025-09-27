@@ -11,7 +11,7 @@ import Footer from "@/components/shared/Footer";
 
 export default function HomePageLayout() {
   return (
-    <div>
+    <main>
       <BannerHome />
       <WhyJoinUsSection />
       <NCLEXSection />
@@ -21,6 +21,6 @@ export default function HomePageLayout() {
       <VisualNotesSection />
       <FeaturesSection />
       <Footer />
-    </div>
+    </main>
   );
 }
