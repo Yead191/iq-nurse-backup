@@ -130,12 +130,12 @@ export default function PostBox({post,setPosts}: {post: IPost,setPosts: React.Di
   return (
     <div key={post.id} className="bg-white mb-4 rounded-lg shadow-sm md:p-5 ">
           {/* Post Header */}
-          <div className="flex items-center justify-between p-4 pb-3">
-            <div className="flex items-center gap-1 !space-x-3">
+          <div className="flex items-center md:justify-between md:p-4 pb-3">
+            <div className="flex items-center gap-1 ">
               <Avatar size={40} src={post.avatar} />
               <div>
                 <div className="flex items-center space-x-2">
-                  <span className="font-semibold text-gray-900">{post.user}</span>
+                  <span className="font-semibold md:text-base text-sm text-gray-900">{post.user}</span>
                   <span className="text-gray-500 text-xs">@{post.username}</span>
                   <span className="text-gray-400">•</span>
                   <span className="text-gray-500 text-sm">{post.timeAgo}</span>
@@ -148,31 +148,31 @@ export default function PostBox({post,setPosts}: {post: IPost,setPosts: React.Di
           </div>
 
           {/* Post Content */}
-          <div className="px-4 pb-3">
-            <p className="text-gray-900 text-sm leading-relaxed whitespace-pre-line">
+          <div className="md:px-4 pb-3">
+            <p className="text-gray-900 md:text-sm text-[10px] leading-relaxed md:whitespace-pre-line ">
               {post.content}
             </p>
             <div className='flex items-center py-2.5 gap-3'>
                 <span className='flex items-center text-sm px-3.5 py-1.5 rounded-md text-gray-500 bg-gray-50'>
                     <FaRegEye />
-                    <span className=" md:text-xs text-[10px] ml-1">12k Views</span>
+                    <span className=" md:text-xs flex items-center gap-1.5 text-[10px] ml-1">12k <span className='md:block hidden'>Views</span></span>
                 </span>
                 <span className='flex items-center text-sm px-3.5 py-1.5 rounded-md text-gray-500 bg-gray-50'>
                     <AiOutlineLike />
-                    <span className=" md:text-xs text-[10px] ml-1">{post.likes} Likes</span>
+                    <span className=" md:text-xs flex items-center gap-1.5 text-[10px] ml-1">{post.likes} <span className='md:block hidden'></span></span>
                 </span>
                 <span className='flex items-center text-sm px-3.5 py-1.5 rounded-md text-gray-500 bg-gray-50'>
                     <MdOutlineComment />
-                    <span className=" md:text-xs text-[10px] ml-1">{post.comments} Comments</span>
+                    <span className=" md:text-xs flex items-center gap-1.5 text-[10px] ml-1">{post.comments} <span className='md:block hidden'>Comments</span></span>
                 </span>
                 <span className='flex items-center text-sm px-3.5 py-1.5 rounded-md text-gray-500 bg-gray-50'>
                     <IoMdSend />
-                    <span className=" md:text-xs text-[10px] ml-1">{post.shares} Shares</span>
+                    <span className=" md:text-xs flex items-center gap-1.5 text-[10px] ml-1">{post.shares} <span className='md:block hidden'>Shares</span></span>
                 </span>
             </div>
             <div className="flex flex-wrap gap-2 mt-3">
               {post.tags.map((tag, index) => (
-                <span key={index} className="text-xs bg-blue-200 text-blue-500 rounded-md p-2 hover:underline cursor-pointer">
+                <span key={index} className="md:text-xs text-[10px] bg-blue-200 text-blue-500 rounded-md p-2 hover:underline cursor-pointer">
                   {tag}
                 </span>
               ))}
@@ -210,7 +210,7 @@ export default function PostBox({post,setPosts}: {post: IPost,setPosts: React.Di
           {showComments[post.id] && (
             <div className="border-t border-gray-100">
               {/* Add Comment */}
-              <div className="p-4 border-b border-gray-100">
+              <div className="md:p-4 border-b border-gray-100">
                 <div className="flex space-x-3">
                   <Avatar size={32} src="/api/placeholder/32/32" />
                   <div className="flex-1">
@@ -250,7 +250,7 @@ export default function PostBox({post,setPosts}: {post: IPost,setPosts: React.Di
                             <span className="font-medium text-gray-900 text-sm">{comment.user}</span>
                             <span className="text-gray-500 text-xs">@{comment.username}</span>
                           </div>
-                          <p className="text-gray-800 text-sm">{comment.content}</p>
+                          <p className="text-gray-800 md:text-sm text-[10px]">{comment.content}</p>
                         </div>
                         
                         <div className="flex items-center space-x-4 mt-2 ml-1">

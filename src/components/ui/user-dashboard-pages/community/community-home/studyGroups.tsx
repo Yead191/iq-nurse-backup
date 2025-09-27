@@ -29,13 +29,13 @@ const StudyGroups: React.FC = () => {
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center space-x-2">
           <TeamOutlined className="text-3xl text-gray-800" />
-          <h1 className="md:text-3xl text-2xl font-semibold text-gray-800">Study Groups</h1>
+          <h1 className="md:text-3xl text-md font-semibold text-gray-800">Study Groups</h1>
         </div>
         <Button
           type="link"
           href='/profile/group/create-group'
           icon={<PlusOutlined />}
-          className="!bg-primary !text-white rounded-md h-10 px-4 !py-4font-medium"
+          className="!bg-primary !text-white rounded-md h-10 px-4 !py-4 !text-xs md:!text-sm font-medium"
         >
           Create New Group
         </Button>
@@ -59,12 +59,12 @@ const StudyGroups: React.FC = () => {
               key={group.id}
               className="!bg-[#4A6ECC] rounded-lg p-4 md:max-w-2xl text-white cursor-pointer hover:bg-blue-600 transition-colors duration-200"
             >
-              <h3 className="font-medium text-lg mb-2">
+              <h3 className="font-medium md:text-lg text-xs mb-2">
                 {group.name}
               </h3>
               <div className="flex items-center text-blue-100">
                 <div className="w-2 h-2 bg-white rounded-full mr-2"></div>
-                <span className="text-sm">
+                <span className="md:text-sm text-[10px]">
                   {group.newMessages} new messages
                 </span>
               </div>
