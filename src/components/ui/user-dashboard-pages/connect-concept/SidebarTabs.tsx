@@ -17,8 +17,8 @@ const SidebarTabs = ({ tabs, activeTabId, createTab, switchTab }: any) => {
                     </button>
                 </div>
 
-                <div className="p-2 border-b border-gray-300">
-                    <Input placeholder="Search" size="large" style={{ width: "100%" , height: 44 }} />
+                <div className="p-2 ">
+                    <Input placeholder="Search" size="large" style={{ width: "100%" , height: 40 }} />
                 </div> 
                 
                 <div className="p-2 space-y-2.5 overflow-y-auto h-[calc(100%-44px)]">
