@@ -16,7 +16,7 @@ interface RecentMapCardProps {
 }
 const RecentMapCard = ({ value }: RecentMapCardProps) => {
     return (
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-50 p-6 pb-2  mx-auto">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-50 p-6 pb-2  mx-auto w-full  h-full">
             {/* Concept Map Preview */}
             <div className="mb-4">
                 <Image src={value.imgUrl} alt="Concept Map Preview" width={800} height={134} className='object-cover' />
@@ -24,8 +24,8 @@ const RecentMapCard = ({ value }: RecentMapCardProps) => {
 
             {/* Title and Last Edited */}
             <div className="mb-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">{value.title}</h3>
-                <p className="text-sm text-gray-500">Last Edited: {value.lastEdited}</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-1">{value.title} </h3>
+                <p className="text-sm text-gray-500">Last Edited: {value.lastEdited} </p>
             </div>
 
             {/* Action Icons */}
