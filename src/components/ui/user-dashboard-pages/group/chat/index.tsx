@@ -38,7 +38,7 @@ const GroupChatPageInfo: React.FC<{ groupId: string }> = ({ groupId }) => {
 
                 {/* Left sidebar with user statuses */}
                 <UserStatusSidebar />
-                <div className="w-[calc(100%-170px)] h-[calc(100vh-90px)] overflow-y-auto relative ">
+                <div className="w-full md:w-[calc(100%-200px)] h-[calc(100vh-90px)] overflow-y-auto relative">
                     <Tabs
                         activeKey={activeTab}
                         onChange={setActiveTab}
