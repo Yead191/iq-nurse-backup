@@ -20,7 +20,6 @@ export default function MCQQuestion({
   explanation,
   mode
 }: MCQQuestionProps) {
-  const [showExplanation, setShowExplanation] = useState(false);
 
   const optionLabels = ["A", "B", "C", "D", "E"];
 
@@ -59,28 +58,7 @@ export default function MCQQuestion({
         })}
       </div>
 
-      {explanation && mode === "practice" && (
-        <div className="mt-6 border-t pt-4">
-          <button
-            onClick={() => setShowExplanation(!showExplanation)}
-            className="flex items-center space-x-2 text-orange-600 hover:text-orange-700 font-medium"
-          >
-            <Lightbulb className="w-4 h-4" />
-            <span>Explanation</span>
-            {showExplanation ? (
-              <ChevronUp className="w-4 h-4" />
-            ) : (
-              <ChevronDown className="w-4 h-4" />
-            )}
-          </button>
-
-          {showExplanation && (
-            <div className="mt-3 p-4 bg-orange-50 rounded-lg">
-              <p className="text-gray-700 leading-relaxed">{explanation}</p>
-            </div>
-          )}
-        </div>
-      )}
+      
     </div>
   );
 }
