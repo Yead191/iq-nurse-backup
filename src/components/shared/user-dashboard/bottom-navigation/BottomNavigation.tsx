@@ -2,15 +2,6 @@
 
 import type React from "react";
 import { useRouter, usePathname } from "next/navigation";
-import {
-  UserOutlined,
-  SettingOutlined,
-  DollarOutlined,
-  ContainerOutlined,
-  CreditCardOutlined,
-  FileTextOutlined,
-} from "@ant-design/icons";
-
 interface NavItem {
   key: string;
   icon: string;
@@ -48,9 +39,9 @@ export default function BottomNavigation({
       label: "Calendar",
     },
     {
-      key: "/profile/account",
-      icon: "/assets/icons/account-icon.svg",
-      label: "Account",
+      key: "/profile/community-home",
+      icon: "/assets/sidebar-icons/community-icon.svg",
+      label: "Community",
     },
   ];
 
@@ -71,7 +62,7 @@ export default function BottomNavigation({
 
   return (
     <div
-    className="fixed bottom-0 z-50 w-full"
+      className="fixed bottom-0 z-50 w-full"
       style={{
         backgroundColor: "white",
         borderTop: "0.1px solid #151515",

@@ -36,15 +36,17 @@ export default function FilterBar({ onSortChange, onTypeChange, onSearch }: Filt
   }
 
   return (
-    <div className="flex items-center gap-4 p-4 bg-gray-50">
+    <div className="flex lg:flex-row flex-col items-center gap-4 p-4 bg-gray-50"> 
+
+    <div className="flex  items-center gap-4  bg-gray-50"> 
       {/* Sort Select */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2"> 
         <span className="text-sm font-medium text-gray-700">Sort by:</span>
         <Select
           value={sortBy}
           onChange={handleSortChange}
-          style={{ width: 160, height: 54 }}
-          size="middle"
+          style={{  height: 54 }}
+           className="lg:w-48 w-32"
         >
           {sortOptions.map((option) => (
             <Option key={option.value} value={option.value}>
@@ -60,8 +62,8 @@ export default function FilterBar({ onSortChange, onTypeChange, onSearch }: Filt
         <Select
           value={type}
           onChange={handleTypeChange}
-          style={{ width: 120, height: 54 }}
-          size="middle"
+          style={{  height: 54 }}
+          className="lg:w-44 w-28"
         >
           {typeOptions.map((option) => (
             <Option key={option.value} value={option.value}>
@@ -71,15 +73,18 @@ export default function FilterBar({ onSortChange, onTypeChange, onSearch }: Filt
         </Select>
       </div>
 
+    </div>
+
       {/* Search Input */}
-      <div className="flex-1 max-w-xs">
+      <div className="flex-1 lg:max-w-lg w-full">
         <Input
           placeholder="Search maps..."
           value={searchValue}
           onChange={(e) => handleSearch(e.target.value)}
           prefix={<RiSearch2Line size={20} className="text-gray-400" />}
-          style={{ height: 54 }}
-          size="middle"
+          style={{ height: 54 }} 
+          className="w-full"
+        
           allowClear
         />
       </div>

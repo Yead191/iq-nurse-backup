@@ -66,3 +66,8 @@ export const connectionStyleOptions = [
         value: 'dotted',
     }, 
 ]
+
+export const CENTER_ID = "center-node";
+export const DEFAULT_CENTER_COLOR = "#A34F41";
+export const DEFAULT_RADIUS = 350;
+export const ANGLE_STEP_RAD = Math.PI / 4; // 45°

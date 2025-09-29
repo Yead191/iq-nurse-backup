@@ -21,11 +21,10 @@ const ContentMap = () => {
       setActiveTab(tabParam);
     }
   }, [tabParam]);
-  // console.log(user);
 
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
-    router.push(`/profile/content-map?tab=${tabId}`, { scroll: false });
+    router.push(`/profile/concept-map?tab=${tabId}`, { scroll: false });
   };
 
   const tabs = [
@@ -34,7 +33,6 @@ const ContentMap = () => {
       label: "Dashboard",
       icon: (
         <p>
-          {" "}
           <MdOutlineDashboard size={22} />{" "}
         </p>
       ),
@@ -45,7 +43,6 @@ const ContentMap = () => {
       label: "My Maps",
       icon: (
         <p>
-          {" "}
           <TbSitemap size={22} />{" "}
         </p>
       ),
@@ -56,7 +53,6 @@ const ContentMap = () => {
       label: "Shared",
       icon: (
         <p>
-          {" "}
           <HiOutlineUsers size={22} />{" "}
         </p>
       ),
@@ -74,16 +70,17 @@ const ContentMap = () => {
       />
 
       <div className="flex flex-col lg:flex-row gap-8 lg:h-[calc(100vh-100px)]">
-        <div className="w-full lg:w-1/6  p-1  flex justify-center items-start ">
-          <div className="flex flex-col gap-4 bg-white shadow-xl  w-full p-3 pb-12 border border-gray-100">
+        {/* Sidebar with Tabs */}
+        <div className="w-full lg:w-1/5 lg:p-3 flex flex-col   bg-white lg:shadow-xl rounded-lg">
+          <div className="lg:space-y-4 w-full flex lg:flex-col flex-row lg:items-start items-center px-1  ">
             {tabs.map((tab) => (
               <div
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id)}
-                className={`text-left px-4 py-3 rounded-lg font-medium transition-all flex items-center gap-4 cursor-pointer ${
+                className={`w-full text-left lg:px-4 px-4 py-3 rounded-lg font-medium transition-all flex items-center lg:gap-4 gap-2 cursor-pointer hover:bg-primary hover:text-white lg:text-[16px] text-sm ${
                   activeTab === tab.id
                     ? "bg-primary text-white shadow"
-                    : "bg-white text-[#6B6B6B] hover:bg-primary hover:text-white"
+                    : "bg-white text-[#6B6B6B]"
                 }`}
               >
                 <p> {tab.icon} </p> <p> {tab.label} </p>
@@ -92,8 +89,8 @@ const ContentMap = () => {
           </div>
         </div>
 
-        {/* Component Display */}
-        <div className="w-full lg:w-3/4 bg-white rounded-xl h-auto  overflow-y-auto">
+        {/* Main Content Area */}
+        <div className="w-full lg:w-4/5 bg-white rounded-xl h-auto overflow-y-auto p-4">
           {tabs.find((tab) => tab.id === activeTab)?.component}
         </div>
       </div>
