@@ -37,7 +37,7 @@ const ImageGallery = ({ images }: { images: string[] }) => {
       {displayImages.map((img, idx) => (
         <div
           key={idx}
-          className="relative aspect-square rounded-2xl overflow-hidden bg-gray-200"
+          className="relative aspect-square rounded-lg overflow-hidden bg-gray-200"
         >
           <img
             src={img}
@@ -60,7 +60,7 @@ const AudioMessage = ({ isOwn, avatar }: { isOwn: boolean; avatar?: string }) =>
   // For demonstration, let's use realistic duration and time values.
   // We'll use 0:37 as the audio duration and 10:42 AM as the message time.
   <div
-    className={`flex items-center rounded-2xl px-4 py-3 ${isOwn ? 'bg-[#2d6a8e] text-white' : 'bg-[#457c9e] text-white'
+    className={`flex items-center rounded-2xl px-4 py-3 ${isOwn ? 'bg-primary text-white' : 'bg-primary text-white'
       } max-w-md shadow-lg`}
   >
     <div className="relative mr-3 flex-shrink-0">
@@ -115,12 +115,11 @@ const ChatInterface = () => {
       user: 'You',
       initials: 'YU',
       images: [
-        'https://images.unsplash.com/photo-1540553016722-983e48a2cd10?w=400',
-        'https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?w=400',
-        'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400',
-        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400',
-        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400',
-        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400',
+        'https://padmanews24.com/wp-content/uploads/2024/03/mosque-of-modina.jpg',
+        'https://c1.wallpaperflare.com/preview/114/42/558/kabba-baitullah-mokka-baytulllah.jpg',
+        'https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWVjY2ElMjBrYWFiYXxlbnwwfHwwfHx8MA%3D%3D',
+        'https://i.pinimg.com/736x/91/7a/00/917a005741988dab42440121356c15d8.jpg',
+        'https://w0.peakpx.com/wallpaper/416/451/HD-wallpaper-la-ilaha-illa-allah-shahada-green-la-ilaha-illaallah-islam.jpg',
       ],
       content: 'Here are some photos, you were asking about. 😊',
       time: '3 days ago',
@@ -174,7 +173,7 @@ const ChatInterface = () => {
               {/* Avatar for non-own messages */}
               {!message.isOwn && message.type !== 'audio' && (
                 <Avatar
-                  className="bg-blue-600 text-white font-medium flex-shrink-0"
+                  className="bg-primary text-white font-medium flex-shrink-0"
                   size={40}
                 >
                   {message.initials}
@@ -193,7 +192,7 @@ const ChatInterface = () => {
                 {message.type === 'text' ? (
                   <div
                     className={`p-3 rounded-lg ${message.isOwn
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-primary text-white'
                       : 'bg-white border border-gray-200'
                       }`}
                   >
@@ -209,7 +208,7 @@ const ChatInterface = () => {
                     {message.content && (
                       <div
                         className={`p-3 rounded-lg ${message.isOwn
-                          ? 'bg-blue-600 text-white'
+                          ? 'bg-primary text-white'
                           : 'bg-white border border-gray-200'
                           }`}
                       >
@@ -232,7 +231,7 @@ const ChatInterface = () => {
               {/* Avatar for own messages */}
               {message.isOwn && message.type !== 'audio' && (
                 <Avatar
-                  className="bg-blue-600 text-white font-medium flex-shrink-0"
+                  className="bg-primary text-white font-medium flex-shrink-0"
                   size={40}
                 >
                   {message.initials}
