@@ -2,6 +2,7 @@ import React from 'react'
 import { LuMessagesSquare } from 'react-icons/lu'
 import TrendingCommunityPosts from './tranding-posts'
 import StudyGroups from './studyGroups'
+import TrendingPosts from '../../user-home-page/TrendingPosts'
 
 export default function CommunityHome() {
   return (
@@ -10,7 +11,9 @@ export default function CommunityHome() {
         <LuMessagesSquare />
         <h1>Community</h1>
       </div>
-      <TrendingCommunityPosts/>
+      <div className='max-w-5xl'>
+        <TrendingPosts/>
+      </div>
       <StudyGroups/>
     </div>
   )

@@ -7,6 +7,7 @@ export interface IPost {
   comments: number;
   isLiked?: boolean;
   avatar: string;
+  header: string;
 }
 
 
@@ -23,8 +24,9 @@ export const demoPosts = [
       username: 'Sarah_RN2025',
       avatar: 'https://img.freepik.com/premium-photo/happy-3d-business-man-transparent-white-background_457222-3029.jpg',
       timeAgo: '3h',
-      content: 'Posted: NCLEX-RN test attempt! My complete study strategy breakdown.\n\nAfter a semester of building competency, I finally conquered the NCLEX! Here is my detailed breakdown of what worked, what didn\'t, and the mindful preparation leading up to the actual event. My tips for all. \n#NCLEX #StudyTips',
+      content: '\n\nAfter a semester of building competency, I finally conquered the NCLEX! Here is my detailed breakdown of what worked, what didn\'t, and the mindful preparation leading up to the actual event. My tips for all. \n#NCLEX #StudyTips',
       likes: 156,
+      header:'Posted: NCLEX-RN test attempt! My complete study strategy breakdown.',
       comments: 24,
       shares: 12,
       bookmarks: 45,
@@ -39,6 +41,7 @@ export const demoPosts = [
           avatar: 'https://img.freepik.com/premium-photo/happy-3d-business-man-transparent-white-background_457222-3029.jpg',
           content: 'This is exactly what I was looking for! I\'m taking my NCLEX in 2 weeks and feeling super nervous. Your breakdown was very reassuring and helpful! Thanks for sharing! ❤️',
           timeAgo: '2h',
+          header:'Posted: NCLEX-RN test attempt! My complete study strategy breakdown.',
           likes: 12,
           isLiked: false,
           replies: [
@@ -61,6 +64,7 @@ export const demoPosts = [
           avatar: 'https://img.freepik.com/premium-photo/happy-3d-business-man-transparent-white-background_457222-3029.jpg',
           content: 'Can you give us some keywords, the where you purchased books? Looking your asked to use the first night in Chicago? I also think you if it interested in people you ask me about them? ight for you!',
           timeAgo: '1h',
+          header:'Posted: NCLEX-RN test attempt! My complete study strategy breakdown.',
           likes: 3,
           isLiked: false,
           replies: []
@@ -73,7 +77,7 @@ export const demoPosts = [
       username: 'Sarah_RN2025',
       avatar: 'https://img.freepik.com/premium-photo/happy-3d-business-man-transparent-white-background_457222-3029.jpg',
       timeAgo: '5h',
-      content: 'Posted: NCLEX-RN test attempt! My complete study strategy breakdown.\n\nAfter a semester of building competency, I finally conquered the NCLEX! Here is my detailed breakdown of what worked, what didn\'t, and the mindful preparation leading up to the actual event. My tips for all. \n#NCLEX #StudyTips',
+      content: 'After a semester of building competency, I finally conquered the NCLEX! Here is my detailed breakdown of what worked, what didn\'t, and the mindful preparation leading up to the actual event. My tips for all. \n#NCLEX #StudyTips',
       likes: 89,
       comments: 18,
       shares: 7,
@@ -81,6 +85,7 @@ export const demoPosts = [
       isLiked: false,
       isBookmarked: true,
       tags: ['NCLEX', 'Study Tips'],
+      header:'Posted: NCLEX-RN test attempt! My complete study strategy breakdown.',
       commentsData: []
     },
     {
@@ -88,8 +93,9 @@ export const demoPosts = [
       user: 'Sarah',
       username: 'Sarah_RN2025',
       avatar: 'https://img.freepik.com/premium-photo/happy-3d-business-man-transparent-white-background_457222-3029.jpg',
+      header:'Posted: NCLEX-RN test attempt! My complete study strategy breakdown.',
       timeAgo: '5h',
-      content: 'Posted: NCLEX-RN test attempt! My complete study strategy breakdown.\n\nAfter a semester of building competency, I finally conquered the NCLEX! Here is my detailed breakdown of what worked, what didn\'t, and the mindful preparation leading up to the actual event. My tips for all. \n#NCLEX #StudyTips',
+      content: 'After a semester of building competency, I finally conquered the NCLEX! Here is my detailed breakdown of what worked, what didn\'t, and the mindful preparation leading up to the actual event. My tips for all. \n#NCLEX #StudyTips',
       likes: 89,
       comments: 18,
       shares: 7,
@@ -105,7 +111,8 @@ export const demoPosts = [
       username: 'Sarah_RN2025',
       avatar: 'https://img.freepik.com/premium-photo/happy-3d-business-man-transparent-white-background_457222-3029.jpg',
       timeAgo: '5h',
-      content: 'Posted: NCLEX-RN test attempt! My complete study strategy breakdown.\n\nAfter a semester of building competency, I finally conquered the NCLEX! Here is my detailed breakdown of what worked, what didn\'t, and the mindful preparation leading up to the actual event. My tips for all. \n#NCLEX #StudyTips',
+      header:'Posted: NCLEX-RN test attempt! My complete study strategy breakdown.',
+      content: 'After a semester of building competency, I finally conquered the NCLEX! Here is my detailed breakdown of what worked, what didn\'t, and the mindful preparation leading up to the actual event. My tips for all. \n#NCLEX #StudyTips',
       likes: 89,
       comments: 18,
       shares: 7,
@@ -121,7 +128,8 @@ export const demoPosts = [
       username: 'Sarah_RN2025',
       avatar: 'https://img.freepik.com/premium-photo/happy-3d-business-man-transparent-white-background_457222-3029.jpg',
       timeAgo: '5h',
-      content: 'Posted: NCLEX-RN test attempt! My complete study strategy breakdown.\n\nAfter a semester of building competency, I finally conquered the NCLEX! Here is my detailed breakdown of what worked, what didn\'t, and the mindful preparation leading up to the actual event. My tips for all. \n#NCLEX #StudyTips',
+      header:'Posted: NCLEX-RN test attempt! My complete study strategy breakdown.',
+      content: 'After a semester of building competency, I finally conquered the NCLEX! Here is my detailed breakdown of what worked, what didn\'t, and the mindful preparation leading up to the actual event. My tips for all. \n#NCLEX #StudyTips',
       likes: 89,
       comments: 18,
       shares: 7,
