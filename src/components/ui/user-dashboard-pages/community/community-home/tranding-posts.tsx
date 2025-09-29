@@ -61,7 +61,7 @@ const TrendingCommunityPosts: React.FC = () => {
         {posts.map((post) => (
           <Card
             key={post.id}
-            className="bg-white rounded-xl !border-none hover:shadow-md  duration-200 md:!p-2 p-1.5"
+            className="bg-white rounded-xl !border-none hover:shadow-md  duration-200 md:!p-2 p-0"
           >
             {/* Post Header */}
             <div className="flex items-center mb-3 !gap-2.5">
@@ -82,7 +82,7 @@ const TrendingCommunityPosts: React.FC = () => {
 
             {/* Post Content */}
             <div className="mb-4">
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <p className="text-gray-700 md:text-sm text-xs leading-relaxed">
                 {post.content}
               </p>
             </div>

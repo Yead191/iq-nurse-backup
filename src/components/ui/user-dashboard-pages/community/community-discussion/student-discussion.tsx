@@ -11,7 +11,7 @@ const StudentDiscussion: React.FC = () => {
  
    
   return (
-    <div className="h-screen overflow-y-scroll scroll-smooth">
+    <div className="overflow-y-scroll scroll-smooth">
       {posts.map((post) => (
         <PostBox key={post.id} post={post} setPosts={setPosts} />
       ))}

@@ -29,7 +29,7 @@ const Card = ({ items }: cardType) => {
                 <h2 className="text-xl font-semibold text-gray-900 mb-3">{items?.title}</h2>
 
                 {/* Description */}
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 px-2 w-1/2 mx-auto">
+                <p className="text-gray-600 text-sm leading-relaxed mb-6 px-2 lg:w-1/2 mx-auto">
                    {items?.description}
                 </p>
 
