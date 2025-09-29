@@ -1,7 +1,8 @@
 import { Button } from "antd";
+import Link from "next/link";
 
 export const SuccessGroup = () => {
-  
+
   return (
     <div className="flex flex-col items-center justify-center min-h-[400px] p-12 bg-white rounded-xl text-center">
       {/* Celebration Icon */}
@@ -20,17 +21,19 @@ export const SuccessGroup = () => {
 
       {/* Action Buttons */}
       <div className="flex gap-4 flex-wrap justify-center">
-        <Button
-          type="primary"
-          size="large"
-          className="bg-blue-500 border-blue-500 rounded-lg h-12 px-8 text-base font-medium"
-          onClick={() => {
-            // Navigate to group page
-            console.log("Navigate to my group");
-          }}
-        >
-          Go to My Group
-        </Button>
+        <Link href="/profile/group/555">
+          <Button
+            type="primary"
+            size="large"
+            className="bg-blue-500 border-blue-500 rounded-lg h-12 px-8 text-base font-medium"
+            onClick={() => {
+              // Navigate to group page
+              console.log("Navigate to my group");
+            }}
+          >
+            Go to My Group
+          </Button>
+        </Link>
 
         <Button
           size="large"
@@ -48,7 +51,7 @@ export const SuccessGroup = () => {
       <div className="absolute top-[20%] left-[15%] text-2xl opacity-30 animate-float">
         ✨
       </div>
-      
+
       <div className="absolute top-[30%] right-[20%] text-xl opacity-30 animate-float-reverse">
         🎊
       </div>

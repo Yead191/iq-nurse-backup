@@ -32,7 +32,7 @@ const UserStatusSidebar = () => {
                 <div className="space-y-2">
                     {onlineUsers.map(user => (
                         <div key={user.id} className="flex items-center gap-2">
-                            <Avatar size="large" style={{ backgroundColor: '#52c41a' }}>
+                            <Avatar size="default" style={{ backgroundColor: '#52c41a' }}>
                                 {user.name.charAt(0)}
                             </Avatar>
                             <span>{user.name}</span>
@@ -46,7 +46,7 @@ const UserStatusSidebar = () => {
                 <div className="space-y-2">
                     {offlineUsers.map(user => (
                         <div key={user.id} className="flex items-center gap-2">
-                            <Avatar size="large" style={{ backgroundColor: '#ddd' }}>
+                            <Avatar size="default" style={{ backgroundColor: '#ddd' }}>
                                 {user.name.charAt(0)}
                             </Avatar>
                             <span>{user.name}</span>
@@ -60,7 +60,7 @@ const UserStatusSidebar = () => {
                 <div className="space-y-2">
                     {activeUsers.map(user => (
                         <div key={user.id} className="flex items-center gap-2">
-                            <Avatar size="large" style={{ backgroundColor: '#1890ff' }}>
+                            <Avatar size="default" style={{ backgroundColor: '#1890ff' }}>
                                 {user.name.charAt(0)}
                             </Avatar>
                             <span>{user.name}</span>

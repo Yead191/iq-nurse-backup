@@ -73,16 +73,24 @@ export const StepperForm: React.FC<{
       <div
         style={{
           boxShadow: "4px 4px 24px 0px rgba(0, 0, 0, 0.14)",
-          borderRadius: 12
+          borderRadius: 12,
+          overflowX: "auto",
         }}
-        className="py-2 pt-8">
-        <Steps
-          current={current}
-          responsive={false}
-          items={steps.map((s) => ({ title: s.title }))}
-          direction="horizontal"
-          labelPlacement="vertical"
-        />
+        className="py-2 pt-8"
+      >
+        <div className="sm:min-w-0 !px-3 !my-4  !mb-8 ">
+          <Steps
+            current={current}
+            responsive={false}
+            items={steps.map((s) => ({
+              title: <span className="hidden md:block">{s.title}</span>,
+            }))}
+            direction={typeof window !== "undefined" && window.innerWidth < 640 ? "vertical" : "horizontal"}
+            labelPlacement={typeof window !== "undefined" && window.innerWidth < 640 ? "vertical" : "horizontal"}
+            className="!gap-0"
+            
+          />
+        </div>
       </div>
 
       <div
@@ -90,7 +98,7 @@ export const StepperForm: React.FC<{
           boxShadow: "4px 4px 24px 0px rgba(0, 0, 0, 0.14)",
           borderRadius: 12
         }}
-        className="mt-4  bg-gray-50  max-h-[calc(100vh-350px)] overflow-auto ">
+        className="mt-4 pb-2 bg-gray-50  max-h-[calc(100vh-350px)] overflow-auto ">
         {steps[current]?.content}
 
         {
