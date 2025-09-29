@@ -20,7 +20,7 @@ const UserCalendar: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>(Views.MONTH);
   const [currentDate, setCurrentDate] = useState(new Date());
   const searchParams = useSearchParams();
-  console.log(searchParams.get("mode"));
+  // console.log(searchParams.get("mode"));
   useEffect(() => {
     const mode = searchParams.get("mode");
 

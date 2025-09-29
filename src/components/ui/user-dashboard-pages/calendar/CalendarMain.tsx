@@ -33,7 +33,7 @@ const CalendarMain = () => {
 
   const handleNewEventClick = () => {
     // Handle new event creation
-    console.log("New event clicked");
+    // console.log("New event clicked");
     setModalVisible(true);
   };
 

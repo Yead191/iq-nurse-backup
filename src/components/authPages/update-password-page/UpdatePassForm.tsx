@@ -17,7 +17,7 @@ export default function UpdatePassForm() {
   const [form] = Form.useForm();
   const router = useRouter();
   const onFinish = (values: any) => {
-    console.log("update pass values:", values);
+    // console.log("update pass values:", values);
     Cookies.remove("resetEmail");
     toast.success("Password Reset Successfully!");
     router.push("/auth/update-success");

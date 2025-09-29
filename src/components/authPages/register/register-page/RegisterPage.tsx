@@ -10,7 +10,7 @@ export default function RegisterPage() {
   const [form] = Form.useForm();
   const router = useRouter();
   const onFinish = (values: any) => {
-    console.log("Form values:", values);
+    // console.log("Form values:", values);
     toast.success("Registration successful!");
     router.push("/auth/register/country-selection");
   };

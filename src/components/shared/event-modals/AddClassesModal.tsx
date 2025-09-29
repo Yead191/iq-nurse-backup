@@ -77,7 +77,7 @@ export default function AddClassesModal({
       color: selectedColor,
       icon: selectedIcon,
     };
-    console.log("add classes Form Values:", formData);
+    // console.log("add classes Form Values:", formData);
     onClose();
     form.resetFields();
     setSelectedColor("");

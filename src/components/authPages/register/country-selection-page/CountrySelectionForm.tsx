@@ -18,7 +18,7 @@ export default function CountrySelectionForm() {
   );
   const router = useRouter();
   const onFinish = (values: any) => {
-    console.log("Form values:", values);
+    // console.log("Form values:", values);
     router.push("/auth/register/terms-condition");
   };
 

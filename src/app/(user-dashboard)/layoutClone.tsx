@@ -30,12 +30,17 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/group",
     "/profile/tests",
     "/profile/flash-card",
+    "/profile/my-notepad/note",
   ];
+  const hiddenBottomNav = ["/profile/my-notepad/note"];
 
   const singleHidePaths = ["/profile/patient-assessment", "/profile/group"];
   const oldHeaderPaths = ["/profile/home", "profile/group/create-group"];
 
   const shouldHide = hiddenPaths.some((prefix) => pathname.startsWith(prefix));
+  const bottomHide = hiddenBottomNav.some((prefix) =>
+    pathname.startsWith(prefix)
+  );
   // console.log(shouldHide, pathname);
   const oldHeader = oldHeaderPaths.some((prefix) => pathname === prefix);
   const singleHide = singleHidePaths.some((prefix) => pathname === prefix);
@@ -125,7 +130,9 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
             </ConfigProvider>
           </div>
         </div>
-        <div className="h-[94px] w-full  md:hidden">
+        <div
+          className={`h-[94px] w-full  md:hidden ${bottomHide ? "hidden" : ""}`}
+        >
           <BottomNavigation setIsMobileSidebarOpen={setIsMobileSidebarOpen} />
         </div>
       </div>

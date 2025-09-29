@@ -44,11 +44,11 @@ const AddEventsModal: React.FC<AddEventsModalProps> = ({
         case "Add a Tasks":
           // Handle tasks logic
           setTaskModalOpen(true);
-          console.log("task clicked");
+          // console.log("task clicked");
           break;
         case "Add Classes":
           // Handle classes logic
-          console.log("Classes clicked");
+          // console.log("Classes clicked");
           setClassesModalOpen(true);
           break;
         case "Add Assignment":

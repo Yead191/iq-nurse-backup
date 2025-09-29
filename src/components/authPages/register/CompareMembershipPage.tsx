@@ -97,7 +97,7 @@ export default function CompareMembershipPage() {
   const [showBanner, setShowBanner] = useState(true);
 
   const handleSubscribe = () => {
-    console.log("Subscribe to plan:", selectedPlan);
+    // console.log("Subscribe to plan:", selectedPlan);
   };
 
   return (

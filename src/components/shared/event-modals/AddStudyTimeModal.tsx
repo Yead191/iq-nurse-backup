@@ -65,7 +65,7 @@ export default function AddStudyTimeModal({
       color: selectedColor,
       icon: selectedIcon,
     };
-    console.log("Add Study Time Form Values:", formData);
+    // console.log("Add Study Time Form Values:", formData);
     onClose();
     form.resetFields();
     setSelectedColor(colorOptions[0]);

@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export default function AccountPage() {
   const router = useRouter();
   const handleLogout = () => {
-    console.log("Logging out...");
+    // console.log("Logging out...");
     router.push("/auth/login");
   };
 

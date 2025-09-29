@@ -78,7 +78,7 @@ export default function AddMeetingModal({
       color: selectedColor,
       icon: selectedIcon,
     };
-    console.log("add exam Form Values:", formData);
+    // console.log("add exam Form Values:", formData);
     onClose();
     form.resetFields();
     setSelectedColor("");
