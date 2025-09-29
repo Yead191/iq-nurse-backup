@@ -16,6 +16,7 @@ import {
   X
 } from 'lucide-react';
 import NoteTab from '../../study-notes-page/surgical-details-page/NoteTab';
+import { FaImage } from 'react-icons/fa';
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -72,7 +73,7 @@ const PostCreationModal = ({ isVisible, setIsVisible }:{isVisible: boolean, setI
       >
         <div className="md:p-6 p-1">
           {/* Title and Tags Row */}
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-4 mb-6">
             <div>
               <Input
                 placeholder="Short Subject Title Of Your Post"
@@ -120,8 +121,11 @@ const PostCreationModal = ({ isVisible, setIsVisible }:{isVisible: boolean, setI
           </div>
 
           {/* Details Section */}
-          <div className="mb-4">
-            <h3 className="text-base font-medium text-gray-800 mb-3">Details</h3>
+          <div className="mb-4 bg-white md:p-4 p-2 drop-shadow-lg rounded-md">
+            <h3 className="text-base  text-gray-800 mb-3 mt-1.5">
+              <label htmlFor="image" className='p-2 bg-white rounded-md border border-gray-100 w-fit flex flex-row items-center gap-2 cursor-pointer'><FaImage/> Image</label>
+              <input type="file" id="image" hidden />
+            </h3>
             <NoteTab height='30vh'/>
           </div>
 
