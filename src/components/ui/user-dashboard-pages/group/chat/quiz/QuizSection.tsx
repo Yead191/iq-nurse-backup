@@ -45,15 +45,15 @@ const QuizSection: React.FC = () => {
   };
 
   return (
-    <div className="p-6">
+    <div className="md:p-6">
       <Card className="shadow-sm">
-        <div className="p-6">
+        <div className="md:p-6">
           {/* Question Header */}
           <div className="mb-6">
-            <Text className="text-blue-600 font-medium text-sm">
+            <Text className="!text-blue-600 !font-medium !text-sm">
               Question {currentQuestion.id} of {totalQuestions}
             </Text>
-            <Title level={3} className="mt-2 text-gray-800 font-medium">
+            <Title level={3} className="!mt-2 !text-gray-800 !font-medium md:!text-xl !text-lg">
               {currentQuestion.question}
             </Title>
           </div>

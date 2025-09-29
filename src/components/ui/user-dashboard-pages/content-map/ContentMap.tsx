@@ -31,31 +31,19 @@ const ContentMap = () => {
     {
       id: "1",
       label: "Dashboard",
-      icon: (
-        <p>
-          <MdOutlineDashboard size={22} />{" "}
-        </p>
-      ),
+      icon: <MdOutlineDashboard size={22} />,
       component: <Dashboard />,
     },
     {
       id: "2",
       label: "My Maps",
-      icon: (
-        <p>
-          <TbSitemap size={22} />{" "}
-        </p>
-      ),
+      icon: <TbSitemap size={22} />,
       component: <MyMaps />,
     },
     {
       id: "3",
       label: "Shared",
-      icon: (
-        <p>
-          <HiOutlineUsers size={22} />{" "}
-        </p>
-      ),
+      icon: <HiOutlineUsers size={22} />,
       component: <Shared />,
     },
   ];

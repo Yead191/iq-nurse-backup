@@ -1,20 +1,8 @@
-'use client';
-import React, { useState } from 'react';
-import { Avatar, Button, Input, Dropdown, Menu } from 'antd';
-import { 
-  HeartOutlined, 
-  HeartFilled,
-  MessageOutlined, 
-  ShareAltOutlined, 
-  MoreOutlined,
-  SendOutlined
-} from '@ant-design/icons';
-import { CiBookmark } from 'react-icons/ci';
-import { FaRegEye } from 'react-icons/fa';
-import { AiOutlineLike } from 'react-icons/ai';
-import { MdOutlineComment } from 'react-icons/md';
-import { IoMdSend } from 'react-icons/io';
+import { Avatar, Button, Input } from 'antd'
+import React, { useState } from 'react'
+import { IPost } from './PostBox'
 
+import {  SendOutlined} from '@ant-design/icons';
 export interface IComment {
   id: number;
   user: string;
@@ -37,60 +25,32 @@ interface Reply {
   likes: number;
   isLiked: boolean;
 }
+export default function CommentBox({post,setPosts,showComments,setShowComments}:{post:IPost,setPosts:React.Dispatch<React.SetStateAction<IPost[]>>,showComments:any,setShowComments:React.Dispatch<React.SetStateAction<any>>,}) {
+      const [newComment, setNewComment] = useState<{[key: number]: string}>({});
+      const [newReply, setNewReply] = useState<{[key: string]: string}>({});
+      const [showReplyInput, setShowReplyInput] = useState<{[key: string]: boolean}>({});
+        const handleAddComment = (postId: number) => {
+          if (!newComment[postId]?.trim()) return;
+          
+          const comment: IComment = {
+            id: Date.now(),
+            user: 'You',
+            username: 'your_username',
+            avatar: '/api/placeholder/32/32',
+            content: newComment[postId],
+            timeAgo: 'now',
+            likes: 0,
+            isLiked: false,
+            replies: []
+          };
+      
+          setPosts(prev=>prev.map(post=>post.id===postId?{...post,commentsData:[...post.commentsData,comment],comments:post.comments+1}:post));
+          
+          setNewComment({ ...newComment, [postId]: '' });
+        };
 
-export interface IPost {
-  id: number;
-  user: string;
-  username: string;
-  avatar: string;
-  timeAgo: string;
-  content: string;
-  likes: number;
-  comments: number;
-  shares: number;
-  bookmarks: number;
-  isLiked: boolean;
-  isBookmarked: boolean;
-  header: string;
-  tags: string[];
-  commentsData: IComment[];
-}
 
-export default function PostBox({post,setPosts}: {post: IPost,setPosts: React.Dispatch<React.SetStateAction<IPost[]>>}) {
-  const [newComment, setNewComment] = useState<{[key: number]: string}>({});
-  const [newReply, setNewReply] = useState<{[key: string]: string}>({});
-  const [showComments, setShowComments] = useState<{[key: number]: boolean}>({});
-  const [showReplyInput, setShowReplyInput] = useState<{[key: string]: boolean}>({});
-
-  const handleLikePost = (postId: number) => {
-    setPosts(prev=>prev.map(post=>post.id===postId?{...post,isLiked:!post.isLiked,likes:post.isLiked?post.likes-1:post.likes+1}:post));
-  };
-
-  const handleBookmarkPost = (postId: number) => {
-    setPosts(prev=>prev.map(post=>post.id===postId?{...post,isBookmarked:!post.isBookmarked}:post));
-  };
-
-  const handleAddComment = (postId: number) => {
-    if (!newComment[postId]?.trim()) return;
-    
-    const comment: IComment = {
-      id: Date.now(),
-      user: 'You',
-      username: 'your_username',
-      avatar: '/api/placeholder/32/32',
-      content: newComment[postId],
-      timeAgo: 'now',
-      likes: 0,
-      isLiked: false,
-      replies: []
-    };
-
-    setPosts(prev=>prev.map(post=>post.id===postId?{...post,commentsData:[...post.commentsData,comment],comments:post.comments+1}:post));
-    
-    setNewComment({ ...newComment, [postId]: '' });
-  };
-
-  const handleAddReply = (postId: number, commentId: number) => {
+          const handleAddReply = (postId: number, commentId: number) => {
     const replyKey = `${postId}-${commentId}`;
     if (!newReply[replyKey]?.trim()) return;
     
@@ -111,6 +71,7 @@ export default function PostBox({post,setPosts}: {post: IPost,setPosts: React.Di
     setShowReplyInput({ ...showReplyInput, [replyKey]: false });
   };
 
+  
   const toggleComments = (postId: number) => {
     setShowComments({ ...showComments, [postId]: !showComments[postId] });
   };
@@ -119,100 +80,10 @@ export default function PostBox({post,setPosts}: {post: IPost,setPosts: React.Di
     const key = `${postId}-${commentId}`;
     setShowReplyInput({ ...showReplyInput, [key]: !showReplyInput[key] });
   };
-
-  const moreMenu = (
-    <Menu>
-      <Menu.Item key="save">Save post</Menu.Item>
-      <Menu.Item key="hide">Hide post</Menu.Item>
-      <Menu.Item key="report">Report</Menu.Item>
-    </Menu>
-  );
-
+      
   return (
-    <div key={post.id} className="bg-white mb-3 sm:mb-4 rounded-lg shadow-sm">
-      {/* Post Header */}
-      <div className="flex items-center justify-between p-2.5 xs:p-3 sm:p-4">
-        <div className="flex items-center gap-1.5 xs:gap-2 min-w-0 flex-1">
-          <Avatar size={32} className="xs:!w-9 xs:!h-9 sm:!w-10 sm:!h-10 flex-shrink-0" src={post.avatar} />
-          <div className="min-w-0 flex-1">
-            <div className="flex items-center space-x-1 xs:space-x-1.5 sm:space-x-2">
-              <span className="font-semibold text-xs xs:text-sm sm:text-base text-gray-900 truncate">{post.user}</span>
-              <span className="text-gray-500 text-[10px] xs:text-xs truncate">@{post.username}</span>
-              <span className="text-gray-400 text-xs hidden xs:inline">•</span>
-              <span className="text-gray-500 text-[10px] xs:text-xs sm:text-sm truncate hidden xs:inline">{post.timeAgo}</span>
-            </div>
-            <span className="text-gray-500 text-[10px] block xs:hidden">{post.timeAgo}</span>
-          </div>
-        </div>
-
-      </div>
-
-      {/* Post Content */}
-      <div className="px-2.5 xs:px-3 sm:px-4 pb-2 xs:pb-3">
-        <h1 className='text-xs py-1.5 xs:text-base sm:text-lg font-semibold'>{post.header}</h1>
-        <p className="text-gray-600 text-xs xs:text-sm sm:text-base leading-relaxed font-normal break-words">
-          {post.content}
-        </p>
-        
-        {/* Stats */}
-        <div className='flex items-center flex-wrap py-2 xs:py-2.5 gap-1.5 xs:gap-2 sm:gap-3'>
-          <span className='flex items-center text-xs xs:text-sm px-2 xs:px-2.5 sm:px-3.5 py-1 xs:py-1.5 rounded-md text-gray-500 bg-gray-50'>
-            <FaRegEye className="text-xs xs:text-sm" />
-            <span className="text-[10px] xs:text-xs flex items-center gap-1 ml-1">12k <span className='hidden sm:inline'>Views</span></span>
-          </span>
-          <span className='flex items-center text-xs xs:text-sm px-2 xs:px-2.5 sm:px-3.5 py-1 xs:py-1.5 rounded-md text-gray-500 bg-gray-50'>
-            <AiOutlineLike className="text-xs xs:text-sm" />
-            <span className="text-[10px] xs:text-xs ml-1">{post.likes}</span>
-          </span>
-          <span className='flex items-center text-xs xs:text-sm px-2 xs:px-2.5 sm:px-3.5 py-1 xs:py-1.5 rounded-md text-gray-500 bg-gray-50'>
-            <MdOutlineComment className="text-xs xs:text-sm" />
-            <span className="text-[10px] xs:text-xs flex items-center gap-1 ml-1">{post.comments} <span className='hidden sm:inline'>Comments</span></span>
-          </span>
-          <span className='flex items-center text-xs xs:text-sm px-2 xs:px-2.5 sm:px-3.5 py-1 xs:py-1.5 rounded-md text-gray-500 bg-gray-50'>
-            <IoMdSend className="text-xs xs:text-sm" />
-            <span className="text-[10px] xs:text-xs flex items-center gap-1 ml-1">{post.shares} <span className='hidden sm:inline'>Shares</span></span>
-          </span>
-        </div>
-
-        {/* Tags */}
-        <div className="flex flex-wrap gap-1.5 xs:gap-2 mt-2 xs:mt-3">
-          {post.tags.map((tag, index) => (
-            <span key={index} className="text-[10px] xs:text-xs bg-blue-200 text-blue-500 rounded-md px-2 py-1 xs:p-2 hover:underline cursor-pointer">
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Post Actions */}
-      <div className="flex items-center justify-between px-2.5 xs:px-3 sm:px-4 py-2 xs:py-3 border-t border-gray-100">
-        <div className="flex items-center space-x-4 xs:space-x-6">
-          <button
-            onClick={() => handleLikePost(post.id)}
-            className="flex cursor-pointer items-center text-gray-600 hover:text-red-500 transition-colors p-1"
-          >
-            {post.isLiked ? (
-              <HeartFilled className="text-red-500 text-base xs:text-lg" />
-            ) : (
-              <HeartOutlined className="text-base xs:text-lg" />
-            )}
-          </button>
-
-          <button
-            onClick={() => toggleComments(post.id)}
-            className="flex cursor-pointer items-center text-gray-600 hover:text-blue-500 transition-colors p-1"
-          >
-            <MessageOutlined className="text-base xs:text-lg" />
-          </button>
-
-          <button className="flex cursor-pointer items-center text-gray-600 hover:text-green-500 transition-colors p-1">
-            <ShareAltOutlined className="text-base xs:text-lg" />
-          </button>
-        </div>
-      </div>
-
-      {/* Comments Section */}
-      {showComments[post.id] && (
+    <div>
+           {showComments[post.id] && (
         <div className="border-t border-gray-100">
           {/* Add Comment */}
           <div className="p-2.5 xs:p-3 sm:p-4 border-b border-gray-100">
@@ -243,7 +114,6 @@ export default function PostBox({post,setPosts}: {post: IPost,setPosts: React.Di
 
           {/* Comments List */}
           <div className="max-h-80 xs:max-h-96 overflow-y-auto">
-       <>
             {post.commentsData.map((comment) => (
               <div key={comment.id} className="p-2.5 xs:p-3 sm:p-4 border-b border-gray-50">
                 <div className="flex space-x-2 xs:space-x-3">
@@ -324,10 +194,9 @@ export default function PostBox({post,setPosts}: {post: IPost,setPosts: React.Di
                 </div>
               </div>
             ))}
-       </>
           </div>
         </div>
       )}
     </div>
-  );
+  )
 }

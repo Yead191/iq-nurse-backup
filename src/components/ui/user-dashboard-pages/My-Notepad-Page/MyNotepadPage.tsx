@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import NotepadMobileFolder from "./NotepadMobileFolder";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import { Bookmark, Download, File, Plus } from "lucide-react";
+import { Grid } from "antd";
 
 // -------------------- Types --------------------
 interface Note {
@@ -34,6 +35,7 @@ export default function MyNotepadPage() {
   const [activeFolder, setActiveFolder] = useState(
     folders.length ? folders[0].name : ""
   );
+  const { lg } = Grid.useBreakpoint();
 
   const [notes, setNotes] = useState<Note[]>([
     {
@@ -186,11 +188,15 @@ export default function MyNotepadPage() {
         subtitle="Create,organize,and enhance your study notes with AI assistance"
         isAiEnhanced={true}
         actions={[
-          {
-            label: "Export All",
-            icon: <Download size={18} className="mt-1" />,
-            onClick: () => console.log("Download"),
-          },
+          ...(lg
+            ? [
+                {
+                  label: "Export All",
+                  icon: <Download size={18} className="mt-1" />,
+                  onClick: () => console.log("Download"),
+                },
+              ]
+            : []),
           {
             label: "New Note",
             icon: <Plus size={18} className="mt-1.5" />,

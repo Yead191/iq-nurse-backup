@@ -169,7 +169,7 @@ const Sidebar = ({
   return (
     <div
       className={`h-full bg-white border-r border-[#D9D9D9] flex flex-col transition-all duration-300   ${
-        showLabels ? "w-20" : "w-52 2xl:w-64"
+        showLabels ? "w-20" : " lg:w-52 2xl:w-64"
       }`}
     >
       {/* Logo & Toggle */}
