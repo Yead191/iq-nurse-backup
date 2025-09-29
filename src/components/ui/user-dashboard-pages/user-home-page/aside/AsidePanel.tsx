@@ -15,7 +15,7 @@ export default function AsidePanel() {
         <div className="flex items-center bg-neutral-100 rounded-lg py-[6px]  px-[14px]">
           <button
             onClick={() => setActiveTab("today")}
-            className={`flex-1 text-sm  px-3 py-2 rounded-[8px] transition ${
+            className={`flex-1 text-xs 2xl:text-sm  px-3 py-2 rounded-[8px] transition ${
               activeTab === "today"
                 ? "bg-white  text-[#003877] font-medium"
                 : "text-neutral-500 hover:text-neutral-800"
@@ -25,7 +25,7 @@ export default function AsidePanel() {
           </button>
           <button
             onClick={() => setActiveTab("add")}
-            className={`flex-1 text-sm font-medium px-3 py-2 rounded-md transition ${
+            className={`flex-1 text-xs 2xl:text-sm font-medium px-3 py-2 rounded-md transition ${
               activeTab === "add"
                 ? "bg-white  text-[#003877] font-medium"
                 : "text-neutral-500 hover:text-neutral-800"

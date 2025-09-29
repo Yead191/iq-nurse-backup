@@ -118,13 +118,14 @@ export default function MobileHeader() {
               display: "flex",
               gap: 8,
               alignItems: "center",
+              marginRight: 4,
             }}
           >
             {/* Notifications */}
             <Badge count={4} size="small">
               <Button
                 type="text"
-                icon={<BellIcon style={{ fontSize: 20,  }} />}
+                icon={<BellIcon style={{ fontSize: 20 }} />}
                 aria-label="Notifications"
               />
             </Badge>
@@ -134,13 +135,13 @@ export default function MobileHeader() {
               icon={<BookmarkIcon style={{ fontSize: 20, color: "white" }} />}
               aria-label="Bookmarks"
             /> */}
-            <Link href={"/profile/account"}>
+            {/* <Link href={"/profile/account"}>
               <Button
                 type="text"
                 icon={<UserRoundCog style={{ fontSize: 20,  }} />}
                 aria-label="Bookmarks"
               />
-            </Link>
+            </Link> */}
           </div>
         </div>
         {/* Search overlay */}
@@ -159,7 +160,7 @@ export default function MobileHeader() {
             prefix={<SearchOutlined />}
             suffix={<VoiceToText setText={setText} />}
             allowClear
-            style={{ borderRadius: 6, height: 44, backgroundColor:"#F6F7F8" }}
+            style={{ borderRadius: 6, height: 44, backgroundColor: "#F6F7F8" }}
             value={text}
             onChange={(e) => setText(e.target.value)}
           />

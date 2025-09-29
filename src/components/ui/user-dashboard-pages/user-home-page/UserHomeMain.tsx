@@ -14,7 +14,7 @@ export default function UserHomeMain() {
   return (
     <main className=" max-h-[calc(100vh-233px)] md:max-h-max overflow-auto relative ">
       <div
-        className="grid grid-cols-1 gap-6 lg:gap-x-8 lg:grid-cols-12  
+        className="grid grid-cols-1 gap-4 2xl:gap-6  lg:grid-cols-12 
           "
       >
         {/* Left/Main Column */}

@@ -8,7 +8,7 @@ const Spinner = () => {
       {/* Logo with scale animation */}
       <div className="scale-pulse">
         <Image
-          src={"/assets/Logo.png"}
+          src={"/logo.svg"}
           alt="Ready Verified Logo"
           width={200}
           height={100}
