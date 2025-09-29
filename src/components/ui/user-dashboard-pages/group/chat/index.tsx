@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import UserStatusSidebar from "./UserStatusSidebar";
 import ChatInterface from "./ChatInterface";
 import { Tabs } from "antd";
@@ -10,6 +10,9 @@ import FlashCardSection from "./FlashCardSection";
 import DocumentSection from "./DocumentSection";
 import QuizSection from "./quiz/QuizSection";
 import FileSection from "./files/FileSection";
+import GroupHeader from "./GroupHeader";
+import ResponsiveGroupHeader from "./ResponsiveGroupHeader";
+import ResponsiveGroupNav from "./ResponsiveGroupHeader";
 
 interface Message {
     id: string;
@@ -17,23 +20,46 @@ interface Message {
     content: string;
 }
 
+const getResponsiveTabGutter = () => {
+    if (typeof window === "undefined") return 24;
+    if (window.innerWidth < 500) return 12;
+    if (window.innerWidth < 768) return 24;
+    if (window.innerWidth < 1024) return 40;
+    return 80;
+};
+
 const GroupChatPageInfo: React.FC<{ groupId: string }> = ({ groupId }) => {
 
-    console.log({ groupId })
+    const [activeTab, setActiveTab] = useState('1');
+    const [tabGutter, setTabGutter] = useState(getResponsiveTabGutter());
+
 
     const tabItems = [
         { key: '1', label: 'Chat', children: <ChatInterface /> },
-        { key: '2', label: 'Flashcards', children: <FlashCardSection/> },
+        { key: '2', label: 'Flashcards', children: <FlashCardSection /> },
         { key: '3', label: 'Polls', children: <Poll /> },
-        { key: '4', label: 'Documents', children: <DocumentSection/>},
-        { key: '5', label: 'Quiz' , children: <QuizSection/>},
-        { key: '6', label: 'Files', children:<FileSection/>  },
+        { key: '4', label: 'Documents', children: <DocumentSection /> },
+        { key: '5', label: 'Quiz', children: <QuizSection /> },
+        { key: '6', label: 'Files', children: <FileSection /> },
     ];
-    const [activeTab, setActiveTab] = useState('1');
+
+
+
+    useEffect(() => {
+        function handleResize() {
+            setTabGutter(getResponsiveTabGutter());
+        }
+        window.addEventListener("resize", handleResize);
+        // Set on mount
+        handleResize();
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     return (
         <>
-            <NavigationBar />
+            {/* {typeof window !== "undefined" && window.innerWidth < 768 ? <GroupHeader /> : <NavigationBar />
+            } */}
+            <ResponsiveGroupNav />
             <div className="flex gap-2">
 
                 {/* Left sidebar with user statuses */}
@@ -44,8 +70,12 @@ const GroupChatPageInfo: React.FC<{ groupId: string }> = ({ groupId }) => {
                         onChange={setActiveTab}
                         items={tabItems}
                         className="px-4 sticky top-0"
-                        tabBarStyle={{ margin: 0, backgroundColor: 'white' }}
-                        tabBarGutter={80}
+                        tabBarStyle={{
+                            margin: 0,
+                            backgroundColor: 'white',
+                            paddingLeft: typeof window !== "undefined" && window.innerWidth < 768 ? 8 : 10
+                        }}
+                        tabBarGutter={tabGutter}
                     />
                 </div>
             </div>

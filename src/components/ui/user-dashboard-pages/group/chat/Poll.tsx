@@ -75,7 +75,7 @@ const QuickDecisionPoll = () => {
                 placeholder="Enter your question"
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
-                className="w-full"
+                className="w-full !py-3"
               />
             </div>
 
@@ -91,7 +91,7 @@ const QuickDecisionPoll = () => {
               >
                 <Space direction="vertical" className="w-full">
                   {options.map((option, index) => (
-                    <div key={index} className="flex items-center gap-2 w-full">
+                    <div key={index} className="flex items-center gap-2 w-full ">
                       <Radio value={index} />
                       <Input
                         placeholder={`Option ${index + 1}`}
@@ -99,7 +99,7 @@ const QuickDecisionPoll = () => {
                         onChange={(e) =>
                           handleOptionChange(index, e.target.value)
                         }
-                        className="flex-1"
+                        className="flex-1 !py-2"
                       />
                       {options.length > 2 && (
                         <Button
@@ -116,7 +116,7 @@ const QuickDecisionPoll = () => {
               <Button
                 type="dashed"
                 onClick={handleAddOption}
-                className="mt-2 w-full"
+                className="mt-2 w-full "
               >
                 Add Option
               </Button>

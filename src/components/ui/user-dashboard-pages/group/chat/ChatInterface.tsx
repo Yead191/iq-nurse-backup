@@ -1,7 +1,92 @@
 import React, { useState } from 'react';
-import { Avatar, Button, Input, Tabs, Image } from 'antd';
-import { SendOutlined, PaperClipOutlined, SmileOutlined, MinusCircleOutlined } from '@ant-design/icons';
+import { Avatar, Button, Input } from 'antd';
+import { PaperClipOutlined, SmileOutlined, MinusCircleOutlined } from '@ant-design/icons';
 import { IoIosSend } from 'react-icons/io';
+import { FaPlay, FaCheck } from "react-icons/fa";
+import { AiFillAudio } from 'react-icons/ai';
+import { MdOutlineKeyboardVoice } from 'react-icons/md';
+
+// Animated waveform SVG for audio message
+const Waveform = () => {
+  const bars = [12, 20, 8, 24, 16, 4, 12, 20, 8, 24, 16, 4, 12, 20, 8, 24, 16, 4, 12, 20];
+  return (
+    <svg width="200" height="32" viewBox="0 0 200 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-2">
+      {bars.map((height, i) => (
+        <rect
+          key={i}
+          x={i * 10}
+          y={(32 - height) / 2}
+          width="3"
+          height={height}
+          rx="1.5"
+          fill="currentColor"
+          opacity={0.4 + (i % 3) * 0.2}
+        />
+      ))}
+    </svg>
+  );
+};
+
+// Image Gallery Component
+const ImageGallery = ({ images }: { images: string[] }) => {
+  const displayImages = images.slice(0, 4);
+  const remaining = images.length - 4;
+
+  return (
+    <div className="grid grid-cols-2 gap-2 w-full max-w-sm">
+      {displayImages.map((img, idx) => (
+        <div
+          key={idx}
+          className="relative aspect-square rounded-lg overflow-hidden bg-gray-200"
+        >
+          <img
+            src={img}
+            alt={`Gallery ${idx + 1}`}
+            className="w-full h-full object-cover"
+          />
+          {idx === 3 && remaining > 0 && (
+            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+              <span className="text-white text-2xl font-semibold">+{remaining}</span>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const AudioMessage = ({ isOwn, avatar }: { isOwn: boolean; avatar?: string }) => (
+
+  // For demonstration, let's use realistic duration and time values.
+  // We'll use 0:37 as the audio duration and 10:42 AM as the message time.
+  <div
+    className={`flex items-center rounded-2xl px-4 py-3 ${isOwn ? 'bg-primary text-white' : 'bg-primary text-white'
+      } max-w-md shadow-lg`}
+  >
+    <div className="relative mr-3 flex-shrink-0">
+      <Avatar
+        src={avatar ? avatar : "https://randomuser.me/api/portraits/men/32.jpg"}
+        size={44}
+        className="border border-gray-200"
+      />
+
+      <AiFillAudio className="text-[#a5a3a3] text-lg  absolute -right-2 bottom-0" />
+    </div>
+    <button className="w-10 h-10 rounded-full flex items-center justify-center transition mr-3 flex-shrink-0">
+      <FaPlay className="text-white text-lg cursor-pointer" />
+    </button>
+    <div className="flex-1 min-w-0">
+      <Waveform />
+      <div className="flex justify-between items-center gap-2 ml-3 flex-shrink-0">
+        <span className="text-sm font-medium">0:37</span>
+        <div className='flex items-center gap-2'>
+          <span className="text-xs opacity-70">10:42 AM</span>
+          ✔️
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 const ChatInterface = () => {
   const [newMessage, setNewMessage] = useState('');
@@ -13,79 +98,52 @@ const ChatInterface = () => {
       initials: 'SC',
       content: 'Hey everyone! I just uploaded some new flashcards on respiratory assessment. Check them out when you get a chance!',
       time: '10:35 AM',
-      isOwn: false
+      isOwn: false,
+      type: 'text'
     },
     {
       id: 2,
       user: 'Michael Johnson',
-      initials: 'SC',
-      content: 'Thanks Taylor! I\'ve been struggling with the breath sounds identification. This will be really helpful.',
-      time: '10:35 AM',
-      isOwn: false
+      initials: 'MJ',
+      content: 'Thanks! I\'ve been struggling with the breath sounds identification. This will be really helpful.',
+      time: '10:42 AM',
+      isOwn: false,
+      type: 'text'
     },
     {
       id: 3,
       user: 'You',
-      initials: 'SC',
-      content: 'I created a poll about our next study session. Please vote when you can so we can find a time everyone!',
-      time: '10:35 AM',
-      isOwn: true
+      initials: 'YU',
+      images: [
+        'https://padmanews24.com/wp-content/uploads/2024/03/mosque-of-modina.jpg',
+        'https://c1.wallpaperflare.com/preview/114/42/558/kabba-baitullah-mokka-baytulllah.jpg',
+        'https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWVjY2ElMjBrYWFiYXxlbnwwfHwwfHx8MA%3D%3D',
+        'https://i.pinimg.com/736x/91/7a/00/917a005741988dab42440121356c15d8.jpg',
+        'https://w0.peakpx.com/wallpaper/416/451/HD-wallpaper-la-ilaha-illa-allah-shahada-green-la-ilaha-illaallah-islam.jpg',
+      ],
+      content: 'Here are some photos, you were asking about. 😊',
+      time: '3 days ago',
+      isOwn: true,
+      type: 'image'
     },
     {
       id: 4,
       user: 'Emily Davis',
       initials: 'ED',
-      content: 'I found some great resources on cardiac assessment techniques. Would anyone like me to share them?',
-      time: '11:15 AM',
-      isOwn: false
+      content: 'Could you help me with our upcoming exam. It\'s in the Voice Notes section.',
+      time: '10:35 AM',
+      isOwn: false,
+      type: 'text'
     },
     {
       id: 5,
-      user: 'James Wilson',
-      initials: 'JW',
-      content: 'Just finished my clinical rotation in the ICU. Let me know if anyone wants to discuss case studies!',
-      time: '11:45 AM',
-      isOwn: false
-    },
-    {
-      id: 6,
-      user: 'Emily Davis',
-      initials: 'ED',
-      content: 'I found some great resources on cardiac assessment techniques. Would anyone like me to share them?',
-      time: '11:15 AM',
-      isOwn: false
-    },
-    {
-      id: 7,
-      user: 'James Wilson',
-      initials: 'JW',
-      content: 'Just finished my clinical rotation in the ICU. Let me know if anyone wants to discuss case studies!',
-      time: '11:45 AM',
-      isOwn: false
-    },
-    {
-      id: 8,
-      user: 'Emily Davis',
-      initials: 'ED',
-      content: 'I found some great resources on cardiac assessment techniques. Would anyone like me to share them?',
-      time: '11:15 AM',
-      isOwn: true
-    },
-    {
-      id: 9,
-      user: 'James Wilson',
-      initials: 'JW',
-      content: 'Just finished my clinical rotation in the ICU. Let me know if anyone wants to discuss case studies!',
-      time: '11:45 AM',
-      isOwn: true
-    },
-    {
-      id: 10,
-      user: 'James Wilson',
-      initials: 'JW',
-      content: 'Just finished my clinical rotation in the ICU. Let me know if anyone wants to discuss case studies!',
-      time: '11:45 AM',
-      isOwn: false
+      user: 'You',
+      initials: 'YU',
+      avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
+      content: '',
+      time: '12:23',
+      isOwn: true,
+      type: 'audio'
     }
   ];
 
@@ -103,64 +161,106 @@ const ChatInterface = () => {
     }
   };
 
-
   return (
-    <div className="max-h-[calc(100vh-250px)]  relative pb-2 ">
+    <div className="max-h-[calc(100vh-250px)] relative pb-2">
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 h-[calc(100vh-200px)] ">
-        {messages.map((message) => (
-          <div key={message.id} className={`flex gap-3 ${message.isOwn ? 'justify-end' : 'justify-start'}`}>
-            {!message.isOwn && (
-              <Avatar
-                className="bg-blue-600 text-white font-medium"
-                size={40}
-              >
-                {message.initials}
-              </Avatar>
-            )}
-
-            <div className={`max-w-md ${message.isOwn ? 'order-first' : ''}`}>
-              {!message.isOwn && (
-                <div className="text-sm font-medium text-gray-700 mb-1">
-                  {message.user}
-                </div>
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 h-[calc(100vh-200px)]">
+        {messages.map((message, index) => (
+          <div key={message.id}>
+            <div
+              className={`flex gap-3 ${message.isOwn ? 'justify-end' : 'justify-start'}`}
+            >
+              {/* Avatar for non-own messages */}
+              {!message.isOwn && message.type !== 'audio' && (
+                <Avatar
+                  className="bg-primary text-white font-medium flex-shrink-0"
+                  size={40}
+                >
+                  {message.initials}
+                </Avatar>
               )}
 
-              <div className={`p-3 rounded-lg ${message.isOwn
-                ? 'bg-blue-600 text-white'
-                : 'bg-white border border-gray-200'
-                }`}>
-                <div className="text-sm leading-relaxed">
-                  {message.content}
-                </div>
+              <div className={`max-w-md ${message.isOwn ? 'order-first' : ''}`}>
+                {/* Username for non-own text messages */}
+                {!message.isOwn && message.type === 'text' && (
+                  <div className="text-sm font-medium text-gray-700 mb-1">
+                    {message.user}
+                  </div>
+                )}
+
+                {/* Message content based on type */}
+                {message.type === 'text' ? (
+                  <div
+                    className={`p-3 rounded-lg ${message.isOwn
+                      ? 'bg-primary text-white'
+                      : 'bg-white border border-gray-200'
+                      }`}
+                  >
+                    <div className="text-sm leading-relaxed">
+                      {message.content}
+                    </div>
+                  </div>
+                ) : message.type === 'audio' ? (
+                  <AudioMessage isOwn={message.isOwn} avatar={message.avatar} />
+                ) : message.type === 'image' ? (
+                  <div className="space-y-2">
+                    <ImageGallery images={message.images || []} />
+                    {message.content && (
+                      <div
+                        className={`p-3 rounded-lg ${message.isOwn
+                          ? 'bg-primary text-white'
+                          : 'bg-white border border-gray-200'
+                          }`}
+                      >
+                        <div className="text-sm leading-relaxed">
+                          {message.content}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ) : null}
+
+                {/* Time for text messages */}
+                {message.type === 'text' && (
+                  <div className="text-xs text-gray-500 mt-1 text-right">
+                    {message.time}
+                  </div>
+                )}
               </div>
 
-              <div className="text-xs text-gray-500 mt-1 text-right">
-                {message.time}
-              </div>
+              {/* Avatar for own messages */}
+              {message.isOwn && message.type !== 'audio' && (
+                <Avatar
+                  className="bg-primary text-white font-medium flex-shrink-0"
+                  size={40}
+                >
+                  {message.initials}
+                </Avatar>
+              )}
             </div>
 
-            {message.isOwn && (
-              <Avatar
-                className="bg-blue-600 text-white font-medium"
-                size={40}
-              >
-                {message.initials}
-              </Avatar>
+            {/* Time separator after image message */}
+            {message.type === 'image' && (
+              <div className="text-center my-4">
+                <span className="text-xs text-gray-400 bg-gray-100 px-3 py-1 rounded-full">
+                  {message.time}
+                </span>
+              </div>
             )}
           </div>
         ))}
-
-        {/* Time separator */}
-        <div className="text-center">
-          <span className="text-xs text-gray-400 bg-gray-100 px-3 py-1 rounded-full">
-            3 days ago
-          </span>
-        </div>
       </div>
 
       {/* Input Area */}
-      <div className="bg-white p-4 -bottom-2 sticky  ">
+      <div
+        className="bg-white p-4 sticky bottom-0"
+        style={{
+          bottom:
+            typeof window !== "undefined" && window.innerWidth < 650
+              ? "83px"
+              : "0px",
+        }}
+      >
         <div className="flex items-end gap-3">
           <div className="flex-1 relative">
             <Input
@@ -172,15 +272,15 @@ const ChatInterface = () => {
               className="!rounded-full pr-12"
               style={{ paddingRight: '140px' }}
             />
-            <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center gap-2">
-              <Button type="text" icon={<PaperClipOutlined />} size="small" />
-              <Button type="text" icon={<SmileOutlined />} size="small" />
-              <Button type="text" icon={<MinusCircleOutlined />} size="small" />
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
+              <Button type="text" icon={<PaperClipOutlined className='text-lg' />} size="middle" />
+              <Button type="text" icon={<SmileOutlined className='text-lg' />} size="middle" />
+              <Button type="text" icon={<MdOutlineKeyboardVoice className='text-lg' />} size="middle" />
             </div>
           </div>
 
           <Button
-            icon={<IoIosSend  />}
+            icon={<IoIosSend />}
             onClick={handleSend}
             className="rounded-full w-12 h-12 flex items-center !text-white !bg-primary justify-center"
             size="large"
