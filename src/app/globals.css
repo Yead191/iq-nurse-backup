@@ -92,6 +92,9 @@ html {
   border: none !important;
   background-color: transparent !important;
   border-radius: 11px !important;
+  /* display: flex;
+  flex-direction: column-reverse;
+  height: 100% !important */
 }
 .jodit-ui-group {
   background-color: transparent !important;
@@ -171,4 +174,24 @@ html {
 }
 .boxShadow {
   box-shadow: 4px 4px 29px 0px rgba(0, 0, 0, 0.14);
+}
+
+.single-note-tab > .jodit-react-container > .jodit-container {
+  display: flex !important;
+  flex-direction: column-reverse !important;
+  height: 100% !important;
+}
+.single-note-tab
+  > .jodit-react-container
+  > .jodit-container
+  > .jodit-workplace
+  > .jodit-wysiwyg {
+  height: calc(100vh - 320px) !important;
+  overflow-y: auto !important;
+}
+.single-note-tab
+  > .jodit-react-container
+  > .jodit-container
+  > .jodit-toolbar__box {
+  display: fixed !important;
 }
