@@ -9,7 +9,7 @@ import {
   PanelRightOpen,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Tooltip } from "antd";
+import { Grid, Tooltip } from "antd";
 import React from "react";
 import { MenuItem, menus, studyNotesChildren } from "@/data/SidebarMenus";
 
@@ -27,6 +27,7 @@ const Sidebar = ({
 }: SidebarProps) => {
   // const { category } = await params;
   // console.log(category);
+  const { lg } = Grid.useBreakpoint();
   const pathname = usePathname();
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
     studyTools: false,
@@ -113,6 +114,9 @@ const Sidebar = ({
           ) : (
             <Link href={item.key}>
               <div
+                onClick={() => {
+                  if (!lg) toggleSidebar();
+                }}
                 className={`flex items-center ${
                   showLabels ? "justify-center " : "gap-3 pl-4"
                 } mx-2  py-2 cursor-pointer ${

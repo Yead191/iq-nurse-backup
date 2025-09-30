@@ -11,13 +11,16 @@ export const StepperForm: React.FC<{
   const [form] = Form.useForm();
 
   const [current, setCurrent] = useState(() => {
-    const savedStep = typeof window !== 'undefined' ? window.localStorage?.getItem('currentStep') : null;
+    const savedStep =
+      typeof window !== "undefined"
+        ? window.localStorage?.getItem("currentStep")
+        : null;
     return savedStep ? parseInt(savedStep, 10) : 0;
   });
 
   useEffect(() => {
-    if(steps[current]?.content)localStorage.setItem('currentStep', current.toString());
-
+    if (steps[current]?.content)
+      localStorage.setItem("currentStep", current.toString());
   }, [current]);
 
   const next = async () => {
@@ -25,7 +28,7 @@ export const StepperForm: React.FC<{
       await form.validateFields();
       // Save form data to localStorage
       const currentFormData = form.getFieldsValue(true);
-      localStorage.setItem('formData', JSON.stringify(currentFormData));
+      localStorage.setItem("formData", JSON.stringify(currentFormData));
 
       setCurrent(current + 1);
     } catch (err) {
@@ -37,20 +40,18 @@ export const StepperForm: React.FC<{
 
   useEffect(() => {
     // Load saved form data on component mount
-    const savedFormData = localStorage?.getItem('formData');
+    const savedFormData = localStorage?.getItem("formData");
     if (savedFormData) {
       form.setFieldsValue(JSON.parse(savedFormData));
     }
   }, []);
 
   const handleFinish = (values: any) => {
-
     onSubmit(values);
     setCurrent(current + 1);
     // Clear localStorage after successful submission
-    localStorage.removeItem('currentStep');
-    localStorage.removeItem('formData');
-
+    localStorage.removeItem("currentStep");
+    localStorage.removeItem("formData");
   };
 
   const handleFinalSubmit = async () => {
@@ -64,12 +65,7 @@ export const StepperForm: React.FC<{
   };
 
   return (
-    <Form
-      form={form}
-      onFinish={handleFinish}
-      layout="vertical"
-      preserve={true}
-    >
+    <Form form={form} onFinish={handleFinish} layout="vertical" preserve={true}>
       <div
         style={{
           boxShadow: "4px 4px 24px 0px rgba(0, 0, 0, 0.14)",
@@ -85,10 +81,17 @@ export const StepperForm: React.FC<{
             items={steps.map((s) => ({
               title: <span className="hidden md:block">{s.title}</span>,
             }))}
-            direction={typeof window !== "undefined" && window.innerWidth < 640 ? "vertical" : "horizontal"}
-            labelPlacement={typeof window !== "undefined" && window.innerWidth < 640 ? "vertical" : "horizontal"}
+            direction={
+              typeof window !== "undefined" && window.innerWidth < 640
+                ? "horizontal"
+                : "horizontal"
+            }
+            labelPlacement={
+              typeof window !== "undefined" && window.innerWidth < 640
+                ? "horizontal"
+                : "horizontal"
+            }
             className="!gap-0"
-            
           />
         </div>
       </div>
@@ -96,17 +99,15 @@ export const StepperForm: React.FC<{
       <div
         style={{
           boxShadow: "4px 4px 24px 0px rgba(0, 0, 0, 0.14)",
-          borderRadius: 12
+          borderRadius: 12,
         }}
-        className="mt-4 pb-2 bg-gray-50  max-h-[calc(100vh-350px)] overflow-auto ">
+        className="mt-4 pb-2 bg-gray-50 max-h-[calc(100vh-280px)]  md:max-h-[calc(100vh-300px)] overflow-auto "
+      >
         {steps[current]?.content}
 
-        {
-          !steps[current]?.content && <SuccessGroup />
-        }
+        {!steps[current]?.content && <SuccessGroup />}
       </div>
-      {
-        steps[current]?.content &&
+      {steps[current]?.content && (
         <div style={{ marginTop: 24 }} className="flex justify-between ">
           {current > 0 && (
             <Button style={{ margin: "0 8px" }} onClick={prev}>
@@ -124,8 +125,7 @@ export const StepperForm: React.FC<{
             </Button>
           )}
         </div>
-      }
-
+      )}
     </Form>
   );
 };
