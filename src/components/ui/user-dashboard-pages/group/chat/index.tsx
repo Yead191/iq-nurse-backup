@@ -4,15 +4,13 @@ import { useState, useEffect } from "react";
 import UserStatusSidebar from "./UserStatusSidebar";
 import ChatInterface from "./ChatInterface";
 import { Tabs } from "antd";
-import NavigationBar from "./ChatNav";
 import Poll from "./Poll";
 import FlashCardSection from "./FlashCardSection";
 import DocumentSection from "./DocumentSection";
 import QuizSection from "./quiz/QuizSection";
 import FileSection from "./files/FileSection";
-import GroupHeader from "./GroupHeader";
-import ResponsiveGroupHeader from "./ResponsiveGroupHeader";
 import ResponsiveGroupNav from "./ResponsiveGroupHeader";
+import TeamMembers from "./TeamMembers";
 
 interface Message {
     id: string;
@@ -32,6 +30,7 @@ const GroupChatPageInfo: React.FC<{ groupId: string }> = ({ groupId }) => {
 
     const [activeTab, setActiveTab] = useState('1');
     const [tabGutter, setTabGutter] = useState(getResponsiveTabGutter());
+    const [isMembersSelcted, setIsMembersSelcted] = useState(false);
 
 
     const tabItems = [
@@ -40,7 +39,7 @@ const GroupChatPageInfo: React.FC<{ groupId: string }> = ({ groupId }) => {
         { key: '3', label: 'Polls', children: <Poll /> },
         { key: '4', label: 'Documents', children: <DocumentSection /> },
         { key: '5', label: 'Quiz', children: <QuizSection /> },
-        { key: '6', label: 'Files', children: <FileSection /> },
+        { key: '6', label: 'Files', children: <FileSection /> }
     ];
 
 
@@ -50,35 +49,36 @@ const GroupChatPageInfo: React.FC<{ groupId: string }> = ({ groupId }) => {
             setTabGutter(getResponsiveTabGutter());
         }
         window.addEventListener("resize", handleResize);
-        // Set on mount
         handleResize();
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     return (
         <>
-            {/* {typeof window !== "undefined" && window.innerWidth < 768 ? <GroupHeader /> : <NavigationBar />
-            } */}
-            <ResponsiveGroupNav />
-            <div className="flex gap-2">
-
-                {/* Left sidebar with user statuses */}
-                <UserStatusSidebar />
-                <div className="w-full md:w-[calc(100%-200px)] h-[calc(100vh-90px)] overflow-y-auto relative">
-                    <Tabs
-                        activeKey={activeTab}
-                        onChange={setActiveTab}
-                        items={tabItems}
-                        className="px-4 sticky top-0"
-                        tabBarStyle={{
-                            margin: 0,
-                            backgroundColor: 'white',
-                            paddingLeft: typeof window !== "undefined" && window.innerWidth < 768 ? 8 : 10
-                        }}
-                        tabBarGutter={tabGutter}
-                    />
-                </div>
-            </div>
+            {isMembersSelcted ? (
+                <>
+                    <ResponsiveGroupNav  setIsMembersSelcted={setIsMembersSelcted}/>
+                    <div className="flex gap-2">
+                        <UserStatusSidebar />
+                        <div className="w-full md:w-[calc(100%-200px)] h-[calc(100vh-90px)] overflow-y-auto relative">
+                            <Tabs
+                                activeKey={activeTab}
+                                onChange={setActiveTab}
+                                items={tabItems}
+                                className="px-4 sticky top-0"
+                                tabBarStyle={{
+                                    margin: 0,
+                                    backgroundColor: 'white',
+                                    paddingLeft: typeof window !== "undefined" && window.innerWidth < 768 ? 8 : 10
+                                }}
+                                tabBarGutter={tabGutter}
+                            />
+                        </div>
+                    </div>
+                </>
+            ) : (
+                <TeamMembers setIsMembersSelcted={setIsMembersSelcted}/>
+            )}
         </>
 
     );
