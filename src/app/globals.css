@@ -195,3 +195,8 @@ html {
   > .jodit-toolbar__box {
   display: fixed !important;
 }
+
+
+.rbc-row-content{
+  z-index: 0 !important;
+}

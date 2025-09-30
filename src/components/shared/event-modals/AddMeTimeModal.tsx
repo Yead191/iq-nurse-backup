@@ -90,6 +90,7 @@ export default function AddMeTimeModal({ open, onClose }: AddMeTimeModalProps) {
       title={
         <span className="text-lg font-semibold text-gray-800">Add Me Time</span>
       }
+      centered
     >
       <Form
         form={form}

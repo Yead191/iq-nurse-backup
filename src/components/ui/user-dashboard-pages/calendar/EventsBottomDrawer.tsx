@@ -2,7 +2,6 @@
 
 import type React from "react";
 import { useRef, useState, useEffect } from "react";
-import { ChevronUp } from "lucide-react";
 import TasksSection from "../user-home-page/aside/todays-event/TasksSection";
 import ClassesSection from "../user-home-page/aside/todays-event/ClassesSection";
 import AssignmentSection from "../user-home-page/aside/todays-event/AssignmentSection";

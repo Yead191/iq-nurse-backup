@@ -69,7 +69,7 @@ const UserCalendar: React.FC = () => {
     return (
       <div className="flex lg:flex-row flex-col justify-between items-center gap-3 mb-4 ">
         <div className="flex items-center lg:justify-start justify-between space-x-4">
-          <h2 className="lg:text-[32px] text-xl font-semibold text-gray-800 me-6">
+          <h2 className="lg:text-[32px] md:text-xl text-sm font-semibold text-gray-800 me-6">
             {label}
           </h2>
           <button
@@ -114,7 +114,7 @@ const UserCalendar: React.FC = () => {
 
   return (
     <div className=" p-1">
-      <div style={{ height: "calc(100vh - 155px)" }}>
+      <div style={{ height: "calc(100vh - 155px)" , zIndex: 10 }}>
         <Calendar
           localizer={localizer}
           events={events}

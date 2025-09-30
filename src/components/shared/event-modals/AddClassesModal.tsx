@@ -93,6 +93,7 @@ export default function AddClassesModal({
       title={
         <span className="text-lg font-semibold text-gray-800">Add Classes</span>
       }
+      centered
     >
       <Form
         form={form}
