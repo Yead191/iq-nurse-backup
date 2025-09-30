@@ -15,7 +15,7 @@ export default function QuizQuestionCard({selectedAnswer, handleAnswerChange, cu
                 <div key={option.id} className="w-full">
                   <Radio.Button
                     value={option.id}
-                    className="!w-full !important !h-14 !flex !items-center !justify-start !text-left !border-none !rounded-lg !mb-2 hover:!border-blue-300 !bg-gray-100 !transition-colors"
+                    className="!w-full !important !h-14 !flex !items-center !justify-start !text-left !px-0 !border-none !rounded-lg !mb-2 hover:!border-blue-300 !bg-gray-100 !transition-colors"
                     style={{
                       backgroundColor: selectedAnswer === option.id ? '#e3f2fd' : 'white',
                       borderColor: selectedAnswer === option.id ? '#1976d2' : '#e0e0e0',
