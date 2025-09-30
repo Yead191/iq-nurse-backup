@@ -349,7 +349,7 @@ const FileListItemBox: React.FC<{ files: FileListProps[] }> = ({ files }) => {
   return (
     <>
       {files.map((fileGroup, groupIndex) => (
-        <div key={groupIndex} className="px-4">
+        <div key={groupIndex} className="md:px-4 px-2">
           <div className="text-gray-500 text-sm px-4 py-2 mt-4">
             {fileGroup.user}
           </div>

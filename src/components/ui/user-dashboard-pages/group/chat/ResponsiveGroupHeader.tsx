@@ -22,7 +22,7 @@ const ResponsiveGroupNav = ({setIsMembersSelcted}:IProps) => {
   const [searchValue, setSearchValue] = useState('');
   const searchInputRef = useRef(null);
 
-  const handleMenuClick = ({ key }) => {
+  const handleMenuClick = ({ key }:{ key: string }) => {
     if (key === 'leave') {
       console.log('Leave group clicked');
     } else if (key === 'delete') {
@@ -33,13 +33,13 @@ const ResponsiveGroupNav = ({setIsMembersSelcted}:IProps) => {
 
   useEffect(() => {
     if (searchOpen && searchInputRef.current) {
-      searchInputRef.current.focus();
+      (searchInputRef.current as any).focus();
     }
   }, [searchOpen]);
 
   useEffect(() => {
     if (!searchOpen) return;
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e:any) => {
       if (e.key === 'Escape') setSearchOpen(false);
     };
     window.addEventListener('keydown', handleKeyDown);

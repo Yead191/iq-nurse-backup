@@ -31,10 +31,10 @@ const FileSection: React.FC = () => {
   ];
 
   return (
-    <div className=" p-2">
+    <div className=" md:p-2">
       {/* Search Bar */}
       {searchVisible && (
-        <div className="flex items-center space-x-2 px-4 py-3 bg-gray-50">
+        <div className="flex items-center space-x-2 md:px-4 py-3 bg-gray-50">
           <Button
             type="primary"
             icon={<Link className="w-4 h-4" />}
