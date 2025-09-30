@@ -4,6 +4,7 @@ import { nclexCategories } from "@/data/nclexCategories";
 import { Grid, Input } from "antd";
 import { CategoryItem } from "./CategoryItem";
 import { Search } from "lucide-react";
+import { useState } from "react";
 
 interface NclexSidebarProps {
   selectedCategory?: string;
@@ -21,6 +22,7 @@ export function NclexSidebar({
   expandedCategories = new Set(),
 }: NclexSidebarProps) {
   const { lg } = Grid.useBreakpoint();
+  const [searchText, setSearchText] = useState("");
 
   return (
     <div
@@ -45,6 +47,8 @@ export function NclexSidebar({
         <Input
           prefix={<Search />}
           placeholder="Search Notes..."
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
           style={{
             width: "100%",
             marginBottom: "10px",
