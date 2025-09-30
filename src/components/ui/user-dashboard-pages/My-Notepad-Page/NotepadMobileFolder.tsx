@@ -8,12 +8,13 @@ import {
   Trash2,
   Bookmark,
   Search,
+  FolderClosed,
 } from "lucide-react";
 import ContextMenu from "../my-library-page/ContextMenu";
 import DeleteConfirmationModal from "../my-library-page/DeleteConfirmationModal";
 import NewFolderForm from "./NewFolderForm";
 import Input from "antd/es/input/Input";
-import { Grid } from "antd";
+import { Button, Grid } from "antd";
 
 interface Folder {
   name: string;
@@ -63,7 +64,7 @@ export default function NotepadMobileFolder({
   const [showContextMenu, setShowContextMenu] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [showNewFolderForm, setShowNewFolderForm] = useState(false);
-  console.log(folders);
+  // console.log(folders);
 
   /** ---------------- Expand / Collapse ---------------- */
   const toggleFolder = (name: string) => {
@@ -131,7 +132,7 @@ export default function NotepadMobileFolder({
   /** ---------------- Colors ---------------- */
   // console.log(activeFolder, activeNoteId);
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full relative">
       <div className="pb-4 pr-2  border-b border-gray-200">
         <Input
           placeholder="Search notes..."
@@ -144,7 +145,7 @@ export default function NotepadMobileFolder({
           }}
         />
         {/* Add New Folder */}
-        <div className=" pt-2">
+        <div className="  absolute bottom-6 left-1/2 -translate-x-1/2 bg-white z-10">
           {showNewFolderForm ? (
             <NewFolderForm
               onAdd={(name, color) => {
@@ -154,13 +155,14 @@ export default function NotepadMobileFolder({
               onCancel={() => setShowNewFolderForm(false)}
             />
           ) : (
-            <button
+            <Button
+              size={lg ? "large" : "small"}
               onClick={() => setShowNewFolderForm(true)}
-              className="w-full bg-primary text-white py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+              icon={<Plus className="w-4 h-4 " />}
+              className=" !bg-primary !text-white  !transition-colors !border-none "
             >
-              <Plus className="w-4 h-4" />
               Create Folder
-            </button>
+            </Button>
           )}
         </div>
       </div>
@@ -178,10 +180,10 @@ export default function NotepadMobileFolder({
             >
               {/* Folder Header */}
               <div
-                style={{
-                  borderLeftColor: folder.color,
-                }}
-                className={`flex items-center justify-between pl-4 py-2  cursor-pointer border-l-4 rounded-md ${
+                // style={{
+                //   borderLeftColor: folder.color,
+                // }}
+                className={`flex items-center justify-between pl-4 py-2  cursor-pointer  rounded-md ${
                   activeFolder === folder.name
                     ? "bg-blue-50"
                     : "hover:bg-gray-50"
@@ -193,29 +195,36 @@ export default function NotepadMobileFolder({
                   }
                 }}
               >
-                <div className="flex-1">
-                  {renamingFolder === folder.name ? (
-                    <input
-                      type="text"
-                      value={renamingValue}
-                      onChange={(e) => setRenamingValue(e.target.value)}
-                      onBlur={submitRename}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter") submitRename();
-                        if (e.key === "Escape") setRenamingFolder(null);
-                      }}
-                      className="font-medium text-gray-900 text-base bg-white border border-blue-500 rounded px-2 py-1 w-full"
-                      autoFocus
-                      onClick={(e) => e.stopPropagation()}
-                    />
-                  ) : (
-                    <h3 className="font-medium text-gray-900 text-base">
-                      {folder.name}
-                    </h3>
-                  )}
-                  <p className="text-sm text-gray-500">
-                    {folderNotes.length} notes
-                  </p>
+                <div className="flex-1 flex items-center gap-2">
+                  <FolderClosed
+                    className={` fill-current`}
+                    style={{ color: folder.color }}
+                  />
+                  {/* <p>{folder.color}</p> */}
+                  <div>
+                    {renamingFolder === folder.name ? (
+                      <input
+                        type="text"
+                        value={renamingValue}
+                        onChange={(e) => setRenamingValue(e.target.value)}
+                        onBlur={submitRename}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") submitRename();
+                          if (e.key === "Escape") setRenamingFolder(null);
+                        }}
+                        className="font-medium text-gray-900 text-base bg-white border border-blue-500 rounded px-2 py-1 w-full"
+                        autoFocus
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                    ) : (
+                      <h3 className="font-medium text-gray-900 text-base">
+                        {folder.name}
+                      </h3>
+                    )}
+                    <p className="text-sm text-gray-500">
+                      {folderNotes.length} notes
+                    </p>
+                  </div>
                 </div>
                 <button
                   onClick={(e) => openContextMenu(e, folder.name)}

@@ -16,7 +16,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
   };
   const handleNewEventClick = () => {
     // Handle new event creation
-    console.log("New event clicked");
+    // console.log("New event clicked");
     setModalVisible(true);
   };
   return (

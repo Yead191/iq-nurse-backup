@@ -23,11 +23,11 @@ export default function BottomNavigation({
       icon: "/assets/icons/home-icon.svg",
       label: "Home",
     },
-    {
-      key: "/profile/nurse-q",
-      icon: "/assets/sidebar-icons/chatbot-icon.svg",
-      label: "Nurse Q",
-    },
+    // {
+    //   key: "/profile/nurse-q",
+    //   icon: "/assets/sidebar-icons/chatbot-icon.svg",
+    //   label: "Nurse Q",
+    // },
     {
       key: "/profile/study-tools",
       icon: "/assets/icons/study-tools-icon.svg",
@@ -42,6 +42,11 @@ export default function BottomNavigation({
       key: "/profile/community-home",
       icon: "/assets/sidebar-icons/community-icon.svg",
       label: "Community",
+    },
+    {
+      key: "/profile/account",
+      icon: "/assets/icons/account-icon.svg",
+      label: "Account",
     },
   ];
 

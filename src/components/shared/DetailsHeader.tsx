@@ -1,4 +1,5 @@
 "use client";
+
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -14,14 +15,20 @@ export default function DetailsHeader({
   title,
   back,
   actions = [],
+  primaryBg = true,
 }: {
   title?: string;
   back?: string;
   actions?: ActionButtonConfig[];
+  primaryBg?: boolean;
 }) {
   const router = useRouter();
   return (
-    <div className="flex md:hidden items-center justify-between py-3 sticky top-0 z-50 bg-[#02478D] px-4 ">
+    <div
+      className={`flex md:hidden items-center justify-between py-3 sticky top-0 z-50 ${
+        primaryBg ? "bg-[#02478D]" : ""
+      } px-4 `}
+    >
       {/* Back Button */}
       <div className="flex items-center space-x-3">
         {back ? (
@@ -38,7 +45,11 @@ export default function DetailsHeader({
             <ChevronLeft size={24} />
           </button>
         )}
-        <span className="text-sm text-white border  border-[#FFFFFF] bg-transparent px-3 py-1 rounded capitalize">
+        <span
+          className={`text-sm ${
+            primaryBg ? "text-white border-[#003877]" : ""
+          }  border    bg-transparent px-3 py-1 rounded capitalize`}
+        >
           {title}
         </span>
       </div>

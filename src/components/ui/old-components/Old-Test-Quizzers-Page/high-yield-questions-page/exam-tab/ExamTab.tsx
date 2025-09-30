@@ -16,7 +16,7 @@ export default function ExamTab() {
   };
   const router = useRouter();
   const handleStart = () => {
-    console.log("Starting exam with:", { numQuestions, examMode });
+    // console.log("Starting exam with:", { numQuestions, examMode });
     // Add your start logic here
     router.push(`/profile/tests/high-yield-questions/${examMode}`);
   };

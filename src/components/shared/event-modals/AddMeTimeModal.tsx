@@ -74,7 +74,7 @@ export default function AddMeTimeModal({ open, onClose }: AddMeTimeModalProps) {
       color: selectedColor,
       icon: selectedIcon,
     };
-    console.log("add exam Form Values:", formData);
+    // console.log("add exam Form Values:", formData);
     onClose();
     form.resetFields();
     setSelectedColor("");
@@ -90,6 +90,7 @@ export default function AddMeTimeModal({ open, onClose }: AddMeTimeModalProps) {
       title={
         <span className="text-lg font-semibold text-gray-800">Add Me Time</span>
       }
+      centered
     >
       <Form
         form={form}

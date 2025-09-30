@@ -3,8 +3,11 @@
 import { Heart, MessageCircle } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 import { instagramPosts } from "@/data/instagramData";
+import Image from "next/image";
+import { Grid } from "antd";
 
 export default function StudyInstagramSection() {
+  const { lg } = Grid.useBreakpoint();
   return (
     <section
       style={{
@@ -22,13 +25,15 @@ export default function StudyInstagramSection() {
       </div>
 
       {/* Instagram Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-3 lg:grid-cols-5 gap-2 md:gap-6">
         {instagramPosts?.map((post) => (
           <div key={post?.id} className="flex flex-col">
             {/* Image Container */}
             <div className="relative aspect-square rounded-lg overflow-hidden bg-gray-100 cursor-pointer group">
-              <img
+              <Image
                 src={post?.image || "/placeholder.svg"}
+                width={100}
+                height={100}
                 alt={post?.caption}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
@@ -51,8 +56,10 @@ export default function StudyInstagramSection() {
             </div>
 
             {/* Caption */}
-            <p className="mt-3 text-sm text-gray-700 leading-relaxed">
-              {post?.caption}
+            <p className="mt-3 text-xs md:text-sm text-gray-700 leading-relaxed">
+              {!lg && post?.caption?.length > 25
+                ? post.caption.slice(0, 25) + "..."
+                : post.caption}
             </p>
           </div>
         ))}
