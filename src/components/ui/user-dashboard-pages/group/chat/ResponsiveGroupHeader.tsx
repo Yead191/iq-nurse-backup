@@ -9,8 +9,14 @@ import {
 import { MdArrowBackIosNew } from 'react-icons/md';
 import { CiLogin } from 'react-icons/ci';
 import { IoPersonAdd } from 'react-icons/io5';
+import { TbUsers } from 'react-icons/tb';
 
-const ResponsiveGroupNav = () => {
+
+interface IProps {
+  setIsMembersSelcted: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ResponsiveGroupNav = ({setIsMembersSelcted}:IProps) => {
   const [visible, setVisible] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchValue, setSearchValue] = useState('');
@@ -42,6 +48,15 @@ const ResponsiveGroupNav = () => {
 
   const menu = (
     <Menu onClick={handleMenuClick} className="min-w-[160px]">
+      <Menu.Item
+        key="members"
+        icon={<TbUsers  />}
+        className="hover:bg-gray-100"
+        onClick={() => setIsMembersSelcted(prev => !prev)}
+
+      >
+        <span className="text-gray-700">Members</span>
+      </Menu.Item>
       <Menu.Item
         key="leave"
         icon={<LogoutOutlined />}
@@ -188,6 +203,7 @@ const ResponsiveGroupNav = () => {
                   <button
                     className="flex items-center gap-1 font-medium hover:underline focus:outline-none cursor-pointer"
                     style={{ background: "none", border: "none", padding: 0 }}
+                    onClick={() => setIsMembersSelcted(prev => !prev)}
                   >
                     16 Members
                   </button>
