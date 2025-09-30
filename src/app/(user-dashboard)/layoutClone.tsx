@@ -32,7 +32,12 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/flash-card",
     "/profile/my-notepad/note",
   ];
-  const hiddenBottomNav = ["/profile/my-notepad/note", "/profile/study-notes/document", "/profile/calendar"];
+  const hiddenBottomNav = [
+    "/profile/my-notepad/note",
+    "/profile/study-notes/document",
+    "/profile/calendar",
+    "/profile/group/create-group",
+  ];
 
   const singleHidePaths = ["/profile/patient-assessment", "/profile/group"];
   const oldHeaderPaths = ["/profile/home", "profile/group/create-group"];
