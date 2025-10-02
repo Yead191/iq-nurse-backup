@@ -10,8 +10,10 @@ interface NavItem {
 
 export default function BottomNavigation({
   setIsMobileSidebarOpen,
+  setShowLabels,
 }: {
   setIsMobileSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowLabels: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -54,6 +56,7 @@ export default function BottomNavigation({
     if (key === "/profile/study-tools") {
       setIsMobileSidebarOpen(true);
     } else {
+      setIsMobileSidebarOpen(false);
       router.push(key);
     }
   };

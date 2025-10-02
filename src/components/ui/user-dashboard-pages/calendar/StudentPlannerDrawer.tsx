@@ -51,8 +51,7 @@ const StudentPlannerDrawer: React.FC<StudentPlannerDrawerProps> = ({
         <div className="py-2 h-[calc(100vh-164px)] overflow-y-auto">
           {calendarMenuItems.map((item, index) => {
             const IconComponent = item.icon;
-            const isActive =
-              pathname === item.path 
+            const isActive = pathname === item.path;
             return (
               <button
                 key={index}

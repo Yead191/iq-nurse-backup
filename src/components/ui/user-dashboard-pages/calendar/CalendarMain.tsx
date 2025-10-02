@@ -3,7 +3,6 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import CalendarMobileHeader from "./CalendarMobileHeader";
-import StudentPlannerDrawer from "./StudentPlannerDrawer";
 import AsidePanel from "../user-home-page/aside/AsidePanel";
 import EventsBottomDrawer from "./EventsBottomDrawer";
 import AddEventsModal from "@/components/shared/event-modals/AddEventsModal";

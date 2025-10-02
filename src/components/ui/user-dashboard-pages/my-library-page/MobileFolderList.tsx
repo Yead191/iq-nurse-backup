@@ -12,6 +12,7 @@ import {
   Search,
   Folder,
   Clock,
+  FolderClosed,
 } from "lucide-react";
 import ContextMenu from "./ContextMenu";
 import { LibraryData } from "@/data/types";
@@ -141,7 +142,11 @@ export default function MobileFolderList({
             <div className="w-auto">
               <Button
                 onClick={onCreateFolder}
-                style={{backgroundColor:"#28C76F", color:"white", fontWeight:"400"}}
+                style={{
+                  backgroundColor: "#28C76F",
+                  color: "white",
+                  fontWeight: "400",
+                }}
               >
                 <Plus className="w-4 h-4" />
                 New
@@ -205,9 +210,7 @@ export default function MobileFolderList({
               >
                 {/* Folder Header */}
                 <div
-                  className={`flex items-center justify-between p-4 py-1.5 cursor-pointer border-l-5 rounded-t-md rounded-b-md  ${getColorClasses(
-                    folder.color
-                  )} 
+                  className={`flex items-center justify-between p-4 py-1.5 cursor-pointer  rounded-t-md rounded-b-md 
                   ${
                     selectedFolder === folder.id
                       ? "bg-[#00387714]"
@@ -216,32 +219,38 @@ export default function MobileFolderList({
                   `}
                   onClick={() => onFolderToggle(folder.id)}
                 >
-                  <div className="flex-1">
-                    {renamingFolder === folder.id ? (
-                      <input
-                        type="text"
-                        value={renameValue}
-                        onChange={(e) => setRenameValue(e.target.value)}
-                        onBlur={() => handleRenameSubmit(folder.id)}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter") {
-                            handleRenameSubmit(folder.id);
-                          } else if (e.key === "Escape") {
-                            handleRenameCancel();
-                          }
-                        }}
-                        className="font-medium text-gray-900 text-base bg-white border border-blue-500 rounded px-2 py-1 w-full"
-                        autoFocus
-                        onClick={(e) => e.stopPropagation()}
-                      />
-                    ) : (
-                      <h3 className="font-medium text-gray-900 text-base">
-                        {folder.name}
-                      </h3>
-                    )}
-                    <p className="text-sm text-gray-500">
-                      {folder.topicCount} topics
-                    </p>
+                  <div className="flex-1 flex items-center gap-2">
+                    <FolderClosed
+                      className={` fill-current`}
+                      style={{ color: folder.color }}
+                    />
+                    <div>
+                      {renamingFolder === folder.id ? (
+                        <input
+                          type="text"
+                          value={renameValue}
+                          onChange={(e) => setRenameValue(e.target.value)}
+                          onBlur={() => handleRenameSubmit(folder.id)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                              handleRenameSubmit(folder.id);
+                            } else if (e.key === "Escape") {
+                              handleRenameCancel();
+                            }
+                          }}
+                          className="font-medium text-gray-900 text-base bg-white border border-blue-500 rounded px-2 py-1 w-full"
+                          autoFocus
+                          onClick={(e) => e.stopPropagation()}
+                        />
+                      ) : (
+                        <h3 className="font-medium text-gray-900 text-base">
+                          {folder.name}
+                        </h3>
+                      )}
+                      <p className="text-sm text-gray-500">
+                        {folder.topicCount} topics
+                      </p>
+                    </div>
                   </div>
                   <button
                     onClick={(e) => handleContextMenu(e, folder.id)}

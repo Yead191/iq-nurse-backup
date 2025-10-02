@@ -19,6 +19,7 @@ import AddStudyTimeModal from "@/components/shared/event-modals/AddStudyTimeModa
 import AddExamModal from "@/components/shared/event-modals/AddExamModal";
 import AddMeTimeModal from "@/components/shared/event-modals/AddMeTimeModal";
 import AddMeetingModal from "@/components/shared/event-modals/AddMeetingModal";
+import { useRouter } from "next/navigation";
 
 interface EventType {
   id: string;
@@ -29,31 +30,31 @@ interface EventType {
 
 const eventTypes: EventType[] = [
   {
-    id: "task",
-    label: "Task",
+    id: "tasks",
+    label: "Tasks",
     icon: <ListTodo className="h-5 w-5" />,
     color: "bg-[#F0AF53]",
   },
   {
-    id: "clinical",
+    id: "clinical-rotations",
     label: "Clinical Rotations",
     icon: <Stethoscope className="h-5 w-5" />,
     color: "bg-[#326FB1]",
   },
   {
-    id: "class",
+    id: "classes",
     label: "Class",
     icon: <BookOpen className="h-5 w-5" />,
     color: "bg-[#60B960]",
   },
   {
-    id: "exam",
+    id: "exams",
     label: "Exam",
     icon: <FileText className="h-5 w-5" />,
     color: "bg-[#D95854]",
   },
   {
-    id: "meeting",
+    id: "meetings",
     label: "Meeting",
     icon: <Users className="h-5 w-5" />,
     color: "bg-[#9E2DB2]",
@@ -69,48 +70,13 @@ export function FloatingCalendarButton() {
   const [examModalOpen, setExamModalOpen] = useState(false);
   const [meTimeModalOpen, setMeTimeModalOpen] = useState(false);
   const [meetingModalOpen, setMeetingModalOpen] = useState(false);
+  const router = useRouter();
   const handleEventClick = (eventId: string) => {
     console.log("[v0] Event clicked:", eventId);
     try {
       // You can add your specific logic here for each event type
-      switch (eventId) {
-        case "task":
-          // Handle tasks logic
-          setTaskModalOpen(true);
-          // console.log("task clicked");
-          break;
-        case "class":
-          // Handle classes logic
-          // console.log("Classes clicked");
-          setClassesModalOpen(true);
-          break;
-        case "Add Assignment":
-          // Handle assignment logic
-          setAssignmentModalOpen(true);
-          break;
-        case "Add Study Time":
-          // Handle study time logic
-          setStudyTimeModalOpen(true);
-          break;
-        case "exam":
-          // Handle exams logic
-          setExamModalOpen(true);
-          break;
-        case "clinical":
-          // Handle clinical logic
-
-          break;
-        case "Add Me Time":
-          // Handle clinical logic
-          setMeTimeModalOpen(true);
-          break;
-        case "meeting":
-          // Handle clinical logic
-          setMeetingModalOpen(true);
-          break;
-        default:
-          break;
-      }
+      router.push(`/profile/calendar/${eventId}`);
+      router;
     } catch (error) {
       toast.error(`Failed to add ${eventId}`);
     }

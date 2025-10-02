@@ -1,10 +1,9 @@
 "use client";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   ChevronDown,
   ChevronRight,
-  ChevronLeft,
   PanelRightClose,
   PanelRightOpen,
 } from "lucide-react";
@@ -12,6 +11,7 @@ import { useEffect, useState } from "react";
 import { Grid, Tooltip } from "antd";
 import React from "react";
 import { MenuItem, menus, studyNotesChildren } from "@/data/SidebarMenus";
+import Image from "next/image";
 
 interface SidebarProps {
   showLabels: boolean;
@@ -96,7 +96,7 @@ const Sidebar = ({
                 {item.icon}
                 {!showLabels && (
                   <span
-                    className={`text-lg lg:text-sm font-medium ${
+                    className={`text-sm font-medium ${
                       isActive(item.key) ? "text-blue-500" : "text-gray-700"
                     }`}
                   >
@@ -127,9 +127,7 @@ const Sidebar = ({
               >
                 {item.icon}
                 {!showLabels && (
-                  <span
-                    className={`text-lg lg:text-sm font-medium"text-gray-700`}
-                  >
+                  <span className={`text-sm font-medium"text-gray-700`}>
                     {item.label}
                   </span>
                 )}
@@ -160,11 +158,11 @@ const Sidebar = ({
   }) => (
     <div className="mt-4">
       {!showLabels && title && (
-        <p className="px-5 mb-2 text-xs font-semibold text-gray-500 uppercase">
+        <p className="px-5 mb-2 text-xs md:text-sm font-semibold text-gray-500 uppercase">
           {title}
         </p>
       )}
-      {items.map((item) => (
+      {items?.map((item) => (
         <MenuItemComponent key={item.key} item={item} parentKey={menuKey} />
       ))}
     </div>
@@ -182,7 +180,13 @@ const Sidebar = ({
           {!showLabels && (
             <Link href={"/profile/home"}>
               <div className="flex items-center gap-2">
-                <img src="/favicon.svg" alt="Logo" className="h-8 w-auto" />
+                <Image
+                  src="/favicon.svg"
+                  alt="Logo"
+                  width={40}
+                  height={32}
+                  className="h-8 w-auto"
+                />
                 <span className="text-lg font-semibold">IQ-Nurse</span>
               </div>
             </Link>
@@ -203,10 +207,15 @@ const Sidebar = ({
       </div>
 
       {/* Menus */}
-      <div className="flex-1 overflow-y-auto max-h-[calc(100vh-124px)] md:max-h-max lg:pb-8">
+      <div className="flex-1 overflow-y-auto max-h-[calc(100vh-160px)] md:max-h-max lg:pb-8">
         <div className="hidden md:block">
           <RenderMenuGroup items={menus.main} menuKey="main" />
         </div>
+        <RenderMenuGroup
+          title="Study Material"
+          items={menus.studyMaterial}
+          menuKey="studyTools"
+        />
         <RenderMenuGroup
           title="Study Tools"
           items={menus.studyTools}

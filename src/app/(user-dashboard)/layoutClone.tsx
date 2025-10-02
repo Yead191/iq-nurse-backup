@@ -32,12 +32,15 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/flash-card",
     "/profile/ai-drug",
     "/profile/my-notepad/note",
+    "/profile/care-plans",
   ];
   const hiddenBottomNav = [
     "/profile/my-notepad/note",
     "/profile/study-notes/document",
     "/profile/calendar",
     "/profile/group/create-group",
+    "/profile/clinicals/category/",
+    "/profile/clinicals/details",
   ];
 
   const singleHidePaths = ["/profile/patient-assessment", "/profile/group"];
@@ -139,7 +142,10 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
         <div
           className={`h-[94px] w-full  md:hidden ${bottomHide ? "hidden" : ""}`}
         >
-          <BottomNavigation setIsMobileSidebarOpen={setIsMobileSidebarOpen} />
+          <BottomNavigation
+            setShowLabels={setShowLabels}
+            setIsMobileSidebarOpen={setIsMobileSidebarOpen}
+          />
         </div>
       </div>
     </div>

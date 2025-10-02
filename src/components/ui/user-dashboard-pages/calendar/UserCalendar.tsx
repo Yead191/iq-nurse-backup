@@ -87,7 +87,7 @@ const UserCalendar: React.FC = () => {
           </button>
           <button
             onClick={() => navigate("TODAY")}
-            className="ml-4 px-3 py-1 bg-[#003877] text-white rounded hover:bg-blue-600 text-sm"
+            className="ml-4 px-3 py-1 bg-[#003877] text-white rounded hover:bg-blue-600 text-sm hidden md:block"
           >
             Today
           </button>
@@ -114,7 +114,7 @@ const UserCalendar: React.FC = () => {
 
   return (
     <div className=" p-1">
-      <div style={{ height: "calc(100vh - 155px)" , zIndex: 10 }}>
+      <div style={{ height: "calc(100vh - 155px)", zIndex: 10 }}>
         <Calendar
           localizer={localizer}
           events={events}
