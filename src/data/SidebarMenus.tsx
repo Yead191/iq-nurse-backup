@@ -39,7 +39,7 @@ export const menus: Record<string, MenuItem[]> = {
       icon: icon("/assets/sidebar-icons/community-icon.svg", "community"),
     },
   ],
-  studyTools: [
+  studyMaterial: [
     {
       key: "/profile/study-notes",
       label: "Study Notes",
@@ -103,19 +103,9 @@ export const menus: Record<string, MenuItem[]> = {
       icon: icon("/assets/sidebar-icons/body-system-icon.svg", "body-system"),
     },
     {
-      key: "/profile/my-notepad",
-      label: "My Notepad",
-      icon: icon("/assets/icons/note-icon.svg", "notepad"),
-    },
-    {
       key: "/profile/clinicals",
       label: "Clinical Skills",
       icon: icon("/assets/sidebar-icons/clinicals-icon.svg", "clinicals"),
-    },
-    {
-      key: "/profile/clinical-calculator",
-      label: "Clinical Calculator",
-      icon: icon("/assets/sidebar-icons/calculator.svg", "calculator"),
     },
     {
       key: "/profile/patient-assessment",
@@ -126,10 +116,41 @@ export const menus: Record<string, MenuItem[]> = {
       ),
     },
     {
+      key: "/profile/care-plans",
+      label: "Care Plans",
+      icon: icon("/assets/sidebar-icons/care-plans-icon.svg", "care-plans", 20),
+      tag: "New",
+    },
+    {
       key: "/profile/templates",
-      label: "Templates",
+      label: "Download & Templates",
       icon: icon("/assets/sidebar-icons/template-icon.svg", "template"),
     },
+    {
+      key: "/profile/tests",
+      label: "Exams",
+      icon: icon("/assets/sidebar-icons/test-icon.svg", "test"),
+      subtitle: "NCLEX Tests / Next Gen",
+    },
+    {
+      key: "/profile/flash-card",
+      label: "Flashcards",
+      icon: icon("/assets/sidebar-icons/flash-cards-icon.svg", "flashcards"),
+    },
+  ],
+  studyTools: [
+    {
+      key: "/profile/my-notepad",
+      label: "My Notepad",
+      icon: icon("/assets/icons/note-icon.svg", "notepad"),
+    },
+
+    {
+      key: "/profile/clinical-calculator",
+      label: "Clinical Calculator",
+      icon: icon("/assets/sidebar-icons/calculator.svg", "calculator"),
+    },
+
     {
       key: "/profile/concept-map",
       label: "Concept Map",
@@ -143,26 +164,9 @@ export const menus: Record<string, MenuItem[]> = {
     },
     {
       key: "/profile/calendar",
-      label: "Calendar",
+      label: "Calendar/Planner",
       icon: icon("/assets/sidebar-icons/calendar-icon.svg", "calendar"),
       tag: "New",
-    },
-    {
-      key: "/profile/care-plans",
-      label: "Care Plans",
-      icon: icon("/assets/sidebar-icons/care-plans-icon.svg", "care-plans", 20),
-      tag: "New",
-    },
-    {
-      key: "/profile/tests",
-      label: "Test & Quizzers",
-      icon: icon("/assets/sidebar-icons/test-icon.svg", "test"),
-      subtitle: "NCLEX Tests / Next Gen",
-    },
-    {
-      key: "/profile/flash-card",
-      label: "Flash Cards",
-      icon: icon("/assets/sidebar-icons/flash-cards-icon.svg", "flashcards"),
     },
   ],
   supportLegal: [

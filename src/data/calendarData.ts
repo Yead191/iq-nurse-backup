@@ -137,7 +137,7 @@ export const calendarMenuItems = [
     icon: "/assets/icons/exam-icon.svg",
     label: "Exams",
     color: "text-teal-500",
-    path: "/profile/calendar/exams",
+    path: "/profile/calendar/classes",
   },
   {
     icon: "/assets/icons/meetings-icon.svg",

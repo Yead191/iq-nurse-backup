@@ -17,16 +17,16 @@ const CalendarMobileHeader: React.FC<CalendarMobileHeaderProps> = ({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const mode = searchParams.get("mode");
-  // const formatPathName = (slug: string | undefined) => {
-  //   if (!slug) return "";
-  //   return slug
-  //     .split("-")
-  //     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-  //     .join(" ");
-  // };
-  // const pathSegments = pathname?.split("/").filter(Boolean) || [];
-  // const lastSegment =
-  //   pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : undefined;
+  const formatPathName = (slug: string | undefined) => {
+    if (!slug) return "";
+    return slug
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
+  const pathSegments = pathname?.split("/").filter(Boolean) || [];
+  const lastSegment =
+    pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : undefined;
   return (
     <div className="lg:hidden  py-2 flex items-center justify-between sticky top-4  bg-white">
       {/* <button
@@ -36,14 +36,24 @@ const CalendarMobileHeader: React.FC<CalendarMobileHeaderProps> = ({
       >
         <Calendar size={24} />
       </button> */}
-      <Link href={"/profile/home"} className="mt-1.5">
+      <Link
+        href={
+          pathname === "/profile/calendar"
+            ? "/profile/home"
+            : "/profile/calendar"
+        }
+        className="mt-1.5"
+      >
         <button className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border">
           <ChevronLeft size={24} />
         </button>
       </Link>
       <h1 className="text-sm lg:text-lg lg:font-semibold bg-[#F6F7F8]  border border-[#003877] px-6 py-1 rounded-lg">
-        {/* {formatPathName(lastSegment)} */}
-        Calendar <span className="capitalize">{mode}</span>
+        {mode ? (
+          <span className="capitalize">Calendar {mode}</span>
+        ) : (
+          formatPathName(lastSegment)
+        )}
       </h1>
 
       <button

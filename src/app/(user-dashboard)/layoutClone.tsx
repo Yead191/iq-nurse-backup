@@ -138,7 +138,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
         <div
           className={`h-[94px] w-full  md:hidden ${bottomHide ? "hidden" : ""}`}
         >
-          <BottomNavigation setIsMobileSidebarOpen={setIsMobileSidebarOpen} />
+          <BottomNavigation setShowLabels={setShowLabels} setIsMobileSidebarOpen={setIsMobileSidebarOpen} />
         </div>
       </div>
     </div>
