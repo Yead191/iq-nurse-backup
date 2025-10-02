@@ -77,7 +77,7 @@ export default function AddClassesModal({
       color: selectedColor,
       icon: selectedIcon,
     };
-    console.log("add classes Form Values:", formData);
+    // console.log("add classes Form Values:", formData);
     onClose();
     form.resetFields();
     setSelectedColor("");
@@ -93,6 +93,7 @@ export default function AddClassesModal({
       title={
         <span className="text-lg font-semibold text-gray-800">Add Classes</span>
       }
+      centered
     >
       <Form
         form={form}

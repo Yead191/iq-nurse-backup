@@ -7,6 +7,7 @@ import StudentPlannerDrawer from "./StudentPlannerDrawer";
 import AsidePanel from "../user-home-page/aside/AsidePanel";
 import EventsBottomDrawer from "./EventsBottomDrawer";
 import AddEventsModal from "@/components/shared/event-modals/AddEventsModal";
+import { FloatingCalendarButton } from "./FloatingCalendarButton";
 
 // Load UserCalendar client-only
 const UserCalendar = dynamic(() => import("./UserCalendar"), { ssr: false });
@@ -33,7 +34,7 @@ const CalendarMain = () => {
 
   const handleNewEventClick = () => {
     // Handle new event creation
-    console.log("New event clicked");
+    // console.log("New event clicked");
     setModalVisible(true);
   };
 
@@ -46,16 +47,17 @@ const CalendarMain = () => {
       />
 
       {/* Student Planner Drawer */}
-      <StudentPlannerDrawer isOpen={isDrawerOpen} onClose={handleCloseDrawer} />
+      {/* <StudentPlannerDrawer isOpen={isDrawerOpen} onClose={handleCloseDrawer} /> */}
 
       {/* Main Content */}
-      <div className="grid grid-cols-12 lg:gap-6 mt-6 md:mt-0">
-        <div className="col-span-12 lg:col-span-9 max-h-[calc(100vh-175px)] md:max-h-max overflow-y-auto">
+      <div className="grid grid-cols-12 lg:gap-6 mt-6 md:mt-0 relative">
+        <div className="col-span-12 lg:col-span-9 max-h-[calc(100vh-145px)] md:max-h-max overflow-y-auto">
           <UserCalendar />
         </div>
         <div className="hidden lg:block lg:col-span-3">
           <AsidePanel />
         </div>
+        <FloatingCalendarButton />
       </div>
 
       {/* Events Bottom Drawer - Mobile Only */}

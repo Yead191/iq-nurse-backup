@@ -74,7 +74,7 @@ export default function AddExamModal({ open, onClose }: AddExamModalProps) {
       color: selectedColor,
       icon: selectedIcon,
     };
-    console.log("add exam Form Values:", formData);
+    // console.log("add exam Form Values:", formData);
     onClose();
     form.resetFields();
     setSelectedColor("");

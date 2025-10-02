@@ -133,9 +133,9 @@ export const EventCard = ({
             marginTop: 12,
           }}
         >
-          <div className="flex items-center gap-2 text-[10px] md:text-[12px]">
+          <div className="flex items-center gap-2 text-[10px] 2xl:text-[12px]">
             <Calendar size={10} style={{ fontSize: 10, color: "#8c8c8c" }} />
-            <p className="">Wed, 05 Apr 2025,</p>
+            <p className="">Wed, 05 Apr 2025</p>
             <p className="text-[#7B7B7B] ">{timeRange}</p>
           </div>
 

@@ -8,8 +8,8 @@ const Spinner = () => {
       {/* Logo with scale animation */}
       <div className="scale-pulse">
         <Image
-          src={"/assets/Logo.png"}
-          alt="Ready Verified Logo"
+          src={"/Logo.svg"}
+          alt="IQ Nurse Logo"
           width={200}
           height={100}
           unoptimized

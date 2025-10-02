@@ -50,7 +50,7 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({ open, onClose }) => {
       color: selectedColor,
       icon: selectedIcon,
     };
-    console.log("Add task form Data:", formData);
+    // console.log("Add task form Data:", formData);
     form.resetFields();
     setSelectedIcon("");
     onClose();

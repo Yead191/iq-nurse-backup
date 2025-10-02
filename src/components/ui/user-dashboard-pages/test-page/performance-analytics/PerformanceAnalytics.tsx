@@ -1,6 +1,6 @@
 "use client";
 
-import { Tabs } from "antd";
+import { Grid, Tabs } from "antd";
 import TopicsPerformance from "./tabs/TopicsPerformance";
 import PeerComparison from "./tabs/PeerComparison";
 import Recommendations from "./tabs/Recommendations";
@@ -15,8 +15,9 @@ const metrics = [
   { value: "37", label: "Study Hours", color: "blue" },
 ];
 export default function PerformanceAnalytics() {
+  const { lg } = Grid.useBreakpoint();
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="max-w-6xl mx-auto md:p-6">
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-foreground mb-2">
@@ -28,7 +29,7 @@ export default function PerformanceAnalytics() {
         </p>
       </div>
       {/* Metric Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {metrics?.map((metric, index) => (
           <MetricCard
             key={index}
@@ -42,7 +43,7 @@ export default function PerformanceAnalytics() {
       {/* Tabs */}
       <Tabs
         defaultActiveKey="topics"
-        size="large"
+        size={lg ? "large" : "small"}
         className="performance-tabs"
         items={[
           {
@@ -66,6 +67,7 @@ export default function PerformanceAnalytics() {
       <style jsx global>{`
         .performance-tabs .ant-tabs-nav {
           margin-bottom: 32px;
+          margin-top: 18px;
         }
 
         .performance-tabs .ant-tabs-tab {

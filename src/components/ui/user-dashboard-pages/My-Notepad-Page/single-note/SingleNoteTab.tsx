@@ -13,10 +13,10 @@ interface NoteTabProps {
   isDesabled?: boolean;
 }
 
-export default function NoteTab({
+export default function SingleNoteTab({
   handleContentChange,
   content,
-  height = "60vh",
+  height = "100vh",
   isDesabled = false,
 }: NoteTabProps) {
   const editor = useRef(null);
@@ -30,39 +30,7 @@ export default function NoteTab({
     style: {
       background: "#fff",
       borderRadius: "6px",
-      // padding: "8px",
     },
-    buttons: ["paragraph", "bold", "italic", "underline", "ul", "ol", "brush"],
-    // ✅ Force same buttons on all screen sizes
-    // buttons: ["paragraph", "bold", "italic", "underline", "ul", "ol", "brush"],
-    // buttonsMD: [
-    //   "paragraph",
-    //   "bold",
-    //   "italic",
-    //   "underline",
-    //   "ul",
-    //   "ol",
-    //   "brush",
-    // ],
-    buttonsMD: [
-      "paragraph",
-      "bold",
-      "italic",
-      "underline",
-      "ul",
-      "ol",
-      "brush",
-      "table",
-    ],
-    buttonsSM: [
-      "paragraph",
-      "bold",
-      "italic",
-      "underline",
-      "ul",
-      "ol",
-      "brush",
-    ],
     showCharsCounter: false,
     showWordsCounter: false,
     showXPathInStatusbar: false,
@@ -70,6 +38,7 @@ export default function NoteTab({
 
   return (
     <div
+    className="single-note-tab"
       style={{
         // border: "1px solid #003877",
         borderRadius: "11px",

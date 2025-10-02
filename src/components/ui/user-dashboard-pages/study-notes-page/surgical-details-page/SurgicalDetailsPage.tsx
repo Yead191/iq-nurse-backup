@@ -9,12 +9,21 @@ import DetailsHeader from "@/components/shared/DetailsHeader";
 
 import FlashcardTab from "./flashcard-tab/FlashcardTab";
 import ExamTab from "./exam-tab/ExamTab";
+import MediaTab from "@/components/shared/MediaTab";
+import { Bookmark, Printer, Share2 } from "lucide-react";
+import { toast } from "sonner";
 
 const tabs = [
   {
     id: "overview",
     label: "Overview",
     icon: "/assets/sidebar-icons/study-notes-icon.svg",
+    color: "bg-blue-500",
+  },
+  {
+    id: "media",
+    label: "Media",
+    icon: "/assets/icons/media-icon.svg",
     color: "bg-blue-500",
   },
   {
@@ -46,6 +55,8 @@ export default function SurgicalDetailsPage({ id }: { id: any }) {
         return <OverviewTab />;
       case "flashcard":
         return <FlashcardTab />;
+      case "media":
+        return <MediaTab />;
       case "exam":
         return <ExamTab />;
       case "note":
@@ -57,7 +68,27 @@ export default function SurgicalDetailsPage({ id }: { id: any }) {
 
   return (
     <div className="p-0">
-      <DetailsHeader title={id} back={"/profile/study-notes"} />
+      <DetailsHeader title={id} back={"/profile/study-notes"} primaryBg={false} 
+      actions={[
+        {
+          icon: Bookmark,
+          label: "Bookmark",
+          hoverColor: "text-blue-600",
+          onClick: () => toast.success("Bookmarked!"),
+        },
+        {
+          icon: Share2,
+          label: "Share",
+          hoverColor: "text-green-600",
+          onClick: () => toast.success("Shared!"),
+        },
+        {
+          icon: Printer,
+          label: "print",
+          hoverColor: "text-green-600",
+          onClick: () => console.log("print!"),
+        },
+      ]}/>
 
       <div className="flex justify-end items-center px-4   lg:px-5 ">
         {/* <p className="text-2xl font-semibold">{id}</p> */}
@@ -75,7 +106,7 @@ export default function SurgicalDetailsPage({ id }: { id: any }) {
           />
         </div> */}
         <div className="px-4  lg:px-5   lg:pt-0  ">
-          <div className="max-h-[calc(100vh-200px)] overflow-auto ">
+          <div className="max-h-[calc(100vh-130px)] lg:max-h-[calc(100vh-200px)] overflow-auto ">
             {renderTabContent()}
           </div>
         </div>

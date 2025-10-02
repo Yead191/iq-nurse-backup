@@ -46,7 +46,7 @@ export const Checklist = () => {
 
 
     const onChange = (data: any) => {
-        console.log(data)
+        // console.log(data)
     }
 
     return (

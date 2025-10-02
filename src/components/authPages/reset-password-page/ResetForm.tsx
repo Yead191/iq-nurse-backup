@@ -18,7 +18,7 @@ export default function ResetForm() {
   const [form] = Form.useForm();
   const router = useRouter();
   const onFinish = (values: any) => {
-    console.log("Form values:", values);
+    // console.log("Form values:", values);
     Cookies.set("resetEmail", values.email || "");
     toast.success("Reset link sent to your email!");
     router.push("/auth/email-sent");

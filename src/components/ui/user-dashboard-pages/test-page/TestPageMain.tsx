@@ -31,32 +31,19 @@ export default function TestPageMain() {
     {
       id: "1",
       label: "NCLEX Prep",
-      icon: (
-        <p>
-          <IoAnalytics size={22} />{" "}
-        </p>
-      ),
+      icon: <IoAnalytics size={22} />,
       component: <PreparationTab />,
     },
     {
       id: "2",
       label: "Personalized Quiz",
-      icon: (
-        <p>
-          <IoAnalytics size={22} />{" "}
-        </p>
-      ),
+      icon: <IoAnalytics size={22} />,
       component: <PersonalizeQuizTab />,
     },
     {
       id: "3",
       label: "Progress",
-      icon: (
-        <p>
-          {" "}
-          <IoAnalytics size={22} />{" "}
-        </p>
-      ),
+      icon: <IoAnalytics size={22} />,
       component: <PerformanceAnalytics />,
     },
   ];

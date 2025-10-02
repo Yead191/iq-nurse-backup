@@ -33,7 +33,7 @@ export default function NewFolderForm({ onAdd, onCancel }: NewFolderFormProps) {
   };
 
   return (
-    <div className="space-y-2 relative">
+    <div className="space-y-2 relative w-full ">
       <div className="flex items-center border rounded px-2 py-1 focus-within:ring-1 focus-within:ring-blue-500">
         <input
           type="text"
@@ -57,7 +57,7 @@ export default function NewFolderForm({ onAdd, onCancel }: NewFolderFormProps) {
             <ChevronUp size={14} className="text-gray-500" />
           </button>
           {isColorPickerOpen && (
-            <div className="absolute top-0 right-2 bottom-full mb-2 bg-white shadow-lg rounded p-2 grid grid-cols-1 gap-2 z-20">
+            <div className="absolute bottom-0 right-2  mb-2 bg-white shadow-lg rounded p-2 grid grid-cols-1 gap-2 z-20">
               {colors.map((c) => (
                 <button
                   key={c}

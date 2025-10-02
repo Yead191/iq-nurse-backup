@@ -14,7 +14,11 @@ export default function MediaSection({
     <div className="space-y-8">
       {/* Video */}
       <div className="relative bg-black rounded-lg overflow-hidden">
-        <video style={{ width: "100%", borderRadius: "8px", height:440 }} controls autoPlay>
+        <video
+          style={{ width: "100%", borderRadius: "8px", height: "65vh" }}
+          controls
+          autoPlay
+        >
           <source src="/assets/video/heart_video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>

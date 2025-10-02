@@ -11,7 +11,7 @@ import { Checklist } from './CheckList';
 export default function ClinicalsPageDetails() {
 
     const onChange = (key: string) => {
-        console.log(key);
+        // console.log(key);
     };
 
     const isMobile = globalThis.screen.width <= 768;

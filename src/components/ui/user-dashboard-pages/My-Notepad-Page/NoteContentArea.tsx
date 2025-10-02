@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import NoteTab from "../study-notes-page/surgical-details-page/NoteTab";
+import SingleNoteTab from "./single-note/SingleNoteTab";
 
 interface NoteContentAreaProps {
   noteId: string | null;
@@ -85,18 +86,18 @@ export default function NoteContentArea({
 
       {/* Content Area */}
       <div className="flex-1 p-6">
-        <div className="w-full mx-auto h-full">
-          {/* <textarea
-            value={content}
-            onChange={(e) => handleContentChange(e.target.value)}
-            placeholder="Start typing your note..."
-            className="w-full h-full resize-none border-0 outline-none text-base leading-relaxed placeholder:text-gray-400"
-          /> */}
+        <div className="w-full mx-auto h-full ">
           <NoteTab
             handleContentChange={handleContentChange}
             content={content}
           />
         </div>
+        {/* <div className="w-full mx-auto h-full md:hidden">
+          <SingleNoteTab
+            handleContentChange={handleContentChange}
+            content={content}
+          />
+        </div> */}
       </div>
     </div>
   );

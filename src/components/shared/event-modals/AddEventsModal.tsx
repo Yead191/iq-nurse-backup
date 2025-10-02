@@ -44,11 +44,11 @@ const AddEventsModal: React.FC<AddEventsModalProps> = ({
         case "Add a Tasks":
           // Handle tasks logic
           setTaskModalOpen(true);
-          console.log("task clicked");
+          // console.log("task clicked");
           break;
         case "Add Classes":
           // Handle classes logic
-          console.log("Classes clicked");
+          // console.log("Classes clicked");
           setClassesModalOpen(true);
           break;
         case "Add Assignment":
@@ -102,7 +102,7 @@ const AddEventsModal: React.FC<AddEventsModalProps> = ({
         centered
         className="add-events-modal"
       >
-        <div className="py-6 grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 h-[70vh] overflow-auto">
+        <div className="py-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 md:gap-4 h-[70vh] overflow-auto">
           {eventTypes.map((event, index) => (
             <div key={index}>
               <EventCard

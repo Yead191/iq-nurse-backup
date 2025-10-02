@@ -7,6 +7,8 @@ import { toast } from "sonner";
 import NotepadMobileFolder from "./NotepadMobileFolder";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import { Bookmark, Download, File, Plus } from "lucide-react";
+import { Grid } from "antd";
+import { useRouter } from "next/navigation";
 
 // -------------------- Types --------------------
 interface Note {
@@ -28,12 +30,14 @@ type MobileView = "folders" | "notes" | "content";
 
 // -------------------- Component --------------------
 export default function MyNotepadPage() {
+  const router = useRouter();
   const [folders, setFolders] = useState<Folder[]>([
     { name: "Medical Surgical Notes", color: "#3b82f6" },
   ]);
   const [activeFolder, setActiveFolder] = useState(
     folders.length ? folders[0].name : ""
   );
+  const { lg } = Grid.useBreakpoint();
 
   const [notes, setNotes] = useState<Note[]>([
     {
@@ -46,6 +50,7 @@ export default function MyNotepadPage() {
       updatedAt: new Date(),
     },
   ]);
+  console.log(folders, notes);
 
   const [activeNoteId, setActiveNoteId] = useState<string | null>(
     notes.length ? notes[0].id : null
@@ -102,6 +107,9 @@ export default function MyNotepadPage() {
   const handleNoteSelect = (noteId: string) => {
     setActiveNoteId(noteId);
     setMobileView("content");
+    if (!lg) {
+      router.push(`/profile/my-notepad/note/${noteId}`);
+    }
   };
 
   const handleTitleChange = (title: string) => {
@@ -186,11 +194,15 @@ export default function MyNotepadPage() {
         subtitle="Create,organize,and enhance your study notes with AI assistance"
         isAiEnhanced={true}
         actions={[
-          {
-            label: "Export All",
-            icon: <Download size={18} className="mt-1" />,
-            onClick: () => console.log("Download"),
-          },
+          ...(lg
+            ? [
+                {
+                  label: "Export All",
+                  icon: <Download size={18} className="mt-1" />,
+                  onClick: () => console.log("Download"),
+                },
+              ]
+            : []),
           {
             label: "New Note",
             icon: <Plus size={18} className="mt-1.5" />,
@@ -199,7 +211,7 @@ export default function MyNotepadPage() {
           },
         ]}
       />
-      <div className="h-[calc(100vh-110px)] flex flex-col px-4 lg:px-5  ">
+      <div className="h-[calc(100vh-200px)] lg:h-[calc(100vh-110px)] flex flex-col px-4 lg:px-5  ">
         <div className="flex-1 flex overflow-hidden">
           {/* ---------- Desktop Layout ---------- */}
           <div className="hidden lg:grid grid-cols-9 w-full">
@@ -232,7 +244,7 @@ export default function MyNotepadPage() {
           {/* ---------- Mobile Layout ---------- */}
           <div className="flex flex-col lg:hidden w-full">
             {/* Mobile Header with Back Button */}
-            <div className="grid grid-cols-12 py-2  bg-white">
+            {/* <div className="grid grid-cols-12 py-2  bg-white">
               {mobileView !== "folders" && (
                 <button
                   onClick={handleMobileBack}
@@ -254,10 +266,10 @@ export default function MyNotepadPage() {
                   Back
                 </button>
               )}
-            </div>
+            </div> */}
 
             {/* Mobile View Content */}
-            <div className="flex-1 overflow-y-auto">
+            <div className="flex-1  overflow-y-auto">
               {mobileView === "folders" && (
                 <NotepadMobileFolder
                   folders={folders}
@@ -273,7 +285,7 @@ export default function MyNotepadPage() {
                 />
               )}
 
-              {mobileView === "content" && (
+              {/* {mobileView === "content" && (
                 <NoteContentArea
                   noteId={activeNoteId}
                   initialTitle={activeNote?.title || ""}
@@ -281,7 +293,7 @@ export default function MyNotepadPage() {
                   onTitleChange={handleTitleChange}
                   onContentChange={handleContentChange}
                 />
-              )}
+              )} */}
             </div>
           </div>
 

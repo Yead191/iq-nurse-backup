@@ -6,6 +6,6 @@ interface PageProps {
 }
 export default async function page({ params }: PageProps) {
   const { id } = await params;
-  console.log(id);
+  // console.log(id);
   return <AssessmentDetailsPage id={id} />;
 }

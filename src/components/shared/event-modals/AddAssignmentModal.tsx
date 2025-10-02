@@ -65,7 +65,7 @@ export default function AddAssignmentModal({
       color: selectedColor,
       icon: selectedIcon,
     };
-    console.log("Add Assignment Form Values:", formData);
+    // console.log("Add Assignment Form Values:", formData);
     onClose();
     form.resetFields();
     setSelectedColor(colorOptions[0]);

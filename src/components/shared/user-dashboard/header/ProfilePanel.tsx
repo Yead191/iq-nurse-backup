@@ -42,7 +42,7 @@ export default function ProfilePanel() {
   ];
   const onLogout = () => {
     // Handle logout logic here
-    console.log("User logged out");
+    // console.log("User logged out");
     router.push("/");
   };
   return (

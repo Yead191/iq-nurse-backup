@@ -1,9 +1,15 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { ChevronDown, ChevronRight, ChevronLeft } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronRight,
+  ChevronLeft,
+  PanelRightClose,
+  PanelRightOpen,
+} from "lucide-react";
 import { useEffect, useState } from "react";
-import { Tooltip } from "antd";
+import { Grid, Tooltip } from "antd";
 import React from "react";
 import { MenuItem, menus, studyNotesChildren } from "@/data/SidebarMenus";
 
@@ -21,6 +27,7 @@ const Sidebar = ({
 }: SidebarProps) => {
   // const { category } = await params;
   // console.log(category);
+  const { lg } = Grid.useBreakpoint();
   const pathname = usePathname();
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
     studyTools: false,
@@ -107,12 +114,15 @@ const Sidebar = ({
           ) : (
             <Link href={item.key}>
               <div
+                onClick={() => {
+                  if (!lg) toggleSidebar();
+                }}
                 className={`flex items-center ${
                   showLabels ? "justify-center " : "gap-3 pl-4"
                 } mx-2  py-2 cursor-pointer ${
                   isActive(item.key)
-                    ? "bg-[#F6F7F8] rounded-[10px]"
-                    : "hover:bg-gray-50"
+                    ? "bg-[#F6F7F8] rounded-[10px] border border-[#85A6CA]"
+                    : "hover:bg-gray-50 hover:rounded-[10px]"
                 }`}
               >
                 {item.icon}
@@ -163,7 +173,7 @@ const Sidebar = ({
   return (
     <div
       className={`h-full bg-white border-r border-[#D9D9D9] flex flex-col transition-all duration-300   ${
-        showLabels ? "w-20" : "w-64"
+        showLabels ? "w-20" : " lg:w-52 2xl:w-64"
       }`}
     >
       {/* Logo & Toggle */}
@@ -179,12 +189,14 @@ const Sidebar = ({
           )}
           <button
             onClick={toggleSidebar}
-            className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border p-1"
+            className="hover:bg-gray-100 text-[#212121] font-semibold rounded bg-[#F6F8FA] p-1 "
           >
             {showLabels ? (
-              <ChevronRight size={22} />
+              <PanelRightClose size={22} />
             ) : (
-              <ChevronLeft size={20} />
+              // <ChevronRight size={22} />
+              // <ChevronLeft size={20} />
+              <PanelRightOpen size={22} />
             )}
           </button>
         </div>

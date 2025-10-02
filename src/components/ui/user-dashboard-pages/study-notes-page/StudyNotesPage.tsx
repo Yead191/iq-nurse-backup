@@ -3,12 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import {
-  DownloadOutlined,
-  PlusOutlined,
-  BookOutlined,
-} from "@ant-design/icons";
-import { Bookmark } from "lucide-react";
+import { BookOutlined } from "@ant-design/icons";
 import { SelectedContent } from "./SelectedContent";
 import { NclexSidebar } from "./NclexSidebar";
 import { Grid } from "antd";
@@ -61,26 +56,6 @@ export default function MedicalSurgicalPage() {
         title="Study Notes"
         subtitle="Comprehensive NCLEX study materials with interactive videos and visual aids"
         isAiEnhanced={true}
-        actions={[
-          {
-            label: "Bookmark",
-            icon: (
-              <Bookmark size={18} className="mt-1.5 text-black fill-current" />
-            ),
-            onClick: () => console.log("Bookmark"),
-          },
-          {
-            label: "Download",
-            icon: <DownloadOutlined />,
-            onClick: () => console.log("Download"),
-          },
-          {
-            label: "Create Note",
-            icon: <PlusOutlined />,
-            onClick: () => console.log("Create Note"),
-            isPrimary: true,
-          },
-        ]}
       />
 
       <div className="flex gap-6">

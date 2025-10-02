@@ -2,7 +2,6 @@
 
 import type React from "react";
 import { useRef, useState, useEffect } from "react";
-import { ChevronUp } from "lucide-react";
 import TasksSection from "../user-home-page/aside/todays-event/TasksSection";
 import ClassesSection from "../user-home-page/aside/todays-event/ClassesSection";
 import AssignmentSection from "../user-home-page/aside/todays-event/AssignmentSection";
@@ -12,19 +11,21 @@ interface EventsBottomDrawerProps {
   selectedDate?: string;
 }
 
-const MIN = 15; // vh
+const MIN = 10; // vh
 const MAX = 85; // vh
-const SNAP_POINTS = [15, 25, 50, 85] as const;
+const SNAP_POINTS = [5, 25, 50, 85] as const;
 
-const EventsBottomDrawer: React.FC<EventsBottomDrawerProps> = ({ selectedDate }) => {
+const EventsBottomDrawer: React.FC<EventsBottomDrawerProps> = ({
+  selectedDate,
+}) => {
   // Visible height in vh, persisted only on snap.
   const [visible, setVisible] = useState<number>(25);
 
   // Refs for smooth, non-react-driven dragging
   const drawerRef = useRef<HTMLDivElement>(null);
   const startY = useRef(0);
-  const startVisible = useRef(25);
-  const currVisible = useRef(25);
+  const startVisible = useRef(5);
+  const currVisible = useRef(5);
   const isDragging = useRef(false);
   const raf = useRef<number | null>(null);
 
@@ -43,7 +44,8 @@ const EventsBottomDrawer: React.FC<EventsBottomDrawerProps> = ({ selectedDate })
     currVisible.current = visible;
     // enable transition only on snap, not during drag
     if (drawerRef.current) {
-      drawerRef.current.style.transition = "transform 400ms cubic-bezier(0.25,0.8,0.25,1)";
+      drawerRef.current.style.transition =
+        "transform 400ms cubic-bezier(0.25,0.8,0.25,1)";
     }
     applyFrame(visible);
     // disable transition after it ends so tiny adjustments later don't feel sluggish
@@ -74,7 +76,10 @@ const EventsBottomDrawer: React.FC<EventsBottomDrawerProps> = ({ selectedDate })
 
     const deltaY = startY.current - e.touches[0].clientY;
     const deltaPercent = (deltaY / window.innerHeight) * 100;
-    let next = Math.max(MIN, Math.min(MAX, startVisible.current + deltaPercent));
+    let next = Math.max(
+      MIN,
+      Math.min(MAX, startVisible.current + deltaPercent)
+    );
     currVisible.current = next;
 
     if (raf.current) cancelAnimationFrame(raf.current);
@@ -93,7 +98,8 @@ const EventsBottomDrawer: React.FC<EventsBottomDrawerProps> = ({ selectedDate })
 
     // animate to snap
     if (drawerRef.current) {
-      drawerRef.current.style.transition = "transform 400ms cubic-bezier(0.25,0.8,0.25,1)";
+      drawerRef.current.style.transition =
+        "transform 400ms cubic-bezier(0.25,0.8,0.25,1)";
     }
     applyFrame(closest);
     setVisible(closest);
@@ -110,32 +116,26 @@ const EventsBottomDrawer: React.FC<EventsBottomDrawerProps> = ({ selectedDate })
         transform: `translateY(${MAX - visible}vh)`,
       }}
     >
-      {/* Drag Handle */}
+      {/* Selected Date Header */}
       <div
-        className="flex justify-center py-2 cursor-grab active:cursor-grabbing select-none"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
-        // Prevent scroll jank while dragging the handle
         style={{ touchAction: "none" }}
+        className="bg-primary text-white px-4 py-3  rounded-t-[20px] pb-6"
       >
-        <div className="w-12 h-1 bg-gray-300 rounded-full" />
-      </div>
-
-      {/* Selected Date Header */}
-      <div className="bg-primary text-white px-4 py-3 mx-4 rounded-t-[20px] mb-4">
         <div className="flex items-center justify-between">
-          <span className="font-medium">{selectedDate}</span>
-          <ChevronUp size={20} />
+          <span className="text-sm font-[400]">{selectedDate}</span>
+          {/* <ChevronUp size={20} /> */}
         </div>
       </div>
 
       {/* Content */}
       <div
-        className="px-4 pb-4 overflow-y-auto"
+        className="px-4 pb-4 overflow-y-auto bg-white rounded-t-2xl -mt-4 pt-2"
         // Use CSS var --visible (vh) to keep inner scroll height in sync during drag
         style={{
-          height: "calc((var(--visible, 25) * 1vh) - 120px)",
+          height: "calc((var(--visible, 25) * 1vh) - 44px)",
           // Prevent scroll chaining to the page while scrolling inside the drawer
           overscrollBehavior: "contain",
           WebkitOverflowScrolling: "touch",
