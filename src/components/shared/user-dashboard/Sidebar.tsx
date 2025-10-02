@@ -203,7 +203,7 @@ const Sidebar = ({
       </div>
 
       {/* Menus */}
-      <div className="flex-1 overflow-y-auto max-h-[calc(100vh-124px)] md:max-h-max lg:pb-8">
+      <div className="flex-1 overflow-y-auto max-h-[calc(100vh-160px)] md:max-h-max lg:pb-8">
         <div className="hidden md:block">
           <RenderMenuGroup items={menus.main} menuKey="main" />
         </div>
