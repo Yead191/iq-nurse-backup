@@ -50,7 +50,7 @@ const CalendarMobileHeader: React.FC<CalendarMobileHeaderProps> = ({
       </Link>
       <h1 className="text-sm lg:text-lg lg:font-semibold bg-[#F6F7F8]  border border-[#003877] px-6 py-1 rounded-lg">
         {mode ? (
-          <span className="capitalize">Calendar {mode}</span>
+          <span className="capitalize">Calendar  {mode}</span>
         ) : (
           formatPathName(lastSegment)
         )}

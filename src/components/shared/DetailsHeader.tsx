@@ -26,7 +26,7 @@ export default function DetailsHeader({
   return (
     <div
       className={`flex md:hidden items-center justify-between py-3 sticky top-0 z-50 ${
-        primaryBg ? "bg-[#02478D]" : ""
+        primaryBg ? "bg-[#02478D]" : " bg-white"
       } px-4 `}
     >
       {/* Back Button */}

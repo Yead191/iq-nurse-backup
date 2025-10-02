@@ -47,12 +47,6 @@ export default function CarePlanSideBar() {
   };
   return (
     <div>
-        <div className="pb-5">
-            <h1 className="text-2xl font-bold text-gray-700">Medical Surgical Nursing</h1>
-            <p className="flex items-center gap-2 text-sm text-gray-500 mt-1.5">
-                <span><FaBook /> </span><span>24 Topics</span>
-            </p>
-        </div>
       <NclexSidebar
         onCategorySelect={handleCategorySelect}
         onSubcategorySelect={handleSubcategorySelect}

@@ -12,7 +12,7 @@ interface IProps {
     skillCategoryId: string | null;
     setSkillId: string | null;
   };
-  setIsSideBarSelect: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsSideBarSelect?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function ClinicalSkills({
@@ -27,6 +27,7 @@ export default function ClinicalSkills({
     { key: "in_progress", label: "In Progress" },
     { key: "not_started", label: "Not Started" },
   ];
+  console.log(categories);
 
   const skill = getGroupedSkillsByCategory(String(categories.skillCategoryId));
   const allSkills =
@@ -43,7 +44,9 @@ export default function ClinicalSkills({
         <div className="sm:hidden">
           <Button
             type="primary"
-            onClick={() => setIsSideBarSelect((prev) => !prev)}
+            onClick={() => {
+              if (setIsSideBarSelect) setIsSideBarSelect((prev) => !prev);
+            }}
             className="w-24 "
           >
             Back
@@ -56,7 +59,7 @@ export default function ClinicalSkills({
     <>
       {(allSkills ?? []).map(
         ({ id, name, description, duration, status }, index) => (
-          <Link href={`/profile/clinicals/${id}`} key={index + 1}>
+          <Link href={`/profile/clinicals/details/${id}`} key={index + 1}>
             <div className="border border-gray-300 mb-3 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white">
               {/* Left section */}
               <div className="flex items-start gap-3">
@@ -110,8 +113,8 @@ export default function ClinicalSkills({
   );
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative  max-h-[calc(100vh-125px)] overflow-y-auto">
-      <button
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative mt-2 md:mt-0 max-h-[calc(100vh-70px)]  md:max-h-[calc(100vh-125px)] overflow-y-auto">
+      {/* <button
         onClick={() => setIsSideBarSelect((prev) => !prev)}
         className="sm:hidden cursor-pointer items-center text-gray-600 hover:text-gray-900 col-span-3 mb-4 flex"
       >
@@ -129,18 +132,18 @@ export default function ClinicalSkills({
           />
         </svg>
         Back
-      </button>
+      </button> */}
 
       <div className="w-full">
         {/* Tab Buttons */}
-        <div className="flex gap-2 mb-4 sticky top-0 bg-white z-50 pb-2">
+        <div className="flex gap-2 mb-4 sticky top-0 bg-white z-50 pb-2 overflow-x-auto">
           {tabs.map((tab, i) => (
             <button
               key={i + 1}
               onClick={() => setActiveTab(tab.key)}
-              className={`px-4 py-2 rounded-lg font-medium border transition cursor-pointer ${
+              className={`px-4 py-2 text-xs md:text-base text-nowrap  rounded-lg font-medium border transition cursor-pointer ${
                 activeTab === tab.key
-                  ? "bg-blue-500/20 text- text-black  border-blue-800"
+                  ? "bg-blue-500/20  text-black  border-blue-800"
                   : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
               }`}
             >
