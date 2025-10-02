@@ -1,8 +1,9 @@
 import { templateData } from "@/data/templatesData";
-import { FaListUl } from "react-icons/fa";
-import { IoSearchOutline } from "react-icons/io5";
-import { Input, Button, Popover, List, Typography } from "antd";
+import { IoFolderSharp, IoSearchOutline } from "react-icons/io5";
+import { Empty, Input, List, Tooltip } from "antd";
 import { useState } from "react";
+import { LuHistory } from "react-icons/lu";
+import { useRouter } from "next/navigation";
 
 export type CategoryState = {
     categoryId: string | null;
@@ -11,30 +12,34 @@ export type CategoryState = {
 
 interface IProps {
     setIsSideBarSelect: React.Dispatch<React.SetStateAction<boolean>>;
-    setSetselectedId: React.Dispatch<React.SetStateAction<string>>;
+    setSetselectedId: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
+// Human search history (recently searched medications)
 const staticHistory = [
-    { name: "Acetaminophen", brand: "Tylenol" },
-    { name: "Morphine", brand: "MS Contin, Roxanol" },
-    { name: "Furosemide", brand: "Lasix" },
-    { name: "Metoprolol", brand: "Lopressor, Toprol-XL" },
-    { name: "Insulin", brand: "Humulin, Novolin, Lantus, Humalog" },
-    { name: "Heparin", brand: "no common brand name" },
-    { name: "Lisinopril", brand: "Prinivil, Zestril" },
-    { name: "Warfarin", brand: "Coumadin, Jantoven" },
-    { name: "Albuterol", brand: "ProAir, Ventolin, Proventil" },
-    { name: "Potassium Chloride", brand: "K-Dur, Klor-Con" },
-    { name: "Aspirin", brand: "Bayer, Ecotrin" },
-    { name: "Amoxicillin", brand: "Amoxil, Trimox" },
-    { name: "Atorvastatin", brand: "Lipitor" },
-    { name: "Omeprazole", brand: "Prilosec" },
-    { name: "Simvastatin", brand: "Zocor" },
-    { name: "Gabapentin", brand: "Neurontin" },
-    { name: "Hydrochlorothiazide", brand: "Microzide" },
-    { name: "Amlodipine", brand: "Norvasc" },
-    { name: "Levothyroxine", brand: "Synthroid, Levoxyl" },
-    { name: "Azithromycin", brand: "Zithromax" },
+    { id: 1, name: "acetaminophen", brand: "Tylenol" },
+    { id: 2, name: "morphine", brand: "MS Contin, Roxanol" },
+    { id: 3, name: "furosemide", brand: "Lasix" },
+    { id: 4, name: "metoprolol", brand: "Lopressor, Toprol-XL" },
+    { id: 5, name: "insulin", brand: "Humulin, Novolin, Lantus, Humalog" },
+];
+
+const medicationList = [
+    { id: 1, name: "Acetaminophen", brand: "Tylenol" },
+    { id: 2, name: "Morphine", brand: "MS Contin, Roxanol" },
+    { id: 3, name: "Furosemide", brand: "Lasix" },
+    { id: 4, name: "Metoprolol", brand: "Lopressor, Toprol-XL" },
+    { id: 5, name: "Insulin", brand: "Humulin, Novolin, Lantus, Humalog" },
+    { id: 6, name: "Ibuprofen", brand: "Advil, Motrin" },
+    { id: 7, name: "Naproxen", brand: "Aleve, Naprosyn" },
+    { id: 8, name: "Acetaminophen", brand: "Tylenol" },
+    { id: 9, name: "Morphine", brand: "MS Contin, Roxanol" },
+    { id: 10, name: "Furosemide", brand: "Lasix" },
+    { id: 11, name: "Metoprolol", brand: "Lopressor, Toprol-XL" },
+    { id: 12, name: "Insulin", brand: "Humulin, Novolin, Lantus, Humalog" },
+    { id: 13, name: "Ibuprofen", brand: "Advil, Motrin" },
+    { id: 13, name: "Naproxen", brand: "Aleve, Naprosyn" },
+    { id: 15, name: "Acetaminophen", brand: "Tylenol" }
 ];
 
 export default function DrugSearchList({
@@ -42,80 +47,61 @@ export default function DrugSearchList({
     setSetselectedId,
 }: IProps) {
     const [search, setSearch] = useState("");
-    const [popoverOpen, setPopoverOpen] = useState(false);
+    const [showHistory, setShowHistory] = useState(false);
 
-    // Filtered suggestions for popover
+    // Filtered suggestions for popover (from staticHistory)
     const filteredSuggestions = staticHistory.filter(
         (drug) =>
+            drug.id.toString().includes(search.toLowerCase()) ||
             drug.name.toLowerCase().includes(search.toLowerCase()) ||
             drug.brand.toLowerCase().includes(search.toLowerCase())
     );
 
+    // Filtered medication list for main list (from medicationList)
+    const filteredMedicationList = search.trim()
+        ? medicationList.filter(
+            (drug) =>
+                drug.id.toString().includes(search.toLowerCase()) ||
+                drug.name.toLowerCase().includes(search.toLowerCase()) ||
+                drug.brand.toLowerCase().includes(search.toLowerCase())
+        )
+        : medicationList;
+
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
-        setPopoverOpen(!!e.target.value);
-    };
-
-    const handleSelectSuggestion = (drug: { name: string; brand: string }) => {
-        setSearch(drug.name);
-        setPopoverOpen(false);
-        // Optionally, trigger selection logic here
-        setSetselectedId(drug.name);
-        setIsSideBarSelect(true);
     };
 
     const handleSearch = () => {
         if (search.trim()) {
-            setSetselectedId(search.trim());
+            setSetselectedId(search.trim().toString());
             setIsSideBarSelect(true);
-            setPopoverOpen(false);
         }
     };
 
+    const handleToggleHistory = () => {
+        setShowHistory((prev) => !prev);
+    };
+
+    const router = useRouter();
+
     return (
-        <aside className="w-full sm:w-sm scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 px-4 m-auto">
-            <div className="bg-white mb-2 p-3" style={{ boxShadow: "4px 4px 35px 0px #00000021" }}>
+        <aside className="w-full sm:w-sm scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100  m-auto">
+            <div className="md:bg-white mb-2 bg-transparent p-3 md:shadow-[4px_4px_35px_0px_#00000021]">
                 {/* Search */}
-                <div className="pb-2 bg-white">
+                <div className="pb-2 md:bg-white bg-transparent">
                     <h1 className="font-bold text-xl mb-2">Drug Search</h1>
-                    <div className="flex gap-2">
-                        <Popover
-                            open={popoverOpen && filteredSuggestions.length > 0}
-                            onOpenChange={setPopoverOpen}
-                            placement="bottomLeft"
-                            content={
-                                <List
-                                    size="small"
-                                    bordered={false}
-                                    dataSource={filteredSuggestions}
-                                    renderItem={(drug) => (
-                                        <List.Item
-                                            style={{ cursor: "pointer" }}
-                                            onClick={() => handleSelectSuggestion(drug)}
-                                        >
-                                            <span className="text-[#F59E42] mr-2">💊</span>
-                                            <span className="font-medium">{drug.name}</span>
-                                            <span className="text-gray-500 ml-1 text-xs">
-                                                {drug.brand ? `(${drug.brand})` : ""}
-                                            </span>
-                                        </List.Item>
-                                    )}
-                                    style={{ minWidth: 220, maxHeight: 240, overflowY: "auto" }}
-                                />
-                            }
-                            trigger={["focus"]}
-                        >
-                            <Input
-                                value={search}
-                                onChange={handleSearchChange}
-                                onPressEnter={handleSearch}
-                                placeholder="Search for medications"
-                                className="rounded-md"
-                                allowClear
-                                style={{ flex: 1 }}
-                                aria-label="Search for medications"
-                            />
-                        </Popover>
+                    <div className="flex gap-2 relative">
+                        <Input
+                            value={search}
+                            onChange={handleSearchChange}
+                            onPressEnter={handleSearch}
+                            placeholder="Search for medications"
+                            className="rounded-md"
+                            allowClear
+                            style={{ flex: 1 }}
+                            aria-label="Search for medications"
+                            autoComplete="off"
+                        />
                         <button
                             type="button"
                             onClick={handleSearch}
@@ -128,19 +114,65 @@ export default function DrugSearchList({
                 </div>
             </div>
 
-
-            <div className="bg-white p-3 max-h-[calc(100vh-220px)] overflow-y-auto " style={{ boxShadow: "4px 4px 35px 0px #00000021" }}>
+            <div className="bg-white p-3 h-[calc(100vh-220px)] overflow-y-auto " style={{ boxShadow: "4px 4px 35px 0px #00000021" }}>
                 {/* Drug Card Search History */}
                 <div className="space-y-2 ">
-                    <h2 className="flex items-center gap-2 text-base font-semibold mb-2 mt-2">
-                        <span className="text-[#F97316] text-lg">📂</span>
-                        Drug Card Search History
-                    </h2>
-                    {staticHistory.map((drug, idx) => (
+                    <Tooltip title={showHistory ? "Hide Search History" : "Show Search History"}>
+                        <div className="flex items-center gap-2 mb-2 mt-2 group">
+                            <button
+                                type="button"
+                                className="focus:outline-none flex items-center justify-center rounded-md p-1 transition-colors duration-150 group-hover:text-[#F97316]/90"
+                                aria-label={showHistory ? "Hide Medication Search History" : "Show Medication Search History"}
+                                onClick={handleToggleHistory}
+                            >
+                                <IoFolderSharp
+                                    size={30}
+                                    className="text-[#FE653B] group-hover:text-[#F97316]/90 transition-colors duration-150 cursor-pointer"
+                                />
+                            </button>
+                            <span
+                                className="text-base font-semibold cursor-pointer transition-colors duration-150 group-hover:text-[#F97316]/90"
+                                onClick={handleToggleHistory}
+                                tabIndex={0}
+                                role="button"
+                                aria-pressed={showHistory}
+                            >
+                                Medication Search History
+                            </span>
+                        </div>
+                    </Tooltip>
+
+                    {showHistory && staticHistory.length > 0 && staticHistory.map((drug, idx) => (
                         <div
-                            key={drug.name + idx}
-                            className="flex items-start gap-2 px-1 py-1 cursor-pointer hover:bg-gray-50 rounded"
-                            onClick={() => handleSelectSuggestion(drug)}
+                            key={drug.id + idx}
+                            className="flex items-start gap-2 ml-2 px-1 py-1 cursor-pointer hover:bg-gray-50 rounded"
+                            onClick={() => {
+                                setSearch(drug.name);
+                                setIsSideBarSelect(true);
+                            }}
+                        >
+                            <LuHistory size={20} />
+                            {/* <span className="text-[#F59E42] text-lg mt-0.5">💊</span> */}
+                            <div>
+                                <span className="font-medium text-gray-900 text-sm">
+                                    {drug.name}
+                                </span>
+                                <span className="text-gray-700 text-sm">
+                                    {drug.brand ? ` (${drug.brand})` : ""}
+                                </span>
+                            </div>
+                        </div>
+                    ))}
+                    {filteredMedicationList.length > 0 ? (filteredMedicationList.map((drug, idx) => (
+                        <div
+                            key={drug.id + idx}
+                            className="flex items-start gap-2 py-1 cursor-pointer hover:shadow-md rounded  focus:ring-2 transition"
+                            
+                            onClick={() => {
+                                setSetselectedId(drug.id.toString())
+                                // setIsSideBarSelect(true)
+                                router.push(`/profile/ai-drug/${drug.id}`);
+                            }}
                         >
                             <span className="text-[#F59E42] text-lg mt-0.5">💊</span>
                             <div>
@@ -152,7 +184,13 @@ export default function DrugSearchList({
                                 </span>
                             </div>
                         </div>
-                    ))}
+                    ))) :
+                        <div className="text-gray-500 text-sm">
+                            <Empty description="No medications found" />
+                        </div>
+                    }
+
+
                 </div>
             </div>
         </aside>
