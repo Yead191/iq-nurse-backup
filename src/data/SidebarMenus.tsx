@@ -150,7 +150,12 @@ export const menus: Record<string, MenuItem[]> = {
       label: "Clinical Calculator",
       icon: icon("/assets/sidebar-icons/calculator.svg", "calculator"),
     },
-
+    {
+      key: "/profile/ai-drug",
+      label: "Drug Generator",
+      icon: icon("/assets/drug-ai/drug.svg", "map"),
+      tag: "drug-generator",
+    },
     {
       key: "/profile/concept-map",
       label: "Concept Map",
