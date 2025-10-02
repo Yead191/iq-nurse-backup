@@ -47,12 +47,22 @@ export default function ClinicalsPageDetails() {
     },
   ];
   return (
-    <>
-      <DetailsHeader
-        back="/profile/clinicals"
-        title="Blood Pressure Measurement"
-        primaryBg={false}
-      />
+    <section className="mb-8">
+      {lg ? (
+        <PageNavbar
+          icon={<File />}
+          title="Document Templates"
+          subtitle="Professional nursing documentation  templates for clinical practice"
+          isAiEnhanced={true}
+        />
+      ) : (
+        <DetailsHeader
+          back="/profile/clinicals"
+          title="Blood Pressure Measurement"
+          primaryBg={false}
+        />
+      )}
+
       <div className=" px-4 md:px-5">
         {/* Category Banner */}
         <Card
@@ -107,6 +117,6 @@ export default function ClinicalsPageDetails() {
           tabBarGutter={lg ? 300 : undefined}
         />
       </div>
-    </>
+    </section>
   );
 }
