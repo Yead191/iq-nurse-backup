@@ -131,6 +131,12 @@ export const menus: Record<string, MenuItem[]> = {
       icon: icon("/assets/sidebar-icons/template-icon.svg", "template"),
     },
     {
+      key: "/profile/ai-drug",
+      label: "Drug Generator",
+      icon: icon("/assets/drug-ai/drug.svg", "map"),
+      tag: "drug-generator",
+    },
+    {
       key: "/profile/concept-map",
       label: "Concept Map",
       icon: icon("/assets/sidebar-icons/content-map-icon.svg", "map"),
