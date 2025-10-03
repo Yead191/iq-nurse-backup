@@ -1,5 +1,5 @@
-import TestQuestionPageMain from "@/components/ui/old-components/Old-Test-Quizzers-Page/high-yield-questions-page/test-question-page/TestQuestionPageMain";
 
+import TestQuestionPageMain from "@/components/ui/user-dashboard-pages/test-page/test-question-page/TestQuestionPageMain";
 import React from "react";
 interface PageProps {
   params: Promise<{

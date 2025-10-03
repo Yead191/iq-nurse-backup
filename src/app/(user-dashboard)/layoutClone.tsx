@@ -33,6 +33,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/ai-drug",
     "/profile/my-notepad/note",
     "/profile/care-plans",
+    "/profile/tests/mode/",
   ];
   const hiddenBottomNav = [
     "/profile/my-notepad/note",
@@ -41,6 +42,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/group/create-group",
     "/profile/clinicals/category/",
     "/profile/clinicals/details",
+    "/profile/tests/mode/",
   ];
 
   const singleHidePaths = ["/profile/patient-assessment", "/profile/group"];
@@ -71,7 +73,9 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
       <div className="w-full flex flex-col md:flex-row">
         {/* Sidebar for large devices */}
         <div
-          className={`bg-white hidden lg:block w-[100px]} sticky top-0 z-10 overflow-scroll h-screen`}
+          className={`bg-white hidden  w-[100px]} sticky top-0 z-10 overflow-scroll h-screen ${
+            pathname.startsWith("/profile/tests/mode/") ? "hidden" : "lg:block"
+          } `}
         >
           <Sidebar showLabels={showLabels} setShowLabels={setShowLabels} />
         </div>
@@ -124,9 +128,6 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
                 </div>
 
                 <div
-                  // className={`h-full  rounded-md px-4  lg:px-5 ${
-                  //   shouldHide ? "py-0 " : "lg:pt-8 lg:pb-0  p-4 md:p-6"
-                  // } `}
                   className={`h-full  rounded-md  ${
                     shouldHide || singleHide || pathname === "/profile/home"
                       ? "py-0 "

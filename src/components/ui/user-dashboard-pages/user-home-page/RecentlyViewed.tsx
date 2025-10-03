@@ -36,7 +36,7 @@ const recentlyViewed = [
 export default function RecentlyViewed() {
   return (
     <section>
-      <SectionHeader title="Recently Viewed" className="mb-5 text-center" />
+      <SectionHeader title="Recently Viewed" className="mb-2 lg:mb-5 " />
 
       {/* Desktop Grid */}
       <div className="hidden md:block">

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Clock, Flag, Calculator, Notebook } from "lucide-react";
 import { Button, Grid } from "antd";
+import { IoFlash } from "react-icons/io5";
 
 interface QuestionHeaderProps {
   subject: string;
@@ -18,7 +19,7 @@ interface QuestionHeaderProps {
 
 export default function QuestionHeader({
   subject,
-  category,
+
   currentQuestion,
   totalQuestions,
   timeRemaining: initialTime,
@@ -92,6 +93,10 @@ export default function QuestionHeader({
           </Button>
         </div>
         <div className="flex justify-end items-center space-x-8 text-white">
+          <Button
+            className="!bg-transparent !text-white !border !border-white !fill-content !rounded-full"
+            icon={<IoFlash className="text-sm lg:text-lg " />}
+          />
           <button
             onClick={onMarkForReview}
             className={`flex items-center space-x-2 px-3 py-1 rounded text-xs md:text-sm font-medium transition-colors ${

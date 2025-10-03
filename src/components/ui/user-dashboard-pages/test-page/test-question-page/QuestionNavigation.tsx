@@ -27,7 +27,7 @@ export default function QuestionNavigation({
         <button
           className="px-4 py-2 bg-[#003877] text-white rounded  transition-colors cursor-pointer"
           onClick={() =>
-            router.push(`/profile/tests/${lastSegment}/analyzing-results`)
+            router.push(`/profile/tests/analyzing-results?mode=${lastSegment}`)
           }
         >
           End
