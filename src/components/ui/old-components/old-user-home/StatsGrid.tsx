@@ -81,7 +81,7 @@ export function StatsGrid({ items }: { items: any }) {
       </div>
       <Link
         href={"/profile/calendar"}
-        className="text-primary cursor-pointer font-medium hidden md:block"
+        className="text-primary cursor-pointer font-medium block"
       >
         See All
       </Link>

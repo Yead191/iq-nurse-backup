@@ -26,7 +26,7 @@ export default function PreparationTab() {
   const handleStart = () => {
     console.log("Starting exam with:", { numQuestions, examMode });
     // Add your start logic here
-    router.push(`/profile/tests/${examMode}`);
+    router.push(`/profile/tests/mode/${examMode}`);
   };
   return (
     <div>

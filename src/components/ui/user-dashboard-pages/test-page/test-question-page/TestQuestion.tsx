@@ -4,26 +4,59 @@ import { useState } from "react";
 import QuestionHeader from "./QuestionHeader";
 import MCQQuestion from "./MCQQuestion";
 import FillInBlankQuestion from "./FillInBlankQuestion";
+import { Calculator } from "lucide-react";
+import ExplanationPanel from "./ExplanationPanel";
 import QuestionNavigation from "./QuestionNavigation";
-import { questions } from "@/data/testQuestionData";
-import { Lightbulb } from "lucide-react";
+import FlashcardModal from "./FlashcardModal";
 import explanationImg from "@/assets/explanation-img.svg";
-import Image from "next/image";
-import Calculator from "./Calculator";
-export default function TestQuestionPage({ mode }: { mode: string }) {
+
+interface Question {
+  id: number;
+  type: "mcq" | "fill-in-blank";
+  question: string;
+  options?: string[];
+  correctAnswer: string;
+  explanation?: string;
+  explanationImage?: string;
+}
+
+interface TestQuestionPageProps {
+  mode: any;
+  questions: Question[];
+  subject: string;
+  category: string;
+  initialTime?: number;
+}
+
+export default function TestQuestion({
+  mode,
+  questions,
+  subject,
+  category,
+  initialTime = 135,
+}: TestQuestionPageProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [submittedQuestions, setSubmittedQuestions] = useState<Set<number>>(
+    new Set()
+  );
   const [markedForReview, setMarkedForReview] = useState<Set<number>>(
     new Set()
   );
-  const [timeRemaining, setTimeRemaining] = useState(135); // 2:15 in seconds
+  const [timeRemaining, setTimeRemaining] = useState(initialTime);
   const [showCalculator, setShowCalculator] = useState(false);
+  const [showFlashcardModal, setShowFlashcardModal] = useState(false);
 
   const currentQuestion = questions[currentQuestionIndex];
   const totalQuestions = questions.length;
+  const isQuestionSubmitted = submittedQuestions.has(currentQuestion.id);
 
   const handleAnswerChange = (questionId: number, answer: string) => {
     setAnswers((prev) => ({ ...prev, [questionId]: answer }));
+  };
+
+  const handleSubmit = (isCorrect: boolean) => {
+    setSubmittedQuestions((prev) => new Set(prev).add(currentQuestion.id));
   };
 
   const handleMarkForReview = () => {
@@ -49,23 +82,23 @@ export default function TestQuestionPage({ mode }: { mode: string }) {
       setCurrentQuestionIndex((prev) => prev + 1);
     }
   };
-  // console.log(answers, markedForReview);
 
   return (
-    <div>
+    <div className="w-full">
       <QuestionHeader
-        subject="Cardiovascular"
-        category="Medical Surgical"
+        subject={subject}
+        category={category}
         currentQuestion={currentQuestionIndex + 1}
         totalQuestions={totalQuestions}
         timeRemaining={timeRemaining}
         isMarkedForReview={markedForReview.has(currentQuestion.id)}
         onMarkForReview={handleMarkForReview}
+        onFlashcardClick={() => setShowFlashcardModal(true)}
         setShowCalculator={setShowCalculator}
         showCalculator={showCalculator}
       />
 
-      <div className=" py-4">
+      <div className="py-4 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
             <h2 className="text-lg font-medium text-gray-900 mb-4">
@@ -77,54 +110,44 @@ export default function TestQuestionPage({ mode }: { mode: string }) {
                 mode={mode}
                 question={currentQuestion.question}
                 options={currentQuestion.options!}
+                correctAnswer={currentQuestion.correctAnswer}
                 selectedAnswer={answers[currentQuestion.id]}
                 onAnswerChange={(answer) =>
                   handleAnswerChange(currentQuestion.id, answer)
                 }
-                explanation={currentQuestion.explanation}
+                onSubmit={handleSubmit}
+                isSubmitted={isQuestionSubmitted}
+                questionId={currentQuestion.id}
               />
             ) : (
               <FillInBlankQuestion
+                mode={mode}
                 question={currentQuestion.question}
+                correctAnswer={currentQuestion.correctAnswer}
                 answer={answers[currentQuestion.id] || ""}
                 onAnswerChange={(answer) =>
                   handleAnswerChange(currentQuestion.id, answer)
                 }
+                onSubmit={handleSubmit}
               />
             )}
           </div>
-          {showCalculator ? (
-            <Calculator />
-          ) : (
-            <div>
-              {currentQuestion?.explanation && mode === "practice" && (
-                <div className="pb-4">
-                  <button
-                    // onClick={() => setShowExplanation(!showExplanation)}
-                    className="flex items-center space-x-2 text-orange-600 hover:text-orange-700 font-medium"
-                  >
-                    <Lightbulb className="w-4 h-4" />
-                    <span>Explanation</span>
-                  </button>
 
-                  {currentQuestion?.explanation && mode === "practice" && (
-                    <div className="mt-3 p-4 bg-orange-50 rounded-lg">
-                      <Image
-                        src={explanationImg}
-                        alt="explanation"
-                        width={100}
-                        height={100}
-                        className="h-[280px] lg:h-[300px] w-full object-contain"
-                      />
-                      <p className="text-gray-700 leading-relaxed">
-                        {currentQuestion?.explanation}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          )}
+          <div>
+            {showCalculator ? (
+              <Calculator />
+            ) : (
+              <ExplanationPanel
+                explanation={currentQuestion.explanation || ""}
+                imageUrl={explanationImg}
+                isVisible={
+                  mode === "practice" &&
+                  isQuestionSubmitted &&
+                  !!currentQuestion.explanation
+                }
+              />
+            )}
+          </div>
         </div>
 
         <QuestionNavigation
@@ -132,8 +155,15 @@ export default function TestQuestionPage({ mode }: { mode: string }) {
           onNext={handleNext}
           canGoPrevious={currentQuestionIndex > 0}
           canGoNext={currentQuestionIndex < totalQuestions - 1}
+          mode={mode}
         />
       </div>
+
+      <FlashcardModal
+        open={showFlashcardModal}
+        onClose={() => setShowFlashcardModal(false)}
+        questionId={currentQuestion.id}
+      />
     </div>
   );
 }
