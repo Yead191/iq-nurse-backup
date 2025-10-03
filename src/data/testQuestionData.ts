@@ -50,7 +50,7 @@ export const questions = [
       "Nasal cannula",
       "Simple face mask",
     ],
-    correctAnswer: "C", 
+    correctAnswer: "C",
     selectedAnswer: "B",
     explanation:
       "Nasal cannula is the preferred device for long-term oxygen therapy in stable COPD clients because it is comfortable, allows mobility, and delivers low-flow oxygen safely.",
@@ -66,5 +66,51 @@ export const questions = [
     type: "fill" as const,
     question:
       "The antidote for opioid overdose is __________, which should be administered immediately when respiratory depression is suspected.",
+  },
+];
+
+export const sampleQuestions = [
+  {
+    id: 1,
+    type: "mcq" as const,
+    question:
+      "A nurse is caring for a client who has heart failure. Which of the following findings should the nurse expect?",
+    options: [
+      "Administer a 1 L 0.9% sodium chloride IV bolus",
+      "Initiate an IV infusion of regular insulin",
+      "Instruct client to breathe into a paper bag",
+      "Obtain blood specimens for a serum glucose test",
+      "Place the client on continuous cardiac monitoring",
+    ],
+    correctAnswer: "A",
+    explanation:
+      "Acute psychosis is characteristic of many psychiatric illnesses (eg, schizophrenia) and refers to bizarre thinking that is disconnected from reality. Symptoms include hallucinations, false perceptions that have no external stimuli and are not shared by others (eg, hearing voices, talking to early age precursory diseases (eg, heart failure) that is staff is hearing voices). Appropriate nursing interventions for clients experiencing auditory hallucinations include: Assessing the content of the hallucinations to determine if the client is at risk for self-harm or harm to others. Also consider the difference between typical and atypical presentations.",
+    explanationImage:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-10-03%20174249-eNifINDY7wBnz8UGh87ETrSzrGQGey.png",
+  },
+  {
+    id: 2,
+    type: "mcq" as const,
+    question:
+      "Which of the following is a sign of dehydration in an elderly client?",
+    options: [
+      "Increased skin turgor",
+      "Decreased heart rate",
+      "Concentrated urine",
+      "Increased blood pressure",
+      "Moist mucous membranes",
+    ],
+    correctAnswer: "C",
+    explanation:
+      "Concentrated urine is a key indicator of dehydration. When the body is dehydrated, the kidneys conserve water by producing less urine that is more concentrated. Other signs include decreased skin turgor, increased heart rate, and dry mucous membranes.",
+  },
+  {
+    id: 3,
+    type: "fill-in-blank" as const,
+    question:
+      "The normal range for adult heart rate is _____ to _____ beats per minute.",
+    correctAnswer: "60 to 100",
+    explanation:
+      "The normal resting heart rate for adults ranges from 60 to 100 beats per minute. Athletes may have lower resting heart rates due to better cardiovascular fitness.",
   },
 ];

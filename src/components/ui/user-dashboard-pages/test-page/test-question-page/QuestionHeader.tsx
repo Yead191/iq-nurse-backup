@@ -13,23 +13,25 @@ interface QuestionHeaderProps {
   timeRemaining: number;
   isMarkedForReview: boolean;
   onMarkForReview: () => void;
+  onFlashcardClick: () => void;
   setShowCalculator: (v: boolean) => void;
   showCalculator: boolean;
 }
 
 export default function QuestionHeader({
   subject,
-
   currentQuestion,
   totalQuestions,
   timeRemaining: initialTime,
   isMarkedForReview,
   onMarkForReview,
+  onFlashcardClick,
   setShowCalculator,
   showCalculator,
 }: QuestionHeaderProps) {
   const [timeRemaining, setTimeRemaining] = useState(initialTime);
   const { lg } = Grid.useBreakpoint();
+
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeRemaining((prev) => Math.max(0, prev - 1));
@@ -47,22 +49,16 @@ export default function QuestionHeader({
   };
 
   return (
-    <header>
-      <div className="bg-[#003877] text-white px-6 py-4">
-        <div className=" items-center flex justify-between flex-wrap gap-4">
-          <div className="flex  items-center space-x-8">
-            {/* <div className="flex items-center space-x-2">
-            <Calculator className="w-4 h-4" />
-            <span className="text-sm font-medium">Calculator</span>
-          </div> */}
-
+    <header className="w-full">
+      <div className="bg-[#003877] text-white px-6 py-4 w-full">
+        <div className="items-center flex justify-between flex-wrap gap-4">
+          <div className="flex items-center space-x-8">
             <div className="text-start lg:text-center">
               <div className="text-lg font-semibold">{subject}</div>
-              {/* <div className="text-sm opacity-90">{category}</div> */}
             </div>
           </div>
           <div className="flex flex-row justify-center space-x-6">
-            <div className="text-sm opacity-90 ">
+            <div className="text-sm opacity-90">
               Question {currentQuestion} of {totalQuestions}
             </div>
             <div className="flex items-center space-x-2">
@@ -92,10 +88,11 @@ export default function QuestionHeader({
             Calculator
           </Button>
         </div>
-        <div className="flex justify-end items-center space-x-8 text-white">
+        <div className="flex justify-end items-center space-x-4 text-white">
           <Button
-            className="!bg-transparent !text-white !border !border-white !fill-content !rounded-full"
-            icon={<IoFlash className="text-sm lg:text-lg " />}
+            onClick={onFlashcardClick}
+            className="!bg-transparent !text-white !border !border-white !rounded-full"
+            icon={<IoFlash className="text-sm lg:text-lg" />}
           />
           <button
             onClick={onMarkForReview}
