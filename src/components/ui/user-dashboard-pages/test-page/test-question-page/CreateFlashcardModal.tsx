@@ -119,7 +119,10 @@ export default function CreateFlashcardModal({
           {/* Split Layout */}
           <div className="flex justify-between gap-2">
             {/* Left Side - Back (Definition/Content) */}
-            <div className="space-y-3 flex-1">
+            <div
+              onClick={() => setActiveSide("back")}
+              className="space-y-3 flex-1"
+            >
               <div className="flex items-center justify-end ">
                 <h3
                   className={`text-base font-medium  h-[40px] px-6 inline-flex items-center rounded-lg
@@ -135,10 +138,7 @@ export default function CreateFlashcardModal({
               </div>
 
               {/* Quill Editor */}
-              <div
-                onClick={() => setActiveSide("back")}
-                className="nodrag border border-gray-300 rounded-lg overflow-hidden"
-              >
+              <div className="nodrag border border-gray-300 rounded-lg overflow-hidden">
                 <div
                   ref={quillRef}
                   style={{ height: 300, overflow: "auto" }}
