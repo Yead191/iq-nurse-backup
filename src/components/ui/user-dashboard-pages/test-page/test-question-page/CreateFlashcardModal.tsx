@@ -1,18 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import {
-  X,
-  Minimize2,
-  Maximize2,
-  Bold,
-  Italic,
-  Underline,
-  List,
-  ImageIcon,
-  Link,
-} from "lucide-react";
-import { Button, Modal } from "antd";
+import { useState, useEffect } from "react";
+import { X } from "lucide-react";
+import { Button, ConfigProvider, Modal } from "antd";
+import { useQuill } from "react-quilljs";
+import "quill/dist/quill.snow.css";
 
 interface CreateFlashcardModalProps {
   open: boolean;
@@ -25,238 +17,221 @@ export default function CreateFlashcardModal({
   onClose,
   onSave,
 }: CreateFlashcardModalProps) {
-  const [activeTab, setActiveTab] = useState<"front" | "back">("front");
-  const [frontContent, setFrontContent] = useState("");
+  const [activeSide, setActiveSide] = useState<"front" | "back">("back");
+
   const [backContent, setBackContent] = useState("");
+  const [frontContent, setFrontContent] = useState("");
   const [tags, setTags] = useState("");
 
-  const maxChars = 2000;
+  const { quill, quillRef } = useQuill({
+    theme: "snow",
+    modules: {
+      toolbar: [
+        ["bold", "italic", "underline", "strike"],
+        [{ list: "bullet" }, { list: "ordered" }],
+        ["link", "image"],
+        ["blockquote", "code-block"],
+        [{ align: [] }],
+        ["clean"],
+      ],
+    },
+  });
+
+  useEffect(() => {
+    if (!quill) return;
+
+    // Load initial content
+    if (open && backContent) {
+      quill.clipboard.dangerouslyPasteHTML(backContent);
+    }
+
+    // Listen for text changes
+    const handleTextChange = () => {
+      setBackContent(quill.root.innerHTML);
+    };
+
+    quill.on("text-change", handleTextChange);
+
+    return () => {
+      quill.off("text-change", handleTextChange);
+    };
+  }, [quill, open]);
 
   const handleSave = () => {
     const tagArray = tags
       .split(",")
       .map((tag) => tag.trim())
       .filter((tag) => tag.length > 0);
-    onSave(frontContent, backContent, tagArray);
+
+    const finalBackContent = quill ? quill.root.innerHTML : backContent;
+    onSave(frontContent, finalBackContent, tagArray);
+
     // Reset form
     setFrontContent("");
     setBackContent("");
     setTags("");
-    setActiveTab("front");
+    if (quill) {
+      quill.setText("");
+    }
   };
 
   const handleCancel = () => {
     setFrontContent("");
     setBackContent("");
     setTags("");
-    setActiveTab("front");
+    if (quill) {
+      quill.setText("");
+    }
     onClose();
   };
 
-  const currentContent = activeTab === "front" ? frontContent : backContent;
-  const setCurrentContent =
-    activeTab === "front" ? setFrontContent : setBackContent;
-
-  const applyFormatting = (format: string) => {
-    const textarea = document.querySelector(
-      `textarea[data-tab="${activeTab}"]`
-    ) as HTMLTextAreaElement;
-    if (!textarea) return;
-
-    const start = textarea.selectionStart;
-    const end = textarea.selectionEnd;
-    const selectedText = currentContent.substring(start, end);
-
-    let formattedText = selectedText;
-
-    switch (format) {
-      case "bold":
-        formattedText = `**${selectedText || "bold text"}**`;
-        break;
-      case "italic":
-        formattedText = `*${selectedText || "italic text"}*`;
-        break;
-      case "underline":
-        formattedText = `__${selectedText || "underline text"}__`;
-        break;
-      case "list":
-        formattedText =
-          selectedText
-            .split("\n")
-            .map((line) => (line.trim() ? `- ${line}` : ""))
-            .join("\n") || "-  ";
-        break;
-      case "link":
-        formattedText = `[${selectedText || "link text"}](https://example.com)`;
-        break;
-      case "image":
-        formattedText = `![${
-          selectedText || "alt text"
-        }](https://example.com/image.png)`;
-        break;
-    }
-
-    const newContent =
-      currentContent.substring(0, start) +
-      formattedText +
-      currentContent.substring(end);
-
-    setCurrentContent(newContent);
-
-    // restore cursor after inserted formatting
-    requestAnimationFrame(() => {
-      textarea.selectionStart = start;
-      textarea.selectionEnd = start + formattedText.length;
-      textarea.focus();
-    });
-  };
-
   return (
-    <Modal
-      open={open}
-      onCancel={handleCancel}
-      footer={null}
-      width={700}
-      centered
-      title={
-        <div className="flex items-center justify-between bg-[#003877] text-white px-4 py-2 -mx-6 -mt-5 mb-4">
-          <span className="font-semibold">Flashcards</span>
-          <div className="flex items-center space-x-2">
-            {/* <Button
+    <ConfigProvider
+      theme={{
+        components: {
+          Modal: {
+            contentBg: "rgb(243,243,244)",
+          },
+        },
+      }}
+    >
+      <Modal
+        open={open}
+        onCancel={handleCancel}
+        footer={null}
+        width={900}
+        centered
+        title={
+          <div className="flex items-center justify-between bg-[#003877] text-white px-4 py-2 -mx-6 -mt-5 mb-4">
+            <span className="font-semibold">Flashcards</span>
+            <div className="flex items-center space-x-2">
+              <Button
+                type="text"
+                icon={<X className="w-4 h-4 text-white" />}
+                onClick={handleCancel}
+              />
+            </div>
+          </div>
+        }
+        closeIcon={null}
+      >
+        <div className="space-y-4 bg-[#F3F3F4]">
+          {/* Split Layout */}
+          <div className="flex justify-between gap-2">
+            {/* Left Side - Back (Definition/Content) */}
+            <div className="space-y-3 flex-1">
+              <div className="flex items-center justify-end ">
+                <h3
+                  className={`text-base font-medium  h-[40px] px-6 inline-flex items-center rounded-lg
+                  ${
+                    activeSide === "back"
+                      ? "bg-white text-gray-700"
+                      : "bg-[#D9D9D9] text-gray-500"
+                  }
+                  `}
+                >
+                  Back
+                </h3>
+              </div>
+
+              {/* Quill Editor */}
+              <div
+                onClick={() => setActiveSide("back")}
+                className="nodrag border border-gray-300 rounded-lg overflow-hidden"
+              >
+                <div
+                  ref={quillRef}
+                  style={{ height: 300, overflow: "auto" }}
+                  className="bg-white"
+                />
+              </div>
+
+              {/* Character Count */}
+              <div className="text-xs text-gray-500">
+                Max 2000 characters allowed
+              </div>
+            </div>
+            {/* Swap Arrow - Between Back and Front */}
+            <div className="flex items-center justify-center">
+              <div className="">
+                <div className="flex items-center space-x-2 text-gray-400">
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Right Side - Front (Term) */}
+            <div
+              onClick={() => setActiveSide("front")}
+              className="space-y-3 flex-1"
+            >
+              <div className="flex items-center justify-end">
+                <h3
+                  className={`text-base font-medium   h-[40px] px-6 inline-flex items-center rounded-lg
+                    ${
+                      activeSide === "front"
+                        ? "bg-white text-gray-700"
+                        : "bg-[#D9D9D9] text-gray-500"
+                    }
+                  `}
+                >
+                  Front
+                </h3>
+              </div>
+
+              {/* Front Term Input */}
+              <div className="border border-gray-300 rounded-lg p-4 h-[380px] flex items-center justify-center bg-gray-50">
+                <input
+                  type="text"
+                  value={frontContent}
+                  onChange={(e) => setFrontContent(e.target.value)}
+                  placeholder="Enter term..."
+                  className="w-full text-center text-lg font-medium bg-transparent focus:outline-none"
+                  maxLength={200}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Tags Input */}
+          <div className="pt-2">
+            <input
               type="text"
-              icon={<Minimize2 className="w-4 h-4 text-white" />}
-            />
-            <Button
-              type="text"
-              icon={<Maximize2 className="w-4 h-4 text-white" />}
-            /> */}
-            <Button
-              type="text"
-              icon={<X className="w-4 h-4 text-white" />}
-              onClick={handleCancel}
+              placeholder="Tag name,comma separated"
+              value={tags}
+              onChange={(e) => setTags(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
             />
           </div>
-        </div>
-      }
-      closeIcon={null}
-    >
-      <div className="space-y-4">
-        {/* Tab Navigation */}
-        <div className="flex items-center space-x-4 border-b">
-          <button
-            onClick={() => setActiveTab("back")}
-            className={`px-4 py-2 font-medium transition-colors ${
-              activeTab === "back"
-                ? "text-blue-600 border-b-2 border-blue-600"
-                : "text-gray-600 hover:text-gray-800"
-            }`}
-          >
-            Back
-          </button>
-          <button
-            onClick={() => setActiveTab("front")}
-            className={`px-4 py-2 font-medium transition-colors ${
-              activeTab === "front"
-                ? "text-blue-600 border-b-2 border-blue-600"
-                : "text-gray-600 hover:text-gray-800"
-            }`}
-          >
-            Front
-          </button>
-        </div>
 
-        {/* Toolbar */}
-        <div className="flex items-center space-x-2 p-2 bg-gray-50 rounded-lg border">
-          <button
-            onClick={() => applyFormatting("bold")}
-            className="p-2 hover:bg-gray-200 rounded transition-colors"
-            title="Bold"
-          >
-            <Bold className="w-4 h-4" />
-          </button>
-          <button
-            onClick={() => applyFormatting("italic")}
-            className="p-2 hover:bg-gray-200 rounded transition-colors"
-            title="Italic"
-          >
-            <Italic className="w-4 h-4" />
-          </button>
-          <button
-            onClick={() => applyFormatting("underline")}
-            className="p-2 hover:bg-gray-200 rounded transition-colors"
-            title="Underline"
-          >
-            <Underline className="w-4 h-4" />
-          </button>
-          <div className="w-px h-6 bg-gray-300" />
-          <button
-            onClick={() => applyFormatting("list")}
-            className="p-2 hover:bg-gray-200 rounded transition-colors"
-            title="List"
-          >
-            <List className="w-4 h-4" />
-          </button>
-
-          <button
-            onClick={() => applyFormatting("image")}
-            className="p-2 hover:bg-gray-200 rounded transition-colors"
-            title="Image"
-          >
-            <ImageIcon className="w-4 h-4" />
-          </button>
-
-          <button
-            onClick={() => applyFormatting("link")}
-            className="p-2 hover:bg-gray-200 rounded transition-colors"
-            title="Link"
-          >
-            <Link className="w-4 h-4" />
-          </button>
+          {/* Action Buttons */}
+          <div className="flex justify-between pt-4">
+            <Button onClick={handleCancel} size="large">
+              Cancel
+            </Button>
+            <Button
+              onClick={handleSave}
+              size="large"
+              className="!bg-primary !text-white"
+            >
+              Save
+            </Button>
+          </div>
         </div>
-
-        {/* Editor */}
-        <div className="min-h-[300px]">
-          <textarea
-            data-tab={activeTab}
-            value={currentContent}
-            onChange={(e) => setCurrentContent(e.target.value)}
-            placeholder={`Enter ${activeTab} content...`}
-            className="w-full h-64 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-            maxLength={maxChars}
-          />
-        </div>
-
-        {/* Character Count */}
-        <div className="text-sm text-gray-600">
-          {currentContent.length} / {maxChars} characters
-        </div>
-
-        {/* Tags Input */}
-        <div>
-          <input
-            type="text"
-            placeholder="Tag name,comma separated"
-            value={tags}
-            onChange={(e) => setTags(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        {/* Action Buttons */}
-        <div className="flex justify-between pt-4">
-          <Button onClick={handleCancel} size="large">
-            Cancel
-          </Button>
-          <Button
-            type="primary"
-            onClick={handleSave}
-            size="large"
-            className="bg-blue-600 hover:bg-blue-700"
-          >
-            Save
-          </Button>
-        </div>
-      </div>
-    </Modal>
+      </Modal>
+    </ConfigProvider>
   );
 }

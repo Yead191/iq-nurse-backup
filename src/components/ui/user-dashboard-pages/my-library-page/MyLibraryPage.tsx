@@ -9,6 +9,8 @@ import MobileFolderList from "./MobileFolderList";
 import { libraryData } from "@/data/libraryData";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import { BookmarkIcon, FolderPlus } from "lucide-react";
+import { Grid } from "antd";
+import { useRouter } from "next/navigation";
 
 // Type for mobile view state
 type MobileView = "folders" | "pages" | "content";
@@ -25,7 +27,9 @@ export default function MyLibraryPage() {
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(
     new Set()
   );
-  console.log(selectedPage);
+  const { lg } = Grid.useBreakpoint();
+  const router = useRouter();
+
   const handleCreateFolder = (name: string, color: string) => {
     const newFolder: Folder = {
       id: Date.now().toString(),
@@ -89,7 +93,10 @@ export default function MyLibraryPage() {
   const handlePageSelect = (folderId: string, pageId: string) => {
     setSelectedFolder(folderId);
     setSelectedPage(pageId);
-    setMobileView("content");
+    // setMobileView("content");
+    if (!lg) {
+      router.push(`/profile/my-library/details/${pageId}`);
+    }
   };
   const handleMobileBack = () => {
     if (mobileView === "content") {
@@ -170,63 +177,19 @@ export default function MyLibraryPage() {
 
         {/* Mobile Layout */}
         <div className="flex flex-col lg:hidden w-full">
-          <div
-            className={`grid grid-cols-12 py-0 bg-white ${
-              mobileView === "content" ? " border-b-2 border-gray-200 pb-2" : ""
-            }`}
-          >
-            {mobileView === "content" && (
-              <button
-                onClick={handleMobileBack}
-                className="flex items-center text-gray-600 hover:text-gray-900 col-span-3"
-              >
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-                Back
-              </button>
-            )}
-            <div className="text-lg font-semibold text-gray-900 col-span-8 text-center">
-              <h1>{mobileView === "content" && selectedPageData?.title}</h1>
-            </div>
-          </div>
-
           <div className="flex-1 overflow-hidden">
-            {mobileView === "folders" && (
-              <MobileFolderList
-                data={data}
-                expandedFolders={expandedFolders}
-                searchQuery={searchQuery}
-                onSearchChange={setSearchQuery}
-                onFolderToggle={handleMobileFolderToggle}
-                onPageSelect={handlePageSelect}
-                onToggleBookmark={handleToggleBookmark}
-                onCreateFolder={() => setIsCreateModalOpen(true)}
-                onDeleteFolder={handleDeleteFolder}
-                onRenameFolder={handleRenameFolder}
-              />
-            )}
-
-            {mobileView === "content" && (
-              <div className="h-full min-h-[calc(100vh-234px)] overflow-y-auto">
-                <ContentArea
-                  selectedFolder={selectedFolderData}
-                  selectedPage={selectedPageData}
-                  onCreateFolder={() => setIsCreateModalOpen(true)}
-                  isMobile={true}
-                />
-              </div>
-            )}
+            <MobileFolderList
+              data={data}
+              expandedFolders={expandedFolders}
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              onFolderToggle={handleMobileFolderToggle}
+              onPageSelect={handlePageSelect}
+              onToggleBookmark={handleToggleBookmark}
+              onCreateFolder={() => setIsCreateModalOpen(true)}
+              onDeleteFolder={handleDeleteFolder}
+              onRenameFolder={handleRenameFolder}
+            />
           </div>
         </div>
         <CreateFolderModal
