@@ -44,7 +44,15 @@ export function StatsGrid({ items }: { items: any }) {
       className="p-5 flex justify-between items-center"
     >
       <div>
-        <h4 className="text-primary mb-1 font-bold">Welcome back, Emma!</h4>
+        <div className="flex items-center justify-between">
+          <h4 className="text-primary mb-1 font-bold">Welcome back, Emma!</h4>
+          <Link
+            href={"/profile/calendar"}
+            className="text-primary text-sm cursor-pointer font-medium md:hidden"
+          >
+            See All
+          </Link>
+        </div>
         <div className=" flex items-center gap-3">
           {/* Calendar Icon */}
           <div className="flex items-center justify-center w-10 h-10 bg-white border rounded-lg shadow-sm relative">
@@ -81,7 +89,7 @@ export function StatsGrid({ items }: { items: any }) {
       </div>
       <Link
         href={"/profile/calendar"}
-        className="text-primary cursor-pointer font-medium block"
+        className="text-primary cursor-pointer font-medium hidden  md:block"
       >
         See All
       </Link>
