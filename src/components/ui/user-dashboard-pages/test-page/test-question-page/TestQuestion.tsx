@@ -4,11 +4,11 @@ import { useState } from "react";
 import QuestionHeader from "./QuestionHeader";
 import MCQQuestion from "./MCQQuestion";
 import FillInBlankQuestion from "./FillInBlankQuestion";
-import { Calculator } from "lucide-react";
 import ExplanationPanel from "./ExplanationPanel";
 import QuestionNavigation from "./QuestionNavigation";
 import FlashcardModal from "./FlashcardModal";
 import explanationImg from "@/assets/explanation-img.svg";
+import Calculator from "./Calculator";
 
 interface Question {
   id: number;

@@ -73,7 +73,7 @@ const eventTypes: EventType[] = [
     color: "bg-[#3F51B5]",
   },
   {
-    id: "personal-time",
+    id: "me-time",
     label: "Personal Time",
     icon: <Users className="h-4 w-4" />,
     color: "bg-[#4CAF50]",
