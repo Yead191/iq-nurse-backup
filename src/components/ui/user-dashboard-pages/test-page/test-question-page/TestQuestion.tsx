@@ -133,7 +133,7 @@ export default function TestQuestion({
             )}
           </div>
 
-          <div>
+          <div className="px-4 md:px-0">
             {showCalculator ? (
               <Calculator />
             ) : (
