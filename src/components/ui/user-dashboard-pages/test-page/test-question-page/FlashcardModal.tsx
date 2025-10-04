@@ -61,6 +61,7 @@ export default function FlashcardModal({
         onCancel={onClose}
         footer={null}
         width={600}
+        centered
         title={
           <div className="flex items-center justify-between bg-[#003877] text-white px-4 py-2 -mx-6 -mt-5 mb-4">
             <span className="font-semibold">Flashcards</span>

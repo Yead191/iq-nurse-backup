@@ -10,6 +10,7 @@ import {
   BookOpen,
   FileText,
   Users,
+  Clock,
 } from "lucide-react";
 import { toast } from "sonner";
 import AddTaskModal from "@/components/shared/event-modals/AddTaskModal";
@@ -32,32 +33,56 @@ const eventTypes: EventType[] = [
   {
     id: "tasks",
     label: "Tasks",
-    icon: <ListTodo className="h-5 w-5" />,
+    icon: <ListTodo className="h-4 w-4" />,
     color: "bg-[#F0AF53]",
   },
   {
     id: "clinical-rotations",
     label: "Clinical Rotations",
-    icon: <Stethoscope className="h-5 w-5" />,
+    icon: <Stethoscope className="h-4 w-4" />,
     color: "bg-[#326FB1]",
   },
   {
     id: "classes",
     label: "Class",
-    icon: <BookOpen className="h-5 w-5" />,
+    icon: <BookOpen className="h-4 w-4" />,
     color: "bg-[#60B960]",
   },
   {
     id: "exams",
     label: "Exam",
-    icon: <FileText className="h-5 w-5" />,
+    icon: <FileText className="h-4 w-4" />,
     color: "bg-[#D95854]",
   },
   {
     id: "meetings",
     label: "Meeting",
-    icon: <Users className="h-5 w-5" />,
+    icon: <Users className="h-4 w-4" />,
     color: "bg-[#9E2DB2]",
+  },
+  {
+    id: "assignment",
+    label: "Assignment",
+    icon: <FileText className="h-4 w-4" />,
+    color: "bg-[#FF9800]",
+  },
+  {
+    id: "study-time",
+    label: "Study Time",
+    icon: <BookOpen className="h-4 w-4" />,
+    color: "bg-[#3F51B5]",
+  },
+  {
+    id: "personal-time",
+    label: "Personal Time",
+    icon: <Users className="h-4 w-4" />,
+    color: "bg-[#4CAF50]",
+  },
+  {
+    id: "countdown",
+    label: "Countdown",
+    icon: <Clock className="h-4 w-4" />,
+    color: "bg-[#E91E63]",
   },
 ];
 
@@ -83,10 +108,10 @@ export function FloatingCalendarButton() {
   };
 
   return (
-    <div className="fixed md:hidden bottom-48 right-8 flex flex-col items-end gap-3">
+    <div className="fixed md:hidden bottom-28 right-8 flex flex-col items-end gap-3">
       {/* Event type buttons */}
       <div
-        className={`flex flex-col  gap-3 transition-all duration-300 ease-out
+        className={`flex flex-col  gap-2 transition-all duration-300 ease-out
          ${
            isExpanded
              ? "opacity-100 translate-y-0 pointer-events-auto"
@@ -94,11 +119,11 @@ export function FloatingCalendarButton() {
          }
         `}
       >
-        {eventTypes.map((event, index) => (
+        {eventTypes?.map((event, index) => (
           <button
             key={event.id}
             onClick={() => handleEventClick(event.id)}
-            className={`group bg-white h-[55px] flex items-center gap-4 bg-card rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 pr-6 pl-6 py-4 min-w-[200px] animate-in fade-in  z-50 slide-in-from-bottom-2`}
+            className={`group bg-white h-[40px] flex items-center gap-4 bg-card rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 pr-6 pl-6 py-4 min-w-[200px] animate-in fade-in  z-50 slide-in-from-bottom-2`}
             style={{
               animationDelay: isExpanded ? `${index * 50}ms` : "0ms",
               animationFillMode: "backwards",
@@ -108,7 +133,7 @@ export function FloatingCalendarButton() {
               {event.label}
             </span>
             <div
-              className={`flex items-center justify-center w-11 h-11 rounded-full text-white transition-transform group-hover:scale-110 ${event.color}`}
+              className={`flex items-center justify-center w-8 h-8 rounded-full text-white transition-transform group-hover:scale-110 ${event.color}`}
             >
               {event.icon}
             </div>
@@ -119,7 +144,7 @@ export function FloatingCalendarButton() {
       {/* Main FAB button */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className={`flex items-center justify-center w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-primary text-primary-foreground hover:scale-110 active:scale-95 `}
+        className={`flex items-center justify-center w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-primary/90 text-primary-foreground hover:scale-110 active:scale-95 `}
         aria-label="Toggle calendar menu"
         aria-expanded={isExpanded}
       >

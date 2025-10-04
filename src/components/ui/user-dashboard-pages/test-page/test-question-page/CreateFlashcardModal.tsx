@@ -58,7 +58,6 @@ export default function CreateFlashcardModal({
     activeTab === "front" ? setFrontContent : setBackContent;
 
   const applyFormatting = (format: string) => {
-    // Simple formatting helper - in a real app, you'd use a proper rich text editor
     const textarea = document.querySelector(
       `textarea[data-tab="${activeTab}"]`
     ) as HTMLTextAreaElement;
@@ -69,15 +68,31 @@ export default function CreateFlashcardModal({
     const selectedText = currentContent.substring(start, end);
 
     let formattedText = selectedText;
+
     switch (format) {
       case "bold":
-        formattedText = `**${selectedText}**`;
+        formattedText = `**${selectedText || "bold text"}**`;
         break;
       case "italic":
-        formattedText = `*${selectedText}*`;
+        formattedText = `*${selectedText || "italic text"}*`;
         break;
       case "underline":
-        formattedText = `__${selectedText}__`;
+        formattedText = `__${selectedText || "underline text"}__`;
+        break;
+      case "list":
+        formattedText =
+          selectedText
+            .split("\n")
+            .map((line) => (line.trim() ? `- ${line}` : ""))
+            .join("\n") || "-  ";
+        break;
+      case "link":
+        formattedText = `[${selectedText || "link text"}](https://example.com)`;
+        break;
+      case "image":
+        formattedText = `![${
+          selectedText || "alt text"
+        }](https://example.com/image.png)`;
         break;
     }
 
@@ -85,7 +100,15 @@ export default function CreateFlashcardModal({
       currentContent.substring(0, start) +
       formattedText +
       currentContent.substring(end);
+
     setCurrentContent(newContent);
+
+    // restore cursor after inserted formatting
+    requestAnimationFrame(() => {
+      textarea.selectionStart = start;
+      textarea.selectionEnd = start + formattedText.length;
+      textarea.focus();
+    });
   };
 
   return (
@@ -94,18 +117,19 @@ export default function CreateFlashcardModal({
       onCancel={handleCancel}
       footer={null}
       width={700}
+      centered
       title={
         <div className="flex items-center justify-between bg-[#003877] text-white px-4 py-2 -mx-6 -mt-5 mb-4">
           <span className="font-semibold">Flashcards</span>
           <div className="flex items-center space-x-2">
-            <Button
+            {/* <Button
               type="text"
               icon={<Minimize2 className="w-4 h-4 text-white" />}
             />
             <Button
               type="text"
               icon={<Maximize2 className="w-4 h-4 text-white" />}
-            />
+            /> */}
             <Button
               type="text"
               icon={<X className="w-4 h-4 text-white" />}
@@ -166,18 +190,23 @@ export default function CreateFlashcardModal({
           </button>
           <div className="w-px h-6 bg-gray-300" />
           <button
+            onClick={() => applyFormatting("list")}
             className="p-2 hover:bg-gray-200 rounded transition-colors"
             title="List"
           >
             <List className="w-4 h-4" />
           </button>
+
           <button
+            onClick={() => applyFormatting("image")}
             className="p-2 hover:bg-gray-200 rounded transition-colors"
             title="Image"
           >
             <ImageIcon className="w-4 h-4" />
           </button>
+
           <button
+            onClick={() => applyFormatting("link")}
             className="p-2 hover:bg-gray-200 rounded transition-colors"
             title="Link"
           >

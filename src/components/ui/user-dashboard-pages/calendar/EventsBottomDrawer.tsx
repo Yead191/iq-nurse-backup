@@ -19,7 +19,7 @@ const EventsBottomDrawer: React.FC<EventsBottomDrawerProps> = ({
   selectedDate,
 }) => {
   // Visible height in vh, persisted only on snap.
-  const [visible, setVisible] = useState<number>(25);
+  const [visible, setVisible] = useState<number>(10);
 
   // Refs for smooth, non-react-driven dragging
   const drawerRef = useRef<HTMLDivElement>(null);
