@@ -98,7 +98,7 @@ export default function TestQuestion({
         showCalculator={showCalculator}
       />
 
-      <div className="py-4 w-full">
+      <div className="py-4 w-full px-4 lg:px-5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
             <h2 className="text-lg font-medium text-gray-900 mb-4">
@@ -133,7 +133,7 @@ export default function TestQuestion({
             )}
           </div>
 
-          <div className="px-4 md:px-0">
+          <div className="">
             {showCalculator ? (
               <Calculator />
             ) : (

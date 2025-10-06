@@ -132,7 +132,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
                   className={`h-full  rounded-md  ${
                     shouldHide || singleHide || pathname === "/profile/home"
                       ? "py-0 "
-                      : "lg:pt-8 lg:pb-0 px-4  lg:px-5"
+                      : "lg:pt-8 lg:pb-0 px-4  lg:px-5 max-h-[calc(100vh-94px)] md:max-h-max overflow-auto "
                   } `}
                 >
                   {children}
@@ -142,7 +142,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
         <div
-          className={`h-[94px] w-full  md:hidden ${bottomHide ? "hidden" : ""}`}
+          className={`h-[94px] w-full   md:hidden ${bottomHide ? "hidden" : ""}`}
         >
           <BottomNavigation
             setShowLabels={setShowLabels}
