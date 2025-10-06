@@ -23,7 +23,7 @@ export default function TestQuestionPageMain({ mode }: { mode: string }) {
 
   const title = "Personalizing Your Exam";
   return (
-    <section className="min-h-screen  flex justify-center items-center  min-w-full">
+    <section className="min-h-screen  flex justify-center md:items-center  min-w-full">
       {/* <PageNavbar
         icon={<BookOpen className="text-black fill-current" />}
         title="Master the NCLEX with Confidence"

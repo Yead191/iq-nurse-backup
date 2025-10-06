@@ -22,7 +22,7 @@ export default function QuestionNavigation({
   const pathname = usePathname();
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between px-4 md:px-0">
       <div className="flex space-x-3">
         <button
           className="px-4 py-2 bg-[#003877] text-white rounded transition-colors cursor-pointer hover:bg-[#003877]/90"

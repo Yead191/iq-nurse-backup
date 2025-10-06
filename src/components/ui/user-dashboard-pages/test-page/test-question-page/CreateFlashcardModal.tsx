@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
-import { Button, ConfigProvider, Modal } from "antd";
+import { ArrowDownUp, ArrowRightLeft, X } from "lucide-react";
+import { Button, ConfigProvider, Grid, Modal } from "antd";
 import { useQuill } from "react-quilljs";
 import "quill/dist/quill.snow.css";
 
@@ -17,6 +17,7 @@ export default function CreateFlashcardModal({
   onClose,
   onSave,
 }: CreateFlashcardModalProps) {
+  const { lg } = Grid.useBreakpoint();
   const [activeSide, setActiveSide] = useState<"front" | "back">("back");
 
   const [backContent, setBackContent] = useState("");
@@ -117,7 +118,7 @@ export default function CreateFlashcardModal({
       >
         <div className="space-y-4 bg-[#F3F3F4]">
           {/* Split Layout */}
-          <div className="flex justify-between gap-2">
+          <div className="flex flex-col md:flex-row justify-between gap-2">
             {/* Left Side - Back (Definition/Content) */}
             <div
               onClick={() => setActiveSide("back")}
@@ -153,23 +154,9 @@ export default function CreateFlashcardModal({
             </div>
             {/* Swap Arrow - Between Back and Front */}
             <div className="flex items-center justify-center">
-              <div className="">
-                <div className="flex items-center space-x-2 text-gray-400">
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
-                      />
-                    </svg>
-                  </div>
+              <div className="flex items-center space-x-2 text-gray-400">
+                <div className="w-6 h-6 flex items-center justify-center">
+                  {lg ? <ArrowRightLeft /> : <ArrowDownUp />}
                 </div>
               </div>
             </div>

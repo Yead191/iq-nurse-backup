@@ -76,7 +76,6 @@ export default function ExamConfigSection({
       <div className="max-w-lg ">
         {/* Start Button */}
         <Button
-          type="primary"
           size="large"
           block
           onClick={handleStart}
@@ -86,6 +85,7 @@ export default function ExamConfigSection({
             height: "48px",
             fontSize: "16px",
             fontWeight: "500",
+            color: "white",
           }}
         >
           Start
