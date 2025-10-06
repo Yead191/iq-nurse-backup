@@ -11,7 +11,7 @@ import NurseQButton from "./NurseNia/NurseQButton";
 
 export default function UserHomeMain() {
   return (
-    <main className=" max-h-[calc(100vh-233px)] md:max-h-max overflow-auto relative ">
+    <main className=" md:max-h-max overflow-auto relative ">
       <div
         className="grid grid-cols-1 gap-4 2xl:gap-6  lg:grid-cols-12 "
       >

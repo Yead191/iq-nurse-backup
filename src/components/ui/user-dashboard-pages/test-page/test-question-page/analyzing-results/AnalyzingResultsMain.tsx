@@ -32,7 +32,7 @@ export default function AnalyzingResultsMain() {
         subtitle="Practice with targeted questions, track your progress, and compare with peers to boost your chances of success."
         isAiEnhanced={false}
       />
-      <div className="min-h-[calc(100vh-360px)]">
+      <div className="min-h-[calc(100vh-360px)] px-4 lg:px-5">
         {showSplash ? (
           <SplashScreen
             onComplete={() => setShowSplash(false)}
