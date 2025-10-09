@@ -63,9 +63,13 @@ const Sidebar = ({
     // }
     return pathname === path;
   };
-  const toggleMenu = (menu: string) =>
-    setOpenMenus((prev) => ({ ...prev, [menu]: !prev[menu] }));
 
+  const toggleMenu = (key: string) => {
+    setOpenMenus((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
   const MenuItemComponent = ({
     item,
     parentKey,
@@ -74,14 +78,14 @@ const Sidebar = ({
     parentKey?: string;
   }) => {
     const hasChildren = item.children && item.children.length > 0;
-    const menuOpen = parentKey && openMenus[parentKey];
+    const menuOpen = openMenus[item.key];
 
     return (
       <div>
         <Tooltip title={showLabels ? item.label : ""} placement="right">
           {hasChildren ? (
             <button
-              onClick={() => parentKey && toggleMenu(parentKey)}
+              onClick={() => toggleMenu(item.key)}
               className={`w-full flex items-center ${
                 showLabels ? "justify-center" : "justify-between"
               } px-5 py-2 hover:bg-gray-50 ${
