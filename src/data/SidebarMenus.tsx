@@ -22,7 +22,7 @@ export const icon = (src: string, alt: string, size = 25) => (
   <img
     src={src}
     alt={alt}
-    className={`h-[${size}px] overflow-hidden  object-cover`}
+    className={`h-[25px] w-[25px] overflow-hidden  object-cover`}
   />
 );
 
@@ -41,59 +41,153 @@ export const menus: Record<string, MenuItem[]> = {
   ],
   studyMaterial: [
     {
-      key: "/profile/study-notes",
-      label: "Study Notes",
+      key: "/profile/study-notes?category=np",
+      label: "NP Study Notes",
       icon: icon("/assets/sidebar-icons/study-notes-icon.svg", "study-notes"),
       children: [
         {
-          key: "/profile/study-notes?category=critical-care",
-          label: "Critical Care",
-          icon: <Activity size={18} />,
-        },
-        {
-          key: "/profile/study-notes?category=anatomy-physiology",
-          label: "Anatomy & Physiology",
+          key: "/profile/study-notes?category=np-anatomy",
+          label: "Anatomy",
           icon: <Brain size={18} />,
         },
         {
-          key: "/profile/study-notes?category=pharmacology",
+          key: "/profile/study-notes?category=np-biochemistry",
+          label: "Biochemistry and Nutrition",
+          icon: <BookOpen size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=np-biostatistics",
+          label: "Biostatistics and Epidemiology",
+          icon: <Calculator size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=np-cellular-biology",
+          label: "Cellular and Molecular Biology",
+          icon: <Brain size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=np-microbiology",
+          label: "Microbiology",
+          icon: <Pill size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=np-pathology",
+          label: "Pathology",
+          icon: <HeartPulse size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=np-pharmacology",
           label: "Pharmacology",
           icon: <Pill size={18} />,
         },
         {
-          key: "/profile/study-notes?category=medication-calculation",
-          label: "Medication Calculation",
-          icon: <Calculator size={18} />,
-        },
-        {
-          key: "/profile/study-notes?category=pathophysiology",
-          label: "Pathophysiology",
+          key: "/profile/study-notes?category=np-physiology",
+          label: "Physiology",
           icon: <HeartPulse size={18} />,
         },
+      ],
+    },
+    {
+      key: "/profile/study-notes?category=rn",
+      label: "RN Study Notes",
+      icon: icon("/assets/sidebar-icons/study-notes-icon.svg", "study-notes"),
+      children: [
         {
-          key: "/profile/study-notes?category=mental-health",
-          label: "Mental Health",
-          icon: <Smile size={18} />,
-        },
-        {
-          key: "/profile/study-notes?category=fundamentals",
-          label: "Fundamentals",
+          key: "/profile/study-notes?category=rn-fundamentals",
+          label: "Fundamentals of Nursing",
           icon: <BookOpen size={18} />,
         },
         {
-          key: "/profile/study-notes?category=medical-surgical",
-          label: "Medical Surgical",
-          icon: <Stethoscope size={18} />,
+          key: "/profile/study-notes?category=rn-gerontological",
+          label: "Gerontological Nursing",
+          icon: <Smile size={18} />,
         },
         {
-          key: "/profile/study-notes?category=ob-maternity",
-          label: "OB- Maternity",
+          key: "/profile/study-notes?category=rn-maternal-newborn",
+          label: "Maternal-Newborn Nursing",
           icon: <Baby size={18} />,
         },
         {
-          key: "/profile/study-notes?category=pediatrics",
-          label: "Pediatrics",
+          key: "/profile/study-notes?category=rn-medical-surgical",
+          label: "Medical-Surgical Nursing",
+          icon: <Stethoscope size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=rn-pharmacology",
+          label: "Nursing Pharmacology",
+          icon: <Pill size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=rn-pediatric",
+          label: "Pediatric Nursing",
           icon: <BabyIcon size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=rn-professional-leadership",
+          label: "Professional Nursing Leadership",
+          icon: <BookOpen size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=rn-mental-health",
+          label: "Psychiatric and Mental Health Nursing",
+          icon: <Smile size={18} />,
+        },
+      ],
+    },
+    {
+      key: "/profile/study-notes?category=lpn",
+      label: "LPN Study Notes",
+      icon: icon("/assets/sidebar-icons/study-notes-icon.svg", "study-notes"),
+      children: [
+        {
+          key: "/profile/study-notes?category=lpn-adult-medical-surgical",
+          label: "Adult and Medical-Surgical Nursing",
+          icon: <Stethoscope size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=lpn-community",
+          label: "Community Nursing",
+          icon: <Activity size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=lpn-fundamentals",
+          label: "Fundamentals of Nursing",
+          icon: <BookOpen size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=lpn-gerontological",
+          label: "Gerontological Nursing",
+          icon: <Smile size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=lpn-maternal-newborn",
+          label: "Maternal-Newborn Nursing",
+          icon: <Baby size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=lpn-mental-health",
+          label: "Mental Health Nursing",
+          icon: <Smile size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=lpn-pathophysiology",
+          label: "Nursing Pathophysiology",
+          icon: <HeartPulse size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=lpn-pharmacology",
+          label: "Nursing Pharmacology",
+          icon: <Pill size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=lpn-pediatric",
+          label: "Pediatric Nursing",
+          icon: <BabyIcon size={18} />,
+        },
+        {
+          key: "/profile/study-notes?category=lpn-professional-leadership",
+          label: "Professional Nursing Leadership",
+          icon: <BookOpen size={18} />,
         },
       ],
     },
