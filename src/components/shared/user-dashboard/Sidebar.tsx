@@ -63,9 +63,13 @@ const Sidebar = ({
     // }
     return pathname === path;
   };
-  const toggleMenu = (menu: string) =>
-    setOpenMenus((prev) => ({ ...prev, [menu]: !prev[menu] }));
 
+  const toggleMenu = (key: string) => {
+    setOpenMenus((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
   const MenuItemComponent = ({
     item,
     parentKey,
@@ -74,14 +78,14 @@ const Sidebar = ({
     parentKey?: string;
   }) => {
     const hasChildren = item.children && item.children.length > 0;
-    const menuOpen = parentKey && openMenus[parentKey];
+    const menuOpen = openMenus[item.key];
 
     return (
       <div>
         <Tooltip title={showLabels ? item.label : ""} placement="right">
           {hasChildren ? (
             <button
-              onClick={() => parentKey && toggleMenu(parentKey)}
+              onClick={() => toggleMenu(item.key)}
               className={`w-full flex items-center ${
                 showLabels ? "justify-center" : "justify-between"
               } px-5 py-2 hover:bg-gray-50 ${
@@ -170,7 +174,7 @@ const Sidebar = ({
 
   return (
     <div
-      className={`h-full bg-white border-r border-[#D9D9D9] flex flex-col transition-all duration-300   ${
+      className={`h-full bg-white border-r border-[#D9D9D9] flex flex-col transition-all duration-300    ${
         showLabels ? "w-20" : " lg:w-52 2xl:w-64"
       }`}
     >
@@ -207,7 +211,7 @@ const Sidebar = ({
       </div>
 
       {/* Menus */}
-      <div className="flex-1 overflow-y-auto max-h-[calc(100vh-160px)] md:max-h-max lg:pb-8">
+      <div className="flex-1 overflow-y-auto max-h-[calc(100vh-160px)] md:max-h-max  lg:pb-8">
         <div className="hidden md:block">
           <RenderMenuGroup items={menus.main} menuKey="main" />
         </div>

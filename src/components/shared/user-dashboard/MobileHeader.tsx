@@ -60,7 +60,7 @@ export default function MobileHeader() {
     <header
       style={{
         border: "none",
-        // background: "#003877",
+        background: "white",
       }}
     >
       <div className="w-full max-w-[640px] mx-auto px-3 py-5 flex flex-col gap-3">

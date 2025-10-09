@@ -43,7 +43,7 @@ export function NclexSidebar({
       </div>
 
       {/* Categories List */}
-      <div className="flex-1 max-h-[calc(100vh-263px)] md:max-h-[calc(100vh-185px)] overflow-y-auto p-4">
+      <div className="flex-1  md:max-h-[calc(100vh-185px)] overflow-y-auto p-4">
         <Input
           prefix={<Search />}
           placeholder="Search Notes..."

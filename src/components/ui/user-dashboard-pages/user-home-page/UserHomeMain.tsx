@@ -11,10 +11,8 @@ import NurseQButton from "./NurseNia/NurseQButton";
 
 export default function UserHomeMain() {
   return (
-    <main className=" max-h-[calc(100vh-233px)] md:max-h-max overflow-auto relative ">
-      <div
-        className="grid grid-cols-1 gap-4 2xl:gap-6  lg:grid-cols-12 "
-      >
+    <main className=" md:max-h-max overflow-auto relative ">
+      <div className="grid grid-cols-1 gap-4 2xl:gap-6  lg:grid-cols-12 ">
         {/* Left/Main Column */}
         <section className="lg:col-span-9 space-y-6 lg:h-[calc(100vh-90px)] overflow-y-auto pt-4 lg:pt-8 px-2 lg:px-5">
           {/* This Week Events */}

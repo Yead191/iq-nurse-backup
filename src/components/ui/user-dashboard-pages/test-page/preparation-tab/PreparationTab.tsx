@@ -52,10 +52,10 @@ export default function PreparationTab() {
           >
             {/* Topic Content */}
             <div className="space-y-3">
-              <h3 className="font-semibold text-gray-900 text-lg leading-tight">
+              <h3 className="font-semibold text-gray-900 md:text-lg leading-tight">
                 {topic.name}
               </h3>
-              <p className="text-gray-500 text-sm">
+              <p className="text-gray-500 text-xs md:text-sm">
                 {topic.questions} Questions
               </p>
             </div>
