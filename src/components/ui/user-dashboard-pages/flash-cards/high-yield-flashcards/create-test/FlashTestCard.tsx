@@ -28,14 +28,15 @@ const FlashTestCard: React.FC<Props> = ({
 }) => (
   <div
     className={`relative w-full ${
-      isStudyNote ? "2xl:h-[50vh] lg:h-[55vh] h-[40vh]" : "lg:h-[54vh] h-[45vh]"
-    }  md:h-[52vh]   cursor-pointer transition-transform duration-700 transform-style-preserve-3d ${
-      isFlipped ? "rotate-y-180" : ""
+      isStudyNote ? "2xl:h-[50vh] lg:h-[55vh] h-[40vh]" : "lg:h-[54vh] h-[45vh] rounded-2xl "
+    }  md:h-[52vh] transition-transform duration-700 transform-style-preserve-3d ${
+      isFlipped ? "rotate-y-180 show" : "show"
     }`}
-    onClick={onFlip}
+    style={{ boxShadow: "4px 4px 27px 0px #00000024" }}
+    // onClick={onFlip}
   >
     {/* Front */}
-    <div className="absolute inset-0 backface-hidden rounded-lg shadow">
+    <div className="absolute inset-0 backface-hidden rounded-lg ">
       <div className="w-full h-full bg-white rounded-lg flex items-center justify-center p-8">
         <p className="text-gray-800 text-lg md:text-xl leading-relaxed font-medium text-center">
           {card.frontContent.text}
@@ -44,7 +45,8 @@ const FlashTestCard: React.FC<Props> = ({
     </div>
 
     {/* Back */}
-    <div className="absolute inset-0 backface-hidden rounded-lg shadow rotate-y-180">
+    <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-2xl"     style={{ boxShadow: "4px 4px 27px 0px #00000024" }}
+    >
       <div className="w-full h-full bg-white rounded-lg p-6 md:p-8 flex flex-col">
         <div className="flex-1 flex flex-col items-center justify-center gap-y-4">
           <div className="lg:w-[45%] w-full text-center text-sm">

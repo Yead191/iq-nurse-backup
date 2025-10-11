@@ -7,6 +7,8 @@ import FlashTestSwitcher from "./FlashTestSwitcher";
 import FlashTestCard from "./FlashTestCard";
 import FlashTestFooter from "./FlashTestFooter";
 import { useRouter } from "next/navigation";
+import { FlashHeader } from "./FlashHeader";
+import { IoMdClose } from "react-icons/io";
 
 interface flashCardType {
   isStudyNote?: boolean;
@@ -36,58 +38,74 @@ const FlashCardCreateTestMain = ({
     setIsFlipped(false);
   };
 
+  const handleFlipped = () => {
+    setIsFlipped(!isFlipped)
+  }
+
+  const onShuffle = () => {
+
+    setCurrentIndex(currentIndex);
+    setIsFlipped(false);
+  };
+
+  const onRepeatDifficult = () => {
+    // Placeholder: logic to repeat difficult cards
+    // For demonstration, just alert
+    alert("Repeat Difficult Cards feature coming soon!");
+  };
+
+  const onAudio = () => {
+    // Placeholder: logic to play audio for current card
+    // For demonstration, just alert
+    alert("Audio feature coming soon!");
+  };
+
   return (
-    <div className=" p-2 ">
-      <div
-        className={`${
-          isStudyNote
-            ? "h-full "
-            : "lg:h-[calc(100vh-150px)] h-[calc(100vh-200px)]"
-        }  flex items-center justify-center`}
-      >
-        <div className={`w-full ${isStudyNote ? "" : "lg:max-w-2/3"} `}>
-          {/* Header */}
-          <FlashTestHeader handleClose={handleClose} />
+    <div
+      className={`${isStudyNote
+        ? "h-full "
+        : "h-full"
+        // : "lg:h-[calc(100vh-50px)] h-[calc(100vh-50px)]"
+        }  flex items-center justify-center `}
+    >
+      <div className={`w-full ${isStudyNote ? "" : ""}  `}>
+        {/* Header */}
+        <FlashTestHeader handleClose={handleClose} />
 
-          {/* Body */}
-          <div className="bg-[#F3F3F3] h-auto">
-            <div className="flex flex-col px-6 flex-1  pb-2">
-              {/* Title + Actions */}
-              <FlashTestToolbar
-                title={currentCard.title}
-                isFavorite={isFavorite}
-                onToggleFavorite={() => setIsFavorite(!isFavorite)}
-              />
-
-              {/* Switcher + Card */}
-              <div className="w-full px-0 md:px-6 flex-1 ">
-                <FlashTestSwitcher
-                  isFlipped={isFlipped}
-                  onShowFront={() => setIsFlipped(false)}
-                  onShowBack={() => setIsFlipped(true)}
-                />
-
-                <FlashTestCard
-                  isStudyNote={isStudyNote}
-                  isFlipped={isFlipped}
-                  onFlip={() => setIsFlipped(!isFlipped)}
-                  card={currentCard}
-                />
-              </div>
-            </div>
-
-            {/* Footer */}
-            <FlashTestFooter
+        {/* Body */}
+        <div className=" h-auto lg:max-w-3/4 mx-auto">
+          <div className="flex flex-col flex-1  pb-2">
+            <FlashHeader
               currentIndex={currentIndex}
               total={flashTestData.length}
-              onPrev={handlePrev}
-              onNext={handleNext}
-              isFlipped={isFlipped}
-              setShowCompletion={setShowCompletion}
-              isStudyNote={isStudyNote}
-              
+              title={currentCard.title}
+              onShuffle={onShuffle}
+              onRepeatDifficult={onRepeatDifficult}
+              onAudio={onAudio}
             />
+
+            {/* Switcher + Card */}
+            <div className="w-full px-0 md:px-6 flex-1 ">
+              <FlashTestCard
+                isStudyNote={isStudyNote}
+                isFlipped={isFlipped}
+                onFlip={() => setIsFlipped(!isFlipped)}
+                card={currentCard}
+              />
+            </div>
           </div>
+
+          {/* Footer */}
+          <FlashTestFooter
+            currentIndex={currentIndex}
+            total={flashTestData.length}
+            onPrev={handlePrev}
+            onNext={handleNext}
+            isFlipped={isFlipped}
+            setShowCompletion={setShowCompletion}
+            isStudyNote={isStudyNote}
+            onPlippeClicked={handleFlipped}
+          />
         </div>
       </div>
     </div>
