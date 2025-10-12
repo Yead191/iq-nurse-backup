@@ -6,7 +6,8 @@ export const DashboardCardData = [
         description: "Create a blank concept map and muild it your way",
         imgUrl: "/assets/concept-map/card1.png",
         link: "/profile/connect-concept",
-        buttonText: "Create Blank Map"
+        buttonText: "Create Blank Map",
+        type:'new'
     },
     {
         id: 2,
@@ -14,7 +15,8 @@ export const DashboardCardData = [
         description: "Start with a pre-built template for common conditions",
         imgUrl: "/assets/concept-map/card2.png",
         link: "/profile/connect-concept",
-        buttonText: "Browse Templates"
+        buttonText: "Browse Templates",
+        type:'template'
     }
 ]
 

@@ -199,3 +199,16 @@ html {
 .rbc-row-content {
   z-index: 0 !important;
 }
+
+
+ 
+.floating-edges {
+  flex-direction: column;
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+}
+ 
+.floating-edges .react-flow__handle {
+  opacity: 0;
+}
