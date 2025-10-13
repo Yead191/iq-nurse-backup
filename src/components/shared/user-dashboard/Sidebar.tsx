@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import {
   ChevronDown,
   ChevronRight,
@@ -29,6 +29,8 @@ const Sidebar = ({
   // console.log(category);
   const { lg } = Grid.useBreakpoint();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const type = searchParams.get("type");
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
     studyTools: false,
     supportLegal: false,
@@ -40,6 +42,9 @@ const Sidebar = ({
       setIsMobileSidebarOpen(false);
     }
   };
+  useEffect(() => {
+    type && type === "new" || type === "template" && setShowLabels(true);
+  }, [type, setShowLabels]);
   useEffect(() => {
     // Check if current pathname starts with any study tools route
     const currentPath =

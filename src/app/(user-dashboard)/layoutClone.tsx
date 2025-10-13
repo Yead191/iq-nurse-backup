@@ -142,7 +142,9 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
         <div
-          className={`h-[94px] w-full   md:hidden ${bottomHide ? "hidden" : ""}`}
+          className={`h-[94px] w-full   md:hidden ${
+            bottomHide ? "hidden" : ""
+          }`}
         >
           <BottomNavigation
             setShowLabels={setShowLabels}
