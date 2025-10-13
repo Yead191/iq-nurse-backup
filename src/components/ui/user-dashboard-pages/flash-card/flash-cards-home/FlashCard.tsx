@@ -51,9 +51,9 @@ export const FlashCard = () => {
         isAiEnhanced={false}
       />
 
-      <div className="flex flex-col lg:flex-row ">
+      <div className="flex flex-col lg:flex-row px-4 lg:px-0">
         <div className="w-full lg:w-1/4 2xl:w-1/6  p-1  flex justify-center items-start   ">
-          <div className="flex md:flex-col gap-4 bg-white md:shadow-xl h-[calc(100%)]   w-full md:p-3 pb-12 border border-gray-100">
+          <div className="flex md:flex-col gap-4 bg-white md:shadow-xl h-[calc(100%)]   w-full md:p-3 pb-12 ">
             {tabs.map((tab) => (
               <div
                 key={tab.id}
@@ -71,7 +71,7 @@ export const FlashCard = () => {
         </div>
 
         {/* Component Display */}
-        <div className="w-full lg:w-3/4  rounded-xl h-[calc(100vh-105px)] overflow-y-scroll  ">
+        <div className="w-full   rounded-xl lg:h-[calc(100vh-105px)] overflow-y-scroll pb-8   ">
           {tabs.find((tab) => tab.id === activeTab)?.component}
         </div>
       </div>

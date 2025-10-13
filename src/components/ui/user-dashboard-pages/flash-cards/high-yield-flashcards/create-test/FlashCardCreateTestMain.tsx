@@ -64,7 +64,7 @@ const FlashCardCreateTestMain = ({
       className={`${
         isStudyNote ? "h-full " : "h-full"
         // : "lg:h-[calc(100vh-50px)] h-[calc(100vh-50px)]"
-      }  flex items-center justify-center `}
+      }  flex  justify-center `}
     >
       <div className={`w-full ${isStudyNote ? "" : ""}  `}>
         {/* Header */}
