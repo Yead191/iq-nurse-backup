@@ -29,8 +29,11 @@ const Sidebar = ({
   // console.log(category);
   const { lg } = Grid.useBreakpoint();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const searchParams = new URLSearchParams(globalThis?.location?.search);
   const type = searchParams.get("type");
+  // const searchParams = useSearchParams();
+  // const type = searchParams.get("type");
+  // console.log(type);
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
     studyTools: false,
     supportLegal: false,
@@ -43,8 +46,11 @@ const Sidebar = ({
     }
   };
   useEffect(() => {
-    type && type === "new" || type === "template" && setShowLabels(true);
-  }, [type, setShowLabels]);
+    type &&
+      ((type === "template" && setShowLabels(true)) ||
+        (type === "new" && setShowLabels(true)));
+  }, [type]);
+
   useEffect(() => {
     // Check if current pathname starts with any study tools route
     const currentPath =

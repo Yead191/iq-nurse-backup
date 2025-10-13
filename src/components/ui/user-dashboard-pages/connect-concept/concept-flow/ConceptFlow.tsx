@@ -132,8 +132,7 @@ const ConceptFlow = () => {
           {shouldShowSidebar && (
             <Panel
               position="top-left"
-              style={{ margin: 0 }}
-              className=" hidden md:block"
+              className=" hidden md:block !m-0"
             >
               <SidebarTabs
                 tabs={tabs}
@@ -161,9 +160,10 @@ const ConceptFlow = () => {
 
           <Panel
             position="top-left"
-            style={{ marginLeft: shouldShowSidebar && lg ? 240 : 0 }}
+            style={{ marginLeft: shouldShowSidebar && lg ? 240 : 0, marginTop: 0 }}
           >
             <HeaderPanel
+            
               collapsed={shouldShowSidebar ? collapsed : true}
               queryType={queryType}
             />
