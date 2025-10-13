@@ -39,11 +39,10 @@ const FlashCardCreateTestMain = ({
   };
 
   const handleFlipped = () => {
-    setIsFlipped(!isFlipped)
-  }
+    setIsFlipped(!isFlipped);
+  };
 
   const onShuffle = () => {
-
     setCurrentIndex(currentIndex);
     setIsFlipped(false);
   };
@@ -62,11 +61,10 @@ const FlashCardCreateTestMain = ({
 
   return (
     <div
-      className={`${isStudyNote
-        ? "h-full "
-        : "h-full"
+      className={`${
+        isStudyNote ? "h-full " : "h-full"
         // : "lg:h-[calc(100vh-50px)] h-[calc(100vh-50px)]"
-        }  flex items-center justify-center `}
+      }  flex items-center justify-center `}
     >
       <div className={`w-full ${isStudyNote ? "" : ""}  `}>
         {/* Header */}

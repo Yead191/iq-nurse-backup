@@ -8,30 +8,24 @@ import FlashTestCard from "../../flash-cards/high-yield-flashcards/create-test/F
 import { useRouter } from "next/navigation";
 import FlashTestFooter from "../../flash-card/high-yield-flashcards/create-test/FlashTestFooter";
 
-
-
 const FlashCardCreateTestMain = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
   const currentCard = flashTestData[currentIndex];
 
   const handleClose = () => {
-    // router.back(); 
+    // router.back();
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) =>
-      prev > 0 ? prev - 1 : flashTestData.length - 1
-    );
+    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : flashTestData.length - 1));
     setIsFlipped(false);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev < flashTestData.length - 1 ? prev + 1 : 0
-    );
+    setCurrentIndex((prev) => (prev < flashTestData.length - 1 ? prev + 1 : 0));
     setIsFlipped(false);
   };
 
@@ -39,7 +33,7 @@ const FlashCardCreateTestMain = () => {
     <div className="lg:h-[calc(100vh-150px)] h-[calc(100vh-200px)] flex items-center justify-center">
       <div className="w-full lg:max-w-2/3 ">
         {/* Header */}
-        <FlashTestHeader  handleClose={handleClose}/>
+        <FlashTestHeader handleClose={handleClose} />
 
         {/* Body */}
         <div className="bg-[#F3F3F3] h-auto">
