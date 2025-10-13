@@ -1,70 +1,163 @@
 "use client";
-import { useCallback } from "react";
+import { useCallback, useMemo, useState } from "react";
 import {
   ReactFlow,
   applyNodeChanges,
   applyEdgeChanges,
-  addEdge,
   Background,
-  Controls,
   Node,
   Edge,
   OnNodesChange,
   OnEdgesChange,
-  OnConnect,
+  Panel,
+  Connection,
+  BackgroundVariant,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import CustomNode from "./CustomNode";
+import SidebarTabs from "../SidebarTabs";
+import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
+import { Network } from "lucide-react";
+import { HeaderPanel } from "./Panel/HeaderPannel";
+import { initialNode } from "./constant";
+import FloatingConnectionLine from "./FloatingConnectionLine";
+import FloatingEdge from "./FloatingEdge";
+import { useSearchParams } from "next/navigation";
+import { FooterMobilePannel } from "./Panel/FooterMobilePannel";
 
-type Props = {
+type Tab = {
+  id: string;
+  name: string;
   nodes: Node[];
   edges: Edge[];
-  setNodes: (updater: (prev: Node[]) => Node[]) => void;
-  setEdges: (updater: (prev: Edge[]) => Edge[]) => void;
-  onConnect?: OnConnect;
 };
 
-const ConceptFlow = ({
-  nodes,
-  edges,
-  setNodes,
-  setEdges,
-  onConnect,
-}: Props) => {
+const ConceptFlow = () => {
+  const searchParams = useSearchParams();
+  const queryType = searchParams?.get("type");
+
   const onNodesChange: OnNodesChange = useCallback(
-    (changes) => setNodes((snapshot) => applyNodeChanges(changes, snapshot)),
-    [setNodes]
+    (changes) =>
+      setActiveTabNodes((snapshot) => applyNodeChanges(changes, snapshot)),
+    []
   );
 
   const onEdgesChange: OnEdgesChange = useCallback(
-    (changes) => setEdges((snapshot) => applyEdgeChanges(changes, snapshot)),
-    [setEdges]
+    (changes) =>
+      setActiveTabEdges((snapshot) => applyEdgeChanges(changes, snapshot)),
+    []
   );
 
-  const handleConnect: OnConnect = useCallback(
-    (params) => {
-      if (onConnect) return onConnect(params);
-      setEdges((snapshot) => addEdge(params, snapshot));
-    },
-    [onConnect, setEdges]
+  // ------------- Tabs state -------------
+  const [tabs, setTabs] = useState<Tab[]>([
+    { id: "t1", name: "Blank Map", nodes: [initialNode], edges: [] },
+  ]);
+  const [activeTabId, setActiveTabId] = useState("t1");
+  const [collapsed, setCollapsed] = useState(false);
+
+  const activeTab = useMemo(
+    () => tabs.find((t) => t.id === activeTabId)!,
+    [tabs, activeTabId]
   );
+
+  const setActiveTabNodes = useCallback(
+    (updater: (prev: Node[]) => Node[]) => {
+      setTabs((prev) =>
+        prev.map((t) =>
+          t.id === activeTabId ? { ...t, nodes: updater(t.nodes) } : t
+        )
+      );
+    },
+    [activeTabId]
+  );
+
+  const setActiveTabEdges = useCallback(
+    (updater: (prev: Edge[]) => Edge[]) => {
+      setTabs((prev) =>
+        prev.map((t) =>
+          t.id === activeTabId ? { ...t, edges: updater(t.edges) } : t
+        )
+      );
+    },
+    [activeTabId]
+  );
+
+  // if user draws connections manually
+  const handleConnect = useCallback(
+    (params: Connection) => {
+      setActiveTabEdges((prev) => [
+        ...prev,
+        {
+          id: `${params.source}-${params.target}-${prev.length + 1}`,
+          ...params,
+        },
+      ]);
+    },
+    [setActiveTabEdges]
+  );
+
+  const switchTab = (id: string) => setActiveTabId(id);
+
+  const shouldShowSidebar =
+    !!queryType && queryType === "template";
 
   return (
-    <div className="h-[calc(100vh-260px)] lg:h-[calc(100vh-110px)] w-full">
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={handleConnect}
-        nodeTypes={{ custom: CustomNode }}
-        defaultViewport={{ x: 0, y: 0, zoom: 0.7 }}
-        fitView
-      >
-        <Background />
-        <Controls />
-      </ReactFlow>
-    </div>
+    <>
+      <div className=" w-full h-[calc(100vh-100px)]">
+        <PageNavbar
+          icon={<Network className="text-black" />}
+          title="Create New Concept Map"
+          subtitle="Visualize and understand complex concepts with interactive concept maps"
+          isAiEnhanced={false}
+        />
+        <ReactFlow
+          nodes={activeTab.nodes}
+          edges={activeTab.edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onConnect={handleConnect}
+          nodeTypes={{ custom: CustomNode, initial: CustomNode }}
+          defaultViewport={{ x: 0, y: 0, zoom: 0.2 }}
+          fitView
+          style={{ paddingLeft: 0, marginLeft: 0 }}
+          deleteKeyCode={["Delete", "Backspace"]}
+          maxZoom={2}
+          minZoom={0.2}
+          connectionLineComponent={FloatingConnectionLine}
+          edgeTypes={{
+            floating: FloatingEdge as React.ComponentType<any>,
+          }}
+        >
+          {shouldShowSidebar && (
+            <Panel position="top-left" style={{ margin: 0 }} className=" hidden md:block">
+              <SidebarTabs
+                tabs={tabs}
+                activeTabId={activeTabId}
+                onSelect={switchTab}
+                collapsed={collapsed}
+                setCollapsed={setCollapsed}
+              />
+            </Panel>
+          )}
+          <Panel position="bottom-center" style={{ margin: 0 }} className="md:hidden">
+            <FooterMobilePannel tabs={tabs}
+              activeTabId={activeTabId}
+              onSelect={switchTab}
+              collapsed={collapsed}
+              setCollapsed={setCollapsed} 
+              shouldShowSidebar={shouldShowSidebar}
+              
+              />
+          </Panel>
+
+          <Panel position="top-right" style={{ margin: 0 }}>
+            <HeaderPanel collapsed={shouldShowSidebar ? collapsed : true} />
+          </Panel>
+          <Background variant={BackgroundVariant.Lines} color="#D0E5F9" />
+          {/* <Controls position="top-center" /> */}
+        </ReactFlow>
+      </div>
+    </>
   );
 };
 

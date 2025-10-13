@@ -10,6 +10,7 @@ interface CardProps {
     imgUrl: string;
     link: string;
     buttonText: string;
+    type:string;
 }
 
 interface cardType {
@@ -34,10 +35,10 @@ const Card = ({ items }: cardType) => {
                 </p>
 
                 {/* Button */}
-                <Link href={items?.link}>
+                <Link href={{ pathname: items?.link, query: { type: items?.type } }}>
                     <button
                         type="submit"
-                        className={` ${items?.id === 1 ? "bg-[#003877] text-white" : " border border-[#003877] text-[#003877]"}  rounded-lg px-8 py-2 h-auto font-medium `}
+                        className={` ${items?.id === 1 ? "bg-[#003877] text-white" : " border border-[#003877] text-[#003877]"}  rounded-lg px-8 py-2 h-auto font-medium cursor-pointer `}
                     >
                        {items?.buttonText}
                     </button>
