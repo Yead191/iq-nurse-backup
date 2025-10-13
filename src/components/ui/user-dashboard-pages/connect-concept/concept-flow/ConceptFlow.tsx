@@ -24,6 +24,7 @@ import FloatingConnectionLine from "./FloatingConnectionLine";
 import FloatingEdge from "./FloatingEdge";
 import { useSearchParams } from "next/navigation";
 import { FooterMobilePannel } from "./Panel/FooterMobilePannel";
+import { Grid } from "antd";
 
 type Tab = {
   id: string;
@@ -35,6 +36,7 @@ type Tab = {
 const ConceptFlow = () => {
   const searchParams = useSearchParams();
   const queryType = searchParams?.get("type");
+  const { lg } = Grid.useBreakpoint();
 
   const onNodesChange: OnNodesChange = useCallback(
     (changes) =>
@@ -98,8 +100,7 @@ const ConceptFlow = () => {
 
   const switchTab = (id: string) => setActiveTabId(id);
 
-  const shouldShowSidebar =
-    !!queryType && queryType === "template";
+  const shouldShowSidebar = !!queryType && queryType === "template";
 
   return (
     <>
@@ -129,7 +130,10 @@ const ConceptFlow = () => {
           }}
         >
           {shouldShowSidebar && (
-            <Panel position="top-left" style={{ margin: 0 }} className=" hidden md:block">
+            <Panel
+              position="top-left"
+              className=" hidden md:block !m-0"
+            >
               <SidebarTabs
                 tabs={tabs}
                 activeTabId={activeTabId}
@@ -139,19 +143,30 @@ const ConceptFlow = () => {
               />
             </Panel>
           )}
-          <Panel position="bottom-center" style={{ margin: 0 }} className="md:hidden">
-            <FooterMobilePannel tabs={tabs}
+          <Panel
+            position="bottom-center"
+            style={{ margin: 0 }}
+            className="md:hidden"
+          >
+            <FooterMobilePannel
+              tabs={tabs}
               activeTabId={activeTabId}
               onSelect={switchTab}
               collapsed={collapsed}
-              setCollapsed={setCollapsed} 
+              setCollapsed={setCollapsed}
               shouldShowSidebar={shouldShowSidebar}
-              
-              />
+            />
           </Panel>
 
-          <Panel position="top-right" style={{ margin: 0 }}>
-            <HeaderPanel collapsed={shouldShowSidebar ? collapsed : true} />
+          <Panel
+            position="top-left"
+            style={{ marginLeft: shouldShowSidebar && lg ? 240 : 0, marginTop: 0 }}
+          >
+            <HeaderPanel
+            
+              collapsed={shouldShowSidebar ? collapsed : true}
+              queryType={queryType}
+            />
           </Panel>
           <Background variant={BackgroundVariant.Lines} color="#D0E5F9" />
           {/* <Controls position="top-center" /> */}

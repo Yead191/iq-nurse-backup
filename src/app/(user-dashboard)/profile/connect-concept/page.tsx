@@ -1,13 +1,12 @@
+import Spinner from "@/components/shared/Spinner";
 import ConceptFlow from "@/components/ui/user-dashboard-pages/connect-concept/concept-flow/ConceptFlow";
-import ConnectConcept from "@/components/ui/user-dashboard-pages/connect-concept/ConnectConcept";
-import React from "react";
+import React, { Suspense } from "react";
 
 const ConnectConceptPage = () => {
   return (
-    <div>
-      {/* <ConnectConcept /> */}
+    <Suspense fallback={<Spinner />}>
       <ConceptFlow />
-    </div>
+    </Suspense>
   );
 };
 
