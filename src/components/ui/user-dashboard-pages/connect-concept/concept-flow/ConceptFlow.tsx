@@ -17,7 +17,7 @@ import "@xyflow/react/dist/style.css";
 import CustomNode from "./CustomNode";
 import SidebarTabs from "../SidebarTabs";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import { Network } from "lucide-react";
+import { Bookmark, Network, Printer, Share2 } from "lucide-react";
 import { HeaderPanel } from "./Panel/HeaderPannel";
 import { initialNode } from "./constant";
 import FloatingConnectionLine from "./FloatingConnectionLine";
@@ -25,6 +25,8 @@ import FloatingEdge from "./FloatingEdge";
 import { useSearchParams } from "next/navigation";
 import { FooterMobilePannel } from "./Panel/FooterMobilePannel";
 import { Grid } from "antd";
+import DetailsHeader from "@/components/shared/DetailsHeader";
+import { toast } from "sonner";
 
 type Tab = {
   id: string;
@@ -104,13 +106,42 @@ const ConceptFlow = () => {
 
   return (
     <>
-      <div className=" w-full h-[calc(100vh-100px)]">
-        <PageNavbar
-          icon={<Network className="text-black" />}
-          title="Create New Concept Map"
-          subtitle="Visualize and understand complex concepts with interactive concept maps"
-          isAiEnhanced={false}
-        />
+      <div className=" w-full h-[calc(100vh-75px)] lg:h-[calc(100vh-100px)]">
+        <div className="hidden lg:block">
+          <PageNavbar
+            icon={<Network className="text-black" />}
+            title="Create New Concept Map"
+            subtitle="Visualize and understand complex concepts with interactive concept maps"
+            isAiEnhanced={false}
+          />
+        </div>
+        <header>
+          <DetailsHeader
+            back="/profile/concept-map"
+            title="Concept Map"
+            primaryBg={false}
+            actions={[
+              {
+                icon: Bookmark,
+                label: "Bookmark",
+                hoverColor: "text-blue-600",
+                onClick: () => toast.success("Bookmarked!"),
+              },
+              {
+                icon: Share2,
+                label: "Share",
+                hoverColor: "text-green-600",
+                onClick: () => toast.success("Shared!"),
+              },
+              {
+                icon: Printer,
+                label: "print",
+                hoverColor: "text-green-600",
+                onClick: () => console.log("print!"),
+              },
+            ]}
+          />
+        </header>
         <ReactFlow
           nodes={activeTab.nodes}
           edges={activeTab.edges}
@@ -130,10 +161,7 @@ const ConceptFlow = () => {
           }}
         >
           {shouldShowSidebar && (
-            <Panel
-              position="top-left"
-              className=" hidden md:block !m-0"
-            >
+            <Panel position="top-left" className=" hidden md:block !m-0">
               <SidebarTabs
                 tabs={tabs}
                 activeTabId={activeTabId}
@@ -160,10 +188,12 @@ const ConceptFlow = () => {
 
           <Panel
             position="top-left"
-            style={{ marginLeft: shouldShowSidebar && lg ? 240 : 0, marginTop: 0 }}
+            style={{
+              marginLeft: shouldShowSidebar && lg ? 240 : 0,
+              marginTop: 0,
+            }}
           >
             <HeaderPanel
-            
               collapsed={shouldShowSidebar ? collapsed : true}
               queryType={queryType}
             />
