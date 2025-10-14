@@ -5,8 +5,8 @@ import FlashTestHeader from "../../flash-cards/high-yield-flashcards/create-test
 import FlashTestToolbar from "../../flash-cards/high-yield-flashcards/create-test/FlashTestToolbar";
 import FlashTestSwitcher from "../../flash-cards/high-yield-flashcards/create-test/FlashTestSwitcher";
 import FlashTestCard from "../../flash-cards/high-yield-flashcards/create-test/FlashTestCard";
-import FlashTestFooter from "../../flash-cards/high-yield-flashcards/create-test/FlashTestFooter";
 import { useRouter } from "next/navigation";
+import FlashTestFooter from "../../flash-card/high-yield-flashcards/create-test/FlashTestFooter";
 
 
 
