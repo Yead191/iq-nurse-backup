@@ -28,33 +28,28 @@ const CalendarMobileHeader: React.FC<CalendarMobileHeaderProps> = ({
   const lastSegment =
     pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : undefined;
   return (
-    <div className="lg:hidden  py-2 flex items-center justify-between sticky top-4  bg-white">
-      {/* <button
-        onClick={onMenuClick}
-        className="p-2 hover:bg-blue-700 rounded-lg transition-colors"
-        aria-label="Open menu"
-      >
-        <Calendar size={24} />
-      </button> */}
-      <Link
-        href={
-          pathname === "/profile/calendar"
-            ? "/profile/home"
-            : "/profile/calendar"
-        }
-        className="mt-1.5"
-      >
-        <button className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border">
-          <ChevronLeft size={24} />
-        </button>
-      </Link>
-      <h1 className="text-sm lg:text-lg lg:font-semibold bg-[#F6F7F8]  border border-[#003877] px-6 py-1 rounded-lg">
-        {mode ? (
-          <span className="capitalize">Calendar  {mode}</span>
-        ) : (
-          formatPathName(lastSegment)
-        )}
-      </h1>
+    <div className="lg:hidden  py-2 flex items-center justify-between sticky top-4  bg-white z-50">
+      <div className="flex items-center gap-4">
+        <Link
+          href={
+            pathname === "/profile/calendar"
+              ? "/profile/home"
+              : "/profile/calendar"
+          }
+          className="mt-1.5"
+        >
+          <button className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border">
+            <ChevronLeft size={24} />
+          </button>
+        </Link>
+        <h1 className="text-sm lg:text-lg lg:font-semibold bg-[#F6F7F8]  border border-[#003877] px-6 py-1 rounded-lg">
+          {mode ? (
+            <span className="capitalize">Calendar {mode}</span>
+          ) : (
+            formatPathName(lastSegment)
+          )}
+        </h1>
+      </div>
 
       <button
         onClick={onNewEventClick}

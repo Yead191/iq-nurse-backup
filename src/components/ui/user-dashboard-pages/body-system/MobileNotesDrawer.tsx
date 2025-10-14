@@ -27,7 +27,7 @@ export default function MobileNotesDrawer({
       className={`fixed bottom-0 left-0 right-0 bg-white border-t rounded-t-2xl transition-transform duration-300 ease-in-out ${
         showNotes ? "translate-y-0" : "translate-y-full"
       }`}
-      style={{ height: "90vh" }}
+      style={{ height: "83vh" }}
     >
       <div
         onClick={onToggleNotes}

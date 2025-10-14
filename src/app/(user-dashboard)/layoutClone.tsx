@@ -47,7 +47,8 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/community",
     "/profile/group/my-groups",
     "/profile/flash-cards/high-yield-flashcards/create-test/test-result"
-
+    "/profile/body-system",
+    "/profile/patient-assessment",
   ];
 
   const singleHidePaths = ["/profile/patient-assessment", "/profile/group"];
