@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from 'antd';
 import { TeamOutlined, PlusOutlined } from '@ant-design/icons';
+import Link from 'next/link';
 
 interface StudyGroup {
   id: number;
@@ -55,10 +56,11 @@ const StudyGroups: React.FC = () => {
         {/* Groups List */}
         <div className="space-y-3">
           {studyGroups.map((group) => (
-            <div
+            <Link
               key={group.id}
-              className="!bg-primary rounded-lg p-4 md:max-w-2xl text-white cursor-pointer hover:bg-blue-600 transition-colors duration-200"
-              onClick={() => window.location.href = '/profile/group/my-groups'}
+              href="/profile/group/my-groups"
+              className="block !bg-primary rounded-lg p-4 md:max-w-2xl text-white cursor-pointer hover:bg-blue-600 transition-colors duration-200"
+              passHref
             >
               <h3 className="font-medium md:text-lg text-xs mb-2">
                 {group.name}
@@ -69,7 +71,7 @@ const StudyGroups: React.FC = () => {
                   {group.newMessages} new messages
                 </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

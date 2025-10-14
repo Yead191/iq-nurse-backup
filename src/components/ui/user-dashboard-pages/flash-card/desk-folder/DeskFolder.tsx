@@ -9,11 +9,8 @@ import MobileFolderList from "../../my-library-page/MobileFolderList";
 import ContentArea from "../../my-library-page/ContentArea";
 import CreateFolderModal from "../../my-library-page/CreateFolderModal";
 import DeleteConfirmationModal from "../../my-library-page/DeleteConfirmationModal";
-import FlashTestCard from "../high-yield-flashcards/create-test/FlashTestCard";
-import HighYieldFlashCardsMain from "../high-yield-flashcards/HighYieldFlashCardsMain";
-import { FlashCardsPerformance } from "../high-yield-flashcards/Performance/FlashCardsPerformance";
-import PreviousFlashcards from "../high-yield-flashcards/Previous Flashcards/PreviousFlashcards";
-import FlashCardCreateTestMain from "../high-yield-flashcards/create-test/FlashCardCreateTestMain";
+import FlashCardCreateTestMain from "../../flash-cards/high-yield-flashcards/create-test/FlashCardCreateTestMain";
+
 
 // Type for mobile view state
 type MobileView = "folders" | "pages" | "content";
@@ -129,9 +126,9 @@ export default function DeskFolder() {
         itemImg={"/assets/icons/library-icon.svg"}
         itemLabel={"Library"}
       /> */}
-      <div className="  lg:my-0 lg:mt-6 ">
-        <div className="hidden lg:grid grid-cols-12 2xl:grid-cols-9">
-          <div className="lg:col-span-3 2xl:col-span-2 pr-2">
+      <div className="  lg:my-0 lg:mt-6 px-4 lg:px-6">
+        <div className="hidden lg:grid grid-cols-12 gap-8">
+          <div className="lg:col-span-3  pr-2">
             <MobileFolderList
               selectedFolder={selectedFolder}
               selectedPage={selectedPage}
@@ -148,8 +145,8 @@ export default function DeskFolder() {
             />
           </div>
 
-          <div className="lg:h-[calc(100vh-115px)] overflow-y-auto lg:col-span-9 2xl:col-span-7">
-             <FlashCardCreateTestMain />
+          <div className="lg:h-[calc(100vh-0px)] overflow-y-auto lg:col-span-9 ">
+            <FlashCardCreateTestMain />
           </div>
         </div>
 

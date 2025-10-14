@@ -10,10 +10,9 @@ import { Bell, Plus, Users } from "lucide-react";
 import PostCreationModal from "./AddPostModel";
 
 const CommunityHeader: React.FC = () => {
-    const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   return (
- 
     <>
       <PageNavbar
         icon={<Users className=" text-black" />}
@@ -27,12 +26,12 @@ const CommunityHeader: React.FC = () => {
             onClick: () => console.log("notification"),
             isPrimary: false,
           },
-          {
-            label: "Ask Question",
-            icon: <Plus size={18} className="mt-1" />,
-            onClick: () => console.log("ask question"),
-            isPrimary: true,
-          },
+          // {
+          //   label: "Ask Question",
+          //   icon: <Plus size={18} className="mt-1" />,
+          //   onClick: () => console.log("ask question"),
+          //   isPrimary: true,
+          // },
         ]}
       />
       {/* Search Section */}
@@ -48,7 +47,6 @@ const CommunityHeader: React.FC = () => {
           </div>
 
           <Button
-         
             icon={<FiPlus className="w-4 h-4" />}
             onClick={() => setIsModalOpen(true)}
             className="!bg-primary !text-white !border-0  !h-10 px-4 ml-4"
@@ -56,7 +54,10 @@ const CommunityHeader: React.FC = () => {
             New Post
           </Button>
         </div>
-        <PostCreationModal isVisible={isModalOpen} setIsVisible={setIsModalOpen}/>
+        <PostCreationModal
+          isVisible={isModalOpen}
+          setIsVisible={setIsModalOpen}
+        />
       </div>
     </>
   );

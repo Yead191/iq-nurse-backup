@@ -28,8 +28,10 @@ const FlashTestCard: React.FC<Props> = ({
 }) => (
   <div
     className={`relative w-full ${
-      isStudyNote ? "2xl:h-[50vh] lg:h-[55vh] h-[40vh]" : "lg:h-[54vh] h-[45vh] rounded-2xl "
-    }  md:h-[52vh] transition-transform duration-700 transform-style-preserve-3d ${
+      isStudyNote
+        ? "2xl:h-[50vh] lg:h-[55vh] h-[40vh]"
+        : "lg:h-[54vh] h-[45vh] rounded-2xl "
+    }   md:h-[52vh] transition-transform duration-700 transform-style-preserve-3d ${
       isFlipped ? "rotate-y-180 show" : "show"
     }`}
     style={{ boxShadow: "4px 4px 27px 0px #00000024" }}
@@ -45,7 +47,9 @@ const FlashTestCard: React.FC<Props> = ({
     </div>
 
     {/* Back */}
-    <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-2xl"     style={{ boxShadow: "4px 4px 27px 0px #00000024" }}
+    <div
+      className="absolute inset-0 backface-hidden rotate-y-180 rounded-2xl"
+      style={{ boxShadow: "4px 4px 27px 0px #00000024" }}
     >
       <div className="w-full h-full bg-white rounded-lg p-6 md:p-8 flex flex-col">
         <div className="flex-1 flex flex-col items-center justify-center gap-y-4">
@@ -54,13 +58,15 @@ const FlashTestCard: React.FC<Props> = ({
           </div>
           <div
             className={`w-auto ${
-              isStudyNote ? "2xl:h-[248px] lg:h-[192px]" : "lg:h-[248px] h-[192px]"
+              isStudyNote
+                ? "2xl:h-[248px] lg:h-[192px]"
+                : "lg:h-[248px] h-[192px]"
             }  `}
           >
             <img
               src={card.backContent.image}
               alt={`${card.title} back`}
-              className="w-full h-full object-contain"
+              className="w-full h-[180px] md:h-full object-contain"
             />
           </div>
         </div>

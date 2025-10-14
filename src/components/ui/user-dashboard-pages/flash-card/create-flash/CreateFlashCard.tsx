@@ -8,7 +8,6 @@ import Card from "../Card";
 import Link from "next/link";
 
 const CreateFlashCard = () => {
-
   return (
     <div>
       <DirectionTitle
@@ -21,7 +20,8 @@ const CreateFlashCard = () => {
           Create a Flashcards Set
         </h1>
         <p className="lg:text-xs text-[10px] font-medium text-[#7B7B7B]">
-          Flashcards are the OG study tool, Create a set of flashcard to study your materials
+          Flashcards are the OG study tool, Create a set of flashcard to study
+          your materials
         </p>
       </div>
 
@@ -44,10 +44,7 @@ const CreateFlashCard = () => {
         </h1>
         <div className="grid lg:grid-cols-4 grid-cols-1 lg:gap-6 gap-4">
           {createFlashData.map((items) => (
-            <Card
-              key={items.id}
-              items={items}
-            />
+            <Card key={items.id} items={items} />
           ))}
         </div>
       </div>
