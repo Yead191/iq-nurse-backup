@@ -5,7 +5,7 @@ import { Plus, ChevronLeft, ChevronRight } from 'lucide-react';
 const SidebarTabs = ({ tabs, activeTabId, createTab, switchTab, collapsed, setCollapsed }: any) => {
 
 
-    const isMobile = window.innerWidth <= 768;
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
     if (isMobile) {
         // No collapse for mobile: show everything, no collapse logic or button
