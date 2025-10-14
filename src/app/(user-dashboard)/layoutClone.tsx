@@ -46,7 +46,8 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
     "/profile/my-library/details/",
     "/profile/community",
     "/profile/group/my-groups",
-    "/profile/flash-cards/high-yield-flashcards/create-test/test-result"
+    "/profile/flash-cards/high-yield-flashcards/create-test/test-result",
+    "/profile/clinical-calculator"
 
   ];
 

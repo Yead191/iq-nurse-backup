@@ -1,19 +1,20 @@
+"use client";
 import { Empty } from "antd";
 import DosageCalculation from "./DosageCalculation";
 
 export default function CalculatorMainPanel({
-  selected,
+  type,
 }: {
-  selected: string | null;
+  type: string | null;
 }) {
-  if (!selected)
+  if (!type)
     return (
       <div className="flex justify-center items-center h-[calc(100vh-100px)]">
         <Empty description="Please select a calculator" />
       </div>
     );
 
-  switch (selected) {
+  switch (type) {
     case "dosage-calculation":
       return <DosageCalculation />;
     case "unit-conversion":
