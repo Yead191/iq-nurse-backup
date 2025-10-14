@@ -68,27 +68,31 @@ export default function SurgicalDetailsPage({ id }: { id: any }) {
 
   return (
     <div className="p-0">
-      <DetailsHeader title={id} back={"/profile/study-notes"} primaryBg={false} 
-      actions={[
-        {
-          icon: Bookmark,
-          label: "Bookmark",
-          hoverColor: "text-blue-600",
-          onClick: () => toast.success("Bookmarked!"),
-        },
-        {
-          icon: Share2,
-          label: "Share",
-          hoverColor: "text-green-600",
-          onClick: () => toast.success("Shared!"),
-        },
-        {
-          icon: Printer,
-          label: "print",
-          hoverColor: "text-green-600",
-          onClick: () => console.log("print!"),
-        },
-      ]}/>
+      <DetailsHeader
+        title={id}
+        back={"/profile/study-notes"}
+        primaryBg={false}
+        actions={[
+          {
+            icon: Bookmark,
+            label: "Bookmark",
+            hoverColor: "text-blue-600",
+            onClick: () => toast.success("Bookmarked!"),
+          },
+          {
+            icon: Share2,
+            label: "Share",
+            hoverColor: "text-green-600",
+            onClick: () => toast.success("Shared!"),
+          },
+          {
+            icon: Printer,
+            label: "print",
+            hoverColor: "text-green-600",
+            onClick: () => console.log("print!"),
+          },
+        ]}
+      />
 
       <div className="flex justify-end items-center px-4   lg:px-5 ">
         {/* <p className="text-2xl font-semibold">{id}</p> */}
