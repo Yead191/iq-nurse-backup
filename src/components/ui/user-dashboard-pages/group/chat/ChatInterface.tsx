@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
-import { Avatar, Button, Input } from 'antd';
-import { PaperClipOutlined, SmileOutlined, MinusCircleOutlined } from '@ant-design/icons';
-import { IoIosSend } from 'react-icons/io';
+import React, { useState } from "react";
+import { Avatar, Button, Input } from "antd";
+import {
+  PaperClipOutlined,
+  SmileOutlined,
+  MinusCircleOutlined,
+} from "@ant-design/icons";
+import { IoIosSend } from "react-icons/io";
 import { FaPlay, FaCheck } from "react-icons/fa";
-import { AiFillAudio } from 'react-icons/ai';
-import { MdOutlineKeyboardVoice } from 'react-icons/md';
+import { AiFillAudio } from "react-icons/ai";
+import { MdOutlineKeyboardVoice } from "react-icons/md";
 
 // Animated waveform SVG for audio message
 const Waveform = () => {
-  const bars = [12, 20, 8, 24, 16, 4, 12, 20, 8, 24, 16, 4, 12, 20, 8, 24, 16, 4, 12, 20];
+  const bars = [
+    12, 20, 8, 24, 16, 4, 12, 20, 8, 24, 16, 4, 12, 20, 8, 24, 16, 4, 12, 20,
+  ];
   return (
-    <svg width="200" height="32" viewBox="0 0 200 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-2">
+    <svg
+      width="200"
+      height="32"
+      viewBox="0 0 200 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="mx-2"
+    >
       {bars.map((height, i) => (
         <rect
           key={i}
@@ -46,7 +59,9 @@ const ImageGallery = ({ images }: { images: string[] }) => {
           />
           {idx === 3 && remaining > 0 && (
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-              <span className="text-white text-2xl font-semibold">+{remaining}</span>
+              <span className="text-white text-2xl font-semibold">
+                +{remaining}
+              </span>
             </div>
           )}
         </div>
@@ -55,13 +70,19 @@ const ImageGallery = ({ images }: { images: string[] }) => {
   );
 };
 
-const AudioMessage = ({ isOwn, avatar }: { isOwn: boolean; avatar?: string }) => (
-
+const AudioMessage = ({
+  isOwn,
+  avatar,
+}: {
+  isOwn: boolean;
+  avatar?: string;
+}) => (
   // For demonstration, let's use realistic duration and time values.
   // We'll use 0:37 as the audio duration and 10:42 AM as the message time.
   <div
-    className={`flex items-center rounded-2xl px-4 py-3 ${isOwn ? 'bg-primary text-white' : 'bg-primary text-white'
-      } max-w-md shadow-lg`}
+    className={`flex items-center rounded-2xl px-4 py-3 ${
+      isOwn ? "bg-primary text-white" : "bg-primary text-white"
+    } max-w-md shadow-lg`}
   >
     <div className="relative mr-3 flex-shrink-0">
       <Avatar
@@ -79,7 +100,7 @@ const AudioMessage = ({ isOwn, avatar }: { isOwn: boolean; avatar?: string }) =>
       <Waveform />
       <div className="flex justify-between items-center gap-2 ml-3 flex-shrink-0">
         <span className="text-sm font-medium">0:37</span>
-        <div className='flex items-center gap-2'>
+        <div className="flex items-center gap-2">
           <span className="text-xs opacity-70">10:42 AM</span>
           ✔️
         </div>
@@ -89,89 +110,94 @@ const AudioMessage = ({ isOwn, avatar }: { isOwn: boolean; avatar?: string }) =>
 );
 
 const ChatInterface = () => {
-  const [newMessage, setNewMessage] = useState('');
+  const [newMessage, setNewMessage] = useState("");
 
   const messages = [
     {
       id: 1,
-      user: 'Sarah Chen',
-      initials: 'SC',
-      content: 'Hey everyone! I just uploaded some new flashcards on respiratory assessment. Check them out when you get a chance!',
-      time: '10:35 AM',
+      user: "Sarah Chen",
+      initials: "SC",
+      content:
+        "Hey everyone! I just uploaded some new flashcards on respiratory assessment. Check them out when you get a chance!",
+      time: "10:35 AM",
       isOwn: false,
-      type: 'text'
+      type: "text",
     },
     {
       id: 2,
-      user: 'Michael Johnson',
-      initials: 'MJ',
-      content: 'Thanks! I\'ve been struggling with the breath sounds identification. This will be really helpful.',
-      time: '10:42 AM',
+      user: "Michael Johnson",
+      initials: "MJ",
+      content:
+        "Thanks! I've been struggling with the breath sounds identification. This will be really helpful.",
+      time: "10:42 AM",
       isOwn: false,
-      type: 'text'
+      type: "text",
     },
     {
       id: 3,
-      user: 'You',
-      initials: 'YU',
+      user: "You",
+      initials: "YU",
       images: [
-        'https://padmanews24.com/wp-content/uploads/2024/03/mosque-of-modina.jpg',
-        'https://c1.wallpaperflare.com/preview/114/42/558/kabba-baitullah-mokka-baytulllah.jpg',
-        'https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWVjY2ElMjBrYWFiYXxlbnwwfHwwfHx8MA%3D%3D',
-        'https://i.pinimg.com/736x/91/7a/00/917a005741988dab42440121356c15d8.jpg',
-        'https://w0.peakpx.com/wallpaper/416/451/HD-wallpaper-la-ilaha-illa-allah-shahada-green-la-ilaha-illaallah-islam.jpg',
+        "https://padmanews24.com/wp-content/uploads/2024/03/mosque-of-modina.jpg",
+        "https://c1.wallpaperflare.com/preview/114/42/558/kabba-baitullah-mokka-baytulllah.jpg",
+        "https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWVjY2ElMjBrYWFiYXxlbnwwfHwwfHx8MA%3D%3D",
+        "https://i.pinimg.com/736x/91/7a/00/917a005741988dab42440121356c15d8.jpg",
+        "https://w0.peakpx.com/wallpaper/416/451/HD-wallpaper-la-ilaha-illa-allah-shahada-green-la-ilaha-illaallah-islam.jpg",
       ],
-      content: 'Here are some photos, you were asking about. 😊',
-      time: '3 days ago',
+      content: "Here are some photos, you were asking about. 😊",
+      time: "3 days ago",
       isOwn: true,
-      type: 'image'
+      type: "image",
     },
     {
       id: 4,
-      user: 'Emily Davis',
-      initials: 'ED',
-      content: 'Could you help me with our upcoming exam. It\'s in the Voice Notes section.',
-      time: '10:35 AM',
+      user: "Emily Davis",
+      initials: "ED",
+      content:
+        "Could you help me with our upcoming exam. It's in the Voice Notes section.",
+      time: "10:35 AM",
       isOwn: false,
-      type: 'text'
+      type: "text",
     },
     {
       id: 5,
-      user: 'You',
-      initials: 'YU',
-      avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-      content: '',
-      time: '12:23',
+      user: "You",
+      initials: "YU",
+      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+      content: "",
+      time: "12:23",
       isOwn: true,
-      type: 'audio'
-    }
+      type: "audio",
+    },
   ];
 
   const handleSend = () => {
     if (newMessage.trim()) {
       // Handle sending message
-      console.log('Sending:', newMessage);
-      setNewMessage('');
+      console.log("Sending:", newMessage);
+      setNewMessage("");
     }
   };
 
   const handleKeyPress = (e: any) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleSend();
     }
   };
 
   return (
-    <div className="max-h-[calc(100vh-250px)] relative pb-2">
+    <div className=" relative ">
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 h-[calc(100vh-200px)]">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((message, index) => (
           <div key={message.id}>
             <div
-              className={`flex gap-3 ${message.isOwn ? 'justify-end' : 'justify-start'}`}
+              className={`flex gap-3 ${
+                message.isOwn ? "justify-end" : "justify-start"
+              }`}
             >
               {/* Avatar for non-own messages */}
-              {!message.isOwn && message.type !== 'audio' && (
+              {!message.isOwn && message.type !== "audio" && (
                 <Avatar
                   className="bg-primary text-white font-medium flex-shrink-0"
                   size={40}
@@ -180,37 +206,39 @@ const ChatInterface = () => {
                 </Avatar>
               )}
 
-              <div className={`max-w-md ${message.isOwn ? 'order-first' : ''}`}>
+              <div className={`max-w-md ${message.isOwn ? "order-first" : ""}`}>
                 {/* Username for non-own text messages */}
-                {!message.isOwn && message.type === 'text' && (
+                {!message.isOwn && message.type === "text" && (
                   <div className="text-sm font-medium text-gray-700 mb-1">
                     {message.user}
                   </div>
                 )}
 
                 {/* Message content based on type */}
-                {message.type === 'text' ? (
+                {message.type === "text" ? (
                   <div
-                    className={`p-3 rounded-lg ${message.isOwn
-                      ? 'bg-primary text-white'
-                      : 'bg-white border border-gray-200'
-                      }`}
+                    className={`p-3 rounded-lg ${
+                      message.isOwn
+                        ? "bg-primary text-white"
+                        : "bg-white border border-gray-200"
+                    }`}
                   >
                     <div className="text-sm leading-relaxed">
                       {message.content}
                     </div>
                   </div>
-                ) : message.type === 'audio' ? (
+                ) : message.type === "audio" ? (
                   <AudioMessage isOwn={message.isOwn} avatar={message.avatar} />
-                ) : message.type === 'image' ? (
+                ) : message.type === "image" ? (
                   <div className="space-y-2">
                     <ImageGallery images={message.images || []} />
                     {message.content && (
                       <div
-                        className={`p-3 rounded-lg ${message.isOwn
-                          ? 'bg-primary text-white'
-                          : 'bg-white border border-gray-200'
-                          }`}
+                        className={`p-3 rounded-lg ${
+                          message.isOwn
+                            ? "bg-primary text-white"
+                            : "bg-white border border-gray-200"
+                        }`}
                       >
                         <div className="text-sm leading-relaxed">
                           {message.content}
@@ -221,7 +249,7 @@ const ChatInterface = () => {
                 ) : null}
 
                 {/* Time for text messages */}
-                {message.type === 'text' && (
+                {message.type === "text" && (
                   <div className="text-xs text-gray-500 mt-1 text-right">
                     {message.time}
                   </div>
@@ -229,7 +257,7 @@ const ChatInterface = () => {
               </div>
 
               {/* Avatar for own messages */}
-              {message.isOwn && message.type !== 'audio' && (
+              {message.isOwn && message.type !== "audio" && (
                 <Avatar
                   className="bg-primary text-white font-medium flex-shrink-0"
                   size={40}
@@ -240,7 +268,7 @@ const ChatInterface = () => {
             </div>
 
             {/* Time separator after image message */}
-            {message.type === 'image' && (
+            {message.type === "image" && (
               <div className="text-center my-4">
                 <span className="text-xs text-gray-400 bg-gray-100 px-3 py-1 rounded-full">
                   {message.time}
@@ -253,11 +281,11 @@ const ChatInterface = () => {
 
       {/* Input Area */}
       <div
-        className="bg-white p-4 sticky bottom-0"
+        className="bg-white p-4 sticky  bottom-0"
         style={{
           bottom:
             typeof window !== "undefined" && window.innerWidth < 650
-              ? "83px"
+              ? "8px"
               : "0px",
         }}
       >
@@ -270,12 +298,24 @@ const ChatInterface = () => {
               placeholder="Type your messages..."
               size="large"
               className="!rounded-full pr-12"
-              style={{ paddingRight: '140px' }}
+              style={{ paddingRight: "140px" }}
             />
             <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
-              <Button type="text" icon={<PaperClipOutlined className='text-lg' />} size="middle" />
-              <Button type="text" icon={<SmileOutlined className='text-lg' />} size="middle" />
-              <Button type="text" icon={<MdOutlineKeyboardVoice className='text-lg' />} size="middle" />
+              <Button
+                type="text"
+                icon={<PaperClipOutlined className="text-lg" />}
+                size="middle"
+              />
+              <Button
+                type="text"
+                icon={<SmileOutlined className="text-lg" />}
+                size="middle"
+              />
+              <Button
+                type="text"
+                icon={<MdOutlineKeyboardVoice className="text-lg" />}
+                size="middle"
+              />
             </div>
           </div>
 

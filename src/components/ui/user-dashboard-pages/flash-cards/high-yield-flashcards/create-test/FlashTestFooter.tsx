@@ -8,6 +8,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 import { FaCheck } from "react-icons/fa";
 import { BsFillLightbulbFill } from "react-icons/bs";
 import { SlRefresh } from "react-icons/sl";
+import { Grid } from "antd";
 
 interface Props {
   currentIndex: number;
@@ -20,7 +21,7 @@ interface Props {
   isFromChat?: string;
   setShowCompletion?: any;
   isStudyNote?: boolean;
-  onPlippeClicked:() => void;
+  onPlippeClicked: () => void;
 }
 
 const BUTTONS = [
@@ -28,7 +29,7 @@ const BUTTONS = [
     label: "Easy",
     ariaLabel: "Easy",
     className:
-      "px-6 py-2 rounded-md cursor-pointer bg-[#22C55E] text-white font-medium transition-colors duration-200 hover:bg-[#16a34a] focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-offset-1 focus:ring-blue-300",
+      "px-3 md:px-6 py-2 rounded-md cursor-pointer bg-[#22C55E] text-white font-medium transition-colors duration-200 hover:bg-[#16a34a] focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-offset-1 focus:ring-blue-300 text-xs md:text-base",
     onClickKey: "onMarkCorrect",
     disabled: (isFlipped: boolean) => !isFlipped,
   },
@@ -36,7 +37,7 @@ const BUTTONS = [
     label: "Medium",
     ariaLabel: "Medium",
     className:
-      "px-6 py-2 rounded-md cursor-pointer bg-[#F59E42] text-white font-medium transition-colors duration-200 hover:bg-[#ea8600] focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-offset-1 focus:ring-blue-300",
+      "px-3 md:px-6 py-2 rounded-md cursor-pointer bg-[#F59E42] text-white font-medium transition-colors duration-200 hover:bg-[#ea8600] focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-offset-1 focus:ring-blue-300 text-xs md:text-base",
     onClickKey: "onMarkWrong",
     disabled: (isFlipped: boolean) => !isFlipped,
   },
@@ -44,7 +45,7 @@ const BUTTONS = [
     label: "Hard",
     ariaLabel: "Hard",
     className:
-      "px-6 py-2 rounded-md bg-[#EF4444] cursor-pointer text-white font-medium transition-colors duration-200 hover:bg-[#dc2626] focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-offset-1 focus:ring-blue-300",
+      "px-3 md:px-6 py-2 rounded-md bg-[#EF4444] cursor-pointer text-white font-medium transition-colors duration-200 hover:bg-[#dc2626] focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-offset-1 focus:ring-blue-300 text-xs md:text-base",
     onClickKey: "onMarkWrong",
     disabled: (isFlipped: boolean) => !isFlipped,
   },
@@ -61,8 +62,9 @@ const FlashTestFooter: React.FC<Props> = ({
   isFromChat,
   setShowCompletion,
   isStudyNote,
-  onPlippeClicked
+  onPlippeClicked,
 }) => {
+  const { lg } = Grid.useBreakpoint();
   const router = useRouter();
   const isFirst = currentIndex === 0;
   const isLast = currentIndex === total - 1;
@@ -77,22 +79,21 @@ const FlashTestFooter: React.FC<Props> = ({
 
   return (
     <div className="p-4 items-center justify-center">
-
       <p className="font-medium text-black text-center pb-2 sm:hidden ">
         How well did you know this?
       </p>
       <div className="flex items-center justify-between w-full md:px-8">
-
         {/* Prev */}
         <button
           type="button"
           aria-label="Previous card"
           onClick={!isFirst ? onPrev : undefined}
           disabled={isFirst}
-          className={`py-2 border border-gray-300 px-3 rounded-lg flex items-center justify-center transition-colors duration-200 ${isFirst
-            ? "bg-[#95A5A6] text-white cursor-not-allowed"
-            : "bg-[#003877] text-white cursor-pointer"
-            }`}
+          className={`py-2 border border-gray-300 px-3 rounded-lg flex items-center justify-center transition-colors duration-200 ${
+            isFirst
+              ? "bg-[#95A5A6] text-white cursor-not-allowed"
+              : "bg-[#003877] text-white cursor-pointer"
+          }`}
         >
           <span className="hidden md:flex items-center gap-2">
             <HiArrowSmallLeft size={20} />
@@ -101,8 +102,8 @@ const FlashTestFooter: React.FC<Props> = ({
           <IoIosArrowBack className="md:hidden" size={20} />
         </button>
         {/* Center controls */}
-        <div className="flex items-center gap-6 px-2">
-          <p className="font-medium !text-black hidden xl:block text-[min(1rem,4vw)]">
+        <div className="flex items-center gap-2 md:gap-6 px-2">
+          <p className="font-medium !text-black hidden xl:block md:text-[min(1rem,4vw)]">
             How well did you know this?
           </p>
           {BUTTONS.map((btn) => (
@@ -125,10 +126,10 @@ const FlashTestFooter: React.FC<Props> = ({
             type="button"
             aria-label="Next card"
             onClick={onNext}
-            className="py-2 rounded-lg px-6 flex items-center justify-center bg-[#003877] text-white cursor-pointer"
+            className="py-2 rounded-lg px-3 md:px-6 flex items-center justify-center bg-[#003877] text-white cursor-pointer"
           >
             <span className="hidden md:flex items-center gap-2">
-              Next <HiArrowSmallRight size={20} />
+              Next <HiArrowSmallRight size={lg ? 20 : 8} />
             </span>
             <MdArrowForwardIos className="md:hidden" size={20} />
           </button>
@@ -140,11 +141,11 @@ const FlashTestFooter: React.FC<Props> = ({
               isStudyNote
                 ? () => setShowCompletion(true)
                 : () =>
-                  router.push(
-                    isFromChat
-                      ? `/profile/group/${isFromChat}`
-                      : "/profile/flash-cards/high-yield-flashcards/create-test/test-result"
-                  )
+                    router.push(
+                      isFromChat
+                        ? `/profile/group/${isFromChat}`
+                        : "/profile/flash-cards/high-yield-flashcards/create-test/test-result"
+                    )
             }
             className="px-4 py-2 rounded-lg flex items-center justify-center bg-primary text-white font-medium cursor-pointer"
           >

@@ -52,7 +52,9 @@ const FlashTestCard: React.FC<Props> = ({
           </div>
           <div
             className={`w-auto ${
-              isStudyNote ? "2xl:h-[248px] lg:h-[192px]" : "lg:h-[248px] h-[192px]"
+              isStudyNote
+                ? "2xl:h-[248px] lg:h-[192px]"
+                : "lg:h-[248px] h-[192px]"
             }  `}
           >
             <img

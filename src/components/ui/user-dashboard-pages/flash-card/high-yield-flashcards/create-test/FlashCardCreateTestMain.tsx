@@ -85,7 +85,6 @@ const FlashCardCreateTestMain = ({
               isFlipped={isFlipped}
               setShowCompletion={setShowCompletion}
               isStudyNote={isStudyNote}
-              
             />
           </div>
         </div>
