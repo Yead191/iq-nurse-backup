@@ -1,5 +1,6 @@
 import { clinicalCalculatorData } from "@/data/clinicalCalculatorData";
 import { templateData } from "@/data/templatesData";
+import { useRouter } from "next/navigation";
 import { FaListUl } from "react-icons/fa";
 import { IoSearchOutline } from "react-icons/io5";
 
@@ -10,15 +11,14 @@ export type CategoryState = {
 
 interface IProps {
   setIsSideBarSelect: React.Dispatch<React.SetStateAction<boolean>>;
-  setSetselectedId: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function CalculatorCategoryList({
   setIsSideBarSelect,
-  setSetselectedId,
 }: IProps) {
   const { getCaluclatorData } = clinicalCalculatorData;
 
+ const router = useRouter();
   return (
     <aside className="w-full sm:w-sm bg-white shadow-xl  scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 px-4 m-auto">
       {/* Search */}
@@ -39,8 +39,8 @@ export default function CalculatorCategoryList({
               {cat.tools.map((tpl) => (
                 <button
                   onClick={() => {
-                    setSetselectedId(tpl?.id);
                     setIsSideBarSelect((prev) => !prev);
+                    router.push(`/profile/clinical-calculator/${tpl?.id}`);
                   }}
                   key={tpl.id}
                   className="flex cursor-pointer items-start w-full rounded-lg p-3  text-left hover:shadow-md transition bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
