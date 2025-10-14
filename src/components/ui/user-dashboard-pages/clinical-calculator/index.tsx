@@ -41,7 +41,7 @@ const ClinicalCalculator = () => {
           },
         ]}
       />
-      
+
       <div className="flex flex-col md:flex-row sm:mx-2 sm:gap-2">
         {/* Calculator List */}
         <div className={`${isSideBarSelect ? "hidden" : "block"} md:block`}>
@@ -53,7 +53,7 @@ const ClinicalCalculator = () => {
 
         {/* Calculator Tools */}
         <div
-          className={`w-full max-h-[calc(100vh-100px)] overflow-y-auto md:flex-1 ${
+          className={`w-full lg:max-h-[calc(100vh-100px)] lg:overflow-y-auto md:flex-1 ${
             isSideBarSelect ? "block" : "hidden"
           } md:block`}
         >

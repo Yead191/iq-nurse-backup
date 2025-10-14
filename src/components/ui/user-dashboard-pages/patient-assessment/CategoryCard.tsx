@@ -1,6 +1,6 @@
-import { Grid } from "antd";
+import { Button, Grid } from "antd";
+import { ChevronUp, StickyNote } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 interface Category {
   id: string;
@@ -29,30 +29,6 @@ export default function CategoryCard({ category }: CategoryCardProps) {
   };
   return (
     <div className="rounded-2xl ">
-      {/* <div
-        style={{
-          boxShadow: "0px 4px 12px 0px rgba(0, 0, 0, 0.2)",
-        }}
-        className="flex items-center gap-4 mb-6  w-fit pl-2 pr-6  py-2 rounded-4xl"
-      >
-        <div className="w-12 h-12  bg-[#1886EA] rounded-full flex items-center justify-center flex-shrink-0 ">
-          <Image
-            src={category?.icon}
-            alt={category.label}
-            width={28}
-            height={28}
-            className={`relative transition-all duration-200 brightness-50 invert`}
-            unoptimized
-            priority
-          />
-        </div>
-        <div>
-          <h2 className="text-sm 2xl:text-xl font-semibold text-gray-800 mb-2">
-            {category.title}
-          </h2>
-        </div>
-      </div> */}
-
       <div
         className="flex  items-center relative "
         onClick={() => handleClick(category.id)}
@@ -63,7 +39,22 @@ export default function CategoryCard({ category }: CategoryCardProps) {
           alt={`${category?.title} illustration`}
           className="h-[400px] md:h-auto lg:h-[calc(100vh-250px)] 2xl:h-[calc(100vh-280px)] object-contain rounded-xl shadow-md"
         />
-        <FaArrowUpRightFromSquare className="absolute text-xl right-2 top-4 md:hidden" /> 
+      </div>
+      <div
+        onClick={() => handleClick(category.id)}
+        className="flex items-center justify-between mt-4 lg:hidden"
+      >
+        <Button
+          // variant={showNotes ? "default" : "outline"}
+          size="small"
+          className="!flex !items-center gap-2 !justify-between !w-full !h-[40px] bg-white"
+        >
+          <span className="flex items-center gap-2">
+            <StickyNote className="w-4 h-4" />
+            {category.title} Notes
+          </span>
+          <ChevronUp className="w-4 h-4" />
+        </Button>
       </div>
     </div>
   );

@@ -68,29 +68,31 @@ const UserCalendar: React.FC = () => {
 
     return (
       <div className="flex lg:flex-row flex-col justify-between items-center gap-3 mb-4 ">
-        <div className="flex items-center lg:justify-start justify-between space-x-4">
-          <h2 className="lg:text-[32px] md:text-xl text-sm font-semibold text-gray-800 me-6">
+        <div className="flex items-center lg:justify-start justify-between space-x-4 w-full lg:w-auto">
+          <h2 className="lg:text-[32px] md:text-xl text-lg font-semibold text-gray-800 me-6">
             {label}
           </h2>
-          <button
-            onClick={() => navigate("PREV")}
-            className=" lg:h-[46px] h-6  w-6 lg:w-[46px] lg:text-2xl text-xs bg-[#F6F7F8] rounded text-[#003877] flex items-center justify-center"
-          >
-            <IoIosArrowBack />
-          </button>
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={() => navigate("PREV")}
+              className=" lg:h-[46px] h-8  w-8 lg:w-[46px] lg:text-2xl text-xs bg-[#F6F7F8] rounded text-[#003877] flex items-center justify-center"
+            >
+              <IoIosArrowBack />
+            </button>
 
-          <button
-            onClick={() => navigate("NEXT")}
-            className=" lg:h-[46px] h-6  w-6 lg:w-[46px] lg:text-2xl text-xs bg-[#F6F7F8] rounded text-[#003877] flex items-center justify-center"
-          >
-            <IoIosArrowForward />
-          </button>
-          <button
-            onClick={() => navigate("TODAY")}
-            className="ml-4 px-3 py-1 bg-[#003877] text-white rounded hover:bg-blue-600 text-sm hidden md:block"
-          >
-            Today
-          </button>
+            <button
+              onClick={() => navigate("NEXT")}
+              className=" lg:h-[46px] h-8  w-8 lg:w-[46px] lg:text-2xl text-xs bg-[#F6F7F8] rounded text-[#003877] flex items-center justify-center"
+            >
+              <IoIosArrowForward />
+            </button>
+            <button
+              onClick={() => navigate("TODAY")}
+              className="ml-4 px-3 py-1 bg-[#003877] text-white rounded hover:bg-blue-600 text-sm hidden md:block"
+            >
+              Today
+            </button>
+          </div>
         </div>
 
         <div className="flex space-x-1 bg-[#F6F7F8] rounded-lg px-4 py-2 w-full md:w-auto justify-between md:justify-start">
