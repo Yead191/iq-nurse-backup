@@ -47,9 +47,9 @@ const StudyGroups: React.FC = () => {
           <h2 className="text-base font-medium text-gray-800">
             My Study Groups
           </h2>
-          <Button type="link" href='/profile/group/my-groups' className="text-blue-600 font-medium p-0 text-sm">
+          {/* <Button type="link" href='/profile/group/my-groups' className="text-blue-600 font-medium p-0 text-sm">
             View All
-          </Button>
+          </Button> */}
         </div>
 
         {/* Groups List */}
@@ -58,6 +58,7 @@ const StudyGroups: React.FC = () => {
             <div
               key={group.id}
               className="!bg-primary rounded-lg p-4 md:max-w-2xl text-white cursor-pointer hover:bg-blue-600 transition-colors duration-200"
+              onClick={() => window.location.href = '/profile/group/my-groups'}
             >
               <h3 className="font-medium md:text-lg text-xs mb-2">
                 {group.name}
