@@ -22,7 +22,7 @@ export default function SkillSidebar({
   const { getClinicalSkillsData } = clinicalSkils;
   console.log("skill", skill);
   return (
-    <aside className="w-full sm:w-sm bg-white  border-gray-200 max-h-[calc(100vh-200px)] md:max-h-[calc(100vh-120px)]  overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 px-4 m-auto">
+    <aside className="w-full sm:w-sm bg-white  border-gray-200  md:max-h-[calc(100vh-120px)]  md:overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 px-4 m-auto">
       {/* Categories */}
       <div className="flex flex-col gap-3">
         {getClinicalSkillsData?.map((cat, index) => (

@@ -2,6 +2,7 @@
 
 import { Button, Tooltip } from "antd";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface Category {
   id: string;
@@ -25,8 +26,9 @@ export default function CategoryButtons({
   onCategorySelect,
   patientPage,
 }: CategoryButtonsProps) {
+  const router = useRouter();
   return (
-    <div className="bg-white rounded-2xl p-4  mt-2">
+    <div className="bg-white rounded-2xl lg:p-4  lg:mt-2">
       <div
         className={`${
           patientPage
@@ -50,7 +52,10 @@ export default function CategoryButtons({
         ? "!bg-[#003877DE] !border-transparent !shadow-lg !scale-105"
         : "bg-white !hover:border-gray-200 !border-[#000000] hover:bg-blue-50"
     }`}
-                  onClick={() => onCategorySelect(category)}
+                  onClick={() => {
+                    onCategorySelect(category);
+                    router.replace(`?category=${category.id}`);
+                  }}
                 >
                   <span
                     className={`absolute inset-0 rounded-full ${

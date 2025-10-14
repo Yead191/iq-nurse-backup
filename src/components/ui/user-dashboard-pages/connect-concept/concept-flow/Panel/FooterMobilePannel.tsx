@@ -130,7 +130,7 @@ export const FooterMobilePannel = ({
   };
   return (
     <>
-      <div className="flex flex-col justify-center  items-center gap-2 py-3 px-1 w-full pointer-events-none pb-28">
+      <div className="flex flex-col justify-center  items-center gap-2 py-3 px-1 w-full pointer-events-none pb-14">
         {/* Top action bar */}
         <div
           className="flex flex-row pointer-events-auto bg-white rounded-xl shadow border min-h-12 items-center"
