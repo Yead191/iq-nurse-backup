@@ -47,7 +47,7 @@ export default function DetailsHeader({
         )}
         <span
           className={`text-sm ${
-            primaryBg ? "text-white border-[#003877]" : ""
+            primaryBg ? "text-white border-white/70" : ""
           }  border    bg-transparent px-3 py-1 rounded capitalize`}
         >
           {title}

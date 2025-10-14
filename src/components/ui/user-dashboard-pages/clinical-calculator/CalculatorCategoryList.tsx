@@ -29,7 +29,7 @@ export default function CalculatorCategoryList({
       <p></p>
 
       {/* Categories */}
-      <div className="space-y-6 max-h-[calc(100vh-140px)] overflow-y-auto">
+      <div className="space-y-6 lg:max-h-[calc(100vh-140px)] lg:overflow-y-auto">
         {getCaluclatorData.categories.map((cat) => (
           <div key={cat.title}>
             <h3 className="text-sm font-semibold border-b-2 pb-1 border-b-gray-200 text-gray-700 mb-2">

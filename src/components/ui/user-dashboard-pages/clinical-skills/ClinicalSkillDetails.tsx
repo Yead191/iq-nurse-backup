@@ -1,15 +1,12 @@
 "use client";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import {
-  Alert,
   Card,
-  Checkbox,
   ConfigProvider,
   Grid,
   Progress,
   Tabs,
 } from "antd";
-import TabPane from "antd/es/tabs/TabPane";
 import { File } from "lucide-react";
 import type { TabsProps } from "antd";
 import MediaTab from "@/components/shared/MediaTab";
@@ -65,7 +62,7 @@ export default function ClinicalsPageDetails() {
 
       <div className=" px-4 md:px-5">
         {/* Category Banner */}
-        <Card
+        {/* <Card
           className="mb-6"
           styles={{
             body: {
@@ -100,7 +97,7 @@ export default function ClinicalsPageDetails() {
               />
             </ConfigProvider>
           </div>
-        </Card>
+        </Card> */}
 
         {/* Title */}
         <h3 className="text-lg font-semibold mt-5">
