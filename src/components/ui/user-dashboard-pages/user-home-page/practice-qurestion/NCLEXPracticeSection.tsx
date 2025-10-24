@@ -8,6 +8,7 @@ import CompletionCard from "./CompletionCard";
 import QuestionCard from "./QuestionCard";
 import { SectionHeader } from "../SectionHeader";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function NCLEXPracticeSection() {
   const [activeCategory, setActiveCategory] =
@@ -75,8 +76,17 @@ export default function NCLEXPracticeSection() {
           boxShadow: "4px 4px 29px 0px rgba(0, 0, 0, 0.14)",
           borderRadius: 12,
         }}
-        className="my-8 p-4 lg:p-5 py-6 "
+        className="my-8 p-4 lg:p-5 py-6  relative"
       >
+        <Image
+          src={
+            "https://i.ibb.co.com/xStmYThw/0129ffec9a8eff855d410dfcce776cde27ddc13d.png"
+          }
+          alt="welcome icon"
+          width={100}
+          height={100}
+          className="w-[71px] h-[71px] object-fit absolute -top-8 left-0"
+        />
         <div className="flex items-center justify-between mb-6">
           <SectionHeader title="NCLEX Practice Questions" />
           <Link href={"/profile/tests"} className="text-primary  font-medium">
@@ -106,9 +116,18 @@ export default function NCLEXPracticeSection() {
         boxShadow: "4px 4px 29px 0px rgba(0, 0, 0, 0.14)",
         borderRadius: 12,
       }}
-      className="my-8 p-4 lg:p-5 py-6 "
+      className="my-8 p-4 lg:p-5 py-6 relative lg:mt-12"
     >
-      <div className="flex items-center justify-between mb-6">
+      <Image
+        src={
+          "https://i.ibb.co.com/BVTBTrgk/60dee5cf20e9630a45f8b35e37787a8f14c83776.png"
+        }
+        alt="welcome icon"
+        width={100}
+        height={100}
+        className="w-[71px] h-[71px] object-fit absolute -top-8 left-4 hidden lg:block"
+      />
+      <div className="flex items-center justify-between mb-6 lg:pl-20">
         <SectionHeader title="NCLEX Practice Questions" />
         <Link href={"/profile/tests"} className="text-primary  font-medium">
           See More

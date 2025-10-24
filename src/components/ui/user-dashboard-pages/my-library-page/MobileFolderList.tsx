@@ -32,6 +32,7 @@ interface MobileFolderListProps {
   onRenameFolder: (folderId: string, newName: string) => void;
   selectedFolder?: string | null;
   selectedPage?: string | null;
+  isDeck?: boolean;
 }
 
 export default function MobileFolderList({
@@ -47,6 +48,7 @@ export default function MobileFolderList({
   onRenameFolder,
   selectedPage,
   selectedFolder,
+  isDeck = false,
 }: MobileFolderListProps) {
   const [contextMenu, setContextMenu] = useState<{
     isOpen: boolean;
@@ -116,25 +118,10 @@ export default function MobileFolderList({
     },
   ];
 
-  const getColorClasses = (color: string) => {
-    const colorMap = {
-      blue: "border-l-blue-500",
-      orange: "border-l-orange-500",
-      red: "border-l-red-500",
-      green: "border-l-green-500",
-      purple: "border-l-purple-500",
-      pink: "border-l-pink-500",
-      yellow: "border-l-yellow-500",
-      teal: "border-l-teal-500",
-      cyan: "border-l-cyan-500",
-    };
-    return colorMap[color as keyof typeof colorMap] || "border-l-gray-500";
-  };
-
   return (
-    <div className="flex flex-col h-full ">
+    <div className="flex flex-col h-full  ">
       {/* Search Header */}
-      <div className="pb-2 px-0.5 border-b border-gray-200">
+      <div className="pb-2 px-0.5  border-b border-gray-200">
         <div className="hidden md:flex justify-between items-center gap-4 mb-3">
           <h2 className="text-lg font-semibold text-neutral-900">My Folders</h2>
           {/* Create Folder Button */}
@@ -171,7 +158,7 @@ export default function MobileFolderList({
           {/* Notes */}
           <div className="flex items-center space-x-2">
             <Bookmark size={10} className="text-gray-600" />
-            <span>89 notes</span>
+            <span>89 {isDeck ? "decks" : "notes"} </span>
           </div>
 
           {/* Last updated */}

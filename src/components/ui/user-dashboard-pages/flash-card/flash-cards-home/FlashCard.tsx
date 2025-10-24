@@ -71,8 +71,8 @@ export const FlashCard = () => {
         </div>
 
         {/* Component Display */}
-        <div className="w-full   rounded-xl lg:h-[calc(100vh-105px)] overflow-y-scroll pb-8   ">
-          {tabs.find((tab) => tab.id === activeTab)?.component}
+        <div className="w-full   rounded-xl lg:h-[calc(100vh-105px)] overflow-y-scroll    ">
+          {tabs?.find((tab) => tab.id === activeTab)?.component}
         </div>
       </div>
     </div>

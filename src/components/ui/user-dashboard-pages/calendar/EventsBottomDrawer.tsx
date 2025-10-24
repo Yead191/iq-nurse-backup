@@ -12,8 +12,8 @@ interface EventsBottomDrawerProps {
 }
 
 const MIN = 10; // vh
-const MAX = 85; // vh
-const SNAP_POINTS = [5, 25, 50, 85] as const;
+const MAX = 75; // vh
+const SNAP_POINTS = [5, 25, 50, 75] as const;
 
 const EventsBottomDrawer: React.FC<EventsBottomDrawerProps> = ({
   selectedDate,

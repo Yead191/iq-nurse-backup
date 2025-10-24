@@ -3,19 +3,18 @@
 import { useState } from "react";
 import { Folder, LibraryData } from "@/data/types";
 import { libraryData } from "@/data/libraryData";
-import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import { BookmarkIcon, FolderPlus } from "lucide-react";
 import MobileFolderList from "../../my-library-page/MobileFolderList";
-import ContentArea from "../../my-library-page/ContentArea";
 import CreateFolderModal from "../../my-library-page/CreateFolderModal";
 import DeleteConfirmationModal from "../../my-library-page/DeleteConfirmationModal";
 import FlashCardCreateTestMain from "../../flash-cards/high-yield-flashcards/create-test/FlashCardCreateTestMain";
-
+import { Grid } from "antd";
+import { useRouter } from "next/navigation";
 
 // Type for mobile view state
 type MobileView = "folders" | "pages" | "content";
 
 export default function DeskFolder() {
+  const { lg } = Grid.useBreakpoint();
   const [data, setData] = useState<LibraryData>(libraryData);
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
   const [selectedPage, setSelectedPage] = useState<string | null>(null);
@@ -27,6 +26,7 @@ export default function DeskFolder() {
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(
     new Set()
   );
+  const router = useRouter();
   console.log(selectedPage);
   const handleCreateFolder = (name: string, color: string) => {
     const newFolder: Folder = {
@@ -91,12 +91,9 @@ export default function DeskFolder() {
   const handlePageSelect = (folderId: string, pageId: string) => {
     setSelectedFolder(folderId);
     setSelectedPage(pageId);
-    setMobileView("content");
-  };
-  const handleMobileBack = () => {
-    if (mobileView === "content") {
-      setMobileView("folders");
-      setSelectedPage(null);
+    // setMobileView("content");
+    if (!lg) {
+      router.push(`/profile/flash-card/decks/${pageId}`);
     }
   };
 
@@ -126,10 +123,11 @@ export default function DeskFolder() {
         itemImg={"/assets/icons/library-icon.svg"}
         itemLabel={"Library"}
       /> */}
-      <div className="  lg:my-0 lg:mt-6 px-4 lg:px-6">
+      <div className="  lg:py-0 lg:pt-6  lg:px-4 ">
         <div className="hidden lg:grid grid-cols-12 gap-8">
           <div className="lg:col-span-3  pr-2">
             <MobileFolderList
+              isDeck={true}
               selectedFolder={selectedFolder}
               selectedPage={selectedPage}
               data={data}
@@ -145,70 +143,27 @@ export default function DeskFolder() {
             />
           </div>
 
-          <div className="lg:h-[calc(100vh-0px)] overflow-y-auto lg:col-span-9 ">
+          <div className="lg:h-[calc(100vh-150px)]  overflow-y-auto lg:col-span-9 ">
             <FlashCardCreateTestMain />
           </div>
         </div>
 
         {/* Mobile Layout */}
         <div className="flex flex-col lg:hidden w-full">
-          <div
-            className={`grid grid-cols-12 py-0 bg-white ${
-              mobileView === "content" ? " border-b-2 border-gray-200 pb-2" : ""
-            }`}
-          >
-            {mobileView === "content" && (
-              <button
-                onClick={handleMobileBack}
-                className="flex items-center text-gray-600 hover:text-gray-900 col-span-3"
-              >
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-                Back
-              </button>
-            )}
-            <div className="text-lg font-semibold text-gray-900 col-span-8 text-center">
-              <h1>{mobileView === "content" && selectedPageData?.title}</h1>
-            </div>
-          </div>
-
           <div className="flex-1 overflow-hidden">
-            {mobileView === "folders" && (
-              <MobileFolderList
-                data={data}
-                expandedFolders={expandedFolders}
-                searchQuery={searchQuery}
-                onSearchChange={setSearchQuery}
-                onFolderToggle={handleMobileFolderToggle}
-                onPageSelect={handlePageSelect}
-                onToggleBookmark={handleToggleBookmark}
-                onCreateFolder={() => setIsCreateModalOpen(true)}
-                onDeleteFolder={handleDeleteFolder}
-                onRenameFolder={handleRenameFolder}
-              />
-            )}
-
-            {mobileView === "content" && (
-              <div className="h-full min-h-[calc(100vh-234px)] overflow-y-auto">
-                <ContentArea
-                  selectedFolder={selectedFolderData}
-                  selectedPage={selectedPageData}
-                  onCreateFolder={() => setIsCreateModalOpen(true)}
-                  isMobile={true}
-                />
-              </div>
-            )}
+            <MobileFolderList
+              isDeck={true}
+              data={data}
+              expandedFolders={expandedFolders}
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              onFolderToggle={handleMobileFolderToggle}
+              onPageSelect={handlePageSelect}
+              onToggleBookmark={handleToggleBookmark}
+              onCreateFolder={() => setIsCreateModalOpen(true)}
+              onDeleteFolder={handleDeleteFolder}
+              onRenameFolder={handleRenameFolder}
+            />
           </div>
         </div>
         <CreateFolderModal
