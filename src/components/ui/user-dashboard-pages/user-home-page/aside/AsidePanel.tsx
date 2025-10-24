@@ -6,7 +6,7 @@ import TodaysEvent from "./todays-event/TodaysEvent";
 import AddEvent from "./add-event/AddEvent";
 
 export default function AsidePanel() {
-  const [activeTab, setActiveTab] = useState<"today" | "add">("today");
+  const [activeTab, setActiveTab] = useState<"today" | "add">("add");
 
   return (
     <div className="w-full lg:h-[calc(100vh-120px)] overflow-auto rounded-xl p-0   relative">

@@ -15,6 +15,7 @@ import { SectionHeader } from "../../user-dashboard-pages/user-home-page/Section
 import { useMemo } from "react";
 import dayjs from "dayjs";
 import Link from "next/link";
+import Image from "next/image";
 
 const iconMap = {
   tasks: ClipboardList,
@@ -41,11 +42,21 @@ export function StatsGrid({ items }: { items: any }) {
         boxShadow: "4px 4px 29px 0px rgba(0, 0, 0, 0.14)",
         borderRadius: 12,
       }}
-      className="p-5 flex justify-between items-center"
+      className="p-5 flex justify-between items-center relative mt-4"
     >
-      <div>
-        <div className="flex items-center justify-between">
+      <Image
+        src={
+          "https://i.ibb.co.com/xStmYThw/0129ffec9a8eff855d410dfcce776cde27ddc13d.png"
+        }
+        alt="welcome icon"
+        width={100}
+        height={100}
+        className="w-[71px] h-[71px] object-fit absolute -top-8 left-0"
+      />
+      <div className="">
+        <div className="flex items-center justify-between pl-16">
           <h4 className="text-primary mb-1 font-bold">Welcome back, Emma!</h4>
+
           <Link
             href={"/profile/calendar"}
             className="text-primary text-sm cursor-pointer font-medium md:hidden"
