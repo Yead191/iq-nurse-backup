@@ -119,9 +119,9 @@ export default function MobileFolderList({
   ];
 
   return (
-    <div className="flex flex-col h-full ">
+    <div className="flex flex-col h-full  ">
       {/* Search Header */}
-      <div className="pb-2 px-0.5 border-b border-gray-200">
+      <div className="pb-2 px-0.5  border-b border-gray-200">
         <div className="hidden md:flex justify-between items-center gap-4 mb-3">
           <h2 className="text-lg font-semibold text-neutral-900">My Folders</h2>
           {/* Create Folder Button */}

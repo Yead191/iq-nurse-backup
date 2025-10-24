@@ -3,10 +3,7 @@
 import { useState } from "react";
 import { Folder, LibraryData } from "@/data/types";
 import { libraryData } from "@/data/libraryData";
-import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import { BookmarkIcon, FolderPlus } from "lucide-react";
 import MobileFolderList from "../../my-library-page/MobileFolderList";
-import ContentArea from "../../my-library-page/ContentArea";
 import CreateFolderModal from "../../my-library-page/CreateFolderModal";
 import DeleteConfirmationModal from "../../my-library-page/DeleteConfirmationModal";
 import FlashCardCreateTestMain from "../../flash-cards/high-yield-flashcards/create-test/FlashCardCreateTestMain";
@@ -126,7 +123,7 @@ export default function DeskFolder() {
         itemImg={"/assets/icons/library-icon.svg"}
         itemLabel={"Library"}
       /> */}
-      <div className="  lg:my-0 lg:mt-6  lg:px-4">
+      <div className="  lg:py-0 lg:pt-6  lg:px-4 ">
         <div className="hidden lg:grid grid-cols-12 gap-8">
           <div className="lg:col-span-3  pr-2">
             <MobileFolderList
@@ -146,7 +143,7 @@ export default function DeskFolder() {
             />
           </div>
 
-          <div className="lg:h-[calc(100vh-0px)] overflow-y-auto lg:col-span-9 ">
+          <div className="lg:h-[calc(100vh-150px)]  overflow-y-auto lg:col-span-9 ">
             <FlashCardCreateTestMain />
           </div>
         </div>
