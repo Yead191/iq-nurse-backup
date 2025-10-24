@@ -10,10 +10,11 @@ const Spinner = () => {
         <Image
           src={"/Logo.svg"}
           alt="IQ Nurse Logo"
-          width={200}
-          height={100}
+          width={400}
+          height={200}
           unoptimized
           priority
+          className="w-[200px] h-[100px]"
         />
       </div>
 

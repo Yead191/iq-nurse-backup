@@ -14,7 +14,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
           pathname === "/auth/compare-membership" ? "hidden" : "block"
         }`}
       >
-        <Image src={"/assets/Logo.png"} height={48} width={145} alt="logo" />
+        <Image src={"/Logo.svg"} height={48} width={180} alt="logo" className="w-[145px] h-[48px]"/>
       </Link>
       <div className=" ">{children}</div>
     </div>
