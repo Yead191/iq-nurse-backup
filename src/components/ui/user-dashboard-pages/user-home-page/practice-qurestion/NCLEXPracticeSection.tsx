@@ -69,47 +69,6 @@ export default function NCLEXPracticeSection() {
     setScore(0);
   };
 
-  if (showCompletion) {
-    return (
-      <div
-        style={{
-          boxShadow: "4px 4px 29px 0px rgba(0, 0, 0, 0.14)",
-          borderRadius: 12,
-        }}
-        className="my-8 p-4 lg:p-5 py-6  relative"
-      >
-        <Image
-          src={
-            "https://i.ibb.co.com/xStmYThw/0129ffec9a8eff855d410dfcce776cde27ddc13d.png"
-          }
-          alt="welcome icon"
-          width={100}
-          height={100}
-          className="w-[71px] h-[71px] object-fit absolute -top-8 left-0"
-        />
-        <div className="flex items-center justify-between mb-6">
-          <SectionHeader title="NCLEX Practice Questions" />
-          <Link href={"/profile/tests"} className="text-primary  font-medium">
-            See More
-          </Link>
-        </div>
-
-        <CategoryTabs
-          categories={Object.keys(demoData)}
-          activeCategory={activeCategory}
-          onCategoryChange={handleCategoryChange}
-        />
-
-        <CompletionCard
-          score={score}
-          totalQuestions={totalQuestions}
-          category={activeCategory}
-          onRetry={handleRetry}
-        />
-      </div>
-    );
-  }
-
   return (
     <div
       style={{
@@ -139,20 +98,30 @@ export default function NCLEXPracticeSection() {
         activeCategory={activeCategory}
         onCategoryChange={handleCategoryChange}
       />
-
-      {currentQuestion && (
-        <QuestionCard
-          question={currentQuestion}
-          questionNumber={currentQuestionIndex + 1}
+      {showCompletion ? (
+        <CompletionCard
+          score={score}
           totalQuestions={totalQuestions}
-          selectedAnswer={selectedAnswers[currentQuestion.id]}
-          onAnswerSelect={(answer) =>
-            handleAnswerSelect(currentQuestion.id, answer)
-          }
-          onNextQuestion={handleNextQuestion}
-          onSubmitAnswer={handleSubmitAnswer}
-          isLastQuestion={currentQuestionIndex === totalQuestions - 1}
+          category={activeCategory}
+          onRetry={handleRetry}
         />
+      ) : (
+        <>
+          {currentQuestion && (
+            <QuestionCard
+              question={currentQuestion}
+              questionNumber={currentQuestionIndex + 1}
+              totalQuestions={totalQuestions}
+              selectedAnswer={selectedAnswers[currentQuestion.id]}
+              onAnswerSelect={(answer) =>
+                handleAnswerSelect(currentQuestion.id, answer)
+              }
+              onNextQuestion={handleNextQuestion}
+              onSubmitAnswer={handleSubmitAnswer}
+              isLastQuestion={currentQuestionIndex === totalQuestions - 1}
+            />
+          )}
+        </>
       )}
     </div>
   );

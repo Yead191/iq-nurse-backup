@@ -51,24 +51,22 @@ const NclexStudy = () => {
           {studySubjects?.map((subject: any) => (
             <div
               key={subject.id}
-              className={`
-                                relative  p-4 rounded-lg border border-gray-100 cursor-pointer transition-all duration-200 hover:shadow-md
-                                ${
-                                  (selectedSubjects as number[]).includes(
-                                    subject.id
-                                  )
-                                    ? "border-blue-500 bg-blue-50 ring-2 ring-blue-200"
-                                    : `${subject.color} hover:border-gray-300`
-                                }
-                            `}
+              style={{
+                boxShadow: "4px 4px 29px 0px rgba(0, 0, 0, 0.14)",
+              }}
+              className={`relative  p-4 rounded-lg border cursor-pointer transition-all duration-200 hover:shadow-md${
+                (selectedSubjects as number[]).includes(subject.id)
+                  ? " bg-[#00408017] ring-2 border-primary "
+                  : `${subject.color} hover:border-gray-300 border-gray-100 `
+              }`}
               onClick={() => toggleSubject(subject.id)}
             >
               {/* Content */}
-              <div className="pr-8">
+              <div className="">
                 <h3 className="font-semibold text-gray-900 mb-2 text-sm leading-tight">
                   {subject.title}
                 </h3>
-                <p className="text-xs text-gray-600 mb-3 leading-relaxed">
+                <p className="text-xs text-gray-600 mb-3 leading-relaxed ">
                   {subject.description}
                 </p>
                 <div className="flex items-center text-xs text-gray-500">
@@ -83,7 +81,7 @@ const NclexStudy = () => {
         </div>
 
         {/* Start Button */}
-        <div className="text-center flex justify-center items-center pr-8 md:pr-0 w-full fixed md:static bottom-28">
+        <div className="text-center flex justify-center items-center pr-8 md:pr-0 w-full fixed md:static bottom-20">
           <Link href="/profile/flash-cards/high-yield-flashcards/create-test">
             <Button
               size="large"
