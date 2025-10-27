@@ -52,7 +52,7 @@ export const FlashCard = () => {
       />
 
       <div className="flex flex-col lg:flex-row px-4 lg:px-0">
-        <div className="w-full lg:w-1/4 2xl:w-1/6  p-1  flex justify-center items-start   ">
+        <div className="w-full lg:w-1/4 2xl:w-1/6 p-1  flex justify-center items-start   ">
           <div className="flex md:flex-col gap-4 bg-white md:shadow-xl h-[calc(100%)]   w-full md:p-3 pb-12 ">
             {tabs.map((tab) => (
               <div

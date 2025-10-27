@@ -46,9 +46,13 @@ export default function TemplatesPage() {
           },
         ]}
       />
-      <div className="flex flex-col md:flex-row">
+      <div className="grid grid-cols-1 md:grid-cols-12">
         {/* Template List */}
-        <div className={`${isSideBarSelect ? "hidden" : "block"} md:block`}>
+        <div
+          className={`${
+            isSideBarSelect ? "hidden" : "block"
+          } md:block col-span-1 md:col-span-3`}
+        >
           <TempleteList
             setCategories={setCategories}
             setIsSideBarSelect={setIsSideBarSelect}
@@ -59,9 +63,9 @@ export default function TemplatesPage() {
 
         {/* Template Details */}
         <div
-          className={`w-full md:flex-1 ${
+          className={`w-full   ${
             isSideBarSelect ? "block" : "hidden"
-          } md:block`}
+          } md:block col-span-1 md:col-span-9`}
         >
           <TempleteDetails
             categories={categories}

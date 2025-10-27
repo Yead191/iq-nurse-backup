@@ -5,6 +5,12 @@ import Header from "@/components/shared/user-dashboard/header/Header";
 import MobileHeader from "@/components/shared/user-dashboard/MobileHeader";
 import Sidebar from "@/components/shared/user-dashboard/Sidebar";
 import OldMobileHeader from "@/components/ui/old-components/OldMobileHeader";
+import {
+  hiddenBottomNav,
+  hiddenPaths,
+  oldHeaderPaths,
+  singleHidePaths,
+} from "@/data/pathConfigure";
 import { ConfigProvider } from "antd";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -13,48 +19,6 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const [showLabels, setShowLabels] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
-  const hiddenPaths = [
-    "/profile/study-notes",
-    "/profile/my-notepad",
-    "/profile/my-library",
-    "/profile/clinicals/skill-notes/",
-    "/profile/templates",
-    "/profile/clinicals",
-    "/profile/patient-assessment",
-    "/profile/clinical-calculator",
-    "/profile/concept-map",
-    "/profile/body-system",
-    "/profile/community",
-    "/profile/body-system",
-    "/profile/connect-concept",
-    "/profile/group",
-    "/profile/tests",
-    "/profile/flash-card",
-    "/profile/ai-drug",
-    "/profile/my-notepad/note",
-    "/profile/care-plans",
-    "/profile/tests/mode/",
-  ];
-  const hiddenBottomNav = [
-    "/profile/my-notepad/note",
-    "/profile/study-notes/document",
-    "/profile/calendar",
-    "/profile/group/create-group",
-    "/profile/clinicals/category/",
-    "/profile/clinicals/details",
-    "/profile/tests/mode/",
-    "/profile/my-library/details/",
-    "/profile/community",
-    "/profile/group/my-groups",
-    "/profile/flash-cards/high-yield-flashcards/create-test/test-result",
-    "/profile/clinical-calculator",
-    "/profile/body-system",
-    "/profile/patient-assessment",
-    "/profile/connect-concept",
-  ];
-
-  const singleHidePaths = ["/profile/patient-assessment", "/profile/group"];
-  const oldHeaderPaths = ["/profile/home", "profile/group/create-group"];
 
   const shouldHide = hiddenPaths.some((prefix) => pathname.startsWith(prefix));
   const bottomHide = hiddenBottomNav.some((prefix) =>
@@ -139,7 +103,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
                   className={`h-full  rounded-md  ${
                     shouldHide || singleHide || pathname === "/profile/home"
                       ? "py-0 "
-                      : "lg:pt-8 lg:pb-0 px-4  lg:px-5 max-h-[calc(100vh-94px)] md:max-h-max overflow-auto "
+                      : "lg:pt-8 lg:pb-0 px-4  lg:px-5  md:max-h-max overflow-auto "
                   } `}
                 >
                   {children}

@@ -114,26 +114,6 @@ export default function ClinicalSkills({
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative mt-2 md:mt-0 max-h-[calc(100vh-70px)]  md:max-h-[calc(100vh-125px)] overflow-y-auto">
-      {/* <button
-        onClick={() => setIsSideBarSelect((prev) => !prev)}
-        className="sm:hidden cursor-pointer items-center text-gray-600 hover:text-gray-900 col-span-3 mb-4 flex"
-      >
-        <svg
-          className="w-5 h-5 mr-2"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
-        Back
-      </button> */}
-
       <div className="w-full">
         {/* Tab Buttons */}
         <div className="flex gap-2 mb-4 sticky top-0 bg-white z-50 pb-2 overflow-x-auto">
