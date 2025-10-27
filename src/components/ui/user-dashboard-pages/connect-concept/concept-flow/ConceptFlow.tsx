@@ -153,8 +153,8 @@ const ConceptFlow = () => {
           fitView
           style={{ paddingLeft: 0, marginLeft: 0 }}
           deleteKeyCode={["Delete", "Backspace"]}
-          maxZoom={2}
-          minZoom={0.2}
+          // maxZoom={2}
+          // minZoom={0.2}
           connectionLineComponent={FloatingConnectionLine}
           edgeTypes={{
             floating: FloatingEdge as React.ComponentType<any>,
@@ -198,7 +198,7 @@ const ConceptFlow = () => {
               queryType={queryType}
             />
           </Panel>
-          <Background variant={BackgroundVariant.Lines} color="#D0E5F9" />
+          <Background variant={BackgroundVariant.Dots}  />
           {/* <Controls position="top-center" /> */}
         </ReactFlow>
       </div>

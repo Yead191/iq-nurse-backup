@@ -1,4 +1,4 @@
-import { getBezierPath, useInternalNode } from '@xyflow/react';
+import { EdgeLabelRenderer, getBezierPath, useInternalNode, useReactFlow } from '@xyflow/react';
 import { getEdgeParams } from './initialElements';
 
 type FloatingEdgeProps = {
@@ -7,9 +7,10 @@ type FloatingEdgeProps = {
   target: string;
   markerEnd?: string;
   style?: React.CSSProperties;
+  selected?: boolean
 };
 
-function FloatingEdge({ id, source, target, markerEnd, style }: FloatingEdgeProps) {
+function FloatingEdge({ id, source, target, markerEnd, style, selected }: FloatingEdgeProps) {
   const sourceNode = useInternalNode(source);
   const targetNode = useInternalNode(target);
 
@@ -42,7 +43,9 @@ function FloatingEdge({ id, source, target, markerEnd, style }: FloatingEdgeProp
     targetY: ty,
   });
 
+
   return (
+
     <path
       id={id}
       className="react-flow__edge-path"
@@ -50,6 +53,7 @@ function FloatingEdge({ id, source, target, markerEnd, style }: FloatingEdgeProp
       markerEnd={markerEnd}
       style={style}
     />
+
   );
 }
 
