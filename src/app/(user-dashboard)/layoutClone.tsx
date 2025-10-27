@@ -113,7 +113,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
         <div
-          className={`h-[94px] w-full   md:hidden ${
+          className={`h-[71px] w-full   md:hidden ${
             bottomHide ? "hidden" : ""
           }`}
         >
