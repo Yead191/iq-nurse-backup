@@ -40,38 +40,26 @@ export default function RecentlyViewed() {
 
       {/* Desktop Grid */}
       <div className="hidden md:block">
-        <Row gutter={[16, 16]} justify="center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 place-items-center">
           {recentlyViewed.map((item) => (
-            <Col xs={24} sm={12} md={8} key={item.id}>
-              <Card
-                hoverable
-                style={{
-                  borderRadius: 12,
-                  boxShadow: "4.24px 4.24px 30.77px 0px rgba(0, 0, 0, 0.1)",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                  <div
-                    style={{
-                      backgroundColor: "#02478D45",
-                      borderRadius: "50%",
-                      padding: 12,
-                    }}
-                  >
-                    {item.icon}
-                  </div>
-                  <div>
-                    <Text style={{ fontWeight: 500, fontSize: "16px" }}>
-                      {item.title}
-                    </Text>
-                    <br />
-                    <Text type="secondary">Last Viewed: {item.lastViewed}</Text>
-                  </div>
+            <div
+              key={item.id}
+              className="w-full h-full flex flex-col justify-center rounded-xl shadow-[4px_4px_30px_rgba(0,0,0,0.1)] hover:shadow-lg transition-all duration-300 px-4 py-6 bg-white"
+            >
+              <div className="flex items-center gap-3">
+                <div className="bg-[#02478D45] rounded-full p-3 flex items-center justify-center">
+                  {item.icon}
                 </div>
-              </Card>
-            </Col>
+                <div>
+                  <p className="font-medium text-[16px]">{item.title}</p>
+                  <p className="text-gray-500 text-sm">
+                    Last Viewed: {item.lastViewed}
+                  </p>
+                </div>
+              </div>
+            </div>
           ))}
-        </Row>
+        </div>
       </div>
 
       {/* Mobile Carousel */}

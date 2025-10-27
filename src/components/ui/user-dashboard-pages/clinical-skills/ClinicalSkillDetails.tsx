@@ -1,16 +1,9 @@
 "use client";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import {
-  Card,
-  ConfigProvider,
-  Grid,
-  Progress,
-  Tabs,
-} from "antd";
+import { Grid, Tabs } from "antd";
 import { File } from "lucide-react";
 import type { TabsProps } from "antd";
 import MediaTab from "@/components/shared/MediaTab";
-import NoteTab from "../study-notes-page/surgical-details-page/NoteTab";
 import { Checklist } from "./CheckList";
 import DetailsHeader from "@/components/shared/DetailsHeader";
 
@@ -30,11 +23,6 @@ export default function ClinicalsPageDetails() {
     },
     {
       key: "2",
-      label: "Notes",
-      children: <NoteTab />,
-    },
-    {
-      key: "3",
       label: "Video",
       children: (
         <div className="sm:w-3/4 pb-2 ">
