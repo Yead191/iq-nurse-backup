@@ -26,6 +26,8 @@
     "next": "15.4.5",
     "quill": "^2.0.3",
     "quill-better-table": "^1.2.10",
+    "quill-table": "^1.0.0",
+    "quill-table-ui": "^1.0.7",
     "react": "19.1.0",
     "react-big-calendar": "^1.19.4",
     "react-dom": "19.1.0",

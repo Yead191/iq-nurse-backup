@@ -219,27 +219,32 @@ export const HeaderPanel = ({
 
 
 
-  const handleDownloa = () => {
+
+  const handleDownload = () => {
     const nodesBounds = getNodesBounds(getNodes());
+    // getViewportForBounds expects 6 arguments: bounds, width, height, minZoom, maxZoom, padding
     const viewport = getViewportForBounds(nodesBounds, imageWidth, imageHeight, 0.5, 2, 0);
 
     const viewportElement = document.querySelector('.react-flow__viewport');
-    if (!viewportElement || !(viewportElement instanceof HTMLElement)) {
-      console.error("Could not find the .react-flow__viewport element.");
+    if (!(viewportElement instanceof HTMLElement)) {
+      console.error('Could not find the react-flow viewport element.');
       return;
     }
 
     toPng(viewportElement, {
-      backgroundColor: '#1a365d',
+      backgroundColor: '#fff',
       width: imageWidth,
       height: imageHeight,
       style: {
-        width: `${imageWidth}px`,
-        height: `${imageHeight}px`,
+        width: imageWidth.toString(),
+        height: imageHeight.toString(),
         transform: `translate(${viewport.x}px, ${viewport.y}px) scale(${viewport.zoom})`,
       },
     }).then(downloadImage);
   };
+
+
+
 
   return (
     <>
@@ -364,7 +369,7 @@ export const HeaderPanel = ({
                     className="rounded transition-colors p-2 hover:bg-gray-100 cursor-pointer download-btn xy-theme__button"
                     aria-label="Download"
                     type="button"
-                    onClick={handleDownloa}
+                    onClick={handleDownload}
                   >
                     <FiDownload size={20} className="text-gray-400" />
                   </button>

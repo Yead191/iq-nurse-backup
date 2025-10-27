@@ -159,6 +159,7 @@ const ConceptFlow = () => {
           edgeTypes={{
             floating: FloatingEdge as React.ComponentType<any>,
           }}
+          className="download-image"
         >
           {shouldShowSidebar && (
             <Panel position="top-left" className=" hidden md:block !m-0">

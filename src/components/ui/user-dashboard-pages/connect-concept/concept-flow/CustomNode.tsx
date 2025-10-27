@@ -11,6 +11,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { getRandomColor } from "./constant";
 
 
+
 const CustomNode = (node: { data: { label: string; color?: string; description?: string; type?: string }, id: string, type?: string, selected: boolean }) => {
 
   const { data, id } = node;
@@ -29,11 +30,11 @@ const CustomNode = (node: { data: { label: string; color?: string; description?:
     modules: {
       toolbar: {
         container: [
-          [{ list: "bullet" }, { list: "ordered" }],
           ["bold", "italic", "underline"],
-          [{ align: [] }],
+          [{ list: "bullet" }, { list: "ordered" }],
+          // [{ align: [] }],
           ["clean"],
-          ["table"], 
+          // ["table"], 
           ["image"], 
         ],
       },
@@ -280,11 +281,15 @@ const CustomNode = (node: { data: { label: string; color?: string; description?:
             </div>
           </div>
 
-          {!editing && (
+          {!editing && data?.type !== 'initial' && (
             <div className="ql-snow">
               <div
-                className="ql-editor "
-                dangerouslySetInnerHTML={{ __html: content }}
+                className="ql-editor"
+                dangerouslySetInnerHTML={{
+                  __html: content && content.trim()
+                    ? content
+                    : '<span class="text-gray-400 italic">Write description…</span>',
+                }}
               />
             </div>
           )}
