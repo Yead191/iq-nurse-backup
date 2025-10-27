@@ -100,7 +100,7 @@ export default function BottomNavigation({
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              padding: "12px 4px",
+              padding: "8px 4px",
               borderRadius: "10px",
               backgroundColor: isActive(item.key) ? "#F6F7F8" : "transparent",
               border: isActive(item.key) ? "1px solid #85A6CA" : "transparent",
@@ -112,10 +112,10 @@ export default function BottomNavigation({
               justifyContent: "center",
             }}
           >
-            <div style={{ fontSize: "14px", marginBottom: "8px" }}>
-              <img src={item.icon} alt={item.label} />
+            <div style={{ fontSize: "16px", marginBottom: "8px" }}>
+              <img src={item.icon} alt={item.label} className="h-[24px] w-full" />
             </div>
-            <span
+            {/* <span
               style={{
                 fontSize: "10px",
                 fontWeight: isActive(item.key) ? "500" : "400",
@@ -123,7 +123,7 @@ export default function BottomNavigation({
               }}
             >
               {item.label}
-            </span>
+            </span> */}
           </div>
         ))}
       </div>

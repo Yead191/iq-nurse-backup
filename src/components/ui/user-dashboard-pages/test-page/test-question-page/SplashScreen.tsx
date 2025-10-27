@@ -8,12 +8,14 @@ interface SplashScreenProps {
   onComplete: () => void;
   steps: { id: number; text: string }[];
   title: string;
+  isResult?: boolean;
 }
 
 export default function SplashScreen({
   onComplete,
   steps,
   title,
+  isResult = false,
 }: SplashScreenProps) {
   const [currentStep, setCurrentStep] = useState(1);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
@@ -37,7 +39,11 @@ export default function SplashScreen({
   }, [currentStep, steps.length, onComplete]);
 
   return (
-    <div className="min-h-[calc(100vh-200px)] flex flex-col items-center justify-center px-4">
+    <div
+      className={`${
+        isResult ? "min-h-[calc(100vh-200px)]" : "min-h-screen"
+      }  flex flex-col items-center justify-center px-4`}
+    >
       <div className="max-w-md w-full space-y-12">
         <h1 className="text-3xl font-medium text-gray-900 text-center mb-14 tracking-wider">
           {title}

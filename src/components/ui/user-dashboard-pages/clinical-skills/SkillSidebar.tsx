@@ -63,8 +63,8 @@ export default function SkillSidebar({
                 </h3>
 
                 <span className="text-lg font-semibold">{cat.token}</span>
-
-                <div className="flex items-center gap-2 w-full">
+                {/* progress bar */}
+                {/* <div className="flex items-center gap-2 w-full">
                   <div className="relative flex-1 bg-gray-200 rounded-full h-1.5">
                     <div
                       className={`absolute left-0 h-1.5 rounded-full ${
@@ -81,7 +81,7 @@ export default function SkillSidebar({
                   >
                     {cat.progress}%
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

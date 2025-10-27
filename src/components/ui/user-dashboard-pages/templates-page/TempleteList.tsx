@@ -22,7 +22,7 @@ export default function TempleteList({
   const { getTemplateData } = templateData;
 
   return (
-    <aside className="w-full sm:w-sm bg-white sm:border-r border-gray-200  scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 px-4 m-auto">
+    <aside className="w-full  bg-white sm:border-r border-gray-200  scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 px-4 m-auto">
       {/* Search */}
       <div className="mb-4 flex items-center gap-2 border border-gray-300 rounded-md px-3 py-3 bg-white">
         <IoSearchOutline className="text-gray-400 text-lg" />
@@ -65,11 +65,6 @@ export default function TempleteList({
                       <span className="text-sm font-medium text-gray-900">
                         {tpl.name}
                       </span>
-                      {tpl.label && (
-                        <span className="text-xs font-medium bg-gray-100 text-gray-700 rounded px-2 py-0.5 line-clamp-2">
-                          {tpl.label}
-                        </span>
-                      )}
                     </div>
                     <p className="text-xs text-gray-500 line-clamp-2">
                       {tpl.description}

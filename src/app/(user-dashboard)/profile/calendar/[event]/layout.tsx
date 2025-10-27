@@ -1,6 +1,7 @@
 "use client";
 import AddEventsModal from "@/components/shared/event-modals/AddEventsModal";
 import CalendarMobileHeader from "@/components/ui/user-dashboard-pages/calendar/CalendarMobileHeader";
+import { FloatingCalendarButton } from "@/components/ui/user-dashboard-pages/calendar/FloatingCalendarButton";
 import StudentPlannerDrawer from "@/components/ui/user-dashboard-pages/calendar/StudentPlannerDrawer";
 import React, { useState } from "react";
 
@@ -20,7 +21,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
     setModalVisible(true);
   };
   return (
-    <section>
+    <section className="relative">
       <CalendarMobileHeader
         onMenuClick={handleMenuClick}
         onNewEventClick={handleNewEventClick}
@@ -29,6 +30,8 @@ export default function layout({ children }: { children: React.ReactNode }) {
       <div className="min-h-[calc(100vh-182px)] flex justify-center items-center">
         {children}
       </div>
+      <FloatingCalendarButton />
+
       <AddEventsModal
         visible={modalVisible}
         onClose={() => setModalVisible(false)}

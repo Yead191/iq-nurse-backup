@@ -46,7 +46,7 @@ export default function TempleteDetails({
   }
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative  max-h-[calc(100vh-120px)] overflow-y-auto">
+    <div className=" px-4 sm:px-6 lg:px-8 relative  max-h-[calc(100vh-120px)] overflow-y-auto">
       <button
         onClick={() => setIsSideBarSelect((prev) => !prev)}
         className="sm:hidden cursor-pointer items-center text-gray-600 hover:text-gray-900 col-span-3 mb-4 flex"
@@ -67,7 +67,7 @@ export default function TempleteDetails({
         Back
       </button>
 
-      <div className="bg-[#0068DD] flex items-center gap-2 text-xl text-white py-5 sm:py-7 px-4 sm:px-8 mb-4 rounded-t-xl sticky top-0">
+      <div className="bg-[#0068DD] flex items-center gap-2 text-xl text-white py-5 sm:py-7 px-4 sm:px-8 mb-4 rounded-t-xl sticky top-0 z-50">
         <LuUserRoundCheck className="flex-shrink-0" />
         <h1 className="text-white sm:text-xl line-clamp-2">{templete?.name}</h1>
       </div>
@@ -78,7 +78,7 @@ export default function TempleteDetails({
               <h2 className="text-lg font-semibold text-gray-500 mb-4 pb-1">
                 Description
               </h2>
-              <p className="text-gray-600 leading-relaxed text-justify">
+              <p className="text-gray-600 leading-relaxed ">
                 {templete?.description}
               </p>
             </div>
@@ -86,7 +86,7 @@ export default function TempleteDetails({
         </div>
 
         {slides?.length && (
-          <div className="w-full lg:w-2/4 relative">
+          <div className="w-full lg:w-3/5 relative ">
             <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg">
               {slides.map((slide: any, index: number) => (
                 <div

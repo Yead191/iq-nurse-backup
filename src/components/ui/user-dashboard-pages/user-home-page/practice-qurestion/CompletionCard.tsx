@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 interface CompletionCardProps {
   score: number;
   totalQuestions: number;
@@ -29,10 +31,20 @@ export default function CompletionCard({
   };
 
   return (
-    <div className="mt-8">
+    <div className={`${isGoodScore ? "mt-20" : "mt-8"} relative`}>
+      {isGoodScore && (
+        <Image
+          src="https://i.ibb.co.com/7dkC9QrD/5bea8a1dbf43ad852d3512742aa2ad005bfafd95.png"
+          alt="good score img"
+          height={100}
+          width={100}
+          unoptimized
+          className="h-[90px] w-[90px] absolute -top-6 left-1/2 -translate-y-8 -translate-x-1/2"
+        />
+      )}
       <div
         className={`rounded-lg p-6 text-center ${
-          isGoodScore ? "bg-green-100" : "bg-pink-100"
+          isGoodScore ? "bg-green-100 pt-10" : "bg-pink-100"
         }`}
       >
         <h2

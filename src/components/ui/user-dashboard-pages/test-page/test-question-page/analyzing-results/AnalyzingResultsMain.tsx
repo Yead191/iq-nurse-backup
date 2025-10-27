@@ -38,6 +38,7 @@ export default function AnalyzingResultsMain() {
             onComplete={() => setShowSplash(false)}
             steps={steps}
             title={title}
+            isResult={true}
           />
         ) : (
           <ResultMain />
