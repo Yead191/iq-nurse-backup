@@ -252,11 +252,13 @@ export const FooterMobilePannel = ({
         onClose={() => setOpenDrawer(false)}
         height="80vh"
         closeIcon={null}
-        bodyStyle={{
-          padding: 0,
-          background: "#fff",
-          borderTopLeftRadius: 16,
-          borderTopRightRadius: 16,
+        styles={{
+          body: {
+            padding: 0,
+            background: "#fff",
+            borderTopLeftRadius: 16,
+            borderTopRightRadius: 16,
+          },
         }}
         maskClosable={true}
       >
