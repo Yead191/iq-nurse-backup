@@ -78,9 +78,7 @@ export default function NCLEXPracticeSection() {
       className="my-8 p-4 lg:p-5 py-6 relative lg:mt-12"
     >
       <Image
-        src={
-          "https://i.ibb.co.com/BVTBTrgk/60dee5cf20e9630a45f8b35e37787a8f14c83776.png"
-        }
+        src={"/assets/icons/user-home/practice-icon.png"}
         alt="welcome icon"
         width={100}
         height={100}
