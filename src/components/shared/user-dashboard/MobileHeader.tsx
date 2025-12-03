@@ -86,15 +86,12 @@ export default function MobileHeader() {
             >
               <div className="flex items-center gap-2 ">
                 <Image
-                  src="/favicon.svg"
-                  alt="IQ-Nurse logo"
-                  width={36}
-                  height={39}
-                  style={{ borderRadius: 4 }}
-                  priority
-                  unoptimized
+                  src="/Logo.png"
+                  alt="Logo"
+                  width={400}
+                  height={80}
+                  className="h-10 w-full object-contain"
                 />
-                <span className=" font-semibold">IQ-Nurse</span>
               </div>
             </Link>
           ) : (

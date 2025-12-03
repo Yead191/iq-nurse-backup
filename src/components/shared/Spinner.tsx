@@ -8,13 +8,13 @@ const Spinner = () => {
       {/* Logo with scale animation */}
       <div className="scale-pulse">
         <Image
-          src={"/Logo.svg"}
+          src={"/Logo.png"}
           alt="IQ Nurse Logo"
           width={400}
           height={200}
           unoptimized
           priority
-          className="w-[200px] h-[100px]"
+          className="w-fit h-[100px]"
         />
       </div>
 

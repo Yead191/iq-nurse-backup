@@ -191,18 +191,18 @@ const Sidebar = ({
     >
       {/* Logo & Toggle */}
       <div className="px-5">
-        <div className="border-b border-[#D9D9D9] flex items-center justify-between py-4 lg:py-6">
+        <div className={`border-b border-[#D9D9D9] flex items-center justify-between py-4  ${showLabels? "lg:py-6" : "py-0"}`}>
           {!showLabels && (
             <Link href={"/profile/home"}>
               <div className="flex items-center gap-2">
                 <Image
-                  src="/favicon.svg"
+                  src="/Logo.png"
                   alt="Logo"
-                  width={40}
-                  height={32}
-                  className="h-8 w-auto"
+                  width={300}
+                  height={60}
+                  className="h-12 w-full object-contain"
                 />
-                <span className="text-lg font-semibold">IQ-Nurse</span>
+                {/* <span className="text-lg font-semibold">IQ-Nurse</span> */}
               </div>
             </Link>
           )}

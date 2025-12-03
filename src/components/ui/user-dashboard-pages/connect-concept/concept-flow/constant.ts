@@ -3,7 +3,7 @@ export const initialNode = {
     position: { x: 0, y: 0 },
     data: {
       label: "Patient",
-      description: "Write information about patient...",
+      // description: "",
       color: "#A34F41",
       type: "initial",
     },

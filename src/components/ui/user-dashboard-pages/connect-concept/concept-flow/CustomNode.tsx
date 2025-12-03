@@ -10,12 +10,15 @@ import NodeHeaderActionButtons from "./ui/NodeHeaderActionButtons";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { getRandomColor } from "./constant";
 
-
-
-const CustomNode = (node: { data: { label: string; color?: string; description?: string; type?: string }, id: string, type?: string, selected: boolean }) => {
-
+const CustomNode = (node: {
+  data: { label: string; color?: string; description?: string; type?: string };
+  id: string;
+  type?: string;
+  selected: boolean;
+}) => {
   const { data, id } = node;
-  const { setNodes, deleteElements, getNodes, getEdges, setEdges } = useReactFlow();
+  const { setNodes, deleteElements, getNodes, getEdges, setEdges } =
+    useReactFlow();
   const [editing, setEditing] = useState(false);
   const [content, setContent] = useState("");
   const [hovered, setHovered] = useState(false);
@@ -34,8 +37,8 @@ const CustomNode = (node: { data: { label: string; color?: string; description?:
           [{ list: "bullet" }, { list: "ordered" }],
           // [{ align: [] }],
           ["clean"],
-          // ["table"], 
-          ["image"], 
+          // ["table"],
+          ["image"],
         ],
       },
     },
@@ -58,7 +61,6 @@ const CustomNode = (node: { data: { label: string; color?: string; description?:
 
   const color = data.color || "#A34F41";
 
-
   // update title
 
   const handleLabelClick = () => {
@@ -79,7 +81,6 @@ const CustomNode = (node: { data: { label: string; color?: string; description?:
     );
   };
 
-
   const handleColorChange = (color: string) => {
     setNodes((nds) =>
       nds.map((nodeItems) => {
@@ -93,9 +94,6 @@ const CustomNode = (node: { data: { label: string; color?: string; description?:
       })
     );
   };
-
-
-
 
   // Fix: Use node's (x, y) position instead of node.position, which does not exist on type.
 
@@ -164,7 +162,6 @@ const CustomNode = (node: { data: { label: string; color?: string; description?:
     ]);
   };
 
-
   const headerButtons = [
     {
       icon: <FiEdit className="text-sm" />,
@@ -175,7 +172,7 @@ const CustomNode = (node: { data: { label: string; color?: string; description?:
     {
       icon: <FaSitemap className="text-sm" />,
       onClick: () => {
-        addConceptNode()
+        addConceptNode();
       },
       title: "Create New",
       color: "green-600",
@@ -190,32 +187,36 @@ const CustomNode = (node: { data: { label: string; color?: string; description?:
 
   return (
     <>
-
       <div
-        className={`group relative ${node.selected ? ` border-[2px] border-l-0 rounded-md` : ""}`}
+        className={`group relative ${
+          node.selected ? ` border-[2px] border-l-0 rounded-md` : ""
+        }`}
         style={node.selected ? { borderColor: data.color } : undefined}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        {
-          data.type !== 'initial' && <NodeHeaderActionButtons buttons={headerButtons} />
-        }
+        {data.type !== "initial" ? (
+          <NodeHeaderActionButtons buttons={headerButtons} />
+        ) : (
+          <NodeHeaderActionButtons
+            buttons={headerButtons.filter((b) => b.title !== "Delete")}
+          />
+        )}
 
         <div
           className="w-[300px] min-h-[100px] rounded-md  border-s-4 bg-white shadow border border-gray-100 p-2 font-sans relative"
           style={{ borderLeftColor: color }}
         >
-
-
           <div className="flex items-center gap-1 pb-2">
-
             <div className="relative flex items-center group">
               <ColorPicker
                 className="h-5 w-5 !border-0 !mr-0 !pr-0 focus:!border-0 cursor-pointer"
                 style={{ boxShadow: "none" }}
                 defaultValue={data?.color}
                 mode="single"
-                onChangeComplete={(color) => handleColorChange(color.toHexString())}
+                onChangeComplete={(color) =>
+                  handleColorChange(color.toHexString())
+                }
                 styles={{
                   popup: { boxShadow: "none", border: "none" },
                 }}
@@ -230,10 +231,7 @@ const CustomNode = (node: { data: { label: string; color?: string; description?:
               readOnly={!editingLabel}
               className={`
               text-xs rounded-sm leading-none py-1 px-0.5 nodrag border hover:border-gray-300 transition-colors
-              ${editingLabel
-                  ? " focus:border-primary"
-                  : "border-transparent"
-                }
+              ${editingLabel ? " focus:border-primary" : "border-transparent"}
               ${hovered && !editingLabel ? "border-gray-200" : ""}
               truncate
             `}
@@ -256,15 +254,13 @@ const CustomNode = (node: { data: { label: string; color?: string; description?:
             </span>
           ) : null}
 
-
-
           <div className={editing ? "nodrag" : "hidden"}>
             <div
               ref={quillRef}
               style={{ minHeight: 100 }}
               className="bg-white rounded-md "
             />
-            
+
             <div className="flex justify-end">
               <button
                 onClick={handleSave}
@@ -281,14 +277,15 @@ const CustomNode = (node: { data: { label: string; color?: string; description?:
             </div>
           </div>
 
-          {!editing && data?.type !== 'initial' && (
+          {!editing && (
             <div className="ql-snow">
               <div
                 className="ql-editor"
                 dangerouslySetInnerHTML={{
-                  __html: content && content.trim()
-                    ? content
-                    : '<span class="text-gray-400 italic">Write description…</span>',
+                  __html:
+                    content && content.trim()
+                      ? content
+                      : '<span class="text-gray-400 italic">Write description…</span>',
                 }}
               />
             </div>
@@ -303,16 +300,13 @@ const CustomNode = (node: { data: { label: string; color?: string; description?:
           className="!bg-blue-400 !invisible"
         />
 
-
         <Handle
           type="source"
           position={Position.Bottom}
           className="!bg-green-400 !invisible"
         />
-
       </div>
     </>
-
   );
 };
 
