@@ -10,8 +10,8 @@ const Spinner = () => {
         <Image
           src={"/Logo.png"}
           alt="IQ Nurse Logo"
-          width={400}
-          height={200}
+          width={600}
+          height={300}
           unoptimized
           priority
           className="w-fit h-[100px]"

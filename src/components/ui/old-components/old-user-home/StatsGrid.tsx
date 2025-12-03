@@ -45,9 +45,7 @@ export function StatsGrid({ items }: { items: any }) {
       className="p-5 flex justify-between items-center relative mt-4"
     >
       <Image
-        src={
-          "https://i.ibb.co.com/xStmYThw/0129ffec9a8eff855d410dfcce776cde27ddc13d.png"
-        }
+        src={"/assets/icons/user-home/welcome-icon.png"}
         alt="welcome icon"
         width={100}
         height={100}
