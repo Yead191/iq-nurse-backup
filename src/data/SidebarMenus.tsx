@@ -25,7 +25,7 @@ export const icon = (src: string, alt: string, size = 25) => (
     width={30}
     src={src}
     alt={alt}
-    className={`h-[20px] w-[20px] 2xl:h-[24px] 2xl:w-[24px] overflow-hidden  object-cover`}
+    className={`h-[20px] w-[20px] 2xl:h-[22px] 2xl:w-[22px] overflow-hidden  object-cover`}
   />
 );
 

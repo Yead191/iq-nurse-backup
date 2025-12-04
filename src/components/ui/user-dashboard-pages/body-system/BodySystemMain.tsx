@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { StickyNote, Bookmark, ChevronUp } from "lucide-react";
 import { BodySystem, bodySystems } from "@/data/bodySystemData";
-import CategoryButtons from "../patient-assessment/CategoryButtons";
+import CategoryButtons from "../patient-assessment-old/CategoryButtons";
 import SystemContentPanel from "./SystemContentPanel";
 import BodySilhouetteCard from "./BodySilhouetteCard";
 import { Button, Grid } from "antd";
