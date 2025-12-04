@@ -85,7 +85,7 @@ export default function NCLEXPracticeSection() {
         className="w-[71px] h-[71px] object-fit absolute -top-8 left-4 hidden lg:block"
       />
       <div className="flex items-center justify-between mb-6 lg:pl-20">
-        <SectionHeader title="NCLEX Practice Questions" />
+        <SectionHeader title="NCLEX Mastery Challenage of the week" />
         <Link href={"/profile/tests"} className="text-primary  font-medium">
           See More
         </Link>

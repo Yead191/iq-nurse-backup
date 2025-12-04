@@ -10,6 +10,7 @@ import {
   Baby,
   BabyIcon,
 } from "lucide-react";
+import Image from "next/image";
 export interface MenuItem {
   key: string;
   label: string;
@@ -19,10 +20,12 @@ export interface MenuItem {
   subtitle?: string;
 }
 export const icon = (src: string, alt: string, size = 25) => (
-  <img
+  <Image
+    height={30}
+    width={30}
     src={src}
     alt={alt}
-    className={`h-[25px] w-[25px] overflow-hidden  object-cover`}
+    className={`h-[20px] w-[20px] 2xl:h-[24px] 2xl:w-[24px] overflow-hidden  object-cover`}
   />
 );
 
