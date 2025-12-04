@@ -2,13 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { ChevronDown, ChevronRight, Search } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import DocumentationCard from "../study-notes-page/DocumentationCard";
 import { assessmentCategories } from "@/data/assessmentCategories";
-import { Input } from "antd";
+import { Input, Grid } from "antd";
 
 export default function AssessmentSidebar() {
   const router = useRouter();
+  const pathname = usePathname(); 
+  const { lg } = Grid.useBreakpoint(); 
+
   const [searchText, setSearchText] = useState("");
 
   const defaultCategoryId = assessmentCategories[0].id;
@@ -17,11 +20,16 @@ export default function AssessmentSidebar() {
   const [expanded, setExpanded] = useState<string | null>(defaultCategoryId);
   const [selectedCategory, setSelectedCategory] =
     useState<string>(defaultCategoryId);
-  const [selectedSub, setSelectedSub] = useState<string>(defaultSubId);
 
+  // Determine selected sub from URL
+  const selectedSub = pathname.split("/").pop() || defaultSubId;
+
+  // Redirect ONLY on large screen
   useEffect(() => {
-    router.replace(`/profile/patient-assessment/${defaultSubId}`);
-  }, []);
+    if (lg && !pathname.endsWith(selectedSub)) {
+      router.replace(`/profile/patient-assessment/${defaultSubId}`);
+    }
+  }, [lg, pathname, defaultSubId, router, selectedSub]);
 
   const toggleCategory = (id: string) => {
     setExpanded((prev) => (prev === id ? null : id));
@@ -30,35 +38,38 @@ export default function AssessmentSidebar() {
 
   const selectSub = (catId: string, sub: any) => {
     setSelectedCategory(catId);
-    setSelectedSub(sub.id);
-
     router.push(`/profile/patient-assessment/${sub.id}`);
   };
 
+  // Hide sidebar on mobile if there’s a subcategory in the URL
+  const hideOnMobile = !lg && pathname.split("/").length > 3;
+
+  if (hideOnMobile) return null;
+
   return (
-    <aside className="w-80  h-[calc(100vh-120px)] overflow-y-auto p-3 boxShadow">
+    <aside
+      className={`h-[calc(100vh-120px)] overflow-y-auto p-3 boxShadow
+      ${lg ? "w-80" : "w-full"}`}
+    >
       <Input
         prefix={<Search />}
         placeholder="Search Notes..."
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
-        style={{
-          width: "100%",
-          marginBottom: "24px",
-          height: 40,
-        }}
+        style={{ width: "100%", marginBottom: "24px", height: 40 }}
       />
+
       {assessmentCategories?.map((cat) => (
         <div key={cat.id} className="mb-2">
-          {/* Category */}
+          {/* CATEGORY HEADER */}
           <div
             onClick={() => toggleCategory(cat.id)}
             className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-colors
-              ${
-                selectedCategory === cat.id
-                  ? "bg-[#E8EBFB] border border-[#02478D]"
-                  : "hover:bg-gray-50"
-              }`}
+            ${
+              selectedCategory === cat.id
+                ? "bg-[#E8EBFB] border border-[#02478D]"
+                : "hover:bg-gray-50"
+            }`}
           >
             <div className="flex items-center gap-3">
               <div className={`w-9 h-9 rounded-md ${cat.color}`} />
@@ -79,7 +90,7 @@ export default function AssessmentSidebar() {
             )}
           </div>
 
-          {/* Subcategories */}
+          {/* SUBCATEGORIES */}
           {expanded === cat.id && (
             <div className="ml-2 mt-1 space-y-2">
               {cat.subcategories.map((sub) => (

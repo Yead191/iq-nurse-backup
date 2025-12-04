@@ -1,20 +1,17 @@
-import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import AssessmentSidebar from "@/components/ui/user-dashboard-pages/patient-assessment/AssessmentSidebar";
-import { File } from "lucide-react";
+import AssessmentHeader from "@/components/ui/user-dashboard-pages/patient-assessment/components/AssessmentHeader";
+
 import React from "react";
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
-    <section className="">
-      <PageNavbar
-        icon={<File />}
-        title="Comprehensive Nursing Assessment Guide"
-        subtitle="Create,organize,and enhance your study notes with AI assistance"
-        isAiEnhanced={false}
-      />
-      <div className="flex gap-6">
+    <section className="relative ">
+      <AssessmentHeader />
+      <div className="flex">
         <AssessmentSidebar />
-        <div className="flex-1">{children}</div>
+        <div className="flex-1 h-[calc(100vh-110px)] overflow-auto lg:px-5">
+          {children}
+        </div>
       </div>
     </section>
   );
