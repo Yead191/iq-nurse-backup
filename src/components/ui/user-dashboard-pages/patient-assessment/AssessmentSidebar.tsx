@@ -9,8 +9,8 @@ import { Input, Grid } from "antd";
 
 export default function AssessmentSidebar() {
   const router = useRouter();
-  const pathname = usePathname(); 
-  const { lg } = Grid.useBreakpoint(); 
+  const pathname = usePathname();
+  const { lg } = Grid.useBreakpoint();
 
   const [searchText, setSearchText] = useState("");
 
@@ -26,10 +26,17 @@ export default function AssessmentSidebar() {
 
   // Redirect ONLY on large screen
   useEffect(() => {
-    if (lg && !pathname.endsWith(selectedSub)) {
+    const segments = pathname.split("/");
+    const last = segments[segments.length - 1];
+
+    const isBasePath =
+      pathname === "/profile/patient-assessment" ||
+      last === "patient-assessment";
+
+    if (lg && isBasePath) {
       router.replace(`/profile/patient-assessment/${defaultSubId}`);
     }
-  }, [lg, pathname, defaultSubId, router, selectedSub]);
+  }, [lg, pathname, defaultSubId, router]);
 
   const toggleCategory = (id: string) => {
     setExpanded((prev) => (prev === id ? null : id));
@@ -48,7 +55,7 @@ export default function AssessmentSidebar() {
 
   return (
     <aside
-      className={`h-[calc(100vh-120px)] overflow-y-auto p-3 boxShadow
+      className={`lg:h-[calc(100vh-120px)] overflow-y-auto p-3 boxShadow -mt-6 md:mt-0
       ${lg ? "w-80" : "w-full"}`}
     >
       <Input
@@ -56,7 +63,7 @@ export default function AssessmentSidebar() {
         placeholder="Search Notes..."
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
-        style={{ width: "100%", marginBottom: "24px", height: 40 }}
+        style={{ width: "100%", marginBottom: "24px", height: 40, marginTop: "12px" }}
       />
 
       {assessmentCategories?.map((cat) => (

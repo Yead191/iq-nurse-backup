@@ -9,7 +9,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
       <AssessmentHeader />
       <div className="flex">
         <AssessmentSidebar />
-        <div className="flex-1 h-[calc(100vh-110px)] overflow-auto lg:px-5">
+        <div className="flex-1 lg:h-[calc(100vh-110px)] overflow-auto lg:px-5">
           {children}
         </div>
       </div>

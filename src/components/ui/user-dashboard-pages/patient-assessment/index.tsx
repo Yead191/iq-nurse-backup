@@ -84,7 +84,7 @@ export default function AssessmentPage({ id }: AssessmentPageProps) {
           padding: 24,
           borderRadius: 12,
         }}
-        className="bg-blue-50 p-4 rounded-lg border border-blue-200"
+        className="bg-blue-50 p-4 rounded-lg border border-blue-200 mb-8"
       >
         <p className="text-sm text-blue-800">
           <strong>Clinical Note:</strong> {sub?.clinicalNote}
