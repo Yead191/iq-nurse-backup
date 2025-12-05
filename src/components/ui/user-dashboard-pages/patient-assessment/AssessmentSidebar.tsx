@@ -63,9 +63,13 @@ export default function AssessmentSidebar() {
         placeholder="Search Notes..."
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
-        style={{ width: "100%", marginBottom: "24px", height: 40, marginTop: "12px" }}
+        style={{
+          width: "100%",
+          marginBottom: "24px",
+          height: 40,
+          marginTop: "12px",
+        }}
       />
-
       {assessmentCategories?.map((cat) => (
         <div key={cat.id} className="mb-2">
           {/* CATEGORY HEADER */}
