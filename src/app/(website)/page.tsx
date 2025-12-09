@@ -1,5 +1,5 @@
-import HomePageLayout from "@/components/ui/websitePages/HomePage/HomePageLayout";
+import HomePage from "@/components/ui/websitePages/home";
 
 export default function Home() {
-  return <HomePageLayout />;
+  return <HomePage />;
 }
