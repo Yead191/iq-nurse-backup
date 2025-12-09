@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Navbar() {
   const menuItems = [
-    { label: "SUPPORT", href: "/support" },
+    { label: "ABOUT US", href: "/about-us" },
     { label: "LOG IN", href: "/auth/login" },
   ];
 
