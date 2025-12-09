@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { Button, Card } from "antd";
 import AnatomyImageDisplay from "./AnatomyImageDisplay";
+import { isVideo } from "@/helpers/isVideo";
 
 interface BodySystem {
   id: string;
@@ -50,7 +51,7 @@ export default function BodySilhouetteCard({
               <ChevronLeft className="w-4 h-4" />
             </Button>
             <div className="flex gap-2 overflow-x-auto">
-              {selectedSystem.images.map((image, index) => (
+              {selectedSystem?.images?.map((image, index) => (
                 <div
                   key={index}
                   className={`flex-shrink-0 w-8 h-8 2xl:w-12 2xl:h-12 rounded-lg border-2 cursor-pointer transition-all ${
@@ -60,13 +61,29 @@ export default function BodySilhouetteCard({
                   }`}
                   onClick={() => onImageSelect(index)}
                 >
-                  <Image
-                    src={image || "/placeholder.svg"}
-                    alt={`${selectedSystem.label} view ${index + 1}`}
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-cover rounded-lg"
-                  />
+                  {isVideo(image) ? (
+                    <div className="w-full h-full rounded-lg overflow-hidden relative">
+                      <video
+                        src={image}
+                        className="w-full h-full object-cover"
+                        muted
+                        playsInline
+                        preload="metadata"
+                      />
+                      {/* Play button overlay */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                        <Play className="w-6 h-6 text-white opacity-90" />
+                      </div>
+                    </div>
+                  ) : (
+                    <Image
+                      src={image || "/placeholder.svg"}
+                      alt={`${selectedSystem.label} view ${index + 1}`}
+                      width={48}
+                      height={48}
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  )}
                 </div>
               ))}
             </div>

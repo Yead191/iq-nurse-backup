@@ -34,7 +34,7 @@ const hiddenBottomNav = [
   "/profile/flash-cards/high-yield-flashcards/create-test/test-result",
   "/profile/clinical-calculator",
   "/profile/body-system",
-  "/profile/patient-assessment",
+  // "/profile/patient-assessment",
   "/profile/connect-concept",
 ];
 

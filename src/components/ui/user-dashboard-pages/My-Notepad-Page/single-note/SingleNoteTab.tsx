@@ -1,8 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import React, { useRef, useState } from "react";
-import "jodit/es2021/jodit.min.css";
+import React, { useRef } from "react";
+import "@/styles/jodit-fixed.css";
+
 
 // ✅ Load Jodit without SSR
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });

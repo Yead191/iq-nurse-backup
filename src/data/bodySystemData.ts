@@ -24,6 +24,7 @@ export const bodySystems: BodySystem[] = [
     images: [
       "/assets/body-icons/quick-ref-img.svg",
       "/assets/body-icons/body1.svg",
+      "https://res.cloudinary.com/ds1njqypu/video/upload/v1763370391/1114839_Woman_Job_3840x2160_fdmn1h.mp4",
       "/assets/body-icons/body2.svg",
       "/assets/body-icons/body3.svg",
     ],

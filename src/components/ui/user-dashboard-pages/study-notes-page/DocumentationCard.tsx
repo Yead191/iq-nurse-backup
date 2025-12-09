@@ -3,11 +3,9 @@
 import type React from "react";
 
 import { useState } from "react";
-import { BookFilled, FileTextOutlined } from "@ant-design/icons";
-import { Documentation } from "@/data/medicalData";
-import { BookmarkCheckIcon, BookmarkIcon } from "lucide-react";
+import { FileTextOutlined } from "@ant-design/icons";
+import { BookmarkIcon } from "lucide-react";
 import { toast } from "sonner";
-import Link from "next/link";
 
 interface DocumentationCardProps {
   document: any;
@@ -46,9 +44,7 @@ export default function DocumentationCard({
           </div>
 
           <div className="flex-1">
-            <h3 className="font-medium  text-sm">
-              {document.name}
-            </h3>
+            <h3 className="font-medium  text-sm">{document.name}</h3>
             {/* <p className="text-gray-600 text-sm leading-relaxed">
               {document.description}
             </p> */}

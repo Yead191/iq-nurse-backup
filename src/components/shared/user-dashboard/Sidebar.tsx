@@ -111,7 +111,7 @@ const Sidebar = ({
                 {item.icon}
                 {!showLabels && (
                   <span
-                    className={`text-xs 2xl:text-sm font-medium ${
+                    className={`text-xs font-medium ${
                       isActive(item.key) ? "text-blue-500" : "text-gray-700"
                     }`}
                   >
@@ -142,7 +142,7 @@ const Sidebar = ({
               >
                 {item.icon}
                 {!showLabels && (
-                  <span className={`text-sm font-medium"text-gray-700`}>
+                  <span className={`text-xs font-medium"text-gray-700`}>
                     {item.label}
                   </span>
                 )}
@@ -191,7 +191,11 @@ const Sidebar = ({
     >
       {/* Logo & Toggle */}
       <div className="px-5">
-        <div className={`border-b border-[#D9D9D9] flex items-center justify-between py-4  ${showLabels? "lg:py-6" : "py-0"}`}>
+        <div
+          className={`border-b border-[#D9D9D9] flex items-center justify-between py-4  ${
+            showLabels ? "lg:py-6" : "py-0"
+          }`}
+        >
           {!showLabels && (
             <Link href={"/profile/home"}>
               <div className="flex items-center gap-2">

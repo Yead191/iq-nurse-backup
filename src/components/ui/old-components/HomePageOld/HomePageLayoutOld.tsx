@@ -9,7 +9,7 @@ import VisualNotesSection from "./VisualNotesSection";
 import FeaturesSection from "./FeaturesSection";
 import Footer from "@/components/shared/Footer";
 
-export default function HomePageLayout() {
+export default function HomePageLayoutOld() {
   return (
     <main>
       <BannerHome />
