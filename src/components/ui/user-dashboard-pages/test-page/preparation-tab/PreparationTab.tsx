@@ -30,6 +30,11 @@ export default function PreparationTab() {
   };
   return (
     <div>
+      <div className="bg-[#ffeeee] max-w-sm p-4 rounded-2xl mb-4">
+        <h5 className="mb-1">NCLEX-RN QBank (Free Trial)</h5>
+        <p className="text-[#990054] text-xs font-semibold">Expired: Jun 17, 2025</p>
+      </div>
+      {/* Header */}
       <TestHeader
         title="Select a Topic to Practice"
         subtitle="Choose from our comprehensive list of NCLEX topic to focus your study."

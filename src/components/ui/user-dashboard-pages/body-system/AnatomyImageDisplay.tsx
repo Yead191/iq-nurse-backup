@@ -1,8 +1,7 @@
 "use client";
 
+import { isVideo } from "@/helpers/isVideo";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button, Card } from "antd";
 
 interface BodySystem {
   id: string;
@@ -25,32 +24,43 @@ export default function AnatomyImageDisplay({
   onPrevImage,
   onNextImage,
 }: AnatomyImageDisplayProps) {
-  return (
-    <div className="relative h-[calc(100vh-395px)]  lg:h-[calc(100vh-400px)] flex items-center justify-center">
-      <Image
-        src={selectedSystem.images[currentImageIndex] || "/placeholder.svg"}
-        alt={`${selectedSystem.title} anatomy`}
-        width={400}
-        height={600}
-        className="w-full h-full object-contain"
-      />
+  const mediaUrl = selectedSystem.images[currentImageIndex];
+  const isVideoFile = isVideo(mediaUrl);
 
+  return (
+    <div className="relative h-[calc(100vh-395px)] lg:h-[calc(100vh-400px)] flex items-center justify-center">
+      {/* VIDEO MODE */}
+      {isVideoFile ? (
+        <video
+          src={mediaUrl}
+          controls
+          className="w-full h-full object-contain rounded-lg"
+        />
+      ) : (
+        <Image
+          src={mediaUrl || "/placeholder.svg"}
+          alt={`${selectedSystem.title} anatomy`}
+          width={400}
+          height={600}
+          className="w-full h-full object-contain"
+        />
+      )}
+
+      {/* Navigation Arrows — only if more than 1 */}
       {/* {selectedSystem.images.length > 1 && (
         <>
-          <Button
-            size="small"
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white"
+          <button
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 px-2 py-1 rounded"
             onClick={onPrevImage}
           >
-            <ChevronLeft className="w-4 h-4" />
-          </Button>
-          <Button
-            size="small"
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white"
+            ◀
+          </button>
+          <button
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 px-2 py-1 rounded"
             onClick={onNextImage}
           >
-            <ChevronRight className="w-4 h-4" />
-          </Button>
+            ▶
+          </button>
         </>
       )} */}
     </div>
