@@ -2,6 +2,8 @@ import React from 'react';
 import BannerSection from './BannerSection';
 import OurStory from './OurStory';
 import MissionVision from './MissionVision';
+import OurCoreValues from './OurCorevalues';
+import JoinOurCommunity from './JoinOurCommunity';
 
 const AboutUs = () => {
     return (
@@ -9,6 +11,8 @@ const AboutUs = () => {
             <BannerSection />
             <OurStory />
             <MissionVision />
+            <OurCoreValues />
+            <JoinOurCommunity />
         </div>
     );
 };
