@@ -1,70 +1,62 @@
-"use client";
-import React from "react";
-import SectionHeading from "./home-shared/SectionHeading";
-import Image from "next/image";
-import { FaApple, FaGooglePlay } from "react-icons/fa";
-import { Button, Grid } from "antd";
+import { footerLinks } from '@/data/footerData';
+import Link from 'next/link';
+import React from 'react';
 
-export default function Footer() {
-  const { lg } = Grid.useBreakpoint();
-  
-  return (
-    <div className="bg-gradient-to-b from-[#F1F5F9] to-[#FFFFFF] py-12">
-      <div className=" container p-4 mx-auto grid grid-cols-1 md:grid-cols-2  gap-4 lg:gap-10 justify-center items-center">
-        <div className="max-w-[600px] text-center md:text-left">
-          <SectionHeading
-            title="Work from anywhere"
-            subtitle="In et dolor eu donec maecenas nulla. Cum sed orci, sit pellentesque quisque feugiat cras ullamcorper. Ultrices in amet, ullamcorper non viverra a, neque orci."
-          />
+const Footer = () => {
+    return (
+        <footer className="bg-[#020b1f] text-white pt-20 pb-8 border-t border-[#1e293b]">
+            <div className="container mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
-          {/* app store btns */}
-          <div className="flex flex-row gap-2 md:gap-4 items-center justify-center md:justify-start my-8 ">
-            {/* app store */}
-            <Button
-              size={lg ? "large" : "small"}
-              style={{
-                backgroundColor: "#000000",
-                color: "#FFFFFF",
-                padding: lg ? "28px 24px" : "24px 14px",
-              }}
-            >
-              <FaApple className="w-7 h-7 text-white" />
+                    {/* Brand Section */}
+                    <div>
+                        <Link
+                            href="/"
+                            className="text-2xl font-bold text-[#33dfe5] mb-6 inline-block"
+                        >
+                            IQ-Nurse
+                        </Link>
 
-              <div className="text-left">
-                <div className="text-xs text-gray-300">Download on the</div>
-                <div className="!text-sm font-semibold -mt-1">App Store</div>
-              </div>
-            </Button>
+                        <p className="text-gray-400 mb-6 leading-relaxed">
+                            Empowering the next generation of nurses with cutting-edge AI
+                            technology. Your success is our mission.
+                        </p>
+                    </div>
 
-            {/* Google Play Button */}
-            <Button
-              size={lg ? "large" : "small"}
-              style={{
-                backgroundColor: "#000000",
-                color: "#FFFFFF",
-                padding: lg ? "28px 24px" : "24px 14px",
-              }}
-            >
-              <FaGooglePlay className="w-6 h-5 text-white" />
+                    {/* Dynamic Footer Sections */}
+                    {footerLinks.map((section, index) => (
+                        <div key={index}>
+                            <h4 className="text-[#33dfe5] font-semibold mb-6">
+                                {section.title}
+                            </h4>
 
-              <div className="text-left">
-                <div className="text-xs text-gray-300">Download on the</div>
-                <div className="!text-sm font-semibold -mt-1">Google Play</div>
-              </div>
-            </Button>
-          </div>
-        </div>
-        <div className="flex justify-center">
-          <Image
-            src={"/assets/home-images/footer-img.svg"}
-            alt={"footer image"}
-            width={600}
-            height={622}
-            className="h-auto w-full object-cover"
-            unoptimized
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
+                            <ul className="space-y-4 text-gray-400">
+                                {section.links.map((link, i) => (
+                                    <li key={i}>
+                                        <Link
+                                            href={link.href}
+                                            className="hover:text-white transition-colors"
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+
+                </div>
+
+                {/* Bottom Bar */}
+                <div className="pt-8 border-t border-[#1e293b] text-center text-gray-500 text-sm">
+                    <p>
+                        &copy; 2025 IQ-Nurse. All rights reserved. Empowering nursing
+                        students worldwide.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    );
+};
+
+export default Footer;
