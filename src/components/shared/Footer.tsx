@@ -12,7 +12,7 @@ const Footer = () => {
                     <div>
                         <Link
                             href="/"
-                            className="text-2xl font-bold text-[#33dfe5] mb-6 inline-block"
+                            className="text-2xl font-bold bg-gradient-to-r from-cyan-500 to-[#0078ff] bg-clip-text text-transparent mb-6 inline-block"
                         >
                             IQ-Nurse
                         </Link>
@@ -26,7 +26,7 @@ const Footer = () => {
                     {/* Dynamic Footer Sections */}
                     {footerLinks.map((section, index) => (
                         <div key={index}>
-                            <h4 className="text-[#33dfe5] font-semibold mb-6">
+                            <h4 className="text-[#00c2ff] font-semibold mb-6">
                                 {section.title}
                             </h4>
 

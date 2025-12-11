@@ -26,4 +26,4 @@ export const footerLinks = [
             { name: "HIPAA Compliance", href: "/hipaa-compliance" },
         ],
     },
-];
+]; 
