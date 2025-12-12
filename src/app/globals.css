@@ -22,12 +22,15 @@
 } */
 
 @layer utilities {
-  /* .section-title {
-    @apply text-3xl lg:text-5xl font-medium mb-4 text-[#FFFFFF];
+  .section-tagline {
+    @apply inline-block px-4 py-1.5 rounded-full border border-[#1e3a5f] bg-[#0f2035] text-[#33dfe5] text-xs font-semibold tracking-wider mb-4;
+  }
+  .section-title {
+    @apply text-3xl lg:text-5xl font-semibold mb-4 text-[#FFFFFF] leading-tight;
   }
   .section-subtitle {
-    @apply text-[#FFFFFF] text-[16px] lg:text-lg leading-relaxed;
-  } */
+    @apply text-gray-400 text-[16px] lg:text-lg leading-relaxed max-w-[690px] mx-auto;
+  }
   .container {
     @apply container mx-auto px-4 md:px-5;
   }
