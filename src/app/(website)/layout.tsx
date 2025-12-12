@@ -1,4 +1,5 @@
 import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
 import React from "react";
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
@@ -7,9 +8,9 @@ export default function layout({ children }: { children: React.ReactNode }) {
         <Navbar />
       </nav>
       {children}
-      {/* <footer>
+      <footer>
         <Footer />
-      </footer> */}
+      </footer>
     </section>
   );
 }

@@ -2,33 +2,45 @@
 
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const menuItems = [
-    { label: "SUPPORT", href: "/support" },
-    { label: "LOG IN", href: "/auth/login" },
+    { label: "Features", href: "/#features" },
+    { label: "Nurse Nia", href: "/nurse-nia" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Testimonials", href: "/testimonials" },
   ];
 
   return (
-    <div className="bg-[#1b3950]">
-      <div className="flex items-center justify-end text-white p-4 space-x-4 font-[600] text-sm ">
-        {menuItems.map((item, index) => (
-          <div key={item.label} className="flex items-center gap-4">
-            <Link href={item.href} className="relative group cursor-pointer">
+    <div className="bg-[#0a0e27] h-20 w-full  flex items-center justify-center  ">
+      <div className="container mx-auto flex items-center justify-between text-white  font-[600px] text-sm">
+        {/* Logo Section */}
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/robot-nurse.png"
+            alt="IQ-Nurse Logo"
+            width={32}
+            height={32}
+            className="w-8 h-8 object-contain"
+          />
+          <span className="text-xl font-bold bg-gradient-to-r from-cyan-500 to-[#0078ff] bg-clip-text text-transparent">IQ-Nurse</span>
+        </Link>
+
+        {/* Navigation Links */}
+        <div className="flex items-center space-x-8">
+          {menuItems.map((item) => (
+            <Link key={item.label} href={item.href} className="text-gray-300  transition-colors relative group">
               <span>{item.label}</span>
-              <div className="absolute left-0 w-full h-0.5 bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+              {/* Optional: Add hover underline animation if desired, keeping it subtle as per standard modern navs */}
             </Link>
+          ))}
+        </div>
 
-            {index < menuItems.length - 1 && (
-              <span className="text-gray-400">|</span>
-            )}
-          </div>
-        ))}
-
-        {/* Register Button */}
+        {/* CTA Button */}
         <Link href="/auth/register">
-          <button className="bg-[#0044db] hover:bg-blue-700 text-white font-bold py-1 px-3 rounded cursor-pointer">
-            Register
+          <button className="bg-gradient-to-r from-cyan-500 to-[#0078ff]   text-white font-bold py-2.5 px-8 rounded-full transition-all shadow-lg shadow-blue-500/30">
+            Get Started
           </button>
         </Link>
       </div>
