@@ -17,50 +17,62 @@ export default function Navbar() {
   const router = useRouter();
 
   useEffect(() => {
-    const currentHash = window.location.hash || "#home";
+    const currentHash = globalThis.location.hash || "#home";
     setActivePath(currentHash);
   }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const scrollPosition = scrollY + 120;
+      const scrollY = window.scrollY + 150;
 
       navItems.forEach((item) => {
-        const section = document.getElementById(item.href.substring(1));
+        const sectionId = item.href.replace("/#", ""); // ← FIXED
+        const section = document.getElementById(sectionId);
+
         if (section) {
-          const top = section.offsetTop - 120;
-          const height = section.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
+          const top = section.offsetTop;
+          const bottom = top + section.offsetHeight;
+
+          if (scrollY >= top && scrollY < bottom) {
             setActivePath(item.href);
           }
         }
       });
 
-      if (scrollY > lastScrollTop.current && scrollY > 100) {
+      // Hide/show navbar
+      if (window.scrollY > lastScrollTop.current && window.scrollY > 100) {
         setShowNavbar(false);
       } else {
         setShowNavbar(true);
       }
 
-      lastScrollTop.current = Math.max(scrollY, 0);
+      lastScrollTop.current = window.scrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavScroll = useCallback((e: React.MouseEvent, path: string) => {
+  const handleNavClick = (e: React.MouseEvent, path: string) => {
+    const isHome = window.location.pathname === "/";
+
+    if (!isHome) {
+      // If user is on another page, allow normal navigation
+      return;
+    }
+
+    // If user is already on home page → smooth scroll
     e.preventDefault();
-    const id = path.substring(1);
+
+    const id = path.replace("/#", "");
     const section = document.getElementById(id);
 
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
+      window.history.replaceState(null, "", path);
       setActivePath(path);
-      window.location.hash = path;
     }
-  }, []);
+  };
 
   const onCloseDrawer = () => {
     setDrawerOpen(false);
@@ -90,7 +102,7 @@ export default function Navbar() {
               <a
                 key={index}
                 href={item.href}
-                // onClick={(e) => handleNavScroll(e, item.href)}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className={`text-sm transition-all duration-300 ${
                   activePath === item.href
                     ? "font-semibold text-white"
