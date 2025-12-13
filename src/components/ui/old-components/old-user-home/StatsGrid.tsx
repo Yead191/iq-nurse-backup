@@ -11,7 +11,6 @@ import {
   NotebookPen,
   CheckCircle2,
 } from "lucide-react";
-import { SectionHeader } from "../../user-dashboard-pages/user-home-page/SectionHeader";
 import { useMemo } from "react";
 import dayjs from "dayjs";
 import Link from "next/link";

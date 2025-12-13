@@ -1,6 +1,6 @@
 import { Modal } from "antd";
 import React from "react";
-import NurseChat from "../../nurse-q/NurseChat";
+import NurseChat from "../../../nurse-q/NurseChat";
 
 export default function NurseNiaModal({ open, onClose }: any) {
   return (
