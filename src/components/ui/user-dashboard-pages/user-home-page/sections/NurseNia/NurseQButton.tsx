@@ -30,7 +30,7 @@ export default function NurseQButton() {
   const currentStatus = statusConfig[status];
 
   return (
-    <div className="fixed right-4 lg:right-12 bottom-28 lg:bottom-8  ">
+    <div className="fixed right-4 lg:right-12 bottom-28 lg:bottom-8 z-50 ">
       <button
         onClick={() => setNurseModalOpen(true)}
         className={`bg-primary ${currentStatus.textColor} rounded-full px-4 py-2 lg:px-6 lg:py-3 flex items-center space-x-3 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 min-w-40 lg:min-w-48`}
