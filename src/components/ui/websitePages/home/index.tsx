@@ -1,12 +1,14 @@
 import React from "react";
 import Banner from "./sections/Banner";
 import ComprehensiveFeatures from "./sections/comprehensive/ComprehensiveFeatures";
+import Pricing from "./sections/Pricing";
 
 export default function HomePage() {
   return (
-    <div className="">
+    <section>
       <Banner />
       <ComprehensiveFeatures />
-    </div>
+      <Pricing />
+    </section>
   );
 }
