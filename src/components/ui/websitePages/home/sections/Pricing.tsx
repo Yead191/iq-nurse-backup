@@ -4,7 +4,7 @@ import pricingPlans from "@/data/pricingPlans";
 
 export default function Pricing() {
   return (
-    <section className="py-20 relative">
+    <section id="pricing" className="py-20 relative">
       {/* Background glow effect for Pro card if needed, handled via CSS/Tailwind */}
 
       {/* heading */}
