@@ -83,7 +83,7 @@ export default function ShortMenu() {
   return (
     <section className="block md:hidden w-full overflow-hidden">
       {/* Scroll container */}
-      <div className="flex overflow-x-auto gap-3 pb-4 px-2 items-center scrollbar-hide ">
+      <div className="flex overflow-x-auto gap-3 pb-4 px-4 items-center scrollbar-hide ">
         {items.map((item) => (
           <Link
             key={item.id}

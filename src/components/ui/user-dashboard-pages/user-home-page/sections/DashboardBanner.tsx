@@ -17,14 +17,14 @@ export default function DashboardBanner() {
             alt="welcome icon"
             width={100}
             height={100}
-            className="w-[71px] h-[71px] object-fit "
+            className="w-fit h-[50px] md:w-[71px] md:h-[71px] object-fit "
           />
 
-          <h4 className="text-2xl mb-1 font-bold text-[#666f78] ">
+          <h4 className="text-lg md:text-2xl font-bold text-[#666f78] -mb-1.5 ">
             Hello, John!
           </h4>
         </div>
-        <h1 className="text-xl lg:text-5xl font-bold text-[#003877]/60 md:text-[#003877]/50 max-w-[800px] tracking-[0.2rem] md:tracking-[0.1em] leading-[130%] md:leading-[100%]">
+        <h1 className="text-xl lg:text-5xl font-bold text-[#003877]/70 md:text-[#003877]/50 max-w-[800px] tracking-[0.2rem] md:tracking-[0.1em] leading-[130%] md:leading-[100%]">
           Your One Platform with Infinite Possibilities
         </h1>
         {/* Search overlay */}
