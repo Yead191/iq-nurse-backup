@@ -53,6 +53,7 @@ export default function DashboardBanner() {
         height={1000}
         width={1000}
         alt="banner"
+        draggable={false}
         className="h-[300px] md:h-[400px] w-fit object-fit absolute top-0 -right-12 md:right-0 z-0 opacity-70 md:opacity-100 "
       />
     </section>
