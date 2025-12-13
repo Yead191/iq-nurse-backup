@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronDown, ChevronRight, Search } from "lucide-react";
+import { ChevronDown, ChevronRight, Folder, Search } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import DocumentationCard from "../study-notes-page/DocumentationCard";
 import { assessmentCategories } from "@/data/assessmentCategories";
@@ -83,7 +83,10 @@ export default function AssessmentSidebar() {
             }`}
           >
             <div className="flex items-center gap-3">
-              <div className={`w-9 h-9 rounded-md ${cat.color}`} />
+              <Folder
+                style={{ color: cat.color }}
+                className={`w-8 h-8 fill-current`}
+              />
               <div>
                 <div className="font-medium text-gray-900 text-sm">
                   {cat.name}
