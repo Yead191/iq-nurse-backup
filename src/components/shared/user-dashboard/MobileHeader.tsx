@@ -13,7 +13,6 @@ export default function MobileHeader() {
   const inputRef = useRef<InputRef>(null);
   const pathname = usePathname();
   const router = useRouter();
-  const [text, setText] = useState<string>("");
 
   // page title from URL
   const formatPathName = (slug: string | undefined) => {
@@ -63,7 +62,7 @@ export default function MobileHeader() {
         background: "white",
       }}
     >
-      <div className="w-full max-w-[640px] mx-auto px-3 py-5 flex flex-col gap-3">
+      <div className="w-full max-w-[640px] mx-auto px-3 py-5 flex flex-col gap-3  ">
         <div
           style={{
             position: "relative",
@@ -126,42 +125,8 @@ export default function MobileHeader() {
                 aria-label="Notifications"
               />
             </Badge>
-
-            {/* <Button
-              type="text"
-              icon={<BookmarkIcon style={{ fontSize: 20, color: "white" }} />}
-              aria-label="Bookmarks"
-            /> */}
-            {/* <Link href={"/profile/account"}>
-              <Button
-                type="text"
-                icon={<UserRoundCog style={{ fontSize: 20,  }} />}
-                aria-label="Bookmarks"
-              />
-            </Link> */}
           </div>
         </div>
-        {/* Search overlay */}
-
-        <form
-          className="px-1"
-          role="search"
-          onSubmit={(e) => {
-            e.preventDefault();
-            // handle submit as needed
-          }}
-        >
-          <Input
-            ref={inputRef}
-            placeholder="Search..."
-            prefix={<SearchOutlined />}
-            suffix={<VoiceToText setText={setText} />}
-            allowClear
-            style={{ borderRadius: 6, height: 44, backgroundColor: "#F6F7F8" }}
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-        </form>
       </div>
     </header>
   );

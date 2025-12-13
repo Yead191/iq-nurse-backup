@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import NCLEXPracticeSection from "../../../user-home-page/practice-qurestion/NCLEXPracticeSection";
-import QuestionCard from "../../../user-home-page/practice-qurestion/QuestionCard";
-import { SectionHeader } from "../../../user-home-page/SectionHeader";
-import CompletionCard from "../../../user-home-page/practice-qurestion/CompletionCard";
+import NCLEXPracticeSection from "../../../user-home-page/sections/practice-qurestion/NCLEXPracticeSection";
+import QuestionCard from "../../../user-home-page/sections/practice-qurestion/QuestionCard";
+import { SectionHeader } from "../../../user-home-page/sections/SectionHeader";
+import CompletionCard from "../../../user-home-page/sections/practice-qurestion/CompletionCard";
 
 const category = {
   questions: [
