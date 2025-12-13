@@ -263,3 +263,142 @@ export const communityGroupsData = [
     iconColor: "bg-green-500",
   },
 ];
+
+
+export const testimonials = [
+  {
+    name: "Sarah Martinez",
+    role: "BSN Graduate, 2024",
+    quote: "IQ-Nurse completely transformed my study routine! Nurse Nia helped me understand complex pharmacology concepts that I struggled with for weeks. I passed my NCLEX on the first try with confidence!",
+    initials: "SM"
+  },
+  {
+    name: "James Thompson",
+    role: "RN, Pediatric Unit",
+    quote: "The practice questions and full-length exams were incredibly accurate to the actual NCLEX. The analytics showed me exactly where I needed to focus my studies. This platform is worth every penny!",
+    initials: "JT"
+  },
+  {
+    name: "Emily Patel",
+    role: "Senior Nursing Student",
+    quote: "The care plan and drug card generators saved me countless hours during clinical rotations. I could focus more on patient care and less on paperwork. The community feature also helped me connect with amazing study partners!",
+    initials: "EP"
+  },
+  {
+    name: "Michael Chen",
+    role: "BSN Student, Year 3",
+    quote: "As someone who struggled with time management, the calendar planner was a game-changer. I could finally balance my clinical rotations, study time, and personal life. Plus, Nurse Nia is like having a tutor available 24/7!",
+    initials: "MC"
+  },
+  {
+    name: "Lisa Johnson",
+    role: "ADN Program",
+    quote: "The interactive body systems module helped me ace my anatomy exam! The visual learning approach made everything click. I recommend IQ-Nurse to every nursing student I meet.",
+    initials: "LJ"
+  },
+  {
+    name: "Rachel Williams",
+    role: "Honor Roll Student",
+    quote: "The AI-generated flashcards from my lecture notes were incredibly helpful. I went from struggling in Med-Surg to getting top grades in my class. This platform understands what nursing students actually need!",
+    initials: "RW"
+  }
+];
+
+export const powerfulToolsData = [
+  {
+    badge: "SMART LEARNING",
+    title: "Master Every Topic with Intelligent Flashcards",
+    description: "Transform your study materials into powerful learning tools. Our AI-powered flashcard system adapts to your learning pace and helps you retain information faster than traditional methods.",
+    features: [
+      "Access 10,000+ pre-made NCLEX flashcards organized by topic",
+      "AI generates custom flashcards from your lecture notes and textbooks",
+      "Spaced repetition algorithm ensures optimal retention",
+      "Track your progress and identify weak areas instantly",
+      "Study offline with mobile app synchronization",
+      "Share and collaborate on flashcard decks with classmates"
+    ],
+    primaryButton: "Try Flashcards Free",
+    secondaryButton: "See Examples",
+    image: "flashcards" // Placeholder
+  },
+  {
+    badge: "STAY ORGANIZED",
+    title: "Balance Your Busy Nursing Life Effortlessly",
+    description: "Juggling clinical rotations, exams, study sessions, and personal time has never been easier. Our intelligent calendar planner keeps you organized and stress-free throughout your nursing journey.",
+    features: [
+      "Sync clinical rotation schedules automatically",
+      "Set smart reminders for exams, assignments, and study sessions",
+      "Color-coded categories for clinical, academic, and personal events",
+      "Integration with study materials and practice questions",
+      "Share schedules with study groups and classmates",
+      "Track study hours and maintain work-life balance"
+    ],
+    primaryButton: "Create Your Schedule",
+    secondaryButton: "See Templates",
+    image: "calendar" // Placeholder
+  },
+  {
+    badge: "EXAM MASTERY",
+    title: "Conquer the NCLEX with Confidence",
+    description: "Practice makes perfect. Our extensive question bank mirrors the actual Next Gen NCLEX format, giving you the edge you need to pass on your first attempt with detailed rationales for every answer.",
+    features: [
+      "10,000+ Next Gen NCLEX-style practice questions",
+      "Detailed rationales explaining correct and incorrect answers",
+      "Two full-length adaptive practice exams that predict your pass probability",
+      "Performance analytics showing your strengths and weaknesses",
+      "Questions updated regularly to match current NCLEX standards",
+      "Timed practice mode to simulate real exam conditions"
+    ],
+    primaryButton: "Start Practice Test",
+    secondaryButton: "View Sample Questions",
+    image: "exam" // Placeholder
+  },
+  {
+    badge: "VISUAL LEARNING",
+    title: "Simplify Complex Concepts with Smart Mapping",
+    description: "Understanding complex nursing concepts has never been this intuitive. Our revolutionary concept mapping tool transforms complicated pathophysiology and care plans into clear, visual connections that make sense.",
+    features: [
+      "AI generates concept maps from your study materials instantly",
+      "Visualize disease processes, medications, and care plans",
+      "Drag-and-drop interface tailored specifically for nursing students",
+      "Pre-built templates for common nursing diagnoses",
+      "Export maps for presentations and study guides",
+      "Collaborate with classmates on shared concept maps"
+    ],
+    primaryButton: "Create Concept Map",
+    secondaryButton: "Browse Templates",
+    image: "mindmap" // Placeholder
+  },
+  {
+    badge: "CONNECT & THRIVE",
+    title: "Join a Thriving Community of Future Nurses",
+    description: "You're not alone in this journey. Connect with thousands of nursing students who understand your challenges, celebrate your victories, and support you every step of the way to becoming an exceptional nurse.",
+    features: [
+      "Share experiences and learn from peers nationwide",
+      "Celebrate milestones and accomplishments together",
+      "Join or create study groups on specific topics",
+      "Get advice from students who've been there",
+      "Access exclusive community resources and study materials",
+      "Network with future colleagues and build lasting friendships"
+    ],
+    primaryButton: "Join Community",
+    secondaryButton: "Explore Groups",
+    image: "community" // Placeholder
+  },
+  {
+    badge: "MEET NURSE NIA",
+    title: "Your 24/7 AI Nursing Tutor",
+    description: "Nurse Nia is powered by advanced AI technology specifically trained on nursing education. She's here to answer any question, explain complex concepts, and guide you through your studies.",
+    features: [
+      "Instant answers to any nursing question",
+      "Personalized study guidance and tutoring",
+      "Help with care plans and documentation",
+      "NCLEX preparation and test strategies",
+      "Clinical scenario analysis and critical thinking",
+      "Drug information and pharmacology help"
+    ],
+    primaryButton: "Chat with Nurse Nia",
+    secondaryButton: null, // No secondary button in image
+    image: "ai" // Placeholder
+  }
+];

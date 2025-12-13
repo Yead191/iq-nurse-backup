@@ -45,10 +45,15 @@ export default function BottomNavigation({
       icon: "/assets/sidebar-icons/community-icon.svg",
       label: "Community",
     },
+    // {
+    //   key: "/profile/account",
+    //   icon: "/assets/icons/account-icon.svg",
+    //   label: "Account",
+    // },
     {
-      key: "/profile/account",
-      icon: "/assets/icons/account-icon.svg",
-      label: "Account",
+      key: "/profile/my-library",
+      icon: "/assets/sidebar-icons/my-library-icon.svg",
+      label: "My Library",
     },
   ];
 
@@ -113,7 +118,11 @@ export default function BottomNavigation({
             }}
           >
             <div style={{ fontSize: "16px", marginBottom: "8px" }}>
-              <img src={item.icon} alt={item.label} className="h-[24px] w-full" />
+              <img
+                src={item.icon}
+                alt={item.label}
+                className="h-[24px] w-full"
+              />
             </div>
             {/* <span
               style={{
