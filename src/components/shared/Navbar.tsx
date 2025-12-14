@@ -2,11 +2,12 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { MenuOutlined } from "@ant-design/icons";
 import Image from "next/image";
-import { Drawer, ConfigProvider } from "antd";
+import { Drawer, ConfigProvider, Button } from "antd";
 import navItems from "@/data/navItems";
 import Link from "next/link";
 import { IoIosLogOut } from "react-icons/io";
 import { useRouter } from "next/navigation";
+import { XIcon } from "lucide-react";
 
 export default function Navbar() {
   const [activePath, setActivePath] = useState<string>("#home");
@@ -125,7 +126,7 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             <button
-              className="lg:hidden text-xl"
+              className="lg:hidden text-xl text-white"
               onClick={() => setDrawerOpen(true)}
             >
               <MenuOutlined />
@@ -152,8 +153,11 @@ export default function Navbar() {
         >
           <div className="relative h-full pt-8  w-full">
             <div className="flex flex-col h-full">
-              <div className="font-semibold text-xl text-white pb-2 ps-5 w-full border-b border-[#444447]">
-                Menu
+              <div className="font-semibold text-xl text-white pb-2 ps-5 w-full border-b border-[#444447] flex items-center justify-between">
+                <h4>Menu</h4>
+                <Button className="!text-white !text-xl" type="text" onClick={() => setDrawerOpen(false)}>
+                  <XIcon />
+                </Button>
               </div>
 
               <div className="flex flex-col gap-y-4 overflow-y-auto w-full ps-5 pt-6 ">
