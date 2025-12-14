@@ -45,16 +45,7 @@ export default function DocumentationCard({
 
           <div className="flex-1">
             <h3 className="font-medium  text-sm">{document.name}</h3>
-            {/* <p className="text-gray-600 text-sm leading-relaxed">
-              {document.description}
-            </p> */}
-            {/* <div className="mt-3 flex items-center gap-4 text-xs text-gray-500">
-              <span>
-                Updated: {new Date(document.createdAt).toLocaleDateString()}
-              </span>
-              <span>•</span>
-              <span>{document.readTime} min read</span>
-            </div> */}
+           
           </div>
         </div>
 
