@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronRight, Folder } from "lucide-react";
 import DocumentationCard from "./DocumentationCard";
 
 interface CategoryItemProps {
@@ -38,7 +38,11 @@ export function CategoryItem({
         onClick={handleCategoryClick}
       >
         <div className="flex items-center gap-3">
-          <div className={`w-9 h-9 rounded-md ${category.color}`} />
+          {/* <div className={`w-9 h-9 rounded-md ${category.color}`} /> */}
+          <Folder
+            style={{ color: category.color }}
+            className={`w-8 h-8 fill-current`}
+          />
           <div>
             <div
               className={`font-medium text-gray-900 ${

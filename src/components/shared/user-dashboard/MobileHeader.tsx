@@ -1,19 +1,31 @@
 "use client";
 
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Input, Button, InputRef, Badge } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { Input, Button, InputRef, Badge, Dropdown, Avatar } from "antd";
+import { DownOutlined, SearchOutlined } from "@ant-design/icons";
 import { BellIcon, ChevronLeft, UserRoundCog } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import VoiceToText from "../VoiceToText";
+import LanguagePanel from "./header/LanguagePanel";
+import { LangKey, LANGUAGES } from "@/data/headerConstants";
+import { CiLight } from "react-icons/ci";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import ProfilePanel from "./header/ProfilePanel";
+import { profile } from "./header/Header";
+import { Typography } from "antd";
+const { Text } = Typography;
 
 export default function MobileHeader() {
   const inputRef = useRef<InputRef>(null);
   const pathname = usePathname();
   const router = useRouter();
-
+  const [lang, setLang] = React.useState<LangKey>("en");
+  const currentLang = React.useMemo(
+    () => LANGUAGES.find((l) => l.key === lang) ?? LANGUAGES[0],
+    [lang]
+  );
   // page title from URL
   const formatPathName = (slug: string | undefined) => {
     if (!slug) return "";
@@ -108,23 +120,48 @@ export default function MobileHeader() {
             </div>
           )}
           {/* Right: Actions */}
-          <div
-            style={{
-              marginLeft: "auto",
-              display: "flex",
-              gap: 8,
-              alignItems: "center",
-              marginRight: 4,
-            }}
-          >
-            {/* Notifications */}
-            <Badge count={4} size="small">
+          {/* Right */}
+          <div className="flex items-center gap-1 rounded-2xl p-1">
+            {/* Language */}
+            <Dropdown
+              trigger={["click"]}
+              popupRender={() => (
+                <LanguagePanel selected={lang} onSelect={setLang} />
+              )}
+            >
               <Button
                 type="text"
-                icon={<BellIcon style={{ fontSize: 20 }} />}
-                aria-label="Notifications"
+                className="flex items-center gap-2 rounded-xl bg-white px-2 py-1"
+              >
+                <img
+                  src={currentLang.flag}
+                  alt={`${currentLang.label} flag`}
+                  className="h-5 w-7 rounded-sm object-cover"
+                />
+                <DownOutlined className="text-gray-500" />
+              </Button>
+            </Dropdown>
+
+            {/* Notifications */}
+            <Badge dot>
+              <Button
+                // style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.08)" }}
+                type="text"
+                className="h-10 w-10 rounded-xl !bg-[#F6F8FB]"
+                icon={<IoMdNotificationsOutline className="text-xl" />}
               />
             </Badge>
+
+            {/* Profile */}
+            <Dropdown trigger={["click"]} popupRender={() => <ProfilePanel />}>
+              <Button
+                type="text"
+                className="flex items-center gap-3 rounded-xl !bg-[#F6F8FB] px-1 !py-0.5"
+              >
+                <Avatar src={profile.image} size={28} />
+                <DownOutlined className="hidden text-gray-500 md:block" />
+              </Button>
+            </Dropdown>
           </div>
         </div>
       </div>

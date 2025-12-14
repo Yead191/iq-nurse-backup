@@ -1,27 +1,27 @@
 export interface MedicalCategory {
-  id: string
-  name: string
-  color: string
-  topicCount: number
-  subcategories?: MedicalSubcategory[]
+  id: string;
+  name: string;
+  color: string;
+  topicCount: number;
+  subcategories?: MedicalSubcategory[];
 }
 
 export interface MedicalSubcategory {
-  id: string
-  name: string
-  topicCount: number
-  documentId?: string
+  id: string;
+  name: string;
+  topicCount: number;
+  documentId?: string;
 }
 
 export interface Documentation {
-  id: string
-  categoryId: string
-  subcategoryId?: string
-  title: string
-  description: string
-  createdAt: string
-  readTime: number
-  isBookmarked: boolean
+  id: string;
+  categoryId: string;
+  subcategoryId?: string;
+  title: string;
+  description: string;
+  createdAt: string;
+  readTime: number;
+  isBookmarked: boolean;
 }
 
 // Updated categories to match the Figma design exactly
@@ -29,7 +29,7 @@ export const nclexCategories: MedicalCategory[] = [
   {
     id: "medical-surgical",
     name: "Medical-Surgical",
-    color: "bg-red-500",
+    color: "#EF4444",
     topicCount: 24,
     subcategories: [
       {
@@ -45,7 +45,7 @@ export const nclexCategories: MedicalCategory[] = [
   {
     id: "pharmacology",
     name: "Pharmacology",
-    color: "bg-blue-500",
+    color: "#3B82F6",
     topicCount: 19,
     subcategories: [
       {
@@ -71,7 +71,7 @@ export const nclexCategories: MedicalCategory[] = [
   {
     id: "ob-maternity",
     name: "OB/Maternity",
-    color: "bg-pink-500",
+    color: "#EC4899",
     topicCount: 5,
     subcategories: [
       {
@@ -91,7 +91,7 @@ export const nclexCategories: MedicalCategory[] = [
   {
     id: "pediatrics",
     name: "Pediatrics",
-    color: "bg-green-500",
+    color: "#22C55E",
     topicCount: 8,
     subcategories: [
       {
@@ -111,7 +111,7 @@ export const nclexCategories: MedicalCategory[] = [
   {
     id: "fundamentals",
     name: "Fundamentals",
-    color: "bg-yellow-600",
+    color: "#CA8A04",
     topicCount: 7,
     subcategories: [
       {
@@ -131,7 +131,7 @@ export const nclexCategories: MedicalCategory[] = [
   {
     id: "mental-health",
     name: "Mental Health",
-    color: "bg-purple-500",
+    color: "#A855F7",
     topicCount: 15,
     subcategories: [
       { id: "depression", name: "Depression", topicCount: 6, documentId: "13" },

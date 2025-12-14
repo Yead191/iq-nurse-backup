@@ -6,7 +6,6 @@ import WhatNursingSay from "./sections/WhatNursingSay/WhatNursingSay";
 import ReadyToTransform from "./sections/ReadyToTransform";
 import PowerfulTools from "./sections/PowerfulTools/PowerfulTools";
 
-
 export default function HomePage() {
   return (
     <section>

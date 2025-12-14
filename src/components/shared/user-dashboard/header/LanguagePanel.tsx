@@ -10,7 +10,7 @@ export default function LanguagePanel({
 }) {
   return (
     <div
-      className="w-72 rounded-2xl bg-white p-3 shadow-xl"
+      className="w-32 md:w-72 rounded-2xl bg-white p-3 shadow-xl"
       style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.08)" }}
     >
       <div className="flex flex-col gap-3">
@@ -30,7 +30,7 @@ export default function LanguagePanel({
                     className="h-6 w-10 object-cover"
                   />
                 </span>
-                <span className="text-[14px] font-medium text-[#121212]">
+                <span className="text-[14px] font-medium text-[#121212] hidden md:block">
                   {lang.label}
                 </span>
               </span>
