@@ -27,13 +27,7 @@ const CalendarMain = () => {
     setIsDrawerOpen(true);
   };
 
-  const handleCloseDrawer = () => {
-    setIsDrawerOpen(false);
-  };
-
   const handleNewEventClick = () => {
-    // Handle new event creation
-    // console.log("New event clicked");
     setModalVisible(true);
   };
 

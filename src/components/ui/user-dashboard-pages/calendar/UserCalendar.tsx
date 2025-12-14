@@ -88,7 +88,7 @@ const UserCalendar: React.FC = () => {
             </button>
             <button
               onClick={() => navigate("TODAY")}
-              className="ml-4 px-3 py-1 bg-[#003877] text-white rounded hover:bg-blue-600 text-sm hidden md:block"
+              className="ml-4 px-3 py-1 bg-[#003877] text-white rounded cursor-pointer text-sm hidden md:block"
             >
               Today
             </button>
@@ -100,11 +100,10 @@ const UserCalendar: React.FC = () => {
             <button
               key={view}
               onClick={() => onView(view)}
-              className={`px-3 py-1 rounded text-sm transition-colors w-full md:w-auto ${
-                currentView === view
-                  ? "bg-white text-[#003877]"
-                  : "bg-[#F6F7F8] text-[#C5D0D0] hover:bg-white hover:text-[#003877] border border-gray-50"
-              }`}
+              className={`px-3 py-1 rounded text-sm transition-colors w-full md:w-auto ${currentView === view
+                ? "bg-white text-[#003877]"
+                : "bg-[#F6F7F8] text-[#C5D0D0] hover:bg-white hover:text-[#003877] border border-gray-50"
+                }`}
             >
               {name}
             </button>
@@ -143,10 +142,10 @@ const UserCalendar: React.FC = () => {
           // Styling
           eventPropGetter={(event: CalendarEvent) => ({
             style: {
-              backgroundColor: event.color || "#3174ad",
-              borderRadius: "5px",
-              opacity: 0.8,
-              color: "white",
+              backgroundColor: "transparent",
+              borderRadius: "0px",
+              opacity: 1,
+              color: "inherit",
               border: "0px",
               display: "block",
             },
