@@ -6,6 +6,7 @@ import { useState } from "react";
 import { FileTextOutlined } from "@ant-design/icons";
 import { BookmarkIcon } from "lucide-react";
 import { toast } from "sonner";
+import Image from "next/image";
 
 interface DocumentationCardProps {
   document: any;
@@ -40,12 +41,18 @@ export default function DocumentationCard({
       >
         <div className="flex items-center gap-4 flex-1">
           <div className="text-[#003877] text-sm ">
-            <FileTextOutlined />
+            <Image
+              src="/assets/icons/document.svg"
+              alt="NCLEX"
+              width={50}
+              height={50}
+              draggable={false}
+              className="w-4 h-fit "
+            />
           </div>
 
           <div className="flex-1">
             <h3 className="font-medium  text-sm">{document.name}</h3>
-           
           </div>
         </div>
 

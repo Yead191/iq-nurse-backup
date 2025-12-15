@@ -9,6 +9,7 @@ import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import { Bookmark, Download, File, Plus } from "lucide-react";
 import { Grid } from "antd";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 // -------------------- Types --------------------
 interface Note {
@@ -189,7 +190,16 @@ export default function MyNotepadPage() {
   return (
     <section>
       <PageNavbar
-        icon={<File />}
+        icon={
+          <Image
+            src="/assets/icons/header/edit-file.svg"
+            alt="NCLEX"
+            width={50}
+            height={50}
+            draggable={false}
+            className="w-fit h-[32px] object-fit"
+          />
+        }
         title="Smart Notepad"
         subtitle="Create,organize,and enhance your study notes with AI assistance"
         isAiEnhanced={true}

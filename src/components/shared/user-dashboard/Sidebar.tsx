@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   ChevronDown,
   ChevronRight,
@@ -66,13 +66,27 @@ const Sidebar = ({
     }));
   }, [pathname]);
 
-  const isActive = (path: string) => {
-    // if (path.includes("/category/")) {
-    //   // Extract category from the path
-    //   const pathCategory = path.split("/category/")[1];
-    //   return pathCategory === category;
-    // }
-    return pathname === path;
+  const isActive = (menuKey: string) => {
+    const [menuPath, menuQuery] = menuKey.split("?");
+
+    if (pathname !== menuPath && !pathname.startsWith(`${menuPath}/`)) {
+      return false;
+    }
+
+    if (!menuQuery) return true;
+
+    if (typeof window === "undefined") return false;
+
+    const currentParams = new URLSearchParams(window.location.search);
+    const menuParams = new URLSearchParams(menuQuery);
+
+    for (const [key, value] of menuParams.entries()) {
+      if (currentParams.get(key) !== value) {
+        return false;
+      }
+    }
+
+    return true;
   };
 
   const toggleMenu = (key: string) => {

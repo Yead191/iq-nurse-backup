@@ -36,7 +36,10 @@ export default function PageNavbar({
     >
       {/* Left side */}
       <div className="flex items-center gap-3">
-        {icon && <div className="text-lg md:text-xl">{icon}</div>}
+        {icon && (
+          <div className="w-7 h-7 flex items-center justify-center">{icon}</div>
+        )}
+
         <div>
           <div className="flex items-end gap-2">
             <h2 className="text-base md:text-lg font-semibold text-[#000000]">

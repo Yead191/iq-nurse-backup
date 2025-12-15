@@ -2,11 +2,7 @@
 import { Empty } from "antd";
 import DosageCalculation from "./DosageCalculation";
 
-export default function CalculatorMainPanel({
-  type,
-}: {
-  type: string | null;
-}) {
+export default function CalculatorMainPanel({ type }: { type: string | null }) {
   if (!type)
     return (
       <div className="flex justify-center items-center h-[calc(100vh-100px)]">

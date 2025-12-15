@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { templateData } from "@/data/templatesData";
 import { Button, Checkbox, Empty, Tabs } from "antd";
 import { getGroupedSkillsByCategory } from "@/data/clinical-skills-data";
 import { FaClock, FaRedoAlt, FaVideo } from "react-icons/fa";
-import { CiCircleCheck } from "react-icons/ci";
 import { FaCircleCheck } from "react-icons/fa6";
 import Link from "next/link";
+import Image from "next/image";
 
 interface IProps {
   categories: {
@@ -63,16 +62,22 @@ export default function ClinicalSkills({
             <div className="border border-gray-300 mb-3 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white">
               {/* Left section */}
               <div className="flex items-start gap-3">
-                <div
-                  className="mt-1 flex items-center gap-2"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Checkbox onChange={onChange} />
+                <div className="mt-1 flex items-center gap-2">
+                  <Image
+                    src="/assets/icons/header/task.svg"
+                    alt="NCLEX"
+                    width={50}
+                    height={50}
+                    draggable={false}
+                    className="w-fit h-[24px] object-contain"
+                  />
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg">{name}</h3>
                   <p className="text-gray-500 text-sm line-clamp-1">
-                    {description}
+                    {description.length > 50
+                      ? description.slice(0, 100) + "..."
+                      : description}
                   </p>
                   <div className="flex items-center gap-4 mt-2 text-gray-600 text-sm">
                     <span className="flex items-center gap-1">

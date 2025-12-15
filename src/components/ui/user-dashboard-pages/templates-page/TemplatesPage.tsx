@@ -4,6 +4,7 @@ import TempleteList from "./TempleteList";
 import TempleteDetails from "./TempleteDetails";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import { Download, File, Printer, Share } from "lucide-react";
+import Image from "next/image";
 
 export default function TemplatesPage() {
   type CategoryState = {
@@ -21,7 +22,16 @@ export default function TemplatesPage() {
   return (
     <>
       <PageNavbar
-        icon={<File />}
+        icon={
+          <Image
+            src="/assets/icons/header/book.svg"
+            alt="NCLEX"
+            width={50}
+            height={50}
+            draggable={false}
+            className="w-fit h-[32px] object-contain"
+          />
+        }
         title="Document Templates"
         subtitle="Professional nursing documentation templates for clinical practice"
         isAiEnhanced={true}

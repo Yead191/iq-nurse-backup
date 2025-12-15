@@ -8,6 +8,8 @@ import NCLEXPracticeSection from "./sections/practice-qurestion/NCLEXPracticeSec
 import NurseQButton from "./sections/NurseNia/NurseQButton";
 import DashboardBanner from "./sections/DashboardBanner";
 import ShortMenu from "./sections/ShortMenu";
+import { StatsGrid } from "../../old-components/old-user-home/StatsGrid";
+import { weeklyStats } from "@/data/userHome";
 
 export default function UserHomeMain() {
   return (
@@ -18,6 +20,7 @@ export default function UserHomeMain() {
           <DashboardBanner />
           <ShortMenu />
           <div className="px-2 lg:px-5">
+            <StatsGrid items={weeklyStats} />
             <RecentlyViewed />
             <NCLEXPracticeSection />
             <StudyInstagramSection />

@@ -9,6 +9,7 @@ import { NclexSidebar } from "./NclexSidebar";
 import { Grid } from "antd";
 import { Bookmark, Printer, Share } from "lucide-react";
 import { toast } from "sonner";
+import Image from "next/image";
 
 export default function MedicalSurgicalPage() {
   const { lg } = Grid.useBreakpoint();
@@ -54,7 +55,16 @@ export default function MedicalSurgicalPage() {
   return (
     <section className="">
       <PageNavbar
-        icon={<BookOutlined />}
+        icon={
+          <Image
+            src="/assets/icons/document.svg"
+            alt="study notes"
+            width={50}
+            height={50}
+            draggable={false}
+            className="w-6 h-fit "
+          />
+        }
         title="Study Notes"
         subtitle="Comprehensive NCLEX study materials with interactive videos and visual aids"
         isAiEnhanced={true}
