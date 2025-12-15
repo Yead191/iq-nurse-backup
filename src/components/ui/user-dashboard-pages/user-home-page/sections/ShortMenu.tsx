@@ -87,22 +87,24 @@ export default function ShortMenu() {
       key={item.id}
       href={item.href}
       style={{ boxShadow: "0px 4px 4px 0px #00000040" }}
-      className="flex items-center gap-2 bg-[#02478D80] lg:bg-[#02478DCC] rounded-lg px-4 py-2 whitespace-nowrap min-w-fit active:scale-95 transition-transform"
+      className="flex items-center gap-2 bg-[#02478D80] lg:bg-[#02478DCC] rounded-lg px-3 md:px-4 py-2 whitespace-nowrap min-w-fit active:scale-95 transition-transform"
     >
-      <div className="w-6 h-6 shrink-0 relative flex items-center justify-center">
+      <div className="w-5 h-5 md:w-6 md:h-6 shrink-0 relative flex items-center justify-center">
         {item.image ? (
           <Image
             src={item.image}
             alt={item.title}
             width={24}
             height={24}
-            className="w-full h-[20px] object-contain"
+            className="w-full h-[16px] md:h-[20px] object-contain"
           />
         ) : (
           item.icon
         )}
       </div>
-      <span className="text-white font-medium text-sm">{item.title}</span>
+      <span className="text-white font-medium text-xs md:text-sm">
+        {item.title}
+      </span>
     </Link>
   );
 
