@@ -4,6 +4,7 @@ import { Input } from "antd";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
+import ShortMenu from "./ShortMenu";
 
 export default function DashboardBanner() {
   const [text, setText] = useState<string>("");
@@ -24,7 +25,7 @@ export default function DashboardBanner() {
             Hello, John!
           </h4>
         </div>
-        <h1 className="text-xl lg:text-5xl font-bold text-[#003877]/70 md:text-[#003877]/50 max-w-[800px] tracking-[0.2rem] md:tracking-[0.1em] leading-[130%] md:leading-[100%]">
+        <h1 className="text-xl lg:text-5xl font-bold text-[#003877]/70 md:text-[#003877]/40 max-w-[280px] md:max-w-[800px] tracking-[0.10rem] md:tracking-[0.1em] leading-[130%] md:leading-[100%]">
           Your One Platform with Infinite Possibilities
         </h1>
         {/* Search overlay */}
@@ -44,9 +45,11 @@ export default function DashboardBanner() {
             allowClear
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="md:!hidden !border-0 !w-full !h-[44px] mt-6 !bg-[#F6F7F8]"
+            className="md:!hidden !border-0 !w-full !h-[44px] mt-6 !bg-white"
           />
         </form>
+
+        <ShortMenu />
       </div>
       <Image
         src={"/assets/images/dashboard/home/banner.png"}

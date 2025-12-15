@@ -48,10 +48,10 @@ const items: MenuItem[] = [
     image: "/assets/sidebar-icons/test-icon.svg",
   },
   {
-    id: "flash-card",
-    title: "Flashcards",
-    href: "/profile/flash-card",
-    image: "/assets/sidebar-icons/flash-cards-icon.svg",
+    id: "ai-drug",
+    title: "Drug Cards",
+    href: "/profile/ai-drug",
+    image: "/assets/drug-ai/drug.svg",
   },
   {
     id: "maternity",
@@ -66,12 +66,6 @@ const items: MenuItem[] = [
     image: "/assets/sidebar-icons/calculator.svg",
   },
   {
-    id: "care-plans",
-    title: "Care Plans",
-    href: "/profile/care-plans",
-    image: "/assets/icons/assignment-icon.svg",
-  },
-  {
     id: "concept-map",
     title: "Concept Map",
     href: "/profile/concept-map",
@@ -79,39 +73,56 @@ const items: MenuItem[] = [
   },
 ];
 
+// IDs to show on large devices
+const LARGE_DEVICE_MENU_IDS = [
+  "clinicals",
+  "care-plans",
+  "concept-map",
+  "ai-drug",
+];
+
 export default function ShortMenu() {
-  return (
-    <section className="block md:hidden w-full overflow-hidden">
-      {/* Scroll container */}
-      <div className="flex overflow-x-auto gap-3 pb-4 px-4 items-center scrollbar-hide ">
-        {items.map((item) => (
-          <Link
-            key={item.id}
-            href={item.href}
-            style={{
-              boxShadow: "0px 4px 4px 0px #00000040",
-            }}
-            className="flex items-center gap-2 bg-[#FFFFFF] rounded-xl px-4 py-2 whitespace-nowrap min-w-fit active:scale-95 transition-transform"
-          >
-            <div className="w-6 h-6 shrink-0 relative flex items-center justify-center">
-              {item.image ? (
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={24}
-                  height={24}
-                  className="w-full h-[20px] object-contain"
-                />
-              ) : (
-                item.icon
-              )}
-            </div>
-            <span className="text-[#003877] font-medium text-sm">
-              {item.title}
-            </span>
-          </Link>
-        ))}
+  const renderItem = (item: MenuItem) => (
+    <Link
+      key={item.id}
+      href={item.href}
+      style={{ boxShadow: "0px 4px 4px 0px #00000040" }}
+      className="flex items-center gap-2 bg-[#02478D80] lg:bg-[#02478DCC] rounded-lg px-4 py-2 whitespace-nowrap min-w-fit active:scale-95 transition-transform"
+    >
+      <div className="w-6 h-6 shrink-0 relative flex items-center justify-center">
+        {item.image ? (
+          <Image
+            src={item.image}
+            alt={item.title}
+            width={24}
+            height={24}
+            className="w-full h-[20px] object-contain"
+          />
+        ) : (
+          item.icon
+        )}
       </div>
-    </section>
+      <span className="text-white font-medium text-sm">{item.title}</span>
+    </Link>
+  );
+
+  return (
+    <>
+      {/* Mobile: show all items */}
+      <section className="block md:hidden w-full overflow-hidden">
+        <div className="flex overflow-x-auto gap-3 py-4 px-1 items-center scrollbar-hide">
+          {items.map(renderItem)}
+        </div>
+      </section>
+
+      {/* Large devices: show selected items only */}
+      <section className="hidden md:block w-full">
+        <div className="flex gap-4 py-4 px-1">
+          {items
+            .filter((item) => LARGE_DEVICE_MENU_IDS.includes(item.id))
+            .map(renderItem)}
+        </div>
+      </section>
+    </>
   );
 }

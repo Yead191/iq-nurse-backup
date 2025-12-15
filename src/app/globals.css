@@ -225,3 +225,14 @@ html {
 .floating-edges .react-flow__handle {
   opacity: 0;
 }
+
+/* scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+
+  scrollbar-width: none; /* Firefox */
+}
