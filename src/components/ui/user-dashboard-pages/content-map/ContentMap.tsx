@@ -9,6 +9,7 @@ import { TbSitemap } from "react-icons/tb";
 import Dashboard from "./Dashboard/Dashboard";
 import MyMaps from "./MyMaps/MyMaps";
 import Shared from "./Shared/Shared";
+import Image from "next/image";
 
 const ContentMap = () => {
   const searchParams = useSearchParams();
@@ -37,7 +38,16 @@ const ContentMap = () => {
     {
       id: "2",
       label: "My Maps",
-      icon: <TbSitemap size={22} />,
+      icon: (
+        <Image
+          src="/assets/icons/network.svg"
+          alt="NCLEX"
+          width={50}
+          height={50}
+          draggable={false}
+          className="w-fit h-[22px] object-contain"
+        />
+      ),
       component: <MyMaps />,
     },
     {
@@ -51,7 +61,16 @@ const ContentMap = () => {
   return (
     <div>
       <PageNavbar
-        icon={<Network className=" text-black" />}
+        icon={
+          <Image
+            src="/assets/icons/header/concept-map.svg"
+            alt="NCLEX"
+            width={50}
+            height={50}
+            draggable={false}
+            className="w-fit h-10 object-contain"
+          />
+        }
         title="Interactive Concept Maps"
         subtitle="Visualize and understand complex concepts with interactive concept maps"
         isAiEnhanced={false}

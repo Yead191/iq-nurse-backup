@@ -8,6 +8,7 @@ import FlashCardBanner from "./FlashCardBanner";
 import { IoMdAdd, IoMdCard } from "react-icons/io";
 import { IoAnalytics } from "react-icons/io5";
 import DeskFolder from "../desk-folder/DeskFolder";
+import Image from "next/image";
 
 export const FlashCard = () => {
   const searchParams = useSearchParams();
@@ -45,7 +46,16 @@ export const FlashCard = () => {
   return (
     <div>
       <PageNavbar
-        icon={<IoMdCard className=" text-black" />}
+        icon={
+          <Image
+            src="/assets/icons/header/flashcard.svg"
+            alt="NCLEX"
+            width={50}
+            height={50}
+            draggable={false}
+            className=" h-8 w-full"
+          />
+        }
         title="Flashcards"
         subtitle="Master nursing concepts with intelligent falscards and spaced repetition"
         isAiEnhanced={false}

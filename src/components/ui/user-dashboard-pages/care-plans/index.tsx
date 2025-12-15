@@ -1,11 +1,10 @@
-import type { CarePlanContent as CarePlanContentType } from "@/data/carePlansCategories"
-import NursingInterventionsSection from "./components/sections/NursingInterventionsSection"
-import MedicationsSection from "./components/sections/MedicationsSection"
-import PatientGoalsSection from "./components/sections/PatientGoalsSection"
-
+import type { CarePlanContent as CarePlanContentType } from "@/data/carePlansCategories";
+import NursingInterventionsSection from "./components/sections/NursingInterventionsSection";
+import MedicationsSection from "./components/sections/MedicationsSection";
+import PatientGoalsSection from "./components/sections/PatientGoalsSection";
 
 interface CarePlanContentProps {
-  content: CarePlanContentType
+  content: CarePlanContentType;
 }
 
 export default function CarePlanContent({ content }: CarePlanContentProps) {
@@ -18,13 +17,17 @@ export default function CarePlanContent({ content }: CarePlanContentProps) {
 
       {/* Related To */}
       <div>
-        <h3 className="text-sm font-semibold text-gray-700 mb-2">Related To:</h3>
+        <h3 className="text-sm font-semibold text-gray-700 mb-2">
+          Related To:
+        </h3>
         <p className="text-sm text-gray-600">{content.relatedTo}</p>
       </div>
 
       {/* As Evidenced By */}
       <div>
-        <h3 className="text-sm font-semibold text-gray-700 mb-2">As Evidenced By:</h3>
+        <h3 className="text-sm font-semibold text-gray-700 mb-2">
+          As Evidenced By:
+        </h3>
         <p className="text-sm text-gray-600">{content.evidencedBy}</p>
       </div>
 
@@ -32,10 +35,14 @@ export default function CarePlanContent({ content }: CarePlanContentProps) {
       <PatientGoalsSection goals={content.patientGoals} />
 
       {/* Nursing Interventions */}
-      <NursingInterventionsSection interventions={content.nursingInterventions} />
+      <NursingInterventionsSection
+        interventions={content.nursingInterventions}
+      />
 
       {/* Medications */}
-      {content.medications.length > 0 && <MedicationsSection medications={content.medications} />}
+      {content.medications.length > 0 && (
+        <MedicationsSection medications={content.medications} />
+      )}
     </div>
-  )
+  );
 }

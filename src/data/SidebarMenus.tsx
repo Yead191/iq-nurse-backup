@@ -275,27 +275,27 @@ export const menus: Record<string, MenuItem[]> = {
     {
       key: "/profile/contact-us",
       label: "Contact Us",
-      icon: icon("/assets/sidebar-icons/contact-us-icon.svg", "contact"),
+      icon: icon("/assets/icons/support/contact.svg", "contact"),
     },
     {
       key: "/profile/about-us",
       label: "About Us",
-      icon: icon("/assets/sidebar-icons/info-icon.svg", "info", 20),
+      icon: icon("/assets/icons/support/about.svg", "info", 20),
     },
     {
       key: "/profile/faqs",
       label: "FAQs",
-      icon: icon("/assets/sidebar-icons/faq-icon.svg", "faq"),
+      icon: icon("/assets/icons/support/faq.svg", "faq"),
     },
     {
       key: "/profile/terms-service",
       label: "Terms & Condition",
-      icon: icon("/assets/sidebar-icons/terms-icon.svg", "terms", 20),
+      icon: icon("/assets/icons/support/terms.svg", "terms", 20),
     },
     {
       key: "/profile/privacy-policy",
       label: "Privacy & Policy",
-      icon: icon("/assets/sidebar-icons/privacy-icon.svg", "privacy"),
+      icon: icon("/assets/icons/support/privacy.svg", "privacy"),
     },
   ],
 };

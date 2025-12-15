@@ -1,26 +1,38 @@
 "use client";
 import React, { useState } from "react";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import { Download} from "lucide-react";
+import { Download } from "lucide-react";
 import { GrDocumentTest } from "react-icons/gr";
 import DrugSearchList from "@/components/ui/user-dashboard-pages/ai-drug/DrugSearchList";
-import { useParams} from "next/navigation";
+import { useParams } from "next/navigation";
+import Image from "next/image";
 
-export default function AIDrugLayout({ children }: { children: React.ReactNode }) {
-
+export default function AIDrugLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [isSideBarSelect, setIsSideBarSelect] = useState<boolean>(false);
   const [setselectedId, setSetselectedId] = useState<string | null>(null);
-  
-  console.log({setselectedId})
-  const params = useParams();
-  const drugId = params['drug-id'];
 
+  console.log({ setselectedId });
+  const params = useParams();
+  const drugId = params["drug-id"];
 
   return (
     <>
       <PageNavbar
         title="AI Drug Card Generator"
-        icon={<GrDocumentTest />}
+        icon={
+          <Image
+            src="/assets/icons/header/pill.svg"
+            alt="NCLEX"
+            width={50}
+            height={50}
+            draggable={false}
+            className="w-fit h-10 object-contain"
+          />
+        }
         subtitle="Generate comprehensive medication reference cards with AI-powered drug information"
         isAiEnhanced={true}
         actions={[
@@ -32,7 +44,7 @@ export default function AIDrugLayout({ children }: { children: React.ReactNode }
           },
         ]}
       />
-      
+
       <div className="flex flex-col md:flex-row sm:mx-2 sm:gap-2 ">
         {/* Calculator List */}
         <div className={` ${setselectedId ? "hidden" : "block"} md:block`}>
@@ -72,5 +84,4 @@ export default function AIDrugLayout({ children }: { children: React.ReactNode }
       </div>
     </>
   );
-};
-
+}

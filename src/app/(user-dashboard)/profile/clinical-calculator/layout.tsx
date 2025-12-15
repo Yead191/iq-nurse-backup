@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import { Download, File, Printer, Share } from "lucide-react";
 import CalculatorCategoryList from "@/components/ui/user-dashboard-pages/clinical-calculator/CalculatorCategoryList";
+import Image from "next/image";
 
 interface ClinicalCalculatorProps {
   children: React.ReactNode;
@@ -21,7 +22,17 @@ const ClinicalCalculator: React.FC<ClinicalCalculatorProps> = ({
   return (
     <>
       <PageNavbar
-        title="🔢 Clinical Calculators"
+        icon={
+          <Image
+            src="/assets/icons/header/math.svg"
+            alt="NCLEX"
+            width={50}
+            height={50}
+            draggable={false}
+            className="w-fit h-[32px] object-contain"
+          />
+        }
+        title="Clinical Calculators"
         subtitle="Essential calculation tools for safe and accurate nursing practive"
         isAiEnhanced={true}
         actions={[

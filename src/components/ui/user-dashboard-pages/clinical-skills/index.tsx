@@ -5,6 +5,7 @@ import SkillSidebar from "./SkillSidebar";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import { File } from "lucide-react";
 import { Grid } from "antd";
+import Image from "next/image";
 
 export default function ClinicalSkills() {
   const { lg } = Grid.useBreakpoint();
@@ -24,7 +25,16 @@ export default function ClinicalSkills() {
   return (
     <>
       <PageNavbar
-        icon={<File />}
+        icon={
+          <Image
+            src="/assets/icons/header/task.svg"
+            alt="NCLEX"
+            width={50}
+            height={50}
+            draggable={false}
+            className="w-fit h-[32px] object-contain"
+          />
+        }
         title="Document Templates"
         subtitle="Professional nursing documentation  templates for clinical practice"
         isAiEnhanced={true}

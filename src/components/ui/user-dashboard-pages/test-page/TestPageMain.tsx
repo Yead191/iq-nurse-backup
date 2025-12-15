@@ -8,6 +8,7 @@ import { IoAnalytics } from "react-icons/io5";
 import PreparationTab from "./preparation-tab/PreparationTab";
 import PersonalizeQuizTab from "./PersonalizeQuizTab/PersonalizeQuizTab";
 import PerformanceAnalytics from "./performance-analytics/PerformanceAnalytics";
+import Image from "next/image";
 
 export default function TestPageMain() {
   const searchParams = useSearchParams();
@@ -51,7 +52,16 @@ export default function TestPageMain() {
   return (
     <div>
       <PageNavbar
-        icon={<BookOpen className="text-black fill-current" />}
+        icon={
+          <Image
+            src="/assets/icons/header/grade.png"
+            alt="NCLEX"
+            width={50}
+            height={50}
+            draggable={false}
+            className="w-full h-fit "
+          />
+        }
         title="Master the NCLEX with Confidence"
         subtitle="Practice with targeted questions, track your progress, and compare with peers to boost your chances of success."
         isAiEnhanced={false}
