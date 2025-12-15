@@ -131,7 +131,7 @@ export default function MobileHeader() {
             >
               <Button
                 type="text"
-                className="flex items-center gap-2 rounded-xl bg-white px-2 py-1"
+                className="flex items-center gap-2 rounded-xl !bg-[#F6F8FB] px-2 py-1"
               >
                 <img
                   src={currentLang.flag}

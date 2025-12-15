@@ -6,8 +6,10 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { useRouter } from "next/navigation";
+import { Grid } from "antd";
 export default function ProfilePanel() {
   const router = useRouter();
+  const { lg } = Grid.useBreakpoint();
   const PROFILE_ITEMS = [
     {
       key: "account",
@@ -16,8 +18,8 @@ export default function ProfilePanel() {
           <UserOutlined style={{ color: "#DC6803" }} />
         </span>
       ),
-      label: "Account & Security",
-      href: "/profile/account-security",
+      label: lg ? "Account & Security" : "Account",
+      href: lg ? "/profile/account-security" : "/profile/account",
     },
     {
       key: "subscription",
