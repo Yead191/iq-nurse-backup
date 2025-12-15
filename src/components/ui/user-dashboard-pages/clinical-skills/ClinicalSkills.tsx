@@ -75,7 +75,9 @@ export default function ClinicalSkills({
                 <div>
                   <h3 className="font-semibold text-lg">{name}</h3>
                   <p className="text-gray-500 text-sm line-clamp-1">
-                    {description}
+                    {description.length > 50
+                      ? description.slice(0, 100) + "..."
+                      : description}
                   </p>
                   <div className="flex items-center gap-4 mt-2 text-gray-600 text-sm">
                     <span className="flex items-center gap-1">
