@@ -65,7 +65,6 @@ export default function Banner() {
           <div className="relative flex justify-center lg:justify-end z-10">
             {/* Glow Effect Background */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-500/20 rounded-full blur-[100px] pointer-events-none" />
-
             <Image
               src="/assets/images/home/robot-nurse.png"
               alt="AI Nurse Assistant"
