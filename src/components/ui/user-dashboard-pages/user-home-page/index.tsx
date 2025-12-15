@@ -7,7 +7,6 @@ import TrendingPosts from "./sections/TrendingPosts";
 import NCLEXPracticeSection from "./sections/practice-qurestion/NCLEXPracticeSection";
 import NurseQButton from "./sections/NurseNia/NurseQButton";
 import DashboardBanner from "./sections/DashboardBanner";
-import ShortMenu from "./sections/ShortMenu";
 import { StatsGrid } from "../../old-components/old-user-home/StatsGrid";
 import { weeklyStats } from "@/data/userHome";
 
@@ -18,7 +17,7 @@ export default function UserHomeMain() {
         {/* Left/Main Column */}
         <section className="lg:col-span-9 space-y-6 lg:h-[calc(100vh-90px)] overflow-y-auto pt-4 lg:pt-8 ">
           <DashboardBanner />
-          <ShortMenu />
+          {/* <ShortMenu /> */}
           <div className="px-2 lg:px-5">
             <StatsGrid items={weeklyStats} />
             <RecentlyViewed />
