@@ -153,15 +153,14 @@ export default function MobileHeader() {
             </Badge>
 
             {/* Profile */}
-            <Dropdown trigger={["click"]} popupRender={() => <ProfilePanel />}>
+            <Link href={"/profile/account"}>
               <Button
                 type="text"
                 className="flex items-center gap-3 rounded-xl !bg-[#F6F8FB] px-1 !py-0.5"
               >
                 <Avatar src={profile.image} size={28} />
-                <DownOutlined className="hidden text-gray-500 md:block" />
               </Button>
-            </Dropdown>
+            </Link>
           </div>
         </div>
       </div>
