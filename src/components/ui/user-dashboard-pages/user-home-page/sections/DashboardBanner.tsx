@@ -11,7 +11,7 @@ export default function DashboardBanner() {
   return (
     <section className=" flex flex-col gap-2 md:gap-6 md:justify-center bg-linear-to-b from-transparent to-[#D9ECFF] px-4 lg:px-5 relative min-h-[300px] md:min-h-[400px] rounded-b-lg overflow-hidden">
       <div className="flex flex-col justify-start md:justify-center items-start z-10">
-        <div className="flex items-end gap-2 mb-2">
+        <div className="flex items-end gap-2 mb-3">
           <Image
             src={"/assets/icons/user-home/welcome-icon.png"}
             alt="welcome icon"
