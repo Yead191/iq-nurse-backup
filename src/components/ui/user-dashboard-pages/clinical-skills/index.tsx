@@ -27,7 +27,7 @@ export default function ClinicalSkills() {
       <PageNavbar
         icon={
           <Image
-            src="/assets/icons/header/task.svg"
+            src="/assets/icons/header/clinical.svg"
             alt="NCLEX"
             width={50}
             height={50}
@@ -35,8 +35,8 @@ export default function ClinicalSkills() {
             className="w-fit h-[32px] object-contain"
           />
         }
-        title="Document Templates"
-        subtitle="Professional nursing documentation  templates for clinical practice"
+        title="Clinical Skill"
+        subtitle="Master essential nursing skills with IQ Nurse"
         isAiEnhanced={true}
       />
 
