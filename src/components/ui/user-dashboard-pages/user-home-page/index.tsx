@@ -23,7 +23,7 @@ export default function UserHomeMain() {
             <RecentlyViewed />
             <NCLEXPracticeSection />
             <StudyInstagramSection />
-            <TrendingPosts />
+            {/* <TrendingPosts /> */}
           </div>
         </section>
 

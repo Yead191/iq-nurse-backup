@@ -50,7 +50,7 @@ export default function Pricing() {
                 <span className="text-5xl font-bold text-white">
                   ${plan.price}
                 </span>
-                <span className="text-gray-400 ml-2">/month</span>
+                <span className="text-gray-400 ml-2">/{plan.duration}</span>
               </div>
               <p className="text-gray-400 text-sm h-10">{plan.description}</p>
             </div>

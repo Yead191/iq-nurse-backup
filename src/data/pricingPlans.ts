@@ -1,6 +1,7 @@
 interface PricingPlan {
   title: string;
   price: string;
+  duration: string;
   description: string;
   features: string[];
   buttonText: string;
@@ -9,8 +10,9 @@ interface PricingPlan {
 
 const pricingPlans: PricingPlan[] = [
   {
-    title: "Basic",
-    price: "19",
+    title: "Monthly",
+    price: "19.99",
+    duration: "1 month",
     description: "Perfect for getting started with essential tools",
     features: [
       "Access to Nurse Nia AI Chatbot",
@@ -25,9 +27,10 @@ const pricingPlans: PricingPlan[] = [
     popular: false,
   },
   {
-    title: "Pro",
-    price: "39",
-    description: "Complete access for serious nursing students",
+    title: "Annual",
+    price: "149.00",
+    duration: "12 months",
+    description: "Save 40% & Complete access for serious nursing students",
     features: [
       "Everything in Basic, plus:",
       "Unlimited AI tutoring sessions",
@@ -44,8 +47,9 @@ const pricingPlans: PricingPlan[] = [
     popular: true,
   },
   {
-    title: "Premium",
-    price: "59",
+    title: "Program-long",
+    price: "349.99",
+    duration: "36 months",
     description: "Ultimate package with exclusive features",
     features: [
       "Everything in Pro, plus:",

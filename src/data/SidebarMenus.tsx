@@ -225,7 +225,7 @@ export const menus: Record<string, MenuItem[]> = {
     },
     {
       key: "/profile/tests",
-      label: "Exams",
+      label: "NCLEX Exams",
       icon: icon("/assets/sidebar-icons/test-icon.svg", "test"),
       subtitle: "NCLEX Tests / Next Gen",
     },
