@@ -1,15 +1,3 @@
-import {
-  Activity,
-  Brain,
-  Pill,
-  Calculator,
-  HeartPulse,
-  Smile,
-  BookOpen,
-  Stethoscope,
-  Baby,
-  BabyIcon,
-} from "lucide-react";
 import Image from "next/image";
 export interface MenuItem {
   key: string;
@@ -197,7 +185,7 @@ export const menus: Record<string, MenuItem[]> = {
     {
       key: "/profile/body-system",
       label: "Body System",
-      icon: icon("/assets/sidebar-icons/body-system-icon.svg", "body-system"),
+      icon: icon("/assets/icons/anatomy-icon.svg", "body-system"),
     },
     {
       key: "/profile/clinicals",

@@ -20,7 +20,7 @@ export default function UserHomeMain() {
           {/* <ShortMenu /> */}
           <div className="px-2 lg:px-5">
             <StatsGrid items={weeklyStats} />
-            <RecentlyViewed />
+            {/* <RecentlyViewed /> */}
             <NCLEXPracticeSection />
             <StudyInstagramSection />
             {/* <TrendingPosts /> */}
