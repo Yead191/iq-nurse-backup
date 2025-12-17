@@ -142,16 +142,6 @@ export default function MyLibraryPage() {
         title="My Library"
         subtitle="Organize and manage your bookmarked study notes in custom folders"
         isAiEnhanced={true}
-        actions={[
-          {
-            label: "New Folder",
-            icon: <FolderPlus size={18} className="mt-1" />,
-            onClick: () => {
-              setIsCreateModalOpen(true);
-            },
-            isPrimary: true,
-          },
-        ]}
       />
       {/* <PageBreadcrumb
         itemImg={"/assets/icons/library-icon.svg"}

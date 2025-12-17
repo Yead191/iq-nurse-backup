@@ -1,7 +1,7 @@
 "use client";
 
 import DetailsHeader from "@/components/shared/DetailsHeader";
-import { Bookmark, Printer, Share2 } from "lucide-react";
+import { Bookmark, Share2 } from "lucide-react";
 import React from "react";
 import { toast } from "sonner";
 import NoteContentArea from "../NoteContentArea";
@@ -34,13 +34,8 @@ export default function SingleNoteMain({ id }: any) {
             icon: Share2,
             label: "Share",
             hoverColor: "text-green-600",
-            onClick: () => console.log("Shared!"),
-          },
-          {
-            icon: Printer,
-            label: "Print",
-            hoverColor: "text-green-600",
-            onClick: () => console.log("Print!"),
+            className: "text-[#02478D] fill-current",
+            onClick: () => toast.success("Shared!"),
           },
         ]}
       />

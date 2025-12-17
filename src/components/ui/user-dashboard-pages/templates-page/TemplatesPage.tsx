@@ -35,26 +35,6 @@ export default function TemplatesPage() {
         title="Document Templates"
         subtitle="Professional nursing documentation templates for clinical practice"
         isAiEnhanced={true}
-        actions={[
-          {
-            label: "Share",
-            icon: <Share size={18} className="mt-1" />,
-            onClick: () => console.log("Share"),
-            isPrimary: true,
-          },
-          {
-            label: "Print",
-            icon: <Printer size={18} className="mt-1.5" />,
-            onClick: () => console.log("Print"),
-            isPrimary: true,
-          },
-          {
-            label: "Download PDF",
-            icon: <Download size={18} className="mt-1" />,
-            onClick: () => console.log("Download"),
-            isPrimary: true,
-          },
-        ]}
       />
       <div className="grid grid-cols-1 md:grid-cols-12">
         {/* Template List */}

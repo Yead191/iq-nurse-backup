@@ -35,14 +35,6 @@ export default function AIDrugLayout({
         }
         subtitle="Generate comprehensive medication reference cards with AI-powered drug information"
         isAiEnhanced={true}
-        actions={[
-          {
-            label: "Download",
-            icon: <Download size={18} className="mt-1" />,
-            onClick: () => console.log("Download"),
-            isPrimary: true,
-          },
-        ]}
       />
 
       <div className="flex flex-col md:flex-row sm:mx-2 sm:gap-2 ">

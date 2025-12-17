@@ -83,13 +83,8 @@ export default function SurgicalDetailsPage({ id }: { id: any }) {
             icon: Share2,
             label: "Share",
             hoverColor: "text-green-600",
+            className: "text-[#02478D] fill-current",
             onClick: () => toast.success("Shared!"),
-          },
-          {
-            icon: Printer,
-            label: "print",
-            hoverColor: "text-green-600",
-            onClick: () => console.log("print!"),
           },
         ]}
       />

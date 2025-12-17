@@ -3,22 +3,18 @@
 import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Input, Button, InputRef, Badge, Dropdown, Avatar } from "antd";
-import { DownOutlined, SearchOutlined } from "@ant-design/icons";
-import { BellIcon, ChevronLeft, UserRoundCog } from "lucide-react";
+import { Button, InputRef, Badge, Dropdown, Avatar } from "antd";
+import { DownOutlined } from "@ant-design/icons";
+import { ChevronLeft } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-import VoiceToText from "../VoiceToText";
 import LanguagePanel from "./header/LanguagePanel";
 import { LangKey, LANGUAGES } from "@/data/headerConstants";
-import { CiLight } from "react-icons/ci";
+
 import { IoMdNotificationsOutline } from "react-icons/io";
-import ProfilePanel from "./header/ProfilePanel";
+
 import { profile } from "./header/Header";
-import { Typography } from "antd";
-const { Text } = Typography;
 
 export default function MobileHeader() {
-  const inputRef = useRef<InputRef>(null);
   const pathname = usePathname();
   const router = useRouter();
   const [lang, setLang] = React.useState<LangKey>("en");
