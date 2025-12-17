@@ -2,6 +2,7 @@
 
 import { ChevronDown, ChevronRight, Folder } from "lucide-react";
 import DocumentationCard from "./DocumentationCard";
+import Image from "next/image";
 
 interface CategoryItemProps {
   category: any;
@@ -39,9 +40,13 @@ export function CategoryItem({
       >
         <div className="flex items-center gap-3">
           {/* <div className={`w-9 h-9 rounded-md ${category.color}`} /> */}
-          <Folder
-            style={{ color: category.color }}
-            className={`w-8 h-8 fill-current`}
+          <Image
+            src="/assets/icons/folder-ico.svg"
+            alt="folder"
+            width={80}
+            height={80}
+            draggable={false}
+            className="w-9 h-fit "
           />
           <div>
             <div

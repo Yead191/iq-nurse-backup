@@ -40,16 +40,16 @@ export default function BottomNavigation({
       icon: "/assets/icons/calendar-icon.svg",
       label: "Calendar",
     },
-    {
-      key: "/profile/community-home",
-      icon: "/assets/sidebar-icons/community-icon.svg",
-      label: "Community",
-    },
     // {
-    //   key: "/profile/account",
-    //   icon: "/assets/icons/account-icon.svg",
-    //   label: "Account",
+    //   key: "/profile/community-home",
+    //   icon: "/assets/sidebar-icons/community-icon.svg",
+    //   label: "Community",
     // },
+    {
+      key: "/profile/my-notepad",
+      icon: "/assets/icons/note-icon.svg",
+      label: "My Notepad",
+    },
     {
       key: "/profile/my-library",
       icon: "/assets/sidebar-icons/my-library-icon.svg",
