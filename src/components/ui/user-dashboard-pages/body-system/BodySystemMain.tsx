@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { StickyNote, Bookmark, ChevronUp } from "lucide-react";
+import { StickyNote, Bookmark, ChevronUp, Share2 } from "lucide-react";
 import { BodySystem, bodySystems } from "@/data/bodySystemData";
 import CategoryButtons from "../patient-assessment-old/CategoryButtons";
 import SystemContentPanel from "./SystemContentPanel";
@@ -61,7 +61,7 @@ export default function BodySystemMain() {
           actions={[
             {
               label: "Share",
-              icon: <RiShareForwardFill size={18} className="mt-1" />,
+              icon: <Share2 size={18} className="mt-1" />,
               onClick: () => console.log("Share"),
               isPrimary: false,
             },
@@ -76,6 +76,7 @@ export default function BodySystemMain() {
       ) : (
         <DetailsHeader
           title={selectedSystem?.title}
+          primaryBg={false}
           actions={[
             {
               icon: Bookmark,
@@ -84,10 +85,11 @@ export default function BodySystemMain() {
               onClick: () => toast.success("Bookmarked!"),
             },
             {
-              icon: RiShareForwardFill,
+              icon: Share2,
               label: "Share",
               hoverColor: "text-green-600",
-              onClick: () => console.log("Shared!"),
+              className: "text-[#02478D] fill-current",
+              onClick: () => toast.success("Shared!"),
             },
           ]}
         />

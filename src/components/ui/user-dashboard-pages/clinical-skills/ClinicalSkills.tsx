@@ -62,19 +62,19 @@ export default function ClinicalSkills({
             <div className="border border-gray-300 mb-3 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white">
               {/* Left section */}
               <div className="flex items-start gap-3">
-                <div className="mt-1 flex items-center gap-2">
+                <div className="mt-1 flex items-center gap-2 w-[32px] ">
                   <Image
                     src="/assets/icons/header/task.svg"
                     alt="NCLEX"
                     width={50}
                     height={50}
                     draggable={false}
-                    className="w-fit h-[24px] object-contain"
+                    className="w-full md:w-fit h-[24px] object-contain"
                   />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3 className="font-semibold text-lg">{name}</h3>
-                  <p className="text-gray-500 text-sm line-clamp-1">
+                  <p className="text-gray-500 text-sm line-clamp-1 text-wrap">
                     {description.length > 50
                       ? description.slice(0, 100) + "..."
                       : description}

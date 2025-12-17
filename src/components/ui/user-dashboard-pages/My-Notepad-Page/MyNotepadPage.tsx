@@ -203,23 +203,23 @@ export default function MyNotepadPage() {
         title="Smart Notepad"
         subtitle="Create,organize,and enhance your study notes with AI assistance"
         isAiEnhanced={true}
-        actions={[
-          ...(lg
-            ? [
-                {
-                  label: "Export All",
-                  icon: <Download size={18} className="mt-1" />,
-                  onClick: () => console.log("Download"),
-                },
-              ]
-            : []),
-          {
-            label: "New Note",
-            icon: <Plus size={18} className="mt-1.5" />,
-            onClick: () => console.log("Create Note"),
-            isPrimary: true,
-          },
-        ]}
+        // actions={[
+        //   ...(lg
+        //     ? [
+        //         {
+        //           label: "Export All",
+        //           icon: <Download size={18} className="mt-1" />,
+        //           onClick: () => console.log("Download"),
+        //         },
+        //       ]
+        //     : []),
+        //   {
+        //     label: "New Note",
+        //     icon: <Plus size={18} className="mt-1.5" />,
+        //     onClick: () => console.log("Create Note"),
+        //     isPrimary: true,
+        //   },
+        // ]}
       />
       <div className="h-[calc(100vh-200px)] lg:h-[calc(100vh-110px)] flex flex-col px-4 lg:px-5  ">
         <div className="flex-1 flex overflow-hidden">

@@ -2,10 +2,11 @@
 import React from "react";
 import DetailsHeader from "@/components/shared/DetailsHeader";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import { File } from "lucide-react";
+import { Bookmark, File, Share2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { Grid } from "antd";
 import Image from "next/image";
+import { toast } from "sonner";
 export default function AssessmentHeader() {
   const pathname = usePathname();
   const { lg } = Grid.useBreakpoint();
@@ -32,6 +33,21 @@ export default function AssessmentHeader() {
         <DetailsHeader
           title="Patient Assessment"
           back="/profile/patient-assessment"
+          actions={[
+            {
+              icon: Bookmark,
+              label: "Bookmark",
+              hoverColor: "text-blue-600",
+              onClick: () => toast.success("Bookmarked!"),
+            },
+            {
+              icon: Share2,
+              label: "Share",
+              hoverColor: "text-green-600",
+              className: "text-[#02478D] fill-current",
+              onClick: () => toast.success("Shared!"),
+            },
+          ]}
         />
       )}
     </>

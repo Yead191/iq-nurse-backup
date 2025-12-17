@@ -11,6 +11,7 @@ import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import { BookmarkIcon, FolderPlus } from "lucide-react";
 import { Grid } from "antd";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 // Type for mobile view state
 type MobileView = "folders" | "pages" | "content";
@@ -128,20 +129,19 @@ export default function MyLibraryPage() {
   return (
     <div>
       <PageNavbar
-        icon={<BookmarkIcon className="fill-current text-black" />}
+        icon={
+          <Image
+            src="/assets/icons/header/save.svg"
+            alt="NCLEX"
+            width={50}
+            height={50}
+            draggable={false}
+            className="w-fit h-[32px] object-contain"
+          />
+        }
         title="My Library"
         subtitle="Organize and manage your bookmarked study notes in custom folders"
         isAiEnhanced={true}
-        actions={[
-          {
-            label: "New Folder",
-            icon: <FolderPlus size={18} className="mt-1" />,
-            onClick: () => {
-              setIsCreateModalOpen(true);
-            },
-            isPrimary: true,
-          },
-        ]}
       />
       {/* <PageBreadcrumb
         itemImg={"/assets/icons/library-icon.svg"}

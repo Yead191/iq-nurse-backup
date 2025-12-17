@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import DocumentationCard from "../study-notes-page/DocumentationCard";
 import { assessmentCategories } from "@/data/assessmentCategories";
 import { Input, Grid } from "antd";
+import Image from "next/image";
 
 export default function AssessmentSidebar() {
   const router = useRouter();
@@ -83,9 +84,13 @@ export default function AssessmentSidebar() {
             }`}
           >
             <div className="flex items-center gap-3">
-              <Folder
-                style={{ color: cat.color }}
-                className={`w-8 h-8 fill-current`}
+              <Image
+                src="/assets/icons/folder-ico.svg"
+                alt="folder"
+                width={80}
+                height={80}
+                draggable={false}
+                className="w-9 h-fit "
               />
               <div>
                 <div className="font-medium text-gray-900 text-sm">

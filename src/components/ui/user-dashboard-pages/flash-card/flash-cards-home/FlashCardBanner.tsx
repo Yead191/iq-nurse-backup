@@ -21,17 +21,6 @@ const flashCards = [
     btnColor: "rgba(0, 56, 119, 1)",
     path: "/profile/flash-card/create-flash/start-scratch",
   },
-  {
-    id: 3,
-    logo: "/assets/flashcard/logo1.png",
-    title: "AI Assistant",
-    description:
-      "Let our AI help you generate flashcards from your notes or topics",
-    buttonText: "Use AI Help",
-    buttonStyle: "success",
-    btnColor: "rgba(111, 179, 184, 1)",
-    path: "/profile/flash-card/creat-flash-with-ai",
-  },
 ];
 
 const FlashCardBanner = () => {

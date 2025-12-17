@@ -15,7 +15,7 @@ const items: MenuItem[] = [
     id: "body-systems",
     title: "Body Systems",
     href: "/profile/body-system",
-    image: "/assets/icons/anatomy-icon.svg",
+    image: "/assets/sidebar-icons/body-system-icon.svg",
   },
   {
     id: "clinicals",

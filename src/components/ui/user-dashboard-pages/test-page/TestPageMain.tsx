@@ -35,12 +35,12 @@ export default function TestPageMain() {
       icon: <IoAnalytics size={22} />,
       component: <PreparationTab />,
     },
-    {
-      id: "2",
-      label: "Personalized Quiz",
-      icon: <IoAnalytics size={22} />,
-      component: <PersonalizeQuizTab />,
-    },
+    // {
+    //   id: "2",
+    //   label: "Personalized Quiz",
+    //   icon: <IoAnalytics size={22} />,
+    //   component: <PersonalizeQuizTab />,
+    // },
     {
       id: "3",
       label: "Progress",
