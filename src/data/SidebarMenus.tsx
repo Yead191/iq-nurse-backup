@@ -183,6 +183,17 @@ export const menus: Record<string, MenuItem[]> = {
     //   ],
     // },
     {
+      key: "/profile/tests",
+      label: "NCLEX Exams",
+      icon: icon("/assets/sidebar-icons/test-icon.svg", "test"),
+      subtitle: "NCLEX Tests / Next Gen",
+    },
+    {
+      key: "/profile/flash-card",
+      label: "Flashcards",
+      icon: icon("/assets/sidebar-icons/flash-cards-icon.svg", "flashcards"),
+    },
+    {
       key: "/profile/body-system",
       label: "Body System",
       icon: icon("/assets/icons/anatomy-icon.svg", "body-system"),
@@ -210,17 +221,6 @@ export const menus: Record<string, MenuItem[]> = {
       key: "/profile/templates",
       label: "Download & Templates",
       icon: icon("/assets/sidebar-icons/template-icon.svg", "template"),
-    },
-    {
-      key: "/profile/tests",
-      label: "NCLEX Exams",
-      icon: icon("/assets/sidebar-icons/test-icon.svg", "test"),
-      subtitle: "NCLEX Tests / Next Gen",
-    },
-    {
-      key: "/profile/flash-card",
-      label: "Flashcards",
-      icon: icon("/assets/sidebar-icons/flash-cards-icon.svg", "flashcards"),
     },
   ],
   studyTools: [
