@@ -1,13 +1,14 @@
-import CarePlanHeader from "@/components/ui/user-dashboard-pages/care-plans/components/CarePlanHeader";
-import CarePlanSidebar from "@/components/ui/user-dashboard-pages/care-plans/components/CarePlanSidebar";
-import type React from "react";
+import TemplateHeader from "@/components/ui/user-dashboard-pages/template/component/TemplateHeader";
+import TemplateSidebar from "@/components/ui/user-dashboard-pages/template/component/TemplateSidebar";
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
     <section className="relative">
-      <CarePlanHeader />
+      <TemplateHeader />
+
       <div className="flex">
-        <CarePlanSidebar />
+        <TemplateSidebar basePath="/profile/templates" />
+
         <div className="flex-1 lg:h-[calc(100vh-110px)] overflow-auto lg:px-5">
           {children}
         </div>

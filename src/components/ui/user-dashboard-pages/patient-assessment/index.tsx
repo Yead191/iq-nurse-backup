@@ -40,7 +40,7 @@ export default function AssessmentPage({ id }: AssessmentPageProps) {
 
   if (!sub) return <div>Not found</div>;
   return (
-    <section className="space-y-6">
+    <section className="space-y-6 px-4 lg:px-5">
       <div
         style={{
           boxShadow: "4px 4px 42px 0px rgba(0, 0, 0, 0.07)",

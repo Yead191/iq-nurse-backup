@@ -1,6 +1,9 @@
-import TemplatesPage from "@/components/ui/user-dashboard-pages/templates-page/TemplatesPage";
-import React from "react";
-
 export default function page() {
-  return <TemplatesPage />;
+  return (
+    <div className="flex items-center justify-center h-full">
+      <p className="text-gray-500">
+        Select a template from the sidebar to view details
+      </p>
+    </div>
+  );
 }

@@ -1,4 +1,3 @@
-import { templateData } from "@/data/templatesData";
 import { IoFolderSharp, IoSearchOutline } from "react-icons/io5";
 import { Empty, Input, List, Tooltip } from "antd";
 import { useState } from "react";
