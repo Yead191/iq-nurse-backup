@@ -1,23 +1,18 @@
+"use client";
 import { LuUserRoundCheck } from "react-icons/lu";
-import { useState, useEffect } from "react";
-import { templateData } from "@/data/templatesData";
+import { useState } from "react";
 import { Empty } from "antd";
-import DosageCalculation from "../clinical-calculator/calculators/DosageCalculation";
+import { TemplateData } from "@/data/templatesData";
 
 interface IProps {
   categories: {
     categoryId: string | null;
     templeteId: string | null;
   };
-  setIsSideBarSelect: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function TempleteDetails({
-  categories,
-  setIsSideBarSelect,
-}: IProps) {
-  const { getTemplateData } = templateData;
-  const templete = getTemplateData.categories
+export default function TempleteDetails({ categories }: IProps) {
+  const templete = TemplateData.categories
     .find(({ id }) => id === categories?.categoryId)
     ?.templates.find(
       (template) => template.id === categories.templeteId
@@ -46,28 +41,8 @@ export default function TempleteDetails({
   }
 
   return (
-    <div className=" px-4 sm:px-6 lg:px-8 relative  max-h-[calc(100vh-120px)] overflow-y-auto">
-      <button
-        onClick={() => setIsSideBarSelect((prev) => !prev)}
-        className="sm:hidden cursor-pointer items-center text-gray-600 hover:text-gray-900 col-span-3 mb-4 flex"
-      >
-        <svg
-          className="w-5 h-5 mr-2"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
-        Back
-      </button>
-
-      <div className="bg-[#0068DD] flex items-center gap-2 text-xl text-white py-5 sm:py-7 px-4 sm:px-8 mb-4 rounded-t-xl sticky top-0 z-50">
+    <div className=" px-4 lg:px-5 relative  lg:max-h-[calc(100vh-120px)] overflow-y-auto py-4 lg:py-0">
+      <div className="bg-[#0068DD] flex items-center gap-2 text-xl text-white py-5 sm:py-7 px-4 sm:px-8 mb-4 rounded-t-xl ">
         <LuUserRoundCheck className="flex-shrink-0" />
         <h1 className="text-white sm:text-xl line-clamp-2">{templete?.name}</h1>
       </div>

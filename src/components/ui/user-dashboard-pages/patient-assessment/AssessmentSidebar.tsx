@@ -56,7 +56,7 @@ export default function AssessmentSidebar() {
 
   return (
     <aside
-      className={`lg:h-[calc(100vh-120px)] overflow-y-auto p-3 boxShadow -mt-6 md:mt-0
+      className={`h-full lg:h-[calc(100vh-120px)] overflow-y-auto p-3 boxShadow -mt-6 md:mt-0
       ${lg ? "w-80" : "w-full"}`}
     >
       <Input
