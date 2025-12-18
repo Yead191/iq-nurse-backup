@@ -1,8 +1,6 @@
 import { clinicalCalculatorData } from "@/data/clinicalCalculatorData";
-import { templateData } from "@/data/templatesData";
 import { useRouter } from "next/navigation";
 import { FaListUl } from "react-icons/fa";
-import { IoSearchOutline } from "react-icons/io5";
 
 export type CategoryState = {
   categoryId: string | null;
@@ -13,12 +11,10 @@ interface IProps {
   setIsSideBarSelect: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function CalculatorCategoryList({
-  setIsSideBarSelect,
-}: IProps) {
+export default function CalculatorCategoryList({ setIsSideBarSelect }: IProps) {
   const { getCaluclatorData } = clinicalCalculatorData;
 
- const router = useRouter();
+  const router = useRouter();
   return (
     <aside className="w-full sm:w-sm bg-white shadow-xl  scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 px-4 m-auto">
       {/* Search */}
