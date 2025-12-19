@@ -50,7 +50,7 @@ export function NCLEXQuestionsSection() {
   const remaining = categories.slice(5);
 
   return (
-    <section className="w-full py-8 boxShadow px-4 py-6 lg:p-5 rounded-xl my-8">
+    <section className="w-full py-6 boxShadow px-4 lg:p-5 rounded-xl my-8">
       {/* Header */}
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-lg font-semibold text-[#0f172a]">
@@ -60,7 +60,7 @@ export function NCLEXQuestionsSection() {
         {/* Desktop toggle */}
         <button
           onClick={() => setShowAll((prev) => !prev)}
-          className="hidden text-sm font-medium text-[#003877] hover:underline lg:block cursor-pointer"
+          className="hidden font-medium text-[#003877] hover:underline lg:block cursor-pointer"
         >
           {showAll ? "Show Less" : "See All"}
         </button>
