@@ -24,32 +24,32 @@ export default function ClinicalCalculatorHeader() {
               width={50}
               height={50}
               draggable={false}
-              className="w-fit h-[32px] object-contain"
+              className="w-fit h-[60px] object-contain"
             />
           }
           title="Clinical Calculators"
           subtitle="Essential calculation tools for safe and accurate nursing practice"
           isAiEnhanced
-          actions={[
-            {
-              label: "Share",
-              icon: <Share size={18} className="mt-1" />,
-              onClick: () => console.log("Share"),
-              isPrimary: true,
-            },
-            {
-              label: "Print",
-              icon: <Printer size={18} className="mt-1.5" />,
-              onClick: () => console.log("Print"),
-              isPrimary: true,
-            },
-            {
-              label: "Download PDF",
-              icon: <Download size={18} className="mt-1" />,
-              onClick: () => console.log("Download"),
-              isPrimary: true,
-            },
-          ]}
+          //   actions={[
+          //     {
+          //       label: "Share",
+          //       icon: <Share size={18} className="mt-1" />,
+          //       onClick: () => console.log("Share"),
+          //       isPrimary: true,
+          //     },
+          //     {
+          //       label: "Print",
+          //       icon: <Printer size={18} className="mt-1.5" />,
+          //       onClick: () => console.log("Print"),
+          //       isPrimary: true,
+          //     },
+          //     {
+          //       label: "Download PDF",
+          //       icon: <Download size={18} className="mt-1" />,
+          //       onClick: () => console.log("Download"),
+          //       isPrimary: true,
+          //     },
+          //   ]}
         />
       ) : (
         <DetailsHeader
