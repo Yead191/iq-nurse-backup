@@ -4,7 +4,7 @@ import {
   highYield,
   howToUse,
   learningObjectives,
-} from "@/data/ecgMasteryData";
+} from "@/data/ecg/foundation/ecgMasteryData";
 
 export default function IntroductionPage() {
   return (

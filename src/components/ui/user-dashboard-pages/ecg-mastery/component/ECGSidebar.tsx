@@ -4,7 +4,7 @@ import { ChevronDown, ChevronRight, Search } from "lucide-react";
 import { Input, Grid } from "antd";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ECGMasteryData } from "@/data/ecgMasteryData";
+import { ECGMasteryData } from "@/data/ecg/foundation/ecgMasteryData";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 
@@ -40,7 +40,7 @@ export default function ECGSidebar() {
   const hideOnMobile = !lg && pathname.split("/").length > 3;
   if (hideOnMobile) return null;
   return (
-    <aside className="p-3 lg:w-80 w-full boxShadow h-full lg:h-[calc(100vh-77px)] overflow-y-auto -mt-6">
+    <aside className="p-3 lg:w-80 w-full border-r border-gray-300 h-full lg:h-[calc(100vh-77px)] overflow-y-auto -mt-6">
       <Input
         prefix={<Search size={16} />}
         placeholder="Search templates..."
