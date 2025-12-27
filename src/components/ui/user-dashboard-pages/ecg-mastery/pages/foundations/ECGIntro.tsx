@@ -6,7 +6,7 @@ import {
   learningObjectives,
 } from "@/data/ecg/foundation/ecgMasteryData";
 
-export default function IntroductionPage() {
+export default function ECGIntroPage() {
   return (
     <main className="">
       {/* Header Section */}
