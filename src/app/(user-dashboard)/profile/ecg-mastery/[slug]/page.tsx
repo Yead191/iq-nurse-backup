@@ -7,6 +7,10 @@ import CardiacConductionPage from "@/components/ui/user-dashboard-pages/ecg-mast
 import ECGWaveformsPage from "@/components/ui/user-dashboard-pages/ecg-mastery/pages/foundations/ECGWaveformsPage";
 import NsrPage from "@/components/ui/user-dashboard-pages/ecg-mastery/pages/nsr/NsrPage";
 import SinusTachyPage from "@/components/ui/user-dashboard-pages/ecg-mastery/pages/nsr/SinusTachyPage";
+import SinusBradycardiaPage from "@/components/ui/user-dashboard-pages/ecg-mastery/pages/nsr/SinusBradycardiaPage";
+import AtrialFibrillationPage from "@/components/ui/user-dashboard-pages/ecg-mastery/pages/atrial-arrhythmias/AtrialFibrillationPage";
+import AtrialFlutter from "@/components/ui/user-dashboard-pages/ecg-mastery/pages/atrial-arrhythmias/AtrialFlutter";
+import SupraventricularTachycardiaPage from "@/components/ui/user-dashboard-pages/ecg-mastery/pages/atrial-arrhythmias/SupraventricularTachycardiaPage";
 import LeadPlacementPage from "@/components/ui/user-dashboard-pages/ecg-mastery/pages/foundations/LeadPlacementPage";
 
 export default function EcgContentPage({
@@ -32,6 +36,14 @@ export default function EcgContentPage({
         return <NsrPage />;
       case "sinus-tachy":
         return <SinusTachyPage />;
+      case "sinus-brady":
+        return <SinusBradycardiaPage />;
+      case "afib":
+        return <AtrialFibrillationPage />;
+      case "aflutter":
+        return <AtrialFlutter />;
+      case "svt":
+        return <SupraventricularTachycardiaPage />;
       case "lead-placement":
         return <LeadPlacementPage />;
       case "second-degree":
