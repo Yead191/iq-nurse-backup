@@ -3,7 +3,7 @@ import type { LucideIcon } from "lucide-react";
 export interface InfoBoxData {
   title?: string;
   defaultColor: string;
-  Icon: LucideIcon;
+  Icon?: LucideIcon | string;
   features: string[];
   description?: string;
 }
@@ -59,7 +59,7 @@ export function InfoBox({ data, className = "" }: InfoBoxProps) {
           className="flex items-center gap-2 mb-3"
           style={{ color: defaultColor }}
         >
-          <Icon className="w-5 h-5" />
+          {Icon && <Icon className="w-5 h-5" />}
           <h3 className="text-lg font-bold">{title}</h3>
         </div>
       )}
