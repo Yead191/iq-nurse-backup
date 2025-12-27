@@ -97,7 +97,7 @@ export function FloatingCalendarButton() {
   const [meetingModalOpen, setMeetingModalOpen] = useState(false);
   const router = useRouter();
   const handleEventClick = (eventId: string) => {
-    console.log("[v0] Event clicked:", eventId);
+    // console.log(" Event clicked:", eventId);
     try {
       // You can add your specific logic here for each event type
       router.push(`/profile/calendar/${eventId}`);

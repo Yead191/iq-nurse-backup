@@ -20,7 +20,7 @@ export default function SkillSidebar({
   const { lg } = Grid.useBreakpoint();
   const router = useRouter();
   const { getClinicalSkillsData } = clinicalSkils;
-  console.log("skill", skill);
+  // console.log("skill", skill);
   return (
     <aside className="w-full sm:w-sm bg-white  border-gray-200  md:max-h-[calc(100vh-120px)]  md:overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 px-4 m-auto">
       {/* Categories */}

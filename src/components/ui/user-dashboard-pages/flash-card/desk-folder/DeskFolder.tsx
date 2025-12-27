@@ -27,7 +27,7 @@ export default function DeskFolder() {
     new Set()
   );
   const router = useRouter();
-  console.log(selectedPage);
+  // console.log(selectedPage);
   const handleCreateFolder = (name: string, color: string) => {
     const newFolder: Folder = {
       id: Date.now().toString(),
@@ -116,7 +116,7 @@ export default function DeskFolder() {
     selectedFolderData && selectedPage
       ? selectedFolderData.pages.find((p) => p.id === selectedPage)
       : null;
-  console.log(selectedPageData);
+  // console.log(selectedPageData);
   return (
     <div>
       {/* <PageBreadcrumb

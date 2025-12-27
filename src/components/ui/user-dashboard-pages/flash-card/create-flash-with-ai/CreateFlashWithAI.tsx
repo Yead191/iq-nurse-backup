@@ -1,9 +1,17 @@
 "use client";
-import React, { useState } from 'react';
-import { Card, Form, Input, InputNumber, Select, Button, Typography } from 'antd';
-import { LoadingOutlined } from '@ant-design/icons';
-import PageNavbar from '@/components/shared/user-dashboard/PageNavbar';
-import { IoMdCard } from 'react-icons/io';
+import React, { useState } from "react";
+import {
+  Card,
+  Form,
+  Input,
+  InputNumber,
+  Select,
+  Button,
+  Typography,
+} from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
+import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
+import { IoMdCard } from "react-icons/io";
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -11,17 +19,17 @@ const { Option } = Select;
 
 const CreateFlashWithAI = () => {
   const [formData, setFormData] = useState({
-    topic: '',
-    notes: '',
+    topic: "",
+    notes: "",
     numberOfCards: 5,
-    difficulty: 'intermediate'
+    difficulty: "intermediate",
   });
   const [loading, setLoading] = useState(false);
 
   const handleInputChange = (field: string, value: any) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
@@ -29,7 +37,7 @@ const CreateFlashWithAI = () => {
     setLoading(true);
     // Simulate API call
     setTimeout(() => {
-      console.log('Generated flashcards with:', formData);
+      // console.log('Generated flashcards with:', formData);
       setLoading(false);
     }, 2000);
   };
@@ -51,23 +59,31 @@ const CreateFlashWithAI = () => {
 
           <Form layout="vertical" className="space-y-6">
             <Form.Item
-              label={<span className="font-medium text-gray-700">Topic or Concept *</span>}
+              label={
+                <span className="font-medium text-gray-700">
+                  Topic or Concept *
+                </span>
+              }
               required
             >
               <Input
                 value={formData.topic}
-                onChange={(e) => handleInputChange('topic', e.target.value)}
+                onChange={(e) => handleInputChange("topic", e.target.value)}
                 placeholder="e.g., Diabetes Management, Heart failure, Medication Administration"
                 className="rounded-md"
               />
             </Form.Item>
 
             <Form.Item
-              label={<span className="font-medium text-gray-700">Your Notes or Content (Optional)</span>}
+              label={
+                <span className="font-medium text-gray-700">
+                  Your Notes or Content (Optional)
+                </span>
+              }
             >
               <TextArea
                 value={formData.notes}
-                onChange={(e) => handleInputChange('notes', e.target.value)}
+                onChange={(e) => handleInputChange("notes", e.target.value)}
                 placeholder="Paste your notes, textbook excerpts, or study materials here..."
                 rows={6}
                 className="rounded-md"
@@ -76,25 +92,35 @@ const CreateFlashWithAI = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Form.Item
-                label={<span className="font-medium text-gray-700">Number of Flashcards to Generate *</span>}
+                label={
+                  <span className="font-medium text-gray-700">
+                    Number of Flashcards to Generate *
+                  </span>
+                }
                 required
               >
                 <InputNumber
                   min={1}
                   max={50}
                   value={formData.numberOfCards}
-                  onChange={(val) => handleInputChange('numberOfCards', val || 5)}
+                  onChange={(val) =>
+                    handleInputChange("numberOfCards", val || 5)
+                  }
                   className="w-full rounded-md"
                 />
               </Form.Item>
 
               <Form.Item
-                label={<span className="font-medium text-gray-700">Difficulty Level *</span>}
+                label={
+                  <span className="font-medium text-gray-700">
+                    Difficulty Level *
+                  </span>
+                }
                 required
               >
                 <Select
                   value={formData.difficulty}
-                  onChange={(val) => handleInputChange('difficulty', val)}
+                  onChange={(val) => handleInputChange("difficulty", val)}
                   className="w-full rounded-md"
                 >
                   <Option value="beginner">Beginner</Option>
@@ -115,14 +141,13 @@ const CreateFlashWithAI = () => {
                 className="min-w-[200px] rounded-md"
                 icon={loading ? <LoadingOutlined /> : null}
               >
-                {loading ? 'Generating...' : 'Generate Flashcards'}
+                {loading ? "Generating..." : "Generate Flashcards"}
               </Button>
             </Form.Item>
           </Form>
         </Card>
       </div>
     </>
-
   );
 };
 

@@ -26,14 +26,14 @@ export default function ClinicalSkills({
     { key: "in_progress", label: "In Progress" },
     { key: "not_started", label: "Not Started" },
   ];
-  console.log(categories);
+  // console.log(categories);
 
   const skill = getGroupedSkillsByCategory(String(categories.skillCategoryId));
   const allSkills =
     activeTab === "all" ? Object.values(skill).flat() : skill[activeTab];
 
   const onChange = (e: any) => {
-    console.log(`checked = ${e.target.checked}`);
+    // console.log(`checked = ${e.target.checked}`);
   };
 
   if (!allSkills?.length) {

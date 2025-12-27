@@ -174,7 +174,7 @@ const ChatInterface = () => {
   const handleSend = () => {
     if (newMessage.trim()) {
       // Handle sending message
-      console.log("Sending:", newMessage);
+      // console.log("Sending:", newMessage);
       setNewMessage("");
     }
   };

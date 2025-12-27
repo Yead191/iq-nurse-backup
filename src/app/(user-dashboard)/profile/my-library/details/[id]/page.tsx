@@ -7,6 +7,6 @@ interface pageProps {
 }
 export default async function page({ params }: pageProps) {
   const { id } = await params;
-  console.log(id);
+  // console.log(id);
   return <SingleLibrary id={id} />;
 }

@@ -29,7 +29,7 @@ const tabs = [
   },
 ];
 export default function SkillNotesPage({ id }: { id: any }) {
-  console.log(id);
+  // console.log(id);
 
   const [activeTab, setActiveTab] = useState("overview");
 
