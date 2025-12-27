@@ -15,7 +15,7 @@ export default function AIDrugLayout({
   const [isSideBarSelect, setIsSideBarSelect] = useState<boolean>(false);
   const [setselectedId, setSetselectedId] = useState<string | null>(null);
 
-  console.log({ setselectedId });
+  // console.log({ setselectedId });
   const params = useParams();
   const drugId = params["drug-id"];
 

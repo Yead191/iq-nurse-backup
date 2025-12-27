@@ -199,6 +199,26 @@ export const menus: Record<string, MenuItem[]> = {
       icon: icon("/assets/icons/anatomy-icon.svg", "body-system"),
     },
     {
+      key: "/profile/dosage-calculation",
+      label: "Dosage Calculation",
+      icon: icon("/assets/sidebar-icons/dosage-icon.png", "dosage-calculation"),
+    },
+    {
+      key: "/profile/ecg-mastery",
+      label: "ECG Mastery",
+      icon: icon("/assets/sidebar-icons/ecg-icon.png", "ecg-mastery"),
+    },
+    {
+      key: "/profile/vital-signs",
+      label: "Vital Signs",
+      icon: icon("/assets/sidebar-icons/vital-icon.png", "vital-signs"),
+    },
+    {
+      key: "/profile/labs-reference",
+      label: "Labs Reference",
+      icon: icon("/assets/sidebar-icons/labs-icon.png", "labs-reference"),
+    },
+    {
       key: "/profile/clinicals",
       label: "Clinical Skills",
       icon: icon("/assets/sidebar-icons/clinicals-icon.svg", "clinicals"),

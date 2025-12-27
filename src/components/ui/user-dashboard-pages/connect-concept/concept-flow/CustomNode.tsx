@@ -24,7 +24,7 @@ const CustomNode = (node: {
   const [hovered, setHovered] = useState(false);
   const [editingLabel, setEditingLabel] = useState(false);
 
-  console.log("CustomNode data:", node);
+  // console.log("CustomNode data:", node);
 
   // Add image upload to Quill toolbar and image handler
   // Removed "table" from the Quill toolbar config because table is not working.
