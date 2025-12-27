@@ -5,14 +5,6 @@ import {
   howToUse,
   learningObjectives,
 } from "@/data/ecgMasteryData";
-import {
-  Layers,
-  Target,
-  Lightbulb,
-  Zap,
-  Stethoscope,
-  Star,
-} from "lucide-react";
 
 export default function IntroductionPage() {
   return (
