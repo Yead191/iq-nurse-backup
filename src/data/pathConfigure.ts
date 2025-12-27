@@ -19,6 +19,10 @@ const hiddenPaths = [
   "/profile/my-notepad/note",
   "/profile/care-plans",
   "/profile/tests/mode/",
+  "/profile/ecg-mastery",
+  "/profile/vital-signs",
+  "/profile/dosage-calculation",
+  "/profile/labs-reference",
 ];
 const hiddenBottomNav = [
   "/profile/my-notepad/note",
