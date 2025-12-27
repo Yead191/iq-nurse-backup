@@ -1,16 +1,19 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useMemo, use } from "react";
 import { LabsReferenceData } from "@/data/labsReferenceData";
 import Introduction from "@/components/ui/user-dashboard-pages/labs-reference/component/Introduction";
-import Temperature from "@/components/ui/user-dashboard-pages/labs-reference/component/Temperature";
+import SpecimenCollection from "@/components/ui/user-dashboard-pages/labs-reference/component/SpecimenCollection";
+import BloodTubes from "@/components/ui/user-dashboard-pages/labs-reference/component/BloodTubes";
+import Hematology from "@/components/ui/user-dashboard-pages/labs-reference/component/Hematology";
+
 
 export default function LabsContentPage({
     params,
 }: {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }) {
-    const { slug } = params;
+    const { slug } = use(params);
 
     const content = useMemo(() => {
         return LabsReferenceData.find((item) => item.id === slug);
@@ -20,22 +23,36 @@ export default function LabsContentPage({
         switch (slug) {
             case "introduction":
                 return <Introduction />;
-            case "temperature":
-                return <Temperature />;
-            case "pulse":
-                return <div>Pulse Section Content</div>;
-            case "respiration":
-                return <div>Respiration Section Content</div>;
-            case "blood-pressure":
-                return <div>Blood Pressure Section Content</div>;
-            case "pain-assessment":
-                return <div>Pain Assessment Section Content</div>;
-            case "documentation-guidelines":
-                return <div>Documentation Guidelines Section Content</div>;
-            case "factors-affecting":
-                return <div>Factors Affecting Section Content</div>;
-            case "reference-guide":
-                return <div>Reference Guide Section Content</div>;
+            case "specimen-collection":
+                return <SpecimenCollection />;
+            case "blood-tubes":
+                return <BloodTubes />;
+            case "hematology-cbc":
+                return <Hematology />;
+            case "coagulation":
+                return <div>Coagulation Content</div>;
+            case "bmp":
+                return <div>BMP Content</div>;
+            case "cmp":
+                return <div>CMP Content</div>;
+            case "electrolytes":
+                return <div>Electrolytes Content</div>;
+            case "cardiac-markers":
+                return <div>Cardiac Markers Content</div>;
+            case "liver-function":
+                return <div>Liver Function Content</div>;
+            case "renal-function":
+                return <div>Renal Function Content</div>;
+            case "endocrine":
+                return <div>Endocrine Content</div>;
+            case "abg-analysis":
+                return <div>ABG Analysis Content</div>;
+            case "therapeutic-levels":
+                return <div>Therapeutic levels Content</div>;
+            case "other-labs":
+                return <div>Other Labs Content</div>;
+            case "study-tips":
+                return <div>Study Tips Content</div>;
             default:
                 return <div>Content coming soon...</div>;
         }
