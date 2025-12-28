@@ -4,7 +4,7 @@ import { Copy, Activity, AlertCircle, TrendingUp, TrendingDown, Info, AlertTrian
 
 const Hematology = () => {
     return (
-        <div className="w-full mx-auto p-4 bg-white font-sans text-sm">
+        <div className="w-full mx-auto  bg-white font-sans text-sm">
             {/* Main Header */}
             <div className="flex items-center gap-2 mb-6 border-b border-primary pb-2">
                 <Activity className="w-6 h-6 text-[#1E3A8A]" />

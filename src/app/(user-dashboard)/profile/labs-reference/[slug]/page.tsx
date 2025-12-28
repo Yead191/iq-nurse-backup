@@ -6,6 +6,18 @@ import Introduction from "@/components/ui/user-dashboard-pages/labs-reference/co
 import SpecimenCollection from "@/components/ui/user-dashboard-pages/labs-reference/component/SpecimenCollection";
 import BloodTubes from "@/components/ui/user-dashboard-pages/labs-reference/component/BloodTubes";
 import Hematology from "@/components/ui/user-dashboard-pages/labs-reference/component/Hematology";
+import Coagulation from "@/components/ui/user-dashboard-pages/labs-reference/component/Coagulation";
+import BMP from "@/components/ui/user-dashboard-pages/labs-reference/component/BMP";
+import Electrolytes from "@/components/ui/user-dashboard-pages/labs-reference/component/Electrolytes";
+import CMP from "@/components/ui/user-dashboard-pages/labs-reference/component/CMP";
+import CardiacMarkers from "@/components/ui/user-dashboard-pages/labs-reference/component/CardiacMarkers";
+import LiverFunction from "@/components/ui/user-dashboard-pages/labs-reference/component/LiverFunction";
+import RenalFunction from "@/components/ui/user-dashboard-pages/labs-reference/component/RenalFunction";
+import Endocrine from "@/components/ui/user-dashboard-pages/labs-reference/component/Endocrine";
+import ABGAnalysis from "@/components/ui/user-dashboard-pages/labs-reference/component/ABGAnalysis";
+import TherapeuticLevels from "@/components/ui/user-dashboard-pages/labs-reference/component/TherapeuticLevels";
+import OtherLabs from "@/components/ui/user-dashboard-pages/labs-reference/component/OtherLabs";
+import StudyTips from "@/components/ui/user-dashboard-pages/labs-reference/component/StudyTips";
 
 
 export default function LabsContentPage({
@@ -30,29 +42,29 @@ export default function LabsContentPage({
             case "hematology-cbc":
                 return <Hematology />;
             case "coagulation":
-                return <div>Coagulation Content</div>;
+                return <Coagulation />;
             case "bmp":
-                return <div>BMP Content</div>;
+                return <BMP />;
             case "cmp":
-                return <div>CMP Content</div>;
+                return <CMP />;
             case "electrolytes":
-                return <div>Electrolytes Content</div>;
+                return <Electrolytes />;
             case "cardiac-markers":
-                return <div>Cardiac Markers Content</div>;
+                return <CardiacMarkers />;
             case "liver-function":
-                return <div>Liver Function Content</div>;
+                return <LiverFunction />;
             case "renal-function":
-                return <div>Renal Function Content</div>;
+                return <RenalFunction />;
             case "endocrine":
-                return <div>Endocrine Content</div>;
+                return <Endocrine />;
             case "abg-analysis":
-                return <div>ABG Analysis Content</div>;
+                return <ABGAnalysis />;
             case "therapeutic-levels":
-                return <div>Therapeutic levels Content</div>;
+                return <TherapeuticLevels />;
             case "other-labs":
-                return <div>Other Labs Content</div>;
+                return <OtherLabs />;
             case "study-tips":
-                return <div>Study Tips Content</div>;
+                return <StudyTips />;
             default:
                 return <div>Content coming soon...</div>;
         }
