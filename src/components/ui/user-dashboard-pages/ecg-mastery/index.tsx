@@ -15,6 +15,8 @@ import LeadPlacementPage from "@/components/ui/user-dashboard-pages/ecg-mastery/
 import FirstDegree from "./pages/heart-blocks/FirstDegree";
 import SecondDegree from "./pages/heart-blocks/SecondDegree";
 import ThirdDegree from "./pages/heart-blocks/ThirdDegree";
+import PacemakerPage from "./pages/advanced-topics/PacemakerPage";
+import AcuteCoronaryPage from "./pages/advanced-topics/AcuteCoronaryPage";
 
 type Props = {
   slug: string;
@@ -53,6 +55,10 @@ export default function EcgContentClient({ slug }: Props) {
         return <SecondDegree />;
       case "third-degree":
         return <ThirdDegree />;
+      case "pacemaker":
+        return <PacemakerPage />;
+      case "acute-coronary":
+        return <AcuteCoronaryPage />;
       default:
         return <div>Content coming soon...</div>;
     }

@@ -140,3 +140,21 @@ export const nclexHighYieldPoints: InfoBoxData = {
     "Critical Measurements: Know normal values - tested frequently on NCLEX",
   ],
 };
+
+export const pacemakerHighYieldPoints: InfoBoxData = {
+  title: "NCLEX-RN High-Yield Points",
+  defaultColor: "#9333ea",
+  Icon: Star,
+  features: [
+    "Pacemaker Spike: Vertical line before P wave (atrial pacing) or QRS (ventricular pacing)",
+    "Capture: Pacemaker spike followed by appropriate waveform (P or QRS) - this is normal",
+    "Failure to Capture: Spike present but no P or QRS follows - serious malfunction",
+    "Failure to Pace: No spike when expected - battery failure or lead problem",
+    "Failure to Sense: Pacemaker fires when it shouldn't - can cause R-on-T and VF",
+    "Pacemaker Codes: First letter = chamber paced, Second = chamber sensed, Third = response",
+    "Common Types: VVI (ventricle paced/sensed/inhibited), DDD (dual chamber)",
+    "Magnet Application: Placing magnet over pacemaker converts to asynchronous mode (for testing)",
+    "Patient Teaching: Avoid MRI (unless MRI-safe), carry pacemaker ID card, monitor pulse daily",
+    "Electromagnetic Interference: Avoid arc welding, large magnets, some medical equipment",
+  ],
+};
