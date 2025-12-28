@@ -39,7 +39,7 @@ export default function DynamicHeader({
           }
           title={title}
           subtitle={subtitle}
-          isAiEnhanced={true}
+          isAiEnhanced={false}
         />
       ) : (
         <DetailsHeader title={mobileTitle} back={basePath} />
