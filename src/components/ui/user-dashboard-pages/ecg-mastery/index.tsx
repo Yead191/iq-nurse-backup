@@ -12,6 +12,9 @@ import AtrialFibrillationPage from "@/components/ui/user-dashboard-pages/ecg-mas
 import AtrialFlutter from "@/components/ui/user-dashboard-pages/ecg-mastery/pages/atrial-arrhythmias/AtrialFlutter";
 import SupraventricularTachycardiaPage from "@/components/ui/user-dashboard-pages/ecg-mastery/pages/atrial-arrhythmias/SupraventricularTachycardiaPage";
 import LeadPlacementPage from "@/components/ui/user-dashboard-pages/ecg-mastery/pages/foundations/LeadPlacementPage";
+import FirstDegree from "./pages/heart-blocks/FirstDegree";
+import SecondDegree from "./pages/heart-blocks/SecondDegree";
+import ThirdDegree from "./pages/heart-blocks/ThirdDegree";
 
 type Props = {
   slug: string;
@@ -44,6 +47,12 @@ export default function EcgContentClient({ slug }: Props) {
         return <SupraventricularTachycardiaPage />;
       case "lead-placement":
         return <LeadPlacementPage />;
+      case "first-degree":
+        return <FirstDegree />;
+      case "second-degree":
+        return <SecondDegree />;
+      case "third-degree":
+        return <ThirdDegree />;
       default:
         return <div>Content coming soon...</div>;
     }
