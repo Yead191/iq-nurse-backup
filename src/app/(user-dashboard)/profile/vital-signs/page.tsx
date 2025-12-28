@@ -1,11 +1,9 @@
-import VitalSigns from "@/components/ui/user-dashboard-pages/vital-signs";
-
-const vitalSignsPage = () => {
-    return (
-        <section className="">
-            <VitalSigns />
-        </section>
-    );
-};
-
-export default vitalSignsPage;
+export default function page() {
+  return (
+    <div className="flex items-center justify-center h-full">
+      <p className="text-gray-500">
+        Select a topic from the sidebar to view details
+      </p>
+    </div>
+  );
+}

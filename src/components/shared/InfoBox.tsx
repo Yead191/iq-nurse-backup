@@ -60,7 +60,7 @@ export function InfoBox({ data, className = "" }: InfoBoxProps) {
           style={{ color: defaultColor }}
         >
           {Icon && <Icon className="w-5 h-5" />}
-          <h3 className="text-lg font-bold">{title}</h3>
+          <h3 className="text-lg font-bold tracking-[0.06rem]">{title}</h3>
         </div>
       )}
 
