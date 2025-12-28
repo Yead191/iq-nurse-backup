@@ -17,6 +17,8 @@ import SecondDegree from "./pages/heart-blocks/SecondDegree";
 import ThirdDegree from "./pages/heart-blocks/ThirdDegree";
 import PacemakerPage from "./pages/advanced-topics/PacemakerPage";
 import AcuteCoronaryPage from "./pages/advanced-topics/AcuteCoronaryPage";
+import ArtifactPage from "./pages/advanced-topics/ArtifactPage";
+import ClinicalPriorityPage from "./pages/advanced-topics/ClinicalPriority";
 
 type Props = {
   slug: string;
@@ -59,6 +61,10 @@ export default function EcgContentClient({ slug }: Props) {
         return <PacemakerPage />;
       case "acute-coronary":
         return <AcuteCoronaryPage />;
+      case "artifact":
+        return <ArtifactPage />;
+      case "clinical-priority":
+        return <ClinicalPriorityPage />;
       default:
         return <div>Content coming soon...</div>;
     }
