@@ -6,7 +6,7 @@ export default function VitalIntroduction() {
   return (
     <main>
       <div className="mb-6">
-        <h1 className="text-3xl font-bold text-primary mb-4">
+        <h1 className="text-2xl lg:text-3xl font-bold text-primary mb-4">
           {introData.title}
         </h1>
         <div className="h-[1px] bg-slate-200 w-full mb-6" />

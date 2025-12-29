@@ -34,7 +34,7 @@ export default function FactorsAffectingPage() {
     <main>
       <div className="flex items-center gap-3 mb-6 border-b border-gray-200 pb-4">
         <RefreshCcw className="w-8 h-8 text-[#1e5d8e]" />
-        <h1 className="text-3xl font-bold text-[#1e5d8e]">
+        <h1 className="text-2xl lg:text-3xl font-bold text-[#1e5d8e]">
           {factorsAffectingData.title}
         </h1>
       </div>

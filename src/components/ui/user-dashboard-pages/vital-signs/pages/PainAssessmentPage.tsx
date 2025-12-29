@@ -11,7 +11,7 @@ export default function PainAssessmentPage() {
     <main>
       <div className="flex items-center gap-3 mb-6 border-b border-gray-200 pb-4">
         <span className="text-3xl">🤒</span>
-        <h1 className="text-3xl font-bold text-[#1e5d8e]">
+        <h1 className="text-2xl lg:text-3xl font-bold text-[#1e5d8e]">
           {painAssessmentData.title}
         </h1>
       </div>
@@ -60,30 +60,11 @@ export default function PainAssessmentPage() {
       </div>
 
       {/* Comprehensive Pain Assessment (PQRST) */}
-      <div className="mb-10 p-6 bg-[#fff9e6] border-l-4 border-amber-400 rounded-lg">
-        <h3 className="text-xl font-bold text-[#1e5d8e] mb-6">
-          {painAssessmentData.pqrst.title}
-        </h3>
-        <div className="space-y-4">
-          <h4 className="font-bold text-amber-600 italic">
-            {painAssessmentData.pqrst.boxTitle}
-          </h4>
-          <ul className="space-y-4">
-            {painAssessmentData.pqrst.items.map((item, index) => (
-              <li key={index} className="text-[15px] text-slate-700">
-                <div className="flex gap-2 items-start">
-                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 shrink-0" />
-                  <span>
-                    <span className="font-bold text-slate-900">
-                      {item.label}
-                    </span>{" "}
-                    {item.text}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <h3 className="text-xl font-bold text-[#1e5d8e] mb-6">
+        Comprehensive Pain Assessment (PQRST Method)
+      </h3>
+      <div className="mb-10">
+        <InfoBox data={painAssessmentData.pqrst} />
       </div>
 
       {/* NCLEX Box */}

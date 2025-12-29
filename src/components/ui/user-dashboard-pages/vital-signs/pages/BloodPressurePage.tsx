@@ -14,7 +14,7 @@ export default function BloodPressurePage() {
     <main>
       <div className="flex items-center gap-3 mb-6 border-b border-gray-200 pb-4">
         <LuStethoscope className="w-8 h-8 text-black" />
-        <h1 className="text-3xl font-bold text-[#1e5d8e]">
+        <h1 className="text-2xl lg:text-3xl font-bold text-[#1e5d8e]">
           {bloodPressureData.title}
         </h1>
       </div>
