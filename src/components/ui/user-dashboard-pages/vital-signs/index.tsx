@@ -8,6 +8,10 @@ import PulsePage from "./pages/PulsePage";
 import RespirationPage from "./pages/RespirationPage";
 import BloodPressurePage from "./pages/BloodPressurePage";
 import PainAssessmentPage from "./pages/PainAssessmentPage";
+import DocumentationPage from "./pages/DocumentationPage";
+import FactorsAffectingPage from "./pages/FactorsAffectingPage";
+import TestTakingPage from "./pages/TestTakingPage";
+import QuickReferencePage from "./pages/QuickReferencePage";
 
 type Props = {
   slug: string;
@@ -32,6 +36,14 @@ export default function VitalContentClient({ slug }: Props) {
         return <BloodPressurePage />;
       case "pain-assessment":
         return <PainAssessmentPage />;
+      case "documentation-guidelines":
+        return <DocumentationPage />;
+      case "factors-affecting":
+        return <FactorsAffectingPage />;
+      case "test":
+        return <TestTakingPage />;
+      case "quick-reference":
+        return <QuickReferencePage />;
       default:
         return <div>Content coming soon...</div>;
     }
