@@ -5,6 +5,9 @@ import React, { useMemo } from "react";
 import VitalIntroduction from "./pages/VitalIntroduction";
 import TemperaturePage from "./pages/TemperaturePage";
 import PulsePage from "./pages/PulsePage";
+import RespirationPage from "./pages/RespirationPage";
+import BloodPressurePage from "./pages/BloodPressurePage";
+import PainAssessmentPage from "./pages/PainAssessmentPage";
 
 type Props = {
   slug: string;
@@ -23,7 +26,12 @@ export default function VitalContentClient({ slug }: Props) {
         return <TemperaturePage />;
       case "pulse":
         return <PulsePage />;
-
+      case "respiration":
+        return <RespirationPage />;
+      case "blood-pressure":
+        return <BloodPressurePage />;
+      case "pain-assessment":
+        return <PainAssessmentPage />;
       default:
         return <div>Content coming soon...</div>;
     }

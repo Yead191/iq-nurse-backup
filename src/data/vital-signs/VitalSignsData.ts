@@ -4,10 +4,8 @@ export const VitalSignsData = [
   { id: "pulse", name: "Pulse" },
   { id: "respiration", name: "Respiration" },
   { id: "blood-pressure", name: "Blood Pressure" },
-  { id: "height-weight", name: "Height/Weight" },
-  { id: "body-mass-index", name: "Body Mass Index" },
-  { id: "pain-assessment", name: "Pain Assessment" },
+  { id: "pain-assessment", name: "Pain Assessment (The Fifth Vital Sign)" },
   { id: "documentation-guidelines", name: "Documentation Guidelines" },
-  { id: "factors-affecting", name: "Factors Affecting" },
-  { id: "renal-function", name: "Reference Guide" },
+  { id: "factors-affecting", name: "Factors Affecting Vital Signs" },
+  { id: "quick-reference", name: "Quick Reference Guide" },
 ];
