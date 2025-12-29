@@ -14,6 +14,7 @@ import {
   nclexHighYield,
 } from "@/data/ecg/aflutterData";
 import { Activity, Siren } from "lucide-react";
+import Image from "next/image";
 
 export default function AtrialFlutter() {
   return (
@@ -29,49 +30,15 @@ export default function AtrialFlutter() {
         </p>
 
         {/* Rhythm Strip Placeholder - Sawtooth Pattern */}
-        <div className="border border-slate-200 rounded-xl p-8 mb-8 bg-white/50 flex flex-col items-center justify-center min-h-[200px]">
-          <div className="flex items-center justify-center gap-2 opacity-50 mb-4 w-full overflow-hidden">
-            <svg
-              className="w-full text-slate-400"
-              height="60"
-              viewBox="0 0 600 60"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              {/* Sawtooth Pattern (Flutter waves) */}
-              {/* Repeating F waves, occasional QRS */}
-              {[...Array(6)].map((_, i) => (
-                <g key={i} transform={`translate(${i * 100}, 0)`}>
-                  {/* 3 Flutter waves per section */}
-                  <path
-                    d="M0 30 L5 20 L10 40 L15 20 L20 40 L25 20 L30 40"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="none"
-                  />
-                  {/* QRS Complex */}
-                  <path
-                    d="M30 40 L35 10 L40 50 L45 30 H50"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="none"
-                  />
-                  {/* More Flutter waves */}
-                  <path
-                    d="M50 30 L55 20 L60 40 L65 20 L70 40 L75 20 L80 40 L85 20 L90 40 L95 20 L100 30"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="none"
-                  />
-                </g>
-              ))}
-            </svg>
-          </div>
-          <p className="text-sm font-medium text-primary/70">
-            Atrial Flutter - Regular "sawtooth" flutter waves, regular
-            ventricular response
-          </p>
+        <div className="flex justify-center items-center mb-10">
+          <Image
+            src="/assets/images/dashboard/ecg/afib/afib2.png"
+            alt="nsr-img"
+            width={1600}
+            height={800}
+            className="w-full h-full object-contain"
+            draggable={false}
+          />
         </div>
       </div>
 

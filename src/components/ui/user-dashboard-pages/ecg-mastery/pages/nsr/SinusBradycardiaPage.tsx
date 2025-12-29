@@ -21,6 +21,7 @@ import {
   arrestNclex,
 } from "@/data/ecg/sinusBradyData";
 import { Activity } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 export default function SinusBradycardiaPage() {
@@ -38,39 +39,15 @@ export default function SinusBradycardiaPage() {
           </p>
 
           {/* Rhythm Strip - Bradycardia */}
-          <div className="border border-slate-200 rounded-xl p-8 mb-8 bg-white/50 flex flex-col items-center justify-center min-h-[200px]">
-            <div className="flex items-center justify-center gap-2 opacity-50 mb-4 w-full overflow-hidden">
-              {/* Slow rhythm SVG */}
-              <svg
-                className="w-full text-slate-400"
-                height="60"
-                viewBox="0 0 600 60"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-              >
-                {[...Array(6)].map((_, i) => (
-                  <path
-                    key={i}
-                    d={`M${i * 100} 30H${i * 100 + 40} L${i * 100 + 45} 10 L${
-                      i * 100 + 50
-                    } 50 L${i * 100 + 55} 30 H${i * 100 + 65} C${
-                      i * 100 + 70
-                    } 30 ${i * 100 + 70} 20 ${i * 100 + 75} 20 C${
-                      i * 100 + 80
-                    } 20 ${i * 100 + 80} 30 ${i * 100 + 85} 30 H${
-                      i * 100 + 100
-                    }`}
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="none"
-                  />
-                ))}
-              </svg>
-            </div>
-            <p className="text-sm font-medium text-primary/70">
-              Sinus Bradycardia - Regular rhythm, rate &lt;60 bpm
-            </p>
+          <div className="flex justify-center items-center mb-10">
+            <Image
+              src="/assets/images/dashboard/ecg/nsr/nsr3.png"
+              alt="nsr-img"
+              width={1600}
+              height={800}
+              className="w-full h-full object-contain"
+              draggable={false}
+            />
           </div>
         </div>
 

@@ -6,6 +6,7 @@ import {
   highYieldPoints,
   nursingImplications,
 } from "@/data/ecg/foundation/cardiacData";
+import Image from "next/image";
 
 export default function CardiacConductionPage() {
   return (
@@ -28,8 +29,16 @@ export default function CardiacConductionPage() {
       <h2 className="text-2xl font-bold text-[#1e5d8e] mb-8">
         Anatomy of the Conduction System
       </h2>
-
       <InfoBox data={keyComponents} />
+      <div className="flex justify-center items-center mb-10">
+        <Image
+          src="/assets/images/dashboard/ecg/foundation/cardiac1.png"
+          alt="cardiac1"
+          width={800}
+          height={800}
+          className="w-contain h-auto"
+        />
+      </div>
 
       {/* Anatomy Sections */}
       <div className="space-y-10 mb-16">
@@ -58,6 +67,16 @@ export default function CardiacConductionPage() {
         Electrical Pathway Summary
       </h2>
       <InfoBox data={conductionSequence} />
+
+      <div className="flex justify-center items-center mb-10">
+        <Image
+          src="/assets/images/dashboard/ecg/foundation/cardiac2.png"
+          alt="cardiac2"
+          width={800}
+          height={800}
+          className="w-contain h-auto"
+        />
+      </div>
 
       <h2 className="text-2xl font-bold text-[#1e5d8e] mb-8">
         Intrinsic Pacemaker Rates

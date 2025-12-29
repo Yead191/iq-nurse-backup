@@ -86,10 +86,9 @@ const nursingImplications = {
   Icon: Stethoscope,
   features: [
     "Monitor for conduction abnormalities: Changes in heart rate or rhythm may indicate conduction system dysfunction",
-    "Assess medication effects: Many cardiac medications affect the conduction system (beta-blockers, calcium channel blockers, digoxin)",
-    "Recognize backup pacemaker activation: Slower heart rates may indicate lower pacemaker sites taking over",
-    "Understand pacemaker hierarchy: The fastest pacemaker normally controls the heart rate",
-    "Identify risk factors: Ischemia, electrolyte imbalances, and structural heart disease can disrupt conduction",
+    "Assess medication effects: Many cardiac medications affect the conduction system (beta-blockers, calcium channel blockers, digoxin)  ",
+    "Nursing Interventions: Specific actions to take",
+    "Priority Level: How urgently the rhythm requires intervention",
   ],
 };
 
@@ -98,13 +97,12 @@ const highYieldPoints = {
   defaultColor: "#9333ea",
   Icon: Star,
   features: [
-    "SA Node = Primary Pacemaker: Normal rate 60-100 bpm; failure leads to bradycardia",
-    "AV Node Delay: Creates PR interval (0.12-0.20 sec); allows atrial kick for ventricular filling",
-    "Pacemaker Hierarchy: SA node → AV node (40-60 bpm) → Purkinje fibers (20-40 bpm)",
-    "Heart Blocks: Result from AV node dysfunction; third-degree is most serious",
-    "Bundle Branch Blocks: Cause wide QRS (>0.12 sec); may indicate cardiac disease",
-    "Medications Affecting Conduction: Beta-blockers, calcium channel blockers, and digoxin slow AV conduction",
-    "Electrolyte Effects: Hyperkalemia slows conduction; hypokalemia increases irritability",
+    "Priority Assessment: Always assess airway, breathing, and circulation (ABCs) before interpreting ECG rhythms",
+    "Treat the Patient, Not the Monitor: Clinical assessment takes precedence over ECG findings",
+    "Life-Threatening Rhythms: Memorize VF, pulseless VT, asystole, and PEA - these require immediate CPR",
+    "Unstable vs Stable: Unstable patients with tachycardia or bradycardia need immediate intervention",
+    "ACLS Algorithms: Know the basic steps for cardiac arrest, bradycardia, and tachycardia protocols",
+    "Medication Knowledge: Understand adenosine (SVT), atropine (bradycardia), and amiodarone (VT/VF)",
   ],
 };
 
