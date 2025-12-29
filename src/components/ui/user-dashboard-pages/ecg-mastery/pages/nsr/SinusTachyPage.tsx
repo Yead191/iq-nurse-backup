@@ -12,6 +12,7 @@ import {
   nclexHighYield,
 } from "@/data/ecg/sinusTachyData";
 import { Activity } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 export default function SinusTachyPage() {
@@ -27,41 +28,15 @@ export default function SinusTachyPage() {
           {pageIntro.description}
         </p>
 
-        {/* Rhythm Strip Placeholder */}
-        <div className="border border-slate-200 rounded-xl p-8 mb-8 bg-white/50 flex flex-col items-center justify-center min-h-[200px]">
-          {/* In a real app, this would be an image or SVG of the rhythm */}
-          <div className="flex items-center justify-center gap-2 opacity-50 mb-4 w-full overflow-hidden">
-            {/* Simple SVG pattern for tachycardia (faster rate) */}
-            <svg
-              className="w-full text-slate-400"
-              height="60"
-              viewBox="0 0 600 60"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              {/* Repeating pattern more frequently for tachycardia */}
-              {[...Array(12)].map((_, i) => (
-                <path
-                  key={i}
-                  d={`M${i * 50} 30H${i * 50 + 10} L${i * 50 + 15} 10 L${
-                    i * 50 + 20
-                  } 50 L${i * 50 + 25} 30 H${i * 50 + 35} C${i * 50 + 40} 30 ${
-                    i * 50 + 40
-                  } 20 ${i * 50 + 45} 20 C${i * 50 + 50} 20 ${i * 50 + 50} 30 ${
-                    i * 50 + 50
-                  } 30`}
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                />
-              ))}
-            </svg>
-          </div>
-          <p className="text-sm font-medium text-primary/70">
-            Sinus Tachycardia - Regular rhythm, rate &gt;100 bpm, normal P-QRS-T
-            complexes
-          </p>
+        <div className="flex justify-center items-center mb-10">
+          <Image
+            src="/assets/images/dashboard/ecg/nsr/nsr2.png"
+            alt="nsr-img"
+            width={1400}
+            height={800}
+            className="w-full h-full object-contain"
+            draggable={false}
+          />
         </div>
       </div>
 

@@ -23,14 +23,13 @@ export default function ECGWaveformsPage() {
         </p>
 
         {/* Diagram Placeholder */}
-        <div className="border border-slate-200 rounded-xl  mb-8 bg-white flex items-center justify-center h-[150px] lg:h-[400px]">
+        <div className="flex justify-center items-center mb-10">
           <Image
-            src="/assets/images/dashboard/ecg/foundation/waveform.png"
-            alt="ECG Waveforms"
-            width={800}
+            src="/assets/images/dashboard/ecg/foundation/wave1.png"
+            alt="wave1"
+            width={1600}
             height={800}
-            className="w-full h-full object-cover object-left rounded-xl"
-            draggable={false}
+            className="w-full h-fit object-contain"
           />
         </div>
       </div>

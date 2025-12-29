@@ -28,13 +28,13 @@ export default function NsrPage() {
         </p>
 
         {/* Rhythm Strip Placeholder */}
-        <div className="border border-slate-200 rounded-xl  mb-8 bg-white flex items-center justify-center h-[150px] lg:h-[400px]">
+        <div className="flex justify-center items-center mb-10">
           <Image
-            src="/assets/images/dashboard/ecg/nsr/nsr-img.png"
+            src="/assets/images/dashboard/ecg/nsr/nsr1.png"
             alt="nsr-img"
-            width={800}
+            width={1400}
             height={800}
-            className="w-full h-full object-cover object-left rounded-xl"
+            className="w-full h-full object-fit"
             draggable={false}
           />
         </div>

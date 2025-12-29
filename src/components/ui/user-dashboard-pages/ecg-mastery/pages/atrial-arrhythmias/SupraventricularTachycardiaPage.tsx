@@ -18,6 +18,7 @@ import {
   wapCharacteristics,
 } from "@/data/ecg/svtData";
 import { Activity, Wind, Zap, Syringe, CheckCircle } from "lucide-react";
+import Image from "next/image";
 
 export default function SupraventricularTachycardiaPage() {
   return (
@@ -33,32 +34,15 @@ export default function SupraventricularTachycardiaPage() {
         </p>
 
         {/* SVT Rhythm Strip */}
-        <div className="border border-slate-200 rounded-xl p-8 mb-8 bg-white/50 flex flex-col items-center justify-center min-h-[200px]">
-          <div className="flex items-center justify-center gap-2 opacity-50 mb-4 w-full overflow-hidden">
-            <svg
-              className="w-full text-slate-400"
-              height="60"
-              viewBox="0 0 600 60"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              {/* Very regular, narrow QRS, no visible P waves, fast (180bpm) */}
-              {[...Array(12)].map((_, i) => (
-                <path
-                  key={i}
-                  transform={`translate(${i * 50}, 0)`}
-                  d="M0 30 L5 30 L10 50 L15 10 L20 30 L25 30 L35 30"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                />
-              ))}
-            </svg>
-          </div>
-          <p className="text-sm font-medium text-primary/70">
-            SVT - Rapid, regular, narrow QRS complexes (150-250 bpm)
-          </p>
+        <div className="flex justify-center items-center mb-10">
+          <Image
+            src="/assets/images/dashboard/ecg/afib/afib2.png"
+            alt="nsr-img"
+            width={1600}
+            height={800}
+            className="w-full h-full object-contain"
+            draggable={false}
+          />
         </div>
 
         {/* SVT Characteristics Table */}

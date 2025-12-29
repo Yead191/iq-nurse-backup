@@ -16,6 +16,7 @@ import {
   nclexHighYield,
 } from "@/data/ecg/afibData";
 import { Activity, Siren } from "lucide-react";
+import Image from "next/image";
 
 export default function AtrialFibrillationPage() {
   return (
@@ -31,65 +32,15 @@ export default function AtrialFibrillationPage() {
         </p>
 
         {/* Rhythm Strip Placeholder - Irregularly Irregular */}
-        <div className="border border-slate-200 rounded-xl p-8 mb-8 bg-white/50 flex flex-col items-center justify-center min-h-[200px]">
-          <div className="flex items-center justify-center gap-2 opacity-50 mb-4 w-full overflow-hidden">
-            <svg
-              className="w-full text-slate-400"
-              height="60"
-              viewBox="0 0 600 60"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              {/* Chaotic fibrillatory waves with irregular QRS complexes */}
-              <path
-                d="M0 30 C5 28 10 32 15 30 S25 28 30 30 S40 32 45 30 L50 10 L55 50 L60 30 C65 32 70 28 75 30 S85 32 90 30"
-                stroke="currentColor"
-                strokeWidth="1"
-                fill="none"
-              />
-              <path
-                d="M90 30 C95 28 100 32 105 30 S115 28 120 30 S130 32 135 30 S145 28 150 30"
-                stroke="currentColor"
-                strokeWidth="1"
-                fill="none"
-              />
-              <path
-                d="M150 30 L155 10 L160 50 L165 30 C170 32 175 28 180 30 S190 32 195 30 S205 28 210 30"
-                stroke="currentColor"
-                strokeWidth="1"
-                fill="none"
-              />
-              <path
-                d="M210 30 C215 28 220 32 225 30 S235 28 240 30 S250 32 255 30 S265 28 270 30 L275 10 L280 50 L285 30"
-                stroke="currentColor"
-                strokeWidth="1"
-                fill="none"
-              />
-              <path
-                d="M285 30 C290 32 295 28 300 30 S310 32 315 30 S325 28 330 30 S340 32 345 30 S355 28 360 30"
-                stroke="currentColor"
-                strokeWidth="1"
-                fill="none"
-              />
-              <path
-                d="M360 30 L365 10 L370 50 L375 30 C380 32 385 28 390 30 S400 32 405 30 S415 28 420 30"
-                stroke="currentColor"
-                strokeWidth="1"
-                fill="none"
-              />
-              <path
-                d="M420 30 C425 28 430 32 435 30 S445 28 450 30 S460 32 465 30 S475 28 480 30 S490 32 495 30 L500 10 L505 50 L510 30"
-                stroke="currentColor"
-                strokeWidth="1"
-                fill="none"
-              />
-            </svg>
-          </div>
-          <p className="text-sm font-medium text-primary/70">
-            Atrial Fibrillation - Irregularly irregular rhythm, no P waves,
-            fibrillatory baseline
-          </p>
+        <div className="flex justify-center items-center mb-10">
+          <Image
+            src="/assets/images/dashboard/ecg/afib/afib1.png"
+            alt="nsr-img"
+            width={1600}
+            height={800}
+            className="w-full h-full object-contain"
+            draggable={false}
+          />
         </div>
       </div>
 
