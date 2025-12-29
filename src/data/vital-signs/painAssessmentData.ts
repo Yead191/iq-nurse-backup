@@ -56,29 +56,14 @@ export const painAssessmentData = {
     ],
   },
   pqrst: {
-    title: "Comprehensive Pain Assessment (PQRST Method)",
-    boxTitle: "PQRST Mnemonic for Pain Assessment",
-    items: [
-      {
-        label: "P - Provocation/Palliation:",
-        text: "What causes or relieves the pain?",
-      },
-      {
-        label: "Q - Quality:",
-        text: "What does the pain feel like? (sharp, dull, burning, aching, stabbing)",
-      },
-      {
-        label: "R - Region/Radiation:",
-        text: "Where is the pain? Does it radiate?",
-      },
-      {
-        label: "S - Severity:",
-        text: "Rate pain on 0-10 scale",
-      },
-      {
-        label: "T - Timing:",
-        text: "When did it start? Constant or intermittent? Duration?",
-      },
+    title: "PQRST Mnemonic for Pain Assessment",
+    defaultColor: "#d68910",
+    features: [
+      "P - Provocation/Palliation: What causes or relieves the pain?",
+      "Q - Quality: What does the pain feel like? (sharp, dull, burning, aching, stabbing)",
+      "R - Region/Radiation: Where is the pain? Does it radiate?",
+      "S - Severity: Rate pain on 0-10 scale",
+      "T - Timing: When did it start? Constant or intermittent? Duration?",
     ],
   },
   redFlags: {

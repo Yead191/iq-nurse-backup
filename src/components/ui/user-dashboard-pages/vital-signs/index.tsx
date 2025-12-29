@@ -54,7 +54,7 @@ export default function VitalContentClient({ slug }: Props) {
   }
 
   return (
-    <div className="px-4 lg:px-0 py-8 lg:py-0">
+    <div className="px-4 lg:px-0 py-4 lg:py-0">
       <div className="h-full">{renderContent()}</div>
     </div>
   );

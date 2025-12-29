@@ -12,7 +12,7 @@ export default function RespirationPage() {
     <main>
       <div className="flex items-center gap-3 mb-6 border-b border-gray-200 pb-4">
         <BsFillLungsFill className="w-8 h-8 text-red-300" />
-        <h1 className="text-3xl font-bold text-[#1e5d8e]">
+        <h1 className="text-2xl lg:text-3xl font-bold text-[#1e5d8e]">
           {respirationData.title}
         </h1>
       </div>
