@@ -29,7 +29,6 @@ export default function DosageContentClient({ slug }: Props) {
         return <BasicMathPage />;
       case "measurement-systems":
         return <MeasurementSystems />;
-        return <>intro</>;
       case "calculation-methods":
         return <CalculationMethodsPage />;
       case "types-of-calculations":
