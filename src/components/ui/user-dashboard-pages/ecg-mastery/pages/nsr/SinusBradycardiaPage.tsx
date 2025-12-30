@@ -243,53 +243,15 @@ export default function SinusBradycardiaPage() {
           </p>
 
           {/* Rhythm Strip - Arrhythmia */}
-          <div className="border border-slate-200 rounded-xl p-8 mb-8 bg-white/50 flex flex-col items-center justify-center min-h-[200px]">
-            <div className="flex items-center justify-center gap-2 opacity-50 mb-4 w-full overflow-hidden">
-              <svg
-                className="w-full text-slate-400"
-                height="60"
-                viewBox="0 0 600 60"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-              >
-                {/* Irregular spacing */}
-                <path
-                  d="M0 30H40 L45 10 L50 50 L55 30 H65 C70 30 70 20 75 20 C80 20 80 30 85 30 H100"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                />
-                <path
-                  d="M100 30H130 L135 10 L140 50 L145 30 H155 C160 30 160 20 165 20 C170 20 170 30 175 30 H200"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                />
-                <path
-                  d="M200 30H220 L225 10 L230 50 L235 30 H245 C250 30 250 20 255 20 C260 20 260 30 265 30 H280"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                />
-                <path
-                  d="M280 30H330 L335 10 L340 50 L345 30 H355 C360 30 360 20 365 20 C370 20 370 30 375 30 H400"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                />
-                <path
-                  d="M400 30H420 L425 10 L430 50 L435 30 H445 C450 30 450 20 455 20 C460 20 460 30 465 30 H500"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                />
-              </svg>
-            </div>
-            <p className="text-sm font-medium text-primary/70">
-              Sinus Arrhythmia - Irregular R-R intervals with respiratory
-              variation
-            </p>
+          <div className="flex justify-center items-center mb-10">
+            <Image
+              src="/assets/images/dashboard/ecg/nsr/nsr4.png"
+              alt="nsr-img"
+              width={1600}
+              height={800}
+              className="w-full h-full object-contain"
+              draggable={false}
+            />
           </div>
         </div>
 
@@ -334,54 +296,15 @@ export default function SinusBradycardiaPage() {
             {arrestIntro.title}
           </h2>
           {/* Rhythm Strip - Arrest */}
-          <div className="border border-slate-200 rounded-xl p-8 mb-8 bg-white/50 flex flex-col items-center justify-center min-h-[200px]">
-            <div className="flex items-center justify-center gap-2 opacity-50 mb-4 w-full overflow-hidden">
-              <svg
-                className="w-full text-slate-400"
-                height="60"
-                viewBox="0 0 600 60"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M0 30H40 L45 10 L50 50 L55 30 H65 C70 30 70 20 75 20 C80 20 80 30 85 30 H100"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                />
-                <path
-                  d="M100 30H140 L145 10 L150 50 L155 30 H165 C170 30 170 20 175 20 C180 20 180 30 185 30 H200"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                />
-                {/* PAUSE */}
-                <path
-                  d="M200 30 H400"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                />
-                <text
-                  x="300"
-                  y="25"
-                  textAnchor="middle"
-                  className="text-xs fill-red-500 font-bold tracking-widest"
-                >
-                  PAUSE
-                </text>
-                <path
-                  d="M400 30H440 L445 10 L450 50 L455 30 H465 C470 30 470 20 475 20 C480 20 480 30 485 30 H500"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                />
-              </svg>
-            </div>
-            <p className="text-sm font-medium text-primary/70">
-              Sinus Arrest - Prolonged pause when SA node fails to fire
-            </p>
+          <div className="flex justify-center items-center mb-10">
+            <Image
+              src="/assets/images/dashboard/ecg/nsr/nsr5.png"
+              alt="nsr-img"
+              width={1600}
+              height={800}
+              className="w-full h-full object-contain"
+              draggable={false}
+            />
           </div>
         </div>
 

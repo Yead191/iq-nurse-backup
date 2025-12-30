@@ -257,7 +257,7 @@ export const arrestSignificance: InfoBoxData = {
 
 export const arrestAssessment: InfoBoxData = {
   title: "Nursing Assessment & Interventions",
-  defaultColor: "#3b82f6", // Blue
+  defaultColor: "#4A90C9", // Blue
   Icon: Stethoscope,
   features: [
     "Assess Symptoms: Dizziness, lightheadedness, syncope, near-syncope episodes",
@@ -274,11 +274,17 @@ export const arrestAssessment: InfoBoxData = {
 
 export const arrestNclex: InfoBoxData = {
   title: "NCLEX-RN High-Yield Points",
-  defaultColor: "#9333ea", // Purple
+  defaultColor: "#9333ea",
   Icon: Star,
   features: [
     "SA Node Failure: Sinus arrest = SA node temporarily stops firing (no impulse generated)",
     "Key Recognition: Sudden pause in rhythm with flat baseline, then rhythm resumes",
     "Pause Measurement: NOT a multiple of normal P-P interval (this differentiates from sinus block)",
+    "Symptomatic Treatment: If patient symptomatic → atropine, pacing, treat underlying cause",
+    "Medication Review Critical: Check for beta-blockers, CCBs, digoxin - may need to hold",
+    "Escape Rhythms: Long pauses may trigger junctional or ventricular escape beats (protective mechanism)",
+    "Sick Sinus Syndrome: Recurrent sinus arrest may indicate need for permanent pacemaker",
+    "Priority Assessment: Check patient's symptoms and hemodynamic stability during pauses",
+    "NCLEX Strategy: Symptomatic sinus arrest → atropine first, then pacing if needed",
   ],
 };

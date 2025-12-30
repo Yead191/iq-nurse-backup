@@ -10,6 +10,7 @@ import {
   nclexHighYield,
 } from "@/data/ecg/secondDegreeData";
 import { Stethoscope, Siren } from "lucide-react";
+import Image from "next/image";
 
 export default function SecondDegree() {
   return (
@@ -31,105 +32,15 @@ export default function SecondDegree() {
           </h2>
 
           {/* Type I ECG Strip */}
-          <div className="border border-slate-200 rounded-xl p-8 mb-8 bg-white/50 flex flex-col items-center justify-center min-h-[220px]">
-            <div className="flex items-center justify-center gap-2 opacity-80 mb-4 w-full overflow-hidden">
-              <svg
-                className="w-full text-slate-600"
-                height="100"
-                viewBox="0 0 800 100"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-              >
-                <defs>
-                  <pattern
-                    id="grid-type1"
-                    width="20"
-                    height="20"
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <path
-                      d="M 20 0 L 0 0 0 20"
-                      fill="none"
-                      stroke="rgba(200,200,200,0.3)"
-                      strokeWidth="0.5"
-                    />
-                  </pattern>
-                </defs>
-                <rect width="800" height="100" fill="url(#grid-type1)" />
-
-                {/* 
-                  Mobitz I (Wenckebach) Pattern:
-                  PR lengthens beat by beat until QRS dropped.
-                  Sequence:
-                  1. Normal PR
-                  2. Longer PR
-                  3. Longest PR
-                  4. P wave only (dropped QRS)
-                  5. Reset (Normal PR)
-                */}
-                <path
-                  d="
-                    M 0 50 L 30 50
-                    C 40 35 50 35 60 50
-                    L 90 50             
-                    L 95 60 L 105 10 L 115 60 L 120 50 
-                    L 140 50            
-                    C 150 40 170 40 180 50
-                    
-                    
-                    L 200 50            
-                    C 210 35 220 35 230 50
-                    L 280 50            
-                    L 285 60 L 295 10 L 305 60 L 310 50
-                    L 330 50            
-                    C 340 40 360 40 370 50
-                    
-                    
-                    L 390 50            
-                    C 400 35 410 35 420 50
-                    L 490 50            
-                    L 495 60 L 505 10 L 515 60 L 520 50
-                    L 540 50            
-                    C 550 40 570 40 580 50
-                    
-                   
-                    L 600 50            
-                    C 610 35 620 35 630 50
-                    L 680 50            
-                    
-                    C 690 35 700 35 710 50 
-                    L 740 50 
-                    L 745 60 L 755 10 L 765 60 L 770 50
-                    L 800 50
-                  "
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-
-                {/* Dropped QRS Indicator */}
-                <text
-                  x="640"
-                  y="70"
-                  className="text-[10px] fill-red-600 font-bold"
-                >
-                  Dropped QRS
-                </text>
-                <path
-                  d="M 630 55 Q 640 45 650 55"
-                  stroke="#ef4444"
-                  strokeWidth="2"
-                  fill="none"
-                  className="opacity-80"
-                />
-              </svg>
-            </div>
-            <p className="text-sm font-medium text-[#1e5d8e]/80">
-              Mobitz Type I - Progressive PR lengthening until a QRS is dropped
-            </p>
+          <div className="flex justify-center items-center mb-10">
+            <Image
+              src="/assets/images/dashboard/ecg/heart/heart2.png"
+              alt="nsr-img"
+              width={1600}
+              height={800}
+              className="w-full h-full object-contain"
+              draggable={false}
+            />
           </div>
 
           <h3 className="text-lg font-bold text-[#1e5d8e] mb-4">

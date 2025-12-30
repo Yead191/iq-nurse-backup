@@ -18,6 +18,7 @@ import {
   highGradeBlock,
 } from "@/data/ecg/thirdDegreeData";
 import { Stethoscope, Target, Zap } from "lucide-react";
+import Image from "next/image";
 
 export default function ThirdDegree() {
   return (
@@ -33,113 +34,15 @@ export default function ThirdDegree() {
         </p>
 
         {/* ECG Strip Placeholder */}
-        <div className="border border-slate-200 rounded-xl p-8 mb-8 bg-white/50 flex flex-col items-center justify-center min-h-[200px]">
-          <div className="flex items-center justify-center gap-2 opacity-80 mb-4 w-full overflow-hidden">
-            <svg
-              className="w-full text-slate-600"
-              height="120"
-              viewBox="0 0 800 120"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              <defs>
-                <pattern
-                  id="grid-3rd"
-                  width="20"
-                  height="20"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <path
-                    d="M 20 0 L 0 0 0 20"
-                    fill="none"
-                    stroke="rgba(200,200,200,0.3)"
-                    strokeWidth="0.5"
-                  />
-                </pattern>
-              </defs>
-              <rect width="800" height="120" fill="url(#grid-3rd)" />
-
-              {/* 
-                  Third Degree AV Block Logic:
-                  1. P waves: Regular rate (e.g., 75 bpm -> interval ~800ms / 32 units).
-                     Marching through everything.
-                  2. QRS: Regular rate (slow, e.g., 35 bpm -> interval ~1700ms / 68 units).
-                     Independent of P waves.
-                     
-                  Visual approximation (Width 800):
-                  P wave interval: 100 units (8 P waves)
-                  QRS interval: 220 units (3-4 QRS complexes)
-                  
-                  P Waves (Red):
-                  Starts at 30, 130, 230, 330, 430, 530, 630, 730
-                  
-                  QRS (Green):
-                  Starts at 80, 300, 520, 740
-              */}
-
-              {/* P Waves Layer (Red/Pink) */}
-              <g className="opacity-80">
-                {[30, 130, 230, 330, 430, 530, 630, 730].map((x, i) => (
-                  <path
-                    key={`p-${i}`}
-                    d={`M ${x} 60 Q ${x + 10} 45 ${x + 20} 60`}
-                    stroke="#ef4444"
-                    strokeWidth="2"
-                    fill="none"
-                  />
-                ))}
-                {[30, 130, 230, 330, 430, 530, 630, 730].map((x, i) => (
-                  <text
-                    key={`pt-${i}`}
-                    x={x + 5}
-                    y="40"
-                    className="text-[10px] fill-red-500 font-bold"
-                  >
-                    P
-                  </text>
-                ))}
-              </g>
-
-              {/* Baseline */}
-              <path
-                d="M 0 60 L 800 60"
-                stroke="currentColor"
-                strokeWidth="1"
-                className="opacity-30"
-              />
-
-              {/* QRS Complexes Layer (Green/Teal for dissociation contrast) */}
-              <g>
-                {[80, 300, 520, 740].map((x, i) => (
-                  <path
-                    key={`qrs-${i}`}
-                    d={`
-                            M ${x - 10} 60 L ${x} 60 
-                            L ${x + 5} 70 L ${x + 15} 10 L ${x + 25} 70 L ${
-                      x + 30
-                    } 60 
-                            L ${x + 40} 60
-                        `}
-                    stroke="currentColor" // Use current color for main trace
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                ))}
-              </g>
-
-              {/* Connectors to simulate real trace (overlaying P waves roughly) 
-                  This is a simplified visual. In real SVG component, we'd compose a single path.
-                  For this placeholder, layers work well enough to show the concept.
-              */}
-            </svg>
-          </div>
-          <p className="text-sm font-medium text-[#1e5d8e]/80">
-            Third-Degree AV Block - Complete AV dissociation; P waves and QRS
-            complexes occur independently
-          </p>
+        <div className="flex justify-center items-center mb-10">
+          <Image
+            src="/assets/images/dashboard/ecg/heart/heart3.png"
+            alt="nsr-img"
+            width={1600}
+            height={800}
+            className="w-full h-full object-contain"
+            draggable={false}
+          />
         </div>
       </div>
 
@@ -452,83 +355,15 @@ export default function ThirdDegree() {
         </h2>
 
         {/* 2:1 ECG Strip Placeholder */}
-        <div className="border border-slate-200 rounded-xl p-8 mb-8 bg-white/50 flex flex-col items-center justify-center min-h-[200px]">
-          <div className="flex items-center justify-center gap-2 opacity-80 mb-4 w-full overflow-hidden">
-            <svg
-              className="w-full text-slate-600"
-              height="120"
-              viewBox="0 0 800 120"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              <defs>
-                <pattern
-                  id="grid-3rd-new"
-                  width="20"
-                  height="20"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <path
-                    d="M 20 0 L 0 0 0 20"
-                    fill="none"
-                    stroke="rgba(200,200,200,0.3)"
-                    strokeWidth="0.5"
-                  />
-                </pattern>
-              </defs>
-              <rect width="800" height="120" fill="url(#grid-3rd-new)" />
-              {/* 
-                  2:1 Block Logic:
-                  P waves regular. Every other one is blocked.
-                  Cycle: P-QRS --- P(blocked) --- P-QRS --- P(blocked)
-                  
-                  P intervals: 150 units
-                  P waves at: 50, 200, 350, 500, 650
-                  QRS at: 80 (cond), 380 (cond), 680 (cond)
-                  Blocked Ps at: 200, 500
-              */}
-              <path
-                d="M 0 60 L 50 60
-                   Q 60 45 70 60  
-                   L 80 60 L 85 70 L 95 10 L 105 70 L 110 60 
-                   L 200 60
-                   Q 210 45 220 60 
-                   L 350 60
-                   Q 360 45 370 60
-                   L 380 60 L 385 70 L 395 10 L 405 70 L 410 60
-                   L 500 60
-                   Q 510 45 520 60
-                   L 650 60
-                   Q 660 45 670 60
-                   L 680 60 L 685 70 L 695 10 L 705 70 L 710 60
-                   L 800 60"
-                stroke="#ef4444"
-                strokeWidth="2"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              {/* Annotations */}
-              <text
-                x="210"
-                y="35"
-                className="text-[10px] fill-orange-500 font-bold"
-              >
-                BLOCKED
-              </text>
-              <text
-                x="510"
-                y="35"
-                className="text-[10px] fill-orange-500 font-bold"
-              >
-                BLOCKED
-              </text>
-            </svg>
-          </div>
-          <p className="text-sm font-medium text-[#1e5d8e]/80">
-            Second-Degree AV Block 2:1 - Every other P wave is blocked
-          </p>
+        <div className="flex justify-center items-center mb-10">
+          <Image
+            src="/assets/images/dashboard/ecg/heart/heart4.png"
+            alt="nsr-img"
+            width={1600}
+            height={800}
+            className="w-full h-full object-contain"
+            draggable={false}
+          />
         </div>
 
         {/* 2:1 Characteristics Table */}

@@ -10,6 +10,7 @@ import {
   nclexHighYield,
 } from "@/data/ecg/firstDegreeData";
 import { Stethoscope } from "lucide-react";
+import Image from "next/image";
 
 export default function FirstDegree() {
   return (
@@ -25,124 +26,15 @@ export default function FirstDegree() {
         </p>
 
         {/* ECG Strip Placeholder */}
-        <div className="border border-slate-200 rounded-xl p-8 mb-8 bg-white/50 flex flex-col items-center justify-center min-h-[200px]">
-          <div className="flex items-center justify-center gap-2 opacity-80 mb-4 w-full overflow-hidden">
-            <svg
-              className="w-full text-slate-600"
-              height="100"
-              viewBox="0 0 800 100"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              {/* Grid Background (Optional, kept simple) */}
-              <defs>
-                <pattern
-                  id="grid"
-                  width="20"
-                  height="20"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <path
-                    d="M 20 0 L 0 0 0 20"
-                    fill="none"
-                    stroke="rgba(200,200,200,0.3)"
-                    strokeWidth="0.5"
-                  />
-                </pattern>
-              </defs>
-              <rect width="800" height="100" fill="url(#grid)" />
-
-              {/* 
-                  First Degree AV Block ECG Path
-                  Key characteristics: Regular rhythm, P wave before every QRS, PROLONGED PR interval.
-                  Normal P wave: ~80ms width
-                  PR Interval to simulate: >200ms (so distance from P start to QRS start must be visibly long)
-                
-                  Let's design one beat and repeat it.
-                  Beat dimensions (approx):
-                  - Isoelectric: 50
-                  - P wave: 30 wide
-                  - PR segment (prolonged): 40 wide (Total PR ~70 visual units)
-                  - QRS: 20 wide
-                  - ST segment: 20 wide
-                  - T wave: 40 wide
-                  - Isoelectric: 50
-                  
-                  Total beat width ~250.
-                  Sequence:
-                  Start baseline: M 0 50
-                  Beat 1: P(up), flat(long), Q(down), R(up), S(down), flat, T(up), flat
-              */}
-              <path
-                d="
-                  M 0 50 L 50 50 
-                  C 60 35 70 35 80 50  
-                  L 130 50             
-                  L 135 60 L 145 10 L 155 60 L 160 50 
-                  L 180 50             
-                  C 190 35 210 35 220 50 
-                  L 300 50
-                  
-                  C 310 285 320 285 330 50 
-                  L 380 50              
-                  L 385 60 L 395 10 L 405 60 L 410 50 
-                  L 430 50              
-                  C 440 35 460 35 470 50 
-                  L 550 50
-
-                   C 560 35 570 35 580 50 
-                   L 630 50              
-                   L 635 60 L 645 10 L 655 60 L 660 50 
-                   L 680 50              
-                   C 690 35 710 35 720 50 
-                   L 800 50
-                "
-                stroke="currentColor"
-                strokeWidth="2"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-
-              {/* Highlight PR Interval (First beat) */}
-              <path
-                d="M 50 70 L 135 70"
-                stroke="#3b82f6"
-                strokeWidth="2"
-                strokeDasharray="4 2"
-              />
-              <text
-                x="80"
-                y="85"
-                className="text-[10px] fill-blue-600 font-bold"
-              >
-                Prolonged PR
-              </text>
-
-              {/* P Wave Highlight */}
-              <path
-                d="M 55 35 Q 65 25 75 35"
-                stroke="#ef4444"
-                strokeWidth="2"
-                fill="none"
-                className="opacity-60"
-              />
-
-              {/* QRS Highlight */}
-              <path
-                d="M 135 80 L 145 80 L 155 80"
-                stroke="#22c55e"
-                strokeWidth="2"
-                strokeDasharray="4 2"
-                className="opacity-0"
-              />
-            </svg>
-          </div>
-          <p className="text-sm font-medium text-[#1e5d8e]/80">
-            First-Degree AV Block - Regular rhythm with prolonged PR interval
-            (&gt;0.20 seconds)
-          </p>
+        <div className="flex justify-center items-center mb-10">
+          <Image
+            src="/assets/images/dashboard/ecg/heart/heart1.png"
+            alt="nsr-img"
+            width={1600}
+            height={800}
+            className="w-full h-full object-contain"
+            draggable={false}
+          />
         </div>
       </div>
 

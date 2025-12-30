@@ -36,7 +36,7 @@ export default function SupraventricularTachycardiaPage() {
         {/* SVT Rhythm Strip */}
         <div className="flex justify-center items-center mb-10">
           <Image
-            src="/assets/images/dashboard/ecg/afib/afib2.png"
+            src="/assets/images/dashboard/ecg/afib/afib3.png"
             alt="nsr-img"
             width={1600}
             height={800}
