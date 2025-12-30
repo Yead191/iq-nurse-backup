@@ -7,6 +7,8 @@ type Props = {
   slug: string;
 };
 
+import TypesOfCalculation from "./pages/TypesOfCalculation";
+
 export default function DosageContentClient({ slug }: Props) {
   const content = useMemo(() => {
     return DosageCalculationData.find((item) => item.id === slug);
@@ -18,6 +20,8 @@ export default function DosageContentClient({ slug }: Props) {
         return <>intro</>;
       case "basic-math":
         return <>intro</>;
+      case "types-of-calculations":
+        return <TypesOfCalculation />;
 
       default:
         return <div>Content coming soon...</div>;
