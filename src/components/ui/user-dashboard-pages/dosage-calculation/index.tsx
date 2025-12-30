@@ -16,6 +16,8 @@ export default function DosageContentClient({ slug }: Props) {
     switch (slug) {
       case "introduction":
         return <>intro</>;
+      case "basic-math":
+        return <>intro</>;
 
       default:
         return <div>Content coming soon...</div>;
