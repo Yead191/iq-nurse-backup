@@ -10,10 +10,11 @@ type Props = {
 };
 
 import TypesOfCalculation from "./pages/TypesOfCalculation";
+import MeasurementSystems from "./pages/MeasurementSystems";
+import CalculationMethodsPage from "./pages/CalculationMethodsPage";
 import ClinicalDecisionPage from "./pages/ClinicalDecisionPage";
 import SuccessStrategiesPage from "./pages/SuccessStrategiesPage";
 import QuickReferencePage from "./pages/QuickReferencePage";
-import CalculationMethodsPage from "./pages/CalculationMethodsPage";
 
 export default function DosageContentClient({ slug }: Props) {
   const content = useMemo(() => {
@@ -26,6 +27,8 @@ export default function DosageContentClient({ slug }: Props) {
         return <DosageIntroPage />;
       case "basic-math":
         return <BasicMathPage />;
+      case "measurement-systems":
+        return <MeasurementSystems />;
         return <>intro</>;
       case "calculation-methods":
         return <CalculationMethodsPage />;
