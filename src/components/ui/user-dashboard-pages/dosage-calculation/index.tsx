@@ -10,6 +10,10 @@ type Props = {
 };
 
 import TypesOfCalculation from "./pages/TypesOfCalculation";
+import ClinicalDecisionPage from "./pages/ClinicalDecisionPage";
+import SuccessStrategiesPage from "./pages/SuccessStrategiesPage";
+import QuickReferencePage from "./pages/QuickReferencePage";
+import CalculationMethodsPage from "./pages/CalculationMethodsPage";
 
 export default function DosageContentClient({ slug }: Props) {
   const content = useMemo(() => {
@@ -23,8 +27,16 @@ export default function DosageContentClient({ slug }: Props) {
       case "basic-math":
         return <BasicMathPage />;
         return <>intro</>;
+      case "calculation-methods":
+        return <CalculationMethodsPage />;
       case "types-of-calculations":
         return <TypesOfCalculation />;
+      case "clinical-decision":
+        return <ClinicalDecisionPage />;
+      case "nclex-rn-strategies":
+        return <SuccessStrategiesPage />;
+      case "reference-guide":
+        return <QuickReferencePage />;
 
       default:
         return <div>Content coming soon...</div>;
@@ -36,7 +48,7 @@ export default function DosageContentClient({ slug }: Props) {
   }
 
   return (
-    <div className="px-4 lg:px-0 py-4 lg:py-0">
+    <div className="px-4 lg:px-0 py-4 lg:py-0 pb-4">
       <div className="h-full">{renderContent()}</div>
     </div>
   );
