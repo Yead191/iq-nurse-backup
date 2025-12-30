@@ -13,9 +13,9 @@ import {
   pacClinical,
   matIntro,
   matCharacteristics,
-  matClinical,
   wapIntro,
   wapCharacteristics,
+  matClinical,
 } from "@/data/ecg/svtData";
 import { Activity, Wind, Zap, Syringe, CheckCircle } from "lucide-react";
 import Image from "next/image";
@@ -312,10 +312,10 @@ export default function SupraventricularTachycardiaPage() {
               <Wind className="w-5 h-5" /> {matClinical.title}
             </h3>
             <p className="text-sm font-semibold text-orange-800 mb-2">
-              {matClinical.description}
+              {matClinical?.description}
             </p>
             <ul className="space-y-2">
-              {matClinical.features.map((f, i) => (
+              {matClinical?.features?.map((f, i) => (
                 <li key={i} className="text-sm text-orange-900">
                   • {f}
                 </li>

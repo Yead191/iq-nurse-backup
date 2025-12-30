@@ -166,7 +166,7 @@ export default function NsrPage() {
         <h2 className="text-xl font-bold mb-4">{quickReference.title}</h2>
         <p className="font-medium mb-4">{quickReference.description}</p>
         <ul className="space-y-2">
-          {quickReference.features.map((feature, i) => (
+          {quickReference?.features?.map((feature, i) => (
             <li key={i} className="font-medium">
               {feature}
             </li>
