@@ -4,7 +4,7 @@ export interface InfoBoxData {
   title?: string;
   defaultColor: string;
   Icon?: LucideIcon | string;
-  features: string[];
+  features?: string[];
   description?: string;
 }
 
@@ -70,14 +70,16 @@ export function InfoBox({ data, className = "" }: InfoBoxProps) {
         </p>
       )}
 
-      <ul className="space-y-2.5">
-        {features.map((feature, index) => (
-          <li key={index} className="text-sm text-slate-700 flex gap-2">
-            <span className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-black" />
-            <span>{formatFeature(feature)}</span>
-          </li>
-        ))}
-      </ul>
+      {features && (
+        <ul className="space-y-2.5">
+          {features.map((feature, index) => (
+            <li key={index} className="text-sm text-slate-700 flex gap-2">
+              <span className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-black" />
+              <span>{formatFeature(feature)}</span>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

@@ -2,6 +2,8 @@
 
 import { DosageCalculationData } from "@/data/dosage-calculation/dosageSidebarData";
 import React, { useMemo } from "react";
+import DosageIntroPage from "./pages/DosageIntroPage";
+import BasicMathPage from "./pages/BasicMathPage";
 
 type Props = {
   slug: string;
@@ -15,9 +17,9 @@ export default function DosageContentClient({ slug }: Props) {
   const renderContent = () => {
     switch (slug) {
       case "introduction":
-        return <>intro</>;
+        return <DosageIntroPage />;
       case "basic-math":
-        return <>intro</>;
+        return <BasicMathPage />;
 
       default:
         return <div>Content coming soon...</div>;
