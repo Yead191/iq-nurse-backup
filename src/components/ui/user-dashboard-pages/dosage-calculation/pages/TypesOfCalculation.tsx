@@ -54,11 +54,11 @@ export default function TypesOfCalculation() {
       {/* Main Title Box */}
       <SecondaryHeader title={typesOfCalculationData.title} />
 
-      <div className=" mx-auto space-y-16">
+      <div className=" mx-auto space-y-6">
         {typesOfCalculationData.sections.map((section) => (
           <section
             key={section.id}
-            className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100"
+            className="bg-[#F8F9FA] rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100"
           >
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-[#8e24aa] mb-2 tracking-tight">
