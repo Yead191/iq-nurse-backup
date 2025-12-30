@@ -22,7 +22,6 @@ export default function DosageContentClient({ slug }: Props) {
         return <DosageIntroPage />;
       case "basic-math":
         return <BasicMathPage />;
-        return <>intro</>;
       case "types-of-calculations":
         return <TypesOfCalculation />;
 
