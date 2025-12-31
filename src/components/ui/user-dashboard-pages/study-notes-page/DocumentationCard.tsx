@@ -52,7 +52,9 @@ export default function DocumentationCard({
           </div>
 
           <div className="flex-1">
-            <h3 className="font-medium  text-sm">{document.name}</h3>
+            <h3 className="font-medium  text-sm lg:text-xs 2xl:text-sm text-wrap">
+              {document.name}
+            </h3>
           </div>
         </div>
 

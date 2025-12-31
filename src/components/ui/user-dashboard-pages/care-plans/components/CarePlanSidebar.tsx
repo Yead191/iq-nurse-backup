@@ -55,8 +55,8 @@ export default function CarePlanSidebar() {
 
   return (
     <aside
-      className={`lg:h-[calc(100vh-120px)] overflow-y-auto p-3 boxShadow -mt-6 md:mt-0
-      ${lg ? "w-80" : "w-full"}`}
+      className={`lg:h-[calc(100vh-80px)] overflow-y-auto p-3 boxShadow -mt-6 
+      ${lg ? "lg:w-64 2xl:w-80" : "w-full"}`}
     >
       <Input
         prefix={<Search />}
@@ -92,7 +92,7 @@ export default function CarePlanSidebar() {
                 className="w-9 h-fit "
               />
               <div>
-                <div className="font-medium text-gray-900 text-sm">
+                <div className="font-medium text-gray-900  text-sm lg:text-xs 2xl:text-sm">
                   {cat.name}
                 </div>
                 <div className="text-xs text-gray-500">

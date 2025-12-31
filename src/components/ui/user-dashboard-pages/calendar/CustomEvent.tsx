@@ -11,8 +11,12 @@ const CustomEvent: React.FC<{ event: CalendarEvent }> = ({ event }) => {
         style={{ backgroundColor: bgColor }}
         className="min-w-[8px] h-2.5 w-2.5 rounded-full"
       />
-      <span className="text-gray-500 font-medium">{time}</span>
-      <span className="text-gray-700 font-medium truncate">{event.title}</span>
+      <span className="text-gray-500 font-medium lg:text-[8px] 2xl:text-[14px]">
+        {time}
+      </span>
+      <span className="text-gray-700 font-medium truncate lg:text-[8px] 2xl:text-[14px]">
+        {event.title}
+      </span>
     </div>
   );
 };

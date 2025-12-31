@@ -54,7 +54,7 @@ export default function TemplateSidebar({ basePath }: Props) {
 
   return (
     <aside
-      className={`p-3 lg:w-80 w-full boxShadow h-full lg:h-[calc(100vh-77px)] overflow-y-auto -mt-6`}
+      className={`p-3 lg:w-64 2xl:w-80 w-full boxShadow h-full lg:h-[calc(100vh-77px)] overflow-y-auto -mt-6`}
     >
       <Input
         prefix={<Search />}

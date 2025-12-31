@@ -38,7 +38,7 @@ export default function LabsSidebar() {
   if (hideOnMobile) return null;
 
   return (
-    <aside className="p-3 lg:w-80 w-full h-full lg:h-[calc(100vh-77px)] border-r border-gray-200 overflow-y-auto -mt-6">
+    <aside className="p-3 lg:w-64 2xl:w-80 w-full h-full lg:h-[calc(100vh-77px)] border-r border-gray-200 overflow-y-auto -mt-6">
       <Input
         prefix={<Search size={16} />}
         placeholder="Search..."

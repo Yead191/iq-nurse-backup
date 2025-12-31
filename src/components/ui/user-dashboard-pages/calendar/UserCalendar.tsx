@@ -9,9 +9,11 @@ import EventDetailsModal from "./EventDetailsModal";
 import CustomEvent from "./CustomEvent";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Grid } from "antd";
 
 // Main Calendar Component
 const UserCalendar: React.FC = () => {
+  const { lg, xl, xxl } = Grid.useBreakpoint();
   const router = useRouter();
   const searchParams = useSearchParams();
   const [events] = useState<CalendarEvent[]>(dateData);
@@ -100,10 +102,11 @@ const UserCalendar: React.FC = () => {
             <button
               key={view}
               onClick={() => onView(view)}
-              className={`px-3 py-1 rounded text-sm transition-colors w-full md:w-auto ${currentView === view
-                ? "bg-white text-[#003877]"
-                : "bg-[#F6F7F8] text-[#C5D0D0] hover:bg-white hover:text-[#003877] border border-gray-50"
-                }`}
+              className={`px-3 py-1 rounded text-sm transition-colors w-full md:w-auto ${
+                currentView === view
+                  ? "bg-white text-[#003877]"
+                  : "bg-[#F6F7F8] text-[#C5D0D0] hover:bg-white hover:text-[#003877] border border-gray-50"
+              }`}
             >
               {name}
             </button>
@@ -158,6 +161,25 @@ const UserCalendar: React.FC = () => {
           // Popup settings
           popup={true}
           popupOffset={30}
+          messages={{
+            showMore: (total) => (
+              <span
+                style={{
+                  fontSize: xxl ? "16px" : xl ? "10px" : lg ? "10px" : "8px",
+                  paddingLeft: "4px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "2px",
+                }}
+              >
+                {/* Small screens: only +X */}
+                <span className="lg:hidden">+{total}</span>
+
+                {/* Laptop & up: +X more */}
+                <span className="hidden lg:inline">+{total} more</span>
+              </span>
+            ),
+          }}
         />
       </div>
 
