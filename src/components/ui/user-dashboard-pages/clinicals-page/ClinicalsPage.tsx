@@ -5,7 +5,7 @@ import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrum
 import PageHeader from "../study-notes-page/PageHeader";
 import { skillCategories, skillDocumentationData } from "@/data/skillData";
 import CategorySwiper from "../../old-components/old-study-notes/CategorySwiper";
-import DocumentationGrid from "../../old-components/old-study-notes/DocumentationGrid";
+
 import SkillDocumentationGrid from "./SkillDocumentationGrid";
 
 export default function ClinicalsPage() {
