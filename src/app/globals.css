@@ -236,3 +236,46 @@ html {
 
   scrollbar-width: none; /* Firefox */
 }
+
+/* calendar */
+@media (min-width: 1024px) and (max-width: 1535px) {
+  /* Header */
+  /* 🔴 REMOVE DROPDOWN ICON (KEY FIX) */
+  /* .ant-picker-calendar-header .ant-select-arrow {
+    display: none !important;
+  } */
+  .ant-picker-calendar-header
+    > .ant-select
+    > .ant-select-selector
+    > .ant-select-selection-wrap
+    > .ant-select-selection-item {
+    font-size: 10px !important;
+  }
+
+  .ant-picker-calendar-header {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+  }
+  .ant-picker-calendar-header
+    > .ant-radio-group
+    > .ant-radio-button-wrapper
+    > .ant-radio-button-label {
+    font-size: 10px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+  .ant-picker-calendar-header > .ant-select {
+    flex: 0 0 auto;
+    width: 42px;
+    min-width: 42px;
+  }
+  .ant-picker-calendar-header > .ant-radio-group {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 2px;
+  }
+}

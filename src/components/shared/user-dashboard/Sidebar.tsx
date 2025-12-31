@@ -218,7 +218,7 @@ const Sidebar = ({
                   alt="Logo"
                   width={300}
                   height={60}
-                  className="h-12 w-full object-contain"
+                  className="h-10 2xl:h-12 w-full object-contain"
                 />
                 {/* <span className="text-lg font-semibold">IQ-Nurse</span> */}
               </div>

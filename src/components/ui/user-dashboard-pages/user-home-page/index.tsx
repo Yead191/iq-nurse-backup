@@ -14,7 +14,7 @@ import { NCLEXQuestionsSection } from "./sections/NCLEXQuestionsSection/NCLEXQue
 export default function UserHomeMain() {
   return (
     <main className=" md:max-h-max overflow-auto relative ">
-      <div className="grid grid-cols-1 gap-4 2xl:gap-6  lg:grid-cols-12 ">
+      <div className="grid grid-cols-1 gap-2 2xl:gap-6  lg:grid-cols-12 ">
         {/* Left/Main Column */}
         <section className="lg:col-span-9 space-y-6 lg:h-[calc(100vh-90px)] overflow-y-auto pt-4 lg:pt-8 ">
           <DashboardBanner />
@@ -30,7 +30,7 @@ export default function UserHomeMain() {
         </section>
 
         {/* Right/Aside Column */}
-        <aside className="hidden lg:block lg:col-span-3 lg:pt-8 pr-4 lg:pr-5">
+        <aside className="hidden lg:block lg:col-span-3 lg:pt-8 pr-4 lg:pr-2">
           <Suspense
             fallback={<Card loading className="rounded-xl shadow-sm" />}
           >

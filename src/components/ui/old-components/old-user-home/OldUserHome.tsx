@@ -2,13 +2,9 @@ import { Suspense } from "react";
 
 import { Card } from "antd";
 
-import { weeklyStats, studyCategories } from "@/data/userHome";
+import { weeklyStats } from "@/data/userHome";
 import { HomeBreadcrumbs } from "./HomeBreadcrumbs";
-import { SectionHeader } from "../../user-dashboard-pages/user-home-page/sections/SectionHeader";
 import { StatsGrid } from "./StatsGrid";
-import { CategoryGrid } from "./CategoryGrid";
-import Image from "next/image";
-import ReadingTabs from "./ReadingTabs";
 import AsidePanel from "../../user-dashboard-pages/user-home-page/aside/AsidePanel";
 import MarathonSection from "./MarathonSection/MarathonSection";
 import CommunityDiscussionsSection from "./CommunityDiscussions/CommunityDiscussionsSection";
