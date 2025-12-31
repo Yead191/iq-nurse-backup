@@ -1,9 +1,7 @@
 import { Card } from "antd";
 import React, { Suspense } from "react";
 import AsidePanel from "./aside/AsidePanel";
-import RecentlyViewed from "./sections/RecentlyViewed";
 import StudyInstagramSection from "./sections/StudyInstagramSection";
-import TrendingPosts from "./sections/TrendingPosts";
 import NCLEXPracticeSection from "./sections/practice-qurestion/NCLEXPracticeSection";
 import NurseQButton from "./sections/NurseNia/NurseQButton";
 import DashboardBanner from "./sections/DashboardBanner";

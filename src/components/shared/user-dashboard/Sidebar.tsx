@@ -146,7 +146,7 @@ const Sidebar = ({
                 onClick={() => {
                   if (!lg) toggleSidebar();
                 }}
-                className={`flex items-center ${
+                className={`${item.className ?? ""} flex items-center ${
                   showLabels ? "justify-center " : "gap-3 pl-4"
                 } mx-2  py-2 cursor-pointer ${
                   isActive(item.key)
@@ -156,7 +156,7 @@ const Sidebar = ({
               >
                 {item.icon}
                 {!showLabels && (
-                  <span className={`text-xs font-medium"text-gray-700`}>
+                  <span className={`text-xs font-medium text-gray-700`}>
                     {item.label}
                   </span>
                 )}

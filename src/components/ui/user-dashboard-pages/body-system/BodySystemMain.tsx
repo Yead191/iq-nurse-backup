@@ -54,7 +54,16 @@ export default function BodySystemMain() {
     <div className="lg:min-h-screen bg-[#F4F4F4]">
       {lg ? (
         <PageNavbar
-          icon={<FaUserDoctor className=" text-black" />}
+          icon={
+            <Image
+              src="/assets/icons/header/body-icon.svg"
+              alt="NCLEX"
+              width={50}
+              height={50}
+              draggable={false}
+              className="w-fit h-[40px] object-contain"
+            />
+          }
           title="A&P Interactive "
           subtitle=""
           isAiEnhanced={true}

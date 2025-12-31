@@ -1,11 +1,9 @@
 "use client";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import { Network } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import React from "react";
 import { HiOutlineUsers } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
-import { TbSitemap } from "react-icons/tb";
 import Dashboard from "./Dashboard/Dashboard";
 import MyMaps from "./MyMaps/MyMaps";
 import Shared from "./Shared/Shared";

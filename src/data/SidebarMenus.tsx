@@ -6,6 +6,7 @@ export interface MenuItem {
   children?: MenuItem[];
   tag?: string;
   subtitle?: string;
+  className?: string;
 }
 export const icon = (src: string, alt: string, size = 25) => (
   <Image
@@ -126,12 +127,14 @@ export const menus: Record<string, MenuItem[]> = {
       key: "/profile/my-library",
       label: "My Library",
       icon: icon("/assets/sidebar-icons/my-library-icon.svg", "library"),
+      className: "hidden lg:flex",
     },
     {
       key: "/profile/calendar",
       label: "Calendar/Planner",
       icon: icon("/assets/sidebar-icons/calendar-icon.svg", "calendar"),
       tag: "New",
+      className: "hidden lg:flex",
     },
   ],
   supportLegal: [
