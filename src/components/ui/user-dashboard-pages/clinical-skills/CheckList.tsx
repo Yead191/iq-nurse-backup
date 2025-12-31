@@ -1,49 +1,16 @@
 "use client";
 import MediaTab from "@/components/shared/MediaTab";
+import { SkillStep } from "@/data/clinical-skills-data";
 import { Card, Checkbox, Grid } from "antd";
 import { FaCheckCircle } from "react-icons/fa";
 
-export const Checklist = () => {
-  const { lg } = Grid.useBreakpoint();
-  const checklist = [
-    "Sphygmomanometer (BP cuff)",
-    "Stethoscope",
-    "Alcohol wipes",
-    "Patient chart or electronic health record",
-    "Pen and paper for recording",
-  ];
+interface ChecklistProps {
+  checklist: string[];
+  steps: SkillStep[];
+}
 
-  const procedureSteps = [
-    {
-      id: 1,
-      title: "Prepare the patient",
-      description:
-        "Explain the procedure to the patient. Ensure patient has been resting for at least 5 minutes and is in a seated position with arm supported at heart level. Explain the procedure to the patient. Ensure patient has been resting for at least 5 minutes and is in a seated position with arm supported at heart levelExplain the procedure to the patient. Ensure patient has been resting for at least 5 minutes and is in a seated position with arm supported at heart levelExplain the procedure to the patient. Ensure patient has been resting for at least 5 minutes and is in a seated position with arm supported at heart levelExplain the procedure to the patient. Ensure patient has been resting for at least 5 minutes and is in a seated position with arm supported at heart level",
-      completed: true,
-    },
-    {
-      id: 2,
-      title: "Select appropriate cuff size",
-      description:
-        "Choose a cuff with bladder width that is 40% of arm circumference and length that encircles 80–100% of the arm.",
-      completed: true,
-    },
-    {
-      id: 3,
-      title: "Position the cuff",
-      description:
-        "Palpate brachial artery in antecubital fossa. Place cuff 2–3 cm above antecubital fossa with center of bladder over arterial pulsation.",
-      note: "Critical step: Incorrect cuff placement can lead to inaccurate readings.",
-      completed: false,
-    },
-    {
-      id: 4,
-      title: "Determine maximum inflation level",
-      description:
-        "Palpate radial pulse while inflating cuff. Note pressure at which pulse disappears and add 30 mmHg to estimate maximum inflation level.",
-      completed: false,
-    },
-  ];
+export const Checklist = ({ checklist, steps }: ChecklistProps) => {
+  const { lg } = Grid.useBreakpoint();
 
   const onChange = (data: any) => {
     // console.log(data)
@@ -52,7 +19,7 @@ export const Checklist = () => {
   return (
     <>
       <div className="p-6 bg-[#F5F5F5] rounded-sm">
-        {checklist.map((item, index) => (
+        {checklist?.map((item, index) => (
           <div key={index} className="flex items-start gap-3  p-2">
             <FaCheckCircle className="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" />
             <span className="text-gray-600">{item}</span>
@@ -62,7 +29,7 @@ export const Checklist = () => {
 
       <p className="py-4 text-md font-bold">Procedure Steps</p>
 
-      {procedureSteps.map(({ title, description, completed }, i) => (
+      {steps?.map(({ title, description }, i) => (
         <Card
           className="!mb-3 shadow-md !border-none "
           styles={{

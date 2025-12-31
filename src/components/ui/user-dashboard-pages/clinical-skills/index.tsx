@@ -3,22 +3,28 @@ import React, { useState } from "react";
 import ClinicalSkillsTab from "./ClinicalSkills";
 import SkillSidebar from "./SkillSidebar";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import { File } from "lucide-react";
 import { Grid } from "antd";
 import Image from "next/image";
+import { clinicalSkillsData } from "@/data/clinical-skills-data";
+
+export type CategoryState = {
+  skillCategoryId: string | null;
+  setSkillId: string | null;
+};
 
 export default function ClinicalSkills() {
   const { lg } = Grid.useBreakpoint();
-  type CategoryState = {
-    skillCategoryId: string | null;
-    setSkillId: string | null;
-  };
 
   const [skills, setSkill] = useState<CategoryState>({
-    skillCategoryId: "1",
+    skillCategoryId: clinicalSkillsData[0]?.id || null,
     setSkillId: null,
   });
   const [isSideBarSelect, setIsSideBarSelect] = useState<boolean>(false);
+
+  const selectedCategory = clinicalSkillsData.find(
+    (cat) => cat.id === skills.skillCategoryId
+  );
+  const activeSkills = selectedCategory ? selectedCategory.skills : [];
 
   //   console.log(skills);
 
@@ -41,17 +47,13 @@ export default function ClinicalSkills() {
       />
 
       <div className="flex flex-col md:flex-row mt-6 lg:mt-0">
-        <div className={` md:block`}>
-          <SkillSidebar
-            skill={skills?.skillCategoryId}
-            setSkill={setSkill}
-            setIsSideBarSelect={setIsSideBarSelect}
-          />
-        </div>
+        {/* <div className={` md:block`}>
+          <SkillSidebar setIsSideBarSelect={setIsSideBarSelect} />
+        </div> */}
 
         <div className={`w-full md:flex-1 hidden md:block`}>
           <ClinicalSkillsTab
-            categories={skills}
+            skills={activeSkills}
             setIsSideBarSelect={setIsSideBarSelect}
           />
         </div>

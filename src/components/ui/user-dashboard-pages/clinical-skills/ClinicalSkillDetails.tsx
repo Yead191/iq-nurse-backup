@@ -6,8 +6,13 @@ import type { TabsProps } from "antd";
 import MediaTab from "@/components/shared/MediaTab";
 import { Checklist } from "./CheckList";
 import DetailsHeader from "@/components/shared/DetailsHeader";
+import { ClinicalSkill } from "@/data/clinical-skills-data";
 
-export default function ClinicalsPageDetails() {
+interface IProps {
+  skill: ClinicalSkill;
+}
+
+export default function ClinicalSkillDetails({ skill }: IProps) {
   const { lg } = Grid.useBreakpoint();
   const onChange = (key: string) => {
     // console.log(key);
@@ -19,7 +24,9 @@ export default function ClinicalsPageDetails() {
     {
       key: "1",
       label: "Checklist",
-      children: <Checklist />,
+      children: (
+        <Checklist checklist={skill.checklist} steps={skill.procedureSteps} />
+      ),
     },
     {
       key: "2",
@@ -33,64 +40,10 @@ export default function ClinicalsPageDetails() {
   ];
   return (
     <section className="mb-8">
-      {lg ? (
-        <PageNavbar
-          icon={<File />}
-          title="Document Templates"
-          subtitle="Professional nursing documentation  templates for clinical practice"
-          isAiEnhanced={true}
-        />
-      ) : (
-        <DetailsHeader
-          back="/profile/clinicals"
-          title="Blood Pressure Measurement"
-          primaryBg={false}
-        />
-      )}
-
       <div className=" px-4 md:px-5">
-        {/* Category Banner */}
-        {/* <Card
-          className="mb-6"
-          styles={{
-            body: {
-              padding: "16px",
-              background: "linear-gradient(90deg, #003877 0%, #0068DD 100%)",
-              borderRadius: "12px",
-            },
-          }}
-        >
-          <div className="flex items-center justify-between text-white">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl">❤️</span>
-              <div>
-                <h3 className="text-lg font-semibold">Basic Skills</h3>
-                <p className="text-sm opacity-80">20 Skills</p>
-              </div>
-            </div>
-            <ConfigProvider
-              theme={{
-                components: {
-                  Progress: {
-                    circleTextColor: "#fff",
-                  },
-                },
-              }}
-            >
-              <Progress
-                type="circle"
-                percent={87}
-                size={60}
-                strokeColor="#fff"
-              />
-            </ConfigProvider>
-          </div>
-        </Card> */}
-
         {/* Title */}
-        <h3 className="text-lg font-semibold mt-5">
-          Blood Pressure Measurement
-        </h3>
+        <h3 className="text-lg font-semibold ">{skill.name}</h3>
+        <p className="text-gray-500 mt-2 mb-4">{skill.description}</p>
 
         {/* Tabs */}
 

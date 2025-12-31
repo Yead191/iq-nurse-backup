@@ -1,149 +1,89 @@
-import { useState } from "react";
-import { Button, Checkbox, Empty, Tabs } from "antd";
-import { getGroupedSkillsByCategory } from "@/data/clinical-skills-data";
+import { Button, Empty } from "antd";
 import { FaClock, FaRedoAlt, FaVideo } from "react-icons/fa";
 import { FaCircleCheck } from "react-icons/fa6";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 interface IProps {
-  categories: {
-    skillCategoryId: string | null;
-    setSkillId: string | null;
-  };
+  skills: any[];
   setIsSideBarSelect?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function ClinicalSkills({
-  categories,
-  setIsSideBarSelect,
-}: IProps) {
-  const [activeTab, setActiveTab] = useState("all");
+export default function ClinicalSkills({ skills, setIsSideBarSelect }: IProps) {
+  const router = useRouter();
 
-  const tabs = [
-    { key: "all", label: "All Skills" },
-    { key: "completed", label: "Completed" },
-    { key: "in_progress", label: "In Progress" },
-    { key: "not_started", label: "Not Started" },
-  ];
-  // console.log(categories);
-
-  const skill = getGroupedSkillsByCategory(String(categories.skillCategoryId));
-  const allSkills =
-    activeTab === "all" ? Object.values(skill).flat() : skill[activeTab];
-
-  const onChange = (e: any) => {
-    // console.log(`checked = ${e.target.checked}`);
-  };
-
-  if (!allSkills?.length) {
+  if (!skills?.length) {
     return (
       <div className="flex flex-col items-center justify-center h-[calc(100vh-190px)] overflow-y-auto space-y-4">
         <Empty description="No skills found" />
-        <div className="sm:hidden">
-          <Button
-            type="primary"
-            onClick={() => {
-              if (setIsSideBarSelect) setIsSideBarSelect((prev) => !prev);
-            }}
-            className="w-24 "
-          >
-            Back
-          </Button>
-        </div>
       </div>
     );
   }
-  const renderComponent = (
-    <>
-      {(allSkills ?? []).map(
-        ({ id, name, description, duration, status }, index) => (
-          <Link href={`/profile/clinicals/details/${id}`} key={index + 1}>
-            <div className="border border-gray-300 mb-3 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white">
-              {/* Left section */}
-              <div className="flex items-start gap-3">
-                <div className="mt-1 flex items-center gap-2 w-[32px] ">
-                  <Image
-                    src="/assets/icons/header/task.svg"
-                    alt="NCLEX"
-                    width={50}
-                    height={50}
-                    draggable={false}
-                    className="w-full md:w-fit h-[24px] object-contain"
-                  />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-lg">{name}</h3>
-                  <p className="text-gray-500 text-sm line-clamp-1 text-wrap">
-                    {description.length > 50
-                      ? description.slice(0, 100) + "..."
-                      : description}
-                  </p>
-                  <div className="flex items-center gap-4 mt-2 text-gray-600 text-sm">
-                    <span className="flex items-center gap-1">
-                      <FaClock /> 5 min
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <FaRedoAlt /> 8/5 attempts
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right section */}
-              <div className="flex items-center gap-2 mt-2 sm:mt-0">
-                <button className="flex items-center gap-1 border border-gray-300 rounded-md px-3 py-2 hover:bg-gray-100">
-                  <FaVideo /> Tutorials
-                </button>
-                <button
-                  className={
-                    "flex items-center gap-1 rounded-md px-4 py-2 font-medium whitespace-nowrap    text-white bg-gradient-to-r to-blue-900 from-blue-600 shadow-md hover:opacity-90 hover:scale-[1.02]   transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-600/4 "
-                  }
-                >
-                  {status === "completed" && (
-                    <>
-                      <FaCircleCheck className="text-white" /> Completed
-                    </>
-                  )}
-
-                  {status === "in_progress" && "In Progress"}
-                  {status === "not_started" && "Not Started"}
-                </button>
-              </div>
-            </div>
-          </Link>
-        )
-      )}
-    </>
-  );
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative mt-2 md:mt-0 max-h-[calc(100vh-70px)]  md:max-h-[calc(100vh-125px)] overflow-y-auto">
+    <div className="container mx-auto px-4 sm:px-0 relative mt-2 md:mt-0 max-h-[calc(100vh-70px)] md:max-h-[calc(100vh-125px)] overflow-y-auto">
       <div className="w-full">
-        {/* Tab Buttons */}
-        <div className="flex gap-2 mb-4 sticky top-0 bg-white z-50 pb-2 overflow-x-auto">
-          {tabs.map((tab, i) => (
-            <button
-              key={i + 1}
-              onClick={() => setActiveTab(tab.key)}
-              className={`px-4 py-2 text-xs md:text-base text-nowrap  rounded-lg font-medium border transition cursor-pointer ${
-                activeTab === tab.key
-                  ? "bg-blue-500/20  text-black  border-blue-800"
-                  : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Tab Content */}
         <div>
-          {activeTab === "all" && renderComponent}
-          {activeTab === "completed" && renderComponent}
-          {activeTab === "resolved" && renderComponent}
-          {activeTab === "in_progress" && renderComponent}
-          {activeTab === "not_started" && renderComponent}
+          {skills.map(({ id, name, description, duration, status }, index) => (
+            <div
+              onClick={() => router.push(`/profile/clinicals/details/${id}`)}
+              key={index + 1}
+              className="cursor-pointer"
+            >
+              <div className="border border-gray-300 mb-3 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white hover:shadow-md transition-shadow">
+                {/* Left section */}
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex items-center gap-2 w-[32px] ">
+                    <Image
+                      src="/assets/icons/header/task.svg"
+                      alt="NCLEX"
+                      width={50}
+                      height={50}
+                      draggable={false}
+                      className="w-full md:w-fit h-[24px] object-contain"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-lg">{name}</h3>
+                    <p className="text-gray-500 text-sm line-clamp-1 text-wrap">
+                      {description.length > 50
+                        ? description.slice(0, 100) + "..."
+                        : description}
+                    </p>
+                    <div className="flex items-center gap-4 mt-2 text-gray-600 text-sm">
+                      <span className="flex items-center gap-1">
+                        <FaClock /> 5 min
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <FaRedoAlt /> 8/5 attempts
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right section */}
+                <div className="flex items-center gap-2 mt-2 sm:mt-0">
+                  <button className="flex items-center gap-1 border border-gray-300 rounded-md px-3 py-2 hover:bg-gray-100">
+                    <FaVideo /> Tutorials
+                  </button>
+                  <button
+                    className={
+                      "flex items-center gap-1 rounded-md px-4 py-2 font-medium whitespace-nowrap    text-white bg-gradient-to-r to-blue-900 from-blue-600 shadow-md hover:opacity-90 hover:scale-[1.02]   transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-600/4 "
+                    }
+                  >
+                    {status === "completed" && (
+                      <>
+                        <FaCircleCheck className="text-white" /> Completed
+                      </>
+                    )}
+
+                    {status === "in_progress" && "In Progress"}
+                    {status === "not_started" && "Not Started"}
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

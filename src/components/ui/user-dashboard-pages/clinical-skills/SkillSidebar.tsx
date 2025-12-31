@@ -1,89 +1,151 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { clinicalSkils } from "@/data/clinical-skills-data";
-import { Grid } from "antd";
-import { useRouter } from "next/navigation";
-export type CategoryState = {
-  skillCategoryId: string | null;
-  setSkillId: string | null;
-};
+import { useParams, usePathname, useRouter } from "next/navigation";
+import { ChevronDown, ChevronRight, Search } from "lucide-react";
+import { Grid, Input } from "antd";
+import DocumentationCard from "../study-notes-page/DocumentationCard";
+import Image from "next/image";
 
-interface IProps {
-  setSkill: React.Dispatch<React.SetStateAction<CategoryState>>;
-  setIsSideBarSelect: React.Dispatch<React.SetStateAction<boolean>>;
-  skill: string | null;
-}
-
-export default function SkillSidebar({
-  setSkill,
-  setIsSideBarSelect,
-  skill,
-}: IProps) {
-  const { lg } = Grid.useBreakpoint();
+export default function SkillSidebar() {
   const router = useRouter();
+  const pathname = usePathname();
+  const params = useParams();
+  const { lg } = Grid.useBreakpoint();
   const { getClinicalSkillsData } = clinicalSkils;
-  // console.log("skill", skill);
+  const defaultToolId = getClinicalSkillsData[0].skills[0].id;
+
+  const [searchText, setSearchText] = useState("");
+
+  const currentSkillId = params?.id as string;
+
+  // Find which category contains the current skill to auto-expand
+  const activeCategory = getClinicalSkillsData.find((cat) =>
+    cat.skills.some((skill) => skill.id === currentSkillId)
+  );
+
+  const [expanded, setExpanded] = useState<string | null>(
+    activeCategory?.id || getClinicalSkillsData[0]?.id
+  );
+
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(
+    activeCategory?.id || getClinicalSkillsData[0]?.id
+  );
+
+  // Auto redirect on large screen
+  useEffect(() => {
+    const segments = pathname.split("/");
+    const last = segments[segments.length - 1];
+
+    const isBasePath =
+      pathname === "/profile/clinicals" || last === "clinicals";
+
+    if (lg && isBasePath) {
+      router.replace(`/profile/clinicals/${defaultToolId}`);
+    }
+  }, [lg, pathname, defaultToolId, router]);
+
+  const toggleCategory = (id: string) => {
+    setExpanded((prev) => (prev === id ? null : id));
+    setSelectedCategory(id);
+  };
+
+  const filteredData = getClinicalSkillsData.filter(
+    (cat) =>
+      cat.title.toLowerCase().includes(searchText.toLowerCase()) ||
+      cat.skills.some((skill) =>
+        skill.name.toLowerCase().includes(searchText.toLowerCase())
+      )
+  );
+  // Hide sidebar on mobile when tool is selected
+  const hideOnMobile = !lg && pathname.split("/").length > 3;
+  if (hideOnMobile) return null;
   return (
-    <aside className="w-full sm:w-sm bg-white  border-gray-200  md:max-h-[calc(100vh-120px)]  md:overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 px-4 m-auto">
+    <aside
+      className={`lg:h-[calc(100vh-80px)] overflow-y-auto p-3 boxShadow -mt-6 
+      ${lg ? "lg:w-64 2xl:w-80" : "w-full"}`}
+    >
+      <Input
+        prefix={<Search />}
+        placeholder="Search Clinical Skills..."
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+        style={{
+          width: "100%",
+          marginBottom: "24px",
+          height: 40,
+          marginTop: "12px",
+        }}
+      />
+
       {/* Categories */}
-      <div className="flex flex-col gap-3">
-        {getClinicalSkillsData?.map((cat, index) => (
-          <div
-            key={index + 1}
-            onClick={() => {
-              if (!lg) {
-                router.push(`/profile/clinicals/category/${cat.id}`);
-                return;
-              }
-              setSkill((prev) => ({ ...prev, skillCategoryId: cat.id }));
-              setIsSideBarSelect(true);
-            }}
-            className={`p-4 rounded-lg shadow-md flex cursor-pointer flex-col ${
-              skill === cat.id
-                ? "bg-[#0372D2] text-white"
-                : "bg-white text-gray-800"
-            }`}
-          >
-            <div className="flex items-center justify-start gap-4">
-              <div
-                className={`w-10 h-10 flex items-center justify-center rounded-full aspect-square  text-lg font-bold ${
-                  skill === cat.id
-                    ? "bg-white text-blue-600"
-                    : "bg-gray-100 text-gray-600"
-                }`}
-              >
-                {cat.logo}
-              </div>
+      <div className="flex flex-col gap-2">
+        {filteredData?.map((cat, index) => (
+          <div key={index + 1} className="mb-1">
+            <div
+              onClick={() => toggleCategory(cat.id)}
+              className={`p-3 rounded-lg flex cursor-pointer items-center justify-between transition-colors ${
+                selectedCategory === cat.id
+                  ? "bg-[#E8EBFB] border border-[#02478D]"
+                  : "hover:bg-gray-50 text-gray-800"
+              }`}
+            >
+              <div className="flex items-center justify-start gap-3">
+                <Image
+                  src="/assets/icons/folder-ico.svg"
+                  alt="folder"
+                  width={80}
+                  height={80}
+                  draggable={false}
+                  className="w-9 h-fit"
+                />
 
-              <div className="flex flex-col gap-1 w-full">
-                <h3
-                  className={`text-sm font-semibold ${
-                    skill === cat.id ? "text-white" : "text-gray-800"
-                  }`}
-                >
-                  {cat.title}
-                </h3>
-
-                <span className="text-lg font-semibold">{cat.token}</span>
-                {/* progress bar */}
-                {/* <div className="flex items-center gap-2 w-full">
-                  <div className="relative flex-1 bg-gray-200 rounded-full h-1.5">
-                    <div
-                      className={`absolute left-0 h-1.5 rounded-full ${
-                        skill === cat.id ? "bg-white" : "bg-[#02478D]"
-                      }`}
-                      style={{ width: `${cat.progress}%` }}
-                    />
-                  </div>
-
-                  <span
-                    className={`text-xs font-medium ${
-                      skill === cat.id ? "text-white" : "text-gray-600"
-                    }`}
-                  >
-                    {cat.progress}%
+                <div className="flex flex-col">
+                  <h3 className="text-sm font-semibold text-gray-800">
+                    {cat.title}
+                  </h3>
+                  <span className="text-xs text-gray-500">
+                    {cat.skills.length} notes
                   </span>
-                </div> */}
+                </div>
               </div>
+
+              {expanded === cat.id ? (
+                <ChevronDown className="w-4 h-4 text-gray-400" />
+              ) : (
+                <ChevronRight className="w-4 h-4 text-gray-400" />
+              )}
             </div>
+
+            {/* Subcategories (Skills) */}
+            {expanded === cat.id && (
+              <div className="ml-2 mt-1 space-y-2">
+                {cat.skills
+                  .filter((skill) =>
+                    skill.name.toLowerCase().includes(searchText.toLowerCase())
+                  )
+                  .map((skill) => (
+                    <div
+                      key={skill.id}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        router.push(`/profile/clinicals/${skill.id}`);
+                      }}
+                    >
+                      <DocumentationCard
+                        document={skill}
+                        selectedSubcategory={currentSkillId}
+                      />
+                    </div>
+                  ))}
+                {cat.skills.length === 0 && (
+                  <div className="text-xs text-gray-400 italic p-2">
+                    No skills available
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         ))}
       </div>
