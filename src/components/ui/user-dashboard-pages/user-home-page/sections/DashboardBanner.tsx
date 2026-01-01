@@ -5,6 +5,7 @@ import { Search } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 import ShortMenu from "./ShortMenu";
+import { BannerItems } from "@/data/home/shortMenuData";
 
 export default function DashboardBanner() {
   const [text, setText] = useState<string>("");
@@ -49,7 +50,7 @@ export default function DashboardBanner() {
           />
         </form>
 
-        <ShortMenu />
+        <ShortMenu items={BannerItems} isPrimary={true} />
       </div>
       <Image
         src={"/assets/images/dashboard/home/banner.png"}

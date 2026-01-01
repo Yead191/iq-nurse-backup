@@ -8,6 +8,8 @@ import DashboardBanner from "./sections/DashboardBanner";
 import { StatsGrid } from "../../old-components/old-user-home/StatsGrid";
 import { weeklyStats } from "@/data/userHome";
 import { NCLEXQuestionsSection } from "./sections/NCLEXQuestionsSection/NCLEXQuestionsSection";
+import ShortMenu from "./sections/ShortMenu";
+import { studyItems } from "@/data/home/shortMenuData";
 
 export default function UserHomeMain() {
   return (
@@ -18,6 +20,7 @@ export default function UserHomeMain() {
           <DashboardBanner />
           {/* <ShortMenu /> */}
           <div className="px-2 lg:px-5">
+            <ShortMenu items={studyItems} />
             <StatsGrid items={weeklyStats} />
             <NCLEXQuestionsSection />
             {/* <RecentlyViewed /> */}

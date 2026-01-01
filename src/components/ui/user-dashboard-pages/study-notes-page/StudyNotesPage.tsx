@@ -26,7 +26,10 @@ export default function MedicalSurgicalPage() {
   );
 
   useEffect(() => {
-    if (category) setSelectedCategory(category);
+    if (category) {
+      setSelectedCategory(category);
+      setExpandedCategories(new Set([category]));
+    }
   }, [category]);
 
   /** ---------------- Handlers ---------------- */
