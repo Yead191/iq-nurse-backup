@@ -20,7 +20,9 @@ export default function UserHomeMain() {
           <DashboardBanner />
           {/* <ShortMenu /> */}
           <div className="px-2 lg:px-5">
-            <ShortMenu items={studyItems} />
+            <div className="md:hidden">
+              <ShortMenu items={studyItems} />
+            </div>
             <StatsGrid items={weeklyStats} />
             <NCLEXQuestionsSection />
             {/* <RecentlyViewed /> */}
