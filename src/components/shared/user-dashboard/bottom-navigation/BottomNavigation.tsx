@@ -2,6 +2,7 @@
 
 import type React from "react";
 import { useRouter, usePathname } from "next/navigation";
+import Image from "next/image";
 interface NavItem {
   key: string;
   icon: string;
@@ -20,11 +21,6 @@ export default function BottomNavigation({
 
   // Main navigation items for bottom nav
   const navItems: NavItem[] = [
-    {
-      key: "/profile/home",
-      icon: "/assets/icons/home-icon.svg",
-      label: "Home",
-    },
     // {
     //   key: "/profile/nurse-q",
     //   icon: "/assets/sidebar-icons/chatbot-icon.svg",
@@ -32,13 +28,18 @@ export default function BottomNavigation({
     // },
     {
       key: "/profile/study-tools",
-      icon: "/assets/icons/study-tools-icon.svg",
+      icon: "/assets/icons/bottom-nav/tools.svg",
       label: "Study Tools",
     },
     {
       key: "/profile/calendar",
-      icon: "/assets/icons/calendar-icon.svg",
+      icon: "/assets/icons/bottom-nav/calendar.svg",
       label: "Calendar",
+    },
+    {
+      key: "/profile/home",
+      icon: "/assets/icons/bottom-nav/home.svg",
+      label: "Home",
     },
     // {
     //   key: "/profile/community-home",
@@ -47,12 +48,12 @@ export default function BottomNavigation({
     // },
     {
       key: "/profile/my-notepad",
-      icon: "/assets/icons/note-icon.svg",
+      icon: "/assets/icons/bottom-nav/notes.svg",
       label: "My Notepad",
     },
     {
       key: "/profile/my-library",
-      icon: "/assets/sidebar-icons/my-library-icon.svg",
+      icon: "/assets/icons/bottom-nav/files.svg",
       label: "My Library",
     },
   ];
@@ -75,13 +76,12 @@ export default function BottomNavigation({
 
   return (
     <div
-      className="fixed bottom-0 z-50 w-full"
+      className="fixed bottom-0 z-50 w-full h-[76px] flex items-center justify-center"
       style={{
         backgroundColor: "white",
-        borderTop: "0.1px solid #151515",
-        padding: "10px 0",
+        // padding: "10px 0",
         zIndex: 1000,
-        boxShadow: "0 -2px 8px rgba(0, 0, 0, 0.1)",
+        boxShadow: "0px -1px 1px 0px #0000001A",
       }}
     >
       <div
@@ -93,11 +93,11 @@ export default function BottomNavigation({
           //   maxWidth: "400px",
           margin: "0 auto",
           padding: "0 8px",
-          gap: 2,
+          gap: 12,
           width: "100%",
         }}
       >
-        {navItems.map((item) => (
+        {navItems?.map((item) => (
           <div
             key={item.key}
             onClick={() => handleNavClick(item.key)}
@@ -105,23 +105,36 @@ export default function BottomNavigation({
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              padding: "8px 4px",
-              borderRadius: "10px",
-              backgroundColor: isActive(item.key) ? "#F6F7F8" : "transparent",
-              border: isActive(item.key) ? "1px solid #85A6CA" : "transparent",
+              // padding: "12px",
+              borderRadius: "12px",
+              // backgroundColor: isActive(item.key) ? "#F6F7F8" : "transparent",
+              // border: isActive(item.key) ? "1px solid #85A6CA" : "transparent",
               color: "#666",
               cursor: "pointer",
-              transition: "all 0.3s ease",
+              // transition: "all 0.3s ease",
               //   minWidth: "60px",
               width: "100%",
               justifyContent: "center",
             }}
+            className={`p-2.5 ${
+              item.key === "/profile/home"
+                ? "translate-y-[-22px] h-[56px] boxShadow bg-white"
+                : "h-full flex items-center justify-center "
+            } 
+            ${
+              isActive(item.key)
+                ? "bg-[#F6F7F8] border border-[#85A6CA]"
+                : "bg-transparent "
+            }
+            `}
           >
             <div style={{ fontSize: "16px", marginBottom: "8px" }}>
-              <img
+              <Image
                 src={item.icon}
                 alt={item.label}
-                className="h-[24px] w-full"
+                width={32}
+                height={32}
+                className="h-[24px] w-fit object-contain mt-1.5"
               />
             </div>
             {/* <span

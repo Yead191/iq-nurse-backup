@@ -34,7 +34,9 @@ export default function ShortMenu({
             alt={item.title}
             width={24}
             height={24}
-            className="w-full h-[16px] md:h-[20px] object-contain"
+            className={`w-full ${
+              isPrimary ? "h-[16px]" : "!h-[32px]"
+            } md:h-[20px] object-contain`}
           />
         ) : (
           item.icon
