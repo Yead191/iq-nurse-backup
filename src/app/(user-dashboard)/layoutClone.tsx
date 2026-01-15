@@ -2,9 +2,9 @@
 
 import BottomNavigation from "@/components/shared/user-dashboard/bottom-navigation/BottomNavigation";
 import Header from "@/components/shared/user-dashboard/header/Header";
+import OldMobileHeader from "@/components/shared/user-dashboard/header/OldMobileHeader";
 import MobileHeader from "@/components/shared/user-dashboard/MobileHeader";
 import Sidebar from "@/components/shared/user-dashboard/Sidebar";
-import OldMobileHeader from "@/components/ui/old-components/OldMobileHeader";
 import {
   hiddenBottomNav,
   hiddenPaths,

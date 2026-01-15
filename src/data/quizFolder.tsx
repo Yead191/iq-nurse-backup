@@ -1,7 +1,3 @@
-import ExamTab from "@/components/ui/old-components/Old-Test-Quizzers-Page/high-yield-questions-page/exam-tab/ExamTab";
-import { PerformanceTabMain } from "@/components/ui/old-components/Old-Test-Quizzers-Page/high-yield-questions-page/performace-tab/PerformanceTabMain";
-import PreviousExamTab from "@/components/ui/old-components/Old-Test-Quizzers-Page/high-yield-questions-page/previous-exam-tab/PreviousExamTab";
-
 export interface QuizFolder {
   id: string;
   name: string;
@@ -38,26 +34,26 @@ export const initialFolders: QuizFolder[] = [
   },
 ];
 
-export const quizTabsData = [
-  {
-    id: "Exams",
-    label: "Exams",
-    imageSrc: "/assets/user-dashboard-images/flash-card/cards-avaiable.png",
-    component: <ExamTab />,
-  },
-  {
-    id: "Performance",
-    label: "Performance",
-    imageSrc: "/assets/user-dashboard-images/flash-card/performance.png",
-    component: <PerformanceTabMain />,
-  },
-  {
-    id: "Previous Exam",
-    label: "Previous Exam",
-    imageSrc: "/assets/user-dashboard-images/flash-card/previous-exam.png",
-    component: <PreviousExamTab />,
-  },
-];
+// export const quizTabsData = [
+//   {
+//     id: "Exams",
+//     label: "Exams",
+//     imageSrc: "/assets/user-dashboard-images/flash-card/cards-avaiable.png",
+//     component: <ExamTab />,
+//   },
+//   {
+//     id: "Performance",
+//     label: "Performance",
+//     imageSrc: "/assets/user-dashboard-images/flash-card/performance.png",
+//     component: <PerformanceTabMain />,
+//   },
+//   {
+//     id: "Previous Exam",
+//     label: "Previous Exam",
+//     imageSrc: "/assets/user-dashboard-images/flash-card/previous-exam.png",
+//     component: <PreviousExamTab />,
+//   },
+// ];
 
 export const questionSections = [
   {

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import TestHeader from "../TestHeader";
-import ExamConfigSection from "@/components/ui/old-components/Old-Test-Quizzers-Page/high-yield-questions-page/exam-tab/ExamConfigSection";
+
 import { useRouter } from "next/navigation";
 import { RadioChangeEvent } from "antd";
+import ExamConfigSection from "./ExamConfigSection";
 
 const topics = [
   { id: 1, name: "Cardiovascular", questions: 85 },
@@ -32,7 +33,9 @@ export default function PreparationTab() {
     <div>
       <div className="bg-[#ffeeee] max-w-sm p-4 rounded-2xl mb-4">
         <h5 className="mb-1">NCLEX-RN QBank (Free Trial)</h5>
-        <p className="text-[#990054] text-xs font-semibold">Expired: Jun 17, 2025</p>
+        <p className="text-[#990054] text-xs font-semibold">
+          Expired: Jun 17, 2025
+        </p>
       </div>
       {/* Header */}
       <TestHeader

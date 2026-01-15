@@ -5,11 +5,11 @@ import StudyInstagramSection from "./sections/StudyInstagramSection";
 import NCLEXPracticeSection from "./sections/practice-qurestion/NCLEXPracticeSection";
 import NurseQButton from "./sections/NurseNia/NurseQButton";
 import DashboardBanner from "./sections/DashboardBanner";
-import { StatsGrid } from "../../old-components/old-user-home/StatsGrid";
 import { weeklyStats } from "@/data/userHome";
 import { NCLEXQuestionsSection } from "./sections/NCLEXQuestionsSection/NCLEXQuestionsSection";
 import ShortMenu from "./sections/ShortMenu";
 import { studyItems } from "@/data/home/shortMenuData";
+import { StatsGrid } from "./sections/StatsGrid";
 
 export default function UserHomeMain() {
   return (

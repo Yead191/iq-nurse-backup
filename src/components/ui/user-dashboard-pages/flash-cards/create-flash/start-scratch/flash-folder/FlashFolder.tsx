@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { Button, Modal } from "antd";
 import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
 import { initialFolders, QuizFolder } from "@/data/quizFolder";
-import QuizCard from "@/components/ui/old-components/Old-Test-Quizzers-Page/own-quiz-page/QuizCard";
-import CreateFolderCard from "@/components/ui/old-components/Old-Test-Quizzers-Page/own-quiz-page/CreateFolderCard";
-import FolderCard from "@/components/ui/old-components/Old-Test-Quizzers-Page/own-quiz-page/FolderCard";
 import CreateFolderModal from "@/components/ui/user-dashboard-pages/my-library-page/CreateFolderModal";
+import QuizCard from "./QuizCard";
+import CreateFolderCard from "./CreateFolderCard";
+import FolderCard from "./FolderCard";
 
 export default function FlashFolder() {
   const [folders, setFolders] = useState<QuizFolder[]>([]);
@@ -140,7 +140,7 @@ export default function FlashFolder() {
 
           {viewingFolder.quizzes.length > 0 ? (
             <div className="space-y-4">
-              {viewingFolder.quizzes.map((quiz, index) => (
+              {viewingFolder?.quizzes?.map((quiz, index) => (
                 <QuizCard key={index} quiz={quiz} />
               ))}
             </div>
@@ -162,7 +162,7 @@ export default function FlashFolder() {
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4   mb-8 overflow-visible">
             <CreateFolderCard onClick={() => setIsCreateModalOpen(true)} />
 
-            {currentFolders.map((folder) => (
+            {currentFolders?.map((folder) => (
               <FolderCard
                 key={folder.id}
                 folder={folder}

@@ -1,7 +1,7 @@
 "use client";
-import { Slider, Radio, Button, Space, Typography } from "antd";
+import { Slider, Radio, Button, Typography } from "antd";
 
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 interface ExamConfigSectionProps {
   numQuestions: number;
