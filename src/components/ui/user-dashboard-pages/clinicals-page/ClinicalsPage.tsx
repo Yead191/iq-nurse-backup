@@ -4,9 +4,9 @@ import heartImg from "@/assets/heart-hands.svg";
 import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrumb";
 import PageHeader from "../study-notes-page/PageHeader";
 import { skillCategories, skillDocumentationData } from "@/data/skillData";
-import CategorySwiper from "../../old-components/old-study-notes/CategorySwiper";
 
 import SkillDocumentationGrid from "./SkillDocumentationGrid";
+import CategorySwiper from "./CategorySwiper/CategorySwiper";
 
 export default function ClinicalsPage() {
   const [selectedCategory, setSelectedCategory] = useState(

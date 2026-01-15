@@ -2,8 +2,8 @@
 
 import { Card } from "antd";
 import MobileTabHeader from "@/components/shared/MobileTabHeader";
-import { CircularProgressChart } from "@/components/ui/old-components/Old-Test-Quizzers-Page/high-yield-questions-page/performace-tab/CircularProgressChart";
-import { PerformanceLegend } from "@/components/ui/old-components/Old-Test-Quizzers-Page/high-yield-questions-page/performace-tab/PerformanceLegend";
+import { CircularProgressChart } from "../../../flash-cards/high-yield-flashcards/Performance/components/CircularProgressChart";
+import { PerformanceLegend } from "../../../flash-cards/high-yield-flashcards/Performance/components/PerformanceLegend";
 
 const generatePerformanceData = () => [
   { name: "Know", value: 43, color: "#FF8E29" },

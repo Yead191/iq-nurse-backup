@@ -1,5 +1,5 @@
 import Header from "@/components/shared/user-dashboard/header/Header";
-import OldMobileHeader from "@/components/ui/old-components/OldMobileHeader";
+import OldMobileHeader from "@/components/shared/user-dashboard/header/OldMobileHeader";
 import CreateGroupSteps from "@/components/ui/user-dashboard-pages/group/create-group/CreateGroupPage";
 
 const createGroupPage = () => {

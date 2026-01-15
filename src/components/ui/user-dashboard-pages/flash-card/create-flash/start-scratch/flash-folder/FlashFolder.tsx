@@ -6,9 +6,9 @@ import { PageBreadcrumb } from "@/components/shared/user-dashboard/PageBreadcrum
 import { initialFolders, QuizFolder } from "@/data/quizFolder";
 
 import CreateFolderModal from "@/components/ui/user-dashboard-pages/my-library-page/CreateFolderModal";
-import QuizCard from "@/components/ui/old-components/Old-Test-Quizzers-Page/own-quiz-page/QuizCard";
-import CreateFolderCard from "@/components/ui/old-components/Old-Test-Quizzers-Page/own-quiz-page/CreateFolderCard";
-import FolderCard from "@/components/ui/old-components/Old-Test-Quizzers-Page/own-quiz-page/FolderCard";
+import QuizCard from "@/components/ui/user-dashboard-pages/flash-cards/create-flash/start-scratch/flash-folder/QuizCard";
+import CreateFolderCard from "@/components/ui/user-dashboard-pages/flash-cards/create-flash/start-scratch/flash-folder/CreateFolderCard";
+import FolderCard from "@/components/ui/user-dashboard-pages/flash-cards/create-flash/start-scratch/flash-folder/FolderCard";
 
 export default function FlashFolder() {
   const [folders, setFolders] = useState<QuizFolder[]>([]);

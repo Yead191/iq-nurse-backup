@@ -1,9 +1,10 @@
 "use client";
 
 import { Card } from "antd";
-import { CircularProgressChart } from "../../../../old-components/Old-Test-Quizzers-Page/high-yield-questions-page/performace-tab/CircularProgressChart";
-import { PerformanceLegend } from "../../../../old-components/Old-Test-Quizzers-Page/high-yield-questions-page/performace-tab/PerformanceLegend";
+
 import MobileTabHeader from "@/components/shared/MobileTabHeader";
+import { CircularProgressChart } from "./components/CircularProgressChart";
+import { PerformanceLegend } from "./components/PerformanceLegend";
 
 const generatePerformanceData = () => [
   { name: "Know", value: 43, color: "#FF8E29" },
