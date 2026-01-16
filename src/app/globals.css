@@ -279,3 +279,13 @@ html {
     gap: 2px;
   }
 }
+.ant-picker-cell-inner {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  min-width: 24px;
+  height: 28px !important;
+  line-height: 24px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
