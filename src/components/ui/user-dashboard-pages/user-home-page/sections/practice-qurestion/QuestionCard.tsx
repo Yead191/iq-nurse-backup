@@ -36,17 +36,17 @@ export default function QuestionCard({
   const optionLabels = ["A", "B", "C", "D"];
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-      <div className="mb-4">
-        <p className="text-sm text-gray-600 mb-4">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 ">
+      <div className="mb-4 bg-[#253f58] p-4 rounded-t-lg">
+        <p className="text-sm text-white/80 mb-4">
           Question {questionNumber} of {totalQuestions}
         </p>
-        <h2 className="text-lg text-gray-900 leading-relaxed">
+        <h2 className="text-lg text-white leading-relaxed">
           {question.question}
         </h2>
       </div>
 
-      <div className="space-y-3 mb-6">
+      <div className="space-y-3 mb-6 p-4">
         {question.options.map((option, index) => {
           const optionLabel = optionLabels[index];
           const optionValue = `${optionLabel}.${option}`;
@@ -93,7 +93,7 @@ export default function QuestionCard({
         </div>
       )}
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 p-4">
         {isLastQuestion ? (
           <button
             onClick={onSubmitAnswer}
