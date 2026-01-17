@@ -1,14 +1,12 @@
 "use client";
 import React from "react";
-import { MdOutlineDashboard } from "react-icons/md";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import { Network } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import FlashCardBanner from "./FlashCardBanner";
-import { IoMdAdd, IoMdCard } from "react-icons/io";
+import { IoMdAdd } from "react-icons/io";
 import { IoAnalytics } from "react-icons/io5";
 import DeskFolder from "../desk-folder/DeskFolder";
 import Image from "next/image";
+import NelexStudy from "../NELEX-study/NelexStudy";
 
 export const FlashCard = () => {
   const searchParams = useSearchParams();
@@ -33,7 +31,7 @@ export const FlashCard = () => {
       id: "1",
       label: "Study Desk",
       icon: <IoMdAdd size={22} />,
-      component: <FlashCardBanner />,
+      component: <NelexStudy />,
     },
     {
       id: "2",
@@ -57,8 +55,7 @@ export const FlashCard = () => {
           />
         }
         title="Flashcards"
-        subtitle="Master nursing concepts with intelligent falscards and spaced repetition"
-        isAiEnhanced={false}
+        topics={32}
       />
 
       <div className="flex flex-col lg:flex-row px-4 lg:px-0">

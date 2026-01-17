@@ -22,7 +22,6 @@ export default function DeskFolder() {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [folderToDelete, setFolderToDelete] = useState<string | null>(null);
-  const [mobileView, setMobileView] = useState<MobileView>("folders");
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(
     new Set()
   );

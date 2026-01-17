@@ -27,15 +27,8 @@ const NclexStudy = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <PageNavbar
-        icon={<IoMdCard className=" text-black" />}
-        title="Flashcards"
-        subtitle="Master nursing concepts with intelligent falscards and spaced repetition"
-        isAiEnhanced={false}
-      />
-
-      <div className="max-w-7xl mx-auto px-4 py-6 lg:p-6 relative">
+    <div className="">
+      <div className="p-4 lg:p-6">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-blue-800 mb-2">
