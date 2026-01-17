@@ -109,7 +109,7 @@ export default function MCQQuestion({
         <div className="pt-4">
           <button
             onClick={handleSubmit}
-            className="px-6 py-2 bg-[#003877] text-white rounded-lg hover:bg-[#003877]/90 transition-colors font-medium"
+            className="px-6 py-2 bg-[#2C5F8D] text-white rounded-lg hover:bg-[#2C5F8D]/90 transition-colors font-medium"
           >
             Submit
           </button>

@@ -17,19 +17,19 @@ const colors = [
   "#ec4899",
   "#6366f1",
   "#f97316",
-  "#003877",
+  "#2C5F8D",
 ];
 
 export default function NewFolderForm({ onAdd, onCancel }: NewFolderFormProps) {
   const [name, setName] = useState("");
-  const [color, setColor] = useState("#003877");
+  const [color, setColor] = useState("#2C5F8D");
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false);
 
   const handleAdd = () => {
     if (!name.trim()) return;
     onAdd(name.trim(), color);
     setName("");
-    setColor("#003877");
+    setColor("#2C5F8D");
   };
 
   return (

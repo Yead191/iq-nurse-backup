@@ -36,7 +36,7 @@ export default function QuestionBankForTest() {
 
       <div className="pb-3 mb-4 lg:mb-6 text-lg border-b border-gray-200 ">
         <span className=" font-medium">Attempted: </span>{" "}
-        <span className="text-[#003877] font-normal">
+        <span className="text-[#2C5F8D] font-normal">
           {" "}
           {knowCount + stillLearningCount}/25{" "}
         </span>
@@ -94,16 +94,16 @@ export default function QuestionBankForTest() {
       <div className="flex lg:flex-row flex-col justify-between mt-5 gap-4">
         <button
           className="lg:w-[250px] w-full h-12 font-medium  rounded border border-[#484848] cursor-pointer"
-        //   onClick={() =>
-        //     router?.push(
-        //       `/profile/tests/high-yield-questions/${mode}/analyzing-results/review-exam`
-        //     )
-        //   }
+          //   onClick={() =>
+          //     router?.push(
+          //       `/profile/tests/high-yield-questions/${mode}/analyzing-results/review-exam`
+          //     )
+          //   }
         >
           Review exam
         </button>
         <button
-          className="lg:w-[250px] w-full h-12 bg-[#003877] rounded border border-[#484848] text-white cursor-pointer"
+          className="lg:w-[250px] w-full h-12 bg-[#2C5F8D] rounded border border-[#484848] text-white cursor-pointer"
           onClick={() => router?.push("/profile/tests/")}
         >
           Exit Exam

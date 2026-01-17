@@ -6,11 +6,11 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 export default function EmailConfirmationCard() {
   const { lg } = Grid.useBreakpoint();
-  const router = useRouter()
+  const router = useRouter();
 
   const handleResendEmail = () => {
     toast.success("Email sent successfully");
-    router.push('/auth/update-password')
+    router.push("/auth/update-password");
   };
 
   return (
@@ -39,11 +39,11 @@ export default function EmailConfirmationCard() {
           Didn't receive the emall? Checked your spam folder too?
         </p>
         <p className="text-[#7B7B7B]">
-          <span className="text-[#003877] text-[16px] underline font-[400]">
+          <span className="text-[#2C5F8D] text-[16px] underline font-[400]">
             Send us a message
           </span>{" "}
           or{" "}
-          <span className="text-[#003877] text-[16px] underline font-[400]">
+          <span className="text-[#2C5F8D] text-[16px] underline font-[400]">
             visit the Ace-Nuresing Help Center.
           </span>
         </p>

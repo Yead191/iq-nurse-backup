@@ -63,8 +63,6 @@ export default function TestPageMain() {
           />
         }
         title="Master the NCLEX with Confidence"
-        subtitle="Practice with targeted questions, track your progress, and compare with peers to boost your chances of success."
-        isAiEnhanced={false}
       />
 
       <div className="flex flex-col lg:flex-row gap-8 lg:h-[calc(100vh-100px)]">

@@ -15,7 +15,7 @@ export default function CarePlanHeader() {
         <PageNavbar
           icon={
             <Image
-              src="/assets/icons/header/test.svg"
+              src="/assets/icons/header/care.svg"
               alt="NCLEX"
               width={50}
               height={50}
@@ -24,8 +24,7 @@ export default function CarePlanHeader() {
             />
           }
           title="Care Plans"
-          subtitle="Comprehensive nursing care plans for patient management"
-          isAiEnhanced={true}
+          topics={24}
         />
       ) : (
         <DetailsHeader title="Care Plans" back="/profile/care-plans" />

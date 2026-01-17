@@ -6,8 +6,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
     <section className="relative">
       <DynamicHeader
         title="Vital Signs"
-        subtitle="Essential Knowledge for  NCLEX Success"
-        icon="/assets/icons/header/vital.svg"
+        icon="/assets/icons/header/vital-sign-icon.svg"
         mobileTitle="Vital Signs"
         basePath="/profile/vital-signs"
       />

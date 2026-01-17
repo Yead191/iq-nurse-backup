@@ -11,7 +11,7 @@ export default function TabNavigation({
 }) {
   return (
     <div className="flex justify-end mt-4 pb-2">
-      <div className="flex border border-[#003877] rounded-xl overflow-hidden ">
+      <div className="flex border border-[#2C5F8D] rounded-xl overflow-hidden ">
         {tabs?.map((tab, index) => {
           const isActive = activeTab === tab.id;
 
@@ -23,15 +23,15 @@ export default function TabNavigation({
                 ${
                   index === 0 || index === tabs.length - 1
                     ? ""
-                    : "border-x border-[#003877]"
+                    : "border-x border-[#2C5F8D]"
                 }
              
                 ${
                   isActive
-                    ? "bg-[#003877] text-white"
+                    ? "bg-[#2C5F8D] text-white"
                     : "bg-[#F6F7F8] text-gray-600 hover:bg-gray-100"
                 }
-                ${isActive ? "bg-[#003877]" : "bg-[#F6F7F8] "}
+                ${isActive ? "bg-[#2C5F8D]" : "bg-[#F6F7F8] "}
                 ${isActive ? "text-white" : "text-gray-600 hover:bg-gray-100"}
               `}
               >

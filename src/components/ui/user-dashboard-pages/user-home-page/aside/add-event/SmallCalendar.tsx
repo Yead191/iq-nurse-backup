@@ -71,7 +71,7 @@ export const SmallCalendar: React.FC<SmallCalendarProps> = ({
         //   "[&_.ant-picker-cell-inner]:h-7 !important",
         //   "[&_.ant-picker-cell-inner]:w-full",
         //   "[&_.ant-picker-cell-inner]:rounded-lg",
-        //   "[&_.ant-picker-cell-selected_.ant-picker-cell-inner]:bg-[#003877]  !important ",
+        //   "[&_.ant-picker-cell-selected_.ant-picker-cell-inner]:bg-[#2C5F8D]  !important ",
         //   "[&_.ant-picker-cell-selected_.ant-picker-cell-inner]:text-white h-fit !important",
         //   "[&_.ant-picker-cell-today_.ant-picker-cell-inner]:border-none",
         //   "[&_.ant-picker-cell-today_.ant-picker-cell-inner]:bg-blue-100  !important",

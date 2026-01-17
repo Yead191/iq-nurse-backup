@@ -65,8 +65,7 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({ open, onClose }) => {
         title="Add New Task"
         centered
         className="task-modal"
-      width={800}
-
+        width={800}
       >
         <Form form={form} layout="vertical" onFinish={handleSubmit}>
           {/* Add Icon Button */}
@@ -74,7 +73,7 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({ open, onClose }) => {
             <button
               type="button"
               onClick={() => setIconModalOpen(true)}
-              className="border border-[#003877] rounded-md px-3 py-1  text-sm hover:bg-gray-100 transition cursor-pointer"
+              className="border border-[#2C5F8D] rounded-md px-3 py-1  text-sm hover:bg-gray-100 transition cursor-pointer"
             >
               {selectedIcon ? `Icon Selected: ${selectedIcon}` : "Add Icon +"}
             </button>
@@ -168,7 +167,7 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({ open, onClose }) => {
             </Button>
             <Button
               htmlType="submit"
-              className="!bg-[#003877] !border-[#003877] !text-white rounded-md px-6 py-2 font-medium"
+              className="!bg-[#2C5F8D] !border-[#2C5F8D] !text-white rounded-md px-6 py-2 font-medium"
             >
               Submit
             </Button>

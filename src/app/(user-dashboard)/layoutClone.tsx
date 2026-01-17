@@ -1,7 +1,6 @@
 "use client";
 
 import BottomNavigation from "@/components/shared/user-dashboard/bottom-navigation/BottomNavigation";
-import Header from "@/components/shared/user-dashboard/header/Header";
 import OldMobileHeader from "@/components/shared/user-dashboard/header/OldMobileHeader";
 import MobileHeader from "@/components/shared/user-dashboard/MobileHeader";
 import Sidebar from "@/components/shared/user-dashboard/Sidebar";
@@ -86,25 +85,13 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
             <ConfigProvider
               theme={{
                 token: {
-                  colorPrimary: "#003877",
+                  colorPrimary: "#2C5F8D",
                 },
               }}
             >
               <div>
                 <div
-                  className={`  hidden sticky top-0 z-50 ${
-                    shouldHide || singleHide ? "hidden" : "lg:block"
-                  } `}
-                >
-                  <Header />
-                </div>
-
-                <div
-                  className={`h-full  rounded-md  ${
-                    shouldHide || singleHide || pathname === "/profile/home"
-                      ? "py-0 "
-                      : "lg:pt-8 lg:pb-0 px-4  lg:px-5  md:max-h-max overflow-auto "
-                  } `}
+                  className={`h-full  rounded-md   md:max-h-max overflow-auto `}
                 >
                   {children}
                 </div>

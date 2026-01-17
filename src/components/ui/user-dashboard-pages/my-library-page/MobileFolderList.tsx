@@ -200,7 +200,7 @@ export default function MobileFolderList({
                   className={`flex items-center justify-between p-4 py-1.5 cursor-pointer  rounded-t-md rounded-b-md 
                   ${
                     selectedFolder === folder.id
-                      ? "bg-[#00387714]"
+                      ? "bg-[#2C5F8D14]"
                       : "hover:bg-gray-50 "
                   }
                   `}

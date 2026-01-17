@@ -111,7 +111,7 @@ export default function AddExamModal({ open, onClose }: AddExamModalProps) {
             <button
               type="button"
               onClick={() => setIconModalOpen(true)}
-              className="border border-[#003877] rounded-md px-3 py-1 text-sm hover:bg-gray-100 transition cursor-pointer"
+              className="border border-[#2C5F8D] rounded-md px-3 py-1 text-sm hover:bg-gray-100 transition cursor-pointer"
             >
               {selectedIcon ? `Icon Selected: ${selectedIcon}` : "Add Icon +"}
             </button>
@@ -295,7 +295,7 @@ export default function AddExamModal({ open, onClose }: AddExamModalProps) {
             <button
               type="submit"
               className="px-6 py-2 text-white rounded-md hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: "#003877" }}
+              style={{ backgroundColor: "#2C5F8D" }}
             >
               Submit
             </button>

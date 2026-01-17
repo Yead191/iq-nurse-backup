@@ -10,11 +10,9 @@ import BodySilhouetteCard from "./BodySilhouetteCard";
 import { Button, Grid } from "antd";
 import MobileNotesDrawer from "./MobileNotesDrawer";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import { FaUserDoctor } from "react-icons/fa6";
 import { BiQuestionMark } from "react-icons/bi";
 import DetailsHeader from "@/components/shared/DetailsHeader";
 import { toast } from "sonner";
-import { RiShareForwardFill } from "react-icons/ri";
 
 export default function BodySystemMain() {
   const { lg } = Grid.useBreakpoint();
@@ -64,23 +62,8 @@ export default function BodySystemMain() {
               className="w-fit h-[40px] object-contain"
             />
           }
-          title="A&P Interactive "
-          subtitle=""
-          isAiEnhanced={true}
-          actions={[
-            {
-              label: "Share",
-              icon: <Share2 size={18} className="mt-1" />,
-              onClick: () => console.log("Share"),
-              isPrimary: false,
-            },
-            {
-              label: "Quiz Me",
-              icon: <BiQuestionMark size={18} className="mt-1.5" />,
-              onClick: () => console.log("Bookmark"),
-              isPrimary: true,
-            },
-          ]}
+          title="Body Systems"
+          topics={12}
         />
       ) : (
         <DetailsHeader

@@ -34,10 +34,10 @@ const EventCard: React.FC<EventCardProps> = ({
       {/* Action Button */}
       <Button
         style={{
-          backgroundColor: "#003877",
+          backgroundColor: "#2C5F8D",
           color: "white",
         }}
-        size={ xxl ? "middle" : "small"}
+        size={xxl ? "middle" : "small"}
         icon={lg ? <PlusOutlined /> : null}
         onClick={onAdd}
         loading={loading}

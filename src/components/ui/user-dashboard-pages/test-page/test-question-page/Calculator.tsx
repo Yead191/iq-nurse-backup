@@ -96,8 +96,8 @@ const Calculator: React.FC = () => {
 
   // Custom button styles using your primary color
   const operationButtonStyle = {
-    backgroundColor: "#003877",
-    borderColor: "#003877",
+    backgroundColor: "#2C5F8D",
+    borderColor: "#2C5F8D",
     color: "white",
   };
 

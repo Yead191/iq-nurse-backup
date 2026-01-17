@@ -7,7 +7,7 @@ const TermsService = () => {
   return (
     <div>
       <DirectionTitle
-        icon={<BiSpreadsheet className="text-[#003877]" />}
+        icon={<BiSpreadsheet className="text-[#2C5F8D]" />}
         title="Terms of Service"
       />
       <div className="">

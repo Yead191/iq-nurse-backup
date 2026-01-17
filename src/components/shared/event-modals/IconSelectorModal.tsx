@@ -90,7 +90,7 @@ const IconSelectorModal: React.FC<IconSelectorModalProps> = ({
             prefix={<SearchOutlined className="text-gray-400" />}
             className="rounded-md py-2 px-3 flex-1"
           />
-          <button className="!bg-[#003877] !border-[#003877] !text-white rounded-md px-5 py-2">
+          <button className="!bg-[#2C5F8D] !border-[#2C5F8D] !text-white rounded-md px-5 py-2">
             Search
           </button>
         </div>

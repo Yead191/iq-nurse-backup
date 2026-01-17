@@ -33,7 +33,7 @@ export default function ClinicalSkills() {
       <PageNavbar
         icon={
           <Image
-            src="/assets/icons/header/clinical.svg"
+            src="/assets/icons/header/practical.svg"
             alt="NCLEX"
             width={50}
             height={50}
@@ -41,9 +41,8 @@ export default function ClinicalSkills() {
             className="w-fit h-[32px] object-contain"
           />
         }
-        title="Clinical Skill"
-        subtitle="Master essential nursing skills with IQ Nurse"
-        isAiEnhanced={true}
+        title="Practical Skills"
+        topics={32}
       />
 
       <div className="flex flex-col md:flex-row mt-6 lg:mt-0">

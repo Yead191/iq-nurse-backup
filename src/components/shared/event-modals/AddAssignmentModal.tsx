@@ -77,8 +77,7 @@ export default function AddAssignmentModal({
       open={open}
       onCancel={onClose}
       footer={null}
-           width={800}
-
+      width={800}
       title={
         <span className="text-lg font-semibold text-gray-800">
           Add Assignment
@@ -103,7 +102,7 @@ export default function AddAssignmentModal({
             <button
               type="button"
               onClick={() => setIconModalOpen(true)}
-              className="border border-[#003877] rounded-md px-3 py-1 text-sm hover:bg-gray-100 transition cursor-pointer"
+              className="border border-[#2C5F8D] rounded-md px-3 py-1 text-sm hover:bg-gray-100 transition cursor-pointer"
             >
               {selectedIcon ? `Icon Selected: ${selectedIcon}` : "Add Icon +"}
             </button>
@@ -119,7 +118,7 @@ export default function AddAssignmentModal({
               ]}
             >
               <Input
-                  style={{
+                style={{
                   height: 40,
                   backgroundColor: "#F6F7F8",
                   borderColor: "#C5D0D0",
@@ -130,7 +129,7 @@ export default function AddAssignmentModal({
 
             <Form.Item name="description" label="Description">
               <TextArea
-                  style={{
+                style={{
                   height: 40,
                   backgroundColor: "#F6F7F8",
                   borderColor: "#C5D0D0",
@@ -149,7 +148,7 @@ export default function AddAssignmentModal({
               rules={[{ required: true, message: "Please select due date" }]}
             >
               <DatePicker
-                  style={{
+                style={{
                   height: 40,
                   backgroundColor: "#F6F7F8",
                   borderColor: "#C5D0D0",
@@ -166,7 +165,7 @@ export default function AddAssignmentModal({
               rules={[{ required: true, message: "Please select start time" }]}
             >
               <TimePicker
-                  style={{
+                style={{
                   height: 40,
                   backgroundColor: "#F6F7F8",
                   borderColor: "#C5D0D0",
@@ -183,7 +182,7 @@ export default function AddAssignmentModal({
               rules={[{ required: true, message: "Please select end time" }]}
             >
               <TimePicker
-                  style={{
+                style={{
                   height: 40,
                   backgroundColor: "#F6F7F8",
                   borderColor: "#C5D0D0",
@@ -198,11 +197,13 @@ export default function AddAssignmentModal({
           {/* Time Zone */}
           <div className="mb-4">
             <Form.Item name="timeZone" label="Select a Time Zone">
-              <Select   style={{
+              <Select
+                style={{
                   height: 40,
                   backgroundColor: "#F6F7F8",
                   borderColor: "#C5D0D0",
-                }}>
+                }}
+              >
                 <Option value="America/New_York">America/New_York</Option>
                 <Option value="America/Los_Angeles">America/Los_Angeles</Option>
                 <Option value="Europe/London">Europe/London</Option>
@@ -262,7 +263,7 @@ export default function AddAssignmentModal({
             <button
               type="submit"
               className="px-6 py-2 text-white rounded-md hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: "#003877" }}
+              style={{ backgroundColor: "#2C5F8D" }}
             >
               Submit
             </button>

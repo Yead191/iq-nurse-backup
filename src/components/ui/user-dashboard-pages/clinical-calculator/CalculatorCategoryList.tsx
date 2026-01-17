@@ -116,13 +116,13 @@ export default function CalculatorCategoryList() {
                       className={`flex justify-between items-center 
          ${
            selectedTool === tool.id
-             ? "bg-[#E8EBFB] text-[#003877] "
+             ? "bg-[#E8EBFB] text-[#2C5F8D] "
              : "bg-white"
          }
          rounded-[10px] px-4 py-2 h-full`}
                     >
                       <div className="flex items-center gap-4 flex-1">
-                        <div className="text-[#003877] text-sm ">
+                        <div className="text-[#2C5F8D] text-sm ">
                           <Image
                             src="/assets/icons/calculator.svg"
                             alt="NCLEX"
@@ -138,10 +138,10 @@ export default function CalculatorCategoryList() {
                         </div>
                       </div>
 
-                      <button className="text-gray-400 hover:text-[#003877] transition-colors duration-200 ml-4 text-sm">
+                      <button className="text-gray-400 hover:text-[#2C5F8D] transition-colors duration-200 ml-4 text-sm">
                         {isBookmarked ? (
                           <BookmarkIcon
-                            className="text-[#003877] fill-current"
+                            className="text-[#2C5F8D] fill-current"
                             size={16}
                           />
                         ) : (

@@ -14,7 +14,7 @@ export const icon = (src: string, alt: string, size = 25) => (
     width={30}
     src={src}
     alt={alt}
-    className={`h-[20px] w-[20px] 2xl:h-[22px] 2xl:w-[22px] overflow-hidden  object-cover`}
+    className={`h-[20px] w-[20px] 2xl:h-[22px] 2xl:w-fit overflow-hidden  object-cover`}
   />
 );
 
@@ -76,27 +76,24 @@ export const menus: Record<string, MenuItem[]> = {
     },
     {
       key: "/profile/clinicals",
-      label: "Clinical Skills",
-      icon: icon("/assets/sidebar-icons/clinicals-icon.svg", "clinicals"),
+      label: "Practical Skills",
+      icon: icon("/assets/icons/header/skill.svg", "practical"),
     },
     {
       key: "/profile/patient-assessment",
-      label: "Patient Assessment",
-      icon: icon(
-        "/assets/sidebar-icons/patient-assessment-icon.svg",
-        "patient"
-      ),
+      label: "Nursing Assessment",
+      icon: icon("/assets/icons/header/nursing.svg", "patient"),
     },
     {
       key: "/profile/care-plans",
       label: "Care Plans",
-      icon: icon("/assets/sidebar-icons/care-plans-icon.svg", "care-plans", 20),
+      icon: icon("/assets/icons/header/care.svg", "care-plans", 20),
       tag: "New",
     },
     {
       key: "/profile/templates",
-      label: "Download & Templates",
-      icon: icon("/assets/sidebar-icons/template-icon.svg", "template"),
+      label: "Cheat Sheets",
+      icon: icon("/assets/icons/header/cheat-sheets.svg", "template"),
     },
   ],
   studyTools: [
@@ -113,9 +110,9 @@ export const menus: Record<string, MenuItem[]> = {
     },
     {
       key: "/profile/ai-drug",
-      label: "Drug Generator",
-      icon: icon("/assets/drug-ai/drug.svg", "map"),
-      tag: "drug-generator",
+      label: "Drug Cards",
+      icon: icon("/assets/icons/header/drug.svg", "map"),
+      tag: "drug-cards",
     },
     {
       key: "/profile/concept-map",

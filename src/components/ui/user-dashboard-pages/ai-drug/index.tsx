@@ -4,10 +4,12 @@ import DrugCategories from "./DrugCategories";
 import DrugDetails from "./DrugDetails";
 
 const AIDrug = ({ drugId }: { drugId: string }) => {
-  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null);
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(
+    null
+  );
 
   return (
-    <div >
+    <div>
       {selectedCategoryId ? (
         <DrugDetails selectedCategoryId={selectedCategoryId} drugId={drugId} />
       ) : (
@@ -39,7 +41,7 @@ export default AIDrug;
 
 //   const [isSideBarSelect, setIsSideBarSelect] = useState<boolean>(false);
 //   const [setselectedId, setSetselectedId] = useState<string>("");
-  
+
 //   console.log({setselectedId})
 //   return (
 //     <>
@@ -57,7 +59,7 @@ export default AIDrug;
 //           },
 //         ]}
 //       />
-      
+
 //       <div className="flex flex-col md:flex-row sm:mx-2 sm:gap-2">
 //         {/* Calculator List */}
 //         <div className={`${isSideBarSelect ? "hidden" : "block"} md:block`}>

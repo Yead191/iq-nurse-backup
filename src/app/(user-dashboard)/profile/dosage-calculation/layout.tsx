@@ -6,7 +6,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
     <section className="relative">
       <DynamicHeader
         title="Dosage Calculation"
-        subtitle="Essential Knowledge for  NCLEX Success"
+        topics={16}
         icon="/assets/icons/header/vital.svg"
         mobileTitle="Dosage Calculation"
         basePath="/profile/dosage-calculation"

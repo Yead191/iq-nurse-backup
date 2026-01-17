@@ -21,7 +21,7 @@ export default function TabSelect({
         onClick={() => handleTabClick(tab.id)}
         className={` md:border rounded-lg   md:py-4 md:p-4 md:shadow-sm transition-all duration-300 hover:shadow-md group cursor-pointer w-full  flex flex-row items-center justify-between  gap-2 md:gap-4 ${
           activeTab === tab.id
-            ? "border-white shadow-sm md:border-[#003877]/80 bg-white md:bg-[#E6EBF1]/80"
+            ? "border-white shadow-sm md:border-[#2C5F8D]/80 bg-white md:bg-[#E6EBF1]/80"
             : "border-[#C5D0D0]  hover:border-[#547AA4]/80"
         }`}
       >

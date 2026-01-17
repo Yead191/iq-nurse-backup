@@ -6,10 +6,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <section className="relative">
       <DynamicHeader
-        title="Clinical Skill"
-        subtitle="Master essential nursing skills with IQ Nurse"
-        icon="/assets/icons/header/heart-rate.svg"
-        mobileTitle="Clinical Skill"
+        title="Practical Skill"
+        icon="/assets/icons/header/skill.svg"
+        mobileTitle="Practical Skill"
         basePath="/profile/clinicals"
       />
       <div className="flex flex-col md:flex-row mt-6 lg:mt-0">

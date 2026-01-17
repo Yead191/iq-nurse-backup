@@ -6,8 +6,8 @@ export default function layout({ children }: { children: React.ReactNode }) {
     <section className="relative">
       <DynamicHeader
         title="Labs Reference"
-        subtitle="Complete Guide to Laboratory Values, Interpretation & NCLEX Success"
-        icon="/assets/icons/header/heart-rate.svg"
+        icon="/assets/icons/header/labs.svg"
+        topics={26}
         mobileTitle="Labs Reference"
         basePath="/profile/labs-reference"
       />

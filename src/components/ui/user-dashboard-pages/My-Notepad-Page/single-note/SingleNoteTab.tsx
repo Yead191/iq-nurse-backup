@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 import React, { useRef } from "react";
 import "@/styles/jodit-fixed.css";
 
-
 // ✅ Load Jodit without SSR
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 interface NoteTabProps {
@@ -39,9 +38,9 @@ export default function SingleNoteTab({
 
   return (
     <div
-    className="single-note-tab"
+      className="single-note-tab"
       style={{
-        // border: "1px solid #003877",
+        // border: "1px solid #2C5F8D",
         borderRadius: "11px",
         // padding: "12px",
       }}

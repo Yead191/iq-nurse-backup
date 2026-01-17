@@ -16,7 +16,7 @@ export default function CategoryCard({
       onClick={() => onCategoryChange(category.id)}
       className={` border rounded-lg p-2 py-4 md:p-4 shadow-sm transition-all duration-300 hover:shadow-md group cursor-pointer w-full  flex flex-row items-center  gap-2 md:gap-4 ${
         selectedCategory === category.id
-          ? "border-[#003877] bg-[#E6EBF1]"
+          ? "border-[#2C5F8D] bg-[#E6EBF1]"
           : "border-[#C5D0D0] bg-white hover:border-[#547AA4]/50"
       }`}
     >

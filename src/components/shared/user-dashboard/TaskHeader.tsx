@@ -30,7 +30,7 @@ export default function TaskHeader({
         icon={isOpen ? <MinusOutlined /> : <PlusOutlined />}
         className="hover:bg-neutral-100"
         style={{
-          backgroundColor: "#003877",
+          backgroundColor: "#2C5F8D",
           color: "white",
           borderRadius: 8,
         }}

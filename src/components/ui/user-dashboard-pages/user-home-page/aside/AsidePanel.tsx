@@ -17,7 +17,7 @@ export default function AsidePanel() {
             onClick={() => setActiveTab("today")}
             className={`flex-1 text-xs 2xl:text-sm  px-3 py-2 rounded-[8px] transition text-nowrap ${
               activeTab === "today"
-                ? "bg-white  text-[#003877] font-medium"
+                ? "bg-white  text-[#2C5F8D] font-medium"
                 : "text-neutral-500 hover:text-neutral-800"
             }`}
           >
@@ -27,7 +27,7 @@ export default function AsidePanel() {
             onClick={() => setActiveTab("add")}
             className={`flex-1 text-xs 2xl:text-sm font-medium px-3 py-2 rounded-md transition ${
               activeTab === "add"
-                ? "bg-white  text-[#003877] font-medium"
+                ? "bg-white  text-[#2C5F8D] font-medium"
                 : "text-neutral-500 hover:text-neutral-800"
             }`}
           >

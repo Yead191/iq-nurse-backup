@@ -50,7 +50,7 @@ export default function QuestionHeader({
 
   return (
     <header className="w-full">
-      <div className="bg-[#003877] text-white px-6 py-4 w-full">
+      <div className="bg-[#2C5F8D] text-white px-6 py-4 w-full">
         <div className="items-center flex justify-between flex-wrap gap-4">
           <div className="flex items-center space-x-8">
             <div className="text-start lg:text-center">

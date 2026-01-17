@@ -92,7 +92,7 @@ const FlashTestFooter: React.FC<Props> = ({
           className={`py-2 border border-gray-300 px-3 rounded-lg flex items-center justify-center transition-colors duration-200 ${
             isFirst
               ? "bg-[#95A5A6] text-white cursor-not-allowed"
-              : "bg-[#003877] text-white cursor-pointer"
+              : "bg-[#2C5F8D] text-white cursor-pointer"
           }`}
         >
           <span className="hidden md:flex items-center gap-2">
@@ -126,7 +126,7 @@ const FlashTestFooter: React.FC<Props> = ({
             type="button"
             aria-label="Next card"
             onClick={onNext}
-            className="py-2 rounded-lg px-3 md:px-6 flex items-center justify-center bg-[#003877] text-white cursor-pointer"
+            className="py-2 rounded-lg px-3 md:px-6 flex items-center justify-center bg-[#2C5F8D] text-white cursor-pointer"
           >
             <span className="hidden md:flex items-center gap-2">
               Next <HiArrowSmallRight size={lg ? 20 : 8} />
@@ -184,7 +184,7 @@ const FlashTestFooter: React.FC<Props> = ({
               <span role="img" aria-label="Hint" className="mr-2">
                 💡
               </span>
-              <span className="font-semibold text-[#003877]">Hint</span>
+              <span className="font-semibold text-[#2C5F8D]">Hint</span>
             </div>
             <div className="text-sm text-gray-800 space-y-2">
               <p>

@@ -97,7 +97,6 @@ export default function AddMeetingModal({
           Add Meeting/ Appointment
         </span>
       }
-      
     >
       <Form
         form={form}
@@ -116,7 +115,7 @@ export default function AddMeetingModal({
             <button
               type="button"
               onClick={() => setIconModalOpen(true)}
-              className="border border-[#003877] rounded-md px-3 py-1 text-sm hover:bg-gray-100 transition cursor-pointer"
+              className="border border-[#2C5F8D] rounded-md px-3 py-1 text-sm hover:bg-gray-100 transition cursor-pointer"
             >
               {selectedIcon ? `Icon Selected: ${selectedIcon}` : "Add Icon +"}
             </button>
@@ -346,7 +345,7 @@ export default function AddMeetingModal({
             </Button>
             <Button
               htmlType="submit"
-              className="!bg-[#003877] !border-[#003877] !text-white rounded-md px-6 py-2 font-medium"
+              className="!bg-[#2C5F8D] !border-[#2C5F8D] !text-white rounded-md px-6 py-2 font-medium"
             >
               Submit
             </Button>

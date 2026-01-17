@@ -60,7 +60,7 @@ export function NCLEXQuestionsSection() {
         {/* Desktop toggle */}
         <button
           onClick={() => setShowAll((prev) => !prev)}
-          className="hidden font-medium text-[#003877] hover:underline lg:block cursor-pointer"
+          className="hidden font-medium text-[#2C5F8D] hover:underline lg:block cursor-pointer"
         >
           {showAll ? "Show Less" : "See All"}
         </button>
@@ -68,7 +68,7 @@ export function NCLEXQuestionsSection() {
         {/* Mobile link */}
         <Link
           href="/profile/tests"
-          className="font-medium text-[#003877] hover:underline lg:hidden "
+          className="font-medium text-[#2C5F8D] hover:underline lg:hidden "
         >
           See All
         </Link>

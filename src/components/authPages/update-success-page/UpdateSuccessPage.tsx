@@ -57,8 +57,8 @@ export default function UpdateSuccessPage() {
               style={{
                 height: "48px",
                 borderRadius: "8px",
-                backgroundColor: "#003877",
-                borderColor: "#003877",
+                backgroundColor: "#2C5F8D",
+                borderColor: "#2C5F8D",
                 fontSize: "16px",
                 fontWeight: "500",
                 width: "100%",

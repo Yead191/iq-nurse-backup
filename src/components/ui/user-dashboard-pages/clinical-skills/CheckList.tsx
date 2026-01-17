@@ -43,7 +43,7 @@ export const Checklist = ({ checklist, steps }: ChecklistProps) => {
             <div className="w-full">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-2">
-                  <span className="bg-[#003877] text-white rounded-[50%] py-2 px-4">
+                  <span className="bg-[#2C5F8D] text-white rounded-[50%] py-2 px-4">
                     {i + 1}
                   </span>
                   <h1 className="font-bold">{title}</h1>

@@ -24,12 +24,6 @@ export default function TestQuestionPageMain({ mode }: { mode: string }) {
   const title = "Personalizing Your Exam";
   return (
     <section className="min-h-screen  flex justify-center   min-w-full">
-      {/* <PageNavbar
-        icon={<BookOpen className="text-black fill-current" />}
-        title="Master the NCLEX with Confidence"
-        subtitle="Practice with targeted questions, track your progress, and compare with peers to boost your chances of success."
-        isAiEnhanced={false}
-      /> */}
       <div className="min-h-[calc(100vh-360px)]  min-w-full">
         {showSplash ? (
           <SplashScreen

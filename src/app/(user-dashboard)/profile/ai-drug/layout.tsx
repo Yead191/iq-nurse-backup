@@ -22,10 +22,10 @@ export default function AIDrugLayout({
   return (
     <>
       <PageNavbar
-        title="AI Drug Card Generator"
+        title="Drug Cards"
         icon={
           <Image
-            src="/assets/icons/header/pill.svg"
+            src="/assets/icons/header/drug.svg"
             alt="NCLEX"
             width={50}
             height={50}
@@ -33,8 +33,7 @@ export default function AIDrugLayout({
             className="w-fit h-10 object-contain"
           />
         }
-        subtitle="Generate comprehensive medication reference cards with AI-powered drug information"
-        isAiEnhanced={true}
+        topics={32}
       />
 
       <div className="flex flex-col md:flex-row sm:mx-2 sm:gap-2 ">

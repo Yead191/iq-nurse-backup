@@ -77,20 +77,20 @@ const UserCalendar: React.FC = () => {
           <div className="flex items-center space-x-4">
             <button
               onClick={() => navigate("PREV")}
-              className=" lg:h-[46px] h-8  w-8 lg:w-[46px] lg:text-2xl text-xs bg-[#F6F7F8] rounded text-[#003877] flex items-center justify-center"
+              className=" lg:h-[46px] h-8  w-8 lg:w-[46px] lg:text-2xl text-xs bg-[#F6F7F8] rounded text-[#2C5F8D] flex items-center justify-center"
             >
               <IoIosArrowBack />
             </button>
 
             <button
               onClick={() => navigate("NEXT")}
-              className=" lg:h-[46px] h-8  w-8 lg:w-[46px] lg:text-2xl text-xs bg-[#F6F7F8] rounded text-[#003877] flex items-center justify-center"
+              className=" lg:h-[46px] h-8  w-8 lg:w-[46px] lg:text-2xl text-xs bg-[#F6F7F8] rounded text-[#2C5F8D] flex items-center justify-center"
             >
               <IoIosArrowForward />
             </button>
             <button
               onClick={() => navigate("TODAY")}
-              className="ml-4 px-3 py-1 bg-[#003877] text-white rounded cursor-pointer text-sm hidden md:block"
+              className="ml-4 px-3 py-1 bg-[#2C5F8D] text-white rounded cursor-pointer text-sm hidden md:block"
             >
               Today
             </button>
@@ -104,8 +104,8 @@ const UserCalendar: React.FC = () => {
               onClick={() => onView(view)}
               className={`px-3 py-1 rounded text-sm transition-colors w-full md:w-auto ${
                 currentView === view
-                  ? "bg-white text-[#003877]"
-                  : "bg-[#F6F7F8] text-[#C5D0D0] hover:bg-white hover:text-[#003877] border border-gray-50"
+                  ? "bg-white text-[#2C5F8D]"
+                  : "bg-[#F6F7F8] text-[#C5D0D0] hover:bg-white hover:text-[#2C5F8D] border border-gray-50"
               }`}
             >
               {name}

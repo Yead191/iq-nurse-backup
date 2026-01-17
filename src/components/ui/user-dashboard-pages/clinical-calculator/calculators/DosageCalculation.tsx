@@ -121,7 +121,7 @@ export default function DosageCalculation() {
           {/* Calculate Button */}
           <div className="mt-5 flex justify-end">
             <Button
-              className="px-4 !py-5 w-full sm:w-auto transition !bg-[#003877] !text-white"
+              className="px-4 !py-5 w-full sm:w-auto transition !bg-[#2C5F8D] !text-white"
               htmlType="submit"
             >
               Calculate

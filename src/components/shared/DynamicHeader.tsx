@@ -8,13 +8,13 @@ import Image from "next/image";
 
 export default function DynamicHeader({
   title,
-  subtitle,
+  topics,
   icon,
   mobileTitle,
   basePath,
 }: {
   title: string;
-  subtitle: string;
+  topics?: string | number;
   icon: string;
   actions?: any;
   mobileTitle?: string;
@@ -38,8 +38,7 @@ export default function DynamicHeader({
             />
           }
           title={title}
-          subtitle={subtitle}
-          isAiEnhanced={false}
+          topics={topics}
         />
       ) : (
         <DetailsHeader title={mobileTitle} back={basePath} />

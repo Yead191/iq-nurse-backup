@@ -17,7 +17,7 @@ export default function TemplateHeader() {
         <PageNavbar
           icon={
             <Image
-              src="/assets/icons/header/book.svg"
+              src="/assets/icons/header/cheat-sheets.svg"
               alt="NCLEX"
               width={50}
               height={50}
@@ -25,9 +25,8 @@ export default function TemplateHeader() {
               className="w-fit h-[32px] object-contain"
             />
           }
-          title="Document Templates"
-          subtitle="Professional nursing documentation templates for clinical practice"
-          isAiEnhanced={true}
+          title="Cheat Sheets"
+          topics={22}
         />
       ) : (
         <DetailsHeader

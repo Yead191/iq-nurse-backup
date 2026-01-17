@@ -17,19 +17,19 @@ const recentlyViewed = [
     id: 1,
     title: "Cardiovascular system Notes",
     lastViewed: "2 hours ago",
-    icon: <HeartOutlined style={{ fontSize: 24, color: "#003877" }} />,
+    icon: <HeartOutlined style={{ fontSize: 24, color: "#2C5F8D" }} />,
   },
   {
     id: 2,
     title: "Anticoagulant Medications",
     lastViewed: "Yesterday",
-    icon: <ExperimentOutlined style={{ fontSize: 24, color: "#003877" }} />,
+    icon: <ExperimentOutlined style={{ fontSize: 24, color: "#2C5F8D" }} />,
   },
   {
     id: 3,
     title: "Post-Op Care Plan",
     lastViewed: "2 days ago",
-    icon: <FileTextOutlined style={{ fontSize: 24, color: "#003877" }} />,
+    icon: <FileTextOutlined style={{ fontSize: 24, color: "#2C5F8D" }} />,
   },
 ];
 

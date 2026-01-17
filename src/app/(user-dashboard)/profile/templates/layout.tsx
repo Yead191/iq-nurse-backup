@@ -5,7 +5,6 @@ export default function layout({ children }: { children: React.ReactNode }) {
   return (
     <section className="relative">
       <TemplateHeader />
-
       <div className="flex">
         <TemplateSidebar basePath="/profile/templates" />
 

@@ -31,7 +31,7 @@ const Dashboard = () => {
       >
         <div className="flex items-center justify-between pb-5">
           <p className="text-[16px] font-medium text-[#000000]">Recent Maps</p>
-          <p className="text-[#003877]">View all</p>
+          <p className="text-[#2C5F8D]">View all</p>
         </div>
 
         <div>

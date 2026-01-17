@@ -6,8 +6,8 @@ export default function layout({ children }: { children: React.ReactNode }) {
     <section className="relative">
       <DynamicHeader
         title="ECG Mastery"
-        subtitle="Guide to Cardiac Rhythm Interpretation & Clinical Management"
-        icon="/assets/icons/header/heart-rate.svg"
+        topics={16}
+        icon="/assets/icons/header/ecg.svg"
         mobileTitle="ECG Mastery"
         basePath="/profile/ecg-mastery"
       />

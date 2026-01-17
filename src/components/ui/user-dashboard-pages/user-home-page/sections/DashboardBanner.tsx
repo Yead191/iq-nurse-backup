@@ -26,7 +26,7 @@ export default function DashboardBanner() {
             Hello, John!
           </h4>
         </div>
-        <h1 className="text-xl lg:text-5xl font-bold text-[#003877]/70 md:text-[#003877]/40 max-w-[280px] md:max-w-[800px] tracking-[0.02rem] md:tracking-[0.1em] leading-[130%] md:leading-[100%]">
+        <h1 className="text-xl lg:text-5xl font-bold text-[#2C5F8D]/70 md:text-[#2C5F8D]/40 max-w-[280px] md:max-w-[800px] tracking-[0.02rem] md:tracking-[0.1em] leading-[130%] md:leading-[100%]">
           Your One Platform with Infinite Possibilities
         </h1>
         {/* Search overlay */}

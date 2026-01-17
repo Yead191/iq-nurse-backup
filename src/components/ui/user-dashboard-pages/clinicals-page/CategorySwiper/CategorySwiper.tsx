@@ -32,13 +32,13 @@ export default function CategorySwiper({
         <div className="md:flex items-center gap-5 bg-[#F6F7F8] shadow-md px-4 py-2 rounded-[8px] hidden ">
           <button
             onClick={goPrev}
-            className="p-2 rounded-[3px] bg-[#0038771A] hover:bg-[#003877] hover:text-white transition-all duration-300 cursor-pointer"
+            className="p-2 rounded-[3px] bg-[#2C5F8D1A] hover:bg-[#2C5F8D] hover:text-white transition-all duration-300 cursor-pointer"
           >
             <ChevronLeft size={20} />
           </button>
           <button
             onClick={goNext}
-            className="p-2 rounded-[3px] bg-[#0038771A] hover:bg-[#003877] hover:text-white transition-all duration-300 cursor-pointer"
+            className="p-2 rounded-[3px] bg-[#2C5F8D1A] hover:bg-[#2C5F8D] hover:text-white transition-all duration-300 cursor-pointer"
           >
             <ChevronRight size={20} />
           </button>

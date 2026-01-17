@@ -17,7 +17,7 @@ export default function AssessmentHeader() {
         <PageNavbar
           icon={
             <Image
-              src="/assets/icons/header/heart-rate.svg"
+              src="/assets/icons/header/nursing.svg"
               alt="NCLEX"
               width={50}
               height={50}
@@ -25,9 +25,8 @@ export default function AssessmentHeader() {
               className="w-fit h-[32px] object-contain"
             />
           }
-          title="Comprehensive Nursing Assessment Guide"
-          subtitle="Create, organize, and enhance your study notes with AI assistance"
-          isAiEnhanced={false}
+          title="Nursing Assessment"
+          topics={24}
         />
       ) : (
         <DetailsHeader

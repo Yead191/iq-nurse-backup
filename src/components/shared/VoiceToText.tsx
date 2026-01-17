@@ -54,21 +54,21 @@ const VoiceToText = ({ setText, isChatBot }: VoiceToTextProps) => {
       onClick={startListening}
       disabled={listening}
       type="text"
-      icon={<AudioOutlined style={{ color: listening ? "red" : "#003877" }} />}
+      icon={<AudioOutlined style={{ color: listening ? "red" : "#2C5F8D" }} />}
       style={
         isChatBot
           ? {
               backgroundColor: "transparent",
               borderRadius: 50,
               padding: "10px 14px",
-              color: listening ? "red" : "#003877",
-            //   border: listening ? "1px solid red" : "1px solid transparent",
+              color: listening ? "red" : "#2C5F8D",
+              //   border: listening ? "1px solid red" : "1px solid transparent",
             }
           : {
-              backgroundColor: "#0038771A",
+              backgroundColor: "#2C5F8D1A",
               borderRadius: lg ? 4 : 16,
               padding: 8,
-              color: listening ? "red" : "#003877",
+              color: listening ? "red" : "#2C5F8D",
             }
       }
     />

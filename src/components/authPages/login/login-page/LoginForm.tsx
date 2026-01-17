@@ -86,10 +86,10 @@ export default function LoginForm({ onFinish, form }: LoginFormProps) {
             name="remember"
             valuePropName="checked"
           >
-            <Checkbox style={{ color: "#003877" }}>Remember me</Checkbox>
+            <Checkbox style={{ color: "#2C5F8D" }}>Remember me</Checkbox>
           </Form.Item>
           <Link href="/auth/reset-password">
-            <p className="text-[14px] text-[#003877] font-medium hover:underline">
+            <p className="text-[14px] text-[#2C5F8D] font-medium hover:underline">
               Forgot Password?
             </p>
           </Link>
@@ -103,8 +103,8 @@ export default function LoginForm({ onFinish, form }: LoginFormProps) {
             style={{
               height: "48px",
               borderRadius: "8px",
-              backgroundColor: "#003877",
-              borderColor: "#003877",
+              backgroundColor: "#2C5F8D",
+              borderColor: "#2C5F8D",
               fontSize: "16px",
               fontWeight: "500",
               marginTop: "-12px",
@@ -119,7 +119,7 @@ export default function LoginForm({ onFinish, form }: LoginFormProps) {
             Don't have an account?{" "}
             <Link
               href="/auth/register"
-              style={{ color: "#003877", fontWeight: "500" }}
+              style={{ color: "#2C5F8D", fontWeight: "500" }}
             >
               Create one now
             </Link>

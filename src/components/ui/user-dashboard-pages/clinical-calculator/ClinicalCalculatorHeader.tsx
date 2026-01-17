@@ -28,8 +28,6 @@ export default function ClinicalCalculatorHeader() {
             />
           }
           title="Clinical Calculators"
-          subtitle="Essential calculation tools for safe and accurate nursing practice"
-          isAiEnhanced
           //   actions={[
           //     {
           //       label: "Share",

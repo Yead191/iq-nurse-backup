@@ -53,7 +53,7 @@ const CreateFlashCard = () => {
       <div className="flex flex-row gap-4 lg:pt-10 pt-5 lg:items-start items-center">
         <Link
           href={"/profile/flash-cards/create-flash"}
-          className={`cursor-pointer h-[45px] flex items-center justify-center px-6 rounded-lg text-white font-normal bg-[#003877]`}
+          className={`cursor-pointer h-[45px] flex items-center justify-center px-6 rounded-lg text-white font-normal bg-[#2C5F8D]`}
         >
           Continue
         </Link>

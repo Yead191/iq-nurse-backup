@@ -32,7 +32,7 @@ export default function ExamConfigSection({
           value={numQuestions}
           onChange={setNumQuestions}
           tooltip={{ open: false }}
-          trackStyle={{ backgroundColor: "#003877" }}
+          trackStyle={{ backgroundColor: "#2C5F8D" }}
           handleStyle={{ borderColor: "#1890ff" }}
         />
         <div className="flex justify-between text-xs text-gray-500 mt-1">
@@ -80,8 +80,8 @@ export default function ExamConfigSection({
           block
           onClick={handleStart}
           style={{
-            backgroundColor: "#003877",
-            borderColor: "#003877",
+            backgroundColor: "#2C5F8D",
+            borderColor: "#2C5F8D",
             height: "48px",
             fontSize: "16px",
             fontWeight: "500",

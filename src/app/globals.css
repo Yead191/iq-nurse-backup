@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: #003877;
+  --primary: #2C5F8D;
 }
 
 @theme inline {
@@ -45,12 +45,12 @@ body {
 /* ant select */
 
 .ant-select-item-option-selected {
-  background-color: #003877 !important;
+  background-color: #2C5F8D !important;
   color: white !important;
 }
 
 .ant-select-item-option-active {
-  background-color: #003877 !important;
+  background-color: #2C5F8D !important;
   color: white !important;
 }
 
@@ -79,15 +79,15 @@ body {
 
 @layer utilities {
   .text-primary {
-    color: #003877;
+    color: #2C5F8D;
   }
 
   .border-primary {
-    border-color: #003877;
+    border-color: #2C5F8D;
   }
 
   .bg-primary {
-    background-color: #003877;
+    background-color: #2C5F8D;
   }
 
   .text-secondary {

@@ -134,7 +134,7 @@ export default function RegisterForm({ onFinish, form }: RegisterFormProps) {
           name="remember"
           valuePropName="checked"
         >
-          <Checkbox style={{ color: "#003877" }}>Remember me</Checkbox>
+          <Checkbox style={{ color: "#2C5F8D" }}>Remember me</Checkbox>
         </Form.Item>
 
         <Form.Item>
@@ -145,8 +145,8 @@ export default function RegisterForm({ onFinish, form }: RegisterFormProps) {
             style={{
               height: "48px",
               borderRadius: "8px",
-              backgroundColor: "#003877",
-              borderColor: "#003877",
+              backgroundColor: "#2C5F8D",
+              borderColor: "#2C5F8D",
               fontSize: "16px",
               fontWeight: "500",
               marginTop: "-12px",
@@ -161,7 +161,7 @@ export default function RegisterForm({ onFinish, form }: RegisterFormProps) {
             Already have an account?{" "}
             <Link
               href="/auth/login"
-              style={{ color: "#003877", fontWeight: "500" }}
+              style={{ color: "#2C5F8D", fontWeight: "500" }}
             >
               Sign In
             </Link>

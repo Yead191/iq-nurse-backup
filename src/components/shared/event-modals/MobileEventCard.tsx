@@ -33,7 +33,7 @@ const MobileEventCard: React.FC<MobileEventCardProps> = ({
       {/* Action Button */}
       <Button
         style={{
-          backgroundColor: "#003877",
+          backgroundColor: "#2C5F8D",
           color: "white",
           marginTop: 20,
         }}

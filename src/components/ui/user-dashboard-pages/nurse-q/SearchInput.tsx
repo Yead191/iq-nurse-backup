@@ -34,14 +34,16 @@ const SearchInput = ({
   return (
     <div className="container mx-auto">
       <div className="border border-[#E2E8F0] overflow-hidden rounded-xl flex flex-col gap-4">
-      {isPopUp &&  <>
-          <div className="w-full px-3 bg-primary flex items-center gap-2 py-6 text-xl text-white ">
-            <LuMessagesSquare />
-            <span>Chat with Nurse Nia</span>
-          </div>
+        {isPopUp && (
+          <>
+            <div className="w-full px-3 bg-primary flex items-center gap-2 py-6 text-xl text-white ">
+              <LuMessagesSquare />
+              <span>Chat with Nurse Nia</span>
+            </div>
 
-          <WelcomeBot />
-        </>}
+            <WelcomeBot />
+          </>
+        )}
         {/* Middle Input Field */}
         <div className="flex-1 p-5">
           <div className=" flex items-center gap-3.5 justify-between md:px-3.5">
@@ -53,15 +55,27 @@ const SearchInput = ({
               className="w-full  focus:outline-none focus:ring-0  border border-gray-400 rounded-full p placeholder-[#000000] placeholder:font-semibold text-sm py-3 px-4"
             />
             <div className="flex items-center lg:gap-9 md:gap-4 gap-1">
-              <input type="file" name="file" id="file-upload" hidden  accept="application/pdf"/>
+              <input
+                type="file"
+                name="file"
+                id="file-upload"
+                hidden
+                accept="application/pdf"
+              />
               <label htmlFor="file-upload" className="cursor-pointer">
-                <IoIosLink size={20} color="#003877" />
+                <IoIosLink size={20} color="#2C5F8D" />
               </label>
 
-              <input type="file" name="image" accept="image/*" id="image-upload" hidden />
+              <input
+                type="file"
+                name="image"
+                accept="image/*"
+                id="image-upload"
+                hidden
+              />
 
               <label htmlFor="image-upload" className="cursor-pointer">
-                <IoIosCamera size={24} color="#003877" />
+                <IoIosCamera size={24} color="#2C5F8D" />
               </label>
 
               <VoiceToText setText={setQuery} isChatBot={true} />
@@ -70,7 +84,7 @@ const SearchInput = ({
                 onClick={onFInish}
               >
                 {" "}
-                <IoIosSend size={24} color="#003877" />{" "}
+                <IoIosSend size={24} color="#2C5F8D" />{" "}
               </button>
             </div>
           </div>

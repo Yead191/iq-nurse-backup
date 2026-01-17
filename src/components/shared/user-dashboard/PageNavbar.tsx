@@ -14,16 +14,14 @@ type ActionBtn = {
 type PageNavbarProps = {
   icon?: ReactNode;
   title: string;
-  subtitle?: string;
-  isAiEnhanced?: boolean;
+  topics?: number | string;
   actions?: ActionBtn[];
 };
 
 export default function PageNavbar({
   icon,
   title,
-  subtitle,
-  isAiEnhanced,
+  topics,
   actions = [],
 }: PageNavbarProps) {
   const { lg } = Grid.useBreakpoint();
@@ -37,39 +35,22 @@ export default function PageNavbar({
       {/* Left side */}
       <div className="flex items-center gap-3">
         {icon && (
-          <div className="w-7 h-7 flex items-center justify-center">{icon}</div>
+          <div className="w-7 h-fit flex items-center justify-center">
+            {icon}
+          </div>
         )}
-
+        <div className="h-10 w-[3px] bg-[#2C5F8D]" />
         <div>
-          <div className="flex items-end gap-2">
-            <h2 className="text-base md:text-lg font-semibold text-[#000000]">
+          <div className="flex items-end gap-3">
+            <h2 className="text-base md:text-lg lg:text-xl font-semibold text-[#495057] tracking-wide">
               {title}
             </h2>
-            <div className="hidden md:block">
-              {isAiEnhanced && (
-                <Button
-                  size="middle"
-                  disabled
-                  style={{
-                    fontSize: "12px",
-                    fontWeight: 500,
-                    color: "#fff",
-                    height: "34",
-                    border: "none",
-                    borderRadius: 8,
-                    background: "linear-gradient(to right, #0068DD, #003877)",
-                  }}
-                >
-                  AI-Enhanced
-                </Button>
-              )}
-            </div>
+            {topics && (
+              <p className="text-xs md:text-sm lg:text-[16px] text-[#979797] ">
+                {topics} Topics
+              </p>
+            )}
           </div>
-          {subtitle && (
-            <p className="text-[10px] md:text-xs text-[#00000094] lg:mt-1">
-              {subtitle}
-            </p>
-          )}
         </div>
       </div>
 
@@ -87,7 +68,7 @@ export default function PageNavbar({
                   ? {
                       color: "#fff",
                       border: "none",
-                      background: "linear-gradient(to right, #0068DD, #003877)",
+                      background: "linear-gradient(to right, #0068DD, #2C5F8D)",
                     }
                   : {
                       color: "black",

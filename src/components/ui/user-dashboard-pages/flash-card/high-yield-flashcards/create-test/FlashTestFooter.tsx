@@ -49,7 +49,7 @@ const FlashTestFooter: React.FC<Props> = ({
           className={`w-10 h-12 border border-gray-300 rounded-lg flex items-center justify-center transition-colors duration-200 ${
             isFirst
               ? "bg-gray-300 text-gray-400 cursor-not-allowed"
-              : "bg-[#003877] text-white cursor-pointer"
+              : "bg-[#2C5F8D] text-white cursor-pointer"
           }`}
         >
           <IoArrowBackSharp size={24} />
@@ -94,7 +94,7 @@ const FlashTestFooter: React.FC<Props> = ({
             type="button"
             aria-label="Next card"
             onClick={onNext}
-            className="w-10 h-12 rounded-lg flex items-center justify-center bg-[#003877] text-white cursor-pointer"
+            className="w-10 h-12 rounded-lg flex items-center justify-center bg-[#2C5F8D] text-white cursor-pointer"
           >
             <IoArrowForwardSharp size={24} />
           </button>
@@ -112,7 +112,7 @@ const FlashTestFooter: React.FC<Props> = ({
                         : "/profile/flash-cards/high-yield-flashcards/create-test/test-result"
                     )
             }
-            className="px-4 h-12 rounded-lg flex items-center justify-center bg-[#003877] text-white font-medium cursor-pointer"
+            className="px-4 h-12 rounded-lg flex items-center justify-center bg-[#2C5F8D] text-white font-medium cursor-pointer"
           >
             Done
           </button>

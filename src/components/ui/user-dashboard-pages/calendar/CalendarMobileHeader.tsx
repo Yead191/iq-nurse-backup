@@ -42,7 +42,7 @@ const CalendarMobileHeader: React.FC<CalendarMobileHeaderProps> = ({
             <ChevronLeft size={24} />
           </button>
         </Link>
-        <h1 className="text-sm lg:text-lg lg:font-semibold bg-[#F6F7F8]  border border-[#003877] px-6 py-1 rounded-lg">
+        <h1 className="text-sm lg:text-lg lg:font-semibold bg-[#F6F7F8]  border border-[#2C5F8D] px-6 py-1 rounded-lg">
           {mode ? (
             <span className="capitalize">Calendar {mode}</span>
           ) : (
@@ -53,7 +53,7 @@ const CalendarMobileHeader: React.FC<CalendarMobileHeaderProps> = ({
 
       <button
         onClick={onNewEventClick}
-        className="flex items-center gap-2  px-2 py-1.5 rounded-lg text-xs font-normal  transition-colors border border-[#003877] "
+        className="flex items-center gap-2  px-2 py-1.5 rounded-lg text-xs font-normal  transition-colors border border-[#2C5F8D] "
       >
         <Plus size={16} />
         New Event

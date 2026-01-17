@@ -25,14 +25,14 @@ export default function QuestionNavigation({
     <div className="flex items-center justify-between px-4 md:px-0">
       <div className="flex space-x-3">
         <button
-          className="px-4 py-2 bg-[#003877] text-white rounded transition-colors cursor-pointer hover:bg-[#003877]/90"
+          className="px-4 py-2 bg-[#2C5F8D] text-white rounded transition-colors cursor-pointer hover:bg-[#2C5F8D]/90"
           onClick={() =>
             router.push(`/profile/tests/analyzing-results?mode=${mode}`)
           }
         >
           End
         </button>
-        <button className="px-4 py-2 bg-[#003877] text-white rounded transition-colors cursor-pointer hover:bg-[#003877]/90">
+        <button className="px-4 py-2 bg-[#2C5F8D] text-white rounded transition-colors cursor-pointer hover:bg-[#2C5F8D]/90">
           Suspend
         </button>
       </div>
@@ -43,7 +43,7 @@ export default function QuestionNavigation({
           disabled={!canGoPrevious}
           className={`p-2 rounded transition-colors ${
             canGoPrevious
-              ? "bg-[#003877] text-white hover:bg-[#003877]/90 cursor-pointer"
+              ? "bg-[#2C5F8D] text-white hover:bg-[#2C5F8D]/90 cursor-pointer"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >
@@ -55,7 +55,7 @@ export default function QuestionNavigation({
           disabled={!canGoNext}
           className={`p-2 rounded transition-colors ${
             canGoNext
-              ? "bg-[#003877] text-white hover:bg-[#003877]/90 cursor-pointer"
+              ? "bg-[#2C5F8D] text-white hover:bg-[#2C5F8D]/90 cursor-pointer"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >

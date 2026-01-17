@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 const { Title, Text } = Typography;
 
 export default function MembershipBenefits() {
-  const {lg} = Grid.useBreakpoint()
+  const { lg } = Grid.useBreakpoint();
   const router = useRouter();
   const handleCompareMemberships = () => {
     // Navigate to pricing page
@@ -31,7 +31,7 @@ export default function MembershipBenefits() {
         borderRadius: "16px",
         // boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
         border: "1px solid #e5e7eb",
-        padding: lg? "20px":"0px",
+        padding: lg ? "20px" : "0px",
       }}
     >
       <Space direction="vertical" size="large" style={{ width: "100%" }}>
@@ -170,8 +170,8 @@ export default function MembershipBenefits() {
             style={{
               height: "48px",
               borderRadius: "8px",
-              backgroundColor: "#003877",
-              borderColor: "#003877",
+              backgroundColor: "#2C5F8D",
+              borderColor: "#2C5F8D",
               fontSize: "16px",
               fontWeight: "500",
             }}
@@ -185,8 +185,8 @@ export default function MembershipBenefits() {
             style={{
               height: "48px",
               borderRadius: "8px",
-              borderColor: "#003877",
-              color: "#003877",
+              borderColor: "#2C5F8D",
+              color: "#2C5F8D",
               fontSize: "16px",
               fontWeight: "500",
             }}

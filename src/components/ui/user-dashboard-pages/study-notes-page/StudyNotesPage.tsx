@@ -60,7 +60,7 @@ export default function MedicalSurgicalPage() {
       <PageNavbar
         icon={
           <Image
-            src="/assets/icons/document.svg"
+            src="/assets/icons/header/study-notes-icon.svg"
             alt="study notes"
             width={50}
             height={50}
@@ -69,32 +69,7 @@ export default function MedicalSurgicalPage() {
           />
         }
         title="Study Notes"
-        subtitle="Comprehensive NCLEX study materials with interactive videos and visual aids"
-        isAiEnhanced={true}
-        actions={[
-          ...(lg
-            ? [
-                {
-                  label: "Bookmark",
-                  icon: <Bookmark size={18} className="mt-1.5" />,
-                  onClick: () => toast.success("Bookmarked!"),
-                  isPrimary: true,
-                },
-                {
-                  label: "Share",
-                  icon: <Share size={18} className="mt-1.5" />,
-                  onClick: () => console.log("Share"),
-                  isPrimary: false,
-                },
-                {
-                  label: "Print",
-                  icon: <Printer size={18} className="mt-1.5" />,
-                  onClick: () => console.log("Print"),
-                  isPrimary: false,
-                },
-              ]
-            : []),
-        ]}
+        topics={20}
       />
 
       <div className="flex gap-6">

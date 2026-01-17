@@ -64,7 +64,7 @@ export default function AddEvent() {
               display: "flex",
               alignItems: "center",
               height: 38,
-              backgroundColor: "#003877",
+              backgroundColor: "#2C5F8D",
               color: "#FFFFFF",
               borderRadius: 10,
               width: "100%",

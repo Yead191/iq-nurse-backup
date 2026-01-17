@@ -22,13 +22,16 @@ interface FormValues {
 
 interface ConceptTypeFormProps {
   setFormData: (data: Partial<FormValues>) => void;
-  onAddNode: (args: { label: string; color: string; connectionStyle?: FormValues["connectionStyle"] }) => void;
+  onAddNode: (args: {
+    label: string;
+    color: string;
+    connectionStyle?: FormValues["connectionStyle"];
+  }) => void;
 }
 
 const ConceptTypeForm = ({ setFormData, onAddNode }: ConceptTypeFormProps) => {
   const [form] = Form.useForm<FormValues>();
   const [selectedColor, setSelectedColor] = useState(colors[0]);
-
 
   const handleFinish = (values: FormValues) => {
     setFormData({
@@ -70,7 +73,9 @@ const ConceptTypeForm = ({ setFormData, onAddNode }: ConceptTypeFormProps) => {
               if (!option || Array.isArray(option)) return;
 
               const connectionStyle =
-                (form.getFieldValue("connectionStyle") as FormValues["connectionStyle"]) || "smoothstep";
+                (form.getFieldValue(
+                  "connectionStyle"
+                ) as FormValues["connectionStyle"]) || "smoothstep";
 
               onAddNode({
                 label: option.label,
@@ -105,10 +110,11 @@ const ConceptTypeForm = ({ setFormData, onAddNode }: ConceptTypeFormProps) => {
                   setSelectedColor(color);
                   form.setFieldValue("color", color);
                 }}
-                className={`h-7 w-7 rounded-full border-2 transition-all ${selectedColor === color
+                className={`h-7 w-7 rounded-full border-2 transition-all ${
+                  selectedColor === color
                     ? "scale-110 border-gray-400"
                     : "border-gray-200 hover:border-gray-300"
-                  }`}
+                }`}
                 style={{ backgroundColor: color }}
               />
             ))}
@@ -130,7 +136,7 @@ const ConceptTypeForm = ({ setFormData, onAddNode }: ConceptTypeFormProps) => {
         <Form.Item>
           <button
             type="submit"
-            className="mt-4 h-[47px] w-full rounded bg-[#003877] py-2 text-white"
+            className="mt-4 h-[47px] w-full rounded bg-[#2C5F8D] py-2 text-white"
           >
             Apply
           </button>
