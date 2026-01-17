@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Folder, LibraryData, Page } from "@/data/types";
+import { Folder, LibraryData, Page, FlashcardItem } from "@/data/types";
 import { libraryData } from "@/data/libraryData";
 import DeskSidebar from "./DeskSidebar";
 import CreateFolderModal from "../../my-library-page/CreateFolderModal";
 import CreateDeckModal from "./CreateDeckModal";
 import DeleteConfirmationModal from "../../my-library-page/DeleteConfirmationModal";
 import FlashCardCreateTestMain from "../../flash-cards/high-yield-flashcards/create-test/FlashCardCreateTestMain";
+import DeckBuilder from "./DeckBuilder";
 import { Grid } from "antd";
 import { useRouter } from "next/navigation";
 
@@ -27,6 +28,10 @@ export default function DeskFolder() {
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(
     new Set()
   );
+
+  // Edit mode state
+  const [isEditingDeck, setIsEditingDeck] = useState(false);
+
   const router = useRouter();
 
   const handleCreateFolder = (name: string, color: string) => {
@@ -51,6 +56,7 @@ export default function DeskFolder() {
       subtitle: "0 cards",
       isBookmarked: false,
       content: { image: "" },
+      cards: [],
     };
 
     setData((prev) => ({
@@ -74,9 +80,37 @@ export default function DeskFolder() {
       return newSet;
     });
 
-    // Select the new deck
+    // Select the new deck and open edit mode immediately since it's empty
     setSelectedFolder(folderId);
     setSelectedPage(newPage.id);
+    setIsEditingDeck(true);
+  };
+
+  const handleSaveDeck = (updatedCards: FlashcardItem[]) => {
+    if (selectedFolder && selectedPage) {
+      setData((prev) => ({
+        ...prev,
+        folders: prev.folders.map((f) => {
+          if (f.id === selectedFolder) {
+            return {
+              ...f,
+              pages: f.pages.map((p) => {
+                if (p.id === selectedPage) {
+                  return {
+                    ...p,
+                    cards: updatedCards,
+                    subtitle: `${updatedCards.length} cards`,
+                  };
+                }
+                return p;
+              }),
+            };
+          }
+          return f;
+        }),
+      }));
+      setIsEditingDeck(false);
+    }
   };
 
   const handleDeleteFolder = (folderId: string) => {
@@ -111,8 +145,10 @@ export default function DeskFolder() {
   const handlePageSelect = (folderId: string, pageId: string) => {
     setSelectedFolder(folderId);
     setSelectedPage(pageId);
+    setIsEditingDeck(false); // Reset to view mode when switching decks
     if (!lg) {
-      router.push(`/profile/flash-card/decks/${pageId}`);
+      // Logic for mobile view if needed
+      // router.push(`/profile/flash-card/decks/${pageId}`);
     }
   };
 
@@ -127,6 +163,15 @@ export default function DeskFolder() {
       return newSet;
     });
   };
+
+  // Derived state for current selection
+  const selectedFolderData = selectedFolder
+    ? data.folders.find((f) => f.id === selectedFolder)
+    : null;
+  const selectedPageData =
+    selectedFolderData && selectedPage
+      ? selectedFolderData.pages.find((p) => p.id === selectedPage)
+      : null;
 
   return (
     <div>
@@ -150,27 +195,93 @@ export default function DeskFolder() {
           </div>
 
           <div className="lg:h-[calc(100vh-150px)] overflow-y-auto lg:col-span-9 bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <FlashCardCreateTestMain />
+            {isEditingDeck && selectedPageData ? (
+              <DeckBuilder
+                cards={selectedPageData.cards || []}
+                title={selectedPageData.title}
+                onSave={handleSaveDeck}
+                onCancel={() => setIsEditingDeck(false)}
+              />
+            ) : selectedPageData ? (
+              <FlashCardCreateTestMain
+                cards={selectedPageData.cards}
+                title={selectedPageData.title}
+                onEditDeck={() => setIsEditingDeck(true)}
+              />
+            ) : (
+              <div className="h-full flex flex-col items-center justify-center text-gray-400">
+                <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-8 h-8 opacity-50"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+                    />
+                  </svg>
+                </div>
+                <p>Select a deck to start studying or create a new one.</p>
+              </div>
+            )}
           </div>
         </div>
 
         {/* Mobile Layout */}
         <div className="flex flex-col lg:hidden w-full ">
           <div className="flex-1 overflow-hidden">
-            <DeskSidebar
-              data={data}
-              expandedFolders={expandedFolders}
-              searchQuery={searchQuery}
-              onSearchChange={setSearchQuery}
-              onFolderToggle={handleMobileFolderToggle}
-              onPageSelect={handlePageSelect}
-              onCreateFolder={() => setIsCreateModalOpen(true)}
-              onCreateFlashcard={() => setIsCreateDeckModalOpen(true)}
-              onDeleteFolder={handleDeleteFolder}
-              onRenameFolder={handleRenameFolder}
-              selectedFolder={selectedFolder}
-              selectedPage={selectedPage}
-            />
+            {/* Simple mobile view for now, usually needs conditional rendering based on selection */}
+            {!selectedPage ? (
+              <DeskSidebar
+                data={data}
+                expandedFolders={expandedFolders}
+                searchQuery={searchQuery}
+                onSearchChange={setSearchQuery}
+                onFolderToggle={handleMobileFolderToggle}
+                onPageSelect={handlePageSelect}
+                onCreateFolder={() => setIsCreateModalOpen(true)}
+                onCreateFlashcard={() => setIsCreateDeckModalOpen(true)}
+                onDeleteFolder={handleDeleteFolder}
+                onRenameFolder={handleRenameFolder}
+                selectedFolder={selectedFolder}
+                selectedPage={selectedPage}
+              />
+            ) : (
+              <div className="h-[calc(100vh-100px)] flex flex-col">
+                <button
+                  onClick={() => {
+                    setSelectedPage(null);
+                    setIsEditingDeck(false);
+                  }}
+                  className="p-2 text-sm text-blue-600 font-medium flex items-center gap-1"
+                >
+                  ← Back to Desk
+                </button>
+                <div className="flex-1 overflow-y-auto p-2">
+                  {isEditingDeck && selectedPageData ? (
+                    <DeckBuilder
+                      cards={selectedPageData.cards || []}
+                      title={selectedPageData.title}
+                      onSave={handleSaveDeck}
+                      onCancel={() => setIsEditingDeck(false)}
+                    />
+                  ) : (
+                    selectedPageData && (
+                      <FlashCardCreateTestMain
+                        cards={selectedPageData.cards}
+                        title={selectedPageData.title}
+                        onEditDeck={() => setIsEditingDeck(true)}
+                      />
+                    )
+                  )}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

@@ -2,13 +2,13 @@ import React from "react";
 import "./styles.css";
 
 export interface FlashCardContent {
-  text: string;
+  text?: string;
   image?: string;
 }
 
 export interface FlashCardType {
-  id: number;
-  title: string;
+  id: number | string;
+  title?: string;
   frontContent: FlashCardContent;
   backContent: FlashCardContent;
 }

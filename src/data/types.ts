@@ -30,11 +30,24 @@ export type EventItem = {
 //   };
 // }
 
+export interface FlashcardContent {
+  text?: string;
+  image?: string;
+}
+
+export interface FlashcardItem {
+  id: string;
+  title?: string;
+  frontContent: FlashcardContent;
+  backContent: FlashcardContent;
+}
+
 export interface Page {
   id: string;
   title: string;
   subtitle: string;
   isBookmarked: boolean;
+  cards?: FlashcardItem[];
   content?: {
     image: string;
   };

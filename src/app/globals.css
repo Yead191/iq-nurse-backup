@@ -289,3 +289,6 @@ html {
   border-radius: 4px;
   /* transition: background 0.2s; */
 }
+.ant-btn {
+  box-shadow: none !important;
+}
