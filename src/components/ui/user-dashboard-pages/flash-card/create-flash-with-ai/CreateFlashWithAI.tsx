@@ -47,8 +47,6 @@ const CreateFlashWithAI = () => {
       <PageNavbar
         icon={<IoMdCard className=" text-black" />}
         title="Flashcards"
-        subtitle="Master nursing concepts with intelligent falscards and spaced repetition"
-        isAiEnhanced={false}
       />
 
       <div className="max-w-6xl mx-auto p-6">

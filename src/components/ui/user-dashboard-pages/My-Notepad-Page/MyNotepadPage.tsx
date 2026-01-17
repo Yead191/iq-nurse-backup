@@ -36,7 +36,7 @@ export default function MyNotepadPage() {
     { name: "Medical Surgical Notes", color: "#3b82f6" },
   ]);
   const [activeFolder, setActiveFolder] = useState(
-    folders.length ? folders[0].name : ""
+    folders.length ? folders[0].name : "",
   );
   const { lg } = Grid.useBreakpoint();
 
@@ -54,7 +54,7 @@ export default function MyNotepadPage() {
   console.log(folders, notes);
 
   const [activeNoteId, setActiveNoteId] = useState<string | null>(
-    notes.length ? notes[0].id : null
+    notes.length ? notes[0].id : null,
   );
 
   // Delete modal state
@@ -124,8 +124,8 @@ export default function MyNotepadPage() {
               preview: n.content.substring(0, 100) || title,
               updatedAt: new Date(),
             }
-          : n
-      )
+          : n,
+      ),
     );
   };
 
@@ -140,8 +140,8 @@ export default function MyNotepadPage() {
               preview: content.substring(0, 100) || n.title,
               updatedAt: new Date(),
             }
-          : n
-      )
+          : n,
+      ),
     );
   };
 
@@ -201,8 +201,6 @@ export default function MyNotepadPage() {
           />
         }
         title="Smart Notepad"
-        subtitle="Create,organize,and enhance your study notes with AI assistance"
-        isAiEnhanced={true}
         // actions={[
         //   ...(lg
         //     ? [

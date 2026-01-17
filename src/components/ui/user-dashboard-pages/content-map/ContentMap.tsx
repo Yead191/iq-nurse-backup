@@ -70,8 +70,6 @@ const ContentMap = () => {
           />
         }
         title="Interactive Concept Maps"
-        subtitle="Visualize and understand complex concepts with interactive concept maps"
-        isAiEnhanced={false}
       />
 
       <div className="flex flex-col lg:flex-row gap-8 lg:h-[calc(100vh-100px)]">

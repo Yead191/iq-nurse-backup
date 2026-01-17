@@ -43,13 +43,13 @@ const ConceptFlow = () => {
   const onNodesChange: OnNodesChange = useCallback(
     (changes) =>
       setActiveTabNodes((snapshot) => applyNodeChanges(changes, snapshot)),
-    []
+    [],
   );
 
   const onEdgesChange: OnEdgesChange = useCallback(
     (changes) =>
       setActiveTabEdges((snapshot) => applyEdgeChanges(changes, snapshot)),
-    []
+    [],
   );
 
   // ------------- Tabs state -------------
@@ -61,29 +61,29 @@ const ConceptFlow = () => {
 
   const activeTab = useMemo(
     () => tabs.find((t) => t.id === activeTabId)!,
-    [tabs, activeTabId]
+    [tabs, activeTabId],
   );
 
   const setActiveTabNodes = useCallback(
     (updater: (prev: Node[]) => Node[]) => {
       setTabs((prev) =>
         prev.map((t) =>
-          t.id === activeTabId ? { ...t, nodes: updater(t.nodes) } : t
-        )
+          t.id === activeTabId ? { ...t, nodes: updater(t.nodes) } : t,
+        ),
       );
     },
-    [activeTabId]
+    [activeTabId],
   );
 
   const setActiveTabEdges = useCallback(
     (updater: (prev: Edge[]) => Edge[]) => {
       setTabs((prev) =>
         prev.map((t) =>
-          t.id === activeTabId ? { ...t, edges: updater(t.edges) } : t
-        )
+          t.id === activeTabId ? { ...t, edges: updater(t.edges) } : t,
+        ),
       );
     },
-    [activeTabId]
+    [activeTabId],
   );
 
   // if user draws connections manually
@@ -97,7 +97,7 @@ const ConceptFlow = () => {
         },
       ]);
     },
-    [setActiveTabEdges]
+    [setActiveTabEdges],
   );
 
   const switchTab = (id: string) => setActiveTabId(id);
@@ -111,8 +111,6 @@ const ConceptFlow = () => {
           <PageNavbar
             icon={<Network className="text-black" />}
             title="Create New Concept Map"
-            subtitle="Visualize and understand complex concepts with interactive concept maps"
-            isAiEnhanced={false}
           />
         </div>
         <header>
@@ -199,7 +197,7 @@ const ConceptFlow = () => {
               queryType={queryType}
             />
           </Panel>
-          <Background variant={BackgroundVariant.Dots}  />
+          <Background variant={BackgroundVariant.Dots} />
           {/* <Controls position="top-center" /> */}
         </ReactFlow>
       </div>

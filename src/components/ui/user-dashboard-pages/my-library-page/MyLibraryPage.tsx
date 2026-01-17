@@ -26,7 +26,7 @@ export default function MyLibraryPage() {
   const [folderToDelete, setFolderToDelete] = useState<string | null>(null);
   const [mobileView, setMobileView] = useState<MobileView>("folders");
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(
-    new Set()
+    new Set(),
   );
   const { lg } = Grid.useBreakpoint();
   const router = useRouter();
@@ -70,7 +70,7 @@ export default function MyLibraryPage() {
     setData((prev) => ({
       ...prev,
       folders: prev.folders.map((f) =>
-        f.id === folderId ? { ...f, name: newName } : f
+        f.id === folderId ? { ...f, name: newName } : f,
       ),
     }));
   };
@@ -83,10 +83,10 @@ export default function MyLibraryPage() {
           ? {
               ...f,
               pages: f.pages.map((p) =>
-                p.id === pageId ? { ...p, isBookmarked: !p.isBookmarked } : p
+                p.id === pageId ? { ...p, isBookmarked: !p.isBookmarked } : p,
               ),
             }
-          : f
+          : f,
       ),
     }));
   };
@@ -140,8 +140,6 @@ export default function MyLibraryPage() {
           />
         }
         title="My Library"
-        subtitle="Organize and manage your bookmarked study notes in custom folders"
-        isAiEnhanced={true}
       />
       {/* <PageBreadcrumb
         itemImg={"/assets/icons/library-icon.svg"}

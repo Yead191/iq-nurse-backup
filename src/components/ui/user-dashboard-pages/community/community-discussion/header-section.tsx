@@ -2,11 +2,9 @@
 import React from "react";
 import { Button, Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-import { HiOutlineAcademicCap } from "react-icons/hi";
-import { FiUsers, FiPlus } from "react-icons/fi";
-import { FaBell } from "react-icons/fa";
+import { FiPlus } from "react-icons/fi";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import { Bell, Plus, Users } from "lucide-react";
+import { Bell, Users } from "lucide-react";
 import PostCreationModal from "./AddPostModel";
 
 const CommunityHeader: React.FC = () => {
@@ -17,8 +15,6 @@ const CommunityHeader: React.FC = () => {
       <PageNavbar
         icon={<Users className=" text-black" />}
         title="Community"
-        subtitle="1,247 students online"
-        isAiEnhanced={true}
         actions={[
           {
             label: "3",
