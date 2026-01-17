@@ -2,13 +2,10 @@
 import React, { useState } from "react";
 import { flashTestData } from "@/data/flashCards";
 import FlashTestHeader from "./FlashTestHeader";
-import FlashTestToolbar from "./FlashTestToolbar";
-import FlashTestSwitcher from "./FlashTestSwitcher";
 import FlashTestCard from "./FlashTestCard";
 import FlashTestFooter from "./FlashTestFooter";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { FlashHeader } from "./FlashHeader";
-import { IoMdClose } from "react-icons/io";
 
 interface flashCardType {
   isStudyNote?: boolean;
@@ -18,12 +15,15 @@ const FlashCardCreateTestMain = ({
   isStudyNote,
   setShowCompletion,
 }: flashCardType) => {
+  const pathname = usePathname();
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
   const router = useRouter();
   const currentCard = flashTestData[currentIndex];
-
+  const isPrimary =
+    pathname === "/profile/flash-cards/high-yield-flashcards/create-test";
+  console.log(isPrimary);
   const handleClose = () => {
     router.back();
   };
@@ -71,7 +71,7 @@ const FlashCardCreateTestMain = ({
         <FlashTestHeader handleClose={handleClose} />
 
         {/* Body */}
-        <div className=" h-auto lg:max-w-3/4 mx-auto">
+        <div className={` h-auto ${isPrimary ? "lg:max-w-3/4" : ""} mx-auto`}>
           <div className="flex flex-col flex-1  pb-2">
             <FlashHeader
               currentIndex={currentIndex}
@@ -95,6 +95,7 @@ const FlashCardCreateTestMain = ({
 
           {/* Footer */}
           <FlashTestFooter
+            isPrimary={isPrimary}
             currentIndex={currentIndex}
             total={flashTestData.length}
             onPrev={handlePrev}

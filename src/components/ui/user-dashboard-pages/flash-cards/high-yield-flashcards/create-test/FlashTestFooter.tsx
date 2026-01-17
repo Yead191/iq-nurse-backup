@@ -22,6 +22,7 @@ interface Props {
   setShowCompletion?: any;
   isStudyNote?: boolean;
   onPlippeClicked: () => void;
+  isPrimary?: boolean;
 }
 
 const BUTTONS = [
@@ -63,9 +64,11 @@ const FlashTestFooter: React.FC<Props> = ({
   setShowCompletion,
   isStudyNote,
   onPlippeClicked,
+  isPrimary = false,
 }) => {
   const { lg } = Grid.useBreakpoint();
   const router = useRouter();
+
   const isFirst = currentIndex === 0;
   const isLast = currentIndex === total - 1;
 
@@ -78,11 +81,19 @@ const FlashTestFooter: React.FC<Props> = ({
   const [showHint, setShowHint] = useState(false);
 
   return (
-    <div className="p-4 items-center justify-center">
-      <p className="font-medium text-black text-center pb-2 sm:hidden ">
+    <div className="p-4  items-center justify-center">
+      <p
+        className={`${
+          !isPrimary ? "" : "hidden"
+        } font-medium text-black text-center pb-2  `}
+      >
         How well did you know this?
       </p>
-      <div className="flex items-center justify-between w-full md:px-8">
+      <div
+        className={`flex items-center justify-between w-full ${
+          isPrimary ? "2xl:px-8" : ""
+        }`}
+      >
         {/* Prev */}
         <button
           type="button"
@@ -103,7 +114,11 @@ const FlashTestFooter: React.FC<Props> = ({
         </button>
         {/* Center controls */}
         <div className="flex items-center gap-2 md:gap-6 px-2">
-          <p className="font-medium !text-black hidden xl:block md:text-[min(1rem,4vw)]">
+          <p
+            className={`${
+              isPrimary ? "hidden xl:block" : "hidden "
+            } font-medium !text-black   md:text-[min(1rem,4vw)]`}
+          >
             How well did you know this?
           </p>
           {BUTTONS.map((btn) => (
@@ -126,7 +141,7 @@ const FlashTestFooter: React.FC<Props> = ({
             type="button"
             aria-label="Next card"
             onClick={onNext}
-            className="py-2 rounded-lg px-3 md:px-6 flex items-center justify-center bg-[#2C5F8D] text-white cursor-pointer"
+            className="py-2 rounded-lg px-3 md:px-6  flex items-center justify-center bg-[#2C5F8D] text-white cursor-pointer"
           >
             <span className="hidden md:flex items-center gap-2">
               Next <HiArrowSmallRight size={lg ? 20 : 8} />
