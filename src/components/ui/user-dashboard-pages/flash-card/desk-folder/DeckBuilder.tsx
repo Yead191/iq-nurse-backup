@@ -78,7 +78,7 @@ export default function DeckBuilder({
             };
           }
           return c;
-        })
+        }),
       );
       setEditingCardId(null);
       setFrontText("");
@@ -97,7 +97,7 @@ export default function DeckBuilder({
   return (
     <div className="h-full flex flex-col bg-gray-50 rounded-xl">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 bg-white border-b border-gray-200 rounded-t-xl sticky top-0 z-10">
+      <div className="flex items-center justify-between p-4 bg-white border-b border-gray-200 rounded-t-xl lg:sticky top-0 z-10">
         <div className="flex items-center gap-4">
           <button
             onClick={onCancel}
@@ -122,9 +122,9 @@ export default function DeckBuilder({
         </Button>
       </div>
 
-      <div className="flex flex-col lg:flex-row h-full overflow-hidden">
+      <div className="flex flex-col lg:flex-row h-full lg:overflow-hidden gap-2">
         {/* Card Form - Sidebar or Top on mobile */}
-        <div className="w-full lg:w-1/3 p-4 bg-white border-r border-gray-200 overflow-y-auto">
+        <div className="w-full lg:w-1/3 p-4 bg-white border-r border-gray-200 lg:overflow-y-auto">
           <h3 className="text-md font-semibold text-gray-700 mb-4">
             {editingCardId ? "Edit Flashcard" : "Add New Flashcard"}
           </h3>
@@ -196,7 +196,7 @@ export default function DeckBuilder({
                       setBackImage("");
                       // Reset file input
                       const fileInput = document.getElementById(
-                        "imageUpload"
+                        "imageUpload",
                       ) as HTMLInputElement;
                       if (fileInput) fileInput.value = "";
                     }}
@@ -241,7 +241,7 @@ export default function DeckBuilder({
         </div>
 
         {/* Card List - Right side */}
-        <div className="flex-1 p-4 lg:p-6 overflow-y-auto bg-gray-50">
+        <div className="flex-1 p-4 lg:p-6 lg:overflow-y-auto bg-gray-50">
           <h3 className="text-md font-semibold text-gray-700 mb-4">
             Current Cards ({localCards.length})
           </h3>

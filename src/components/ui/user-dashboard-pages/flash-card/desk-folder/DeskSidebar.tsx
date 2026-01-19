@@ -9,6 +9,7 @@ import {
   Edit,
   Trash2,
   FolderOpen,
+  ChevronRight,
 } from "lucide-react";
 import { LibraryData, Folder, Page } from "@/data/types";
 import { Input, Dropdown, MenuProps } from "antd";
@@ -46,7 +47,7 @@ export default function DeskSidebar({
   const [renameValue, setRenameValue] = useState("");
 
   const filteredFolders = data.folders.filter((folder: Folder) =>
-    folder.name.toLowerCase().includes(searchQuery.toLowerCase())
+    folder.name.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   const handleRenameSubmit = (folderId: string) => {
@@ -87,7 +88,7 @@ export default function DeskSidebar({
     <div className="flex flex-col h-full bg-white rounded-lg border border-gray-100 shadow-sm overflow-hidden">
       {/* Header Section */}
       <div className="p-4 border-b border-gray-100 bg-gray-50/50">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">Study Desk</h2>
+        <h2 className="text-xl font-bold text-gray-800 mb-4">Study Decks</h2>
 
         {/* Action Buttons */}
         <div className="grid grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-2 mb-4">
@@ -143,19 +144,7 @@ export default function DeskSidebar({
                         expandedFolders.has(folder.id) ? "rotate-90" : ""
                       }`}
                     >
-                      <svg
-                        width="10"
-                        height="10"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-gray-400"
-                      >
-                        <path d="M9 18l6-6-6-6" />
-                      </svg>
+                      <ChevronRight size={14} className="text-gray-500" />
                     </div>
 
                     <FolderClosed
