@@ -16,10 +16,9 @@ import {
   CheckSquare,
   X,
   FileText,
-  Badge,
 } from "lucide-react";
 
-import { Button, Card } from "antd";
+import { Badge, Button, Card } from "antd";
 import { ScheduledClass, ScheduledExam } from "./ClassCalendar";
 import { Assignment } from "./events-modal/AddAssignmentDialog";
 import { StudyTime } from "./events-modal/add-study-time/AddStudyTimeDialog";
@@ -224,7 +223,7 @@ export function DayView(props: CalendarViewProps) {
       <h3 className="font-semibold text-lg mb-4">
         {format(props.selectedDate, "EEEE, MMMM d, yyyy")}
       </h3>
-      <div className="border rounded-lg overflow-hidden">
+      <div className="border rounded-lg overflow-hidden border-gray-300">
         {timeSlots.map((time) => {
           const events = getEventForTimeSlot(
             time,
@@ -239,9 +238,9 @@ export function DayView(props: CalendarViewProps) {
           return (
             <div
               key={time}
-              className="flex border-b last:border-b-0 min-h-[60px]"
+              className="flex border-b last:border-b-0 min-h-[60px] border-gray-300"
             >
-              <div className="w-24 flex-shrink-0 p-3 border-r bg-gray-50 text-sm font-medium text-gray-600">
+              <div className="w-20 lg:w-24 flex-shrink-0 p-3 border-r border-gray-300 bg-gray-50 text-xs lg:text-sm font-medium text-gray-600">
                 {time}
               </div>
               <div className="flex-1 p-2">
@@ -363,21 +362,23 @@ export function WeekView(props: CalendarViewProps) {
       <h3 className="font-semibold text-lg mb-4">
         Week of {format(weekStart, "MMM d")} - {format(weekEnd, "MMM d, yyyy")}
       </h3>
-      <div className="border rounded-lg overflow-x-auto">
+      <div className="border rounded-lg overflow-x-auto border-gray-300">
         <div className="min-w-[900px]">
           {/* Header */}
-          <div className="flex border-b bg-gray-50">
-            <div className="w-20 flex-shrink-0 p-2 border-r"></div>
-            {weekDays.map((day) => (
+          <div className="flex border-b bg-gray-50 border-gray-300">
+            <div className="w-20 flex-shrink-0 p-2 border-r border-gray-300"></div>
+            {weekDays?.map((day) => (
               <div
                 key={day.toISOString()}
-                className={`flex-1 p-2 text-center border-r last:border-r-0 ${
+                className={`flex-1 p-2 text-center border-r last:border-r-0 border-gray-300 ${
                   isSameDay(day, new Date()) ? "bg-green-100 font-semibold" : ""
                 }`}
               >
-                <div className="text-sm font-medium">{format(day, "EEE")}</div>
+                <div className="text-xs lg:text-sm font-medium">
+                  {format(day, "EEE")}
+                </div>
                 <div
-                  className={`text-lg ${isSameDay(day, new Date()) ? "text-green-600" : ""}`}
+                  className={`text-sm lg:text-lg ${isSameDay(day, new Date()) ? "text-green-600" : ""}`}
                 >
                   {format(day, "d")}
                 </div>
@@ -389,9 +390,9 @@ export function WeekView(props: CalendarViewProps) {
           {timeSlots.map((time) => (
             <div
               key={time}
-              className="flex border-b last:border-b-0 min-h-[50px]"
+              className="flex border-b last:border-b-0 min-h-[50px] border-gray-300"
             >
-              <div className="w-20 flex-shrink-0 p-2 border-r bg-gray-50 text-xs font-medium text-gray-600">
+              <div className="w-20 flex-shrink-0 p-2 border-r border-gray-300 bg-gray-50 text-xs font-medium text-gray-600">
                 {time}
               </div>
               {weekDays.map((day) => {
@@ -408,7 +409,7 @@ export function WeekView(props: CalendarViewProps) {
                 return (
                   <div
                     key={day.toISOString()}
-                    className="flex-1 p-1 border-r last:border-r-0"
+                    className="flex-1 p-1 border-r border-gray-300 last:border-r-0"
                   >
                     {events.map((event, idx) => (
                       <EventBadge
@@ -495,12 +496,12 @@ export function MonthView(props: CalendarViewProps) {
           </div>
         </Card>
       ) : (
-        <div className="space-y-4">
+        <div className="flex flex-col gap-4">
           {/* Classes */}
-          {classesOnDate.map((cls) => (
-            <Card
+          {classesOnDate?.map((cls) => (
+            <div
               key={cls.id}
-              className="border-l-4 cursor-pointer hover:shadow-md transition-shadow"
+              className="border-l-4 cursor-pointer hover:shadow-md transition-shadow rounded-lg border border-gray-200"
               style={{ borderLeftColor: cls.color.replace("bg-", "") }}
               onClick={() => props.onEventClick({ type: "class", data: cls })}
             >
@@ -515,7 +516,9 @@ export function MonthView(props: CalendarViewProps) {
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
                         <h3 className="font-semibold">{cls.title}</h3>
-                        <Badge color="blue">Class</Badge>
+                        <Badge className="!bg-gray-200 !text-gray-800 !p-1 !text-xs rounded-md !px-2 !font-medium">
+                          Class
+                        </Badge>
                       </div>
                       <p className="text-sm text-gray-600">{cls.subject}</p>
                       <p className="text-sm text-gray-500 mt-1">
@@ -535,26 +538,25 @@ export function MonthView(props: CalendarViewProps) {
                       )}
                     </div>
                   </div>
-                  <Button
-                    type="default"
-                    size="small"
+                  <button
+                    className="hover:bg-red-500 hover:text-white p-2 rounded-md transition-colors cursor-pointer "
                     onClick={(e) => {
                       e.stopPropagation();
                       props.onDeleteClass(cls.id);
                     }}
                   >
                     <X className="w-4 h-4" />
-                  </Button>
+                  </button>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
 
           {/* Exams */}
           {examsOnDate.map((exam) => (
-            <Card
+            <div
               key={exam.id}
-              className="border-l-4 border-l-red-500 bg-red-50 cursor-pointer hover:shadow-md transition-shadow"
+              className="border-l-4 cursor-pointer hover:shadow-md transition-shadow rounded-lg border border-gray-200  "
               onClick={() => props.onEventClick({ type: "exam", data: exam })}
             >
               <div className="p-4">
@@ -566,7 +568,9 @@ export function MonthView(props: CalendarViewProps) {
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
                         <h3 className="font-semibold">{exam.title}</h3>
-                        <Badge color="red">Exam</Badge>
+                        <Badge className="!bg-gray-200 !text-gray-800 !p-1 !text-xs rounded-md !px-2 !font-medium">
+                          Exam
+                        </Badge>
                       </div>
                       <p className="text-sm text-gray-600">{exam.subject}</p>
                       <p className="text-sm text-gray-500 mt-1">
@@ -592,24 +596,23 @@ export function MonthView(props: CalendarViewProps) {
                         )}
                     </div>
                   </div>
-                  <Button
-                    type="default"
-                    size="small"
+                  <button
+                    className="hover:bg-red-500 hover:text-white p-2 rounded-md transition-colors cursor-pointer "
                     onClick={(e) => {
                       e.stopPropagation();
                       props.onDeleteExam(exam.id);
                     }}
                   >
                     <X className="w-4 h-4" />
-                  </Button>
+                  </button>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
 
           {/* Assignments */}
           {assignmentsOnDate.map((assignment) => (
-            <Card
+            <div
               key={assignment.id}
               className="border-l-4 border-l-purple-500 cursor-pointer hover:shadow-md transition-shadow"
               onClick={() =>
@@ -625,15 +628,19 @@ export function MonthView(props: CalendarViewProps) {
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
                         <h3 className="font-semibold">{assignment.title}</h3>
-                        <Badge color="blue">Assignment</Badge>
+                        <Badge className="!bg-gray-200 !text-gray-800 !p-1 !text-xs rounded-md !px-2 !font-medium">
+                          Assignment
+                        </Badge>
                         <Badge
-                          color={
-                            assignment.priority === "high"
-                              ? "red"
-                              : assignment.priority === "medium"
-                                ? "default"
-                                : "blue"
-                          }
+                          className={`
+                            !p-1 !text-xs rounded-md !px-2 !font-medium
+                            ${
+                              assignment.priority === "high"
+                                ? "!bg-red-200 !text-red-800"
+                                : assignment.priority === "medium"
+                                  ? "!bg-yellow-200 !text-yellow-800"
+                                  : "!bg-blue-200 !text-blue-800"
+                            }`}
                         >
                           {assignment.priority}
                         </Badge>
@@ -655,26 +662,25 @@ export function MonthView(props: CalendarViewProps) {
                         )}
                     </div>
                   </div>
-                  <Button
-                    type="default"
-                    size="small"
+                  <button
+                    className="hover:bg-red-500 hover:text-white p-2 rounded-md transition-colors cursor-pointer "
                     onClick={(e) => {
                       e.stopPropagation();
                       props.onDeleteAssignment(assignment.id);
                     }}
                   >
                     <X className="w-4 h-4" />
-                  </Button>
+                  </button>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
 
           {/* Study Time */}
           {studyTimesOnDate.map((study) => (
-            <Card
+            <div
               key={study.id}
-              className="border-l-4 border-l-teal-500 cursor-pointer hover:shadow-md transition-shadow"
+              className="border-l-4 border-l-teal-500 cursor-pointer hover:shadow-md transition-shadow border border-gray-200 rounded-lg "
               onClick={() => props.onEventClick({ type: "study", data: study })}
             >
               <div className="p-4">
@@ -686,7 +692,9 @@ export function MonthView(props: CalendarViewProps) {
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
                         <h3 className="font-semibold">{study.title}</h3>
-                        <Badge color="blue">Study Time</Badge>
+                        <Badge className="!bg-gray-200 !text-gray-800 !p-1 !text-xs rounded-md !px-2 !font-medium">
+                          Study Time
+                        </Badge>
                       </div>
                       <p className="text-sm text-gray-600">{study.subject}</p>
                       <p className="text-sm text-gray-500 mt-1">
@@ -706,26 +714,25 @@ export function MonthView(props: CalendarViewProps) {
                         )}
                     </div>
                   </div>
-                  <Button
-                    type="default"
-                    size="small"
+                  <button
+                    className="hover:bg-red-500 hover:text-white p-2 rounded-md transition-colors cursor-pointer "
                     onClick={(e) => {
                       e.stopPropagation();
                       props.onDeleteStudyTime(study.id);
                     }}
                   >
                     <X className="w-4 h-4" />
-                  </Button>
+                  </button>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
 
           {/* Clinicals */}
-          {clinicalsOnDate.map((clinical) => (
-            <Card
+          {clinicalsOnDate?.map((clinical) => (
+            <div
               key={clinical.id}
-              className="border-l-4 border-l-green-600 bg-green-50 cursor-pointer hover:shadow-md transition-shadow"
+              className="border-l-4 border-l-teal-500 cursor-pointer hover:shadow-md transition-shadow border border-gray-200 rounded-lg "
               onClick={() =>
                 props.onEventClick({ type: "clinical", data: clinical })
               }
@@ -739,7 +746,9 @@ export function MonthView(props: CalendarViewProps) {
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
                         <h3 className="font-semibold">{clinical.title}</h3>
-                        <Badge className="bg-green-600">Clinical</Badge>
+                        <Badge className="!bg-green-600 !text-white !p-1 !text-xs rounded-md !px-2 !font-medium">
+                          Clinical
+                        </Badge>
                       </div>
                       <p className="text-sm text-gray-600">
                         {clinical.facility}
@@ -762,26 +771,25 @@ export function MonthView(props: CalendarViewProps) {
                         )}
                     </div>
                   </div>
-                  <Button
-                    type="default"
-                    size="small"
+                  <button
+                    className="hover:bg-red-500 hover:text-white p-2 rounded-md transition-colors cursor-pointer "
                     onClick={(e) => {
                       e.stopPropagation();
                       props.onDeleteClinical(clinical.id);
                     }}
                   >
                     <X className="w-4 h-4" />
-                  </Button>
+                  </button>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
 
           {/* Meetings */}
-          {meetingsOnDate.map((meeting) => (
-            <Card
+          {meetingsOnDate?.map((meeting) => (
+            <div
               key={meeting.id}
-              className="border-l-4 border-l-indigo-500 cursor-pointer hover:shadow-md transition-shadow"
+              className="border-l-4 border-l-indigo-500 cursor-pointer hover:shadow-md transition-shadow border border-gray-200 rounded-lg "
               onClick={() =>
                 props.onEventClick({ type: "meeting", data: meeting })
               }
@@ -795,7 +803,9 @@ export function MonthView(props: CalendarViewProps) {
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
                         <h3 className="font-semibold">{meeting.title}</h3>
-                        <Badge color="blue">Meeting</Badge>
+                        <Badge className="!bg-indigo-500 !text-white !p-1 !text-xs rounded-md !px-2 !font-medium">
+                          Meeting
+                        </Badge>
                       </div>
                       <p className="text-sm text-gray-600 capitalize">
                         {meeting.type.replace("-", " ")}
@@ -805,26 +815,25 @@ export function MonthView(props: CalendarViewProps) {
                       </p>
                     </div>
                   </div>
-                  <Button
-                    type="default"
-                    size="small"
+                  <button
+                    className="hover:bg-red-500 hover:text-white p-2 rounded-md transition-colors cursor-pointer "
                     onClick={(e) => {
                       e.stopPropagation();
                       props.onDeleteMeeting(meeting.id);
                     }}
                   >
                     <X className="w-4 h-4" />
-                  </Button>
+                  </button>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
 
           {/* Personal Time */}
-          {personalTimesOnDate.map((personal) => (
-            <Card
+          {personalTimesOnDate?.map((personal) => (
+            <div
               key={personal.id}
-              className="border-l-4 border-l-pink-500 cursor-pointer hover:shadow-md transition-shadow"
+              className="border-l-4 border-l-pink-500 cursor-pointer hover:shadow-md transition-shadow border border-gray-200 rounded-lg "
               onClick={() =>
                 props.onEventClick({ type: "personal", data: personal })
               }
@@ -838,33 +847,34 @@ export function MonthView(props: CalendarViewProps) {
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
                         <h3 className="font-semibold">{personal.title}</h3>
-                        <Badge color="blue">Personal</Badge>
+                        <Badge className="!bg-pink-300 !text-black !p-1 !text-xs rounded-md !px-2 !font-medium">
+                          Personal
+                        </Badge>
                       </div>
                       <p className="text-sm text-gray-600 capitalize">
                         {personal.category.replace("-", " ")}
                       </p>
                     </div>
                   </div>
-                  <Button
-                    type="default"
-                    size="small"
+                  <button
+                    className="hover:bg-red-500 hover:text-white p-2 rounded-md transition-colors cursor-pointer "
                     onClick={(e) => {
                       e.stopPropagation();
                       props.onDeletePersonalTime(personal.id);
                     }}
                   >
                     <X className="w-4 h-4" />
-                  </Button>
+                  </button>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
 
           {/* Tasks */}
           {tasksOnDate?.map((task) => (
-            <Card
+            <div
               key={task.id}
-              className="border-l-4 border-l-gray-600 cursor-pointer hover:shadow-md transition-shadow"
+              className="border-l-4 border-l-gray-600 cursor-pointer hover:shadow-md transition-shadow border border-gray-200 rounded-lg"
               onClick={() => props.onEventClick({ type: "task", data: task })}
             >
               <div className="p-4">
@@ -886,10 +896,16 @@ export function MonthView(props: CalendarViewProps) {
                         >
                           {task.title}
                         </h3>
-                        <Badge color="blue">Task</Badge>
+                        <Badge className="!bg-gray-300 !text-black !p-1 !text-xs rounded-md !px-2 !font-medium">
+                          Task
+                        </Badge>
                         {task.priority !== "low" && (
                           <Badge
-                            color={task.priority === "high" ? "red" : "default"}
+                            className={
+                              task.priority === "high"
+                                ? "!bg-red-600 !text-white !p-1 !text-xs rounded-md !px-2 !font-medium"
+                                : "!bg-yellow-500 !text-white !p-1 !text-xs rounded-md !px-2 !font-medium"
+                            }
                           >
                             {task.priority}
                           </Badge>
@@ -900,19 +916,18 @@ export function MonthView(props: CalendarViewProps) {
                       )}
                     </div>
                   </div>
-                  <Button
-                    type="default"
-                    size="small"
+                  <button
+                    className="hover:bg-red-500 hover:text-white p-2 rounded-md transition-colors cursor-pointer "
                     onClick={(e) => {
                       e.stopPropagation();
                       props.onDeleteTask(task.id);
                     }}
                   >
                     <X className="w-4 h-4" />
-                  </Button>
+                  </button>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       )}
