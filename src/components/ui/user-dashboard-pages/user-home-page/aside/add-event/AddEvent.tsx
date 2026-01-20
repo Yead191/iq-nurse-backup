@@ -2,7 +2,6 @@
 import AddEventsModal from "@/components/shared/event-modals/AddEventsModal";
 import { Button } from "antd";
 import { Plus } from "lucide-react";
-import Image from "next/image";
 import React, { useState } from "react";
 import TasksSection from "../todays-event/TasksSection";
 import ClassesSection from "../todays-event/ClassesSection";
@@ -11,11 +10,12 @@ import MeetingSection from "../todays-event/MeetingSection";
 
 import dayjs from "dayjs";
 import SmallCalendar from "./SmallCalendar";
+import { useRouter } from "next/navigation";
 
 export default function AddEvent() {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState(dayjs());
-
+  const router = useRouter();
   // Mock data for events
   const datesWithEvents = new Map<string, string[]>([
     ["2025-12-16", ["red", "teal", "pink"]],
@@ -43,7 +43,9 @@ export default function AddEvent() {
 
   const onSelect = (value: any) => {
     console.log("[v0] Calendar date selected:", value);
+
     setSelectedDate(value);
+    router.push(`?date=${value.format("YYYY-MM-DD")}`);
   };
   return (
     <div className="p-2">

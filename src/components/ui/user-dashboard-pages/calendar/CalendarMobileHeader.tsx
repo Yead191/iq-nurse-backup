@@ -28,7 +28,7 @@ const CalendarMobileHeader: React.FC<CalendarMobileHeaderProps> = ({
   const lastSegment =
     pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : undefined;
   return (
-    <div className="lg:hidden  py-2 flex items-center justify-between sticky top-4  bg-white z-50">
+    <div className="lg:hidden  py-2 flex items-center justify-between sticky top-4  bg-white z-50 px-4">
       <div className="flex items-center gap-4">
         <Link
           href={

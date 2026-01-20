@@ -7,6 +7,8 @@ import AsidePanel from "../user-home-page/aside/AsidePanel";
 import EventsBottomDrawer from "./EventsBottomDrawer";
 import AddEventsModal from "@/components/shared/event-modals/AddEventsModal";
 import { FloatingCalendarButton } from "./FloatingCalendarButton";
+import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
+import Image from "next/image";
 
 // Load UserCalendar client-only
 const UserCalendar = dynamic(() => import("./UserCalendar"), { ssr: false });
@@ -38,13 +40,26 @@ const CalendarMain = () => {
         onMenuClick={handleMenuClick}
         onNewEventClick={handleNewEventClick}
       />
+      <PageNavbar
+        title="Calendar"
+        icon={
+          <Image
+            src="/assets/sidebar-icons/calendar-icon.svg"
+            alt="NCLEX"
+            width={50}
+            height={50}
+            draggable={false}
+            className="w-fit h-10 object-contain"
+          />
+        }
+      />
 
       {/* Student Planner Drawer */}
       {/* <StudentPlannerDrawer isOpen={isDrawerOpen} onClose={handleCloseDrawer} /> */}
 
       {/* Main Content */}
-      <div className="grid grid-cols-12 lg:gap-6 mt-6 md:mt-0 relative">
-        <div className="col-span-12 lg:col-span-9 max-h-[calc(100vh-145px)] md:max-h-max overflow-y-auto">
+      <div className="grid grid-cols-12 lg:gap-6 mt-6 md:mt-0 relative px-4">
+        <div className="col-span-12 lg:col-span-9 max-h-[calc(100vh-145px)] md:max-h-max overflow-y-auto ">
           <UserCalendar />
         </div>
         <div className="hidden lg:block lg:col-span-3">

@@ -1,11 +1,10 @@
-import CalendarMain from '@/components/ui/user-dashboard-pages/calendar/CalendarMain'
-import React from 'react'
+import CalendarNew from "@/components/ui/user-dashboard-pages/calendar-new";
+import React from "react";
 
 export default function page() {
   return (
-    <div>
-      
-      <CalendarMain/>
-    </div>
-  )
+    <section>
+      <CalendarNew />
+    </section>
+  );
 }
