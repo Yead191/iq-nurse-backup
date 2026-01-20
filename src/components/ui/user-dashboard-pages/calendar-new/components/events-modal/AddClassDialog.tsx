@@ -288,9 +288,9 @@ export function AddClassDialog({
             <Tabs defaultActiveKey="from-bank" type="card" size="small">
               <TabPane
                 tab={
-                  <>
+                  <span className="flex gap-1">
                     <Library /> From Bank
-                  </>
+                  </span>
                 }
                 key="from-bank"
               >
@@ -331,7 +331,7 @@ export function AddClassDialog({
                     <div className="mb-2 font-medium">
                       Available Materials ({filteredBankMaterials.length})
                     </div>
-                    <div className="max-h-80 overflow-y-auto border rounded p-3 bg-gray-50 space-y-2">
+                    <div className="max-h-80 overflow-y-auto border rounded p-3 bg-gray-50 flex flex-col gap-2 ">
                       {filteredBankMaterials.length === 0 ? (
                         <div className="text-center py-8 text-gray-500">
                           <Library className="text-4xl mb-2 opacity-30" />

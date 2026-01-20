@@ -91,10 +91,10 @@ export function MaterialSelector({
       <Tabs defaultActiveKey="from-bank" type="card">
         <TabPane
           tab={
-            <>
-              <Library className="mr-2" />
+            <span className="flex items-center gap-1">
+              <Library />
               From Bank
-            </>
+            </span>
           }
           key="from-bank"
         >
@@ -130,7 +130,7 @@ export function MaterialSelector({
               <div className="mb-2 font-medium">
                 Available Materials ({filteredMaterials.length})
               </div>
-              <div className="max-h-80 overflow-y-auto border rounded p-3 bg-gray-50 space-y-2">
+              <div className="max-h-80 overflow-y-auto border rounded p-3 bg-gray-50 flex flex-col gap-2 ">
                 {filteredMaterials.length === 0 ? (
                   <div className="text-center py-8 text-gray-500">
                     <Library className="text-5xl mb-2 opacity-30" />

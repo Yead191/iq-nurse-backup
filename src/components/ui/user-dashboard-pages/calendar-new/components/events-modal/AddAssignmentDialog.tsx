@@ -45,14 +45,15 @@ export interface Assignment {
 
 interface AddAssignmentModalProps {
   open: boolean;
-  onCancel: () => void;
   onAddAssignment: (assignment: Assignment) => void;
   selectedDate: Date;
+  onOpenChange: (open: boolean) => void;
 }
 
 export function AddAssignmentModal({
+  onOpenChange,
   open,
-  onCancel,
+
   onAddAssignment,
   selectedDate,
 }: AddAssignmentModalProps) {
@@ -147,7 +148,7 @@ export function AddAssignmentModal({
     setMaterialDescription("");
     setMaterialType("notes");
     setFilterType("all");
-    onCancel();
+    onOpenChange(false);
   };
 
   return (
@@ -159,7 +160,7 @@ export function AddAssignmentModal({
         </div>
       }
       open={open}
-      onCancel={onCancel}
+      onCancel={() => onOpenChange(false)}
       footer={null}
       width={800}
       centered
@@ -279,9 +280,9 @@ export function AddAssignmentModal({
               <Tabs defaultActiveKey="bank" type="card" size="small">
                 <TabPane
                   tab={
-                    <>
+                    <span className="flex gap-1">
                       <Library /> From Bank
-                    </>
+                    </span>
                   }
                   key="bank"
                 >
@@ -310,8 +311,8 @@ export function AddAssignmentModal({
                       <div className="mb-2 font-medium">
                         Available Materials ({filteredBankMaterials.length})
                       </div>
-                      <div className="max-h-80 overflow-y-auto border rounded p-3 bg-gray-50 space-y-2">
-                        {filteredBankMaterials.map((material) => {
+                      <div className="max-h-80 overflow-y-auto border rounded p-3 bg-gray-50 flex flex-col gap-2 ">
+                        {filteredBankMaterials?.map((material) => {
                           const isSelected = studyMaterials.some(
                             (m) => m.id === material.id,
                           );
@@ -444,7 +445,7 @@ export function AddAssignmentModal({
           </Tabs>
 
           <div className="flex justify-end gap-3 pt-4 border-t mt-6">
-            <Button onClick={onCancel}>Cancel</Button>
+            <Button onClick={() => onOpenChange(false)}>Cancel</Button>
             <Button type="primary" htmlType="submit">
               Add Assignment
             </Button>

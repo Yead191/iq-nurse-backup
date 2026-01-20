@@ -89,7 +89,7 @@ export function AddStudyTimeDialog({
       footer={null}
       width={700}
       centered
-      bodyStyle={{ maxHeight: "85vh", overflowY: "auto" }}
+      styles={{ body: { maxHeight: "85vh", overflowY: "auto" } }}
     >
       <div className="space-y-6">
         <div className="space-y-5 px-1">
