@@ -17,7 +17,7 @@ import { toast } from "sonner";
 export default function BodySystemMain() {
   const { lg } = Grid.useBreakpoint();
   const [selectedSystem, setSelectedSystem] = useState<BodySystem>(
-    bodySystems[0]
+    bodySystems[0],
   );
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showNotes, setShowNotes] = useState(false);
@@ -34,13 +34,13 @@ export default function BodySystemMain() {
 
   const nextImage = () => {
     setCurrentImageIndex((prev) =>
-      prev === selectedSystem.images.length - 1 ? 0 : prev + 1
+      prev === selectedSystem.images.length - 1 ? 0 : prev + 1,
     );
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prev) =>
-      prev === 0 ? selectedSystem.images.length - 1 : prev - 1
+      prev === 0 ? selectedSystem.images.length - 1 : prev - 1,
     );
   };
 

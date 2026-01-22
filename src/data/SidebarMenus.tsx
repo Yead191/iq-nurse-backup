@@ -39,7 +39,7 @@ export const menus: Record<string, MenuItem[]> = {
     },
 
     {
-      key: "/profile/tests",
+      key: "/profile/nclex-exams",
       label: "NCLEX Exams",
       icon: icon("/assets/sidebar-icons/test-icon.svg", "test"),
       subtitle: "NCLEX Tests / Next Gen",
