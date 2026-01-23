@@ -20,7 +20,7 @@ const allNCLEXExamsCompleted = false;
 
 const ProgressSection: FC = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 ">
       {/* Stats cards */}
       <StatsCards
         passLikelihood={passLikelihood}

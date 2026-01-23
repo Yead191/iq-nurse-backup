@@ -12,24 +12,6 @@ export type EventItem = {
   avatarUrl?: string;
 };
 
-// export interface Page {
-//   id: string;
-//   title: string;
-//   subtitle: string;
-//   isBookmarked: boolean;
-//   content?: {
-//     title: string;
-//     subtitle: string;
-//     description: string;
-//     details: string[];
-//     sections: {
-//       title: string;
-//       subtitle: string;
-//       content: string;
-//     }[];
-//   };
-// }
-
 export interface FlashcardContent {
   text?: string;
   image?: string;
@@ -76,3 +58,29 @@ export const folderColors = [
   { name: "purple", value: "bg-purple-400" },
   { name: "emerald", value: "bg-emerald-400" },
 ];
+
+export interface Subtopic {
+  id: string;
+  name: string;
+  questionCount: number;
+  completed: number;
+}
+
+export interface Category {
+  id: string;
+  name: string;
+  icon: any;
+  color: string;
+  totalQuestions: number;
+  completed: number;
+  subtopics: Subtopic[];
+}
+export interface ExamSession {
+  type: "category" | "full-exam";
+  categoryId?: string;
+  subtopicId?: string;
+  examId?: string;
+  questionCount: number;
+  mode: "practice" | "test";
+  title: string;
+}
