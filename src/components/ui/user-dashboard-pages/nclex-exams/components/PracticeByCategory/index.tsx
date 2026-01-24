@@ -1,12 +1,8 @@
-// src/components/practice/PracticeByCategorySection.tsx
 import { useState } from "react";
-import { Space, Typography } from "antd";
 import { CategoryCard } from "./CategoryCard";
 import { PracticeConfigModal } from "./PracticeConfigModal";
 import { Category, ExamSession, Subtopic } from "@/data/types";
 import { categories } from "@/data/nclex-exam/practiceCategoryData";
-
-const { Text } = Typography;
 
 interface PracticeByCategorySectionProps {
   onStartExam: (session: ExamSession) => void;

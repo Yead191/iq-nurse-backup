@@ -1,20 +1,7 @@
-// src/components/practice/CategoryCard.tsx
-import {
-  Card,
-  Collapse,
-  Button,
-  Tag,
-  Progress,
-  Space,
-  Typography,
-  Row,
-  Col,
-  ConfigProvider,
-} from "antd";
+import { Card, Collapse, Button, Tag, Progress, Space } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 import type { Category, Subtopic } from "@/data/types";
 
-const { Title, Text } = Typography;
 const { Panel } = Collapse;
 
 interface CategoryCardProps {
@@ -56,37 +43,36 @@ export function CategoryCard({
       ? "#f5222d"
       : category.color.includes("green")
         ? "#52c41a"
-        : "#722ed1"; // fallback
+        : "#722ed1";
 
   return (
     <div className="flex items-center gap-4 w-full border border-gray-100 rounded-lg p-4 ">
       <div className="w-full">
         <div className="flex items-start gap-2">
           <div
+            className="p-3 rounded-lg"
             style={{
-              padding: 12,
-              borderRadius: 8,
               background: colorBg,
               color: colorText,
             }}
           >
             <Icon style={{ fontSize: 24 }} />
           </div>
-          <div style={{ flex: 1 }}>
+          <div className="flex-1">
             <div className="flex items-center justify-between">
-              <Title level={5} style={{ margin: 0, marginBottom: 4 }}>
-                {category.name}
-              </Title>
+              <h3 className="font-medium">{category.name}</h3>
               <Button type="primary" onClick={() => onPracticeAll(category)}>
                 Practice All
               </Button>
             </div>
             <Space size="small">
-              <Text type="secondary">{category.totalQuestions} questions</Text>
-              <Text type="secondary">•</Text>
-              <Text type="secondary">
+              <p className="text-sm text-gray-500">
+                {category.totalQuestions} questions
+              </p>
+              <p className="text-sm text-gray-500">•</p>
+              <p className="text-sm text-gray-500">
                 {category.completed} completed ({completionPercentage}%)
-              </Text>
+              </p>
             </Space>
 
             <Progress
@@ -97,41 +83,32 @@ export function CategoryCard({
             />
           </div>
         </div>
-
         <Collapse ghost>
           <Panel
             header={`View Subtopics (${category.subtopics.length})`}
             key="subtopics"
           >
-            <Row gutter={[12, 12]}>
-              {category.subtopics.map((subtopic) => {
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+              {category?.subtopics?.map((subtopic) => {
                 const percent = Math.round(
                   (subtopic.completed / subtopic.questionCount) * 100,
                 );
 
                 return (
-                  <Col xs={24} md={12} key={subtopic.id}>
+                  <div key={subtopic.id}>
                     <Card
                       hoverable
                       size="small"
                       onClick={() => onSubtopicSelect(category, subtopic)}
                     >
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "flex-start",
-                        }}
-                      >
+                      <div className="flex items-start gap-2 justify-between">
                         <div style={{ flex: 1 }}>
-                          <Text strong style={{ fontSize: 14 }}>
-                            {subtopic.name}
-                          </Text>
+                          <p className="font-medium text-sm">{subtopic.name}</p>
                           <div style={{ marginTop: 6 }}>
                             <Space size="small">
-                              <Text type="secondary" style={{ fontSize: 12 }}>
+                              <p className="text-xs text-gray-500">
                                 {subtopic.questionCount} questions
-                              </Text>
+                              </p>
                               <Tag
                                 color={
                                   percent >= 80
@@ -158,10 +135,10 @@ export function CategoryCard({
                         style={{ marginTop: 12 }}
                       />
                     </Card>
-                  </Col>
+                  </div>
                 );
               })}
-            </Row>
+            </div>
           </Panel>
         </Collapse>
       </div>
