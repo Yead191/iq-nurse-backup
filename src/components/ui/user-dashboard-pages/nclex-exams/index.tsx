@@ -2,6 +2,7 @@
 import React from "react";
 import ProgressSection from "./components/progress";
 import { PracticeByCategorySection } from "./components/PracticeByCategory";
+import { FullNCLEXPracticeSection } from "./components/full-nclex";
 
 export default function NclexContent({ id }: { id: string }) {
   0;
@@ -11,6 +12,8 @@ export default function NclexContent({ id }: { id: string }) {
         return <ProgressSection />;
       case "category":
         return <PracticeByCategorySection />;
+      case "full-nclex":
+        return <FullNCLEXPracticeSection />;
 
       default:
         return <div>Content coming soon...</div>;

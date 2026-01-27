@@ -12,13 +12,14 @@ interface PageProps {
     categoryId?: string;
     subtopicId?: string;
     count?: string;
+    examId?: string;
   }>;
 }
 
 export default async function Page({ searchParams }: PageProps) {
   const params = await searchParams;
 
-  const { type, mode, categoryId, subtopicId, count } = params;
+  const { type, mode, categoryId, subtopicId, count, examId } = params;
 
   const examType: ExamType =
     type === "category" || type === "full-exam" ? type : "category";
@@ -29,6 +30,7 @@ export default async function Page({ searchParams }: PageProps) {
   const session: ExamSession = {
     type: examType,
     categoryId,
+    examId,
     subtopicId,
     count: Number(count) || 10,
     mode: examMode,
