@@ -16,7 +16,7 @@ export default function NclexSidebar() {
       icon: <LayoutGrid size={22} />,
     },
     {
-      id: "practice",
+      id: "category",
       label: "Practice By Category",
       icon: <BookOpen size={22} />,
     },
@@ -45,7 +45,12 @@ export default function NclexSidebar() {
   };
 
   return (
-    <div className="w-full lg:w-2/6 2xl:w-1/5  p-1 px-2 md:px-0  flex justify-center items-start h-full">
+    <div
+      style={{
+        display: pathname.includes("start-exam") ? "none" : "block",
+      }}
+      className="w-full lg:w-2/6 2xl:w-1/5  p-1 px-2 md:px-0  flex justify-center items-start h-full lg:h-[calc(100vh-80px)]"
+    >
       <div className="flex md:flex-col gap-2 md:gap-4 justify-between md:justify-start md:bg-white border-r border-gray-200  w-full md:p-3 md:pb-12 pt-2 lg:pt-6 h-full">
         {tabs.map((tab) => {
           const isActive = pathname.endsWith(tab.id);

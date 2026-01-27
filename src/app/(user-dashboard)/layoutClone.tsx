@@ -21,7 +21,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
 
   const shouldHide = hiddenPaths.some((prefix) => pathname.startsWith(prefix));
   const bottomHide = hiddenBottomNav.some((prefix) =>
-    pathname.startsWith(prefix)
+    pathname.startsWith(prefix),
   );
   // console.log(shouldHide, pathname);
   const oldHeader = oldHeaderPaths.some((prefix) => pathname === prefix);
@@ -45,7 +45,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
         {/* Sidebar for large devices */}
         <div
           className={`bg-white hidden  w-[100px]} sticky top-0 z-10 overflow-scroll h-screen ${
-            pathname.startsWith("/profile/tests/mode/") ? "hidden" : "lg:block"
+            pathname.endsWith("/start-exam") ? "hidden" : "lg:block"
           } `}
         >
           <Sidebar showLabels={showLabels} setShowLabels={setShowLabels} />
@@ -90,9 +90,7 @@ const LayoutClone = ({ children }: { children: React.ReactNode }) => {
               }}
             >
               <div>
-                <div
-                  className={`h-full  rounded-md   md:max-h-max overflow-auto `}
-                >
+                <div className={`h-full    md:max-h-max overflow-auto `}>
                   {children}
                 </div>
               </div>

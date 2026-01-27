@@ -76,11 +76,10 @@ export interface Category {
   subtopics: Subtopic[];
 }
 export interface ExamSession {
-  type: "category" | "full-exam";
+  type: "category" | "full-exam" | undefined;
   categoryId?: string;
   subtopicId?: string;
   examId?: string;
-  questionCount: number;
-  mode: "practice" | "test";
-  title: string;
+  count: number;
+  mode: "practice" | "test" | undefined;
 }

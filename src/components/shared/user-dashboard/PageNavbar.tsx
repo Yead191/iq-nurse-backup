@@ -2,6 +2,7 @@
 
 import { ReactNode } from "react";
 import { Button, Grid } from "antd";
+import { usePathname } from "next/navigation";
 
 type ActionBtn = {
   label: string;
@@ -24,11 +25,13 @@ export default function PageNavbar({
   topics,
   actions = [],
 }: PageNavbarProps) {
+  const pathname = usePathname();
   const { lg } = Grid.useBreakpoint();
   return (
     <div
       style={{
         boxShadow: "4px 4px 35px rgba(0, 0, 0, 0.13)",
+        display: pathname.includes("start-exam") ? "none" : "block",
       }}
       className="flex items-center justify-between w-full py-3 sticky top-0 bg-white z-10  gap-10 shadow-sm px-4 md:px-6 lg:h-[76px]  mb-6"
     >
