@@ -1,7 +1,8 @@
 // src/components/exam/FlashcardModal.tsx
 import { useState } from "react";
-import { Button, Card, Input, Alert } from "antd";
+import { Button, Card, Input, Alert, Modal } from "antd";
 import { X, Plus, Folder, Check } from "lucide-react";
+import { ImageWithFallback } from "./ImageWithFallback";
 
 interface FlashcardModalProps {
   questionText: string;
@@ -10,6 +11,7 @@ interface FlashcardModalProps {
   rationaleImage?: string;
   onClose: () => void;
   onSave: (notes: string, folderName: string) => void;
+  open: boolean;
 }
 
 export function FlashcardModal({
@@ -19,6 +21,7 @@ export function FlashcardModal({
   rationaleImage,
   onClose,
   onSave,
+  open,
 }: FlashcardModalProps) {
   const initialNotes = `Correct Answer: ${
     Array.isArray(correctAnswer) ? correctAnswer.join(", ") : correctAnswer
@@ -54,21 +57,18 @@ export function FlashcardModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-        {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200">
-          <h3 className="text-xl font-bold text-gray-900">Create Flashcard</h3>
-          <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 transition-colors"
-            aria-label="Close"
-          >
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-
-        <div className="p-6 space-y-6">
+    <Modal
+      open={open}
+      onCancel={onClose}
+      centered
+      width={600}
+      title={
+        <h3 className="text-xl font-bold text-gray-900">Create Flashcard</h3>
+      }
+      footer={null}
+    >
+      <div className=" w-full max-h-[80vh] overflow-y-auto">
+        <div className=" space-y-6">
           {/* Question Preview */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -104,11 +104,11 @@ export function FlashcardModal({
                 Reference Image
               </label>
               <div className="border border-gray-200 rounded-lg overflow-hidden">
-                {/* <ImageWithFallback
+                <ImageWithFallback
                   src={rationaleImage}
                   alt="Rationale illustration"
-                  className="w-full object-contain"
-                /> */}
+                  className="w-full h-[300px] lg:h-fit object-contain"
+                />
               </div>
             </div>
           )}
@@ -169,7 +169,7 @@ export function FlashcardModal({
                   onPressEnter={handleCreateFolder}
                 />
 
-                <div className="flex gap-3">
+                <div className="flex gap-3 mt-3 pb-3">
                   <Button
                     type="primary"
                     onClick={handleCreateFolder}
@@ -204,7 +204,7 @@ export function FlashcardModal({
         </div>
 
         {/* Footer Actions */}
-        <div className="flex items-center justify-end gap-3 p-6 border-t border-gray-200 bg-gray-50">
+        <div className="flex items-center justify-end gap-3 p-6 border-t border-gray-200">
           <Button onClick={onClose}>Cancel</Button>
           <Button
             type="primary"
@@ -220,6 +220,6 @@ export function FlashcardModal({
           </Button>
         </div>
       </div>
-    </div>
+    </Modal>
   );
 }

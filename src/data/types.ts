@@ -83,3 +83,16 @@ export interface ExamSession {
   count: number;
   mode: "practice" | "test" | undefined;
 }
+
+export interface FullExam {
+  id: string;
+  number: number;
+  title: string;
+  count: number;
+  timeLimit: number;
+  isLocked: boolean;
+  isCompleted: boolean;
+  score?: number;
+  completedDate?: string;
+  difficulty: "Progressive";
+}

@@ -97,7 +97,7 @@ export function CalculatorTool() {
   ];
 
   return (
-    <div className="w-full max-w-sm mx-auto">
+    <div className="w-full mx-auto">
       {/* Display */}
       <Card className="mb-4 bg-gray-100 border border-gray-200">
         <div className="p-4 text-right">

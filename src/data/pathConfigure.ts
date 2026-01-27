@@ -23,7 +23,7 @@ const hiddenPaths = [
   "/profile/vital-signs",
   "/profile/dosage-calculation",
   "/profile/labs-reference",
-  "/profile/nclex-exams",
+  "/profile/nclex-exams/start-exam",
 ];
 const hiddenBottomNav = [
   "/profile/my-notepad/note",
@@ -40,6 +40,7 @@ const hiddenBottomNav = [
   "/profile/body-system",
   // "/profile/patient-assessment",
   "/profile/connect-concept",
+  "/profile/nclex-exams/start-exam",
 ];
 
 const singleHidePaths = ["/profile/patient-assessment", "/profile/group"];
