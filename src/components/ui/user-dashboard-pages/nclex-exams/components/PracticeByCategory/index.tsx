@@ -3,15 +3,11 @@ import { CategoryCard } from "./CategoryCard";
 import { PracticeConfigModal } from "./PracticeConfigModal";
 import { Category, ExamSession, Subtopic } from "@/data/types";
 import { categories } from "@/data/nclex-exam/practiceCategoryData";
+import { useRouter } from "next/navigation";
 
-interface PracticeByCategorySectionProps {
-  onStartExam: (session: ExamSession) => void;
-}
-
-export function PracticeByCategorySection({
-  onStartExam,
-}: PracticeByCategorySectionProps) {
+export function PracticeByCategorySection() {
   const [modalOpen, setModalOpen] = useState(false);
+  const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(
     null,
   );
@@ -38,19 +34,21 @@ export function PracticeByCategorySection({
   const handleStartPractice = () => {
     if (!selectedCategory) return;
 
-    const session: ExamSession = {
-      type: "category",
-      categoryId: selectedCategory.id,
-      subtopicId: selectedSubtopic?.id,
-      questionCount: questionCount[0],
-      mode,
-      title: selectedSubtopic
-        ? `${selectedCategory.name} - ${selectedSubtopic.name}`
-        : selectedCategory.name,
-    };
+    // const session: ExamSession = {
+    //   type: "category",
+    //   categoryId: selectedCategory.id,
+    //   subtopicId: selectedSubtopic?.id,
+    //   questionCount: questionCount[0],
+    //   mode,
+    //   title: selectedSubtopic
+    //     ? `${selectedCategory.name} - ${selectedSubtopic.name}`
+    //     : selectedCategory.name,
+    // };
 
     setModalOpen(false);
-    onStartExam(session);
+    router.replace(
+      `/profile/nclex-exams/start-exam?type=category&categoryId=${selectedCategory.id}&subtopicId=${selectedSubtopic?.id}&count=${questionCount[0]}&mode=${mode}`,
+    );
   };
 
   const maxQuestions =

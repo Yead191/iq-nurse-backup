@@ -22,11 +22,9 @@ export default function layout({ children }: { children: React.ReactNode }) {
           title="Master the NCLEX with Confidence"
         />
       </nav>
-      <div className="lg:-mt-6 flex flex-col lg:flex-row gap-4 lg:h-[calc(100vh-80px)]">
+      <div className="lg:-mt-6 flex flex-col lg:flex-row gap-4 ">
         <NclexSidebar />
-        <div className="w-full lg:h-[calc(100vh-80px)] overflow-auto">
-          {children}
-        </div>
+        <div className="w-full ">{children}</div>
       </div>
     </section>
   );
