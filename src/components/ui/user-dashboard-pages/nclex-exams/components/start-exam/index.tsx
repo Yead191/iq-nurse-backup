@@ -131,7 +131,9 @@ export function QuestionInterface({ session }: QuestionInterfaceProps) {
   };
 
   const onExit = () => {
-    router.push("/profile/nclex-exams/progress");
+    router.push(
+      `/profile/nclex-exams/${session.type === "category" ? "category" : "full-nclex"}`,
+    );
   };
   const answeredCount = Object.keys(answers).length;
   const progress = (answeredCount / questions.length) * 100;
@@ -410,20 +412,20 @@ export function QuestionInterface({ session }: QuestionInterfaceProps) {
         onCancel={() => setShowCalculator(false)}
         footer={null}
         centered
+        width={400}
       >
         <CalculatorTool />
       </Modal>
 
-      {showFlashcardModal && (
-        <FlashcardModal
-          questionText={currentQuestion.question}
-          correctAnswer={currentQuestion.correctAnswer || ""}
-          rationale={currentQuestion.rationale}
-          rationaleImage={currentQuestion.rationaleImage}
-          onClose={() => setShowFlashcardModal(false)}
-          onSave={handleSaveFlashcard}
-        />
-      )}
+      <FlashcardModal
+        open={showFlashcardModal}
+        questionText={currentQuestion.question}
+        correctAnswer={currentQuestion.correctAnswer || ""}
+        rationale={currentQuestion.rationale}
+        rationaleImage={currentQuestion.rationaleImage}
+        onClose={() => setShowFlashcardModal(false)}
+        onSave={handleSaveFlashcard}
+      />
     </div>
   );
 }
