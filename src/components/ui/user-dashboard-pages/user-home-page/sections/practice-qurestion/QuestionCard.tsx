@@ -41,7 +41,7 @@ export default function QuestionCard({
         <p className="text-sm text-white/80 mb-4">
           Question {questionNumber} of {totalQuestions}
         </p>
-        <h2 className="text-lg text-white leading-relaxed">
+        <h2 className="lg:text-lg text-white leading-relaxed">
           {question.question}
         </h2>
       </div>
@@ -80,7 +80,7 @@ export default function QuestionCard({
       </div>
 
       {showExplanation && (
-        <div className="mb-6 p-4 bg-orange-50 border border-orange-200 rounded-lg">
+        <div className="mb-6 p-4 bg-orange-50 border border-orange-200 rounded-lg mx-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="w-4 h-4 bg-orange-600 rounded-full flex items-center justify-center">
               <span className="text-white text-xs">!</span>
