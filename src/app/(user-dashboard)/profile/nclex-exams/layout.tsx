@@ -16,15 +16,15 @@ export default function layout({ children }: { children: React.ReactNode }) {
               width={50}
               height={50}
               draggable={false}
-              className="w-full h-fit "
+              className="w-full h-fit"
             />
           }
           title="Master the NCLEX with Confidence"
         />
       </nav>
-      <div className="lg:-mt-6 flex flex-col lg:flex-row gap-4 ">
+      <div className="lg:-mt-6 flex flex-col lg:flex-row gap-4">
         <NclexSidebar />
-        <div className="w-full ">{children}</div>
+        <div className="w-full">{children}</div>
       </div>
     </section>
   );

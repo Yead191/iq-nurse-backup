@@ -18,13 +18,13 @@ const CategoryPerformanceList: FC<Props> = ({ data }) => {
     <Card
       title="Performance by Category"
       extra={
-        <p className="text-sm text-gray-500">
+        <p className="hidden lg:block text-sm text-gray-500">
           Your scores across different NCLEX categories
         </p>
       }
     >
       <div className="space-y-6">
-        {data.map((cat) => {
+        {data?.map((cat) => {
           const diff = cat.score - cat.peerAverage;
           const absDiff = Math.abs(diff);
           let tagColor = "default";
@@ -40,7 +40,7 @@ const CategoryPerformanceList: FC<Props> = ({ data }) => {
 
           return (
             <div key={cat.category}>
-              <div className="flex justify-between mb-2">
+              <div className="flex flex-col lg:flex-row justify-between mb-2">
                 <div className="flex items-center gap-3">
                   <span className="font-medium">{cat.category}</span>
                   <span

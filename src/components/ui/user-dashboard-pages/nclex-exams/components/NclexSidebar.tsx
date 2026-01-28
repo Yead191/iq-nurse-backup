@@ -35,10 +35,10 @@ export default function NclexSidebar() {
     const isBasePath =
       pathname === "/profile/nclex-exams" || last === "nclex-exams";
 
-    if (lg && isBasePath) {
+    if (isBasePath) {
       router.replace(`/profile/nclex-exams/${tabs[0].id}`);
     }
-  }, [lg, pathname, router]);
+  }, [pathname, router]);
 
   const handleTabChange = (tabId: string) => {
     router.push(`/profile/nclex-exams/${tabId}`, { scroll: false });

@@ -25,6 +25,7 @@ const hiddenPaths = [
   "/profile/labs-reference",
   "/profile/nclex-exams/start-exam",
 ];
+
 const hiddenBottomNav = [
   "/profile/my-notepad/note",
   "/profile/study-notes/document",
@@ -38,7 +39,6 @@ const hiddenBottomNav = [
   "/profile/group/my-groups",
   "/profile/flash-cards/high-yield-flashcards/create-test/test-result",
   "/profile/body-system",
-  // "/profile/patient-assessment",
   "/profile/connect-concept",
   "/profile/nclex-exams/start-exam",
 ];

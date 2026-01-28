@@ -155,12 +155,12 @@ export function QuestionInterface({ session }: QuestionInterfaceProps) {
   return (
     <div className="flex flex-col  min-h-screen  ">
       {/* Header */}
-      <header className="bg-[#2C5F8D] text-white px-6 py-4 flex flex-col lg:flex-row gap-1 items-center justify-between border-b border-[#234a6d]">
-        <div className="flex items-center gap-4">
+      <header className="bg-[#2C5F8D] text-white px-6 py-4 flex flex-col lg:flex-row gap-2 lg:items-center justify-between border-b border-[#234a6d] ">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-1 lg:gap-4">
           <h1 className="text-xl font-semibold">Fundamentals of Nursing</h1>
           <Tag
             color="#FE5E7E"
-            className="text-white !text-xs !py-0.5 !rounded-md"
+            className="text-white !text-xs !py-0.5 !rounded-md w-fit"
           >
             {session.mode === "practice" ? "Practice Mode" : "Test Mode"}
           </Tag>
@@ -185,7 +185,9 @@ export function QuestionInterface({ session }: QuestionInterfaceProps) {
               <Flag className={`w-4 h-4 ${isFlagged ? "fill-current" : ""}`} />
             }
           >
-            {isFlagged ? "Flagged" : "Flag"}
+            <span className="hidden lg:block">
+              {isFlagged ? "Flagged" : "Flag"}
+            </span>
           </Button>
 
           <Button
@@ -195,7 +197,7 @@ export function QuestionInterface({ session }: QuestionInterfaceProps) {
             className="!text-white hover:bg-[#234a6d]"
             icon={<Calculator className="w-4 h-4" />}
           >
-            Calculator
+            <span className="hidden lg:block">Calculator</span>
           </Button>
 
           {session.type !== "full-exam" && (
@@ -213,7 +215,7 @@ export function QuestionInterface({ session }: QuestionInterfaceProps) {
               }`}
               icon={<BookmarkPlus className="w-4 h-4" />}
             >
-              Flashcards
+              <span className="hidden lg:block">Flashcards</span>
             </Button>
           )}
 
@@ -224,7 +226,7 @@ export function QuestionInterface({ session }: QuestionInterfaceProps) {
             className="!text-white hover:bg-[#234a6d] !inline-flex !items-center !justify-center gap-0.5"
           >
             <X className="h-4 w-4 mt-0.5" />
-            Exit
+            <span className="hidden lg:block">Exit</span>
           </Button>
         </div>
       </header>
@@ -388,9 +390,9 @@ export function QuestionInterface({ session }: QuestionInterfaceProps) {
             <Button
               onClick={handlePrevious}
               disabled={currentQuestionIndex === 0}
-              icon={<ChevronLeft className="w-4 h-4 mr-1" />}
+              icon={<ChevronLeft className="w-4 h-4 mt-1.5" />}
             >
-              Previous
+              {lg ? "Previous" : "Prev."}
             </Button>
             {currentQuestionIndex === questions.length - 1 ? (
               <Button type="primary" onClick={handleSubmit}>
@@ -399,7 +401,7 @@ export function QuestionInterface({ session }: QuestionInterfaceProps) {
             ) : (
               <Button type="primary" onClick={handleNext}>
                 Next
-                <ChevronRight className="w-4 h-4 ml-1" />
+                <ChevronRight className="w-4 h-4  mt-1" />
               </Button>
             )}
           </div>
