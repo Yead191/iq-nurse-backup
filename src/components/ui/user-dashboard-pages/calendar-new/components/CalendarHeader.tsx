@@ -11,9 +11,6 @@ export default function CalendarHeader() {
     setIsDrawerOpen(true);
   };
 
-  const handleNewEventClick = () => {
-    setModalVisible(true);
-  };
   return (
     <>
       {lg ? (
@@ -31,10 +28,7 @@ export default function CalendarHeader() {
           }
         />
       ) : (
-        <CalendarMobileHeader
-          onMenuClick={handleMenuClick}
-          onNewEventClick={handleNewEventClick}
-        />
+        <CalendarMobileHeader onMenuClick={handleMenuClick} />
       )}
     </>
   );

@@ -1,19 +1,39 @@
 "use client";
 
 import type React from "react";
-import { Calendar, ChevronLeft, Plus } from "lucide-react";
+import { ChevronLeft, Plus } from "lucide-react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { useMemo, useState } from "react";
+import { QuickAddModal } from "../user-home-page/aside/quick-add/QuickAddModal";
+import { AddClassDialog } from "../calendar-new/components/events-modal/AddClassDialog";
+import { AddExamDialog } from "../calendar-new/components/events-modal/AddExamDialog";
+import { AddClinicalDialog } from "../calendar-new/components/events-modal/AddClinicalDialog";
+import { AddMeetingDialog } from "../calendar-new/components/events-modal/AddMeetingDialog";
+import { AddPersonalTimeDialog } from "../calendar-new/components/events-modal/AddPersonalTimeDialog";
+import { AddTaskDialog } from "../calendar-new/components/events-modal/AddTaskDialog";
+import { AddAssignmentModal } from "../calendar-new/components/events-modal/AddAssignmentDialog";
+import { AddStudyTimeDialog } from "../calendar-new/components/events-modal/add-study-time/AddStudyTimeDialog";
 
 interface CalendarMobileHeaderProps {
   onMenuClick: () => void;
-  onNewEventClick: () => void;
 }
 
 const CalendarMobileHeader: React.FC<CalendarMobileHeaderProps> = ({
   onMenuClick,
-  onNewEventClick,
 }) => {
+  const [isQuickAddOpen, setIsQuickAddOpen] = useState(false);
+  const [isClassDialogOpen, setIsClassDialogOpen] = useState(false);
+  const [isExamDialogOpen, setIsExamDialogOpen] = useState(false);
+  const [isAssignmentDialogOpen, setIsAssignmentDialogOpen] = useState(false);
+  const [isStudyTimeDialogOpen, setIsStudyTimeDialogOpen] = useState(false);
+  const [isClinicalDialogOpen, setIsClinicalDialogOpen] = useState(false);
+  const [isMeetingDialogOpen, setIsMeetingDialogOpen] = useState(false);
+  const [isPersonalTimeDialogOpen, setIsPersonalTimeDialogOpen] =
+    useState(false);
+  const [isTaskDialogOpen, setIsTaskDialogOpen] = useState(false);
+  const [isCountdownDialogOpen, setIsCountdownDialogOpen] = useState(false);
+
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const mode = searchParams.get("mode");
@@ -27,6 +47,48 @@ const CalendarMobileHeader: React.FC<CalendarMobileHeaderProps> = ({
   const pathSegments = pathname?.split("/").filter(Boolean) || [];
   const lastSegment =
     pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : undefined;
+
+  const handleQuickAddSelect = (type: string) => {
+    setIsQuickAddOpen(false);
+    switch (type) {
+      case "class":
+        setIsClassDialogOpen(true);
+        break;
+      case "exam":
+        setIsExamDialogOpen(true);
+        break;
+      case "assignment":
+        setIsAssignmentDialogOpen(true);
+        break;
+      case "study-time":
+        setIsStudyTimeDialogOpen(true);
+        break;
+      case "clinical":
+        setIsClinicalDialogOpen(true);
+        break;
+      case "meeting":
+        setIsMeetingDialogOpen(true);
+        break;
+      case "personal":
+        setIsPersonalTimeDialogOpen(true);
+        break;
+      case "task":
+        setIsTaskDialogOpen(true);
+        break;
+      case "countdown":
+        setIsCountdownDialogOpen(true);
+        break;
+    }
+  };
+
+  //   date
+  const dateParam = searchParams.get("date");
+  const selectedDate = useMemo(() => {
+    if (!dateParam) return new Date();
+
+    const parsed = new Date(dateParam);
+    return isNaN(parsed.getTime()) ? new Date() : parsed;
+  }, [dateParam]);
   return (
     <div className="lg:hidden  py-4 flex items-center justify-between fixed w-full   bg-white z-50 px-4 top-0 ">
       <div className="flex items-center gap-4">
@@ -52,12 +114,70 @@ const CalendarMobileHeader: React.FC<CalendarMobileHeaderProps> = ({
       </div>
 
       <button
-        onClick={onNewEventClick}
+        onClick={() => setIsQuickAddOpen(true)}
         className="flex items-center gap-2  px-2 py-1.5 rounded-lg text-xs font-normal  transition-colors border border-[#2C5F8D] "
       >
         <Plus size={16} />
         New Event
       </button>
+      <QuickAddModal
+        open={isQuickAddOpen}
+        onOpenChange={setIsQuickAddOpen}
+        onSelectType={handleQuickAddSelect}
+      />
+      {/* <AddEventsModal
+              visible={modalVisible}
+              onClose={() => setModalVisible(false)}
+            /> */}
+      {/* All Event Dialogs */}
+      <AddClassDialog
+        open={isClassDialogOpen}
+        onOpenChange={setIsClassDialogOpen}
+        onAddClass={(cls) => console.log(cls)}
+        selectedDate={selectedDate}
+      />
+      <AddExamDialog
+        open={isExamDialogOpen}
+        onOpenChange={setIsExamDialogOpen}
+        onAddExam={(exam) => console.log(exam)}
+        selectedDate={selectedDate}
+      />
+      <AddAssignmentModal
+        open={isAssignmentDialogOpen}
+        onOpenChange={setIsAssignmentDialogOpen}
+        onAddAssignment={(assignment) => console.log(assignment)}
+        selectedDate={selectedDate}
+      />
+      <AddStudyTimeDialog
+        open={isStudyTimeDialogOpen}
+        onOpenChange={setIsStudyTimeDialogOpen}
+        onAddStudyTime={() => {}}
+        selectedDate={selectedDate}
+      />
+      <AddClinicalDialog
+        open={isClinicalDialogOpen}
+        onOpenChange={setIsClinicalDialogOpen}
+        onAddClinical={(clinical) => {}}
+        selectedDate={selectedDate}
+      />
+      <AddMeetingDialog
+        open={isMeetingDialogOpen}
+        onOpenChange={setIsMeetingDialogOpen}
+        onAddMeeting={(meeting) => {}}
+        selectedDate={selectedDate}
+      />
+      <AddPersonalTimeDialog
+        open={isPersonalTimeDialogOpen}
+        onOpenChange={setIsPersonalTimeDialogOpen}
+        onAddPersonalTime={(personal) => {}}
+        selectedDate={selectedDate}
+      />
+      <AddTaskDialog
+        open={isTaskDialogOpen}
+        onOpenChange={setIsTaskDialogOpen}
+        onAddTask={(task) => {}}
+        selectedDate={selectedDate}
+      />
     </div>
   );
 };

@@ -86,16 +86,16 @@ function QuickAddMenu({ onSelectType }: QuickAddMenuProps) {
 
   return (
     <div className="py-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
         {eventTypes.map((type) => (
           <div key={type.id}>
             <Card
               hoverable
-              className="text-center transition-all duration-200 group border border-gray-200 hover:border-gray-300 hover:shadow-md"
+              className="text-center transition-all duration-200 group border border-gray-200 hover:border-gray-300 hover:shadow-md h-full"
               onClick={() => onSelectType(type.id)}
               styles={{ body: { padding: "20px 16px" } }}
             >
-              <div className="flex flex-col items-center gap-3">
+              <div className="flex flex-col items-center gap-3 h-full">
                 <div
                   className={`w-12 h-12 rounded-full ${type.color} flex items-center justify-center group-hover:scale-110 transition-transform`}
                 >
