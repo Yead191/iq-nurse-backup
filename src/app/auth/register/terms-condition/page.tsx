@@ -1,10 +1,9 @@
-import TermsConditionPage from "@/components/authPages/register/Terms-conditions-page/TermsConditionPage";
-import React from "react";
+import TermsForm from "@/components/authPages/register/Terms-conditions-page/TermsForm";
 
 export default function page() {
   return (
     <>
-      <TermsConditionPage />
+      <TermsForm />
     </>
   );
 }

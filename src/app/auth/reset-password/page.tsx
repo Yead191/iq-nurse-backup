@@ -1,10 +1,6 @@
-import ResetPasswordPage from "@/components/authPages/reset-password-page/ResetPasswordPage";
+import ResetForm from "@/components/authPages/reset-password-page/ResetForm";
 import React from "react";
 
 export default function page() {
-  return (
-    <div>
-      <ResetPasswordPage />
-    </div>
-  );
+  return <ResetForm />;
 }

@@ -49,6 +49,11 @@ export default function TermsForm() {
           width: "100%",
           padding: lg ? "40px" : "0",
           maxWidth: 500,
+          backgroundImage:
+            "linear-gradient(rgba(229, 242, 255, 0.7), rgba(229, 242, 255, 0.7)), url('/assets/images/dashboard/home/banner.png')",
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       >
         <Form form={form} layout="vertical" onFinish={onFinish} size="large">

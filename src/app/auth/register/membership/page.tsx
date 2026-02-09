@@ -1,10 +1,5 @@
-import MembershipPage from "@/components/authPages/register/membership-page/MembershipPage";
-import React from "react";
+import MembershipBenefits from "@/components/authPages/register/membership-page/MembershipForm";
 
 export default function page() {
-  return (
-    <div>
-      <MembershipPage />
-    </div>
-  );
+  return <MembershipBenefits />;
 }

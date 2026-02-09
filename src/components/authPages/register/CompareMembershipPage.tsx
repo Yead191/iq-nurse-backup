@@ -24,6 +24,7 @@ import {
   DownloadOutlined,
   CheckOutlined,
 } from "@ant-design/icons";
+import { useRouter } from "next/navigation";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -95,13 +96,14 @@ export default function CompareMembershipPage() {
   const [currency, setCurrency] = useState("$USD");
   const [selectedPlan, setSelectedPlan] = useState("yearly");
   const [showBanner, setShowBanner] = useState(true);
-
+  const router = useRouter();
   const handleSubscribe = () => {
-    // console.log("Subscribe to plan:", selectedPlan);
+    console.log("Subscribe to plan:", selectedPlan);
+    router.push("/auth/login");
   };
 
   return (
-    <div className="min-h-[calc(100vh-80px)] flex flex-col items-center justify-center p-4">
+    <div className="lg:min-w-7xl">
       {/* Success Banner */}
       {showBanner && (
         <Alert
@@ -134,9 +136,9 @@ export default function CompareMembershipPage() {
         />
       )}
 
-      <div className="flex flex-col-reverse md:flex-row items-start justify-between gap-8 w-full my-8">
+      <div className="flex flex-col-reverse lg:flex-row items-start justify-between gap-8 w-full my-8">
         {/* Left Side - Features */}
-        <div className="w-full md:w-3/4 h-fit-content">
+        <div className="w-full lg:w-3/4 h-fit-content">
           <Title level={3} style={{ margin: "0 0 24px 0", color: "#1f2937" }}>
             Everything included with Premium
           </Title>
@@ -188,7 +190,7 @@ export default function CompareMembershipPage() {
 
         {/* Right Side - Pricing */}
 
-        <div className="w-full md:w-1/4">
+        <div className="w-full lg:w-1/4">
           <div
             style={{
               display: "flex",

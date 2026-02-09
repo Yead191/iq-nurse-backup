@@ -7,7 +7,7 @@ import { FaApple, FaFacebook } from "react-icons/fa";
 export default function SocialLogin() {
   const { lg } = Grid.useBreakpoint();
   return (
-    <div>
+    <div className="">
       <Divider style={{ color: "#9ca3af", fontSize: "14px" }}>Or</Divider>
 
       <Space
@@ -18,21 +18,21 @@ export default function SocialLogin() {
         <Button
           icon={<FcGoogle className=" text-2xl" />}
           style={{
-            width: lg ? "132px" : "86px",
+            width: lg ? "112px" : "86px",
             height: 54,
           }}
         />
         <Button
           icon={<FaFacebook className="text-[#18ACFE] text-2xl" />}
           style={{
-            width: lg ? "132px" : "86px",
+            width: lg ? "112px" : "86px",
             height: 54,
           }}
         />
         <Button
           icon={<FaApple className="text-2xl" />}
           style={{
-            width: lg ? "132px" : "86px",
+            width: lg ? "112px" : "86px",
             height: 54,
           }}
         />

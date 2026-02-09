@@ -14,7 +14,7 @@ export default function CountrySelectionForm() {
   const [form] = Form.useForm();
   const [selectedCountry, setSelectedCountry] = useState<string>("bangladesh");
   const [selectedRole, setSelectedRole] = useState<string>(
-    "nursing-student-lvn-lpn"
+    "nursing-student-lvn-lpn",
   );
   const router = useRouter();
   const onFinish = (values: any) => {
@@ -31,6 +31,11 @@ export default function CountrySelectionForm() {
         // boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
         border: "1px solid #e5e7eb",
         padding: lg ? "40px 36px" : "0",
+        backgroundImage:
+          "linear-gradient(rgba(229, 242, 255, 0.7), rgba(229, 242, 255, 0.7)), url('/assets/images/dashboard/home/banner.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <div style={{ marginBottom: "32px" }}>

@@ -1,10 +1,6 @@
-import EmailSentPage from "@/components/authPages/email-sent-page/EmailSentPage";
+import EmailConfirmationCard from "@/components/authPages/email-sent-page/EmailConfirmationCard";
 import React from "react";
 
 export default function page() {
-  return (
-    <div>
-      <EmailSentPage />
-    </div>
-  );
+  return <EmailConfirmationCard />;
 }

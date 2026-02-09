@@ -8,17 +8,17 @@ export default function UpdateSuccessPage() {
   const { lg } = Grid.useBreakpoint();
 
   return (
-    <div className="  flex flex-col md:flex-row gap-5 lg:gap-14 justify-start md:justify-center md:items-center min-h-[calc(100vh-80px)] ">
+    <div className="  flex flex-col md:flex-row gap-5 lg:gap-14 justify-start md:justify-center md:items-center  ">
       {/* Left Side - Illustration */}
-      <div className="relative md:flex-1">
+      {/* <div className="relative md:flex-1">
         <BrainIllustration
           title="Nice Work!"
           text="Security matters — and you’ve just taken a smart step in protecting your account."
         />
-      </div>
+      </div> */}
 
       {/* Right Side - Form */}
-      <div className="flex flex-1  ">
+      <div className="flex  ">
         <Card
           style={{
             width: "100%",

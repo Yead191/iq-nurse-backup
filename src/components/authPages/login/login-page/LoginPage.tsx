@@ -15,17 +15,17 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="  flex flex-col md:flex-row gap-5 lg:gap-14 justify-start md:justify-center md:items-center min-h-[calc(100vh-80px)] ">
+    <div className="  flex flex-col md:flex-row justify-start md:justify-center md:items-center min-h-[calc(100vh-80px)] ">
       {/* Left Side - Illustration */}
-      <div className="relative flex-1">
+      {/* <div className="relative flex-1">
         <BrainIllustration
           title="Welcome back!👋"
           text="Great to see you again. Let’s continue where you left off."
         />
-      </div>
+      </div> */}
 
       {/* Right Side - Form */}
-      <div className="flex flex-1  ">
+      <div className="flex  ">
         <LoginForm onFinish={onFinish} form={form} />
       </div>
     </div>

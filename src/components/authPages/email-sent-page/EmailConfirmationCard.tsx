@@ -22,6 +22,11 @@ export default function EmailConfirmationCard() {
         // boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
         border: "1px solid #e5e7eb",
         padding: lg ? "20px" : "0px",
+        backgroundImage:
+          "linear-gradient(rgba(229, 242, 255, 0.7), rgba(229, 242, 255, 0.7)), url('/assets/images/dashboard/home/banner.png')",
+        backgroundSize: "contain",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <div className="text-center w-full max-w-[438px]">

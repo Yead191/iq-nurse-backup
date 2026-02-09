@@ -16,17 +16,17 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="  flex flex-col md:flex-row gap-5 lg:gap-14 justify-start md:justify-center md:items-center min-h-[calc(100vh-80px)] ">
+    <div className="  flex flex-col md:flex-row  justify-start md:justify-center md:items-center min-h-screen">
       {/* Left Side - Illustration */}
-      <div className="relative flex-1">
+      {/* <div className="relative flex-1">
         <BrainIllustration
           title="Join IQ-Nurse Today!"
           text="Create your free account and start studying smarter today."
         />
-      </div>
+      </div> */}
 
       {/* Right Side - Form */}
-      <div className="flex flex-1 ">
+      <div className="flex ">
         <RegisterForm onFinish={onFinish} form={form} />
       </div>
     </div>

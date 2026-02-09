@@ -7,6 +7,7 @@ import {
 } from "@ant-design/icons";
 import { useRouter } from "next/navigation";
 import { Grid } from "antd";
+import { toast } from "sonner";
 export default function ProfilePanel() {
   const router = useRouter();
   const { lg } = Grid.useBreakpoint();
@@ -42,10 +43,26 @@ export default function ProfilePanel() {
       danger: true,
     },
   ];
+  // logout
   const onLogout = () => {
-    // Handle logout logic here
-    // console.log("User logged out");
-    router.push("/");
+    toast.warning("Are you sure you want to log out?", {
+      duration: 4000,
+      description: "You will be logged out and redirected to the login page.",
+      action: {
+        label: "Logout",
+        onClick: () => {
+          try {
+            // Cookies.remove("user");
+            // Cookies.remove("accessToken");
+            toast.success("Logged out successfully");
+            router.replace("/");
+            router.refresh();
+          } catch (error) {
+            toast.error("Error logging out");
+          }
+        },
+      },
+    });
   };
   return (
     <div

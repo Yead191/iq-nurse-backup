@@ -2,9 +2,5 @@ import CompareMembershipPage from "@/components/authPages/register/CompareMember
 import React from "react";
 
 export default function page() {
-  return (
-    <div>
-      <CompareMembershipPage />
-    </div>
-  );
+  return <CompareMembershipPage />;
 }
