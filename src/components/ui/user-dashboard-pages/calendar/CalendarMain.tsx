@@ -38,7 +38,7 @@ const CalendarMain = () => {
       {/* Mobile Header */}
       <CalendarMobileHeader
         onMenuClick={handleMenuClick}
-        onNewEventClick={handleNewEventClick}
+        // onNewEventClick={handleNewEventClick}
       />
       <PageNavbar
         title="Calendar"
