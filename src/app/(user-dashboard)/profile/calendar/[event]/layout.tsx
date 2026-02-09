@@ -24,7 +24,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
     <section className="relative">
       <CalendarMobileHeader
         onMenuClick={handleMenuClick}
-        onNewEventClick={handleNewEventClick}
+        // onNewEventClick={handleNewEventClick}
       />
       <StudentPlannerDrawer isOpen={isDrawerOpen} onClose={handleCloseDrawer} />
       <div className="min-h-[calc(100vh-182px)] flex justify-center items-center">
