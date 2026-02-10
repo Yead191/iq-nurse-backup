@@ -15,9 +15,6 @@ export const metadata: Metadata = {
   title: "IQ-Nurse",
   description:
     "Your trusted partner in every heartbeat of your nursing journey.",
-  icons: {
-    icon: "/favicon.svg",
-  },
 };
 
 export default function RootLayout({

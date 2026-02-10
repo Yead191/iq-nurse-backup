@@ -20,7 +20,7 @@ export default function MobileHeader() {
   const [lang, setLang] = React.useState<LangKey>("en");
   const currentLang = React.useMemo(
     () => LANGUAGES.find((l) => l.key === lang) ?? LANGUAGES[0],
-    [lang]
+    [lang],
   );
   // page title from URL
   const formatPathName = (slug: string | undefined) => {
@@ -97,7 +97,7 @@ export default function MobileHeader() {
                   alt="Logo"
                   width={400}
                   height={80}
-                  className="h-10 w-full object-contain"
+                  className="h-8 w-full object-contain"
                 />
               </div>
             </Link>

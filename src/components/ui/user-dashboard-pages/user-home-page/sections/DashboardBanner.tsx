@@ -14,16 +14,16 @@ export default function DashboardBanner() {
     <section className=" flex flex-col gap-2 md:gap-6 md:justify-center bg-linear-to-b from-transparent to-[#D9ECFF] px-4 lg:px-5 relative min-h-[300px] md:min-h-[400px] rounded-b-lg overflow-hidden">
       <div className="flex flex-col justify-start md:justify-center items-start z-10">
         <div className="flex items-end gap-2 mb-3">
-          <Image
+          {/* <Image
             src={"/assets/icons/user-home/welcome-icon.png"}
             alt="welcome icon"
             width={100}
             height={100}
             className="w-fit h-[50px] md:w-[71px] md:h-[71px] object-fit "
-          />
+          /> */}
 
           <h4 className="text-lg md:text-2xl font-bold text-[#666f78] -mb-1.5 ">
-            Hello, John!
+            Hello, John! 👋
           </h4>
         </div>
         <h1 className="text-xl lg:text-5xl font-bold text-[#2C5F8D]/70 md:text-[#2C5F8D]/40 max-w-[280px] md:max-w-[800px] tracking-[0.02rem] md:tracking-[0.1em] leading-[130%] md:leading-[100%]">

@@ -25,18 +25,18 @@ export default function ShortMenu({
       style={{ boxShadow: "0px 4px 4px 0px #00000040" }}
       className={`flex items-center gap-2
         ${isPrimary ? "bg-[#02478D80] lg:bg-[#02478DCC]" : "bg-[#FFFFFF] "}
-        rounded-lg px-3 md:px-4 py-2 whitespace-nowrap min-w-fit active:scale-95 transition-transform`}
+        rounded-lg px-3 md:px-4 py-2 whitespace-nowrap min-w-fit active:scale-95 transition-transform `}
     >
-      <div className="w-5 h-5 md:w-6 md:h-6 shrink-0 relative flex items-center justify-center">
+      <div className=" shrink-0 relative flex items-center justify-center">
         {item.image ? (
           <Image
             src={item.image}
             alt={item.title}
-            width={24}
-            height={24}
+            width={32}
+            height={32}
             className={`w-full ${
-              isPrimary ? "h-[16px]" : "!h-[32px]"
-            } md:h-[20px] object-contain`}
+              isPrimary ? "h-[16px] md:h-[20px]" : "!h-[28px]"
+            }  object-contain`}
           />
         ) : (
           item.icon

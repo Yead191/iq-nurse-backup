@@ -29,7 +29,7 @@ export default function UserHomeMain() {
             <NCLEXQuestionsSection />
             {/* <RecentlyViewed /> */}
             <NCLEXPracticeSection />
-            <StudyInstagramSection />
+            {/* <StudyInstagramSection /> */}
             {/* <TrendingPosts /> */}
           </div>
         </section>

@@ -51,7 +51,7 @@ export default function NCLEXPracticeSection() {
           }
           return acc;
         },
-        0
+        0,
       );
       setScore(correctAnswers);
       setShowCompletion(true);
@@ -94,11 +94,11 @@ export default function NCLEXPracticeSection() {
         </Link>
       </div>
 
-      <CategoryTabs
+      {/* <CategoryTabs
         categories={Object.keys(demoData)}
         activeCategory={activeCategory}
         onCategoryChange={handleCategoryChange}
-      />
+      /> */}
       {showCompletion ? (
         <CompletionCard
           score={score}
