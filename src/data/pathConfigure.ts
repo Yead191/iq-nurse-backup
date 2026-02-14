@@ -37,7 +37,7 @@ const hiddenBottomNav = [
   "/profile/my-library/details/",
   "/profile/community",
   "/profile/group/my-groups",
-  "/profile/flash-cards/high-yield-flashcards/create-test/test-result",
+  "/profile/flash-card/high-yield-flashcards/create-test/test-result",
   "/profile/body-system",
   "/profile/connect-concept",
   "/profile/nclex-exams/start-exam",

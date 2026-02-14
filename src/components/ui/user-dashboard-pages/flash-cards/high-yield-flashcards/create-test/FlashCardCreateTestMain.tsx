@@ -38,7 +38,7 @@ const FlashCardCreateTestMain = ({
   const currentCard = activeCards[currentIndex];
 
   const isPrimary =
-    pathname === "/profile/flash-cards/high-yield-flashcards/create-test";
+    pathname === "/profile/flash-card/high-yield-flashcards/create-test";
 
   // console.log(isPrimary);
 

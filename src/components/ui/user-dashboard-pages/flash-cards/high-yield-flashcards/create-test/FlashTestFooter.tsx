@@ -159,7 +159,7 @@ const FlashTestFooter: React.FC<Props> = ({
                     router.push(
                       isFromChat
                         ? `/profile/group/${isFromChat}`
-                        : "/profile/flash-cards/high-yield-flashcards/create-test/test-result"
+                        : "/profile/flash-card/high-yield-flashcards/create-test/test-result"
                     )
             }
             className="px-4 py-2 rounded-lg flex items-center justify-center bg-primary text-white font-medium cursor-pointer"

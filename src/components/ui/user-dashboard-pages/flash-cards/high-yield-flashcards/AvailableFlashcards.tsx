@@ -108,7 +108,7 @@ const AvailableFlashcards = () => {
 
       <div className="flex items-center justify-end mt-4">
         <Link
-          href={"/profile/flash-cards/high-yield-flashcards/create-test"}
+          href={"/profile/flash-card/high-yield-flashcards/create-test"}
           className=" h-[45px] lg:w-[200px] w-full rounded-lg bg-[#2C5F8D] text-white flex items-center justify-center gap-1 cursor-pointer"
         >
           <span> Create Test </span>{" "}

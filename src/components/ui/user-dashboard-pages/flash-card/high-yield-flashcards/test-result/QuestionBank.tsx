@@ -69,7 +69,7 @@ export default function QuestionBank() {
           className="lg:w-[250px] w-full h-12  rounded border border-[#484848] cursor-pointer"
           onClick={() =>
             router?.push(
-              "/profile/flash-cards/high-yield-flashcards/create-test"
+              "/profile/flash-card/high-yield-flashcards/create-test"
             )
           }
         >
