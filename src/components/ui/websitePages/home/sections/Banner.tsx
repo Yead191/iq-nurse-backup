@@ -33,12 +33,12 @@ export default function Banner() {
             {/* Buttons */}
             <div className="flex flex-wrap gap-4">
               <Link href="/auth/register">
-                <button className="bg-gradient-to-r from-cyan-500 to-[#0078ff] hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all shadow-lg shadow-blue-500/25 text-lg">
+                <button className="bg-gradient-to-r from-cyan-500 to-[#0078ff] hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-3 px-6 lg:px-8 rounded-full transition-all shadow-lg shadow-blue-500/25 text-sm lg:text-lg">
                   Start Free Trial
                 </button>
               </Link>
               <Link href="/demo">
-                <button className="border-2 border-[#00c2ff] text-[#00c2ff] hover:bg-[#00c2ff]/10 font-bold py-3 px-8 rounded-full transition-all text-lg">
+                <button className="border-2 border-[#00c2ff] text-[#00c2ff] hover:bg-[#00c2ff]/10 font-bold py-3 px-6 lg:px-8 rounded-full transition-all text-sm lg:text-lg">
                   Watch Demo
                 </button>
               </Link>

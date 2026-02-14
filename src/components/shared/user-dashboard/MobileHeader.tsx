@@ -13,11 +13,13 @@ import { LangKey, LANGUAGES } from "@/data/headerConstants";
 import { IoMdNotificationsOutline } from "react-icons/io";
 
 import { profile } from "./header/Header";
+import ProfileDrawer from "./header/ProfileDrawer";
 
 export default function MobileHeader() {
   const pathname = usePathname();
   const router = useRouter();
   const [lang, setLang] = React.useState<LangKey>("en");
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const currentLang = React.useMemo(
     () => LANGUAGES.find((l) => l.key === lang) ?? LANGUAGES[0],
     [lang],
@@ -149,17 +151,22 @@ export default function MobileHeader() {
             </Badge>
 
             {/* Profile */}
-            <Link href={"/profile/account"}>
-              <Button
-                type="text"
-                className="flex items-center gap-3 rounded-xl !bg-[#F6F8FB] px-1 !py-0.5"
-              >
-                <Avatar src={profile.image} size={28} />
-              </Button>
-            </Link>
+            <Button
+              type="text"
+              onClick={() => setIsDrawerOpen(true)}
+              className="flex items-center gap-3 rounded-xl !bg-[#F6F8FB] px-1 !py-0.5"
+            >
+              <Avatar src={profile.image} size={28} />
+            </Button>
           </div>
         </div>
       </div>
+      <ProfileDrawer
+        open={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        lang={lang}
+        currentLang={currentLang}
+      />
     </header>
   );
 }

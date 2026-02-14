@@ -5,7 +5,7 @@ import { BiSpreadsheet } from "react-icons/bi";
 
 const TermsService = () => {
   return (
-    <div>
+    <div className="p-4">
       <DirectionTitle
         icon={<BiSpreadsheet className="text-[#2C5F8D]" />}
         title="Terms of Service"

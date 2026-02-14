@@ -5,7 +5,7 @@ import { VscWorkspaceTrusted } from "react-icons/vsc";
 
 const PrivacyPolicy = () => {
   return (
-    <div>
+    <div className="p-4">
       <DirectionTitle
         icon={<VscWorkspaceTrusted className="text-[#2C5F8D]" />}
         title="Privacy Policy "

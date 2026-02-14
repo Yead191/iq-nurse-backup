@@ -93,7 +93,7 @@ export default function Navbar() {
               alt="Logo"
               width={240}
               height={150}
-              className="h-10 lg:h-12 w-fit"
+              className="h-8 lg:h-10 w-fit"
             />
           </Link>
 
@@ -155,7 +155,11 @@ export default function Navbar() {
             <div className="flex flex-col h-full">
               <div className="font-semibold text-xl text-white pb-2 ps-5 w-full border-b border-[#444447] flex items-center justify-between">
                 <h4>Menu</h4>
-                <Button className="!text-white !text-xl" type="text" onClick={() => setDrawerOpen(false)}>
+                <Button
+                  className="!text-white !text-xl"
+                  type="text"
+                  onClick={() => setDrawerOpen(false)}
+                >
                   <XIcon />
                 </Button>
               </div>

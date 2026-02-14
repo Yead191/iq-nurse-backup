@@ -292,3 +292,6 @@ html {
 .ant-btn {
   box-shadow: none !important;
 }
+.ant-picker-calendar-header {
+  padding: 0px 0px 8px 0px !important;
+}
