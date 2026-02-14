@@ -16,7 +16,7 @@ import DirectionTitle from "@/components/shared/user-dashboard/support-legal/Dir
 const AccountSecurity = () => {
   const [form] = Form.useForm();
   const [imgURL, setImgURL] = useState(
-    "https://i.ibb.co.com/CKGDQYkt/Frame-2147227147.png"
+    "https://i.ibb.co.com/CKGDQYkt/Frame-2147227147.png",
   );
 
   const onFinish = (values: Record<string, string>) => {
@@ -24,8 +24,11 @@ const AccountSecurity = () => {
   };
 
   return (
-    <div className="w-full mx-auto ">
-      <DirectionTitle icon={<FiUser className="text-[#28C76F]" />} title={"Profile"} />
+    <div className="w-full mx-auto p-4 ">
+      <DirectionTitle
+        icon={<FiUser className="text-[#28C76F]" />}
+        title={"Profile"}
+      />
 
       <div className=" w-full  rounded-lg shadow lg:p-6 p-2   bg-gray-50">
         <Form
@@ -153,7 +156,7 @@ const AccountSecurity = () => {
                           return Promise.resolve();
                         }
                         return Promise.reject(
-                          new Error("Passwords do not match!")
+                          new Error("Passwords do not match!"),
                         );
                       },
                     }),
