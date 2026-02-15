@@ -1,7 +1,6 @@
 import { Card } from "antd";
 import React, { Suspense } from "react";
 import AsidePanel from "./aside/AsidePanel";
-import StudyInstagramSection from "./sections/StudyInstagramSection";
 import NCLEXPracticeSection from "./sections/practice-qurestion/NCLEXPracticeSection";
 import NurseQButton from "./sections/NurseNia/NurseQButton";
 import DashboardBanner from "./sections/DashboardBanner";
@@ -11,6 +10,8 @@ import ShortMenu from "./sections/ShortMenu";
 import { studyItems } from "@/data/home/shortMenuData";
 import { StatsGrid } from "./sections/StatsGrid";
 import Header from "@/components/shared/user-dashboard/header/Header";
+import StudyMaterials from "./sections/StudyMaterials";
+import SuccessTools from "./sections/SuccessTools";
 
 export default function UserHomeMain() {
   return (
@@ -21,14 +22,16 @@ export default function UserHomeMain() {
         <section className="lg:col-span-9 space-y-6 lg:h-[calc(100vh-90px)] overflow-y-auto pt-4 lg:pt-8 ">
           <DashboardBanner />
           {/* <ShortMenu /> */}
-          <div className="px-2 lg:px-5">
+          <div className="px-4 lg:px-5">
             <div className="md:hidden">
               <ShortMenu items={studyItems} />
             </div>
             <StatsGrid items={weeklyStats} />
             <NCLEXQuestionsSection />
             {/* <RecentlyViewed /> */}
+            <StudyMaterials />
             <NCLEXPracticeSection />
+            <SuccessTools />
             {/* <StudyInstagramSection /> */}
             {/* <TrendingPosts /> */}
           </div>

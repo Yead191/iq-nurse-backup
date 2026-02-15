@@ -36,17 +36,17 @@ export default function QuestionCard({
   const optionLabels = ["A", "B", "C", "D"];
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 ">
-      <div className="mb-4 bg-[#253f58] p-4 rounded-t-lg">
-        <p className="text-sm text-white/80 mb-4">
+    <div className="bg-white">
+      <div className="mb-4">
+        <p className="text-sm text-black font-semibold mb-4">
           Question {questionNumber} of {totalQuestions}
         </p>
-        <h2 className="lg:text-lg text-white leading-relaxed">
+        <h2 className="lg:text-lg text-black font-semibold leading-relaxed">
           {question.question}
         </h2>
       </div>
 
-      <div className="space-y-3 mb-6 p-4">
+      <div className="space-y-3 mb-6 ">
         {question.options.map((option, index) => {
           const optionLabel = optionLabels[index];
           const optionValue = `${optionLabel}.${option}`;
@@ -80,7 +80,7 @@ export default function QuestionCard({
       </div>
 
       {showExplanation && (
-        <div className="mb-6 p-4 bg-orange-50 border border-orange-200 rounded-lg mx-4">
+        <div className="mb-6 p-4  bg-orange-50 border border-orange-200 rounded-lg ">
           <div className="flex items-center gap-2 mb-2">
             <span className="w-4 h-4 bg-orange-600 rounded-full flex items-center justify-center">
               <span className="text-white text-xs">!</span>
@@ -93,7 +93,7 @@ export default function QuestionCard({
         </div>
       )}
 
-      <div className="flex items-center gap-4 p-4">
+      <div className="flex items-center gap-4 ">
         {isLastQuestion ? (
           <button
             onClick={onSubmitAnswer}
@@ -114,7 +114,7 @@ export default function QuestionCard({
 
         <button
           onClick={() => setShowExplanation(!showExplanation)}
-          className="flex items-center gap-2 text-orange-600 hover:text-orange-700 text-sm font-medium"
+          className="flex items-center gap-2 text-orange-600 hover:text-orange-700 text-sm font-medium cursor-pointer"
         >
           <span className="w-4 h-4 bg-orange-600 rounded-full flex items-center justify-center">
             <span className="text-white text-xs">!</span>

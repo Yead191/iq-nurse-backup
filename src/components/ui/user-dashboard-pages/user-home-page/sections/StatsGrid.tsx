@@ -41,7 +41,7 @@ export function StatsGrid({ items }: { items: any }) {
         boxShadow: "4px 4px 29px 0px rgba(0, 0, 0, 0.14)",
         borderRadius: 12,
       }}
-      className="p-5 flex flex-col md:flex-row gap-2 justify-between md:items-center relative my-4"
+      className="p-5 flex flex-col md:flex-row gap-2 justify-between md:items-center relative my-4 md:hidden"
     >
       {/* <Image
         src={"/assets/icons/user-home/welcome-icon.png"}
