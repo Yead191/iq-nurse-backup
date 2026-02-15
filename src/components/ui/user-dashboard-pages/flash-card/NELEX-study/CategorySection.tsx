@@ -29,26 +29,26 @@ export default function CategorySection({
     ).length;
 
   return (
-    <div className="p-8">
-      <h1 className="mb-2 text-3xl font-medium">Study Flashcards</h1>
-      <p className="mb-8 text-gray-500">
+    <div className="lg:py-0 lg:pt-6 lg:px-4">
+      <h1 className="mb-2 lg:text-2xl text-xl font-medium">Study Flashcards</h1>
+      <p className="mb-8 text-gray-500 lg:text-[16px] text-sm">
         Choose a nursing category to begin
       </p>
 
       <div className="mb-10">
         <div className="mb-4 flex items-center gap-2">
-          <Star className="h-6 w-6 text-[#F59E0B]" fill="#F59E0B" />
-          <h2 className="text-2xl font-medium">Featured Decks</h2>
+          <Star className="lg:h-6 lg:w-6 h-4.5 w-4.5 text-[#F59E0B]" fill="#F59E0B" />
+          <h2 className="lg:text-2xl text-xl font-medium">Featured Decks</h2>
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {featuredDecks.map((deck) => (
             <div
               key={`${deck.category}-${deck.subcategory}`}
-              className="cursor-pointer rounded-xl border border-[#2C5F8D] bg-gradient-to-br from-white to-blue-50 p-6 transition hover:-translate-y-1 hover:shadow-xl"
+              className="cursor-pointer rounded-xl border border-[#2C5F8D] bg-gradient-to-br from-white to-blue-50 lg:p-6 p-4 transition hover:-translate-y-1 hover:shadow-xl"
               onClick={() => onSelectCategory(deck.category)}
             >
-              <h3 className="mb-1 text-lg font-medium">
+              <h3 className="mb-1 lg:text-lg text-[16px] text-gray-700 font-medium">
                 {deck.subcategory}
               </h3>
               <p className="mb-2 text-xs text-gray-500">
@@ -63,7 +63,7 @@ export default function CategorySection({
                 {getSubcategoryCardCount(
                   deck.category,
                   deck.subcategory
-                )}{" "}
+                )}
                 cards
               </span>
 
@@ -78,7 +78,7 @@ export default function CategorySection({
 
       <h2 className="mb-4 text-xl font-medium">All Categories</h2>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 pb-4">
         {nursingCategories.map((category) => {
           const color = getCategoryColor(category.name);
           const icon = getCategoryIcon(category.name);
@@ -99,7 +99,7 @@ export default function CategorySection({
                   </div>
 
                   <div>
-                    <h3 className="mb-1 text-lg font-medium">
+                    <h3 className="mb-1 lg:text-lg text-[16px] text-gray-700 font-medium">
                       {category.name}
                     </h3>
                     <p className="flex gap-4 text-sm text-gray-500">

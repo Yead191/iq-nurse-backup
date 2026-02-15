@@ -22,15 +22,15 @@ export default function SubcategorySection({
     ).length;
 
   return (
-    <div className="p-8">
+    <div className="lg:py-0 lg:pt-6 lg:px-4">
       <Button onClick={onBack} className="mb-4">
         ← Back to Categories
       </Button>
 
-      <div className="mb-6 rounded-xl border-2 border-blue-200 bg-blue-50 p-6">
+      <div className="mb-6 rounded-xl border-2 border-blue-200 bg-blue-50 lg:p-6 p-4">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="mb-1 text-lg font-medium">
+            <h3 className="mb-1 text-lg font-medium text-gray-700">
               {selectedCategory}
             </h3>
             <p className="text-sm text-gray-600">
@@ -56,23 +56,23 @@ export default function SubcategorySection({
         </div>
       </div>
 
-      <h2 className="mb-1 text-2xl font-medium">{selectedCategory}</h2>
+      <h2 className="mb-1 lg:text-2xl text-xl font-medium">{selectedCategory}</h2>
       <p className="mb-3 text-gray-500">
         Choose a topic to explore
       </p>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 pb-4">
         {nursingCategories
           .find((c) => c.name === selectedCategory)
           ?.subcategories.map((sub) => (
             <div
               key={sub}
               onClick={onStartStudy}
-              className="cursor-pointer rounded-xl border border-gray-200 bg-white p-6 transition hover:shadow-md"
+              className="cursor-pointer rounded-xl border border-gray-200 bg-white lg:p-6 p-4 transition hover:shadow-md"
             >
               <div className="mb-2 flex items-center gap-3">
-                <BookOpen className="h-5 w-5 text-blue-600" />
-                <h4 className="text-[16px] text-gray-700 font-medium">{sub}</h4>
+                <BookOpen className="lg:h-5 lg:w-5 h-4 w-4 text-blue-600" />
+                <h4 className="lg:text-[16px] text-sm text-gray-700 font-medium">{sub}</h4>
               </div>
               <p className="text-sm text-gray-500">
                 {getSubcategoryCardCount(sub)} flashcards
