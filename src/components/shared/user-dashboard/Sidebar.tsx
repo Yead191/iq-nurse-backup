@@ -25,15 +25,10 @@ const Sidebar = ({
   setShowLabels,
   setIsMobileSidebarOpen,
 }: SidebarProps) => {
-  // const { category } = await params;
-  // console.log(category);
   const { lg } = Grid.useBreakpoint();
   const pathname = usePathname();
   const searchParams = new URLSearchParams(globalThis?.location?.search);
   const type = searchParams.get("type");
-  // const searchParams = useSearchParams();
-  // const type = searchParams.get("type");
-  // console.log(type);
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
     studyTools: false,
     supportLegal: false,
@@ -156,7 +151,11 @@ const Sidebar = ({
                 //     : "hover:bg-gray-50 hover:rounded-[10px]"
                 // }
               >
-                {item.icon}
+                <div
+                  className={`${isActive(item.key) ? "active-icon-filter" : ""}`}
+                >
+                  {item.icon}
+                </div>
                 {!showLabels && (
                   <span
                     className={`text-xs  ${

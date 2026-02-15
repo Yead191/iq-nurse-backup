@@ -295,3 +295,17 @@ html {
 .ant-picker-calendar-header {
   padding: 0px 0px 8px 0px !important;
 }
+
+.active-icon {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(86%) saturate(2920%)
+    hue-rotate(330deg) brightness(100%) contrast(100%);
+}
+
+.inactive-icon {
+  filter: none;
+}
+
+.active-icon-filter {
+  filter: brightness(0) saturate(100%) invert(56%) sepia(87%) saturate(1518%)
+    hue-rotate(313deg) brightness(101%) contrast(105%);
+}
