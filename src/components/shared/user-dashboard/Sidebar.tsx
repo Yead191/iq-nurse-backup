@@ -245,6 +245,11 @@ const Sidebar = ({
           <RenderMenuGroup items={menus.main} menuKey="main" />
         </div>
         <RenderMenuGroup
+          title="MASTER NCLEX"
+          items={menus.master}
+          menuKey="master"
+        />
+        <RenderMenuGroup
           title="Study Material"
           items={menus.studyMaterial}
           menuKey="studyTools"

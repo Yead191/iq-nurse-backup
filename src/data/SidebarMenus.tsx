@@ -25,19 +25,8 @@ export const menus: Record<string, MenuItem[]> = {
       label: "Home",
       icon: icon("/assets/sidebar-icons/home-icon.svg", "home"),
     },
-    // {
-    //   key: "/profile/community-home",
-    //   label: "Community",
-    //   icon: icon("/assets/sidebar-icons/community-icon.svg", "community"),
-    // },
   ],
-  studyMaterial: [
-    {
-      key: "/profile/study-notes?category=rn",
-      label: "RN Study Notes",
-      icon: icon("/assets/sidebar-icons/study-notes-icon.svg", "study-notes"),
-    },
-
+  master: [
     {
       key: "/profile/nclex-exams",
       label: "NCLEX Exams",
@@ -49,10 +38,18 @@ export const menus: Record<string, MenuItem[]> = {
       label: "Flashcards",
       icon: icon("/assets/sidebar-icons/flash-cards-icon.svg", "flashcards"),
     },
+  ],
+  studyMaterial: [
+    {
+      key: "/profile/study-notes?category=rn",
+      label: "Study Notes",
+      icon: icon("/assets/sidebar-icons/study-notes-icon.svg", "study-notes"),
+    },
+
     {
       key: "/profile/body-system",
       label: "Body System",
-      icon: icon("/assets/icons/anatomy-icon.svg", "body-system"),
+      icon: icon("/assets/sidebar-icons/body-system-icon.svg", "body-system"),
     },
     {
       key: "/profile/dosage-calculation",
