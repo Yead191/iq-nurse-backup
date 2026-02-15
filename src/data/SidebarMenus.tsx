@@ -54,75 +54,52 @@ export const menus: Record<string, MenuItem[]> = {
     {
       key: "/profile/dosage-calculation",
       label: "Dosage Calculation",
-      icon: icon("/assets/sidebar-icons/dosage-icon.png", "dosage-calculation"),
+      icon: icon("/assets/sidebar-icons/dosage-icon.svg", "dosage-calculation"),
     },
     {
       key: "/profile/ecg-mastery",
       label: "ECG Mastery",
-      icon: icon("/assets/sidebar-icons/ecg-icon.png", "ecg-mastery"),
+      icon: icon("/assets/sidebar-icons/ecg-icon.svg", "ecg-mastery"),
     },
     {
       key: "/profile/vital-signs",
       label: "Vital Signs",
-      icon: icon("/assets/sidebar-icons/vital-icon.png", "vital-signs"),
+      icon: icon("/assets/sidebar-icons/vital-icon.svg", "vital-signs"),
     },
     {
       key: "/profile/labs-reference",
-      label: "Labs Reference",
-      icon: icon("/assets/sidebar-icons/labs-icon.png", "labs-reference"),
+      label: "Diagnostic Tests & Labs",
+      icon: icon("/assets/sidebar-icons/labs-icon.svg", "labs-reference"),
     },
     {
       key: "/profile/clinicals",
       label: "Practical Skills",
-      icon: icon("/assets/icons/header/skill.svg", "practical"),
+      icon: icon("/assets/sidebar-icons/skill-icon.svg", "practical"),
     },
     {
       key: "/profile/patient-assessment",
       label: "Nursing Assessment",
-      icon: icon("/assets/icons/header/nursing.svg", "patient"),
+      icon: icon("/assets/sidebar-icons/nursing.svg", "patient"),
     },
     {
       key: "/profile/care-plans",
       label: "Care Plans",
-      icon: icon("/assets/icons/header/care.svg", "care-plans", 20),
+      icon: icon("/assets/sidebar-icons/care-icons.svg", "care-plans", 20),
       tag: "New",
     },
     {
       key: "/profile/templates",
       label: "Cheat Sheets",
-      icon: icon("/assets/icons/header/cheat-sheets.svg", "template"),
-    },
-  ],
-  studyTools: [
-    {
-      key: "/profile/my-notepad",
-      label: "My Notepad",
-      icon: icon("/assets/icons/note-icon.svg", "notepad"),
-    },
-
-    {
-      key: "/profile/clinical-calculator",
-      label: "Clinical Calculator",
-      icon: icon("/assets/sidebar-icons/calculator.svg", "calculator"),
+      icon: icon("/assets/sidebar-icons/cheat-icon.svg", "template"),
     },
     {
       key: "/profile/ai-drug",
       label: "Drug Cards",
-      icon: icon("/assets/icons/header/drug.svg", "map"),
+      icon: icon("/assets/sidebar-icons/drug-icon.svg", "map"),
       tag: "drug-cards",
     },
-    {
-      key: "/profile/concept-map",
-      label: "Concept Map",
-      icon: icon("/assets/sidebar-icons/content-map-icon.svg", "map"),
-      tag: "Coming Soon",
-    },
-    {
-      key: "/profile/my-library",
-      label: "My Library",
-      icon: icon("/assets/sidebar-icons/my-library-icon.svg", "library"),
-      className: "hidden lg:flex",
-    },
+  ],
+  studyTools: [
     {
       key: "/profile/calendar",
       label: "Calendar/Planner",
@@ -130,6 +107,28 @@ export const menus: Record<string, MenuItem[]> = {
       tag: "New",
       className: "hidden lg:flex",
     },
+    {
+      key: "/profile/my-library",
+      label: "My Library",
+      icon: icon("/assets/sidebar-icons/library-icon.svg", "library"),
+      className: "hidden lg:flex",
+    },
+    {
+      key: "/profile/concept-map",
+      label: "Concept Map",
+      icon: icon("/assets/sidebar-icons/concept-map-icon.svg", "map"),
+      tag: "Coming Soon",
+    },
+    {
+      key: "/profile/my-notepad",
+      label: "My Notepad",
+      icon: icon("/assets/sidebar-icons/notepad-icon.svg", "notepad"),
+    },
+    // {
+    //   key: "/profile/clinical-calculator",
+    //   label: "Clinical Calculator",
+    //   icon: icon("/assets/sidebar-icons/calculator.svg", "calculator"),
+    // },
   ],
   supportLegal: [
     {
@@ -144,7 +143,7 @@ export const menus: Record<string, MenuItem[]> = {
     },
     {
       key: "/profile/faqs",
-      label: "FAQs",
+      label: "F.A.Q.s",
       icon: icon("/assets/icons/support/faq.svg", "faq"),
     },
     {

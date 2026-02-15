@@ -148,15 +148,23 @@ const Sidebar = ({
                 }}
                 className={`${item.className ?? ""} flex items-center ${
                   showLabels ? "justify-center " : "gap-3 pl-4"
-                } mx-2  py-2 cursor-pointer ${
-                  isActive(item.key)
-                    ? "bg-[#F6F7F8] rounded-[10px] border border-[#85A6CA]"
-                    : "hover:bg-gray-50 hover:rounded-[10px]"
-                }`}
+                } mx-2  py-2 cursor-pointer
+               `}
+                //  ${
+                //   isActive(item.key)
+                //     ? "bg-[#F6F7F8] rounded-[10px] border border-[#85A6CA]"
+                //     : "hover:bg-gray-50 hover:rounded-[10px]"
+                // }
               >
                 {item.icon}
                 {!showLabels && (
-                  <span className={`text-xs font-medium text-gray-700`}>
+                  <span
+                    className={`text-xs  ${
+                      isActive(item.key)
+                        ? "text-[#FE5E7E] font-semibold"
+                        : "text-gray-700 font-medium"
+                    }`}
+                  >
                     {item.label}
                   </span>
                 )}
