@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { MenuItem } from "@/data/home/shortMenuData";
+import { Search } from "lucide-react";
 
 // IDs to show on large devices
 const LARGE_DEVICE_MENU_IDS = [
@@ -28,7 +29,9 @@ export default function ShortMenu({
         rounded-lg px-3 md:px-4 py-2 whitespace-nowrap min-w-fit active:scale-95 transition-transform `}
     >
       <div className=" shrink-0 relative flex items-center justify-center">
-        {item.image ? (
+        {isPrimary ? (
+          <Search size={18} color="#fff" />
+        ) : item.image ? (
           <Image
             src={item.image}
             alt={item.title}

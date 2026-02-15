@@ -65,7 +65,7 @@ export default function AccountPage() {
   ];
 
   return (
-    <div className="max-w-md lg:max-w-[600px] mx-auto bg-white  md:max-h-max overflow-auto py-4">
+    <div className="max-w-md lg:max-w-[600px] mx-auto bg-white  md:max-h-max overflow-auto p-4">
       {/* Header */}
       {/* <h1 className="text-xl font-bold text-center mb-6">Account</h1> */}
 
@@ -106,7 +106,7 @@ export default function AccountPage() {
                 <span className="text-gray-800">{item.label}</span>
               </button>
             </Link>
-          )
+          ),
         )}
       </div>
     </div>

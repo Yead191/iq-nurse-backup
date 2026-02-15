@@ -168,7 +168,7 @@ export default function ProfileDrawer({ open, onClose }: ProfileDrawerProps) {
             </button>
           </div>
           {/* Menu Items */}
-          <div className="flex-1 flex flex-col gap-y-7 px-6 pt-2 pb-8">
+          <div className="flex-1 flex flex-col gap-y-6 px-6 pt-2 pb-8">
             {MENU_ITEMS.map((item) => {
               if (item.isLogout) {
                 return (
@@ -183,8 +183,9 @@ export default function ProfileDrawer({ open, onClose }: ProfileDrawerProps) {
                         <Image
                           src={item.icon}
                           alt={item.label}
-                          width={24}
-                          height={24}
+                          width={30}
+                          height={30}
+                          className="w-[24px] h-fit object-contain"
                         />
                       ) : (
                         item.icon

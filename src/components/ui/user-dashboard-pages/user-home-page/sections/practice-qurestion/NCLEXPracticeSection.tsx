@@ -77,14 +77,7 @@ export default function NCLEXPracticeSection() {
       }}
       className="my-8 p-4 lg:p-5 py-6 relative lg:mt-12"
     >
-      <Image
-        src={"/assets/icons/user-home/practice-icon.png"}
-        alt="welcome icon"
-        width={100}
-        height={100}
-        className="w-[71px] h-[71px] object-fit absolute -top-8 left-4 hidden lg:block"
-      />
-      <div className="flex items-center justify-between gap-6 mb-6 lg:pl-20">
+      <div className="flex items-center justify-between gap-6 mb-6">
         <SectionHeader title="NCLEX Mastery Challenage of the week" />
         <Link
           href={"/profile/tests"}
