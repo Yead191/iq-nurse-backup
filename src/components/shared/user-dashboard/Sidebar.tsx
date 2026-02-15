@@ -25,15 +25,10 @@ const Sidebar = ({
   setShowLabels,
   setIsMobileSidebarOpen,
 }: SidebarProps) => {
-  // const { category } = await params;
-  // console.log(category);
   const { lg } = Grid.useBreakpoint();
   const pathname = usePathname();
   const searchParams = new URLSearchParams(globalThis?.location?.search);
   const type = searchParams.get("type");
-  // const searchParams = useSearchParams();
-  // const type = searchParams.get("type");
-  // console.log(type);
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({
     studyTools: false,
     supportLegal: false,
@@ -148,15 +143,27 @@ const Sidebar = ({
                 }}
                 className={`${item.className ?? ""} flex items-center ${
                   showLabels ? "justify-center " : "gap-3 pl-4"
-                } mx-2  py-2 cursor-pointer ${
-                  isActive(item.key)
-                    ? "bg-[#F6F7F8] rounded-[10px] border border-[#85A6CA]"
-                    : "hover:bg-gray-50 hover:rounded-[10px]"
-                }`}
+                } mx-2  py-2 cursor-pointer
+               `}
+                //  ${
+                //   isActive(item.key)
+                //     ? "bg-[#F6F7F8] rounded-[10px] border border-[#85A6CA]"
+                //     : "hover:bg-gray-50 hover:rounded-[10px]"
+                // }
               >
-                {item.icon}
+                <div
+                  className={`${isActive(item.key) ? "active-icon-filter" : ""}`}
+                >
+                  {item.icon}
+                </div>
                 {!showLabels && (
-                  <span className={`text-xs font-medium text-gray-700`}>
+                  <span
+                    className={`text-xs  ${
+                      isActive(item.key)
+                        ? "text-[#FE5E7E] font-semibold"
+                        : "text-gray-700 font-medium"
+                    }`}
+                  >
                     {item.label}
                   </span>
                 )}
@@ -244,6 +251,11 @@ const Sidebar = ({
         <div className="hidden md:block">
           <RenderMenuGroup items={menus.main} menuKey="main" />
         </div>
+        <RenderMenuGroup
+          title="MASTER NCLEX"
+          items={menus.master}
+          menuKey="master"
+        />
         <RenderMenuGroup
           title="Study Material"
           items={menus.studyMaterial}

@@ -14,7 +14,7 @@ export const icon = (src: string, alt: string, size = 25) => (
     width={30}
     src={src}
     alt={alt}
-    className={`h-[20px] w-[20px] 2xl:h-[22px] 2xl:w-fit overflow-hidden  object-cover`}
+    className={`h-[20px] w-[20px] 2xl:h-[22px] overflow-hidden object-cover`}
   />
 );
 
@@ -23,142 +23,182 @@ export const menus: Record<string, MenuItem[]> = {
     {
       key: "/profile/home",
       label: "Home",
-      icon: icon("/assets/sidebar-icons/home-icon.svg", "home"),
+      icon: icon("/assets/sidebar-icons/home-icon.svg", "/profile/home"),
     },
-    // {
-    //   key: "/profile/community-home",
-    //   label: "Community",
-    //   icon: icon("/assets/sidebar-icons/community-icon.svg", "community"),
-    // },
   ],
-  studyMaterial: [
-    {
-      key: "/profile/study-notes?category=rn",
-      label: "RN Study Notes",
-      icon: icon("/assets/sidebar-icons/study-notes-icon.svg", "study-notes"),
-    },
-
+  master: [
     {
       key: "/profile/nclex-exams",
       label: "NCLEX Exams",
-      icon: icon("/assets/sidebar-icons/test-icon.svg", "test"),
+      icon: icon("/assets/sidebar-icons/test-icon.svg", "/profile/nclex-exams"),
       subtitle: "NCLEX Tests / Next Gen",
     },
     {
       key: "/profile/flash-card",
       label: "Flashcards",
-      icon: icon("/assets/sidebar-icons/flash-cards-icon.svg", "flashcards"),
+      icon: icon(
+        "/assets/sidebar-icons/flash-cards-icon.svg",
+        "/profile/flash-card",
+      ),
     },
+  ],
+  studyMaterial: [
+    {
+      key: "/profile/study-notes?category=rn",
+      label: "Study Notes",
+      icon: icon(
+        "/assets/sidebar-icons/study-notes-icon.svg",
+        "/profile/study-notes?category=rn",
+      ),
+    },
+
     {
       key: "/profile/body-system",
       label: "Body System",
-      icon: icon("/assets/icons/anatomy-icon.svg", "body-system"),
+      icon: icon(
+        "/assets/sidebar-icons/body-system-icon.svg",
+        "/profile/body-system",
+      ),
     },
     {
       key: "/profile/dosage-calculation",
       label: "Dosage Calculation",
-      icon: icon("/assets/sidebar-icons/dosage-icon.png", "dosage-calculation"),
+      icon: icon(
+        "/assets/sidebar-icons/dosage-icon.svg",
+        "/profile/dosage-calculation",
+      ),
     },
     {
       key: "/profile/ecg-mastery",
       label: "ECG Mastery",
-      icon: icon("/assets/sidebar-icons/ecg-icon.png", "ecg-mastery"),
+      icon: icon("/assets/sidebar-icons/ecg-icon.svg", "/profile/ecg-mastery"),
     },
     {
       key: "/profile/vital-signs",
       label: "Vital Signs",
-      icon: icon("/assets/sidebar-icons/vital-icon.png", "vital-signs"),
+      icon: icon(
+        "/assets/sidebar-icons/vital-icon.svg",
+        "/profile/vital-signs",
+      ),
     },
     {
       key: "/profile/labs-reference",
-      label: "Labs Reference",
-      icon: icon("/assets/sidebar-icons/labs-icon.png", "labs-reference"),
+      label: "Diagnostic Tests & Labs",
+      icon: icon(
+        "/assets/sidebar-icons/labs-icon.svg",
+        "/profile/labs-reference",
+      ),
     },
     {
       key: "/profile/clinicals",
       label: "Practical Skills",
-      icon: icon("/assets/icons/header/skill.svg", "practical"),
+      icon: icon("/assets/sidebar-icons/skill-icon.svg", "/profile/clinicals"),
     },
     {
       key: "/profile/patient-assessment",
       label: "Nursing Assessment",
-      icon: icon("/assets/icons/header/nursing.svg", "patient"),
+      icon: icon(
+        "/assets/sidebar-icons/nursing.svg",
+        "/profile/patient-assessment",
+      ),
     },
     {
       key: "/profile/care-plans",
       label: "Care Plans",
-      icon: icon("/assets/icons/header/care.svg", "care-plans", 20),
+      icon: icon(
+        "/assets/sidebar-icons/care-icons.svg",
+        "/profile/care-plans",
+        20,
+      ),
       tag: "New",
     },
     {
       key: "/profile/templates",
       label: "Cheat Sheets",
-      icon: icon("/assets/icons/header/cheat-sheets.svg", "template"),
-    },
-  ],
-  studyTools: [
-    {
-      key: "/profile/my-notepad",
-      label: "My Notepad",
-      icon: icon("/assets/icons/note-icon.svg", "notepad"),
-    },
-
-    {
-      key: "/profile/clinical-calculator",
-      label: "Clinical Calculator",
-      icon: icon("/assets/sidebar-icons/calculator.svg", "calculator"),
+      icon: icon("/assets/sidebar-icons/cheat-icon.svg", "/profile/templates"),
     },
     {
       key: "/profile/ai-drug",
       label: "Drug Cards",
-      icon: icon("/assets/icons/header/drug.svg", "map"),
+      icon: icon("/assets/sidebar-icons/drug-icon.svg", "/profile/ai-drug"),
       tag: "drug-cards",
     },
+  ],
+  studyTools: [
     {
-      key: "/profile/concept-map",
-      label: "Concept Map",
-      icon: icon("/assets/sidebar-icons/content-map-icon.svg", "map"),
-      tag: "Coming Soon",
+      key: "/profile/calendar",
+      label: "Calendar/Planner",
+      icon: icon(
+        "/assets/sidebar-icons/calendar-icon.svg",
+        "/profile/calendar",
+      ),
+      tag: "New",
+      className: "hidden lg:flex",
     },
     {
       key: "/profile/my-library",
       label: "My Library",
-      icon: icon("/assets/sidebar-icons/my-library-icon.svg", "library"),
+      icon: icon(
+        "/assets/sidebar-icons/library-icon.svg",
+        "/profile/my-library",
+      ),
       className: "hidden lg:flex",
     },
     {
-      key: "/profile/calendar",
-      label: "Calendar/Planner",
-      icon: icon("/assets/sidebar-icons/calendar-icon.svg", "calendar"),
-      tag: "New",
-      className: "hidden lg:flex",
+      key: "/profile/concept-map",
+      label: "Concept Map",
+      icon: icon(
+        "/assets/sidebar-icons/concept-map-icon.svg",
+        "/profile/concept-map",
+      ),
+      tag: "Coming Soon",
     },
+    {
+      key: "/profile/my-notepad",
+      label: "My Notepad",
+      icon: icon(
+        "/assets/sidebar-icons/notepad-icon.svg",
+        "/profile/my-notepad",
+      ),
+    },
+    // {
+    //   key: "/profile/clinical-calculator",
+    //   label: "Clinical Calculator",
+    //   icon: icon("/assets/sidebar-icons/calculator.svg", "calculator"),
+    // },
   ],
   supportLegal: [
     {
       key: "/profile/contact-us",
       label: "Contact Us",
-      icon: icon("/assets/icons/support/contact.svg", "contact"),
+      icon: icon("/assets/icons/support/contact.svg", "/profile/contact-us"),
     },
     {
       key: "/profile/about-us",
       label: "About Us",
-      icon: icon("/assets/icons/support/about.svg", "info", 20),
+      icon: icon("/assets/icons/support/about.svg", "/profile/about-us", 20),
     },
     {
       key: "/profile/faqs",
-      label: "FAQs",
-      icon: icon("/assets/icons/support/faq.svg", "faq"),
+      label: "F.A.Q.s",
+      icon: icon("/assets/icons/support/faq.svg", "/profile/faqs"),
     },
     {
       key: "/profile/terms-service",
       label: "Terms & Condition",
-      icon: icon("/assets/icons/support/terms.svg", "terms", 20),
+      icon: icon(
+        "/assets/icons/support/terms.svg",
+        "/profile/terms-service",
+        20,
+      ),
     },
     {
       key: "/profile/privacy-policy",
       label: "Privacy & Policy",
-      icon: icon("/assets/icons/support/privacy.svg", "privacy"),
+      icon: icon(
+        "/assets/icons/support/privacy.svg",
+        "/profile/privacy-policy",
+      ),
     },
   ],
 };

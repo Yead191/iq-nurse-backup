@@ -6,52 +6,52 @@ export const studyMaterialsData = [
   },
   {
     title: "Body Systems",
-    icon: "/assets/icons/anatomy-icon.svg",
+    icon: "/assets/sidebar-icons/body-system-icon.svg",
     link: "/profile/body-system",
   },
   {
     title: "Dosage Calculation",
-    icon: "/assets/sidebar-icons/dosage-icon.png",
+    icon: "/assets/sidebar-icons/dosage-icon.svg",
     link: "/profile/dosage-calculation",
   },
   {
     title: "ECG Mastery",
-    icon: "/assets/sidebar-icons/ecg-icon.png",
+    icon: "/assets/sidebar-icons/ecg-icon.svg",
     link: "/profile/ecg-mastery",
   },
   {
     title: "Vital Signs",
-    icon: "/assets/sidebar-icons/vital-icon.png",
+    icon: "/assets/sidebar-icons/vital-icon.svg",
     link: "/profile/vital-signs",
   },
   {
     title: "Diagnostic Test & Labs",
-    icon: "/assets/sidebar-icons/labs-icon.png",
+    icon: "/assets/sidebar-icons/labs-icon.svg",
     link: "/profile/labs-reference",
   },
   {
     title: "Practical Skills",
-    icon: "/assets/icons/header/skill.svg",
+    icon: "/assets/sidebar-icons/skill-icon.svg",
     link: "/profile/clinicals",
   },
   {
     title: "Nursing Assessment",
-    icon: "/assets/icons/header/nursing.svg",
+    icon: "/assets/sidebar-icons/nursing.svg",
     link: "/profile/patient-assessment",
   },
   {
     title: "Care Plans",
-    icon: "/assets/icons/header/care.svg",
+    icon: "/assets/sidebar-icons/care-icons.svg",
     link: "/profile/care-plans",
   },
   {
     title: "Cheat Sheets",
-    icon: "/assets/icons/header/cheat-sheets.svg",
+    icon: "/assets/sidebar-icons/cheat-icon.svg",
     link: "/profile/templates",
   },
   {
     title: "Drug Cards",
-    icon: "/assets/icons/header/drug.svg",
+    icon: "/assets/sidebar-icons/drug-icon.svg",
     link: "/profile/ai-drug",
   },
 ];

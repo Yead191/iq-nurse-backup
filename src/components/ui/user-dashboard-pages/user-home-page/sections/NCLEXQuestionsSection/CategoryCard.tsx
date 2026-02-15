@@ -18,7 +18,7 @@ export function CategoryCard({ category, index }: CategoryCardProps) {
 
   return (
     <Link
-      href={`/profile/tests/mode/practice?category=${category.id}`}
+      href={`/profile/nclex-exams/start-exam?type=category&categoryId=${category.id}&count=20&mode=practice`}
       className="group relative flex min-w-[140px] flex-col justify-start items-start overflow-hidden rounded-2xl p-4 pb-6 transition-transform hover:scale-105"
       style={{ backgroundColor: "#e6ecf2" }}
     >
