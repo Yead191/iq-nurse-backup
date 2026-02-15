@@ -662,3 +662,21 @@ export const nursingCategories = [
     ],
   },
 ];
+
+export  const featuredDecks = [
+    {
+      category: "Fundamentals of Nursing",
+      subcategory: "Vital Signs",
+      description: "Master essential vital sign assessment",
+    },
+    {
+      category: "Pharmacology",
+      subcategory: "Medication Administration",
+      description: "Critical medication safety principles",
+    },
+    {
+      category: "Medical Surgical Nursing",
+      subcategory: "Cardiovascular Disorders",
+      description: "High-yield cardiac conditions",
+    },
+  ];

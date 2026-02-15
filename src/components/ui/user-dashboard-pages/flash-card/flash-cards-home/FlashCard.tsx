@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from "react";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import { useRouter, useSearchParams } from "next/navigation";
-import { IoMdAdd } from "react-icons/io";
 import { IoAnalytics } from "react-icons/io5";
 import DeskFolder from "../desk-folder/DeskFolder";
 import Image from "next/image";
 import NelexStudy from "../NELEX-study/NelexStudy";
 import { Flashcard, sampleFlashcards } from "@/data/sampleFlashcards";
+import { BookOpen } from "lucide-react";
 
 export const FlashCard = () => {
   const searchParams = useSearchParams();
@@ -19,12 +19,6 @@ export const FlashCard = () => {
   useEffect(() => {
     setFlashcards([...sampleFlashcards]);
   }, []);
-
-  const handleUpdateFlashcard = (updatedFlashcard: Flashcard) => {
-    setFlashcards((prev) =>
-      prev.map((fc) => (fc.id === updatedFlashcard.id ? updatedFlashcard : fc))
-    );
-  };
 
   React.useEffect(() => {
     if (tabParam) {
@@ -41,13 +35,13 @@ export const FlashCard = () => {
   const tabs = [
     {
       id: "1",
-      label: "Study Desk",
-      icon: <IoMdAdd size={22} />,
-      component: <NelexStudy flashcards={flashcards} folders={[]} onUpdateFlashcard={handleUpdateFlashcard} />,
+      label: "Study",
+      icon: <BookOpen size={22} />,
+      component: <NelexStudy flashcards={flashcards} folders={[]}  />,
     },
     {
       id: "2",
-      label: "My Decks",
+      label: "My Folders",
       icon: <IoAnalytics size={22} />,
       component: <DeskFolder />,
     },
