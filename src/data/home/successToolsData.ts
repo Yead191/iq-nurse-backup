@@ -16,8 +16,8 @@ export const successToolsData = [
   {
     title: "Clinical Cases",
     subtitle: "Prepare for your clinical rotations",
-    icon: "/assets/sidebar-icons/clinicals-icon.svg",
-    link: "/profile/clinicals",
+    icon: "/assets/sidebar-icons/clinical-cases-icon.svg",
+    link: "/profile/clinical-cases",
     bgColor: "bg-[#EFF6FF]", // Blue 50
   },
   {
@@ -37,8 +37,8 @@ export const successToolsData = [
   {
     title: "Study Plans",
     subtitle: "Make your own notes",
-    icon: "/assets/icons/note-icon.svg",
-    link: "/profile/study-notes?category=rn",
+    icon: "/assets/sidebar-icons/planning-icon.svg",
+    link: "/profile/study-plans",
     bgColor: "bg-[#F8FAFC]", // Slate 50
   },
 ];

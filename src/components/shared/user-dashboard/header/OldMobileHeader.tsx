@@ -46,26 +46,8 @@ export default function OldMobileHeader() {
     targetSlug = pathSegments[pathSegments.length - 2];
   }
   const showLogo = ["home", "nurse-q"].includes(targetSlug);
-  // console.log(showLogo, targetSlug);
-
-  const isAccountRelated =
-    pathname.startsWith("/profile/account-security") ||
-    pathname.startsWith("/profile/subscriptions") ||
-    pathname.startsWith("/profile/language-preference") ||
-    pathname.startsWith("/profile/faqs") ||
-    pathname.startsWith("/profile/privacy-policy") ||
-    pathname.startsWith("/profile/terms-service") ||
-    pathname.startsWith("/profile/invite-friends") ||
-    pathname.startsWith("/profile/contact-us") ||
-    pathname.startsWith("/profile/about-us");
-
-  // const backLink = isAccountRelated ? "/profile/account" : "/profile/home";
 
   const handleBack = () => {
-    if (isAccountRelated) {
-      router.push("/profile/account");
-      return;
-    }
     router.back();
   };
 

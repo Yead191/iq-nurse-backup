@@ -12,7 +12,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "IQ-Nurse",
+  title: "STEM RN",
   description:
     "Your trusted partner in every heartbeat of your nursing journey.",
 };

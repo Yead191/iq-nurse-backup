@@ -136,6 +136,23 @@ export const menus: Record<string, MenuItem[]> = {
       className: "hidden lg:flex",
     },
     {
+      key: "/profile/clinical-cases",
+      label: "Clinical Cases",
+      icon: icon(
+        "/assets/sidebar-icons/clinical-cases-icon.svg",
+        "/profile/clinical-cases",
+      ),
+      tag: "Coming Soon",
+    },
+    {
+      key: "/profile/study-plans",
+      label: "Study Plans",
+      icon: icon(
+        "/assets/sidebar-icons/planning-icon.svg",
+        "/profile/study-plans",
+      ),
+    },
+    {
       key: "/profile/my-library",
       label: "My Library",
       icon: icon(

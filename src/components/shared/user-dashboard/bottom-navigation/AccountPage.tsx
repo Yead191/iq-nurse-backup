@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 export default function AccountPage() {
   const router = useRouter();
   const handleLogout = () => {
-    // console.log("Logging out...");
     router.push("/auth/login");
   };
 
@@ -71,10 +70,13 @@ export default function AccountPage() {
 
       {/* User Info */}
       <div className="flex items-center gap-4 bg-[#F6F7F8] p-3 rounded-xl mb-4">
-        <img
-          src={profile.image}
+        <Image
+          src={profile?.image}
           alt={profile.name}
-          className="rounded-full w-[50px]"
+          width={50}
+          height={50}
+          className="rounded-full w-fit h-[50px] object-cover "
+          draggable={false}
         />
         <div>
           <p className="font-semibold">{profile.name}</p>
