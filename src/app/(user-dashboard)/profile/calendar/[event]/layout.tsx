@@ -1,12 +1,11 @@
 "use client";
 import AddEventsModal from "@/components/shared/event-modals/AddEventsModal";
-import CalendarMobileHeader from "@/components/ui/user-dashboard-pages/calendar/CalendarMobileHeader";
-import { FloatingCalendarButton } from "@/components/ui/user-dashboard-pages/calendar/FloatingCalendarButton";
+import CalendarMobileHeader from "@/components/ui/user-dashboard-pages/calendar-new/components/CalendarMobileHeader";
+import { FloatingCalendarButton } from "@/components/ui/user-dashboard-pages/calendar-new/components/FloatingCalendarButton";
 import StudentPlannerDrawer from "@/components/ui/user-dashboard-pages/calendar/StudentPlannerDrawer";
 import React, { useState } from "react";
 
 export default function layout({ children }: { children: React.ReactNode }) {
-  const [modalVisible, setModalVisible] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const handleCloseDrawer = () => {
@@ -15,27 +14,14 @@ export default function layout({ children }: { children: React.ReactNode }) {
   const handleMenuClick = () => {
     setIsDrawerOpen(true);
   };
-  const handleNewEventClick = () => {
-    // Handle new event creation
-    // console.log("New event clicked");
-    setModalVisible(true);
-  };
   return (
     <section className="relative">
-      <CalendarMobileHeader
-        onMenuClick={handleMenuClick}
-        // onNewEventClick={handleNewEventClick}
-      />
+      <CalendarMobileHeader onMenuClick={handleMenuClick} />
       <StudentPlannerDrawer isOpen={isDrawerOpen} onClose={handleCloseDrawer} />
-      <div className="min-h-[calc(100vh-182px)] flex justify-center items-center">
+      <div className="min-h-screen flex justify-center items-center">
         {children}
       </div>
       <FloatingCalendarButton />
-
-      <AddEventsModal
-        visible={modalVisible}
-        onClose={() => setModalVisible(false)}
-      />
     </section>
   );
 }

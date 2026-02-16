@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Grid } from "antd";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import Image from "next/image";
-import CalendarMobileHeader from "../../calendar/CalendarMobileHeader";
+import CalendarMobileHeader from "./CalendarMobileHeader";
 export default function CalendarHeader() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);

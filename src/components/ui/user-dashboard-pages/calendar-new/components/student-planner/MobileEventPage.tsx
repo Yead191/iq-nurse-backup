@@ -30,7 +30,7 @@ const MobileEventPage = () => {
 
   // find correct event based on pathname
   const filteredEvent = eventTypes.find(
-    (event) => event.key.toLowerCase() === lastSegment?.toLowerCase()
+    (event) => event.key.toLowerCase() === lastSegment?.toLowerCase(),
   );
 
   const handleEventAdd = (eventType: string) => {

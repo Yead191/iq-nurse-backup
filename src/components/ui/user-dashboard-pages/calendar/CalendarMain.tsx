@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import dynamic from "next/dynamic";
-import CalendarMobileHeader from "./CalendarMobileHeader";
+import CalendarMobileHeader from "../calendar-new/components/CalendarMobileHeader";
 import AsidePanel from "../user-home-page/aside/AsidePanel";
 import EventsBottomDrawer from "./EventsBottomDrawer";
 import AddEventsModal from "@/components/shared/event-modals/AddEventsModal";
-import { FloatingCalendarButton } from "./FloatingCalendarButton";
+import { FloatingCalendarButton } from "../calendar-new/components/FloatingCalendarButton";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import Image from "next/image";
 

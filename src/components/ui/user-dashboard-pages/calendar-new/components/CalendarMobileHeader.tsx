@@ -5,15 +5,15 @@ import { ChevronLeft, Plus } from "lucide-react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { QuickAddModal } from "../user-home-page/aside/quick-add/QuickAddModal";
-import { AddClassDialog } from "../calendar-new/components/events-modal/AddClassDialog";
-import { AddExamDialog } from "../calendar-new/components/events-modal/AddExamDialog";
-import { AddClinicalDialog } from "../calendar-new/components/events-modal/AddClinicalDialog";
-import { AddMeetingDialog } from "../calendar-new/components/events-modal/AddMeetingDialog";
-import { AddPersonalTimeDialog } from "../calendar-new/components/events-modal/AddPersonalTimeDialog";
-import { AddTaskDialog } from "../calendar-new/components/events-modal/AddTaskDialog";
-import { AddAssignmentModal } from "../calendar-new/components/events-modal/AddAssignmentDialog";
-import { AddStudyTimeDialog } from "../calendar-new/components/events-modal/add-study-time/AddStudyTimeDialog";
+import { QuickAddModal } from "../../user-home-page/aside/quick-add/QuickAddModal";
+import { AddClassDialog } from "./events-modal/AddClassDialog";
+import { AddExamDialog } from "./events-modal/AddExamDialog";
+import { AddClinicalDialog } from "./events-modal/AddClinicalDialog";
+import { AddMeetingDialog } from "./events-modal/AddMeetingDialog";
+import { AddPersonalTimeDialog } from "./events-modal/AddPersonalTimeDialog";
+import { AddTaskDialog } from "./events-modal/AddTaskDialog";
+import { AddAssignmentModal } from "./events-modal/AddAssignmentDialog";
+import { AddStudyTimeDialog } from "./events-modal/add-study-time/AddStudyTimeDialog";
 
 interface CalendarMobileHeaderProps {
   onMenuClick: () => void;

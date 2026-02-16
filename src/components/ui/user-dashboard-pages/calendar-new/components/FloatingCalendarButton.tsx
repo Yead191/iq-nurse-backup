@@ -108,7 +108,7 @@ export function FloatingCalendarButton() {
   };
 
   return (
-    <div className="fixed md:hidden bottom-28 right-8 flex flex-col items-end gap-3">
+    <div className="fixed md:hidden bottom-16 right-8 flex flex-col items-end gap-3">
       {/* Event type buttons */}
       <div
         className={`flex flex-col  gap-2 transition-all duration-300 ease-out
