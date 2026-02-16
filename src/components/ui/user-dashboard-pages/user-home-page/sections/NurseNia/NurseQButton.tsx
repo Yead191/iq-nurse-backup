@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import NurseNiaModal from "./NurseNiaModal";
+import NurseChat from "../../../nurse-q/NurseChat";
 
 export default function NurseQButton() {
   const [status, setStatus] = useState("online");
@@ -60,11 +60,8 @@ export default function NurseQButton() {
             </span>
           </div>
         </div>
-      </button>
-      <NurseNiaModal
-        open={nurseModalOpen}
-        onClose={() => setNurseModalOpen(false)}
-      />
+      </button> 
+       <NurseChat open={nurseModalOpen} onClose={() => setNurseModalOpen(false)} />
     </div>
   );
 }
