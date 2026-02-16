@@ -125,11 +125,6 @@ const CalendarMobileHeader: React.FC<CalendarMobileHeaderProps> = ({
         onOpenChange={setIsQuickAddOpen}
         onSelectType={handleQuickAddSelect}
       />
-      {/* <AddEventsModal
-              visible={modalVisible}
-              onClose={() => setModalVisible(false)}
-            /> */}
-      {/* All Event Dialogs */}
       <AddClassDialog
         open={isClassDialogOpen}
         onOpenChange={setIsClassDialogOpen}
