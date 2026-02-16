@@ -1,76 +1,90 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useMemo, useState } from "react";
 import { message } from "antd";
 
 import { eventTypes } from "@/data/eventTypes";
-import AddTaskModal from "@/components/shared/event-modals/AddTaskModal";
-import AddClassesModal from "@/components/shared/event-modals/AddClassesModal";
-import AddAssignmentModal from "@/components/shared/event-modals/AddAssignmentModal";
-import AddStudyTimeModal from "@/components/shared/event-modals/AddStudyTimeModal";
-import AddExamModal from "@/components/shared/event-modals/AddExamModal";
-import AddMeTimeModal from "@/components/shared/event-modals/AddMeTimeModal";
-import AddMeetingModal from "@/components/shared/event-modals/AddMeetingModal";
+
 import MobileEventCard from "@/components/shared/event-modals/MobileEventCard";
-import AddCountDownModal from "@/components/shared/event-modals/AddCountdownModal";
+import { AddClassDialog } from "../events-modal/AddClassDialog";
+import { AddExamDialog } from "../events-modal/AddExamDialog";
+import { AddAssignmentModal } from "../events-modal/AddAssignmentDialog";
+import { AddStudyTimeDialog } from "../events-modal/add-study-time/AddStudyTimeDialog";
+import { AddClinicalDialog } from "../events-modal/AddClinicalDialog";
+import { AddMeetingDialog } from "../events-modal/AddMeetingDialog";
+import { AddPersonalTimeDialog } from "../events-modal/AddPersonalTimeDialog";
+import { AddTaskDialog } from "../events-modal/AddTaskDialog";
 
 const MobileEventPage = () => {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const lastSegment = pathname.split("/").pop();
 
-  const [taskModalOpen, setTaskModalOpen] = useState(false);
-  const [classesModalOpen, setClassesModalOpen] = useState(false);
-  const [assignmentModalOpen, setAssignmentModalOpen] = useState(false);
-  const [studyTimeModalOpen, setStudyTimeModalOpen] = useState(false);
-  const [examModalOpen, setExamModalOpen] = useState(false);
-  const [meTimeModalOpen, setMeTimeModalOpen] = useState(false);
-  const [meetingModalOpen, setMeetingModalOpen] = useState(false);
-  const [countDownModalOpen, setCountDownModalOpen] = useState(false);
+  const [isQuickAddOpen, setIsQuickAddOpen] = useState(false);
+  const [isClassDialogOpen, setIsClassDialogOpen] = useState(false);
+  const [isExamDialogOpen, setIsExamDialogOpen] = useState(false);
+  const [isAssignmentDialogOpen, setIsAssignmentDialogOpen] = useState(false);
+  const [isStudyTimeDialogOpen, setIsStudyTimeDialogOpen] = useState(false);
+  const [isClinicalDialogOpen, setIsClinicalDialogOpen] = useState(false);
+  const [isMeetingDialogOpen, setIsMeetingDialogOpen] = useState(false);
+  const [isPersonalTimeDialogOpen, setIsPersonalTimeDialogOpen] =
+    useState(false);
+  const [isTaskDialogOpen, setIsTaskDialogOpen] = useState(false);
+  const [isCountdownDialogOpen, setIsCountdownDialogOpen] = useState(false);
 
   // find correct event based on pathname
   const filteredEvent = eventTypes.find(
     (event) => event.key.toLowerCase() === lastSegment?.toLowerCase(),
   );
 
-  const handleEventAdd = (eventType: string) => {
-    switch (eventType) {
-      case "Add a Tasks":
-        setTaskModalOpen(true);
+  const handleQuickAddSelect = (type: string) => {
+    setIsQuickAddOpen(false);
+    switch (type) {
+      case "class":
+        setIsClassDialogOpen(true);
         break;
-      case "Add Classes":
-        setClassesModalOpen(true);
+      case "exam":
+        setIsExamDialogOpen(true);
         break;
-      case "Add Assignment":
-        setAssignmentModalOpen(true);
+      case "assignment":
+        setIsAssignmentDialogOpen(true);
         break;
-      case "Add Study Time":
-        setStudyTimeModalOpen(true);
+      case "study-time":
+        setIsStudyTimeDialogOpen(true);
         break;
-      case "Add Exams":
-        setExamModalOpen(true);
+      case "clinical":
+        setIsClinicalDialogOpen(true);
         break;
-      case "Add Me Time":
-        setMeTimeModalOpen(true);
+      case "meeting":
+        setIsMeetingDialogOpen(true);
         break;
-      case "Add Meetings":
-        setMeetingModalOpen(true);
+      case "personal":
+        setIsPersonalTimeDialogOpen(true);
         break;
-      case "Add Count Down":
-        setCountDownModalOpen(true);
+      case "task":
+        setIsTaskDialogOpen(true);
         break;
-      default:
-        message.warning("No modal found for this event");
+      case "countdown":
+        setIsCountdownDialogOpen(true);
         break;
     }
   };
 
+  //   date
+  const dateParam = searchParams.get("date");
+  const selectedDate = useMemo(() => {
+    if (!dateParam) return new Date();
+
+    const parsed = new Date(dateParam);
+    return isNaN(parsed.getTime()) ? new Date() : parsed;
+  }, [dateParam]);
   return (
     <div className="flex justify-center ">
       {filteredEvent ? (
         <MobileEventCard
           event={filteredEvent}
-          onAdd={() => handleEventAdd(filteredEvent.title)}
+          onAdd={() => handleQuickAddSelect(filteredEvent.key)}
         />
       ) : (
         <p className="text-center text-gray-500">
@@ -79,37 +93,53 @@ const MobileEventPage = () => {
       )}
 
       {/* 🔹 Event Modals */}
-      <AddTaskModal
-        open={taskModalOpen}
-        onClose={() => setTaskModalOpen(false)}
+      <AddClassDialog
+        open={isClassDialogOpen}
+        onOpenChange={setIsClassDialogOpen}
+        onAddClass={(cls) => console.log(cls)}
+        selectedDate={selectedDate}
       />
-      <AddClassesModal
-        open={classesModalOpen}
-        onClose={() => setClassesModalOpen(false)}
+      <AddExamDialog
+        open={isExamDialogOpen}
+        onOpenChange={setIsExamDialogOpen}
+        onAddExam={(exam) => console.log(exam)}
+        selectedDate={selectedDate}
       />
       <AddAssignmentModal
-        open={assignmentModalOpen}
-        onClose={() => setAssignmentModalOpen(false)}
+        open={isAssignmentDialogOpen}
+        onOpenChange={setIsAssignmentDialogOpen}
+        onAddAssignment={(assignment) => console.log(assignment)}
+        selectedDate={selectedDate}
       />
-      <AddStudyTimeModal
-        open={studyTimeModalOpen}
-        onClose={() => setStudyTimeModalOpen(false)}
+      <AddStudyTimeDialog
+        open={isStudyTimeDialogOpen}
+        onOpenChange={setIsStudyTimeDialogOpen}
+        onAddStudyTime={() => {}}
+        selectedDate={selectedDate}
       />
-      <AddExamModal
-        open={examModalOpen}
-        onClose={() => setExamModalOpen(false)}
+      <AddClinicalDialog
+        open={isClinicalDialogOpen}
+        onOpenChange={setIsClinicalDialogOpen}
+        onAddClinical={(clinical) => {}}
+        selectedDate={selectedDate}
       />
-      <AddMeTimeModal
-        open={meTimeModalOpen}
-        onClose={() => setMeTimeModalOpen(false)}
+      <AddMeetingDialog
+        open={isMeetingDialogOpen}
+        onOpenChange={setIsMeetingDialogOpen}
+        onAddMeeting={(meeting) => {}}
+        selectedDate={selectedDate}
       />
-      <AddMeetingModal
-        open={meetingModalOpen}
-        onClose={() => setMeetingModalOpen(false)}
+      <AddPersonalTimeDialog
+        open={isPersonalTimeDialogOpen}
+        onOpenChange={setIsPersonalTimeDialogOpen}
+        onAddPersonalTime={(personal) => {}}
+        selectedDate={selectedDate}
       />
-      <AddCountDownModal
-        open={countDownModalOpen}
-        onClose={() => setCountDownModalOpen(false)}
+      <AddTaskDialog
+        open={isTaskDialogOpen}
+        onOpenChange={setIsTaskDialogOpen}
+        onAddTask={(task) => {}}
+        selectedDate={selectedDate}
       />
     </div>
   );

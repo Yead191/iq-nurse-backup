@@ -31,31 +31,31 @@ interface EventType {
 
 const eventTypes: EventType[] = [
   {
-    id: "tasks",
+    id: "task",
     label: "Tasks",
     icon: <ListTodo className="h-4 w-4" />,
     color: "bg-[#F0AF53]",
   },
   {
-    id: "clinical-rotations",
+    id: "clinical-rotation",
     label: "Clinical Rotations",
     icon: <Stethoscope className="h-4 w-4" />,
     color: "bg-[#326FB1]",
   },
   {
-    id: "classes",
+    id: "class",
     label: "Class",
     icon: <BookOpen className="h-4 w-4" />,
     color: "bg-[#60B960]",
   },
   {
-    id: "exams",
+    id: "exam",
     label: "Exam",
     icon: <FileText className="h-4 w-4" />,
     color: "bg-[#D95854]",
   },
   {
-    id: "meetings",
+    id: "meeting",
     label: "Meeting",
     icon: <Users className="h-4 w-4" />,
     color: "bg-[#9E2DB2]",
