@@ -1,18 +1,13 @@
 "use client";
+import { useEffect, useState } from "react";
 
-import { useState } from "react";
-
-import { CategoryName, demoData } from "@/data/practiceQuestion";
-import CategoryTabs from "./CategoryTabs";
+import { demoData, Question } from "@/data/practiceQuestion";
 import CompletionCard from "./CompletionCard";
 import QuestionCard from "./QuestionCard";
 import { SectionHeader } from "../SectionHeader";
-import Link from "next/link";
-import Image from "next/image";
 
 export default function NCLEXPracticeSection() {
-  const [activeCategory, setActiveCategory] =
-    useState<CategoryName>("Pharmacology");
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<
     Record<number, string>
@@ -20,17 +15,19 @@ export default function NCLEXPracticeSection() {
   const [showCompletion, setShowCompletion] = useState(false);
   const [score, setScore] = useState(0);
 
-  const currentCategoryData = demoData[activeCategory];
-  const currentQuestion = currentCategoryData?.questions[currentQuestionIndex];
-  const totalQuestions = currentCategoryData?.questions.length || 0;
+  useEffect(() => {
+    // Get all questions from all categories
+    const allQuestions = Object.values(demoData).flatMap(
+      (category) => category.questions,
+    );
 
-  const handleCategoryChange = (category: any) => {
-    setActiveCategory(category);
-    setCurrentQuestionIndex(0);
-    setSelectedAnswers({});
-    setShowCompletion(false);
-    setScore(0);
-  };
+    // Shuffle and pick 10
+    const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+    setQuestions(shuffled.slice(0, 10));
+  }, []);
+
+  const currentQuestion = questions[currentQuestionIndex];
+  const totalQuestions = questions.length;
 
   const handleAnswerSelect = (questionId: number, answer: string) => {
     setSelectedAnswers((prev) => ({
@@ -44,8 +41,8 @@ export default function NCLEXPracticeSection() {
       setCurrentQuestionIndex((prev) => prev + 1);
     } else {
       // Calculate score and show completion
-      const correctAnswers = currentCategoryData.questions.reduce(
-        (acc: any, question: any, index: any) => {
+      const correctAnswers = questions.reduce(
+        (acc: number, question: Question) => {
           if (selectedAnswers[question.id] === question.correctAnswer) {
             return acc + 1;
           }
@@ -63,6 +60,13 @@ export default function NCLEXPracticeSection() {
   };
 
   const handleRetry = () => {
+    // Re-shuffle for retry
+    const allQuestions = Object.values(demoData).flatMap(
+      (category) => category.questions,
+    );
+    const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+    setQuestions(shuffled.slice(0, 10));
+
     setCurrentQuestionIndex(0);
     setSelectedAnswers({});
     setShowCompletion(false);
@@ -70,53 +74,42 @@ export default function NCLEXPracticeSection() {
   };
 
   return (
-    <div
-      style={{
-        boxShadow: "4px 4px 29px 0px rgba(0, 0, 0, 0.14)",
-        borderRadius: 12,
-      }}
-      className="my-8 p-4 lg:p-5 py-6 relative lg:mt-12"
-    >
+    <div className="my-8 ">
       <div className="flex items-center justify-between gap-6 mb-6">
-        <SectionHeader title="NCLEX Mastery Challenage of the week" />
-        <Link
-          href={"/profile/tests"}
-          className="text-primary  font-medium text-nowrap"
-        >
-          See More
-        </Link>
+        <SectionHeader title="NCLEX Mastery Challenge of the week" />
+        {!showCompletion && (
+          <p className="text-[#6B7280] text-sm">
+            Question {currentQuestionIndex + 1}/{totalQuestions}
+          </p>
+        )}
       </div>
-
-      {/* <CategoryTabs
-        categories={Object.keys(demoData)}
-        activeCategory={activeCategory}
-        onCategoryChange={handleCategoryChange}
-      /> */}
-      {showCompletion ? (
-        <CompletionCard
-          score={score}
-          totalQuestions={totalQuestions}
-          category={activeCategory}
-          onRetry={handleRetry}
-        />
-      ) : (
-        <>
-          {currentQuestion && (
-            <QuestionCard
-              question={currentQuestion}
-              questionNumber={currentQuestionIndex + 1}
-              totalQuestions={totalQuestions}
-              selectedAnswer={selectedAnswers[currentQuestion.id]}
-              onAnswerSelect={(answer) =>
-                handleAnswerSelect(currentQuestion.id, answer)
-              }
-              onNextQuestion={handleNextQuestion}
-              onSubmitAnswer={handleSubmitAnswer}
-              isLastQuestion={currentQuestionIndex === totalQuestions - 1}
-            />
-          )}
-        </>
-      )}
+      <div className="p-4 lg:p-6 pb-12 py-6 relative overflow-hidden boxShadow rounded-2xl">
+        {showCompletion ? (
+          <CompletionCard
+            score={score}
+            totalQuestions={totalQuestions}
+            category="NCLEX"
+            onRetry={handleRetry}
+          />
+        ) : (
+          <>
+            {currentQuestion && (
+              <QuestionCard
+                question={currentQuestion}
+                questionNumber={currentQuestionIndex + 1}
+                totalQuestions={totalQuestions}
+                selectedAnswer={selectedAnswers[currentQuestion.id]}
+                onAnswerSelect={(answer) =>
+                  handleAnswerSelect(currentQuestion.id, answer)
+                }
+                onNextQuestion={handleNextQuestion}
+                onSubmitAnswer={handleSubmitAnswer}
+                isLastQuestion={currentQuestionIndex === totalQuestions - 1}
+              />
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 }
