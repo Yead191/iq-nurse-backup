@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { useNurseChat } from "./hooks/useNurseChat";
 import { ChatHeader } from "./components/ChatHeader";
