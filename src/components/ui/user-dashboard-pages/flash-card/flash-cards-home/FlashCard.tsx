@@ -123,12 +123,12 @@ export const FlashCard = () => {
       <PageNavbar
         icon={
           <Image
-            src="/assets/icons/header/flashcard.svg"
+            src="/assets/sidebar-icons/flash-cards-icon.svg"
             alt="NCLEX"
             width={50}
             height={50}
             draggable={false}
-            className=" h-8 w-full"
+            className=" h-8 w-full active-icon-filter"
           />
         }
         title="Flashcards"

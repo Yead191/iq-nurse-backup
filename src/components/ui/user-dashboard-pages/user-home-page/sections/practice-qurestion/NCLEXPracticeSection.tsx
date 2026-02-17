@@ -78,7 +78,7 @@ export default function NCLEXPracticeSection() {
       <div className="flex items-center justify-between gap-6 mb-6">
         <SectionHeader title="NCLEX Mastery Challenge of the week" />
         {!showCompletion && (
-          <p className="text-[#6B7280] text-sm">
+          <p className="text-[#6B7280] text-sm text-nowrap">
             Question {currentQuestionIndex + 1}/{totalQuestions}
           </p>
         )}

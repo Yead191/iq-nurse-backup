@@ -197,7 +197,7 @@ export default function MyNotepadPage() {
             width={50}
             height={50}
             draggable={false}
-            className="w-fit h-[32px] object-fit"
+            className="w-fit h-[32px] object-fit active-icon-filter"
           />
         }
         title="Smart Notepad"

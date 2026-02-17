@@ -23,7 +23,7 @@ export default function CalendarHeader() {
               width={50}
               height={50}
               draggable={false}
-              className="w-fit h-10 object-contain"
+              className="w-fit h-10 object-contain "
             />
           }
         />

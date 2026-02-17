@@ -54,7 +54,7 @@ export default function TestPageMain() {
       <PageNavbar
         icon={
           <Image
-            src="/assets/icons/header/grade.png"
+            src="/assets/sidebar-icons/test-icon.svg"
             alt="NCLEX"
             width={50}
             height={50}

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { CategoryCard } from "./CategoryCard";
+import { SectionHeader } from "../SectionHeader";
 
 const categories = [
   {
@@ -53,9 +54,7 @@ export function NCLEXQuestionsSection() {
     <section className="w-full py-6 boxShadow px-4 lg:p-5 rounded-xl my-8">
       {/* Header */}
       <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-primary">
-          Answer NCLEX Questions
-        </h2>
+        <SectionHeader title="Answer NCLEX Questions" />
 
         {/* Desktop toggle */}
         <button

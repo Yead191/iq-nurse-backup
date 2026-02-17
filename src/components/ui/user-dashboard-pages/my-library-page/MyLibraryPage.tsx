@@ -136,7 +136,7 @@ export default function MyLibraryPage() {
             width={50}
             height={50}
             draggable={false}
-            className="w-fit h-[32px] object-contain"
+            className="w-fit h-[32px] object-contain active-icon-filter"
           />
         }
         title="My Library"

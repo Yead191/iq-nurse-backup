@@ -11,12 +11,12 @@ export default function layout({ children }: { children: React.ReactNode }) {
         <PageNavbar
           icon={
             <Image
-              src="/assets/icons/header/grade.png"
+              src="/assets/sidebar-icons/test-icon.svg"
               alt="NCLEX"
               width={50}
               height={50}
               draggable={false}
-              className="w-full h-fit"
+              className="w-full h-fit active-icon-filter"
             />
           }
           title="Master the NCLEX with Confidence"
