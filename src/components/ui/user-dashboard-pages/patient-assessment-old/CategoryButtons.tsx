@@ -49,7 +49,7 @@ export default function CategoryButtons({
     relative !w-8 !h-10 2xl:!w-12 2xl:!h-12 !flex !items-center !justify-center border-2 transition-all duration-200 overflow-hidden !rounded-full  
     ${
       isSelected
-        ? "!bg-[#2C5F8DDE] !border-transparent !shadow-lg !scale-105"
+        ? "!bg-[#374A68] !border-transparent !shadow-lg !scale-105"
         : "bg-white !hover:border-gray-200 !border-[#000000] hover:bg-blue-50"
     }`}
                   onClick={() => {
@@ -57,23 +57,20 @@ export default function CategoryButtons({
                     router.replace(`?category=${category.id}`);
                   }}
                 >
-                  <span
+                  {/* <span
                     className={`absolute inset-0 rounded-full ${
-                      isSelected
-                        ? "bg-[#2C5F8DDE]"
-                        : "bg-white hover:bg-blue-50"
+                      isSelected ? "bg-[#374A68]" : "bg-white hover:bg-blue-50"
                     }`}
-                  />
+                  /> */}
 
                   <Image
-                    unoptimized
                     priority
                     src={category?.icon}
                     alt={category.label}
                     width={28}
                     height={28}
                     className={`relative z-10 transition-all duration-200 
-      ${isSelected && patientPage ? "brightness-0 invert" : ""}
+      ${isSelected ? "white-icon-filter" : ""}
     `}
                   />
                 </Button>

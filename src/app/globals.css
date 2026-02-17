@@ -309,3 +309,7 @@ html {
   filter: brightness(0) saturate(100%) invert(56%) sepia(87%) saturate(1518%)
     hue-rotate(313deg) brightness(101%) contrast(105%);
 }
+
+.white-icon-filter {
+  filter: brightness(0) saturate(100%) invert(100%) brightness(200%);
+}

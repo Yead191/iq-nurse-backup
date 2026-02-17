@@ -11,7 +11,7 @@ export const bodySystems: BodySystem[] = [
   {
     id: "cardiovascular",
     label: "Cardiovascular",
-    icon: "/assets/body-icons/quick-icon.svg",
+    icon: "/assets/icons/body-system/icon1.svg",
     title: "Cardiovascular",
     description: [
       "Angina is chest pain or discomfort due to reduced blood flow to the heart. Patients with angina often describe feeling squeezing, pressure, tightness, or heaviness in their chest.",
@@ -32,7 +32,7 @@ export const bodySystems: BodySystem[] = [
   {
     id: "nervous",
     label: "Nervous",
-    icon: "/assets/body-icons/nervouse-icon.svg",
+    icon: "/assets/icons/body-system/icon2.svg",
     title: "Nervous System",
     description: [
       "The nervous system controls and coordinates body activities by transmitting signals between different parts of the body.",
@@ -53,7 +53,7 @@ export const bodySystems: BodySystem[] = [
   {
     id: "digestive",
     label: "Digestive",
-    icon: "/assets/body-icons/digestive-icon.svg",
+    icon: "/assets/icons/body-system/icon3.svg",
     title: "Digestive System",
     description: [
       "The digestive system breaks down food into nutrients that your body can absorb and use for energy, growth, and cell repair.",
@@ -73,7 +73,7 @@ export const bodySystems: BodySystem[] = [
   {
     id: "respiratory",
     label: "Respiratory",
-    icon: "/assets/body-icons/respiratory-icon.svg",
+    icon: "/assets/icons/body-system/icon4.svg",
     title: "Respiratory System",
     description: [
       "The respiratory system is responsible for taking in oxygen and removing carbon dioxide from the body.",
@@ -94,7 +94,7 @@ export const bodySystems: BodySystem[] = [
   {
     id: "mascular",
     label: "Muscular",
-    icon: "/assets/body-icons/mascular-icon.svg",
+    icon: "/assets/icons/body-system/icon5.svg",
     title: "Muscular System",
     description: [
       "The musculoskeletal system provides structure, support, and movement to the body through bones, muscles, and joints.",
@@ -114,7 +114,7 @@ export const bodySystems: BodySystem[] = [
   {
     id: "skeletal ",
     label: "Skeletal",
-    icon: "/assets/body-icons/skeletal-icon.svg",
+    icon: "/assets/icons/body-system/icon6.svg",
     title: "Skeletal System",
     description: [
       "The endocrine system regulates body functions through hormones produced by various glands.",
@@ -134,7 +134,7 @@ export const bodySystems: BodySystem[] = [
   {
     id: "endocrine",
     label: "Endocrine",
-    icon: "/assets/body-icons/cat7.svg",
+    icon: "/assets/icons/body-system/icon7.svg",
 
     title: "Endocrine System",
     description: [
@@ -155,7 +155,7 @@ export const bodySystems: BodySystem[] = [
   {
     id: "urinary",
     label: "Urinary",
-    icon: "/assets/body-icons/cat-8.svg",
+    icon: "/assets/icons/body-system/icon8.svg",
 
     title: "Urinary System",
     description: [
@@ -176,7 +176,7 @@ export const bodySystems: BodySystem[] = [
   {
     id: "reproductive",
     label: "Reproductive",
-    icon: "/assets/body-icons/cat-9.svg",
+    icon: "/assets/icons/body-system/icon9.svg",
 
     title: "Reproductive System",
     description: [
@@ -197,7 +197,7 @@ export const bodySystems: BodySystem[] = [
   {
     id: "immune",
     label: "Immune",
-    icon: "/assets/body-icons/cat-10.svg",
+    icon: "/assets/icons/body-system/icon10.svg",
 
     title: "Immune System",
     description: [
@@ -218,7 +218,7 @@ export const bodySystems: BodySystem[] = [
   {
     id: "integumentary",
     label: "Integumentary",
-    icon: "/assets/body-icons/cat-11.svg",
+    icon: "/assets/icons/body-system/icon11.svg",
 
     title: "Integumentary System",
     description: [
@@ -239,7 +239,7 @@ export const bodySystems: BodySystem[] = [
   {
     id: "lymphatic",
     label: "Lymphatic",
-    icon: "/assets/body-icons/cat-11.svg",
+    icon: "/assets/icons/body-system/icon12.svg",
     title: "Lymphatic System",
     description: [
       "The lymphatic system helps maintain fluid balance and supports the immune system.",

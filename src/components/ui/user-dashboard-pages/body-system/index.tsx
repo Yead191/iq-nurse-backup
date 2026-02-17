@@ -10,7 +10,6 @@ import BodySilhouetteCard from "./BodySilhouetteCard";
 import { Button, Grid } from "antd";
 import MobileNotesDrawer from "./MobileNotesDrawer";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import { BiQuestionMark } from "react-icons/bi";
 import DetailsHeader from "@/components/shared/DetailsHeader";
 import { toast } from "sonner";
 
@@ -118,10 +117,10 @@ export default function BodySystemMain() {
       </div>
 
       {/* Mobile Layout */}
-      <div className="lg:hidden  -mb-6">
-        <div className="relative  flex flex-col">
+      <div className="lg:hidden min-h-[calc(100vh-56px)]  ">
+        <div className="relative  flex flex-col h-full">
           {/* Main Content Area */}
-          <div className="flex-1 relative overflow-hidden">
+          <div className="flex-1 relative overflow-hidden h-full">
             <BodySilhouetteCard
               selectedSystem={selectedSystem}
               currentImageIndex={currentImageIndex}
@@ -156,7 +155,7 @@ export default function BodySystemMain() {
                     key={system.id}
                     className={`flex-shrink-0 w-12 h-12 rounded-full border-2 transition-all ${
                       selectedSystem.id === system.id
-                        ? "border-blue-500 bg-blue-50 scale-105"
+                        ? "border-[#000000] bg-[#374A68] scale-105"
                         : "border-gray-200 bg-white hover:border-gray-300"
                     }`}
                     onClick={() => handleSystemSelect(system)}
@@ -166,7 +165,7 @@ export default function BodySystemMain() {
                       alt={system.label}
                       width={32}
                       height={32}
-                      className="w-full h-full object-cover rounded-full p-2"
+                      className={`w-full h-full object-cover rounded-full p-2 ${selectedSystem.id === system.id ? "white-icon-filter" : ""}`}
                     />
                   </button>
                 ))}
