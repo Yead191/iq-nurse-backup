@@ -1,6 +1,5 @@
 "use client";
 import { Form } from "antd";
-import BrainIllustration from "../../../shared/BrainIllustration";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import LoginForm from "./LoginForm";

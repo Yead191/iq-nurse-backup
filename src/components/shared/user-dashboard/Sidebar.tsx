@@ -219,13 +219,13 @@ const Sidebar = ({
         >
           {!showLabels && (
             <Link href={"/profile/home"}>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 lg:pb-0.5">
                 <Image
                   src="/Logo.png"
                   alt="Logo"
                   width={300}
                   height={60}
-                  className="h-10 w-full object-contain"
+                  className="h-10 w-full object-contain mt-1.5"
                 />
                 {/* <span className="text-lg font-semibold">IQ-Nurse</span> */}
               </div>
