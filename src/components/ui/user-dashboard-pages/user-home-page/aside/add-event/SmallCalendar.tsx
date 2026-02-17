@@ -7,6 +7,7 @@ import type { Dayjs } from "dayjs";
 
 interface SmallCalendarProps extends AntCalendarProps<Dayjs> {
   datesWithEvents?: Map<string, string[]>;
+  activeDate?: Dayjs;
 }
 
 const colorMap: Record<string, string> = {
@@ -22,6 +23,7 @@ const colorMap: Record<string, string> = {
 
 export const SmallCalendar: React.FC<SmallCalendarProps> = ({
   datesWithEvents,
+  activeDate,
   className,
   value,
   defaultValue,
@@ -49,37 +51,35 @@ export const SmallCalendar: React.FC<SmallCalendarProps> = ({
     );
   };
 
+  const fullCellRender = (date: Dayjs, info: any) => {
+    if (info.type !== "date") return info.originNode;
+
+    const isActive = activeDate
+      ? date.isSame(activeDate, "day")
+      : value && date.isSame(value, "day");
+
+    return (
+      <div
+        className={`ant-picker-cell-inner flex items-center justify-center relative !h-8 !w-8 !rounded-lg mx-auto ${
+          isActive
+            ? "!bg-[#2C5F8D] !text-white"
+            : "hover:!bg-blue-50 transition-colors"
+        }`}
+      >
+        {date.date()}
+        {dateCellRender(date)}
+      </div>
+    );
+  };
+
   return (
     <div className={`small-calendar ${className || ""}`}>
       <AntCalendar
         fullscreen={false}
-        cellRender={dateCellRender}
+        fullCellRender={fullCellRender}
         value={value}
         defaultValue={defaultValue}
         {...props}
-        // className={[
-        //   "[&_.ant-picker-calendar-header]:mb-2",
-        //   "[&_.ant-picker-calendar-header_.ant-picker-calendar-year-select]:text-sm",
-        //   "[&_.ant-picker-calendar-header_.ant-picker-calendar-month-select]:text-sm",
-        //   "[&_.ant-picker-calendar-date]:h-12 !important",
-        //   "[&_.ant-picker-calendar-date]:p-0",
-        //   "[&_.ant-picker-calendar-date]:flex",
-        //   "[&_.ant-picker-calendar-date]:flex-col",
-        //   "[&_.ant-picker-calendar-date]:items-center",
-        //   "[&_.ant-picker-calendar-date-content]:w-full",
-        //   "[&_.ant-picker-calendar-date-content]:mt-auto",
-        //   "[&_.ant-picker-cell-inner]:h-7 !important",
-        //   "[&_.ant-picker-cell-inner]:w-full",
-        //   "[&_.ant-picker-cell-inner]:rounded-lg",
-        //   "[&_.ant-picker-cell-selected_.ant-picker-cell-inner]:bg-[#2C5F8D]  !important ",
-        //   "[&_.ant-picker-cell-selected_.ant-picker-cell-inner]:text-white h-fit !important",
-        //   "[&_.ant-picker-cell-today_.ant-picker-cell-inner]:border-none",
-        //   "[&_.ant-picker-cell-today_.ant-picker-cell-inner]:bg-blue-100  !important",
-        //   "[&_.ant-picker-calendar-header_.ant-picker-calendar-mode-switch]:hidden",
-        //   className,
-        // ]
-        //   .filter(Boolean)
-        //   .join(" ")}
       />
     </div>
   );

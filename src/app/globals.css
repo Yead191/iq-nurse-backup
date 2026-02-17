@@ -313,3 +313,12 @@ html {
 .white-icon-filter {
   filter: brightness(0) saturate(100%) invert(100%) brightness(200%);
 }
+
+.small-calendar .ant-picker-cell-selected .ant-picker-cell-inner {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+.small-calendar .ant-picker-cell-selected:hover .ant-picker-cell-inner {
+  background: rgba(0, 0, 0, 0.04) !important;
+}

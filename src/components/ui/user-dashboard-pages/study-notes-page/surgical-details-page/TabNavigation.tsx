@@ -38,7 +38,7 @@ export default function TabNavigation({
                 <img
                   src={tab.icon}
                   alt={tab.label}
-                  className="w-[20px] h-[20px]"
+                  className={`w-[20px] h-[20px] ${isActive ? "white-icon-filter" : ""}`}
                 />
               </button>
             </Tooltip>

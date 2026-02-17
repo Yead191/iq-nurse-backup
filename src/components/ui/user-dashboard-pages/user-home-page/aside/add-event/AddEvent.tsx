@@ -22,6 +22,7 @@ import { AddTaskDialog } from "../../../calendar-new/components/events-modal/Add
 export default function AddEvent() {
   const router = useRouter();
   const [selectedDateCalendar, setSelectedDate] = useState(dayjs());
+  const [viewDate, setViewDate] = useState(dayjs());
   const searchParams = useSearchParams();
   const [isQuickAddOpen, setIsQuickAddOpen] = useState(false);
   const [isClassDialogOpen, setIsClassDialogOpen] = useState(false);
@@ -60,10 +61,13 @@ export default function AddEvent() {
     console.log("[v0] Calendar panel changed:", value, mode);
   };
 
-  const onSelect = (value: any) => {
-    console.log("[v0] Calendar date selected:", value);
-    setSelectedDate(value);
-    router.push(`?date=${value.format("YYYY-MM-DD")}`);
+  const onSelect = (value: any, info: any) => {
+    setViewDate(value);
+    if (info.source === "date") {
+      console.log("[v0] Calendar date selected:", value);
+      setSelectedDate(value);
+      router.push(`?date=${value.format("YYYY-MM-DD")}`);
+    }
   };
 
   const handleQuickAddSelect = (type: string) => {
@@ -113,7 +117,8 @@ export default function AddEvent() {
         {/* Calendar Section */}
         <div className="pb-4 border-b border-gray-100 w-full">
           <SmallCalendar
-            value={selectedDateCalendar}
+            value={viewDate}
+            activeDate={selectedDateCalendar}
             datesWithEvents={datesWithEvents}
             onPanelChange={onPanelChange}
             onSelect={onSelect}

@@ -1,7 +1,11 @@
 "use client";
 import React, { useMemo, useState } from "react";
+import { Button, Popover } from "antd";
+import { Calendar as CalendarIcon } from "lucide-react";
+import dayjs from "dayjs";
+import SmallCalendar from "../../user-home-page/aside/add-event/SmallCalendar";
 import { DayView, MonthView, WeekView } from "./CalendarViews";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Assignment } from "./events-modal/AddAssignmentDialog";
 import { ScheduledClass, ScheduledExam } from "./ClassCalendar";
 import { PersonalTime } from "./events-modal/AddPersonalTimeDialog";
@@ -33,8 +37,11 @@ type EventDetail =
   | null;
 
 export default function CalendarTabs() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<"day" | "week" | "month">("day");
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [viewDate, setViewDate] = useState(dayjs());
   const [eventDetail, setEventDetail] = useState<EventDetail>(null);
   const handleTabChange = (tab: "day" | "week" | "month") => {
     setActiveTab(tab);
@@ -81,20 +88,51 @@ export default function CalendarTabs() {
 
   return (
     <section>
-      <div className="flex items-center bg-neutral-100 rounded-full py-[6px]  px-[14px] max-w-md">
-        {tabs?.map((tab) => (
-          <button
-            key={tab.value}
-            onClick={() => handleTabChange(tab.value)}
-            className={`flex-1 text-xs 2xl:text-sm px-2 py-1  lg:px-3 lg:py-2 rounded-full transition text-nowrap ${
-              activeTab === tab.value
-                ? "bg-white  text-[#2C5F8D] font-medium"
-                : "text-neutral-500 hover:text-neutral-800"
-            }`}
+      <div className="flex items-center justify-between gap-4 max-w-4xl">
+        <div className="flex items-center bg-neutral-100 rounded-full py-[6px]  px-[14px] flex-1 max-w-md">
+          {tabs?.map((tab) => (
+            <button
+              key={tab.value}
+              onClick={() => handleTabChange(tab.value)}
+              className={`flex-1 text-xs 2xl:text-sm px-2 py-1  lg:px-3 lg:py-2 rounded-full transition text-nowrap ${
+                activeTab === tab.value
+                  ? "bg-white  text-[#2C5F8D] font-medium"
+                  : "text-neutral-500 hover:text-neutral-800"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="lg:hidden">
+          <Popover
+            content={
+              <div className="w-[280px]">
+                <SmallCalendar
+                  value={viewDate}
+                  activeDate={dayjs(selectedDate)}
+                  onSelect={(date, info) => {
+                    setViewDate(date);
+                    if (info.source === "date") {
+                      router.push(`?date=${date.format("YYYY-MM-DD")}`);
+                      setIsCalendarOpen(false);
+                    }
+                  }}
+                />
+              </div>
+            }
+            trigger="click"
+            open={isCalendarOpen}
+            onOpenChange={setIsCalendarOpen}
+            placement="bottomRight"
           >
-            {tab.label}
-          </button>
-        ))}
+            <Button
+              icon={<CalendarIcon size={18} />}
+              className="!flex !items-center !justify-center !rounded-full !w-10 !h-10 !bg-neutral-100 !border-none"
+            />
+          </Popover>
+        </div>
       </div>
       {/* tab content */}
       <div className="mt-4 lg:max-h-[calc(100vh-170px)] overflow-y-auto">
