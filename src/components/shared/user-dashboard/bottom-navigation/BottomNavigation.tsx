@@ -76,11 +76,11 @@ export default function BottomNavigation({
 
   return (
     <div
-      className="fixed bottom-0 z-50 w-full h-[76px] flex items-center justify-center"
+      className="fixed bottom-0 z-20 w-full h-[76px] flex items-center justify-center"
       style={{
         backgroundColor: "white",
         // padding: "10px 0",
-        zIndex: 1000,
+        zIndex: 30,
         boxShadow: "0px -1px 1px 0px #0000001A",
       }}
     >

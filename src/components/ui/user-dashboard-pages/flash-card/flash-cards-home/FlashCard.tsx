@@ -99,12 +99,6 @@ export const FlashCard = () => {
 
   const tabs = [
     {
-      id: "1",
-      label: "Progress",
-      icon: <GiProgression className="lg:text-[22px] text-[16px]" />,
-      component: <ProgressSection categoryProgress={calculateProgress()} />,
-    },
-    {
       id: "2",
       label: "Study",
       icon: <BookOpen className="lg:text-[22px] " size={16} />,
@@ -115,6 +109,12 @@ export const FlashCard = () => {
       label: "My Folders",
       icon: <IoAnalytics className="lg:text-[22px] text-[16px]" />,
       component: <DeskFolder />,
+    },
+    {
+      id: "1",
+      label: "Progress",
+      icon: <GiProgression className="lg:text-[22px] text-[16px]" />,
+      component: <ProgressSection categoryProgress={calculateProgress()} />,
     },
   ];
 

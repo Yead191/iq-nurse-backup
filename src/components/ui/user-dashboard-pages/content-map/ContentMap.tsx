@@ -43,7 +43,7 @@ const ContentMap = () => {
           width={50}
           height={50}
           draggable={false}
-          className="w-fit h-[22px] object-contain"
+          className="w-fit h-[22px] object-contain "
         />
       ),
       component: <MyMaps />,
@@ -61,12 +61,12 @@ const ContentMap = () => {
       <PageNavbar
         icon={
           <Image
-            src="/assets/icons/header/concept-map.svg"
+            src="/assets/sidebar-icons/concept-map-icon.svg"
             alt="NCLEX"
             width={50}
             height={50}
             draggable={false}
-            className="w-fit h-10 object-contain"
+            className="w-fit h-10 object-contain active-icon-filter"
           />
         }
         title="Interactive Concept Maps"

@@ -1,20 +1,13 @@
 "use client";
-import { Grid } from "antd";
 import { BookOpen, FileText, LayoutGrid } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 export default function NclexSidebar() {
   const router = useRouter();
-  const { lg } = Grid.useBreakpoint();
 
   const pathname = usePathname();
   const tabs = [
-    {
-      id: "progress",
-      label: "Progress",
-      icon: <LayoutGrid size={22} />,
-    },
     {
       id: "category",
       label: "Practice By Category",
@@ -25,6 +18,11 @@ export default function NclexSidebar() {
       id: "full-nclex",
       label: "Full NCLEX Practice",
       icon: <FileText size={22} />,
+    },
+    {
+      id: "progress",
+      label: "Progress",
+      icon: <LayoutGrid size={22} />,
     },
   ];
 

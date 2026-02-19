@@ -239,7 +239,7 @@ const Sidebar = ({
               <PanelRightClose size={22} />
             ) : (
               // <ChevronRight size={22} />
-              // <ChevronLeft size={20} />
+              // <ChevronLeft size={20} />-
               <PanelRightOpen size={22} />
             )}
           </button>
@@ -247,7 +247,7 @@ const Sidebar = ({
       </div>
 
       {/* Menus */}
-      <div className="flex-1 overflow-y-auto max-h-[calc(100vh-140px)] md:max-h-max pb-14 lg:pb-8">
+      <div className="flex-1 overflow-y-auto max-h-max pb-14 lg:pb-8">
         <div className="hidden md:block">
           <RenderMenuGroup items={menus.main} menuKey="main" />
         </div>

@@ -16,7 +16,7 @@ export default function NclexContent({ id }: { id: string }) {
         return <FullNCLEXPracticeSection />;
 
       default:
-        return <div>Content coming soon...</div>;
+        return <PracticeByCategorySection />;
     }
   };
 

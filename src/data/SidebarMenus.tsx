@@ -188,13 +188,16 @@ export const menus: Record<string, MenuItem[]> = {
     {
       key: "/profile/contact-us",
       label: "Contact Us",
-      icon: icon("/assets/icons/support/contact.svg", "/profile/contact-us"),
+      icon: icon(
+        "/assets/sidebar-icons/contact-us-icon.svg",
+        "/profile/contact-us",
+      ),
     },
-    {
-      key: "/profile/about-us",
-      label: "About Us",
-      icon: icon("/assets/icons/support/about.svg", "/profile/about-us", 20),
-    },
+    // {
+    //   key: "/profile/about-us",
+    //   label: "About Us",
+    //   icon: icon("/assets/icons/support/about.svg", "/profile/about-us", 20),
+    // },
     {
       key: "/profile/faqs",
       label: "F.A.Q.s",

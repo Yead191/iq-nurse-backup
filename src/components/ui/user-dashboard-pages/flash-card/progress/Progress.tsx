@@ -25,7 +25,7 @@ export function ProgressSection({ categoryProgress }: ProgressSectionProps) {
       acc.correct += (cat.correctPercentage / 100) * cat.reviewedCards;
       return acc;
     },
-    { reviewed: 0, total: 0, correct: 0 }
+    { reviewed: 0, total: 0, correct: 0 },
   );
 
   const overallCompletion =
@@ -46,7 +46,7 @@ export function ProgressSection({ categoryProgress }: ProgressSectionProps) {
     .map((c, index) => ({
       category: c.category,
       reason: `Accuracy is ${Math.round(
-        c.correctPercentage
+        c.correctPercentage,
       )}%. Focus on reviewing this topic.`,
       priority: index === 0 ? "high" : "medium",
     }));
@@ -60,7 +60,7 @@ export function ProgressSection({ categoryProgress }: ProgressSectionProps) {
         </p>
       </div>
 
-      <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+      <div className="mb-8 grid gap-2 md:gap-4 grid-cols-3">
         <StatCard
           title="Cards Reviewed"
           value={`${overall.reviewed} / ${overall.total}`}
@@ -118,15 +118,15 @@ export function ProgressSection({ categoryProgress }: ProgressSectionProps) {
 
       {/* ---------------- Category Progress (MAIN PART) ---------------- */}
       <div>
-        <h2 className="mb-4  lg:text-2xl text-xl font-medium">Progress by Category</h2>
+        <h2 className="mb-4  lg:text-2xl text-xl font-medium">
+          Progress by Category
+        </h2>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {categoryProgress.map((cat) => {
             const completion =
               cat.totalCards > 0
-                ? Math.round(
-                    (cat.reviewedCards / cat.totalCards) * 100
-                  )
+                ? Math.round((cat.reviewedCards / cat.totalCards) * 100)
                 : 0;
 
             return (
@@ -163,10 +163,7 @@ export function ProgressSection({ categoryProgress }: ProgressSectionProps) {
                 {cat.lastStudied && (
                   <p className="mt-2 text-xs text-gray-400">
                     Last studied:{" "}
-                    {format(
-                      new Date(cat.lastStudied),
-                      "MMM d, yyyy"
-                    )}
+                    {format(new Date(cat.lastStudied), "MMM d, yyyy")}
                   </p>
                 )}
               </div>
@@ -190,14 +187,14 @@ function StatCard({
   icon: React.ReactNode;
 }) {
   return (
-    <div className="cursor-pointer rounded-xl border border-gray-200 bg-white p-6 transition hover:shadow-md">
+    <div className="cursor-pointer rounded-xl border border-gray-200 bg-white p-2 py-4 lg:p-6 transition hover:shadow-md">
       <div className="flex items-center justify-between ">
         <div>
-          <p className="text-sm text-gray-500">{title}</p> 
+          <p className="md:text-sm text-xs text-gray-500">{title}</p>
           <p className="lg:text-2xl text-xl font-semibold py-1">{value}</p>
           <p className="text-xs text-gray-400">{subtitle}</p>
         </div>
-        <div className="text-gray-400">{icon}</div>
+        <div className="text-gray-400 hidden md:block">{icon}</div>
       </div>
     </div>
   );

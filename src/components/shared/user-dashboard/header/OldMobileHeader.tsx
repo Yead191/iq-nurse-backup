@@ -109,7 +109,7 @@ export default function OldMobileHeader() {
             ))}
 
           {/* Right: Actions */}
-          {!searchOpen && (
+          {/* {!searchOpen && (
             <div
               style={{
                 marginLeft: "auto",
@@ -124,7 +124,6 @@ export default function OldMobileHeader() {
                 aria-label="Open search"
                 onClick={() => setSearchOpen(true)}
               />
-              {/* Notifications */}
               <Badge count={4} size="small">
                 <Button
                   type="text"
@@ -139,7 +138,7 @@ export default function OldMobileHeader() {
                 aria-label="Bookmarks"
               />
             </div>
-          )}
+          )} */}
 
           {/* Search overlay */}
           {searchOpen && (

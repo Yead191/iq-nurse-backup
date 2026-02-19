@@ -16,55 +16,61 @@ const StatsCards: FC<Props> = ({
   allCompleted,
 }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
       {allCompleted && (
-        <Card>
-          <Statistic
-            title="Pass Likelihood"
-            value={passLikelihood}
-            valueStyle={{ color: "#2563eb" }}
-            prefix={<Target className="inline mr-1" size={16} />}
-            suffix="%"
-          />
+        <div className="boxShadow rounded-lg p-2 py-4 md:p-4 flex flex-col justify-center">
+          <p className="text-xs md:text-sm md:font-medium text-nowrap">
+            Pass Likelihood
+          </p>
+          <div className="flex items-center gap-2 mt-2">
+            <Target className="inline mr-1 text-[#2563eb]" size={16} />
+            <p className="text-2xl font-bold">{passLikelihood}</p>
+            <p className="text-2xl font-bold">%</p>
+          </div>
           <div className="text-xs text-gray-500 mt-1">
             Based on current performance
           </div>
-        </Card>
+        </div>
       )}
 
-      <Card className="boxShadow">
-        <Statistic
-          title="Total Questions"
-          value={700}
-          valueStyle={{ color: "black", fontWeight: "bold" }}
-          prefix={<Award className="inline mr-1 text-green-400" size={16} />}
-        />
-        <div className="text-xs text-gray-500 mt-1">485 correct (69%)</div>
-      </Card>
+      <div className="boxShadow rounded-lg p-2 py-4 md:p-4 flex flex-col justify-center">
+        <p className="text-xs md:text-sm md:font-medium text-nowrap">
+          Total Questions
+        </p>
+        <div className="flex items-center gap-2 mt-2">
+          <Award className="inline mr-1 text-green-400" size={16} />
+          <p className="text-2xl font-bold">700</p>
+        </div>
+        <p className="text-[10px] md:text-xs text-gray-500 mt-1">
+          485 correct (69%)
+        </p>
+      </div>
 
-      <Card className="boxShadow">
-        <Statistic
-          title="Percentile Rank"
-          value={percentileRank}
-          valueStyle={{ color: "black", fontWeight: "bold" }}
-          prefix={
-            <TrendingUp className="inline mr-1 text-[#9333ea]" size={16} />
-          }
-          suffix="th"
-        />
-        <div className="text-xs text-gray-500 mt-1">Among all students</div>
-      </Card>
+      <div className="boxShadow rounded-lg p-2 py-4 md:p-4 flex flex-col justify-center">
+        <p className="text-xs md:text-sm md:font-medium text-nowrap">
+          Percentile Rank
+        </p>
+        <div className="flex items-center gap-2 mt-2">
+          <TrendingUp className="inline mr-1 text-[#9333ea]" size={16} />
+          <p className="text-2xl font-bold">65</p>
+        </div>
+        <p className="text-[10px] md:text-xs text-gray-500 mt-1">
+          Among all students
+        </p>
+      </div>
 
-      <Card className="boxShadow">
-        <Statistic
-          title="Study Streak"
-          value={12}
-          valueStyle={{ color: "black", fontWeight: "bold" }}
-          prefix={<Flame className="inline mr-1 text-[#ea580c]" size={16} />}
-          suffix="days"
-        />
-        <div className="text-xs text-gray-500 mt-1">Keep it up!</div>
-      </Card>
+      <div className="boxShadow rounded-lg p-2 py-4 md:p-4 flex flex-col justify-center">
+        <p className="text-xs md:text-sm md:font-medium text-nowrap">
+          Study Streak
+        </p>
+        <div className="flex items-center gap-2 mt-2">
+          <Flame className="inline mr-1 text-[#ea580c]" size={16} />
+          <p className="text-2xl font-bold">12</p>
+        </div>
+        <p className="text-[10px] md:text-xs text-gray-500 mt-1 ">
+          Keep it up!
+        </p>
+      </div>
     </div>
   );
 };
