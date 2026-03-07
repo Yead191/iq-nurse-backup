@@ -1,3 +1,5 @@
+import { QuestionType } from "@/components/ui/user-dashboard-pages/user-home-page/sections/practice-qurestion/NCLEXPracticeSection";
+
 // types.ts (or inline in the same file)
 export type Question = {
   id: number;
@@ -359,3 +361,80 @@ export const demoData: Record<CategoryName, CategoryData> = {
     ],
   },
 };
+
+export const NCLEXPracticeQuestions: QuestionType[] = [
+  {
+    id: 1,
+    text: "A client with heart failure is receiving furosemide (Lasix) 40 mg IV. The nurse should monitor which of the following laboratory values most closely?",
+    options: [
+      { label: "A. Sodium", value: "A" },
+      { label: "B. Potassium", value: "B" },
+      { label: "C. Calcium", value: "C" },
+      { label: "D. Magnesium", value: "D" },
+    ],
+    correctValue: "B",
+    rationale:
+      "Furosemide is a loop diuretic that promotes the excretion of potassium. Hypokalemia is a serious side effect that can lead to cardiac dysrhythmias.",
+  },
+  {
+    id: 2,
+    text: "A nurse is caring for a client with type 1 diabetes who reports feeling shaky and anxious. The nurse observes the client is diaphoretic. What is the priority nursing action?",
+    options: [
+      { label: "A. Administer insulin", value: "A" },
+      { label: "B. Check blood glucose level", value: "B" },
+      { label: "C. Give 4 oz of orange juice", value: "C" },
+      { label: "D. Notify the healthcare provider", value: "D" },
+    ],
+    correctValue: "B",
+    rationale:
+      "Assessment is the first step of the nursing process. The nurse should confirm hypoglycemia with a blood glucose check before intervening, although clinical presentation strongly suggests it.",
+  },
+  {
+    id: 3,
+    text: "Which assessment finding would indicate to the nurse that a client may be developing digoxin toxicity?",
+    options: [
+      { label: "A. Constipation", value: "A" },
+      { label: "B. Visual disturbances (yellow halos)", value: "B" },
+      { label: "C. Increased appetite", value: "C" },
+      { label: "D. Hypertension", value: "D" },
+    ],
+    correctValue: "B",
+    rationale:
+      "Visual disturbances, such as seeing yellow-green halos around lights, are a classic sign of digoxin toxicity, along with nausea, vomiting, and bradycardia.",
+  },
+  {
+    id: 4,
+    text: "A nurse is preparing a sterile field. Which action would contaminate the field?",
+    options: [
+      { label: "A. Opening the outermost flap away from the body", value: "A" },
+      { label: "B. Keeping the sterile field above waist level", value: "B" },
+      { label: "C. Turning back on the sterile field", value: "C" },
+      { label: "D. Touching only the outer 1-inch border", value: "D" },
+    ],
+    correctValue: "C",
+    rationale:
+      "A sterile field must be kept in constant view. Turning your back on a sterile field renders it contaminated because you cannot verify its sterility.",
+  },
+  {
+    id: 5,
+    text: "The nurse is prioritizing care for a group of clients. Which client should the nurse assess first?",
+    options: [
+      {
+        label: "A. A client requesting pain medication for 7/10 pain",
+        value: "A",
+      },
+      { label: "B. A client with COPD and O2 saturation of 92%", value: "B" },
+      {
+        label: "C. A client who had surgery yesterday with a fever of 101°F",
+        value: "C",
+      },
+      {
+        label: "D. A client with asthma reporting sudden shortness of breath",
+        value: "D",
+      },
+    ],
+    correctValue: "D",
+    rationale:
+      "Airway and Breathing are always the highest priority. Sudden shortness of breath in an asthmatic client indicates potential airway compromise, which is a life-threatening emergency.",
+  },
+];

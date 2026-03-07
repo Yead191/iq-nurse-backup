@@ -7,7 +7,7 @@ import { CiLight } from "react-icons/ci";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import LanguagePanel from "./LanguagePanel";
 import ProfilePanel from "./ProfilePanel";
-import SearchBar from "./SearchBar";
+// import SearchBar from "./SearchBar";
 import { LangKey, LANGUAGES } from "@/data/headerConstants";
 
 const { Text } = Typography;
@@ -21,7 +21,7 @@ export default function Header() {
   const [lang, setLang] = React.useState<LangKey>("en");
   const currentLang = React.useMemo(
     () => LANGUAGES.find((l) => l.key === lang) ?? LANGUAGES[0],
-    [lang]
+    [lang],
   );
 
   return (
@@ -29,7 +29,7 @@ export default function Header() {
       <div className="px-5 flex items-center justify-between gap-4 py-4">
         {/* Left */}
         <div className="flex flex-1 items-center gap-3">
-          <SearchBar />
+          {/* <SearchBar /> */}
         </div>
 
         {/* Right */}

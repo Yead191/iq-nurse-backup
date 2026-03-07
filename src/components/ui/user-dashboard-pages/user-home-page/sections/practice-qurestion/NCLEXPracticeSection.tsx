@@ -1,114 +1,163 @@
 "use client";
-import { useEffect, useState } from "react";
-
-import { demoData, Question } from "@/data/practiceQuestion";
-import CompletionCard from "./CompletionCard";
-import QuestionCard from "./QuestionCard";
+import { useState } from "react";
+import { ChevronRight, AlertCircle } from "lucide-react";
+import { NCLEXPracticeQuestions } from "@/data/practiceQuestion";
 import { SectionHeader } from "../SectionHeader";
+import QuestionResult, { Option } from "./QuestionResult";
+
+export interface QuestionType {
+  id: number;
+  text: string;
+  options: { label: string; value: string }[];
+  correctValue: string;
+  rationale: string;
+}
 
 export default function NCLEXPracticeSection() {
-  const [questions, setQuestions] = useState<Question[]>([]);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswers, setSelectedAnswers] = useState<
-    Record<number, string>
-  >({});
-  const [showCompletion, setShowCompletion] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
+  const [showResults, setShowResults] = useState(false);
 
-  useEffect(() => {
-    // Get all questions from all categories
-    const allQuestions = Object.values(demoData).flatMap(
-      (category) => category.questions,
-    );
+  const currentQuestion = NCLEXPracticeQuestions[currentIndex];
 
-    // Shuffle and pick 10
-    const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
-    setQuestions(shuffled.slice(0, 10));
-  }, []);
-
-  const currentQuestion = questions[currentQuestionIndex];
-  const totalQuestions = questions.length;
-
-  const handleAnswerSelect = (questionId: number, answer: string) => {
-    setSelectedAnswers((prev) => ({
-      ...prev,
-      [questionId]: answer,
-    }));
-  };
-
-  const handleNextQuestion = () => {
-    if (currentQuestionIndex < totalQuestions - 1) {
-      setCurrentQuestionIndex((prev) => prev + 1);
-    } else {
-      // Calculate score and show completion
-      const correctAnswers = questions.reduce(
-        (acc: number, question: Question) => {
-          if (selectedAnswers[question.id] === question.correctAnswer) {
-            return acc + 1;
-          }
-          return acc;
-        },
-        0,
-      );
-      setScore(correctAnswers);
-      setShowCompletion(true);
+  const handleSelect = (value: string) => {
+    if (!isSubmitted) {
+      setSelected(value);
     }
   };
 
-  const handleSubmitAnswer = () => {
-    handleNextQuestion();
+  const handleSubmit = () => {
+    if (!selected) return;
+    setIsSubmitted(true);
+    if (selected === currentQuestion.correctValue) {
+      setScore(score + 1);
+    }
   };
 
-  const handleRetry = () => {
-    // Re-shuffle for retry
-    const allQuestions = Object.values(demoData).flatMap(
-      (category) => category.questions,
-    );
-    const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
-    setQuestions(shuffled.slice(0, 10));
+  const handleNext = () => {
+    if (currentIndex < NCLEXPracticeQuestions.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      setSelected(null);
+      setIsSubmitted(false);
+    } else {
+      setShowResults(true);
+    }
+  };
 
-    setCurrentQuestionIndex(0);
-    setSelectedAnswers({});
-    setShowCompletion(false);
+  const handleRestart = () => {
+    setCurrentIndex(0);
+    setSelected(null);
+    setIsSubmitted(false);
     setScore(0);
+    setShowResults(false);
   };
+
+  if (showResults) {
+    return (
+      <div>
+        <QuestionResult score={score} handleRestart={handleRestart} />
+      </div>
+    );
+  }
 
   return (
-    <div className="my-8 ">
-      <div className="flex items-center justify-between gap-6 mb-6">
+    <div className="w-full pt-8">
+      {/* Header Section */}
+      <div className="flex items-center justify-between mb-4 text-[#02478d]">
         <SectionHeader title="NCLEX Mastery Challenge of the week" />
-        {!showCompletion && (
-          <p className="text-[#6B7280] text-sm text-nowrap">
-            Question {currentQuestionIndex + 1}/{totalQuestions}
-          </p>
-        )}
+        <div className="flex items-center gap-2">
+          <span className="text-sm font-semibold text-slate-500">
+            Question {currentIndex + 1}/{NCLEXPracticeQuestions.length}
+          </span>
+        </div>
       </div>
-      <div className="p-4 lg:p-6 pb-12 py-6 relative overflow-hidden boxShadow rounded-2xl">
-        {showCompletion ? (
-          <CompletionCard
-            score={score}
-            totalQuestions={totalQuestions}
-            category="NCLEX"
-            onRetry={handleRetry}
-          />
-        ) : (
-          <>
-            {currentQuestion && (
-              <QuestionCard
-                question={currentQuestion}
-                questionNumber={currentQuestionIndex + 1}
-                totalQuestions={totalQuestions}
-                selectedAnswer={selectedAnswers[currentQuestion.id]}
-                onAnswerSelect={(answer) =>
-                  handleAnswerSelect(currentQuestion.id, answer)
-                }
-                onNextQuestion={handleNextQuestion}
-                onSubmitAnswer={handleSubmitAnswer}
-                isLastQuestion={currentQuestionIndex === totalQuestions - 1}
+
+      {/* Challenge Card */}
+      <div className="bg-white text-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col min-h-[400px] relative overflow-hidden">
+        <div className="flex-1">
+          <div className="flex items-start gap-4 mb-6">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-sm font-bold text-slate-600">
+              {currentQuestion.id}
+            </div>
+            <h3 className="font-medium text-[16px] leading-relaxed text-slate-600">
+              {currentQuestion.text}
+            </h3>
+          </div>
+
+          <div className="space-y-3 pl-2">
+            {currentQuestion.options.map((option) => (
+              <Option
+                key={option.value}
+                label={option.label}
+                value={option.value}
+                selected={selected}
+                correctValue={currentQuestion.correctValue}
+                isSubmitted={isSubmitted}
+                onSelect={handleSelect}
               />
-            )}
-          </>
+            ))}
+          </div>
+        </div>
+
+        {/* Rationale Section - Appears after submit */}
+        {isSubmitted && (
+          <div className="mt-6 ml-2 p-4 bg-blue-50 border border-blue-100 rounded-xl animate-in fade-in slide-in-from-bottom-2">
+            <div className="flex items-center gap-2 text-[#02478d] font-bold mb-2">
+              <AlertCircle size={16} />
+              <span>Rationale</span>
+            </div>
+            <p className="text-sm text-slate-700 leading-relaxed font-medium">
+              {currentQuestion.rationale}
+            </p>
+          </div>
         )}
+
+        <div className="mt-8 pl-12 flex justify-between items-center">
+          {/* Progress Dots */}
+          <div className="flex gap-1.5">
+            {NCLEXPracticeQuestions.map((_, idx) => (
+              <div
+                key={idx}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  idx === currentIndex
+                    ? "bg-[#02478d]"
+                    : idx < currentIndex
+                      ? "bg-slate-400"
+                      : "bg-slate-200"
+                }`}
+              />
+            ))}
+          </div>
+
+          {!isSubmitted ? (
+            <button
+              onClick={handleSubmit}
+              disabled={!selected}
+              className={`
+                   py-2 px-6 rounded-lg font-normal transition-all
+                   ${
+                     selected
+                       ? "bg-primary text-white shadow-md shadow-blue-900/10"
+                       : "bg-slate-100 text-slate-400 cursor-not-allowed"
+                   }
+                 `}
+            >
+              Submit Answer
+            </button>
+          ) : (
+            <button
+              onClick={handleNext}
+              className="flex items-center gap-2 bg-primary text-white font-normal py-2 px-6 rounded-lg transition-colors shadow-md shadow-blue-900/10"
+            >
+              {currentIndex === NCLEXPracticeQuestions.length - 1
+                ? "Finish Quiz"
+                : "Next Question"}
+              <ChevronRight size={18} />
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

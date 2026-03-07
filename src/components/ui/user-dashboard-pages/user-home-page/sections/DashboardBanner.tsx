@@ -1,17 +1,18 @@
 "use client";
-import VoiceToText from "@/components/shared/VoiceToText";
-import { Input } from "antd";
-import { Search } from "lucide-react";
+// import VoiceToText from "@/components/shared/VoiceToText";
+// import { Input } from "antd";
+// import { Search } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 import ShortMenu from "./ShortMenu";
 import { BannerItems } from "@/data/home/shortMenuData";
+import SearchBar from "@/components/shared/user-dashboard/header/SearchBar";
 
 export default function DashboardBanner() {
-  const [text, setText] = useState<string>("");
+  // const [text, setText] = useState<string>("");
 
   return (
-    <section className=" flex flex-col gap-2 md:gap-6 md:justify-center bg-linear-to-b from-transparent to-[#D9ECFF] px-4 lg:px-5 relative min-h-[300px] md:min-h-[400px] rounded-b-lg overflow-hidden">
+    <section className=" flex flex-col gap-2 md:gap-6 md:justify-center bg-linear-to-b from-transparent to-[#FE5E7E] px-4 lg:px-5 relative min-h-[300px] md:min-h-[400px] rounded-b-lg overflow-hidden">
       <div className="flex flex-col justify-start md:justify-center items-start z-10">
         <div className="flex items-end gap-2 mb-3">
           {/* <Image
@@ -22,16 +23,19 @@ export default function DashboardBanner() {
             className="w-fit h-[50px] md:w-[71px] md:h-[71px] object-fit "
           /> */}
 
-          <h4 className="text-lg md:text-2xl font-bold text-[#666f78] -mb-1.5 ">
+          <h4 className="text-lg md:text-2xl font-bold text-[#000000] -mb-1.5 ">
             Hello, John! 👋
           </h4>
         </div>
-        <h1 className="text-xl lg:text-5xl font-bold text-[#2C5F8D]/70 md:text-[#2C5F8D]/40 max-w-[280px] md:max-w-[800px] tracking-[0.02rem] md:tracking-[0.1em] leading-[130%] md:leading-[100%]">
+        <h1 className="text-xl lg:text-5xl font-bold text-[#003877]/90 md:text-[#003877] max-w-[280px] md:max-w-[800px] tracking-[0.02rem] md:tracking-[0.1em] leading-[130%] md:leading-[100%] mb-4">
           Your One Platform with Infinite Possibilities
         </h1>
         {/* Search overlay */}
+        <div className="mb-6 w-full">
+          <SearchBar />
+        </div>
 
-        <form
+        {/* <form
           className="w-full"
           role="search"
           onSubmit={(e) => {
@@ -46,9 +50,9 @@ export default function DashboardBanner() {
             allowClear
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="md:!hidden !border-0 !w-full !h-[44px] mt-6 !bg-white"
+            className="md:!hidden !border-0 !w-full !h-[44px]  !bg-white"
           />
-        </form>
+        </form> */}
 
         <ShortMenu items={BannerItems} isPrimary={true} />
       </div>

@@ -25,6 +25,25 @@ export const menus: Record<string, MenuItem[]> = {
       label: "Home",
       icon: icon("/assets/sidebar-icons/home-icon.svg", "/profile/home"),
     },
+    {
+      key: "/profile/calendar",
+      label: "Calendar/Planner",
+      icon: icon(
+        "/assets/sidebar-icons/calendar-icon.svg",
+        "/profile/calendar",
+      ),
+      tag: "New",
+      className: "hidden lg:flex",
+    },
+    {
+      key: "/profile/my-library",
+      label: "My Library",
+      icon: icon(
+        "/assets/sidebar-icons/library-icon.svg",
+        "/profile/my-library",
+      ),
+      className: "hidden lg:flex",
+    },
   ],
   master: [
     {
@@ -126,16 +145,6 @@ export const menus: Record<string, MenuItem[]> = {
   ],
   studyTools: [
     {
-      key: "/profile/calendar",
-      label: "Calendar/Planner",
-      icon: icon(
-        "/assets/sidebar-icons/calendar-icon.svg",
-        "/profile/calendar",
-      ),
-      tag: "New",
-      className: "hidden lg:flex",
-    },
-    {
       key: "/profile/clinical-cases",
       label: "Clinical Cases",
       icon: icon(
@@ -151,15 +160,6 @@ export const menus: Record<string, MenuItem[]> = {
         "/assets/sidebar-icons/planning-icon.svg",
         "/profile/study-plans",
       ),
-    },
-    {
-      key: "/profile/my-library",
-      label: "My Library",
-      icon: icon(
-        "/assets/sidebar-icons/library-icon.svg",
-        "/profile/my-library",
-      ),
-      className: "hidden lg:flex",
     },
     {
       key: "/profile/concept-map",

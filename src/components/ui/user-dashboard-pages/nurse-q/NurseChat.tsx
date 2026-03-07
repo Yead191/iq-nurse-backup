@@ -24,14 +24,14 @@ export default function NurseChat({ open, onClose }: NurseChatProps) {
     <div className="fixed bottom-24 right-4 lg:bottom-6 lg:right-6 z-50 w-[340px] md:w-[380px] lg:w-[420px] h-[500px] md:h-[580px] lg:h-[650px] bg-[#f8fafc] rounded-lg shadow-2xl">
       <div className="h-full w-full bg-[#f8fafc] flex flex-col overflow-hidden rounded-lg">
         <ChatHeader onClose={onClose} onClear={clearChat} />
-        <MessageList 
-          messages={messages} 
-          isTyping={isTyping} 
+        <MessageList
+          messages={messages}
+          isTyping={isTyping}
           onQuickAction={handleQuickAction}
         />
-        <ChatInput 
-          onSend={sendMessage} 
-          value={inputValue} 
+        <ChatInput
+          onSend={sendMessage}
+          value={inputValue}
           onChange={setInputValue}
         />
       </div>
