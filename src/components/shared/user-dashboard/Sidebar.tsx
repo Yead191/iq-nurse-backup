@@ -257,7 +257,7 @@ const Sidebar = ({
           menuKey="master"
         />
         <RenderMenuGroup
-          title="Study Material"
+          title="CORE LEARNING"
           items={menus.studyMaterial}
           menuKey="studyTools"
         />
