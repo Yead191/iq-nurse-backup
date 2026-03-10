@@ -63,7 +63,7 @@ export const menus: Record<string, MenuItem[]> = {
   ],
   studyMaterial: [
     {
-      key: "/profile/study-notes?category=rn",
+      key: "/profile/study-notes/overview",
       label: "Study Notes",
       icon: icon(
         "/assets/sidebar-icons/study-notes-icon.svg",

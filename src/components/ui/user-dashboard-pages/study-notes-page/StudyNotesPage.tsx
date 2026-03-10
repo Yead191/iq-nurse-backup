@@ -3,12 +3,10 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
-import { BookOutlined } from "@ant-design/icons";
 import { SelectedContent } from "./SelectedContent";
 import { NclexSidebar } from "./NclexSidebar";
 import { Grid } from "antd";
-import { Bookmark, Printer, Share } from "lucide-react";
-import { toast } from "sonner";
+
 import Image from "next/image";
 
 export default function MedicalSurgicalPage() {
@@ -18,11 +16,11 @@ export default function MedicalSurgicalPage() {
   const category = searchParams.get("category");
 
   const [selectedCategory, setSelectedCategory] = useState<string>(
-    category || ""
+    category || "",
   );
   const [selectedSubcategory, setSelectedSubcategory] = useState<string>();
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(
-    new Set()
+    new Set(),
   );
 
   useEffect(() => {
@@ -44,7 +42,7 @@ export default function MedicalSurgicalPage() {
 
   const handleSubcategorySelect = (
     categoryId: string,
-    subcategoryId: string
+    subcategoryId: string,
   ) => {
     setSelectedCategory(categoryId);
     setSelectedSubcategory(subcategoryId);

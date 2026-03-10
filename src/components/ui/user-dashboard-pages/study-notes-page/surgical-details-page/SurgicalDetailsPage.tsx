@@ -47,7 +47,6 @@ const tabs = [
 ];
 
 export default function SurgicalDetailsPage({ id }: { id: any }) {
-  console.log(id);
   const [activeTab, setActiveTab] = useState("overview");
   const renderTabContent = () => {
     switch (activeTab) {
