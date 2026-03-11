@@ -5,7 +5,7 @@ import React from "react";
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
-    <section>
+    <section className="relative min-h-screen">
       <PageNavbar
         icon={
           <Image
@@ -19,8 +19,9 @@ export default function layout({ children }: { children: React.ReactNode }) {
         }
         title="Study Notes"
         topics={20}
+        sideBtn={true}
       />
-      <div className="flex lg:-mt-6">
+      <div className="flex">
         <div>
           <StudyNotesSidebar />
         </div>

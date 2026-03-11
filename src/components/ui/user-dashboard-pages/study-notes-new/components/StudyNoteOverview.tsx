@@ -86,7 +86,7 @@ export default function StudyNoteOverview() {
   ];
 
   return (
-    <div className=" lg:max-h-[calc(100vh-80px)] overflow-y-auto pt-12 container mx-auto px-4 lg:px-5">
+    <div className=" lg:max-h-[calc(100vh-80px)] overflow-y-auto pt-6 lg:pt-12 container mx-auto px-4 lg:px-5">
       {/* banner */}
       <OverviewBanner
         title="Study Notes"
@@ -159,19 +159,25 @@ export default function StudyNoteOverview() {
         )}
 
         {/* Quick Stats */}
-        <section className="mb-8 bg-gradient-to-r from-[#2C5F8D] to-[#3d7ab8] rounded-xl p-8 text-white">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <section className="mb-8 bg-gradient-to-r from-[#2C5F8D] to-[#3d7ab8] rounded-xl p-4 py-8 md:p-8 text-white">
+          <div className="grid grid-cols-3 gap-4 md:gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold mb-2">675+</div>
-              <div className="text-sm opacity-90">Study Topics</div>
+              <div className="text-2xl md:text-4xl font-bold mb-2">675+</div>
+              <div className="text-[10px] md:text-sm opacity-90">
+                Study Topics
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold mb-2">7</div>
-              <div className="text-sm opacity-90">Major Nursing Areas</div>
+              <div className="text-2xl md:text-4xl font-bold mb-2">7</div>
+              <div className="text-[10px] md:text-sm opacity-90">
+                Major Nursing Areas
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold mb-2">100%</div>
-              <div className="text-sm opacity-90">NCLEX Aligned</div>
+              <div className="text-2xl md:text-4xl font-bold mb-2">100%</div>
+              <div className="text-[10px] md:text-sm opacity-90">
+                NCLEX Aligned
+              </div>
             </div>
           </div>
         </section>

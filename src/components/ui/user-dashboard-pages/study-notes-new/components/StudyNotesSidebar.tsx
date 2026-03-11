@@ -372,7 +372,7 @@ export function StudyNotesSidebar() {
       <Button
         variant="outlined"
         size="small"
-        className="fixed top-4 left-4 z-50 md:hidden!"
+        className="fixed! top-5 left-4 z-50 md:hidden!"
         onClick={() => setIsMobileOpen(!isMobileOpen)}
       >
         {isMobileOpen ? <X className="size-4" /> : <Menu className="size-4" />}
