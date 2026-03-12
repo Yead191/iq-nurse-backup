@@ -37,7 +37,7 @@ export default function StudyNotesNew({
       .then((data) => setHtml(data));
   }, [content.content]);
   return (
-    <div className="container pt-4">
+    <div className="container pt-4 max-h-[calc(100vh-64px)] overflow-auto">
       <DynamicNoteHeading
         setActiveTab={setActiveTab}
         activeTab={activeTab}
@@ -57,7 +57,7 @@ export default function StudyNotesNew({
         <section className="w-full">
           <iframe
             src={content.content}
-            className="w-full h-[calc(100vh-300px)] rounded-lg"
+            className="w-full h-[calc(100vh-310px)] object-contain rounded-lg"
           />
         </section>
       )}
