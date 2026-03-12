@@ -379,7 +379,7 @@ export function StudyNotesSidebar() {
       </Button>
 
       {/* Desktop sidebar */}
-      <aside className="hidden md:block w-[280px] border-r border-gray-200  lg:h-[calc(100vh-80px)] overflow-scroll sticky top-0">
+      <aside className="hidden md:block w-[280px] border-r border-gray-200  lg:h-[calc(100vh-64px)] overflow-scroll sticky top-0">
         <SidebarContent />
       </aside>
 

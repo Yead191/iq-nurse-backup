@@ -1,0 +1,1110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STEMRN Study Cards</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #2c5f8d;
+        --navy-dark: #1e4266;
+        --navy-light: #3a7ab5;
+        --coral: #fe5e7e;
+        --coral-light: #ff8fa5;
+        --coral-dark: #e04060;
+        --white: #ffffff;
+        --off-white: #f7f9fc;
+        --light-blue: #e8f2fb;
+        --light-coral: #fff0f3;
+        --text-dark: #1a2a3a;
+        --text-mid: #3d5166;
+        --border: #cde0f5;
+        --warning: #ff9900;
+        --success: #2ecc71;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Nunito", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0d2540 0%,
+          #1e4266 50%,
+          #0d2540 100%
+        );
+        min-height: 100vh;
+        padding: 40px 20px;
+        color: var(--text-dark);
+      }
+
+      .page-title {
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--coral);
+        margin-bottom: 8px;
+      }
+
+      .page-subtitle {
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+        font-size: 28px;
+        font-weight: 900;
+        color: white;
+        margin-bottom: 40px;
+        letter-spacing: 1px;
+      }
+
+      .page-subtitle span {
+        color: var(--coral);
+      }
+
+      .card {
+        background: var(--white);
+        border-radius: 20px;
+        overflow: hidden;
+        max-width: 820px;
+        margin: 0 auto 50px auto;
+        box-shadow:
+          0 20px 60px rgba(0, 0, 0, 0.4),
+          0 0 0 1px rgba(255, 255, 255, 0.05);
+      }
+
+      .card-header {
+        background: linear-gradient(
+          135deg,
+          var(--navy-dark) 0%,
+          var(--navy) 100%
+        );
+        padding: 22px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .card-header h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 22px;
+        font-weight: 900;
+        color: white;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .card-header h2 .icon {
+        font-size: 24px;
+      }
+
+      .badge {
+        background: var(--coral);
+        color: white;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        padding: 5px 12px;
+        border-radius: 20px;
+        text-transform: uppercase;
+      }
+
+      .card-body {
+        padding: 28px;
+      }
+
+      /* Normal Values Banner */
+      .normal-values {
+        background: linear-gradient(135deg, var(--light-blue), #ddeeff);
+        border: 2px solid var(--border);
+        border-radius: 14px;
+        padding: 18px 22px;
+        margin-bottom: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .normal-values h3 {
+        width: 100%;
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--navy);
+        margin-bottom: 4px;
+      }
+
+      .normal-val-item {
+        background: white;
+        border-radius: 10px;
+        padding: 8px 16px;
+        border: 1.5px solid var(--border);
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--navy-dark);
+      }
+
+      .normal-val-item span {
+        color: var(--coral);
+        font-weight: 800;
+      }
+
+      /* Two column grid */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      @media (max-width: 600px) {
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .condition-box {
+        border-radius: 14px;
+        padding: 18px;
+        border: 2px solid transparent;
+      }
+
+      .hypo-box {
+        background: linear-gradient(135deg, #e8f4fd, #ddeeff);
+        border-color: #a8cef0;
+      }
+
+      .hyper-box {
+        background: linear-gradient(135deg, #fff0f3, #ffe0e8);
+        border-color: #ffb3c4;
+      }
+
+      .condition-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 15px;
+        font-weight: 800;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .hypo-box .condition-title {
+        color: var(--navy);
+      }
+      .hyper-box .condition-title {
+        color: var(--coral-dark);
+      }
+
+      .range-pill {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 10px;
+        margin-left: 4px;
+      }
+
+      .hypo-box .range-pill {
+        background: var(--navy);
+        color: white;
+      }
+      .hyper-box .range-pill {
+        background: var(--coral);
+        color: white;
+      }
+
+      .symptom-list {
+        list-style: none;
+        margin-bottom: 12px;
+      }
+
+      .symptom-list li {
+        font-size: 13.5px;
+        font-weight: 600;
+        padding: 3px 0;
+        padding-left: 16px;
+        position: relative;
+        color: var(--text-dark);
+      }
+
+      .symptom-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--navy-light);
+        font-weight: 900;
+      }
+
+      .hyper-box .symptom-list li::before {
+        color: var(--coral);
+      }
+
+      .mgmt-box {
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 10px;
+        padding: 10px 12px;
+        margin-top: 8px;
+      }
+
+      .mgmt-box .mgmt-title {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--navy);
+        margin-bottom: 5px;
+      }
+
+      .hyper-box .mgmt-box .mgmt-title {
+        color: var(--coral-dark);
+      }
+
+      .mgmt-box .mgmt-item {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-dark);
+        padding: 2px 0;
+        padding-left: 16px;
+        position: relative;
+      }
+
+      .mgmt-box .mgmt-item::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--navy-light);
+        font-weight: 900;
+      }
+
+      .hyper-box .mgmt-box .mgmt-item::before {
+        color: var(--coral);
+      }
+
+      /* Alert boxes */
+      .alerts-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 8px;
+      }
+
+      .alert-box {
+        background: linear-gradient(135deg, #fff8e1, #fff3cc);
+        border: 2px solid #ffd54f;
+        border-radius: 14px;
+        padding: 16px 18px;
+      }
+
+      .alert-box h4 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #b8860b;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .alert-box .alert-item {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-dark);
+        padding: 3px 0;
+      }
+
+      .memory-box {
+        background: linear-gradient(135deg, var(--light-coral), #ffe8ee);
+        border: 2px solid #ffb3c4;
+        border-radius: 14px;
+        padding: 16px 18px;
+      }
+
+      .memory-box h4 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--coral-dark);
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .memory-box .mem-item {
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--text-dark);
+        padding: 3px 0;
+      }
+
+      /* ABG specific */
+      .steps-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .quick-diag {
+        background: linear-gradient(135deg, var(--light-blue), #ddeeff);
+        border: 2px solid var(--border);
+        border-radius: 14px;
+        padding: 18px;
+      }
+
+      .quick-diag h3 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--navy);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .diag-item {
+        font-size: 13px;
+        font-weight: 700;
+        padding: 5px 0;
+        color: var(--text-dark);
+        border-bottom: 1px solid rgba(44, 95, 141, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .diag-item:last-child {
+        border-bottom: none;
+      }
+
+      .diag-item .diag-label {
+        min-width: 130px;
+        color: var(--navy);
+        font-weight: 800;
+      }
+
+      .stepwise-box {
+        background: white;
+        border: 2px solid var(--border);
+        border-radius: 14px;
+        padding: 18px;
+      }
+
+      .stepwise-box h3 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--navy);
+        margin-bottom: 12px;
+      }
+
+      .step-item {
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .step-item:last-child {
+        border-bottom: none;
+      }
+
+      .step-num {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--coral);
+        margin-bottom: 4px;
+      }
+
+      .step-detail {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .step-detail strong {
+        color: var(--navy);
+      }
+
+      .rome-box {
+        background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+        border-radius: 14px;
+        padding: 18px;
+        color: white;
+        text-align: center;
+        margin-bottom: 16px;
+      }
+
+      .rome-box h3 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--coral-light);
+        margin-bottom: 6px;
+      }
+
+      .rome-box .rome-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 20px;
+        font-weight: 900;
+        color: white;
+        margin-bottom: 12px;
+      }
+
+      .rome-rule {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+        padding: 10px 16px;
+        margin: 6px 0;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .rome-rule span {
+        color: var(--coral-light);
+      }
+
+      /* Thyroid specific */
+      .thyroid-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .hyper-thyroid {
+        background: linear-gradient(135deg, #fff5e6, #ffe8d6);
+        border: 2px solid #ffcb99;
+        border-radius: 14px;
+        padding: 18px;
+      }
+
+      .hypo-thyroid {
+        background: linear-gradient(135deg, #e8f4fd, #d6ebfa);
+        border: 2px solid #a8cef0;
+        border-radius: 14px;
+        padding: 18px;
+      }
+
+      .thyroid-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 15px;
+        font-weight: 900;
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .hyper-thyroid .thyroid-title {
+        color: #c0392b;
+      }
+      .hypo-thyroid .thyroid-title {
+        color: var(--navy);
+      }
+
+      .thyroid-subtitle {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+        color: #888;
+      }
+
+      .labs-line {
+        font-size: 13px;
+        font-weight: 800;
+        margin-bottom: 10px;
+        padding: 6px 10px;
+        border-radius: 8px;
+      }
+
+      .hyper-thyroid .labs-line {
+        background: rgba(192, 57, 43, 0.1);
+        color: #c0392b;
+      }
+      .hypo-thyroid .labs-line {
+        background: rgba(44, 95, 141, 0.1);
+        color: var(--navy);
+      }
+
+      .emergency-flag {
+        background: linear-gradient(135deg, #c0392b, #e74c3c);
+        color: white;
+        border-radius: 10px;
+        padding: 10px 14px;
+        margin: 10px 0;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .emergency-flag-blue {
+        background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+        color: white;
+        border-radius: 10px;
+        padding: 10px 14px;
+        margin: 10px 0;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .treatment-section {
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 10px;
+        padding: 12px;
+        margin-top: 8px;
+      }
+
+      .treatment-section .treat-title {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+
+      .hyper-thyroid .treat-title {
+        color: #c0392b;
+      }
+      .hypo-thyroid .treat-title {
+        color: var(--navy);
+      }
+
+      .memory-super {
+        background: linear-gradient(
+          135deg,
+          var(--navy-dark) 0%,
+          var(--navy) 50%,
+          #3a7ab5 100%
+        );
+        border-radius: 14px;
+        padding: 20px;
+        text-align: center;
+        margin-top: 8px;
+      }
+
+      .memory-super h4 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--coral-light);
+        margin-bottom: 12px;
+      }
+
+      .memory-item {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+        padding: 10px 20px;
+        margin: 6px auto;
+        font-size: 15px;
+        font-weight: 800;
+        color: white;
+        display: inline-block;
+        margin: 6px 8px;
+      }
+
+      .memory-item .mem-word {
+        color: var(--coral-light);
+      }
+
+      /* Emergency alert bar */
+      .emergency-bar {
+        background: linear-gradient(135deg, #c0392b, #e74c3c);
+        border-radius: 12px;
+        padding: 14px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 8px;
+      }
+
+      .emergency-bar .em-text {
+        font-size: 13.5px;
+        font-weight: 800;
+        color: white;
+      }
+
+      /* Footer branding */
+      .card-footer {
+        background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+        padding: 12px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .brand-tag {
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+        font-weight: 900;
+        color: white;
+        letter-spacing: 2px;
+      }
+
+      .brand-tag span {
+        color: var(--coral);
+      }
+
+      /* Clinical clues */
+      .clue-item {
+        font-size: 13px;
+        font-weight: 700;
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--text-dark);
+        border-bottom: 1px solid rgba(44, 95, 141, 0.12);
+      }
+
+      .clue-item:last-child {
+        border-bottom: none;
+      }
+      .clue-item .clue-cond {
+        color: var(--navy);
+        font-weight: 800;
+        min-width: 90px;
+      }
+
+      .memory-line-box {
+        background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+        border-radius: 12px;
+        padding: 14px 22px;
+        text-align: center;
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+
+      .memory-line-box p {
+        font-size: 15px;
+        font-weight: 800;
+        color: white;
+      }
+
+      .memory-line-box span {
+        color: var(--coral-light);
+      }
+
+      .section-divider {
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--border),
+          transparent
+        );
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="page-title">STEMRN · NCLEX REVIEW</p>
+    <p class="page-subtitle">Study <span>Cards</span></p>
+
+    <!-- ========== CARD 1: ELECTROLYTE IMBALANCE ========== -->
+    <div class="card">
+      <div class="card-header">
+        <h2><span class="icon">⚡</span> Electrolyte Imbalance</h2>
+        <span class="badge">NCLEX Review</span>
+      </div>
+      <div class="card-body">
+        <!-- Normal Values -->
+        <div class="normal-values">
+          <h3>📌 Normal Values</h3>
+          <div class="normal-val-item">Na⁺ <span>135–145</span> mEq/L</div>
+          <div class="normal-val-item">K⁺ <span>3.5–5.0</span> mEq/L</div>
+          <div class="normal-val-item">Ca²⁺ <span>8.5–10.5</span> mg/dL</div>
+        </div>
+
+        <!-- Sodium -->
+        <div
+          style="
+            margin-bottom: 8px;
+            font-family: &quot;Montserrat&quot;, sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--navy);
+          "
+        >
+          🧂 Sodium (Na⁺)
+        </div>
+        <div class="two-col">
+          <div class="condition-box hypo-box">
+            <div class="condition-title">
+              Hyponatremia <span class="range-pill">&lt;135</span>
+            </div>
+            <ul class="symptom-list">
+              <li>Nausea, confusion</li>
+              <li>Seizure risk ⚠️</li>
+              <li>SIADH → Fluid restriction</li>
+            </ul>
+            <div class="mgmt-box">
+              <div class="mgmt-title">Management</div>
+              <div class="mgmt-item">Hypertonic saline (severe)</div>
+            </div>
+          </div>
+          <div class="condition-box hyper-box">
+            <div class="condition-title">
+              Hypernatremia <span class="range-pill">&gt;145</span>
+            </div>
+            <ul class="symptom-list">
+              <li>Thirst, dehydration</li>
+              <li>Neuro changes</li>
+            </ul>
+            <div class="mgmt-box">
+              <div class="mgmt-title">Management</div>
+              <div class="mgmt-item">
+                Give fluids slowly (prevent cerebral edema)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Potassium -->
+        <div
+          style="
+            margin-bottom: 8px;
+            font-family: &quot;Montserrat&quot;, sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--navy);
+          "
+        >
+          ❤️ Potassium (K⁺)
+        </div>
+        <div class="two-col">
+          <div class="condition-box hypo-box">
+            <div class="condition-title">
+              Hypokalemia <span class="range-pill">&lt;3.5</span>
+            </div>
+            <ul class="symptom-list">
+              <li>Muscle weakness</li>
+              <li>Arrhythmia</li>
+              <li>Flattened T wave</li>
+              <li>U waves on ECG ⚠️</li>
+            </ul>
+            <div class="mgmt-box">
+              <div class="mgmt-title">Management</div>
+              <div class="mgmt-item">Oral/IV KCl</div>
+            </div>
+          </div>
+          <div class="condition-box hyper-box">
+            <div class="condition-title">
+              Hyperkalemia <span class="range-pill">&gt;5.0</span>
+            </div>
+            <ul class="symptom-list">
+              <li>Cardiac arrest risk ⚠️</li>
+              <li>Peaked T wave</li>
+              <li>Arrhythmia</li>
+            </ul>
+            <div class="mgmt-box">
+              <div class="mgmt-title">Management</div>
+              <div class="mgmt-item">Calcium gluconate</div>
+              <div class="mgmt-item">Insulin + glucose</div>
+              <div class="mgmt-item">Dialysis (severe)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Calcium -->
+        <div
+          style="
+            margin-bottom: 8px;
+            font-family: &quot;Montserrat&quot;, sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--navy);
+          "
+        >
+          🔵 Calcium (Ca²⁺)
+        </div>
+        <div class="two-col">
+          <div class="condition-box hypo-box">
+            <div class="condition-title">
+              Hypocalcemia <span class="range-pill">&lt;8.5</span>
+            </div>
+            <ul class="symptom-list">
+              <li>Tetany, numbness</li>
+              <li>Chvostek sign</li>
+              <li>Trousseau sign</li>
+            </ul>
+            <div class="mgmt-box">
+              <div class="mgmt-title">Management</div>
+              <div class="mgmt-item">Calcium IV</div>
+            </div>
+          </div>
+          <div class="condition-box hyper-box">
+            <div class="condition-title">
+              Hypercalcemia <span class="range-pill">&gt;10.5</span>
+            </div>
+            <ul class="symptom-list">
+              <li>Kidney stones</li>
+              <li>Constipation</li>
+              <li>Bone pain</li>
+              <li>Lethargy, confusion</li>
+            </ul>
+            <div class="mgmt-box">
+              <div class="mgmt-title">Management</div>
+              <div class="mgmt-item">IV fluids + loop diuretics</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="alerts-row">
+          <div class="alert-box">
+            <h4>⚠️ Critical Alerts</h4>
+            <div class="alert-item">⚡ K⁺ ↑ = Cardiac arrest</div>
+            <div class="alert-item">⚠️ Na⁺ ↓ = Seizure risk!</div>
+          </div>
+          <div class="memory-box">
+            <h4>🧠 Memory Tricks</h4>
+            <div class="mem-item">① Low K = Low heart ❤️</div>
+            <div class="mem-item">② High K = Heart stop 🛑</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="brand-tag">STEM<span>RN</span></div>
+      </div>
+    </div>
+
+    <!-- ========== CARD 2: ABG ========== -->
+    <div class="card">
+      <div class="card-header">
+        <h2><span class="icon">🫁</span> ABG Made Easy</h2>
+        <span class="badge">pH · PaCO₂ · HCO₃⁻</span>
+      </div>
+      <div class="card-body">
+        <div class="steps-grid">
+          <!-- Normal Values -->
+          <div
+            class="normal-values"
+            style="margin-bottom: 0; flex-direction: column; gap: 8px"
+          >
+            <h3>📌 Normal Values</h3>
+            <div class="normal-val-item">pH <span>7.35–7.45</span></div>
+            <div class="normal-val-item">PaCO₂ <span>35–45</span> mmHg</div>
+            <div class="normal-val-item">HCO₃⁻ <span>22–26</span> mEq/L</div>
+          </div>
+
+          <!-- Quick Diagnosis -->
+          <div class="quick-diag">
+            <h3>🔥 Quick Diagnosis</h3>
+            <div class="diag-item">
+              <span class="diag-label">Resp. Acidosis</span> ↓pH, ↑CO₂
+            </div>
+            <div class="diag-item">
+              <span class="diag-label">Resp. Alkalosis</span> ↑pH, ↓CO₂
+            </div>
+            <div class="diag-item">
+              <span class="diag-label">Met. Acidosis</span> ↓pH, ↓HCO₃⁻
+            </div>
+            <div class="diag-item">
+              <span class="diag-label">Met. Alkalosis</span> ↑pH, ↑HCO₃⁻
+            </div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ROME Rule -->
+        <div class="rome-box">
+          <h3>⚡ Magic Trick</h3>
+          <div class="rome-title">ROME RULE</div>
+          <div class="rome-rule">
+            <span>Respiratory</span> = Opposite direction
+          </div>
+          <div class="rome-rule">
+            <span>Metabolic</span> = Equal / Same direction
+          </div>
+        </div>
+
+        <!-- Stepwise + Clinical Clues -->
+        <div class="steps-grid">
+          <div class="stepwise-box">
+            <h3>🧠 Stepwise Interpretation</h3>
+            <div class="step-item">
+              <div class="step-num">Step 1 — Check pH</div>
+              <div class="step-detail">
+                <strong>↓ pH</strong> = Acidosis &nbsp;|&nbsp;
+                <strong>↑ pH</strong> = Alkalosis
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">Step 2 — Check PaCO₂ (Respiratory)</div>
+              <div class="step-detail">
+                <strong>↑ CO₂</strong> = Acidosis &nbsp;|&nbsp;
+                <strong>↓ CO₂</strong> = Alkalosis
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">Step 3 — Check HCO₃⁻ (Metabolic)</div>
+              <div class="step-detail">
+                <strong>↓ HCO₃⁻</strong> = Acidosis &nbsp;|&nbsp;
+                <strong>↑ HCO₃⁻</strong> = Alkalosis
+              </div>
+            </div>
+          </div>
+
+          <div class="quick-diag">
+            <h3>🩺 Clinical Clues</h3>
+            <div class="clue-item">
+              <span class="clue-cond">COPD</span> → Resp. Acidosis
+            </div>
+            <div class="clue-item">
+              <span class="clue-cond">Anxiety</span> → Resp. Alkalosis
+            </div>
+            <div class="clue-item">
+              <span class="clue-cond">Diarrhea</span> → Met. Acidosis
+            </div>
+            <div class="clue-item">
+              <span class="clue-cond">Vomiting</span> → Met. Alkalosis
+            </div>
+          </div>
+        </div>
+
+        <div class="memory-line-box">
+          <p>
+            🧠 Memory Line: <span>CO₂ = Acid</span> &nbsp;&nbsp;|&nbsp;&nbsp;
+            <span>HCO₃⁻ = Base</span>
+          </p>
+        </div>
+
+        <div class="emergency-bar">
+          <span style="font-size: 18px">⚠️</span>
+          <span class="em-text"
+            >ALERT: pH &lt; 7.2 or &gt; 7.6 → EMERGENCY 🚨</span
+          >
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="brand-tag">STEM<span>RN</span></div>
+      </div>
+    </div>
+
+    <!-- ========== CARD 3: THYROID ========== -->
+    <div class="card">
+      <div class="card-header">
+        <h2><span class="icon">🦋</span> Hyperthyroidism vs Hypothyroidism</h2>
+        <span class="badge">NCLEX Review</span>
+      </div>
+      <div class="card-body">
+        <div class="thyroid-grid">
+          <!-- Hyper -->
+          <div class="hyper-thyroid">
+            <div class="thyroid-title">🔴 Hyperthyroidism</div>
+            <div class="thyroid-subtitle">High Metabolism State</div>
+            <div class="labs-line">TSH ↓ &nbsp;|&nbsp; T3/T4 ↑</div>
+            <ul class="symptom-list">
+              <li>Weight loss despite ↑ appetite</li>
+              <li>Heat intolerance + sweating</li>
+              <li>Tachycardia (AFib risk), palpitations</li>
+              <li>Fine tremors, anxiety, irritability</li>
+              <li>Diarrhea</li>
+              <li>Graves' disease → Exophthalmos</li>
+            </ul>
+            <div class="emergency-flag">
+              ⚠️ <strong>Thyroid Storm</strong> = High fever + severe
+              tachycardia + delirium <em>(EMERGENCY)</em>
+            </div>
+            <div class="treatment-section">
+              <div class="treat-title">💊 Treatment</div>
+              <ul class="symptom-list">
+                <li>Methimazole / PTU</li>
+                <li>Beta blockers (Propranolol)</li>
+                <li>Radioactive iodine</li>
+                <li>Thyroidectomy</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Hypo -->
+          <div class="hypo-thyroid">
+            <div class="thyroid-title">🔵 Hypothyroidism</div>
+            <div class="thyroid-subtitle">Low Metabolism State</div>
+            <div class="labs-line">TSH ↑ &nbsp;|&nbsp; T3/T4 ↓</div>
+            <ul class="symptom-list">
+              <li>Weight gain</li>
+              <li>Cold intolerance</li>
+              <li>Bradycardia</li>
+              <li>Constipation</li>
+              <li>Dry skin, hair loss</li>
+              <li>Puffy face (Myxedema)</li>
+            </ul>
+            <div class="emergency-flag-blue">
+              ⚠️ <strong>Myxedema Coma</strong> = Hypothermia + bradycardia +
+              hypotension <em>(EMERGENCY)</em>
+            </div>
+            <div class="treatment-section">
+              <div class="treat-title">💊 Treatment</div>
+              <ul class="symptom-list">
+                <li>Levothyroxine (empty stomach, morning)</li>
+                <li>Lifelong therapy</li>
+                <li>Start low dose in elderly/cardiac patients</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Memory Trick -->
+        <div class="memory-super">
+          <h4>⚡ Super Fast Memory Trick</h4>
+          <div>
+            <div class="memory-item">
+              🔥 <span class="mem-word">Hyper</span> = Hot · Fast · Losing
+              weight
+            </div>
+            <div class="memory-item">
+              ❄️ <span class="mem-word">Hypo</span> = Cold · Slow · Gaining
+              weight
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="brand-tag">STEM<span>RN</span></div>
+      </div>
+    </div>
+  </body>
+</html>

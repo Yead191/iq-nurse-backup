@@ -11,16 +11,18 @@ interface NoteTabProps {
   content?: string;
   height?: string;
   isDesabled?: boolean;
+  topicId?: string;
 }
 
 export default function NoteTab({
+  topicId,
   handleContentChange,
   content,
   height = "60vh",
   isDesabled = false,
 }: NoteTabProps) {
   const editor = useRef(null);
-
+  console.log(topicId);
   const config = {
     readonly: false,
     placeholder: "Type your notes here..",

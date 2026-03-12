@@ -86,7 +86,7 @@ export default function StudyNoteOverview() {
   ];
 
   return (
-    <div className=" lg:max-h-[calc(100vh-80px)] overflow-y-auto pt-6 lg:pt-12 container mx-auto px-4 lg:px-5">
+    <div className=" lg:max-h-[calc(100vh-80px)] overflow-y-auto pt-6 lg:pt-14 container mx-auto px-4 lg:px-5">
       {/* banner */}
       <OverviewBanner
         title="Study Notes"

@@ -30,6 +30,7 @@ export default function OverviewBanner({
             height={400}
             className="w-full h-auto object-contain scale-105 lg:scale-100 z-0"
             priority
+            draggable={false}
           />
         </div>
 

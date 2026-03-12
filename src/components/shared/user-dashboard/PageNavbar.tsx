@@ -30,7 +30,7 @@ export default function PageNavbar({
   const pathname = usePathname();
   const { lg } = Grid.useBreakpoint();
   return (
-    <nav className="lg:h-[76px] h-[64px]">
+    <nav className=" h-[64px]">
       <div
         style={{
           boxShadow: "4px 4px 35px rgba(0, 0, 0, 0.13)",

@@ -322,3 +322,7 @@ html {
 .small-calendar .ant-picker-cell-selected:hover .ant-picker-cell-inner {
   background: rgba(0, 0, 0, 0.04) !important;
 }
+
+.study-note-content {
+  all: revert;
+}
