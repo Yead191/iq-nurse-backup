@@ -219,11 +219,11 @@ export default function MyNotepadPage() {
         //   },
         // ]}
       />
-      <div className="h-[calc(100vh-200px)] lg:h-[calc(100vh-110px)] flex flex-col px-4 lg:px-5  ">
+      <div className="h-[calc(100vh-200px)] lg:h-[calc(100vh-64px)] flex flex-col px-4 lg:px-5  ">
         <div className="flex-1 flex overflow-hidden">
           {/* ---------- Desktop Layout ---------- */}
           <div className="hidden lg:grid grid-cols-9 w-full">
-            <div className="col-span-2 border-r border-gray-200 overflow-y-auto">
+            <div className="col-span-2 border-r border-gray-200 overflow-y-auto pt-6">
               <NotepadMobileFolder
                 activeNoteId={activeNoteId}
                 folders={folders}

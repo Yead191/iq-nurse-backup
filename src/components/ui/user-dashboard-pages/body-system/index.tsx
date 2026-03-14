@@ -48,7 +48,7 @@ export default function BodySystemMain() {
   };
 
   return (
-    <div className="lg:min-h-screen bg-[#F4F4F4]">
+    <div className="lg:min-h-screen bg-[#F4F4F4] pt-6">
       {lg ? (
         <PageNavbar
           icon={

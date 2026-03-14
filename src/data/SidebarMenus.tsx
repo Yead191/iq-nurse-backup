@@ -143,7 +143,7 @@ export const menus: Record<string, MenuItem[]> = {
       tag: "drug-cards",
     },
   ],
-  studyTools: [
+  interactiveTools: [
     {
       key: "/profile/clinical-cases",
       label: "Clinical Cases",

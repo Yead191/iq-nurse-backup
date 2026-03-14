@@ -57,7 +57,7 @@ const ContentMap = () => {
   ];
 
   return (
-    <div>
+    <div className="">
       <PageNavbar
         icon={
           <Image
@@ -72,10 +72,10 @@ const ContentMap = () => {
         title="Interactive Concept Maps"
       />
 
-      <div className="flex flex-col lg:flex-row gap-8 lg:h-[calc(100vh-100px)]">
+      <div className="flex flex-col lg:flex-row gap-8 lg:h-[calc(100vh-64px)]">
         {/* Sidebar with Tabs */}
-        <div className="w-full lg:w-1/5 lg:p-3 flex flex-col   bg-white lg:shadow-xl rounded-lg">
-          <div className="lg:space-y-4 w-full flex lg:flex-col flex-row lg:items-start items-center px-1  ">
+        <div className="w-full lg:w-1/5 lg:p-3 flex flex-col   bg-white lg:shadow-xl rounded-lg ">
+          <div className="lg:space-y-4 w-full flex lg:flex-col flex-row lg:items-start items-center px-1 pt-6 ">
             {tabs.map((tab) => (
               <div
                 key={tab.id}
@@ -93,7 +93,7 @@ const ContentMap = () => {
         </div>
 
         {/* Main Content Area */}
-        <div className="w-full lg:w-4/5 bg-white rounded-xl h-auto overflow-y-auto p-4">
+        <div className="w-full lg:w-4/5 bg-white rounded-xl h-auto overflow-y-auto p-4 mt-6">
           {tabs.find((tab) => tab.id === activeTab)?.component}
         </div>
       </div>

@@ -30,7 +30,7 @@ export default function TemplateSidebar({ basePath }: Props) {
   const { lg } = Grid.useBreakpoint();
 
   const [expanded, setExpanded] = useState<string | null>(
-    TemplateData.categories[0]?.id
+    TemplateData.categories[0]?.id,
   );
   const [searchText, setSearchText] = useState("");
 
@@ -54,7 +54,7 @@ export default function TemplateSidebar({ basePath }: Props) {
 
   return (
     <aside
-      className={`p-3 lg:w-64 2xl:w-80 w-full boxShadow h-full lg:h-[calc(100vh-77px)] overflow-y-auto -mt-6`}
+      className={`p-3 lg:w-64 2xl:w-80 w-full boxShadow h-full lg:h-[calc(100vh-64px)] overflow-y-auto `}
     >
       <Input
         prefix={<Search />}

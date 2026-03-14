@@ -8,7 +8,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
       <div className="flex">
         <TemplateSidebar basePath="/profile/templates" />
 
-        <div className="flex-1 lg:h-[calc(100vh-110px)] overflow-auto lg:px-5">
+        <div className="flex-1 lg:h-[calc(100vh-64px)] overflow-auto lg:px-5 pt-6">
           {children}
         </div>
       </div>

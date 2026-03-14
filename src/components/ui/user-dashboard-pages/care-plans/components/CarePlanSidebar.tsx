@@ -55,7 +55,7 @@ export default function CarePlanSidebar() {
 
   return (
     <aside
-      className={`lg:h-[calc(100vh-80px)] overflow-y-auto p-3 boxShadow -mt-6 
+      className={`lg:h-[calc(100vh-64px)] overflow-y-auto p-3 boxShadow  
       ${lg ? "lg:w-64 2xl:w-80" : "w-full"}`}
     >
       <Input

@@ -11,7 +11,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
         basePath="/profile/vital-signs"
       />
 
-      <div className="flex">
+      <div className="flex pt-6">
         <VitalSidebar />
         <div className="flex-1 lg:h-[calc(100vh-110px)] overflow-auto lg:px-5">
           {children}

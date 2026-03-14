@@ -262,9 +262,9 @@ const Sidebar = ({
           menuKey="studyTools"
         />
         <RenderMenuGroup
-          title="Study Tools"
-          items={menus.studyTools}
-          menuKey="studyTools"
+          title="INTERACTIVE TOOLS"
+          items={menus?.interactiveTools}
+          menuKey="interactiveTools"
         />
         <div className="hidden md:block">
           <RenderMenuGroup
