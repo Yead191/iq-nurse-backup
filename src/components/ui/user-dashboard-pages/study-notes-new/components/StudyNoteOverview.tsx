@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import OverviewBanner from "@/components/shared/OverviewBanner";
+import Image from "next/image";
 
 interface RecentlyViewedTopic {
   id: string;
@@ -91,7 +92,17 @@ export default function StudyNoteOverview() {
       <OverviewBanner
         title="Study Notes"
         description="Get More Knowledge."
-        image="/assets/images/overview-images/study-notes.png"
+        image={
+          <Image
+            src={"/assets/images/overview-images/study-notes.png"}
+            alt="Study Notes Robot"
+            width={800}
+            height={800}
+            className="w-full h-auto object-contain scale-105 lg:scale-100 z-0"
+            priority
+            draggable={false}
+          />
+        }
       />
 
       <div className="">

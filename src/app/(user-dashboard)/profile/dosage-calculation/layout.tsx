@@ -1,5 +1,5 @@
 import DynamicHeader from "@/components/shared/DynamicHeader";
-import DosageSidebar from "@/components/ui/user-dashboard-pages/dosage-calculation/component/DosageSidebar";
+import { DosageSidebar } from "@/components/ui/user-dashboard-pages/dosage-calculation/component/DosageSidebar";
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,9 +12,11 @@ export default function layout({ children }: { children: React.ReactNode }) {
         basePath="/profile/dosage-calculation"
       />
 
-      <div className="flex pt-6!">
-        <DosageSidebar />
-        <div className="flex-1 lg:h-[calc(100vh-110px)] overflow-auto lg:px-5">
+      <div className="flex pt-6">
+        <div className="hidden lg:block">
+          <DosageSidebar />
+        </div>
+        <div className="flex-1 lg:h-[calc(100vh-90px)] overflow-auto lg:px-5">
           {children}
         </div>
       </div>
