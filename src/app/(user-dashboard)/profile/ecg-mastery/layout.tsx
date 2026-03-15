@@ -1,5 +1,5 @@
 import DynamicHeader from "@/components/shared/DynamicHeader";
-import ECGSidebar from "@/components/ui/user-dashboard-pages/ecg-mastery/component/ECGSidebar";
+import { EcgSidebar } from "@/components/ui/user-dashboard-pages/ecg-mastery-new/components/EcgSidebar";
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,9 +12,11 @@ export default function layout({ children }: { children: React.ReactNode }) {
         basePath="/profile/ecg-mastery"
       />
 
-      <div className="flex pt-6">
-        <ECGSidebar />
-        <div className="flex-1 lg:h-[calc(100vh-110px)] overflow-auto lg:px-5">
+      <div className="flex ">
+        <div className="hidden lg:block">
+          <EcgSidebar />
+        </div>
+        <div className="flex-1 lg:h-[calc(100vh-64px)] overflow-auto lg:px-5 pt-6">
           {children}
         </div>
       </div>
