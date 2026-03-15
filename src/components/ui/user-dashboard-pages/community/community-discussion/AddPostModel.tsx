@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { Modal, Input, Button, Select, Tooltip, Divider, Grid } from "antd";
 import { Image as ImageIcon, Plus, X, Dot } from "lucide-react";
-import NoteTab from "../../study-notes-page/surgical-details-page/NoteTab";
 import { FaImage } from "react-icons/fa";
+import NoteTab from "@/components/shared/NoteTab";
 
 const PostCreationModal = ({
   isVisible,

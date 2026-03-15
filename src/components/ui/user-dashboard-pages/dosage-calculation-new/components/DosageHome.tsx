@@ -55,7 +55,7 @@ export function DosageHome() {
           Master medication math and prepare for nursing success with
           comprehensive study notes and practice questions.
         </p>
-        <div className="flex gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <button
             onClick={() => onSelectTopic("practice-test")}
             className="flex items-center gap-2 px-6 py-3 bg-[#2C5F8D] text-white rounded-lg hover:bg-[#234a6d] transition-colors font-medium"
@@ -148,16 +148,22 @@ export function DosageHome() {
       {/* Quick Stats */}
       <div className="grid grid-cols-3 gap-4">
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
-          <p className="text-3xl font-bold text-[#2C5F8D] mb-1">8</p>
-          <p className="text-sm text-gray-600">Study Topics</p>
+          <p className="text-2xl lg:text-3xl font-bold text-[#2C5F8D] mb-1">
+            8
+          </p>
+          <p className="text-xs lg:text-sm text-gray-600">Study Topics</p>
         </div>
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
-          <p className="text-3xl font-bold text-[#2C5F8D] mb-1">20</p>
-          <p className="text-sm text-gray-600">Practice Questions</p>
+          <p className="text-2xl lg:text-3xl font-bold text-[#2C5F8D] mb-1">
+            20
+          </p>
+          <p className="text-xs lg:text-sm text-gray-600">Practice Questions</p>
         </div>
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
-          <p className="text-3xl font-bold text-[#2C5F8D] mb-1">100+</p>
-          <p className="text-sm text-gray-600">Study Tips</p>
+          <p className="text-2xl lg:text-3xl font-bold text-[#2C5F8D] mb-1">
+            100+
+          </p>
+          <p className="text-xs lg:text-sm text-gray-600">Study Tips</p>
         </div>
       </div>
 

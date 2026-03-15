@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import NoteTab from "../study-notes-page/surgical-details-page/NoteTab";
+import NoteTab from "@/components/shared/NoteTab";
 import { SaveToFolderModal } from "./modals/SaveToFolderModal";
 import { ShareModal } from "./modals/ShareModal";
 import { QuizModal } from "./modals/QuizModal";
 import DynamicNoteHeading from "./components/DynamicNoteHeading";
+import { studyCardsHTML } from "../../../../../public/assets/files/demoStudyNote";
 
 export default function StudyNotesNew({
   content,
@@ -23,7 +24,6 @@ export default function StudyNotesNew({
   const [isQuizOpen, setQuizOpen] = useState(false);
   const [savedToFolder, setSaveModalOpen] = useState(false);
   const [isShareModalOpen, setShareModalOpen] = useState(false);
-  const [html, setHtml] = useState("");
 
   // FUNCTIONS
   const handleSave = (folderId: string) => {
@@ -31,11 +31,7 @@ export default function StudyNotesNew({
     setSaveModalOpen(true);
     setTimeout(() => setSaveModalOpen(false), 3000);
   };
-  useEffect(() => {
-    fetch(content.content)
-      .then((res) => res.text())
-      .then((data) => setHtml(data));
-  }, [content.content]);
+
   return (
     <div className="container pt-4 max-h-[calc(100vh-64px)] overflow-auto">
       <DynamicNoteHeading
@@ -50,16 +46,16 @@ export default function StudyNotesNew({
       {activeTab === "notes" ? (
         <NoteTab topicId={content?._id} />
       ) : (
-        // <section
-        //   className="study-note-content prose max-w-none"
-        //   dangerouslySetInnerHTML={{ __html: html }}
-        // />
-        <section className="w-full">
-          <iframe
-            src={content.content}
-            className="w-full h-[calc(100vh-310px)] object-contain rounded-lg"
-          />
-        </section>
+        <section
+          className="study-note-content prose max-w-none overflow-scroll"
+          dangerouslySetInnerHTML={{ __html: studyCardsHTML }}
+        />
+        // <section className="w-full">
+        //   <iframe
+        //     src={content.content}
+        //     className="w-full h-[calc(100vh-310px)] object-contain rounded-lg"
+        //   />
+        // </section>
       )}
 
       {/* Modals */}

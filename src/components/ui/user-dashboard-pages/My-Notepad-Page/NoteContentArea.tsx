@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import NoteTab from "../study-notes-page/surgical-details-page/NoteTab";
-import SingleNoteTab from "./single-note/SingleNoteTab";
+import NoteTab from "@/components/shared/NoteTab";
 
 interface NoteContentAreaProps {
   noteId: string | null;

@@ -25,49 +25,51 @@ export default function DetailsHeader({
 }) {
   const router = useRouter();
   return (
-    <div
-      className={`flex md:hidden items-center justify-between py-3 sticky top-0 z-50 ${
-        primaryBg ? "bg-[#02478D]" : " bg-[#FFFFFF] "
-      } px-4 `}
+    <nav
+      className={`h-[62px] ${primaryBg ? "bg-[#02478D]" : " bg-[#FFFFFF] "} w-full`}
     >
-      {/* Back Button */}
-      <div className="flex items-center space-x-3">
-        {back ? (
-          <Link href={back} className="mt-1.5">
+      <div
+        className={`flex md:hidden items-center justify-between py-3 fixed top-0 z-50 ${primaryBg ? "bg-[#02478D]" : " bg-[#FFFFFF] "} px-4 w-full `}
+      >
+        {/* Back Button */}
+        <div className="flex items-center space-x-3">
+          {back ? (
+            <Link href={back} className="mt-1.5">
+              <button
+                className={`hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border ${
+                  primaryBg ? "border-white/70" : "border-[#2C5F8D]"
+                } `}
+              >
+                <ChevronLeft size={24} color={primaryBg ? "#fff" : "#2C5F8D"} />
+              </button>
+            </Link>
+          ) : (
             <button
+              onClick={() => router.back()}
               className={`hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border ${
                 primaryBg ? "border-white/70" : "border-[#2C5F8D]"
               } `}
             >
               <ChevronLeft size={24} color={primaryBg ? "#fff" : "#2C5F8D"} />
             </button>
-          </Link>
-        ) : (
-          <button
-            onClick={() => router.back()}
-            className={`hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border ${
-              primaryBg ? "border-white/70" : "border-[#2C5F8D]"
-            } `}
+          )}
+          <span
+            className={`text-sm border ${
+              primaryBg ? "text-white border-white/70" : ""
+            }   border-[#2C5F8D]    bg-transparent px-3 py-1 rounded capitalize`}
           >
-            <ChevronLeft size={24} color={primaryBg ? "#fff" : "#2C5F8D"} />
-          </button>
-        )}
-        <span
-          className={`text-sm border ${
-            primaryBg ? "text-white border-white/70" : ""
-          }   border-[#2C5F8D]    bg-transparent px-3 py-1 rounded capitalize`}
-        >
-          {title}
-        </span>
-      </div>
+            {title}
+          </span>
+        </div>
 
-      {/* Actions */}
-      <div className="flex items-center space-x-3">
-        {actions?.map((action, idx) => (
-          <ActionButton key={idx} {...action} />
-        ))}
+        {/* Actions */}
+        <div className="flex items-center space-x-3">
+          {actions?.map((action, idx) => (
+            <ActionButton key={idx} {...action} />
+          ))}
+        </div>
       </div>
-    </div>
+    </nav>
   );
 }
 

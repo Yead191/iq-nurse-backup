@@ -94,7 +94,7 @@ export default function OldMobileHeader() {
                 />
               </Link>
             ) : (
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 ">
                 <button
                   onClick={handleBack}
                   className="hover:bg-gray-100 text-[#c5c6c6] font-semibold rounded border "

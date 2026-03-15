@@ -87,7 +87,7 @@ export default function StudyNoteOverview() {
   ];
 
   return (
-    <div className=" lg:max-h-[calc(100vh-80px)] overflow-y-auto pt-6 lg:pt-14 container mx-auto px-4 lg:px-5">
+    <div className=" lg:max-h-[calc(100vh-64px)] overflow-y-auto pt-6 lg:pt-14 container mx-auto px-4 lg:px-5 pb-8">
       {/* banner */}
       <OverviewBanner
         title="Study Notes"
@@ -98,7 +98,7 @@ export default function StudyNoteOverview() {
             alt="Study Notes Robot"
             width={800}
             height={800}
-            className="w-full h-auto object-contain scale-105 lg:scale-100 z-0"
+            className="w-full h-auto object-contain scale-105 lg:scale-100 z-0 lg:-translate-x-14 2xl:translate-x-0"
             priority
             draggable={false}
           />
