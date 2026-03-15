@@ -5,8 +5,8 @@ import { clinicalSkils } from "@/data/clinical-skills-data";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { ChevronDown, ChevronRight, Search } from "lucide-react";
 import { Grid, Input } from "antd";
-import DocumentationCard from "../study-notes-page/DocumentationCard";
 import Image from "next/image";
+import DocumentationCard from "./DocumentationCard";
 
 export default function SkillSidebar() {
   const router = useRouter();
@@ -22,15 +22,15 @@ export default function SkillSidebar() {
 
   // Find which category contains the current skill to auto-expand
   const activeCategory = getClinicalSkillsData.find((cat) =>
-    cat.skills.some((skill) => skill.id === currentSkillId)
+    cat.skills.some((skill) => skill.id === currentSkillId),
   );
 
   const [expanded, setExpanded] = useState<string | null>(
-    activeCategory?.id || getClinicalSkillsData[0]?.id
+    activeCategory?.id || getClinicalSkillsData[0]?.id,
   );
 
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
-    activeCategory?.id || getClinicalSkillsData[0]?.id
+    activeCategory?.id || getClinicalSkillsData[0]?.id,
   );
 
   // Auto redirect on large screen
@@ -55,8 +55,8 @@ export default function SkillSidebar() {
     (cat) =>
       cat.title.toLowerCase().includes(searchText.toLowerCase()) ||
       cat.skills.some((skill) =>
-        skill.name.toLowerCase().includes(searchText.toLowerCase())
-      )
+        skill.name.toLowerCase().includes(searchText.toLowerCase()),
+      ),
   );
   // Hide sidebar on mobile when tool is selected
   const hideOnMobile = !lg && pathname.split("/").length > 3;
@@ -123,7 +123,7 @@ export default function SkillSidebar() {
               <div className="ml-2 mt-1 space-y-2">
                 {cat.skills
                   .filter((skill) =>
-                    skill.name.toLowerCase().includes(searchText.toLowerCase())
+                    skill.name.toLowerCase().includes(searchText.toLowerCase()),
                   )
                   .map((skill) => (
                     <div

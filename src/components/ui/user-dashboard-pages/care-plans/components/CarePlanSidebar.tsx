@@ -5,8 +5,8 @@ import { ChevronDown, ChevronRight, Folder, Search } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { carePlansCategories } from "@/data/carePlansCategories";
 import { Input, Grid } from "antd";
-import DocumentationCard from "../../study-notes-page/DocumentationCard";
 import Image from "next/image";
+import DocumentationCard from "../../clinical-skills/DocumentationCard";
 
 export default function CarePlanSidebar() {
   const router = useRouter();
