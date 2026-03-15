@@ -29,9 +29,10 @@ export default function EcgContentArea({ content }: { content: any }) {
 
     // Add current topic to the front
     recentlyViewed.unshift({
-      id: content,
-      label: metadata.label,
-      category: metadata.category,
+      id: {
+        title: content?.title,
+        description: content?.description,
+      },
       timestamp: Date.now(),
     });
 

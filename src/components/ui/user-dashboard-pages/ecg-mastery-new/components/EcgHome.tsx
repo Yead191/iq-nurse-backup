@@ -21,10 +21,8 @@ const PracticeTestButton = () => {
 
 export function EcgHome() {
   const router = useRouter();
-  const [recentlyViewed, setRecentlyViewed] = useState<
-    Array<{ id: string; label: string; category: string; timestamp: number }>
-  >([]);
-
+  const [recentlyViewed, setRecentlyViewed] = useState<any>([]);
+  console.log(recentlyViewed);
   useEffect(() => {
     // Load recently viewed from localStorage
     const stored = localStorage.getItem("ecg-recently-viewed");
@@ -148,31 +146,34 @@ export function EcgHome() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {recentlyViewed.map((topic) => (
-              <button
-                key={`${topic.id}-${topic.timestamp}`}
-                onClick={() => onTopicSelect(topic.id)}
-                className="group bg-white border border-gray-200 rounded-lg p-4 hover:border-[#2C5F8D] hover:shadow-md transition-all text-left"
-              >
-                <div className="space-y-2">
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900 group-hover:text-[#2C5F8D] transition-colors">
-                        {topic.label}
-                      </h3>
-                      <p className="text-xs text-gray-500 mt-1">
-                        {topic.category}
-                      </p>
+            {recentlyViewed.map((topic: any) => {
+              console.log(topic, "topic");
+              return (
+                <button
+                  key={`${topic?.id?.title}-${topic?.timestamp}`}
+                  onClick={() => onTopicSelect(topic?.id?.title)}
+                  className="group bg-white border border-gray-200 rounded-lg p-4 hover:border-[#2C5F8D] hover:shadow-md transition-all text-left"
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-gray-900 group-hover:text-[#2C5F8D] transition-colors">
+                          {topic?.id?.title}
+                        </h3>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {topic?.id?.description}
+                        </p>
+                      </div>
+                      <ArrowRight className="size-4 text-gray-400 group-hover:text-[#2C5F8D] group-hover:translate-x-1 transition-all shrink-0 mt-1" />
                     </div>
-                    <ArrowRight className="size-4 text-gray-400 group-hover:text-[#2C5F8D] group-hover:translate-x-1 transition-all shrink-0 mt-1" />
+                    <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                      <Clock className="size-3" />
+                      <span>{formatTimeAgo(topic?.timestamp)}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs text-gray-500">
-                    <Clock className="size-3" />
-                    <span>{formatTimeAgo(topic.timestamp)}</span>
-                  </div>
-                </div>
-              </button>
-            ))}
+                </button>
+              );
+            })}
           </div>
         </section>
       )}
