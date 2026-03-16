@@ -19,7 +19,7 @@ export function LabsHome() {
   const [recentlyViewed, setRecentlyViewed] = useState<string[]>([]);
 
   useEffect(() => {
-    const recent = localStorage.getItem("recentlyViewedTopics");
+    const recent = localStorage.getItem("labsRecentlyViewedTopics");
     if (recent) {
       setRecentlyViewed(JSON.parse(recent));
     }
@@ -82,19 +82,14 @@ export function LabsHome() {
         </Space>
       </Card>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Most Popular Topics */}
-        <Card
-          title={
-            <Space>
-              <TrendingUp style={{ color: "#2C5F8D" }} />
-              Most Popular Topics
-            </Space>
-          }
-        >
-          <div
-            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}
-          >
+        <div className="lg:border lg:border-gray-200 lg:rounded-2xl lg:p-4">
+          <Space>
+            <TrendingUp style={{ color: "#2C5F8D" }} />
+            Most Popular Topics
+          </Space>
+          <div className="grid grid-cols-2 gap-2 lg:gap-6 mt-4 md:mt-0">
             {popularTopics?.map((topic) => (
               <Card
                 key={topic.id}
@@ -133,17 +128,14 @@ export function LabsHome() {
               </Card>
             ))}
           </div>
-        </Card>
+        </div>
 
         {/* Recently Viewed */}
-        <Card
-          title={
-            <Space>
-              <ClockCircleOutlined style={{ color: "#2C5F8D" }} />
-              Recently Viewed
-            </Space>
-          }
-        >
+        <div className="lg:border lg:border-gray-200 lg:rounded-2xl lg:p-4">
+          <Space>
+            <ClockCircleOutlined style={{ color: "#2C5F8D" }} />
+            Recently Viewed
+          </Space>
           {recentlyViewed.length === 0 ? (
             <Empty
               image={Empty.PRESENTED_IMAGE_SIMPLE}
@@ -209,7 +201,7 @@ export function LabsHome() {
               })}
             </div>
           )}
-        </Card>
+        </div>
       </div>
 
       {/* Quick Stats */}

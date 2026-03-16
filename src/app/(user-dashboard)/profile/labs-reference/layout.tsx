@@ -16,7 +16,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
         <div className="hidden lg:block">
           <LabsSidebar />
         </div>
-        <div className="flex-1 lg:h-[calc(100vh-64px)] overflow-auto px-4 lg:px-5">
+        <div className="flex-1 lg:h-[calc(100vh-64px)] overflow-auto">
           {children}
         </div>
       </div>
