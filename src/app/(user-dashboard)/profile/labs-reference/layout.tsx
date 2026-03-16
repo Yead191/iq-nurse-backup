@@ -1,5 +1,5 @@
 import DynamicHeader from "@/components/shared/DynamicHeader";
-import LabsSidebar from "@/components/ui/user-dashboard-pages/labs-reference/component/LabsSidebar";
+import { LabsSidebar } from "@/components/ui/user-dashboard-pages/labs-reference-new/components/LabsSidebar";
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,8 +13,10 @@ export default function layout({ children }: { children: React.ReactNode }) {
       />
 
       <div className="flex">
-        <LabsSidebar />
-        <div className="flex-1 lg:h-[calc(100vh-110px)] overflow-auto lg:px-5">
+        <div className="hidden lg:block">
+          <LabsSidebar />
+        </div>
+        <div className="flex-1 lg:h-[calc(100vh-64px)] overflow-auto px-4 lg:px-5">
           {children}
         </div>
       </div>

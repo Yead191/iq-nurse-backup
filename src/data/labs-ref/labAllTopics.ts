@@ -1,0 +1,143 @@
+import {
+  ClockCircleOutlined,
+  DashboardOutlined,
+  DotChartOutlined,
+  ExperimentOutlined,
+  ThunderboltOutlined,
+  FilterOutlined,
+  SafetyCertificateOutlined,
+  ExperimentFilled,
+  DribbbleOutlined,
+  HeartFilled,
+} from "@ant-design/icons";
+import { popularTopics } from "./popularTopics";
+import { Droplet } from "lucide-react";
+export const labsAllTopics = [
+  ...popularTopics,
+  {
+    id: "ck-mb",
+    title: "Creatine Kinase (CK-MB)",
+    icon: DashboardOutlined,
+    category: "Cardiac Biomarkers",
+  },
+  {
+    id: "bnp",
+    title: "B-type Natriuretic Peptide (BNP)",
+    icon: HeartFilled,
+    category: "Cardiac Biomarkers",
+  },
+  {
+    id: "ptt",
+    title: "Partial Thromboplastin Time (PTT)",
+    icon: ClockCircleOutlined,
+    category: "Coagulation Studies",
+  },
+  {
+    id: "d-dimer",
+    title: "D-Dimer & Other Tests",
+    icon: Droplet,
+    category: "Coagulation Studies",
+  },
+  {
+    id: "rbc-detailed",
+    title: "Red Blood Cells (RBC)",
+    icon: DotChartOutlined,
+    category: "Complete Blood Count",
+  },
+  {
+    id: "wbc",
+    title: "White Blood Cells (WBC)",
+    icon: SafetyCertificateOutlined,
+    category: "Complete Blood Count",
+  },
+  {
+    id: "platelets",
+    title: "Platelets",
+    icon: DotChartOutlined,
+    category: "Complete Blood Count",
+  },
+  {
+    id: "glucose",
+    title: "Glucose",
+    icon: ThunderboltOutlined,
+    category: "Metabolic Panel",
+  },
+  {
+    id: "sodium",
+    title: "Sodium",
+    icon: ExperimentFilled,
+    category: "Metabolic Panel",
+  },
+  {
+    id: "chloride",
+    title: "Chloride",
+    icon: ExperimentFilled,
+    category: "Metabolic Panel",
+  },
+  {
+    id: "calcium",
+    title: "Calcium",
+    icon: DribbbleOutlined,
+    category: "Metabolic Panel",
+  },
+  {
+    id: "egfr",
+    title: "eGFR",
+    icon: FilterOutlined,
+    category: "Metabolic Panel",
+  },
+  {
+    id: "lft",
+    title: "Liver Function Tests",
+    icon: DashboardOutlined,
+    category: "Metabolic Panel",
+  },
+  {
+    id: "total-protein",
+    title: "Total Protein & Albumin",
+    icon: ExperimentOutlined,
+    category: "Metabolic Panel",
+  },
+  {
+    id: "bun",
+    title: "Blood Urea Nitrogen (BUN)",
+    icon: FilterOutlined,
+    category: "Renal Function",
+  },
+  {
+    id: "creatinine",
+    title: "Creatinine",
+    icon: FilterOutlined,
+    category: "Renal Function",
+  },
+  {
+    id: "egfr-renal",
+    title: "eGFR & Kidney Disease Staging",
+    icon: FilterOutlined,
+    category: "Renal Function",
+  },
+  {
+    id: "resp-acidosis",
+    title: "Respiratory Acidosis",
+    icon: ExperimentOutlined,
+    category: "Arterial Blood Gas",
+  },
+  {
+    id: "resp-alkalosis",
+    title: "Respiratory Alkalosis",
+    icon: ExperimentOutlined,
+    category: "Arterial Blood Gas",
+  },
+  {
+    id: "metab-acidosis",
+    title: "Metabolic Acidosis",
+    icon: ThunderboltOutlined,
+    category: "Arterial Blood Gas",
+  },
+  {
+    id: "metab-alkalosis",
+    title: "Metabolic Alkalosis",
+    icon: ThunderboltOutlined,
+    category: "Arterial Blood Gas",
+  },
+];

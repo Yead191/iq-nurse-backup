@@ -48,11 +48,6 @@ export default function SkillNotesPage({ id }: { id: any }) {
   return (
     <div>
       <DetailsHeader title="Clinical Skills" back={"/profile/clinicals"} />
-      {/* <TabNavigation
-        tabs={tabs}
-        activeTab={activeTab}
-        onChange={setActiveTab}
-      /> */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-8">
         <div className=" hidden lg:block">
           <MediaSection img="/assets/assessment-img.png" alt="Assessment img" />

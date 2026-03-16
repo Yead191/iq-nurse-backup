@@ -20,7 +20,7 @@ export function DosageSidebar() {
   };
 
   return (
-    <aside className="w-full lg:w-64 2xl:w-80 bg-white lg:border-r lg:border-gray-200 flex flex-col px-4 lg:h-[calc(100vh-90px)]">
+    <aside className="w-full lg:w-64 2xl:w-80 bg-white lg:border-r lg:border-gray-200 flex flex-col px-4 lg:h-[calc(100vh-90px)] overflow-auto">
       <button
         onClick={() => onSelectTopic("")}
         className={`flex items-center gap-2 w-full px-3 py-2 mb-3 text-sm font-medium rounded-md transition-colors ${
