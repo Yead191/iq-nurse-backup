@@ -1,4 +1,3 @@
-import DosageContentClient from "@/components/ui/user-dashboard-pages/dosage-calculation";
 import { PracticeArea } from "@/components/ui/user-dashboard-pages/dosage-calculation-new/components/PracticeArea";
 import { PracticeTest } from "@/components/ui/user-dashboard-pages/dosage-calculation-new/components/PracticeTest";
 

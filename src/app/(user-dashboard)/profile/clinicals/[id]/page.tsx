@@ -1,4 +1,3 @@
-import ClinicalSkillDetails from "@/components/ui/user-dashboard-pages/clinical-skills/ClinicalSkillDetails";
 import PracticalSkillDetails from "@/components/ui/user-dashboard-pages/practical-skill";
 import { PracticeSkillTest } from "@/components/ui/user-dashboard-pages/practical-skill/components/PracticalTest";
 import { demoSkillContent } from "@/data/practicalSkill/demoSkillContent";
