@@ -4,15 +4,14 @@ import React from "react";
 import { ColumnsType } from "antd/es/table";
 
 interface AssessmentPageProps {
-  id: string;
+  assessment: any;
 }
-export default function AssessmentPage({ id }: AssessmentPageProps) {
-  console.log(id);
-  // console.log(id);
+export default function AssessmentPage({ assessment }: AssessmentPageProps) {
+  console.log(assessment);
   // find the selected subcategory
   const sub = assessmentCategories
     .flatMap((c) => c.subcategories)
-    .find((s) => s.id === id);
+    .find((s) => s.id === assessment);
 
   const columns: ColumnsType<FindingData> = [
     {
