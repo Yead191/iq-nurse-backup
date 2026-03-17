@@ -132,9 +132,12 @@ export const menus: Record<string, MenuItem[]> = {
       tag: "New",
     },
     {
-      key: "/profile/templates",
+      key: "/profile/cheat-sheets",
       label: "Cheat Sheets",
-      icon: icon("/assets/sidebar-icons/cheat-icon.svg", "/profile/templates"),
+      icon: icon(
+        "/assets/sidebar-icons/cheat-icon.svg",
+        "/profile/cheat-sheets",
+      ),
     },
     {
       key: "/profile/ai-drug",

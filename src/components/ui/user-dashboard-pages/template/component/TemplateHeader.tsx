@@ -10,7 +10,7 @@ import { toast } from "sonner";
 export default function TemplateHeader() {
   const pathname = usePathname();
   const { lg } = Grid.useBreakpoint();
-  const isMainAssessmentPage = pathname === "/profile/templates";
+  const isMainAssessmentPage = pathname === "/profile/cheat-sheets";
   return (
     <>
       {isMainAssessmentPage || lg ? (
@@ -29,25 +29,7 @@ export default function TemplateHeader() {
           topics={22}
         />
       ) : (
-        <DetailsHeader
-          title="Templates"
-          back="/profile/templates"
-          actions={[
-            {
-              icon: Bookmark,
-              label: "Bookmark",
-              hoverColor: "text-blue-600",
-              onClick: () => toast.success("Bookmarked!"),
-            },
-            {
-              icon: Share2,
-              label: "Share",
-              hoverColor: "text-green-600",
-              className: "text-[#02478D] fill-current",
-              onClick: () => toast.success("Shared!"),
-            },
-          ]}
-        />
+        <DetailsHeader title="Cheat Sheets" back="/profile/cheat-sheets" />
       )}
     </>
   );

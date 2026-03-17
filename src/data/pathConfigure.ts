@@ -25,6 +25,7 @@ const hiddenPaths = [
   "/profile/labs-reference",
   "/profile/nclex-exams/start-exam",
   "/profile/nclex-exams",
+  "/profile/cheat-sheets",
 ];
 
 const hiddenBottomNav = [

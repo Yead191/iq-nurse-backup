@@ -33,7 +33,7 @@ export default function StudyNotesNew({
   };
 
   return (
-    <div className="container pt-4 max-h-[calc(100vh-64px)] overflow-auto">
+    <div className="container pt-4 lg:max-h-[calc(100vh-64px)] overflow-auto">
       <DynamicNoteHeading
         setActiveTab={setActiveTab}
         activeTab={activeTab}
@@ -47,7 +47,7 @@ export default function StudyNotesNew({
         <NoteTab topicId={content?._id} />
       ) : (
         <section
-          className="study-note-content prose max-w-none overflow-scroll"
+          className="study-note-content prose max-w-none"
           dangerouslySetInnerHTML={{ __html: studyCardsHTML }}
         />
         // <section className="w-full">

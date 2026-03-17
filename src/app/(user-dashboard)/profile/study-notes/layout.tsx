@@ -19,10 +19,10 @@ export default function layout({ children }: { children: React.ReactNode }) {
         }
         title="Study Notes"
         topics={20}
-        sideBtn={true}
+        sideBtn={false}
       />
       <div className="flex">
-        <div>
+        <div className="hidden lg:block">
           <StudyNotesSidebar />
         </div>
         <div className="flex-1 h-full">{children}</div>

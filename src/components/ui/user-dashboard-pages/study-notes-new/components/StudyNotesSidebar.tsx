@@ -367,34 +367,8 @@ export function StudyNotesSidebar() {
   );
 
   return (
-    <>
-      {/* Mobile menu button */}
-      <Button
-        variant="outlined"
-        size="small"
-        className="fixed! top-5 left-4 z-50 md:hidden!"
-        onClick={() => setIsMobileOpen(!isMobileOpen)}
-      >
-        {isMobileOpen ? <X className="size-4" /> : <Menu className="size-4" />}
-      </Button>
-
-      {/* Desktop sidebar */}
-      <aside className="hidden md:block lg:w-[260px] 2xl:w-[280px] border-r border-gray-200  lg:h-[calc(100vh-64px)] overflow-scroll sticky top-0">
-        <SidebarContent />
-      </aside>
-
-      {/* Mobile sidebar */}
-      {isMobileOpen && (
-        <>
-          <div
-            className="fixed inset-0 bg-black/50 z-40 md:hidden"
-            onClick={() => setIsMobileOpen(false)}
-          />
-          <aside className="fixed left-0 top-0 bottom-0 w-[280px] bg-white border-r border-gray-200 z-50 md:hidden shadow-xl">
-            <SidebarContent />
-          </aside>
-        </>
-      )}
-    </>
+    <aside className="w-full lg:w-[260px] 2xl:w-[280px] border-r border-gray-200  lg:h-[calc(100vh-64px)] overflow-scroll sticky top-0">
+      <SidebarContent />
+    </aside>
   );
 }

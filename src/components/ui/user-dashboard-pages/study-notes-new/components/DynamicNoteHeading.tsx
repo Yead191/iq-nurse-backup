@@ -23,7 +23,7 @@ export default function DynamicNoteHeading({
 }) {
   return (
     <div className="mb-6 bg-white p-6 rounded-2xl border-2 border-[#2C5F8D]/20 shadow-sm">
-      <div className="flex items-center gap-2 mb-3">
+      <div className="flex flex-col md:flex-row md:items-center gap-2 mb-3 w-fit">
         <div className="flex p-1 bg-slate-100 rounded-lg border border-gray-200">
           <button
             onClick={() => setActiveTab("study")}
@@ -47,7 +47,7 @@ export default function DynamicNoteHeading({
           </button>
         </div>
 
-        <div className="h-6 w-px bg-slate-200 mx-2"></div>
+        <div className="h-6 w-px bg-slate-200 mx-2 hidden md:block"></div>
 
         <Button
           variant="outlined"
