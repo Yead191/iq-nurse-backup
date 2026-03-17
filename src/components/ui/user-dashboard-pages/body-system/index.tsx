@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { StickyNote, Bookmark, ChevronUp, Share2 } from "lucide-react";
 import { BodySystem, bodySystems } from "@/data/bodySystemData";
-import CategoryButtons from "../patient-assessment-old/CategoryButtons";
 import SystemContentPanel from "./SystemContentPanel";
 import BodySilhouetteCard from "./BodySilhouetteCard";
 import { Button, Grid } from "antd";
@@ -12,6 +11,7 @@ import MobileNotesDrawer from "./MobileNotesDrawer";
 import PageNavbar from "@/components/shared/user-dashboard/PageNavbar";
 import DetailsHeader from "@/components/shared/DetailsHeader";
 import { toast } from "sonner";
+import CategoryButtons from "@/components/shared/CategoryButtons ";
 
 export default function BodySystemMain() {
   const { lg } = Grid.useBreakpoint();

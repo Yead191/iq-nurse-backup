@@ -1,5 +1,5 @@
+import AssessmentHeader from "@/components/ui/user-dashboard-pages/nursing-assessment/components/AssessmentHeader";
 import NursingSidebar from "@/components/ui/user-dashboard-pages/nursing-assessment/components/NursingSidebar";
-import AssessmentHeader from "@/components/ui/user-dashboard-pages/patient-assessment/components/AssessmentHeader";
 
 import React from "react";
 
