@@ -19,18 +19,18 @@ export default function OverviewBanner({
         <div className="w-2.5 h-2.5 rounded-full bg-[#5C7285]" />
       </div>
 
-      <div className="grid grid-cols-3 items-center gap-8 relative z-10 lg:w-full justify-between">
+      <div className="grid grid-cols-8 items-center gap-8 relative z-10 lg:w-full justify-between">
         {/* Robot Image */}
-        <div className="relative w-[122px] md:w-[240px] lg:w-[280px] flex-shrink-0 -translate-y-3 lg:-translate-y-7.5 -translate-x-5 lg:-translate-x-2">
+        <div className="relative w-[122px] md:w-[240px] lg:w-[280px] flex-shrink-0 -translate-y-3 lg:-translate-y-7.5 -translate-x-5 lg:-translate-x-2 col-span-3 lg:col-span-2">
           {image}
         </div>
 
         {/* Text Content */}
-        <div className="lg:flex-1 text-left col-span-2 ">
+        <div className="lg:flex-1 text-left col-span-5 lg:col-span-6 ">
           <h1 className="text-[16px] md:text-[28px] lg:text-[34px] font-bold text-white mb-2 md:mb-4 tracking-tight leading-none lg:leading-[37px] w-[160px] md:w-auto">
             {title || "Learn Smarter, Not Harder"}
           </h1>
-          <p className="text-[#B0C4D6] text-[8px] leading-[12px] md:text-xl max-w-[150px] md:max-w-[300px] 2xl:max-w-2xl lg:leading-[28px]">
+          <p className="text-[#B0C4D6] text-[8px] leading-[12px] lg:text-[16px] 2xl:text-xl max-w-[150px] md:max-w-[300px] 2xl:max-w-xl lg:leading-[20px] 2xl:leading-[28px]">
             {description}
           </p>
         </div>

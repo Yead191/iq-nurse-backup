@@ -1,5 +1,5 @@
 import DynamicHeader from "@/components/shared/DynamicHeader";
-import SkillSidebar from "@/components/ui/user-dashboard-pages/clinical-skills/SkillSidebar";
+import PracticalSidebar from "@/components/ui/user-dashboard-pages/practical-skill/components/PracticalSidebar";
 import type React from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -11,9 +11,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         mobileTitle="Practical Skill"
         basePath="/profile/clinicals"
       />
-      <div className="flex flex-col md:flex-row mt-6 ">
-        <SkillSidebar />
-        <div className="flex-1 lg:h-[calc(100vh-110px)] overflow-auto lg:px-5">
+      <div className="flex flex-col md:flex-row ">
+        <div className="hidden lg:block">
+          <PracticalSidebar />
+        </div>
+        <div className="flex-1 lg:h-[calc(100vh-64px)] overflow-auto lg:px-5">
           {children}
         </div>
       </div>

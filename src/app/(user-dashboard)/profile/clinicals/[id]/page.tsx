@@ -1,6 +1,7 @@
 import ClinicalSkillDetails from "@/components/ui/user-dashboard-pages/clinical-skills/ClinicalSkillDetails";
-import { clinicalSkillsData } from "@/data/clinical-skills-data";
-import { Empty } from "antd";
+import PracticalSkillDetails from "@/components/ui/user-dashboard-pages/practical-skill";
+import { PracticeSkillTest } from "@/components/ui/user-dashboard-pages/practical-skill/components/PracticalTest";
+import { demoSkillContent } from "@/data/practicalSkill/demoSkillContent";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -9,21 +10,24 @@ interface PageProps {
 export default async function Page({ params }: PageProps) {
   const { id } = await params;
 
-  // Flatten all skills to find the specific one by ID
-  const allSkills = clinicalSkillsData.flatMap((cat) => cat.skills);
-  const skill = allSkills.find((s) => s.id === id);
-
-  if (!skill) {
+  const skill = {
+    title: id,
+    category: "Fundamentals / Basic Skills",
+    description:
+      "Master this essential nursing skill with step-by-step guidance",
+    duration: "10-15 minutes",
+    content: demoSkillContent,
+  };
+  if (id === "practice-test") {
     return (
-      <div className="flex items-center justify-center h-full p-6">
-        <Empty description="Skill not found" />
+      <div>
+        <PracticeSkillTest />
       </div>
     );
   }
-
   return (
     <div className="px-4 lg:px-0 ">
-      <ClinicalSkillDetails skill={skill} />
+      <PracticalSkillDetails skill={skill} />
     </div>
   );
 }

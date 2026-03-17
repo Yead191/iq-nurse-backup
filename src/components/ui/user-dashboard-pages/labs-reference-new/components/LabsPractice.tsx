@@ -105,11 +105,11 @@ export function LabsPracticeTest() {
       currentQuestion.type === "multiple-response"
     ) {
       if (!userAnswer || !correctAnswer) return false;
-      const userSet = new Set<string>(userAnswer as string[]);
-      const correctSet = new Set<string>(correctAnswer as string[]);
+      const userSet = new Set(userAnswer);
+      const correctSet = new Set(correctAnswer);
       if (userSet.size !== correctSet.size) return false;
       for (let item of userSet) {
-        if (!correctSet.has(item)) return false;
+        if (!correctSet.has(item as any)) return false;
       }
       return true;
     } else if (currentQuestion.type === "drag-drop") {
@@ -149,12 +149,12 @@ export function LabsPracticeTest() {
 
       if (question.type === "matrix" || question.type === "multiple-response") {
         if (userAnswer && correctAnswer) {
-          const userSet = new Set<string>(userAnswer as string[]);
-          const correctSet = new Set<string>(correctAnswer as string[]);
+          const userSet = new Set(userAnswer);
+          const correctSet = new Set(correctAnswer);
           if (userSet.size === correctSet.size) {
             let allCorrect = true;
             for (let item of userSet) {
-              if (!correctSet.has(item)) {
+              if (!correctSet.has(item as any)) {
                 allCorrect = false;
                 break;
               }
@@ -178,14 +178,14 @@ export function LabsPracticeTest() {
               allPartsCorrect = false;
               return;
             }
-            const userSet = new Set<string>(partAnswer as string[]);
-            const correctSet = new Set<string>(partCorrect as string[]);
+            const userSet = new Set(partAnswer);
+            const correctSet = new Set(partCorrect);
             if (userSet.size !== correctSet.size) {
               allPartsCorrect = false;
               return;
             }
             for (let item of userSet) {
-              if (!correctSet.has(item)) {
+              if (!correctSet.has(item as any)) {
                 allPartsCorrect = false;
                 return;
               }

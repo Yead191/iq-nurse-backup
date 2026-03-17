@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { assessmentCategories } from "@/data/assessmentCategories";
 import { Input, Grid } from "antd";
 import Image from "next/image";
-import DocumentationCard from "../clinical-skills/DocumentationCard";
+import DocumentationCard from "@/components/shared/DocumentationCard";
 
 export default function AssessmentSidebar() {
   const router = useRouter();

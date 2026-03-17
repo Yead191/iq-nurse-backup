@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { TemplateData } from "@/data/templatesData";
-import DocumentationCard from "../../clinical-skills/DocumentationCard";
+import DocumentationCard from "@/components/shared/DocumentationCard";
 
 interface Item {
   id: string;

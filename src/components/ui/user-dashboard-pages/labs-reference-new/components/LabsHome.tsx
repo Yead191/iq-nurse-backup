@@ -44,10 +44,10 @@ export function LabsHome() {
         }}
       >
         <Space
-          align="start"
-          style={{ width: "100%", justifyContent: "space-between" }}
+          align="center"
+          className="flex flex-col md:flex-row gap-4 md:!items-center !items-start h-full justify-between w-full"
         >
-          <Space align="start">
+          <Space align="center">
             <div
               style={{
                 width: 48,

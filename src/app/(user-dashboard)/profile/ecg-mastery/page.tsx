@@ -23,7 +23,7 @@ export default function EcgMasteryOverview() {
             alt="Study Notes Robot"
             width={400}
             height={400}
-            className="w-full h-auto object-contain scale-120 lg:scale-105 z-0 lg:translate-y-3  "
+            className="w-full h-auto object-contain scale-120 lg:scale-80 2xl:scale-105 z-0 lg:translate-y-3 translate-x-3 lg:-translate-x-16 2xl:translate-x-0 "
             priority
             draggable={false}
           />

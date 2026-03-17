@@ -30,11 +30,15 @@ export default function PageNavbar({
   const pathname = usePathname();
   const { lg } = Grid.useBreakpoint();
   return (
-    <nav className=" h-[64px]">
+    <nav
+      style={{
+        display: pathname.includes("start-exam") ? "none" : "block",
+      }}
+      className=" h-[64px]"
+    >
       <div
         style={{
           boxShadow: "4px 4px 35px rgba(0, 0, 0, 0.13)",
-          display: pathname.includes("start-exam") ? "none" : "block",
         }}
         className={`flex items-center justify-between w-full py-3 bg-white gap-10  px-4 md:px-6  fixed! top-0 z-30 ${sideBtn ? "pl-16 lg:pl-4" : ""}`}
       >

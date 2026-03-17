@@ -21,7 +21,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
         title="Master the NCLEX with Confidence"
       />
 
-      <div className="-mt-4 lg:-mt-6 flex flex-col lg:flex-row gap-4">
+      <div className="flex flex-col lg:flex-row gap-4">
         <NclexSidebar />
         <div className="w-full">{children}</div>
       </div>

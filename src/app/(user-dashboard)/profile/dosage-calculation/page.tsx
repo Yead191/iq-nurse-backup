@@ -23,7 +23,7 @@ export default function DosageCalculationOverview() {
             alt="Study Notes Robot"
             width={400}
             height={400}
-            className="w-full h-auto object-contain scale-120 lg:scale-115 z-0 lg:translate-y-2 lg:-translate-x-12 "
+            className="w-full h-auto object-contain scale-120 lg:scale-115 z-0 lg:translate-y-2 lg:-translate-x-16 "
             priority
             draggable={false}
           />

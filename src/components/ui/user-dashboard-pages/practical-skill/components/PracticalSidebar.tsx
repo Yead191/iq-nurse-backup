@@ -5,23 +5,25 @@ import { ChevronRight, Search, LayoutDashboard } from "lucide-react";
 import { useState } from "react";
 import { ClipboardCheck } from "lucide-react";
 import {
-  labsNavigationData,
+  practicalSidebarItems,
   NavigationItem,
-} from "@/data/labs-ref/labsNavigationData";
+} from "@/data/practicalSkill/practicalSidebarItems";
 
-export function LabsSidebar() {
+export default function PracticalSidebar() {
   const router = useRouter();
-  const { slug } = useParams();
+  const params = useParams();
+  const slug = params.id || params.slug;
+
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
     new Set([
-      "foundations",
-      "cardiac-biomarkers",
-      "coagulation",
-      "cbc",
-      "cmp",
-      "renal-function",
-      "abg",
-      "other-tests",
+      "fundamentals",
+      "medication-administration",
+      "intravenous-therapy",
+      "respiratory",
+      "gastrointestinal",
+      "urinary",
+      "wound-care",
+      "cardiovascular",
     ]),
   );
   const [searchQuery, setSearchQuery] = useState("");
@@ -50,14 +52,13 @@ export function LabsSidebar() {
     });
   };
   const setActiveSection = (topicId: string) => {
-    router.push(`/profile/labs-reference/${topicId}`);
+    router.push(`/profile/clinicals/${topicId}`);
   };
   const renderTopLevelItem = (item: NavigationItem) => {
     const hasChildren = item.children && item.children.length > 0;
     const isExpanded = expandedSections.has(item.id);
     const isActive = slug === item.id;
     const Icon = item.icon;
-    const isCustomTopIcon = item.id === "coagulation";
 
     return (
       <div key={item.id}>
@@ -67,7 +68,6 @@ export function LabsSidebar() {
             if (hasChildren) {
               toggleSection(item.id);
             }
-            // setActiveSection(item.id);
           }}
           className={`w-full flex items-center gap-3 p-1 rounded transition-colors ${
             isActive ? "bg-blue-50" : "hover:bg-gray-50"
@@ -75,14 +75,7 @@ export function LabsSidebar() {
         >
           {/* Icon - Left */}
           <div className="flex-shrink-0">
-            {Icon &&
-              (isCustomTopIcon ? (
-                <div className="size-5">
-                  <Icon />
-                </div>
-              ) : (
-                <Icon className="size-5 text-[#2C5F8D]" />
-              ))}
+            {Icon && <Icon className="size-5 text-[#2C5F8D]" />}
           </div>
 
           {/* Text - Center (flex-1 expands to fill) */}
@@ -139,12 +132,12 @@ export function LabsSidebar() {
     );
   };
 
-  const filteredData = filterItems(labsNavigationData);
+  const filteredData = filterItems(practicalSidebarItems);
 
   return (
     <div className="h-full flex flex-col bg-white w-full lg:w-64 2xl:w-80  lg:border-r lg:border-gray-200  lg:h-[calc(100vh-64px)] overflow-auto">
       {/* Home Button at the very top */}
-      <div className="lg:px-4 py-4 border-b border-gray-200">
+      <div className="lg:px-4 pt-4 pb-2 border-b border-gray-200 space-y-2">
         <button
           onClick={() => setActiveSection("")}
           className={`flex items-center gap-2 w-full px-3 py-2  text-sm font-medium rounded-md transition-colors ${
@@ -155,6 +148,17 @@ export function LabsSidebar() {
         >
           <LayoutDashboard className="size-4" />
           <span>Overview</span>
+        </button>
+        <button
+          onClick={() => setActiveSection("practice-test")}
+          className={`flex items-center gap-3 w-full px-1 py-2 text-sm font-medium rounded-md transition-colors mt-2 ${
+            slug === "practice-test"
+              ? "bg-[#2C5F8D]/10 text-[#2C5F8D]"
+              : "text-gray-600 hover:bg-gray-100"
+          }`}
+        >
+          <ClipboardCheck className="size-5" />
+          <span>Practice Test</span>
         </button>
       </div>
 
@@ -174,17 +178,6 @@ export function LabsSidebar() {
 
       {/* Navigation */}
       <nav className="flex-1 overflow-y-auto lg:px-4 py-4 space-y-2">
-        <button
-          onClick={() => setActiveSection("practice-test")}
-          className={`flex items-center gap-3 w-full px-1 py-2 text-sm font-medium rounded-md transition-colors mt-2 ${
-            slug === "practice-test"
-              ? "bg-[#2C5F8D]/10 text-[#2C5F8D]"
-              : "text-gray-600 hover:bg-gray-100"
-          }`}
-        >
-          <ClipboardCheck className="size-5" />
-          <span>Practice Test</span>
-        </button>
         {filteredData.map((item) => renderTopLevelItem(item))}
       </nav>
     </div>
