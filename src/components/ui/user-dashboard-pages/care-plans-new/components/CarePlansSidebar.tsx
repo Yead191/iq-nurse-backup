@@ -4,26 +4,17 @@ import { useParams, useRouter } from "next/navigation";
 import { ChevronRight, Search, LayoutDashboard } from "lucide-react";
 import { useState } from "react";
 import {
-  nursingSidebarItems,
+  carePlanSidebarItems,
   NavigationItem,
-} from "@/data/nursing-assessment/nursingSidebarItems";
+} from "@/data/care-plans/carePlanSidebarItems";
 
-export default function NursingSidebar() {
+export default function CarePlansSidebar() {
   const router = useRouter();
   const params = useParams();
   const slug = params.id || params.slug;
 
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
-    new Set([
-      "cardiovascular",
-      "respiratory",
-      "neurological",
-      "heent",
-      "gastrointestinal",
-      "genitourinary",
-      "musculoskeletal",
-      "integumentary",
-    ]),
+    new Set(["cardiovascular", "respiratory", "neurological"]),
   );
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -51,7 +42,7 @@ export default function NursingSidebar() {
     });
   };
   const setActiveSection = (topicId: string) => {
-    router.push(`/profile/patient-assessment/${topicId}`);
+    router.push(`/profile/care-plans/${topicId}`);
   };
   const renderTopLevelItem = (item: NavigationItem) => {
     const hasChildren = item.children && item.children.length > 0;
@@ -131,7 +122,7 @@ export default function NursingSidebar() {
     );
   };
 
-  const filteredData = filterItems(nursingSidebarItems);
+  const filteredData = filterItems(carePlanSidebarItems);
 
   return (
     <div className="h-full flex flex-col bg-white w-full lg:w-64 2xl:w-80  lg:border-r lg:border-gray-200  lg:h-[calc(100vh-64px)] overflow-auto">
@@ -148,17 +139,6 @@ export default function NursingSidebar() {
           <LayoutDashboard className="size-4" />
           <span>Overview</span>
         </button>
-        {/* <button
-          onClick={() => setActiveSection("practice-test")}
-          className={`flex items-center gap-3 w-full px-1 py-2 text-sm font-medium rounded-md transition-colors mt-2 ${
-            slug === "practice-test"
-              ? "bg-[#2C5F8D]/10 text-[#2C5F8D]"
-              : "text-gray-600 hover:bg-gray-100"
-          }`}
-        >
-          <ClipboardCheck className="size-5" />
-          <span>Practice Test</span>
-        </button> */}
       </div>
 
       {/* Search Bar */}
@@ -167,7 +147,7 @@ export default function NursingSidebar() {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 size-4 text-gray-400" />
           <input
             type="text"
-            placeholder="Search topics..."
+            placeholder="Search care plans..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="pl-10 w-full text-xs border border-[#8a8a8a] rounded-md h-8 px-3 focus:outline-none focus:ring-1 focus:ring-[#2C5F8D] placeholder:text-gray-400"

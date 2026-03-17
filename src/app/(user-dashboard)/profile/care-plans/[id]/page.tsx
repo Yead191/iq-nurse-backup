@@ -1,5 +1,5 @@
-import CarePlanContent from "@/components/ui/user-dashboard-pages/care-plans";
-import { carePlansCategories } from "@/data/carePlansCategories";
+import CarePlansContent from "@/components/ui/user-dashboard-pages/care-plans-new";
+import { demoCarePlanContent } from "@/data/care-plans/demoCarePlanContent";
 import { Empty } from "antd";
 
 interface PageProps {
@@ -9,16 +9,13 @@ interface PageProps {
 export default async function page({ params }: PageProps) {
   const { id } = await params;
 
-  // Find the care plan content by ID
-  let carePlanContent = null;
-
-  for (const category of carePlansCategories) {
-    const subcategory = category.subcategories.find((sub) => sub.id === id);
-    if (subcategory) {
-      carePlanContent = subcategory.content;
-      break;
-    }
-  }
+  const carePlanContent = {
+    id,
+    name: "Hypertension (HTN)",
+    description: "Management of chronic high blood pressure",
+    categoryName: "Cardiovascular System",
+    content: demoCarePlanContent,
+  };
 
   if (!carePlanContent) {
     return (
@@ -30,7 +27,7 @@ export default async function page({ params }: PageProps) {
 
   return (
     <div className="px-4 lg:px-5 py-6">
-      <CarePlanContent content={carePlanContent} />
+      <CarePlansContent content={carePlanContent} />
     </div>
   );
 }
