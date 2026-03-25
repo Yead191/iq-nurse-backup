@@ -71,7 +71,7 @@ export function PracticeTest() {
   };
 
   return (
-    <div className="container mx-auto  space-y-6 py-6 ">
+    <div className="container mx-auto  space-y-6 pb-6 ">
       {/* Header */}
       <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg shadow-sm border border-gray-200 p-6">
         <div className="flex flex-col md:flex-row gap-4 items-start justify-between">

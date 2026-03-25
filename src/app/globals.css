@@ -226,15 +226,17 @@ html {
   opacity: 0;
 }
 
-/* scrollbar */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+/* Chrome, Safari */
+.scrollbar-hide::-webkit-scrollbar,
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
-.scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-
-  scrollbar-width: none; /* Firefox */
+/* IE and Edge + Firefox */
+.scrollbar-hide,
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* calendar */

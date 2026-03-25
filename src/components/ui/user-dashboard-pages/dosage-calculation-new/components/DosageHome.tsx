@@ -47,25 +47,25 @@ export function DosageHome() {
   return (
     <div className=" space-y-6">
       {/* Welcome Section */}
-      <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-lg shadow-sm border border-gray-200 p-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-3">
+      <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-lg shadow-sm border border-gray-200 p-4 py-6 lg:p-8">
+        <h1 className="text-[16px] lg:text-3xl font-bold text-gray-900 mb-3">
           Welcome to NCLEX Dosage Calculator
         </h1>
-        <p className="text-lg text-gray-600 mb-6">
+        <p className="text-[10px] lg:text-lg text-gray-600 mb-6">
           Master medication math and prepare for nursing success with
           comprehensive study notes and practice questions.
         </p>
-        <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex flex-row gap-2 lg:gap-4">
           <button
             onClick={() => onSelectTopic("practice-test")}
-            className="flex items-center gap-2 px-6 py-3 bg-[#2C5F8D] text-white rounded-lg hover:bg-[#234a6d] transition-colors font-medium"
+            className="flex items-center gap-2 px-2  py-2 lg:px-6 lg:py-3 bg-[#2C5F8D] text-white rounded-lg hover:bg-[#234a6d] transition-colors font-medium text-[10px] lg:text-sm text-nowrap"
           >
             <ClipboardCheck className="w-5 h-5" />
             Start Practice Test
           </button>
           <button
             onClick={() => onSelectTopic("basic-dosage")}
-            className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+            className="flex items-center gap-2 px-2 py-2 lg:px-6 lg:py-3 bg-white border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium text-[10px] lg:text-sm text-nowrap"
           >
             Browse Study Notes
             <ArrowRight className="w-4 h-4" />
@@ -79,14 +79,14 @@ export function DosageHome() {
           <TrendingUp className="w-6 h-6 text-[#2C5F8D]" />
           Most Popular Topics
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="flex pb-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-5 lg:grid lg:grid-cols-3 lg:gap-4 lg:overflow-visible lg:pb-0">
           {popularTopics.map((topic) => {
             const Icon = topic.icon;
             return (
               <button
                 key={topic.id}
                 onClick={() => onSelectTopic(topic.id)}
-                className={`${topic.color} border rounded-lg p-6 hover:shadow-md transition-all text-left group`}
+                className={`${topic.color} border rounded-lg p-6 hover:shadow-md transition-all text-left group min-w-[300px] lg:min-w-0`}
               >
                 <div className="flex items-start gap-3 mb-3">
                   <Icon
@@ -110,20 +110,20 @@ export function DosageHome() {
       </div>
 
       {/* Quick Stats */}
-      <div className="grid grid-cols-3 gap-4">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
+      <div className="flex overflow-x-auto scrollbar-hide pb-4 gap-4 lg:grid lg:grid-cols-3 lg:pb-0">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center min-w-[180px] lg:min-w-0 flex-1">
           <p className="text-2xl lg:text-3xl font-bold text-[#2C5F8D] mb-1">
             8
           </p>
           <p className="text-xs lg:text-sm text-gray-600">Study Topics</p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center min-w-[180px] lg:min-w-0 flex-1">
           <p className="text-2xl lg:text-3xl font-bold text-[#2C5F8D] mb-1">
             20
           </p>
           <p className="text-xs lg:text-sm text-gray-600">Practice Questions</p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center min-w-[180px] lg:min-w-0 flex-1">
           <p className="text-2xl lg:text-3xl font-bold text-[#2C5F8D] mb-1">
             100+
           </p>
