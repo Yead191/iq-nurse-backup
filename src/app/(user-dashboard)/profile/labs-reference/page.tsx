@@ -14,22 +14,6 @@ export default function LabsOverview() {
 
   return (
     <div className="container pt-6 lg:pt-12 pb-8 lg:pb-16">
-      <OverviewBanner
-        title="Understand & Interpret Results "
-        description="Master diagnostic tests and laboratory values for nursing excellence"
-        image={
-          <Image
-            src={"/assets/images/ecg/ecg-mastery.png"}
-            alt="Study Notes Robot"
-            width={400}
-            height={400}
-            className="w-full h-auto object-contain scale-120 lg:scale-80 2xl:scale-105 z-0 lg:translate-y-3 translate-x-3 lg:-translate-x-16 2xl:translate-x-0 "
-            priority
-            draggable={false}
-          />
-        }
-      />
-
       {/* Mobile Tabs Wrapper */}
       <div className="flex items-center gap-3 lg:hidden mb-6">
         <button

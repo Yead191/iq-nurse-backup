@@ -125,24 +125,6 @@ export function EcgSidebar() {
             className="w-full pl-10 pr-3 py-2 text-xs border border-[#8a8a8a] rounded-md outline-none focus:border-[#2C5F8D] transition-colors placeholder:text-gray-400"
           />
         </div>
-        {/* Practice Strips Button */}
-        <button
-          onClick={() => onTopicSelect("practice-strips")}
-          className={`flex items-center gap-2 w-full px-3 py-2 text-sm font-medium rounded-md transition-colors mt-2 ${
-            slug === "practice-strips"
-              ? "bg-[#2C5F8D]/10 text-[#2C5F8D]"
-              : "text-gray-600 hover:bg-gray-100"
-          }`}
-        >
-          <Image
-            width={20}
-            height={20}
-            src={"/assets/icons/ecg/ecgIcon.svg"}
-            alt=""
-            className="h-[20px] w-fit object-contain"
-          />
-          <span>Practice Strips</span>
-        </button>
       </div>
 
       {/* Navigation */}

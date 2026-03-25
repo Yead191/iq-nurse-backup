@@ -51,7 +51,7 @@ export default function PageNavbar({
           )}
           <div className="h-10 w-[3px] bg-[#2C5F8D]" />
           <div>
-            <div className="flex items-end gap-3">
+            <div className="flex items-center gap-3">
               <h2 className="text-base md:text-lg lg:text-xl font-semibold text-[#495057] tracking-wide">
                 {title}
               </h2>

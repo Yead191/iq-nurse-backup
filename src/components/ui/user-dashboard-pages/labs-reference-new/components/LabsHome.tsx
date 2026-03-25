@@ -82,14 +82,14 @@ export function LabsHome() {
         </Space>
       </Card>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1  gap-6">
         {/* Most Popular Topics */}
         <div className="lg:border lg:border-gray-200 lg:rounded-2xl lg:p-4">
           <Space>
             <TrendingUp style={{ color: "#2C5F8D" }} />
             Most Popular Topics
           </Space>
-          <div className="grid grid-cols-2 gap-2 lg:gap-6 mt-4 md:mt-0">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-6 mt-4 md:mt-0">
             {popularTopics?.map((topic) => (
               <Card
                 key={topic.id}
@@ -238,11 +238,11 @@ export function LabsHome() {
 
       {/* Study Tips */}
       <Card
-        title={<span style={{ color: "#854d0e" }}>💡 Study Tips</span>}
-        style={{ marginTop: 24, background: "#fefce8", borderColor: "#fef08a" }}
+        title={<span style={{ color: "#733E0A" }}>💡 Study Tips</span>}
+        style={{ marginTop: 24, background: "#F3F4F6", borderColor: "#F3F4F6" }}
       >
         <ul
-          style={{ listStyle: "none", padding: 0, margin: 0, color: "#854d0e" }}
+          style={{ listStyle: "none", padding: 0, margin: 0, color: "#733E0A" }}
         >
           <li style={{ marginBottom: 8 }}>
             ✓ Focus on critical values and nursing implications for NCLEX
