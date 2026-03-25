@@ -11,7 +11,7 @@ const PracticeTestButton = () => {
   return (
     <Link
       href={"/profile/ecg-mastery/practice-test"}
-      className="inline-flex items-center gap-2 px-6 py-3 bg-[#2C5F8D] text-white font-semibold rounded-lg hover:bg-[#244b6f] transition-colors"
+      className="inline-flex items-center gap-2 px-4 lg:px-6 py-2 lg:py-3 bg-[#2C5F8D] text-white font-semibold rounded-lg hover:bg-[#244b6f] transition-colors text-sm lg:text-[16px]"
     >
       Start Practice Test
       <ArrowRight className="size-4" />
@@ -22,7 +22,6 @@ const PracticeTestButton = () => {
 export function EcgHome() {
   const router = useRouter();
   const [recentlyViewed, setRecentlyViewed] = useState<any>([]);
-  console.log(recentlyViewed);
   useEffect(() => {
     // Load recently viewed from localStorage
     const stored = localStorage.getItem("ecg-recently-viewed");
@@ -49,7 +48,7 @@ export function EcgHome() {
     router.push(`/profile/ecg-mastery/${topicId}`);
   };
   return (
-    <div className="h-full overflow-y-auto bg-white space-y-12">
+    <div className="h-full overflow-y-auto bg-white space-y-6 lg:space-y-12">
       {/* Practice Strips Exam Section */}
       <section className="space-y-4">
         <div className="flex items-center gap-2 pb-2 border-b border-gray-200">
@@ -63,10 +62,10 @@ export function EcgHome() {
 
         <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-xl p-6 space-y-4">
           <div className="space-y-2">
-            <h3 className="text-lg font-semibold text-[#2C5F8D]">
+            <h3 className=" lg:text-lg font-semibold text-[#2C5F8D]">
               Test Your ECG Knowledge
             </h3>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-700 leading-relaxed text-xs lg:text-sm">
               Comprehensive practice test with Next Gen NCLEX-style questions
               including multiple choice, select-all-that-apply (SATA), drag &
               drop, and matrix questions. Get detailed rationales for every
@@ -74,7 +73,7 @@ export function EcgHome() {
             </p>
           </div>
 
-          <div className="flex items-center gap-6 text-sm text-gray-600">
+          <div className="flex items-center gap-4 lg:gap-6 text-[8px] lg:text-sm text-gray-600">
             <div className="flex items-center gap-2">
               <div className="size-2 bg-[#2C5F8D] rounded-full"></div>
               <span>20 Questions</span>
@@ -104,12 +103,12 @@ export function EcgHome() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex overflow-x-auto scrollbar-hide pb-4 gap-4 md:grid md:grid-cols-2 md:pb-0">
           {popularTopics?.map((topic) => (
             <button
               key={topic.id}
               onClick={() => onTopicSelect(topic.id)}
-              className="group bg-white border border-gray-200 rounded-lg p-4 hover:border-[#2C5F8D] hover:shadow-md transition-all text-left"
+              className="group bg-white border border-gray-200 rounded-lg p-4 hover:border-[#2C5F8D] hover:shadow-md transition-all text-left min-w-[300px] md:min-w-0 flex-1"
             >
               <div className="space-y-2">
                 <div className="flex items-start justify-between gap-2">
@@ -145,14 +144,14 @@ export function EcgHome() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex overflow-x-auto scrollbar-hide pb-4 gap-4 md:grid md:grid-cols-2 md:pb-0">
             {recentlyViewed.map((topic: any) => {
               console.log(topic, "topic");
               return (
                 <button
                   key={`${topic?.id?.title}-${topic?.timestamp}`}
                   onClick={() => onTopicSelect(topic?.id?.title)}
-                  className="group bg-white border border-gray-200 rounded-lg p-4 hover:border-[#2C5F8D] hover:shadow-md transition-all text-left"
+                  className="group bg-white border border-gray-200 rounded-lg p-4 hover:border-[#2C5F8D] hover:shadow-md transition-all text-left min-w-[300px] md:min-w-0 flex-1"
                 >
                   <div className="space-y-2">
                     <div className="flex items-start justify-between gap-2">

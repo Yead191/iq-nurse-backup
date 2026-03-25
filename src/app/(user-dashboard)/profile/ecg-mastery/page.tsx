@@ -4,7 +4,7 @@ import OverviewBanner from "@/components/shared/OverviewBanner";
 import { EcgSidebar } from "@/components/ui/user-dashboard-pages/ecg-mastery-new/components/EcgSidebar";
 import Image from "next/image";
 import { useState } from "react";
-import { LayoutGrid } from "lucide-react";
+import { LayoutGrid, Menu } from "lucide-react";
 import { EcgHome } from "@/components/ui/user-dashboard-pages/ecg-mastery-new/components/EcgHome";
 
 export default function EcgMasteryOverview() {
@@ -14,22 +14,6 @@ export default function EcgMasteryOverview() {
 
   return (
     <div className="container pt-3 lg:pt-8 pb-8 lg:pb-16">
-      <OverviewBanner
-        title="Read Every Rhythm with Confidence"
-        description="Master ECG interpretation for NCLEX success with comprehensive study notes and practice tests."
-        image={
-          <Image
-            src={"/assets/images/ecg/ecg-mastery.png"}
-            alt="Study Notes Robot"
-            width={400}
-            height={400}
-            className="w-full h-auto object-contain scale-120 lg:scale-80 2xl:scale-105 z-0 lg:translate-y-3 translate-x-3 lg:-translate-x-16 2xl:translate-x-0 "
-            priority
-            draggable={false}
-          />
-        }
-      />
-
       {/* Mobile Tabs Wrapper */}
       <div className="flex items-center gap-3 lg:hidden mb-6">
         <button
@@ -51,8 +35,8 @@ export default function EcgMasteryOverview() {
               : "bg-white text-[#2f557c] border-[#2f557c]"
           }`}
         >
-          <LayoutGrid className="w-5 h-5" />
-          <span>Dosage Calculation</span>
+          <Menu className="w-5 h-5" />
+          <span>ECG Mastery</span>
         </button>
       </div>
 

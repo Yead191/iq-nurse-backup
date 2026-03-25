@@ -103,7 +103,7 @@ export function EcgSidebar() {
       {/* Home Button */}
       <button
         onClick={() => onTopicSelect("")}
-        className={`flex items-center gap-2 w-full px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+        className={`hidden lg:flex items-center gap-2 w-full px-3 py-2 text-sm font-medium rounded-md transition-colors ${
           slug === "overview" || !slug
             ? "bg-[#2C5F8D]/10 text-[#2C5F8D]"
             : "text-gray-600 hover:bg-gray-100"
