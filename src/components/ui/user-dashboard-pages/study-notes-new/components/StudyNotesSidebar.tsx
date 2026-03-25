@@ -1,8 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ChevronRight, Menu, X, Search, LayoutDashboard } from "lucide-react";
-
-import { Button } from "antd";
+import { ChevronRight, Search, LayoutDashboard } from "lucide-react";
 import { Category } from "@/data/study-notes/studyNoteTopics";
 import Image from "next/image";
 import { medSurgCategories } from "@/data/study-notes/medSurgCategories";
@@ -293,14 +291,14 @@ export function StudyNotesSidebar() {
 
   const SidebarContent = () => (
     <div className="flex flex-col h-full ">
-      <div className="p-4 border-b border-gray-200">
+      <div className="px-0 lg:px-4 pb-4 lg:pt-4 border-b border-gray-200">
         {/* Overview Button */}
         <button
           onClick={() => {
             handleTopicClick("overview");
             setIsMobileOpen(false);
           }}
-          className={`flex items-center gap-2 w-full px-3 py-2 mb-3 text-sm font-medium rounded-md transition-colors ${
+          className={`hidden  lg:flex items-center gap-2 w-full px-3 py-2 mb-3 text-sm font-medium rounded-md transition-colors  ${
             slug === "overview"
               ? "bg-[#2C5F8D]/10 text-[#2C5F8D]"
               : "text-gray-600 hover:bg-gray-100"
@@ -323,7 +321,7 @@ export function StudyNotesSidebar() {
         </div>
       </div>
 
-      <div className="p-4 flex-1 h-full overflow-auto">
+      <div className="px-0 lg:px-4 py-4 flex-1 h-full overflow-auto">
         {selectedMainTopic === null ? (
           <div className="flex flex-col gap-1">
             {mainTopics.map((topic) => (
@@ -367,7 +365,7 @@ export function StudyNotesSidebar() {
   );
 
   return (
-    <aside className="w-full lg:w-[260px] 2xl:w-[280px] border-r border-gray-200  lg:h-[calc(100vh-64px)] overflow-scroll sticky top-0">
+    <aside className="w-full lg:w-[260px] 2xl:w-[280px] lg:border-r lg:border-gray-200  lg:h-[calc(100vh-64px)] overflow-scroll sticky top-0">
       <SidebarContent />
     </aside>
   );

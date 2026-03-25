@@ -50,12 +50,6 @@ export default function StudyNotesNew({
           className="study-note-content prose max-w-none"
           dangerouslySetInnerHTML={{ __html: studyCardsHTML }}
         />
-        // <section className="w-full">
-        //   <iframe
-        //     src={content.content}
-        //     className="w-full h-[calc(100vh-310px)] object-contain rounded-lg"
-        //   />
-        // </section>
       )}
 
       {/* Modals */}

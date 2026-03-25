@@ -101,7 +101,7 @@ export default function PracticalHome({ setActiveTab }: any) {
         </div>
 
         {/* For small screens: overflow-x-auto, for large: grid */}
-        <div className="flex overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar gap-5 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:pb-0">
+        <div className="flex pb-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-5 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:pb-0">
           {popularSkills.map((skill) => (
             <div
               key={skill.id}

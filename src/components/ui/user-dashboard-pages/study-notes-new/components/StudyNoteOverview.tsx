@@ -89,23 +89,7 @@ export default function StudyNoteOverview() {
   ];
 
   return (
-    <div className=" lg:max-h-[calc(100vh-64px)] overflow-y-auto pt-6 lg:pt-14 container mx-auto px-4 lg:px-5 pb-8">
-      {/* banner */}
-      <OverviewBanner
-        title="Study Notes"
-        description="Get More Knowledge."
-        image={
-          <Image
-            src={"/assets/images/overview-images/study-notes.png"}
-            alt="Study Notes Robot"
-            width={800}
-            height={800}
-            className="w-full h-auto object-contain scale-105 lg:scale-100 z-0 lg:-translate-x-14 2xl:translate-x-0"
-            priority
-            draggable={false}
-          />
-        }
-      />
+    <div className=" lg:max-h-[calc(100vh-64px)] overflow-y-auto pt-6 lg:pt-14 container mx-auto px-4 lg:px-5 pb-8 w-full">
       {/* Mobile Tabs Wrapper */}
       <div className="flex items-center gap-3 lg:hidden mb-6">
         <button
@@ -133,34 +117,36 @@ export default function StudyNoteOverview() {
       </div>
       {/* Overview Content */}
       <div className={activeTab === "overview" ? "block" : "hidden lg:block"}>
-        <div className="">
+        <div className="w-full">
           {/* Popular Topics Section */}
-          <section className="mb-12">
+          <section className="mb-8">
             <div className="flex items-center gap-2 mb-6">
               <TrendingUp className="size-6 text-[#FE5E7E]" />
               <h2 className="text-2xl font-bold text-gray-800">
                 Most Popular Topics
               </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {popularTopics.map((topic) => (
-                <button
-                  key={topic.id}
-                  onClick={() =>
-                    router.push(`/profile/study-notes/${topic.id}`)
-                  }
-                  className="bg-white p-5 rounded-lg border border-gray-200 hover:border-[#2C5F8D] hover:shadow-md transition-all group text-left"
-                >
-                  <div className="flex items-start justify-between mb-2">
-                    <BookOpen className="size-5 text-[#2C5F8D]" />
-                    <ChevronRight className="size-4 text-gray-400 group-hover:text-[#2C5F8D] group-hover:translate-x-1 transition-all" />
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-1 text-sm">
-                    {topic.title}
-                  </h3>
-                  <p className="text-xs text-gray-500">{topic.category}</p>
-                </button>
-              ))}
+            <div className="overflow-x-auto scrollbar-hide hide-scrollbar snap-x  px-4 md:mx-0 md:px-0 w-[90vw]  md:w-full">
+              <div className="grid grid-flow-col grid-rows-2 md:grid-rows-none md:grid-flow-row md:grid-cols-2 lg:grid-cols-4 gap-4 pb-4 md:pb-0  md:w-full">
+                {popularTopics?.map((topic) => (
+                  <button
+                    key={topic.id}
+                    onClick={() =>
+                      router.push(`/profile/study-notes/${topic.id}`)
+                    }
+                    className="flex-shrink-0 w-[260px] md:w-full bg-white p-5 rounded-lg border border-gray-200 hover:border-[#2C5F8D] hover:shadow-md transition-all group text-left snap-start"
+                  >
+                    <div className="flex items-start justify-between mb-2">
+                      <BookOpen className="size-5 text-[#2C5F8D]" />
+                      <ChevronRight className="size-4 text-gray-400 group-hover:text-[#2C5F8D] group-hover:translate-x-1 transition-all" />
+                    </div>
+                    <h3 className="font-semibold text-gray-900 mb-1 text-sm">
+                      {topic.title}
+                    </h3>
+                    <p className="text-xs text-gray-500">{topic.category}</p>
+                  </button>
+                ))}
+              </div>
             </div>
           </section>
 

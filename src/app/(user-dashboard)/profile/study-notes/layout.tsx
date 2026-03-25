@@ -5,7 +5,7 @@ import React from "react";
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
-    <section className="relative min-h-screen">
+    <section className="relative lg:min-h-screen">
       <PageNavbar
         icon={
           <Image
