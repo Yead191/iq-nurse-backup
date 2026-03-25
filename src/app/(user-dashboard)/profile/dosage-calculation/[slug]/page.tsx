@@ -1,4 +1,4 @@
-import { PracticeArea } from "@/components/ui/user-dashboard-pages/dosage-calculation-new/components/PracticeArea";
+import { PracticeArea } from "@/components/ui/user-dashboard-pages/dosage-calculation-new";
 import { PracticeTest } from "@/components/ui/user-dashboard-pages/dosage-calculation-new/components/PracticeTest";
 
 export default async function Page({

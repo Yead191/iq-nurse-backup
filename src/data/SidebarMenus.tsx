@@ -93,14 +93,6 @@ export const menus: Record<string, MenuItem[]> = {
       icon: icon("/assets/sidebar-icons/ecg-icon.svg", "/profile/ecg-mastery"),
     },
     {
-      key: "/profile/vital-signs",
-      label: "Vital Signs",
-      icon: icon(
-        "/assets/sidebar-icons/vital-icon.svg",
-        "/profile/vital-signs",
-      ),
-    },
-    {
       key: "/profile/labs-reference",
       label: "Diagnostic Tests & Labs",
       icon: icon(
@@ -138,12 +130,6 @@ export const menus: Record<string, MenuItem[]> = {
         "/assets/sidebar-icons/cheat-icon.svg",
         "/profile/cheat-sheets",
       ),
-    },
-    {
-      key: "/profile/ai-drug",
-      label: "Drug Cards",
-      icon: icon("/assets/sidebar-icons/drug-icon.svg", "/profile/ai-drug"),
-      tag: "drug-cards",
     },
   ],
   interactiveTools: [

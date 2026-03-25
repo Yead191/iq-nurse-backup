@@ -20,10 +20,10 @@ export function DosageSidebar() {
   };
 
   return (
-    <aside className="w-full lg:w-64 2xl:w-80 bg-white lg:border-r lg:border-gray-200 flex flex-col px-4 lg:h-[calc(100vh-90px)] overflow-auto">
+    <aside className="w-full lg:w-64 2xl:w-80 bg-white lg:border-r lg:border-gray-200 flex flex-col lg:px-4 lg:h-[calc(100vh-90px)] overflow-auto">
       <button
         onClick={() => onSelectTopic("")}
-        className={`flex items-center gap-2 w-full px-3 py-2 mb-3 text-sm font-medium rounded-md transition-colors ${
+        className={`hidden lg:flex items-center gap-2 w-full px-3 py-2 mb-3 text-sm font-medium rounded-md transition-colors  ${
           slug === "overview" || !slug
             ? "bg-[#2C5F8D]/10 text-[#2C5F8D]"
             : "text-gray-600 hover:bg-gray-100"
@@ -61,7 +61,6 @@ export function DosageSidebar() {
           {otherTopics.map((topic, index) => {
             const Icon = topic.icon;
             const isSelected = slug === topic.id;
-            const isPracticeTest = topic.id === "practice-test";
 
             return (
               <li key={topic.id}>

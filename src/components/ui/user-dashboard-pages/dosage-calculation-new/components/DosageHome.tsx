@@ -73,42 +73,6 @@ export function DosageHome() {
         </div>
       </div>
 
-      {/* Practice Test Section */}
-      <div>
-        <h2 className="text-xl font-semibold text-gray-700 mb-4 flex items-center gap-2">
-          <ClipboardCheck className="w-6 h-6 text-[#2C5F8D]" />
-          Practice Test
-        </h2>
-        <button
-          onClick={() => onSelectTopic("practice-test")}
-          className="w-full bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:border-[#2C5F8D] hover:shadow-md transition-all text-left group"
-        >
-          <div className="flex items-start justify-between">
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-[#2C5F8D] transition-colors">
-                NCLEX Practice Test
-              </h3>
-              <p className="text-sm text-gray-600 mb-4">
-                Test your knowledge with 20 comprehensive NCLEX-style dosage
-                calculation questions covering all major topics.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">
-                  20 Questions
-                </span>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-700">
-                  Detailed Explanations
-                </span>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-700">
-                  Calculator Included
-                </span>
-              </div>
-            </div>
-            <ArrowRight className="w-6 h-6 text-gray-400 group-hover:text-[#2C5F8D] transition-colors flex-shrink-0 ml-4" />
-          </div>
-        </button>
-      </div>
-
       {/* Popular Topics Section */}
       <div>
         <h2 className="text-xl font-semibold text-gray-700 mb-4 flex items-center gap-2">
