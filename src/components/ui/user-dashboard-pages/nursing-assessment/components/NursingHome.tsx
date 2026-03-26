@@ -54,7 +54,7 @@ export default function NursingHome({ setActiveTab }: any) {
     router.push(`/profile/patient-assessment/${itemId}`);
   };
   return (
-    <div className="flex flex-col gap-6 lg:gap-10 w-full pb-10">
+    <div className="flex flex-col gap-6 lg:gap-10 w-full lg:pb-10">
       {/* Banner Section */}
       <div className="bg-[#f2fcf9] p-4 lg:p-6 rounded-2xl border border-gray-100 flex flex-col gap-2">
         <h2 className="text-[22px] font-bold text-[#1f2937]">
@@ -88,7 +88,7 @@ export default function NursingHome({ setActiveTab }: any) {
           <TrendingUp className="text-blue-600" />
           Most Popular Assessments
         </h3>
-        <div className="flex overflow-x-auto scrollbar-hide pb-4 gap-4 md:grid md:grid-cols-2 md:pb-0">
+        <div className="grid grid-rows-2 grid-flow-col overflow-x-auto scrollbar-hide pb-4 gap-3 lg:gap-4 md:grid-rows-none md:grid-flow-row md:grid md:grid-cols-2 lg:pb-0">
           {popularAssessmentIds.map(({ systemId, itemId }) => {
             const system = nursingSidebarItems.find((s) => s.id === systemId);
             const item = system?.children?.find((a) => a.id === itemId);
