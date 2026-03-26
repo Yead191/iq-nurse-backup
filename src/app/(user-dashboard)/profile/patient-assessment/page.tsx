@@ -13,23 +13,7 @@ export default function NursingOverview() {
   );
 
   return (
-    <div className="container pt-6  pb-8 px-4">
-      <OverviewBanner
-        title="See the Full Picture"
-        description="Systematic head-to-toe and focused assessment guides to sharpen your clinical eye and patient care skills."
-        image={
-          <Image
-            src={"/assets/images/dosage/dosage.png"}
-            alt="Study Notes Robot"
-            width={400}
-            height={400}
-            className="w-full h-auto object-contain scale-120 lg:scale-105 z-0 lg:translate-y-4.5 2xl:translate-x-3 lg:-translate-x-16  "
-            priority
-            draggable={false}
-          />
-        }
-      />
-
+    <div className="container lg:pt-6 pb-8 px-4">
       {/* Mobile Tabs Wrapper */}
       <div className="flex items-center gap-3 lg:hidden mb-6">
         <button

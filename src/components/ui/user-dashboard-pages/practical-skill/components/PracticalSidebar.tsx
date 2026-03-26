@@ -137,7 +137,7 @@ export default function PracticalSidebar() {
   return (
     <div className="h-full flex flex-col bg-white w-full lg:w-64 2xl:w-80  lg:border-r lg:border-gray-200  lg:h-[calc(100vh-64px)] overflow-auto">
       {/* Home Button at the very top */}
-      <div className="lg:px-4 pt-4 pb-2 border-b border-gray-200 space-y-2">
+      <div className="hidden lg:block lg:px-4 pt-4 pb-2 border-b border-gray-200 space-y-2">
         <button
           onClick={() => setActiveSection("")}
           className={`flex items-center gap-2 w-full px-3 py-2  text-sm font-medium rounded-md transition-colors ${
@@ -148,17 +148,6 @@ export default function PracticalSidebar() {
         >
           <LayoutDashboard className="size-4" />
           <span>Overview</span>
-        </button>
-        <button
-          onClick={() => setActiveSection("practice-test")}
-          className={`flex items-center gap-3 w-full px-1 py-2 text-sm font-medium rounded-md transition-colors mt-2 ${
-            slug === "practice-test"
-              ? "bg-[#2C5F8D]/10 text-[#2C5F8D]"
-              : "text-gray-600 hover:bg-gray-100"
-          }`}
-        >
-          <ClipboardCheck className="size-5" />
-          <span>Practice Test</span>
         </button>
       </div>
 

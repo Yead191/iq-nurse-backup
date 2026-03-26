@@ -1,11 +1,44 @@
-import React from "react";
-import { Activity, BookOpen, Clock } from "lucide-react";
+"use client";
+import React, { useEffect } from "react";
+import { Activity, BookOpen } from "lucide-react";
 
 export default function NursingAssessment({ assessment }: any) {
+  useEffect(() => {
+    if (!assessment) return;
+
+    // Get existing recently viewed
+    const stored = localStorage.getItem("nursing-recently-viewed");
+    let items: any[] = [];
+    if (stored) {
+      try {
+        items = JSON.parse(stored);
+      } catch (e) {
+        console.error("Failed to parse recently viewed:", e);
+      }
+    }
+
+    // Remove existing entry for this assessment (if any)
+    items = items.filter((item: any) => item.id !== assessment.id);
+
+    // Add current assessment to the front
+    items.unshift({
+      id: assessment.id,
+      title: assessment.title,
+      description: assessment.description,
+      timestamp: Date.now(),
+    });
+
+    // Keep only the last 10 items
+    items = items.slice(0, 10);
+
+    // Save back to localStorage
+    localStorage.setItem("nursing-recently-viewed", JSON.stringify(items));
+  }, [assessment]);
+
   if (!assessment) return null;
 
   return (
-    <div className="container pb-10">
+    <div className="container pb-10 lg:pt-6">
       {/* Header Section */}
       <div className="mb-8 relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-900 via-slate-800 to-slate-900 border border-slate-700/50 shadow-xl">
         {/* Decorative elements */}
