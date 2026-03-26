@@ -24,6 +24,7 @@ import {
   studyTimesData,
   tasksData,
 } from "@/data/calendar/eventData";
+import { datesWithEvents } from "@/data/calendar/calendarMocks";
 
 type EventDetail =
   | { type: "class"; data: ScheduledClass }
@@ -112,6 +113,7 @@ export default function CalendarTabs() {
                 <SmallCalendar
                   value={viewDate}
                   activeDate={dayjs(selectedDate)}
+                  datesWithEvents={datesWithEvents}
                   onSelect={(date, info) => {
                     setViewDate(date);
                     if (info.source === "date") {

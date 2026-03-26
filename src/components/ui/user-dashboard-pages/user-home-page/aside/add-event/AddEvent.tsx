@@ -18,6 +18,7 @@ import { AddClinicalDialog } from "../../../calendar-new/components/events-modal
 import { AddMeetingDialog } from "../../../calendar-new/components/events-modal/AddMeetingDialog";
 import { AddPersonalTimeDialog } from "../../../calendar-new/components/events-modal/AddPersonalTimeDialog";
 import { AddTaskDialog } from "../../../calendar-new/components/events-modal/AddTaskDialog";
+import { datesWithEvents } from "@/data/calendar/calendarMocks";
 
 export default function AddEvent() {
   const router = useRouter();
@@ -36,26 +37,6 @@ export default function AddEvent() {
   const [isTaskDialogOpen, setIsTaskDialogOpen] = useState(false);
   const [isCountdownDialogOpen, setIsCountdownDialogOpen] = useState(false);
 
-  // Mock data for events
-  const datesWithEvents = new Map<string, string[]>([
-    ["2025-12-16", ["red", "teal", "pink"]],
-    ["2025-12-17", ["orange", "green"]],
-    ["2025-12-18", ["purple", "indigo", "gray"]],
-    ["2025-12-19", ["red", "pink"]],
-    ["2025-12-20", ["teal", "purple"]],
-    ["2025-12-21", ["purple", "gray"]],
-    ["2025-12-22", ["green"]],
-    ["2025-12-23", ["pink"]],
-    // Let's add some for January 2026 too since today is Jan 16
-    ["2026-01-16", ["red", "teal", "pink"]],
-    ["2026-01-17", ["orange", "green"]],
-    ["2026-01-18", ["purple", "indigo", "gray"]],
-    ["2026-01-19", ["red", "pink"]],
-    ["2026-01-20", ["teal", "purple"]],
-    ["2026-01-21", ["purple", "gray"]],
-    ["2026-01-22", ["green"]],
-    ["2026-01-23", ["pink"]],
-  ]);
 
   const onPanelChange = (value: any, mode: string) => {
     console.log("[v0] Calendar panel changed:", value, mode);

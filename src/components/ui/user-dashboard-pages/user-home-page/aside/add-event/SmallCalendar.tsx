@@ -29,8 +29,6 @@ export const SmallCalendar: React.FC<SmallCalendarProps> = ({
   defaultValue,
   ...props
 }) => {
-  const { token } = theme.useToken();
-
   const dateCellRender = (value: Dayjs) => {
     const dateKey = value.format("YYYY-MM-DD");
     const colors = datesWithEvents?.get(dateKey) || [];
@@ -39,7 +37,7 @@ export const SmallCalendar: React.FC<SmallCalendarProps> = ({
     if (uniqueColors.length === 0) return null;
 
     return (
-      <div className="flex justify-center gap-0.5 mt-auto pb-1 absolute -bottom-0.5 left-1/2 transform -translate-x-1/2">
+      <div className="flex justify-center gap-0.5 mt-auto pb-1 absolute -bottom-0.5 left-1/2 transform -translate-x-1/2 overflow-visible">
         {uniqueColors.map((color, idx) => (
           <div
             key={idx}
@@ -60,7 +58,7 @@ export const SmallCalendar: React.FC<SmallCalendarProps> = ({
 
     return (
       <div
-        className={`ant-picker-cell-inner flex items-center justify-center relative !h-8 !w-8 !rounded-lg mx-auto ${
+        className={`ant-picker-cell-inner flex items-center justify-center relative !h-8 !w-8 !rounded-lg mx-auto overflow-visible ${
           isActive
             ? "!bg-[#2C5F8D] !text-white"
             : "hover:!bg-blue-50 transition-colors"
