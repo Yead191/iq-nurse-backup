@@ -20,6 +20,9 @@ export default function BodySystemMain() {
   );
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showNotes, setShowNotes] = useState(false);
+  const [activeTab, setActiveTab] = useState("Overview");
+
+  const tabs = ["Overview", "Physiology", "Clinical"];
 
   const handleSystemSelect = (system: BodySystem) => {
     setSelectedSystem(system);
@@ -109,7 +112,11 @@ export default function BodySystemMain() {
             {/* Right Column */}
             <div className="lg:col-span-6 ">
               <div className="grid grid-cols-1  gap-6 h-full">
-                <SystemContentPanel selectedSystem={selectedSystem} />
+                <SystemContentPanel
+                  selectedSystem={selectedSystem}
+                  activeTab={activeTab}
+                  setActiveTab={setActiveTab}
+                />
               </div>
             </div>
           </div>
@@ -117,7 +124,7 @@ export default function BodySystemMain() {
       </div>
 
       {/* Mobile Layout */}
-      <div className="lg:hidden min-h-[calc(100vh-56px)]  ">
+      <div className="lg:hidden min-h-[calc(100vh-88px)]  ">
         <div className="relative  flex flex-col h-full">
           {/* Main Content Area */}
           <div className="flex-1 relative overflow-hidden h-full">
@@ -130,26 +137,47 @@ export default function BodySystemMain() {
             />
           </div>
 
-          <div className="">
-            <div
-              onClick={toggleNotes}
-              className="flex items-center justify-between mb-2  p-4"
-            >
-              <Button
-                // variant={showNotes ? "default" : "outline"}
-                size="small"
-                className="!flex !items-center gap-2 !justify-between !w-full !h-[40px] bg-white"
-              >
-                <span className="flex items-center gap-2">
-                  <StickyNote className="w-4 h-4" />
-                  {selectedSystem.title} Notes
-                </span>
-                <ChevronUp className="w-4 h-4" />
-              </Button>
+          <div className="mt-6">
+            {/* Mobile Tabs Wrapper */}
+            <div className="px-4 mb-4">
+              <div className="bg-white rounded-2xl border border-gray-200 flex items-center p-1.5 shadow-sm">
+                <div className="flex-1 flex gap-2">
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => {
+                        setActiveTab(tab);
+                        setShowNotes(true);
+                      }}
+                      className={`flex-1 py-1.5 px-3 rounded-xl text-sm font-medium transition-all ${
+                        activeTab === tab && showNotes
+                          ? "text-[#ef4444] bg-red-50"
+                          : "text-gray-500 hover:text-gray-700"
+                      }`}
+                    >
+                      <div className="relative inline-block">
+                        {tab}
+                        {activeTab === tab && showNotes && (
+                          <div className="absolute -bottom-1 left-0 w-full h-[2px] bg-[#ef4444] rounded-full" />
+                        )}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+                <div className="h-6 w-[1px] bg-gray-200 mx-2" />
+                <button
+                  onClick={toggleNotes}
+                  className="p-1.5 rounded-full bg-slate-100 text-gray-900 hover:bg-slate-200 transition-colors"
+                >
+                  <ChevronUp
+                    className={`w-4 h-4 transition-transform ${showNotes ? "rotate-180" : ""}`}
+                  />
+                </button>
+              </div>
             </div>
 
-            <div className="overflow-x-auto ">
-              <div className="flex gap-3 pb-4">
+            <div className="overflow-x-auto scrollbar-hide">
+              <div className="flex gap-3 pb-4 scrollbar-hide">
                 {bodySystems?.map((system) => (
                   <button
                     key={system.id}
@@ -177,6 +205,8 @@ export default function BodySystemMain() {
             selectedSystem={selectedSystem}
             showNotes={showNotes}
             onToggleNotes={toggleNotes}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
           />
         </div>
       </div>
