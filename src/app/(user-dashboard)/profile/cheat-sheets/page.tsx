@@ -14,22 +14,6 @@ export default function CheatSheetsOverview() {
 
   return (
     <div className="container pt-6  pb-8 px-4">
-      <OverviewBanner
-        title="Key Facts. Fast"
-        description="Concise, high-yield reference sheets covering the most tested nursing topics — perfect for quick review and last-minute prep."
-        image={
-          <Image
-            src={"/assets/images/dosage/dosage.png"}
-            alt="Study Notes Robot"
-            width={400}
-            height={400}
-            className="w-full h-auto object-contain scale-120 lg:scale-105 z-0 lg:translate-y-4.5 2xl:translate-x-3 lg:-translate-x-16  "
-            priority
-            draggable={false}
-          />
-        }
-      />
-
       {/* Mobile Tabs Wrapper */}
       <div className="flex items-center gap-3 lg:hidden mb-6">
         <button

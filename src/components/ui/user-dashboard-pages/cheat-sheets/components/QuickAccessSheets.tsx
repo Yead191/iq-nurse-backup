@@ -1,4 +1,10 @@
-import { Clock, TrendingUp, ArrowRight, BookOpen } from "lucide-react";
+import {
+  Clock,
+  TrendingUp,
+  ArrowRight,
+  BookOpen,
+  FileText,
+} from "lucide-react";
 
 interface QuickAccessTopic {
   id: string;
@@ -21,14 +27,14 @@ export function QuickAccessSheets({
   onTopicClick,
 }: QuickAccessProps) {
   return (
-    <div className="space-y-10">
+    <div className="space-y-6 lg:space-y-10">
       <section>
         <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg">
-            <TrendingUp className="size-6 text-white" />
+          <div className="">
+            <TrendingUp className="size-6 text-[#2C5F8D]" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-xl lg:text-2xl font-bold text-gray-900">
               Most Popular Cheat Sheets
             </h2>
             <p className="text-sm text-gray-600">
@@ -37,43 +43,33 @@ export function QuickAccessSheets({
           </div>
         </div>
 
-        <div className="flex overflow-x-auto gap-4 pb-4 px-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:mx-0 md:px-0 scrollbar-hide snap-x">
+        <div className="grid grid-rows-2 grid-flow-col overflow-x-auto scrollbar-hide pb-4 gap-4 px-4 md:grid-rows-none md:grid-flow-row md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:mx-0 md:px-0 snap-x">
           {popularTopics.map((topic) => (
             <button
               key={topic.id}
               onClick={() => onTopicClick(topic)}
-              className="group bg-white rounded-xl p-5 shadow-sm md:shadow-sm shadow-gray-200/50 border-2 border-gray-200 hover:border-[#2C5F8D] hover:shadow-lg transition-all duration-200 text-left relative overflow-hidden min-w-[280px] w-[80vw] md:w-auto md:min-w-0 snap-start shrink-0"
+              className="group bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:border-[#2C5F8D] hover:shadow-md transition-all duration-200 text-left min-w-[280px] w-[80vw] md:w-auto md:min-w-0 snap-start shrink-0 flex gap-2.5"
             >
-              {/* Gradient Background Accent */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+              {/* Icon Circle */}
+              <div className="w-10 h-10 rounded-full bg-[#2C5F8D]/10 flex items-center justify-center">
+                <FileText className="size-5 text-primary" />
+              </div>
 
-              <div className="relative z-10">
-                {/* Category Badge */}
-                <div className="flex items-center gap-2 mb-3">
-                  {topic.categoryIcon && (
-                    <topic.categoryIcon className="size-5 text-[#2C5F8D]" />
-                  )}
-                  <span className="text-xs font-medium text-[#2C5F8D] bg-blue-50 px-2 py-1 rounded-full">
-                    {topic.categoryName}
-                  </span>
-                </div>
-
+              <div>
                 {/* Topic Name */}
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#2C5F8D] transition-colors">
+                <h3 className="text-base font-semibold text-gray-900 mb-1 leading-snug">
                   {topic.name}
                 </h3>
 
-                {/* Description */}
-                {topic.description && (
-                  <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-                    {topic.description}
-                  </p>
-                )}
+                {/* Subtitle / Category */}
+                <p className="text-sm text-gray-400 mb-4">
+                  {topic.categoryName}
+                </p>
 
-                {/* Arrow Icon */}
-                <div className="flex items-center justify-end">
-                  <ArrowRight className="size-5 text-gray-400 group-hover:text-[#2C5F8D] group-hover:translate-x-1 transition-all duration-200" />
-                </div>
+                {/* Popular Badge */}
+                <span className="inline-block text-xs font-medium text-green-600 bg-green-50 border border-green-100 px-3 py-1 rounded-full">
+                  Popular
+                </span>
               </div>
             </button>
           ))}
@@ -84,47 +80,42 @@ export function QuickAccessSheets({
       {recentTopics.length > 0 && (
         <section>
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg">
-              <Clock className="size-6 text-white" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900">
-                Recently Visited
-              </h2>
-              <p className="text-sm text-gray-600">
-                Continue where you left off
-              </p>
-            </div>
+            <Clock className="size-6 text-primary" />
+
+            <h2 className="text-2xl font-bold text-[#1A1A1A]">
+              Recently Viewed
+            </h2>
           </div>
 
-          <div className="flex overflow-x-auto gap-4 pb-4 -mx-4 px-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:mx-0 md:px-0 scrollbar-hide snap-x">
+          <div className="flex overflow-x-auto gap-4 pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 md:overflow-visible md:mx-0 md:px-0 scrollbar-hide snap-x">
             {recentTopics.map((topic) => (
               <button
                 key={topic.id}
                 onClick={() => onTopicClick(topic)}
-                className="group bg-gradient-to-br from-white to-blue-50/30 rounded-xl p-4 shadow-sm border-2 border-blue-100 hover:border-[#2C5F8D] hover:shadow-lg transition-all duration-200 text-left min-w-[240px] w-[70vw] md:w-auto md:min-w-0 snap-start shrink-0"
+                className="bg-white rounded-2xl p-5 border border-gray-100 hover:border-[#2C5F8D] hover:shadow-md transition-all duration-200 text-left 
+        min-w-[280px] w-[80vw] 
+        md:min-w-0 md:w-full md:shrink 
+        snap-start shrink-0"
               >
-                {/* Category Icon */}
-                <div className="mb-3">
-                  <div className="inline-flex p-2 bg-white rounded-lg shadow-sm border border-gray-200 group-hover:border-[#2C5F8D] transition-colors">
-                    {topic.categoryIcon && (
-                      <topic.categoryIcon className="size-5 text-[#2C5F8D]" />
-                    )}
+                {/* Icon + Text Row */}
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+                    <FileText className="size-5 text-slate-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-gray-900 leading-snug mb-1">
+                      {topic.name}
+                    </h3>
+                    <p className="text-sm text-gray-400">
+                      {topic.categoryName}
+                    </p>
                   </div>
                 </div>
 
-                {/* Topic Name */}
-                <h3 className="text-base font-bold text-gray-900 mb-1 group-hover:text-[#2C5F8D] transition-colors">
-                  {topic.name}
-                </h3>
-
-                {/* Category Name */}
-                <p className="text-xs text-gray-500">{topic.categoryName}</p>
-
-                {/* Arrow Icon */}
-                <div className="flex items-center justify-end mt-2">
-                  <ArrowRight className="size-4 text-gray-400 group-hover:text-[#2C5F8D] group-hover:translate-x-1 transition-all duration-200" />
-                </div>
+                {/* Recently Viewed Badge */}
+                <span className="inline-block text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                  Recently Viewed
+                </span>
               </button>
             ))}
           </div>
