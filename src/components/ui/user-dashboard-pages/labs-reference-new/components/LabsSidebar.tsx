@@ -174,17 +174,6 @@ export function LabsSidebar() {
 
       {/* Navigation */}
       <nav className="flex-1 overflow-y-auto lg:px-4 py-4 space-y-2">
-        <button
-          onClick={() => setActiveSection("practice-test")}
-          className={`flex items-center gap-3 w-full px-1 py-2 text-sm font-medium rounded-md transition-colors mt-2 ${
-            slug === "practice-test"
-              ? "bg-[#2C5F8D]/10 text-[#2C5F8D]"
-              : "text-gray-600 hover:bg-gray-100"
-          }`}
-        >
-          <ClipboardCheck className="size-5" />
-          <span>Practice Test</span>
-        </button>
         {filteredData.map((item) => renderTopLevelItem(item))}
       </nav>
     </div>

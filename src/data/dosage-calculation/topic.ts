@@ -19,14 +19,11 @@ import {
   Syringe,
   Beaker,
   TrendingUp,
-  ClipboardList,
-  Search,
   Home,
 } from "lucide-react";
 
 export const topics = [
   { id: "overview" as Topic, label: "Overview", icon: Home },
-  { id: "practice-test" as Topic, label: "Practice Test", icon: ClipboardList },
   {
     id: "basic-dosage" as Topic,
     label: "Basic Dosage Calculations",

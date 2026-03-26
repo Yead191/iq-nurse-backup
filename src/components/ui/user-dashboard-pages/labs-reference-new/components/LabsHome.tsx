@@ -59,15 +59,15 @@ export function LabsHome() {
                 justifyContent: "center",
               }}
             >
-              <CheckSquareOutlined style={{ fontSize: 24, color: "white" }} />
+              <CheckSquareOutlined style={{ fontSize: 20, color: "white" }} />
             </div>
             <div>
               <Title level={4} style={{ margin: 0 }}>
                 Practice Test
               </Title>
-              <Text type="secondary">
+              <p className="text-[10px] lg:text-[16px] text-gray-600">
                 15 NGN-style questions to test your knowledge
-              </Text>
+              </p>
             </div>
           </Space>
 
@@ -84,7 +84,7 @@ export function LabsHome() {
 
       <div className="grid grid-cols-1  gap-6">
         {/* Most Popular Topics */}
-        <div className="lg:border lg:border-gray-200 lg:rounded-2xl lg:p-4">
+        <div>
           <Space>
             <TrendingUp style={{ color: "#2C5F8D" }} />
             Most Popular Topics
@@ -131,7 +131,7 @@ export function LabsHome() {
         </div>
 
         {/* Recently Viewed */}
-        <div className="lg:border lg:border-gray-200 lg:rounded-2xl lg:p-4">
+        <div>
           <Space>
             <ClockCircleOutlined style={{ color: "#2C5F8D" }} />
             Recently Viewed
@@ -205,37 +205,37 @@ export function LabsHome() {
       </div>
 
       {/* Quick Stats */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 16,
-          marginTop: 24,
-        }}
-      >
-        <Card>
-          <Statistic
-            title="Study Topics"
-            value={41}
-            valueStyle={{ color: "#2C5F8D" }}
-          />
-        </Card>
-        <Card>
-          <Statistic
-            title="Categories"
-            value={8}
-            valueStyle={{ color: "#2C5F8D" }}
-          />
-        </Card>
-        <Card>
-          <Statistic
-            title="Practice Questions"
-            value={15}
-            valueStyle={{ color: "#2C5F8D" }}
-          />
-        </Card>
-      </div>
+      <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-6">
+        {/* Card 1 */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-3 sm:p-5 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#2C5F8D]">
+            41
+          </h2>
+          <p className="text-xs sm:text-sm md:text-base text-gray-500">
+            Study Topics
+          </p>
+        </div>
 
+        {/* Card 2 */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-3 sm:p-5 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#2C5F8D]">
+            8
+          </h2>
+          <p className="text-xs sm:text-sm md:text-base text-gray-500">
+            Categories
+          </p>
+        </div>
+
+        {/* Card 3 */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-3 sm:p-5 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#2C5F8D]">
+            15
+          </h2>
+          <p className="text-xs sm:text-sm md:text-base text-gray-500">
+            Practice Questions
+          </p>
+        </div>
+      </div>
       {/* Study Tips */}
       <Card
         title={<span style={{ color: "#733E0A" }}>💡 Study Tips</span>}
