@@ -1,5 +1,5 @@
+import CarePlanHeader from "@/components/ui/user-dashboard-pages/care-plans-new/components/CarePlanHeader";
 import CarePlansSidebar from "@/components/ui/user-dashboard-pages/care-plans-new/components/CarePlansSidebar";
-import CarePlanHeader from "@/components/ui/user-dashboard-pages/care-plans/components/CarePlanHeader";
 import type React from "react";
 
 export default function layout({ children }: { children: React.ReactNode }) {

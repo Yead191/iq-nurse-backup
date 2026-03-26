@@ -21,7 +21,7 @@ export function QuickAccess({
   onTopicClick,
 }: QuickAccessProps) {
   return (
-    <div className="space-y-10">
+    <div className="space-y-6 lg:space-y-10">
       <section>
         <div className="flex items-center gap-3 mb-6">
           <div className="p-2 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg">
@@ -42,7 +42,7 @@ export function QuickAccess({
             <button
               key={topic.id}
               onClick={() => onTopicClick(topic)}
-              className="group bg-white rounded-xl p-5 shadow-sm md:shadow-sm shadow-gray-200/50 border-2 border-gray-200 hover:border-[#2C5F8D] hover:shadow-lg transition-all duration-200 text-left relative overflow-hidden min-w-[280px] w-[80vw] md:w-auto md:min-w-0 snap-start shrink-0"
+              className="group bg-white rounded-xl p-5 shadow-sm md:shadow-sm shadow-gray-200/50 border-2 border-gray-200 hover:border-[#2C5F8D] hover:shadow-lg transition-all duration-200 text-left relative overflow-hidden min-w-[240px] w-[40vw] md:w-auto md:min-w-0 snap-start shrink-0"
             >
               {/* Gradient Background Accent */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
@@ -97,12 +97,12 @@ export function QuickAccess({
             </div>
           </div>
 
-          <div className="flex overflow-x-auto gap-4 pb-4 -mx-4 px-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:mx-0 md:px-0 scrollbar-hide snap-x">
-            {recentTopics.map((topic) => (
+          <div className="flex overflow-x-auto gap-4 pb-4  md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:mx-0 md:px-0 scrollbar-hide snap-x">
+            {recentTopics?.map((topic) => (
               <button
                 key={topic.id}
                 onClick={() => onTopicClick(topic)}
-                className="group bg-gradient-to-br from-white to-blue-50/30 rounded-xl p-4 shadow-sm border-2 border-blue-100 hover:border-[#2C5F8D] hover:shadow-lg transition-all duration-200 text-left min-w-[240px] w-[70vw] md:w-auto md:min-w-0 snap-start shrink-0"
+                className="group bg-gradient-to-br from-white to-blue-50/30 rounded-xl p-4 shadow-sm border-2 border-blue-100 hover:border-[#2C5F8D] hover:shadow-lg transition-all duration-200 text-left min-w-[200px] w-[45vw] md:w-auto md:min-w-0 snap-start shrink-0"
               >
                 {/* Category Icon */}
                 <div className="mb-3">
@@ -132,18 +132,62 @@ export function QuickAccess({
       )}
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-        <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-6 text-white shadow-lg">
-          <div className="text-3xl font-bold mb-1">300+</div>
-          <div className="text-blue-100">Total Care Plans</div>
+      <div className="grid grid-cols-3 gap-2 sm:gap-6">
+        <div
+          className="rounded-2xl p-2.5 py-4 sm:p-6 text-white shadow-lg"
+          style={{
+            background: "linear-gradient(135deg, #4F8EF7 0%, #5B7FEF 100%)",
+            boxShadow:
+              "inset 0 1px 1px rgba(255,255,255,0.25), 0 8px 24px rgba(79,142,247,0.35)",
+          }}
+        >
+          <div className="text-2xl sm:text-3xl font-bold mb-0.5 sm:mb-1">
+            300+
+          </div>
+          <div
+            className="text-[10px] text-nowrap sm:text-sm"
+            style={{ color: "rgba(255,255,255,0.75)" }}
+          >
+            Total Care Plans
+          </div>
         </div>
-        <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl p-6 text-white shadow-lg">
-          <div className="text-3xl font-bold mb-1">21</div>
-          <div className="text-indigo-100">Medical Specialties</div>
+
+        <div
+          className="rounded-2xl p-2.5 py-4 sm:p-6 text-white shadow-lg"
+          style={{
+            background: "linear-gradient(135deg, #6B6EF9 0%, #7B5EEF 100%)",
+            boxShadow:
+              "inset 0 1px 1px rgba(255,255,255,0.2), 0 8px 24px rgba(107,110,249,0.35)",
+          }}
+        >
+          <div className="text-2xl sm:text-3xl font-bold mb-0.5 sm:mb-1">
+            21
+          </div>
+          <div
+            className="text-[10px] text-nowrap sm:text-sm"
+            style={{ color: "rgba(255,255,255,0.75)" }}
+          >
+            Medical Specialties
+          </div>
         </div>
-        <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-6 text-white shadow-lg">
-          <div className="text-3xl font-bold mb-1">100%</div>
-          <div className="text-purple-100">Evidence-Based</div>
+
+        <div
+          className="rounded-2xl p-2.5 py-4 sm:p-6 text-white shadow-lg"
+          style={{
+            background: "linear-gradient(135deg, #A855F7 0%, #C026D3 100%)",
+            boxShadow:
+              "inset 0 1px 1px rgba(255,255,255,0.2), 0 8px 24px rgba(168,85,247,0.35)",
+          }}
+        >
+          <div className="text-2xl sm:text-3xl font-bold mb-0.5 sm:mb-1">
+            100%
+          </div>
+          <div
+            className="text-[10px] text-nowrap sm:text-sm"
+            style={{ color: "rgba(255,255,255,0.75)" }}
+          >
+            Evidence-Based
+          </div>
         </div>
       </div>
     </div>

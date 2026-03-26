@@ -127,7 +127,7 @@ export default function CarePlansSidebar() {
   return (
     <div className="h-full flex flex-col bg-white w-full lg:w-64 2xl:w-80  lg:border-r lg:border-gray-200  lg:h-[calc(100vh-64px)] overflow-auto">
       {/* Home Button at the very top */}
-      <div className="lg:px-4 pt-4 pb-2 border-b border-gray-200 space-y-2">
+      <div className="hidden lg:flex lg:px-4 pt-4 pb-2 border-b border-gray-200 space-y-2">
         <button
           onClick={() => setActiveSection("")}
           className={`flex items-center gap-2 w-full px-3 py-2  text-sm font-medium rounded-md transition-colors ${
