@@ -77,7 +77,11 @@ export default function TermsForm() {
                 marginBottom: "16px",
               }}
             >
-              Please read and accept the following term of continue
+              Disclaimer: This guide is intended for educational purposes and
+              should be used in conjunction with formal nursing education,
+              clinical training, and institutional protocols. Always follow your
+              facility's guidelines and seek guidance from experienced nursing
+              professionals and healthcare providers.{" "}
             </Text>
 
             <div style={{ marginBottom: "16px" }}>
