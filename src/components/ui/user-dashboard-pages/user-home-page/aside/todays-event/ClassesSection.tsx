@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { classesData } from "@/data/eventData";
 import { EventCard } from "@/components/shared/EventCard";
 import TaskHeader from "@/components/shared/user-dashboard/TaskHeader";
+import { BookOpen } from "lucide-react";
 
 export default function ClassesSection() {
   const [isOpen, setIsOpen] = useState(true);
@@ -11,7 +12,8 @@ export default function ClassesSection() {
     <div className="">
       {/* header */}
       <TaskHeader
-        img="/assets/icons/classes.svg"
+        icon={BookOpen}
+        iconColor="bg-[#60B960]"
         title="Classes"
         isOpen={isOpen}
         onToggle={() => setIsOpen((prev) => !prev)}
@@ -21,7 +23,7 @@ export default function ClassesSection() {
           isOpen ? "h-auto opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="my-6">
+        <div className="mb-6 mt-2">
           {/* Dynamic Class Cards */}
           {classesData.map((classItem) => (
             <EventCard

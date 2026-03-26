@@ -4,6 +4,7 @@ import AddStudyTimeModal from "@/components/shared/event-modals/AddStudyTimeModa
 import { EventCard } from "@/components/shared/EventCard";
 import TaskHeader from "@/components/shared/user-dashboard/TaskHeader";
 import { assignmentData } from "@/data/eventData";
+import { BookOpen, FileText, Stethoscope } from "lucide-react";
 import React, { useState } from "react";
 
 export default function AssignmentSection() {
@@ -16,16 +17,23 @@ export default function AssignmentSection() {
     <div>
       <div className="flex flex-col gap-2">
         <TaskHeader
-          img="/assets/icons/assignment-icon.svg"
+          icon={FileText}
+          iconColor="bg-[#FF9800]"
           title="Assignment"
         />
         <TaskHeader
-          img="/assets/icons/study-time-icon.svg"
+          icon={BookOpen}
+          iconColor="bg-[#3F51B5]"
           title="Study Time"
         />
-        <TaskHeader img="/assets/icons/exam-icon.svg" title="Exams" />
         <TaskHeader
-          img="/assets/icons/clinical-icon.svg"
+          icon={FileText}
+          iconColor="bg-[#D95854]"
+          title="Exams"
+        />
+        <TaskHeader
+          icon={Stethoscope}
+          iconColor="bg-[#326FB1]"
           title="Clinical Rotations"
           isOpen={isOpen}
           onToggle={() => setIsOpen((prev) => !prev)}

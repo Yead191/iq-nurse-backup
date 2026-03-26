@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
+import { ListTodo } from "lucide-react";
 import TaskItem from "./TaskItem";
 import TaskHeader from "@/components/shared/user-dashboard/TaskHeader";
 
@@ -33,7 +33,8 @@ export default function TasksSection() {
       {/* Header */}
 
       <TaskHeader
-        img="/assets/icons/task-icon.svg"
+        icon={ListTodo}
+        iconColor="bg-[#F0AF53]"
         title="Tasks"
         isOpen={isOpen}
         onToggle={() => setIsOpen((prev) => !prev)}

@@ -66,13 +66,13 @@ export default function AddEvent() {
       case "study-time":
         setIsStudyTimeDialogOpen(true);
         break;
-      case "clinical":
+      case "clinical-rotation":
         setIsClinicalDialogOpen(true);
         break;
       case "meeting":
         setIsMeetingDialogOpen(true);
         break;
-      case "personal":
+      case "me-time":
         setIsPersonalTimeDialogOpen(true);
         break;
       case "task":
