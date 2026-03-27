@@ -37,7 +37,7 @@ export default async function Page({ searchParams }: PageProps) {
   };
 
   return (
-    <div className="lg:pt-6">
+    <div className="">
       <QuestionInterface session={session} />
     </div>
   );

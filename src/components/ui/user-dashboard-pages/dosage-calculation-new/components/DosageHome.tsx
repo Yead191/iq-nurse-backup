@@ -86,7 +86,7 @@ export function DosageHome() {
               <button
                 key={topic.id}
                 onClick={() => onSelectTopic(topic.id)}
-                className={`${topic.color} border rounded-lg p-6 hover:shadow-md transition-all text-left group min-w-[300px] lg:min-w-0`}
+                className={`${topic.color} border rounded-lg p-6 hover:shadow-md transition-all text-left group min-w-[300px] lg:min-w-0 cursor-pointer`}
               >
                 <div className="flex items-start gap-3 mb-3">
                   <Icon

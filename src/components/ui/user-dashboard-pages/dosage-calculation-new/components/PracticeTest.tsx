@@ -282,7 +282,7 @@ export function PracticeTest() {
               <button
                 onClick={nextQuestion}
                 disabled={currentQuestionIndex === totalQuestions - 1}
-                className="flex-1 px-6 py-3 bg-white border-2 border-gray-300 text-gray-600 rounded-lg font-medium text-sm hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="flex-1 px-6 py-3 bg-primary text-white border-2 border-primary rounded-lg font-medium text-sm cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 Next Question
               </button>
