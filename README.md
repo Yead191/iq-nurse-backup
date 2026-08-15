@@ -313,15 +313,6 @@ When a backend or live AI service is added, API base URLs and keys should be int
 
 ---
 
-## Screenshots
-
-<p align="center">
-  <img src="https://res.cloudinary.com/dknmebeee/image/upload/v1786772565/Screenshot_2026-08-15_114115_iw7tdf.png" alt="IQ-Nurse student dashboard" />
-</p>
-
-*Student dashboard — study hub, NCLEX practice, planner, and IQ-Nurse assistant.*
-
----
 
 ## Future Improvements
 
